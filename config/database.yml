@@ -1,0 +1,18 @@
+<% branch = Git.open(".").current_branch %>
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: glados_development-<%= branch %>
+
+test:
+  <<: *default
+  database: glados_test-<%= branch %>
+
+# production:
+#   <<: *default
+#   database: glados_development-<%= branch %>

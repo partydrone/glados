@@ -1,0 +1,16 @@
+@mixin declare-font-face($font-family, $font-filename, $font-weight: normal, $font-style: normal, $font-stretch: normal) {
+  @font-face {
+    font-family: "#{$font-family}";
+    src: url("//com-wavetronix-assets.s3.amazonaws.com/fonts/#{$font-filename}.eot");
+    src: url("//com-wavetronix-assets.s3.amazonaws.com/fonts/#{$font-filename}.eot?#iefix") format('embedded-opentype'),
+         url("//com-wavetronix-assets.s3.amazonaws.com/fonts/#{$font-filename}.woff") format('woff');
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-stretch: $font-stretch;
+  }
+}
+
+@include declare-font-face('Klavika', 'KlavikaWebBasicLight');
+@include declare-font-face('Klavika', 'KlavikaWebBasicLightItalic', normal, italic);
+@include declare-font-face('Klavika', 'KlavikaWebBasicMedium', bold);
+@include declare-font-face('Klavika', 'KlavikaWebBasicMediumItalic', bold, italic);
