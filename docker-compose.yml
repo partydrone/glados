@@ -22,13 +22,13 @@ services:
     volumes:
       - ./tmp/data/redis:/var/lib/redis/data
 
-  test:
-    <<: *app_base
-    ports: []
-    command: guard start -c --no-bundler-warning --no-interactions
-    environment:
-      RACK_ENV: test
-      RAILS_ENV: test
+  # test:
+  #   <<: *app_base
+  #   ports: []
+  #   command: guard start --no-bundler-warning --no-interactions
+  #   environment:
+  #     RACK_ENV: test
+  #     RAILS_ENV: test
 
 volumes:
   postgres:
