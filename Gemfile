@@ -35,8 +35,6 @@ gem 'slim'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'factory_girl_rails'
-  # gem 'git'
 end
 
 group :development do

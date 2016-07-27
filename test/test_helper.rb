@@ -7,7 +7,6 @@ require 'minitest/rails/capybara'
 require 'minitest/reporters'
 
 Dir[File.expand_path("test/support/**/*.rb")].each { |file| require file }
-Dir[File.expand_path("test/factories/**/*.rb")].each { |file| require file }
 
 Minitest::Reporters.use! Minitest::Reporters::DefaultReporter.new(color: true)
 
