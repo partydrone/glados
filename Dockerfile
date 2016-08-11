@@ -9,8 +9,9 @@ ENV APP_DIR /var/app
 RUN mkdir -p $APP_DIR
 WORKDIR $APP_DIR
 COPY Gemfile* ./
-RUN bundle install --binstubs
-COPY . $APP_DIR
-RUN bundle exec rake RAILS_ENV=production DATABASE_URL=postgresql://user:pass@127.0.0.1/dbname ACTION_CABLE_ALLOWED_REQUEST_ORIGINS=foo,bar SECRET_TOKEN=dummytoken assets:precompile
+RUN bundle config --global jobs 8
+RUN bundle install --binstubs --system
+COPY . .
+RUN bundle exec rails RAILS_ENV=production DATABASE_URL=postgresql://user:pass@127.0.0.1/dbname ACTION_CABLE_ALLOWED_REQUEST_ORIGINS=foo,bar SECRET_TOKEN=dummytoken assets:precompile
 VOLUME ["$APP_DIR/public"]
 CMD puma -C config/puma.rb
