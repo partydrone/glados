@@ -31,7 +31,7 @@ gem 'slim'
 
 # I18n
 # gem 'globalize'
-# gem 'rails-i18n'
+gem 'rails-i18n', '~> 5.0.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -45,10 +45,10 @@ group :development do
 end
 
 group :test do
+  gem 'guard'
   gem 'guard-minitest'
-  gem 'guard-pow'
-  gem 'minitest-rails', '>= 3.0.0.rc1'
-  gem 'minitest-rails-capybara', '>= 3.0.0.rc1'
+  gem 'minitest-rails', '~> 3.0.0'
+  gem 'minitest-rails-capybara', '~> 3.0.0'
   gem 'minitest-reporters'
 end
 
