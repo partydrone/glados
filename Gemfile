@@ -8,7 +8,6 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.0'
 gem 'redis', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5.x'
@@ -35,6 +34,11 @@ gem 'rails-i18n', '~> 5.0.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'puma', '~> 3.0'
+end
+
+group :production, :staging do
+  gem 'unicorn'
 end
 
 group :development do
