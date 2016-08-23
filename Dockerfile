@@ -10,7 +10,7 @@ RUN mkdir -p $APP_DIR
 WORKDIR $APP_DIR
 COPY Gemfile* ./
 RUN bundle config --global jobs 8
-RUN bundle install --binstubs --system
+RUN bundle install --system
 COPY . .
 RUN bundle exec rails RAILS_ENV=production DATABASE_URL=postgresql://user:pass@127.0.0.1/dbname ACTION_CABLE_ALLOWED_REQUEST_ORIGINS=foo,bar SECRET_TOKEN=dummytoken assets:precompile
 VOLUME ["$APP_DIR/public"]
