@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
     resources :identities, only: [:new]
 
+    resources :products
+
     root to: 'home#index'
   end
 end
