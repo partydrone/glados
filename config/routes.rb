@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
     resources :identities, only: [:new]
 
-    resources :products
+    resources :products, :users
 
     root to: 'home#index'
   end

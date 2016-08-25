@@ -1,3 +1,5 @@
+OmniAuth.config.test_mode = true
+
 identity_hash = {
   provider: 'identity',
   uid: '1234567890',
