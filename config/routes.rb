@@ -10,9 +10,15 @@ Rails.application.routes.draw do
     post '/auth/:provider/callback', to: 'sessions#create'
     get '/sign_out', to: 'sessions#destroy'
 
+    ##
+    # Resource routes
+
     resources :identities, only: [:new]
 
     resources :products, :users
+
+    ##
+    # Root route
 
     root to: 'home#index'
   end
