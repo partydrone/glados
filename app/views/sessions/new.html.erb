@@ -1,0 +1,14 @@
+<% content_for :title, 'Sign in' %>
+
+<h1>User Account Required</h1>
+
+<%= form_tag '/auth/identity/callback' do %>
+  <%= label_tag :auth_key, 'Email' %>
+  <%= email_field_tag :auth_key %>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+  <%= submit_tag 'Sign in', class: 'button radius' %>
+<% end %>
+
+<h2>Don't have an account?</h2>
+<%= link_to 'create one here', new_identity_path %>

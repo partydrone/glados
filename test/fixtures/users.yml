@@ -1,0 +1,31 @@
+frodo:
+  provider: identity
+  uid: 1000000002
+  first_name: Frodo
+  last_name: Baggins
+  email: frodo.baggins@bagend.com
+  auth_token: LnQoXyEjEv1aiJhhZbyjA3DS
+
+sam:
+  provider: identity
+  uid: 1000000003
+  first_name: Samwise
+  last_name: Gamgee
+  email: samwise.gamgee@bagend.com
+  auth_token: PUGdWAGQtNUaoUDimzDrFyDz
+
+generic_user:
+  provider: identity
+  uid: 1000000004
+  first_name: Mariadoc
+  last_name: Brandybuck
+  email: mariadoc.brandybuck@theshire.com
+  auth_token: eH4G2GEwrAnZCm5ZqJ1aoioD
+
+admin:
+  provider: identity
+  uid: 1000000005
+  first_name: Gandalf
+  last_name: The Gray
+  email: gandalf@middleearth.com
+  auth_token: 5Yu7HEreuzgKMBRrL6f6ZMpP
