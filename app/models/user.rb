@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   include Authentication
+  include Authorization
 
   validates :provider,
             :uid,

@@ -1,10 +1,10 @@
 require 'test_helper'
 
-describe UsersController do
-  let(:user) { user(:guest) }
+describe UsersController, :locale do
+  let(:user) { users(:frodo) }
 
   it "gets index" do
-    get users_path, locale: :en
+    get users_path
     must_respond_with :success
   end
 

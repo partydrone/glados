@@ -15,8 +15,8 @@ gem 'uglifier', '>= 1.3.0'
 
 # Authentication
 gem 'omniauth-identity'
-# gem 'pundit'
-# gem 'rolify'
+gem 'pundit'
+gem 'rolify'
 
 # File uploads
 # gem 'mini_magick'

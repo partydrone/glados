@@ -19,3 +19,13 @@ class ActiveSupport::TestCase
     cookies[:auth_token] = user.auth_token
   end
 end
+
+class LocaleTest < ActionDispatch::IntegrationTest
+  before do
+    self.default_url_options = {locale: I18n.locale}
+  end
+
+  register_spec_type(self) do |desc, *addl|
+    addl.include? :locale
+  end
+end

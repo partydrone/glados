@@ -1,15 +1,42 @@
 class ApplicationController < ActionController::Base
+  include Pundit
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
   before_action :set_locale
 
+  rescue_from Pundit::NotAuthorizedError, with: :permission_denied
+
   def default_url_options(options = {})
     { locale: I18n.locale }.merge options
   end
 
+  def permission_denied
+    if current_user
+      flash[:alert] = "You tried to access something you're not authorized to."
+      redirect_to :back rescue redirect_to root_path
+    else
+      store_location
+      redirect_to sign_in_path
+    end
+  end
+
   private
+
+  def authenticate!
+    unless current_user
+      store_location
+      redirect_to sign_in_path
+    end
+  end
+  helper_method :authenticate!
+
+  def current_user
+    @current_user ||= User.find_by(auth_token: cookies[:auth_token]) if cookies[:auth_token]
+  end
+  helper_method :current_user
 
   def extract_locale_from_accept_language_header
     request.env['HTTP_ACCEPT_LANGUAGE'].try do
@@ -49,5 +76,9 @@ class ApplicationController < ActionController::Base
     else
       return I18n.default_locale
     end
+  end
+
+  def store_location
+    session[:referer] = request.fullpath
   end
 end
