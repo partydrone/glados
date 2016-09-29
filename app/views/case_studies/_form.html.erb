@@ -1,0 +1,23 @@
+<%= form_for @case_study do |f| %>
+  <%= content_tag :div, class: 'alert-box radius alert' do %>
+    <strong><%= pluralize @case_study.errors.count, 'error' %> kept this form from submitting:</strong>
+    <ul>
+      <% @case_study.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end if @case_study.errors.any? %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :subtitle %>
+  <%= f.text_field :subtitle %>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <%= f.label :flag %>
+  <%= f.select :flag, COUNTRIES.invert.sort %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  <%= f.label :posted_on %>
+  <%= f.date_field :posted_on, placeholder: 'yyyy-mm-dd' %>
+  <%= f.submit nil, class: 'button radius' %>
+<% end %>

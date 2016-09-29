@@ -1,0 +1,11 @@
+software:
+  name: Software
+  position: 1
+
+data_sheet:
+  name: Data Sheet
+  position: 2
+
+application_note:
+  name: Application Note
+  position: 3

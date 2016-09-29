@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="59px" height="50px" viewBox="0 0 59 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M37.8804653,25.1022907 L53.792979,9.18977707 C54.5719115,8.41084452 54.5739438,7.14753689 53.7960127,6.36960585 L48.8349756,1.40856874 C48.0629275,0.636520672 46.7944109,0.631995958 46.0148044,1.41160248 L30.1022907,17.3241161 L14.1897771,1.41160248 C13.4108445,0.632669925 12.1475369,0.630637706 11.3696059,1.40856874 L6.40856874,6.36960585 C5.63652067,7.14165392 5.63199596,8.41017055 6.41160248,9.18977707 L22.3241161,25.1022907 L6.41160248,41.0148044 C5.63266993,41.7937369 5.63063771,43.0570446 6.40856874,43.8349756 L11.3696059,48.7960127 C12.1416539,49.5680608 13.4101706,49.5725855 14.1897771,48.792979 L30.1022907,32.8804653 L46.0148044,48.792979 C46.7937369,49.5719115 48.0570446,49.5739438 48.8349756,48.7960127 L53.7960127,43.8349756 C54.5680608,43.0629275 54.5725855,41.7944109 53.792979,41.0148044 L37.8804653,25.1022907 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="50.2045815" height="50.2045815" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Products" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-689.000000, -2094.000000)" id="Group-3">
+            <g transform="translate(688.000000, 2094.000000)">
+                <g id="Group-6">
+                    <use id="Combined-Shape" stroke="#4C4C4C" mask="url(#mask-2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" xlink:href="#path-1"></use>
+                    <text id="R" font-family="KlavikaBasic-Medium, Klavika Basic" font-size="18" font-weight="400" fill="#54A5DB">
+                        <tspan x="0" y="31">R</tspan>
+                    </text>
+                    <text id="R-Copy" font-family="KlavikaBasic-Medium, Klavika Basic" font-size="18" font-weight="400" fill="#54A5DB">
+                        <tspan x="48" y="31">R</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

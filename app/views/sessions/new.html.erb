@@ -1,5 +1,5 @@
 <% content_for :title, 'Sign in' %>
-
+<div class="row columns">
 <h1>User Account Required</h1>
 
 <%= form_tag '/auth/identity/callback' do %>
@@ -12,3 +12,4 @@
 
 <h2>Don't have an account?</h2>
 <%= link_to 'create one here', new_identity_path %>
+</div>

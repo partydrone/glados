@@ -6,16 +6,19 @@ services:
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - .:/var/app
+      - ./public:/var/app/public
     ports:
-      - "80:3000"
+      - '3000:3000'
     depends_on:
       - postgres
       # - redis
+    env_file:
+      - .env
 
   postgres:
     image: postgres
     ports:
-      - "5432:5432"
+      - '5432:5432'
     volumes:
       - ./tmp/data/postgres:/var/lib/postgresql/data
 
@@ -34,4 +37,4 @@ services:
 
 volumes:
   postgres:
-  redis:
+  # redis:

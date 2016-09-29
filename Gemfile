@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '>= 5.0.0.rc1', '< 5.1'
+gem 'rails', '>= 5.0.0', '< 5.1'
 
 # Defaults
 gem 'bcrypt', '~> 3.1.7'
@@ -10,7 +10,7 @@ gem 'jquery-rails'
 gem 'pg', '~> 0.18'
 gem 'redis', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
-gem 'turbolinks', '~> 5.x'
+# gem 'turbolinks', '~> 5.x'
 gem 'uglifier', '>= 1.3.0'
 
 # Authentication
@@ -19,18 +19,23 @@ gem 'pundit'
 gem 'rolify'
 
 # File uploads
-# gem 'mini_magick'
-# gem 'refile', require: 'refile/rails'
+gem 'mini_magick'
+gem 'refile', require: 'refile/rails'
 # gem 'refile-mini_magick'
 # gem 'refile-s3'
 
 # Front-end
 gem 'foundation-rails', '~> 6.0'
-gem 'slim'
+gem 'redcarpet', '~> 3.0'
 
 # I18n
 # gem 'globalize'
 gem 'rails-i18n', '~> 5.0.0'
+
+# List sorting
+gem 'acts_as_list'
+gem 'jquery-ui-rails'
+gem 'record_tag_helper', '~> 1.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri

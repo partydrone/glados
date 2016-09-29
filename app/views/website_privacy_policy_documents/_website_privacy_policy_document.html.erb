@@ -1,0 +1,23 @@
+<% cache website_privacy_policy_document do %>
+  <%= content_tag_for :tr, website_privacy_policy_document do %>
+    <td>
+      <%= link_to website_privacy_policy_document, class: 'delete', data: { confirm: %(Are you sure you want to delete "#{website_privacy_policy_document.title}"? This cannot be undone.) }, method: :delete, title: %(Delete "#{website_privacy_policy_document.title}") do %>
+        <i class="fa fa-trash-o"></i>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to website_privacy_policy_document.title, website_privacy_policy_document %>
+    </td>
+    <td>
+      <%= l website_privacy_policy_document.effective_on.to_date, format: :long %>
+    </td>
+    <td>
+      <%= l website_privacy_policy_document.updated_at.to_date, format: :long %>
+    </td>
+    <td>
+      <%= link_to edit_website_privacy_policy_document_path(website_privacy_policy_document), title: %(Edit "#{website_privacy_policy_document.title}") do %>
+        <i class="fa fa-edit"></i>
+      <% end %>
+    </td>
+  <% end %>
+<% end %>

@@ -1,0 +1,100 @@
+/***********************************************************************************************
+Type Variables
+***********************************************************************************************/
+
+  $font-family-primary: "Klavika", "Source Sans Pro", Calibri, sans-serif;
+  $font-family-secondary: "proxima-nova", sans-serif !important;
+  $font-family-primary-lite: "KlavikaDisplayExtraLight", "Source Sans Pro", Calibri, sans-serif;
+
+  //title H1
+  $title-font-size: 3rem; //48px
+  $title-line-height: 3.563rem; //57px
+  $font-family: $font-family-primary-lite;
+  $title-font-size-mobile: 2.5rem; //40px
+  $title-line-height-mobile: 3rem; //48px
+
+  //subhead H2
+  $subhead-font-size: 1.75rem; //28px
+  $subhead-line-height: 2.188rem; //35px
+  $subhead-font-weight: 500;
+
+  //deckhead H3
+  $deckhead-font-size: 1.25rem; //20px
+  $deckhead-line-height: 1.5rem; //24px
+  $deckhead-font-weight: 600;
+  $deckhead-font-size-mobile: 1.25rem; //20px
+  $deckhead-line-height-mobile: 1.5rem; //24px
+
+  //blurb H4
+  $blurb-font-size: 1.375rem; //22px
+  $blurb-line-height: 1.625rem; //26px
+  $blurb-font-weight: 300;
+
+  //location H5
+  $location-font-size: 1.375rem; //22px
+  $location-line-height: 1.625rem; //26px
+  $location-font-weight: 900;
+
+  //Byline/Caption H6
+  $byline-font-size: 0.875rem; //14px
+  $byline-line-height: 1.063rem; //17px
+  $byline-font-weight: 600;
+
+  //links
+  $link-font-size: 1rem; //16px
+  $link-line-height: 1.188rem; //19px
+  $link-font-weight: 700;
+
+  //paragraph
+  $base-font-size: 1rem; //16px
+  $base-line-height: 1.188rem; //19px
+  $base-font-weight: 400;
+
+/***********************************************************************************************
+Color Variables
+***********************************************************************************************/
+
+  $tomato          : #E74C3C;
+  $fadedblue       : #92AEC9;
+  $bluesteel       : #4F5F6D;
+  $duskblue        : #1b2e3c;
+  $yellow          : #FFCA07;
+  $gold            : #EAAB00;
+  $green           : #8FC748;
+  $linkblue        : #54A5DB;
+  $sky             : #86D5F1;
+  $primary-color: #eaab00;
+  $secondary-color: #eaeaea;
+  $alert-color: #e5738f;
+  $success-color: #8fe573;
+  $warning-color: #e5c973;
+  $info-color: #738fe5;
+
+  $white       : #ffffff;
+  $ghost       : #e6e6e6;
+  $snow        : #f9f9f9;
+  $vapor       : #f6f6f6;
+  $white-smoke : #f5f5f5;
+  $silver      : #b3b4b4;
+  $smoke       : #eeeeee;
+  $gainsboro   : #dddddd;
+  $iron        : #cccccc;
+  $base        : #aaaaaa;
+  $aluminum    : #999999;
+  $jumbo       : #888888;
+  $monsoon     : #777777;
+  $steel       : #7f7f7f;
+  $charcoal    : #4c4c4c;
+  $tuatara     : #444444;
+  $oil         : #333333;
+  $jet         : #222222;
+  $black       : #000000;
+
+/***********************************************************************************************
+Body Variables
+***********************************************************************************************/
+
+  $topbar-height: 52px;
+
+  @import "../_settings";
+  

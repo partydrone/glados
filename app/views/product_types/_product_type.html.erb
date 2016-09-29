@@ -1,0 +1,20 @@
+<% cache product_type do %>
+  <%= content_tag_for :tr, product_type do %>
+    <td>
+      <%= link_to product_type_path(product_type), class: 'delete', data: { confirm: %(Are you sure you want to delete "#{product_type.name}"? This cannot be undone.) }, method: :delete, title: %(Delete "#{product_type.name}") do %>
+        <i class="fa fa-trash-o"></i>
+      <% end %>
+    </td>
+    <td>
+      <%= product_type.name %>
+    </td>
+    <td>
+      <%= link_to edit_product_type_path(product_type), title: %(Edit "#{product_type.name}") do %>
+        <i class="fa fa-edit"></i>
+      <% end %>
+    </td>
+    <td class="handle">
+      <i class="fa fa-ellipsis-v"></i>
+    </td>
+  <% end %>
+<% end %>

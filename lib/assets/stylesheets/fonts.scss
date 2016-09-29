@@ -10,7 +10,6 @@
   }
 }
 
-@include declare-font-face('Klavika', 'KlavikaWebBasicLight');
-@include declare-font-face('Klavika', 'KlavikaWebBasicLightItalic', normal, italic);
-@include declare-font-face('Klavika', 'KlavikaWebBasicMedium', bold);
-@include declare-font-face('Klavika', 'KlavikaWebBasicMediumItalic', bold, italic);
+@include declare-font-face('Klavika', 'KlavikaWebBasicMedium');
+@include declare-font-face('KlavikaDisplayThin', 'KlavikaDisplayThin');
+@include declare-font-face('KlavikaDisplayExtraLight', 'KlavikaWebDisplayExtraLight');

@@ -1,0 +1,26 @@
+<% content_for :title, "Patents" %>
+<div class="row columns">
+<h1>
+  Patents
+  <small>
+    <%= link_to new_patent_path, title: "Create a new patent" do %>
+      <i class="fa fa-plus-square-o"></i>
+    <% end %>
+  </small>
+</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Number</th>
+      <th>Title</th>
+      <th>Products</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @patents %>
+  </tbody>
+</table>
+</div>

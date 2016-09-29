@@ -1,0 +1,8 @@
+new_case_study:
+  type: CaseStudy
+  title: Temporary Title
+  subtitle: Temporary subtitle
+  location: New York
+  flag: US
+  body: This is the temporary case study content.
+  posted_on: <%= Date.today.to_s(:db) %>

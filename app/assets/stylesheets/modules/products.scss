@@ -1,0 +1,150 @@
+@import "foundation_and_overrides";
+@import "globals/all";
+
+.products-page {
+  margin-top: -71px;
+}
+
+.products-type-box {
+  text-align: center;
+  .icon {
+    width: 32px;
+    max-height: 32px;
+  }
+}
+
+.products-submenu {
+  display: block;
+  margin-bottom: 25px;
+}
+
+.products-white-backer {
+  margin-top: -217px;
+  background: -moz-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(255,255,255,1) 25%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 25%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 25%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+  padding: 30px 0 100px 0;
+  .small-3 img {
+    float: right;
+  }
+}
+
+.products-product-box {
+  text-align: left;
+  padding-bottom: 25px;
+  .small-3 {
+    padding-right: 0;
+  }
+  .medium-6 {
+    padding-top: 50px;
+  }
+  @media screen and (min-width: 40em) {
+    .medium-6 {
+      padding-top: 25px;
+    }
+    .small-3 {
+      text-align: right;
+    }
+  }
+}
+
+/***********************************************************************************************
+Product Categories
+***********************************************************************************************/
+
+  .products-category-image-backer {
+    height: 310px;
+    @media screen and (min-width: 40em) and (max-width: 1023px) {
+      height: 392px;
+    }
+    @media screen and (min-width: 1024px) {
+      height: 582px;
+      background-position: 50% 50%;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+  }
+
+/***********************************************************************************************
+Product Types
+***********************************************************************************************/
+
+
+  .product-alternate-sides-sections section {
+    height: 652px;
+    .product-alternate-image-container {
+      background: url(image_path('products/DataManagement.png')) no-repeat right;
+      width: 50vw;
+      height: 652px;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .product-alternate-text-container {
+      width: 100%;
+      display: block;
+      .products-alternate-text-box {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .product-alternate-header {
+        padding: 25px 0 10px 0;
+        text-align: center;
+        max-width: 500px;
+        margin-right: auto;
+        margin-left: auto;
+        img {
+          height: 32px;
+        }
+      }
+      @media screen and (min-width: 1024px){
+        width: 50vw;
+        float: right;
+        display: inline-block;
+        vertical-align: top;
+        .products-alternate-text-box,
+        .product-alternate-header {
+          max-width: 500px;
+          margin-left: 0;
+        }
+      }
+    }
+    &:nth-child(odd) {
+      background: $ghost;
+      .product-alternate-image-container {
+        float: right;
+        background: url(image_path('products/Click_Cabinet.png')) no-repeat left;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        width: 49vw;
+        height: 650px;
+        display: inline-block;
+        vertical-align: top;
+      }
+      .product-alternate-text-container {
+        .products-alternate-text-box {
+          margin-right: auto;
+          margin-left: auto;
+        }
+        .product-alternate-header {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        @media screen and (min-width: 1024px){
+          width: 49vw;
+          float: left;
+          .products-alternate-text-box,
+          .product-alternate-header {
+            max-width: 500px;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+

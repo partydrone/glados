@@ -1,0 +1,3 @@
+class WebsitePrivacyPolicyDocument < LegalPolicyDocument
+
+end

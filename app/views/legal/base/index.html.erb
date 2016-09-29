@@ -1,0 +1,131 @@
+<% content_for :title, 'Legal' %>
+
+<div class="admin-nav">
+  <ul class="dropdown menu" data-dropdown-menu>
+    <li>
+      <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis.svg') %></a>
+      <ul class="menu">
+        <li><h4>RMA Policy</h4>
+          <ul class="menu">
+          	<li><a href="#"><%= image_tag('icons/blue-cross.svg') %>New</a></li>
+            <li><a href="#"><%= image_tag('icons/pencil.svg') %>Edit</a></li>
+            <li><a href="#"><%= image_tag('icons/trash.svg') %>Delete</a></li>
+          </ul>
+        </li>
+        <li><h4>Sales Terms &amp Conditions</h4>
+          <ul class="menu">
+          	<li><a href="#"><%= image_tag('icons/blue-cross.svg') %>New</a></li>
+            <li><a href="#"><%= image_tag('icons/pencil.svg') %>Edit</a></li>
+            <li><a href="#"><%= image_tag('icons/trash.svg') %>Delete</a></li>
+          </ul>
+        </li>
+        <li><h4>Privacy Policy</h4>
+          <ul class="menu">
+          	<li><a href="#"><%= image_tag('icons/blue-cross.svg') %>New</a></li>
+            <li><a href="#"><%= image_tag('icons/pencil.svg') %>Edit</a></li>
+            <li><a href="#"><%= image_tag('icons/trash.svg') %>Delete</a></li>
+          </ul>
+        </li>
+        <li><h4>Terms of Use</h4>
+          <ul class="menu">
+          	<li><a href="#"><%= image_tag('icons/blue-cross.svg') %>New</a></li>
+            <li><a href="#"><%= image_tag('icons/pencil.svg') %>Edit</a></li>
+            <li><a href="#"><%= image_tag('icons/trash.svg') %>Delete</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="legal-navigation show-for-large" data-sticky-container>
+	<div class="sticky" data-sticky data-anchor="legal" data-active-class>
+		<div class="row">
+			<div class="columns text-right">
+				<nav data-magellan data-bar-offset="70">
+					<ul class="horizontal menu">
+						<%= render 'page_navigation' %>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="hide-for-large">
+	<div class="legal-bottom-nav">
+		<nav data-magellan data-bar-offset="50">
+			<ul class="menu icon-top expanded">
+			 	<%= render 'page_navigation' %>
+			</ul>
+		</nav>
+	</div>
+</div>
+
+<div class="legal-sections row">
+
+	<%= content_tag :section, id: 'patents', class: 'legal-patents columns', data: {'magellan-target': 'patents'} do %>
+		<h1>Patents</h1>
+		<table class="hover">
+		  <thead>
+		    <tr>
+		      <th width="200">Patent Number</th>
+		      <th>Title</th>
+					<th>Products</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <%= render partial: 'patent', collection: @patents %>
+		  </tbody>
+		</table>
+	<% end if @patents %>
+
+	<%= content_tag :section, id: 'rma', class: 'legal-rma columns', data: {'magellan-target': 'rma'} do %>
+		<h1><%= @return_material_authorization_policy_document.title %></h1>
+		<h6>(Effective <%= l @return_material_authorization_policy_document.effective_on, format: :long %>)</h6>
+		<div class="legal-terms-download">
+			<%= link_to nil do %>
+				<%= image_tag('icons/document.svg') %>
+				Download
+			<% end %>
+		</div>
+		<%= markdown @return_material_authorization_policy_document.body %>
+	<% end if @return_material_authorization_policy_document %>
+
+	<%= content_tag :section, id: 'salesterms', class: 'legal-salesterms columns', data: {'magellan-target': 'salesterms'} do %>
+		<h1><%= @sales_terms_and_conditions_document.title %></h1>
+		<h6>(Effective <%= l @sales_terms_and_conditions_document.effective_on, format: :long %>)</h6>
+		<div class="legal-terms-download">
+			<%= link_to nil do %>
+				<%= image_tag('icons/document.svg') %>
+				Download
+			<% end %>
+		</div>
+		<%= markdown @sales_terms_and_conditions_document.body %>
+	<% end if @sales_terms_and_conditions_document %>
+
+	<%= content_tag :section, id: 'privacy', class: 'legal-privacy columns', data: {'magellan-target': 'privacy'} do %>
+		<h1>
+			<%= @website_privacy_policy_document.title %></h1>
+		<h6>(Effective <%= l @website_privacy_policy_document.effective_on, format: :long %>)</h6>
+		<div class="legal-terms-download">
+			<%= link_to nil do %>
+				<%= image_tag('icons/document.svg') %>
+				Download
+			<% end %>
+		</div>
+		<%= markdown @website_privacy_policy_document.body %>
+	<% end if @website_privacy_policy_document %>
+
+	<%= content_tag :section, id: 'termsuse', class: 'legal-termsuse columns', data: {'magellan-target': 'termsuse'} do %>
+		<h1><%= @website_terms_of_use_document.title %></h1>
+		<h6>(Effective <%= l @website_terms_of_use_document.effective_on, format: :long %>)</h6>
+		<div class="legal-terms-download">
+			<%= link_to nil do %>
+				<%= image_tag('icons/document.svg') %>
+				Download
+			<% end %>
+		</div>
+		<%= markdown @website_terms_of_use_document.body %>
+	<% end if @website_terms_of_use_document %>
+</div>

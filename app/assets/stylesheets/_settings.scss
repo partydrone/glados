@@ -61,8 +61,9 @@ $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
-$body-font-color: $black;
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$body-font-color: $charcoal;
+$font-family-primary: "Klavika", "Source Sans Pro", Calibri, sans-serif;
+$font-family-secondary: "proxima-nova", sans-serif !important;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -102,39 +103,17 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: $body-font-family;
-$header-font-weight: $global-weight-normal;
-$header-font-style: normal;
-$font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
-$header-sizes: (
-  small: (
-    'h1': 24,
-    'h2': 20,
-    'h3': 19,
-    'h4': 18,
-    'h5': 17,
-    'h6': 16,
-  ),
-  medium: (
-    'h1': 48,
-    'h2': 40,
-    'h3': 31,
-    'h4': 25,
-    'h5': 20,
-    'h6': 16,
-  ),
-);
+$header-font-family: $font-family-primary;
 $header-color: inherit;
-$header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;
 $header-small-font-color: $medium-gray;
-$paragraph-lineheight: 1.6;
+$paragraph-lineheight: $base-line-height;
 $paragraph-margin-bottom: 1rem;
 $paragraph-text-rendering: optimizeLegibility;
 $code-color: $black;
-$code-font-family: $font-family-monospace;
+$code-font-family: $font-family-secondary;;
 $code-font-weight: $global-weight-normal;
 $code-background: $light-gray;
 $code-border: 1px solid $medium-gray;
@@ -144,7 +123,7 @@ $anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 $hr-width: $global-width;
-$hr-border: 1px solid $medium-gray;
+$hr-border: 1px solid $charcoal;
 $hr-margin: rem-calc(20) auto;
 $list-lineheight: $paragraph-lineheight;
 $list-margin-bottom: $paragraph-margin-bottom;
@@ -160,7 +139,7 @@ $blockquote-padding: rem-calc(9 20 0 19);
 $blockquote-border: 1px solid $medium-gray;
 $cite-font-size: rem-calc(13);
 $cite-color: $dark-gray;
-$keystroke-font: $font-family-monospace;
+$keystroke-font: $font-family-secondary;;
 $keystroke-color: $black;
 $keystroke-background: $light-gray;
 $keystroke-padding: rem-calc(2 4 0);
@@ -207,7 +186,7 @@ $accordion-content-padding: 1rem;
 // -----------------
 
 $accordionmenu-arrows: true;
-$accordionmenu-arrow-color: $primary-color;
+$accordionmenu-arrow-color: $linkblue;
 
 // 9. Badge
 // --------
@@ -233,14 +212,14 @@ $breadcrumbs-item-slash: true;
 // 11. Button
 // ----------
 
-$button-padding: 0.85em 1em;
+$button-padding: 0 2rem;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
-$button-background: $primary-color;
-$button-background-hover: scale-color($button-background, $lightness: -15%);
-$button-color: $white;
-$button-color-alt: $black;
-$button-radius: $global-radius;
+$button-background: $yellow;
+$button-background-hover: $gold;
+$button-color: $oil;
+$button-color-alt: $white;
+$button-radius: 5px;
 $button-sizes: (
   tiny: 0.6rem,
   small: 0.75rem,
@@ -306,11 +285,11 @@ $dropdown-sizes: (
 // 17. Dropdown Menu
 // -----------------
 
-$dropdownmenu-arrows: true;
+$dropdownmenu-arrows: false;
 $dropdownmenu-arrow-color: $anchor-color;
 $dropdownmenu-min-width: 200px;
-$dropdownmenu-background: $white;
-$dropdownmenu-border: 1px solid $medium-gray;
+$dropdownmenu-background: $charcoal;
+$dropdownmenu-border: none;
 
 // 18. Flex Video
 // --------------
@@ -397,7 +376,7 @@ $meter-fill-bad: $alert-color;
 // --------------
 
 $offcanvas-size: 250px;
-$offcanvas-background: $light-gray;
+$offcanvas-background: $charcoal;
 $offcanvas-zindex: -1;
 $offcanvas-transition-length: 0.5s;
 $offcanvas-transition-timing: ease;
@@ -417,7 +396,7 @@ $orbit-bullet-margin-top: 0.8rem;
 $orbit-bullet-margin-bottom: 0.8rem;
 $orbit-caption-background: rgba($black, 0.5);
 $orbit-caption-padding: 1rem;
-$orbit-control-background-hover: rgba($black, 0.5);
+$orbit-control-background-hover: transparent;
 $orbit-control-padding: 1rem;
 $orbit-control-zindex: 10;
 
@@ -501,9 +480,9 @@ $table-row-hover: darken($table-background, $table-hover-scale);
 $table-row-stripe-hover: darken($table-background, $table-color-scale + $table-hover-scale);
 $table-striped-background: smart-scale($table-background, $table-color-scale);
 $table-stripe: even;
-$table-head-background: smart-scale($table-background, $table-color-scale / 2);
+$table-head-background: $charcoal;
 $table-foot-background: smart-scale($table-background, $table-color-scale);
-$table-head-font-color: $body-font-color;
+$table-head-font-color: $white;
 $show-header-for-stacked: false;
 
 // 32. Tabs
@@ -511,15 +490,15 @@ $show-header-for-stacked: false;
 
 $tab-margin: 0;
 $tab-background: $white;
-$tab-background-active: $light-gray;
+$tab-background-active: transparent;
 $tab-item-font-size: rem-calc(12);
 $tab-item-background-hover: $white;
-$tab-item-padding: 1.25rem 1.5rem;
+$tab-item-padding: 0 1.5rem;
 $tab-expand-max: 6;
 $tab-content-background: $white;
-$tab-content-border: $light-gray;
+$tab-content-border: transparent;
 $tab-content-color: foreground($tab-background, $primary-color);
-$tab-content-padding: 1rem;
+$tab-content-padding: 1.5rem 1rem 0.5rem 1rem;
 
 // 33. Thumbnail
 // -------------
@@ -559,8 +538,8 @@ $tooltip-radius: $global-radius;
 // -----------
 
 $topbar-padding: 0.5rem;
-$topbar-background: $light-gray;
-$topbar-submenu-background: $topbar-background;
+$topbar-background: $black;
+// $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 1rem;
 $topbar-input-width: 200px;
 $topbar-unstack-breakpoint: medium;

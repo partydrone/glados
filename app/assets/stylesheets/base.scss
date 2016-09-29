@@ -1,2 +1,442 @@
 @import "foundation_and_overrides";
 @import "globals/all";
+
+html,
+base {
+  font-size: $base-font-size;
+}
+
+body {
+  font-family: $font-family-primary !important;
+  font-weight: $base-font-weight;
+  line-height: $base-line-height;
+  color: $charcoal;
+  font-size: 100%;
+}
+
+small {
+  font-size: 80%; }
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+p {
+  font-size: $base-font-size;
+  font-family: $font-family-secondary;
+  font-weight: $base-font-weight;
+  line-height: $base-line-height;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+em,
+i {
+  font-style: italic;
+  line-height: inherit; }
+
+small {
+  font-size: 80%;
+  line-height: inherit; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-style: normal;
+  margin-top: 0;
+  color: $charcoal;
+  @include no-pad-marg;
+ }
+  h1 small,
+  h2 small,
+  h3 small,
+  h4 small,
+  h5 small,
+  h6 small {
+    line-height: 0; }
+
+//title
+h1 {
+  font-size: $title-font-size;
+  line-height: $title-line-height;
+  color: $charcoal;
+  font-family: $font-family-primary-lite !important;
+  font-weight: 500;
+  @media screen and (max-width: 40em) {
+    font-size: $title-font-size-mobile;
+    line-height: $title-line-height-mobile;
+  }
+}
+
+//subhead
+h2 {
+  font-size: $subhead-font-size;
+  line-height: $subhead-line-height;
+  font-family: $font-family-primary;
+  font-weight: $subhead-font-weight;
+}
+
+//deckhead
+h3 {
+  font-size: $deckhead-font-size;
+  line-height: $deckhead-line-height;
+  font-family: $font-family-secondary;
+  font-weight: $deckhead-font-weight;
+  @media screen and (max-width:40em) {
+    font-size: $deckhead-font-size-mobile;
+    line-height: $deckhead-line-height-mobile;
+  }
+}
+
+//blurb
+h4 {
+  font-size: $blurb-font-size;
+  line-height: $blurb-line-height;
+  font-family: $font-family-secondary;
+  font-weight: $blurb-font-weight;
+}
+
+//location
+h5 {
+  font-size: $location-font-size;
+  line-height: $location-line-height;
+  font-family: $font-family-secondary;
+  font-weight: $location-font-weight;
+}
+
+//byline/caption
+h6 {
+  font-size: $byline-font-size;
+  line-height: $byline-line-height;
+  font-family: $font-family-secondary;
+  font-weight: $byline-font-weight;
+}
+
+a {
+  color: $linkblue;
+  text-decoration: none;
+  font-size: $link-font-size;
+  line-height: $link-line-height;
+  cursor: pointer;
+  font-family: $font-family-secondary;
+  font-weight: $link-font-weight;
+}
+  a:hover, a:focus, a:hover h1, a:hover h2, a:hover h3, a:hover h4, a:hover h5, a:hover h6 {
+    color: $sky;
+    outline: none;
+    border: 0;
+  }
+  a img {
+    border: 0; }
+
+/**
+   * Remove the gray background color from active links in IE 10.
+   */
+a {
+  background-color: transparent; }
+
+a:active,
+a:hover {
+  outline: 0; }
+
+  .text-centered {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+hr {
+  max-width: 62.5rem;
+  height: 0;
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 1px solid #cacaca;
+  border-left: 0;
+  margin: 1.25rem auto;
+  clear: both;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+ul {
+  list-style-type: none;
+  @include no-pad-marg;
+}
+
+ul.normal-list {
+  list-style-type: disc;
+  li {
+    padding-bottom: 10px;
+  }
+}
+
+td,
+th {
+  font-family: $font-family-secondary;
+}
+
+button {
+  font-family: $font-family-secondary;
+  background: $yellow;
+  font-weight: 400;
+}
+.button:hover, .button:focus {
+  background-color: $gold;
+  color: $oil !important;
+}
+.button {
+  height: 2.5rem;
+  font-size: 1rem;
+  &.large {
+    height: 3.25rem;
+    font-size: 1rem;
+    padding: 0 3.25rem;
+  }
+  &.small {
+    height: 1.625rem;
+    font-size: 1rem;
+    padding: 0 1.25rem;
+  }
+  &.cancel {
+    background-color: $ghost !important;
+  }
+}
+
+.tabs, .tabs-content {
+  border: none;
+}
+.tabs, a:hover {
+  background: none;
+}
+
+.tabs-title > a:focus, .tabs-title > a[aria-selected='true'] {
+  background: transparent;
+}
+
+.hover thead tr:hover {
+  background-color: $jet !important;
+}
+
+.active {
+  color: $yellow !important;
+}
+
+select {
+  height: 39px;
+}
+
+/***********************************************************************************************
+Request Box
+***********************************************************************************************/
+
+  .request-box {
+      margin-top: 12px;
+      position: relative;
+      background: $ghost;
+      border: 1px solid $ghost;
+      height: auto;
+      text-align: center;
+      padding: 35px 15px;
+      .request-label {
+        text-align: left;
+        line-height: 0;
+        margin-top: -10px;
+        margin-bottom: 26px;
+        &:last-child {
+          padding-bottom: 10px;
+        }
+      }
+      .request-textarea-label {
+        margin-top: 0;
+        margin-bottom: 15px;
+        padding-top: 24px;
+      }
+  }
+
+  .request-box:after, 
+  .request-box:before {
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      left: 50%;
+      border-color: transparent;
+  }
+
+  .request-box:after {
+      border-top-color: $white;
+      border-width: 19px;
+      margin-left: -19px;
+      top: -2px;
+  }
+  .request-box:before {
+      border-top-color: $ghost;
+      border-width: 18px;
+      margin-left: -18px;
+      top: 0px;
+  }
+
+  .request-box input {
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid $silver;
+    background: transparent;
+    box-shadow: none;
+    font-size: 19px;
+    height: 26px;
+  }
+
+/***********************************************************************************************
+Read/View more
+***********************************************************************************************/
+ 
+  .read-more {
+    text-align: center;
+    border-bottom: 1px solid $silver;
+    padding-bottom: 10px;
+  }
+
+/***********************************************************************************************
+Request Dropdown
+***********************************************************************************************/
+ 
+  .request-dropdown-container {
+    width: 100% !important;
+    left: 0 !important;
+    margin-top: 44px;
+    border: none !important;
+    form input {
+      margin: 0;
+      border: none;
+      border-bottom: 1px solid $silver;
+      background: transparent;
+      box-shadow: none;
+      font-size: 19px;
+      height: 26px;
+    }
+  }
+
+  .request-dropdown {
+    max-width: 31.25rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    button {
+      display: inline-block;
+      margin: 0.75rem 1rem 0 0;
+    }
+  }
+
+  .request-dropdown-close {
+    text-align: right;
+    display: block;
+    width: 100%;
+    font-weight: 800 !important;
+    font-size: 1.5rem;
+    padding-bottom: 5px;
+  }
+
+/***********************************************************************************************
+Search Bar/Input
+***********************************************************************************************/
+ 
+  .site-search-bar {
+    width: 100%;
+    margin-bottom: 1rem;
+    .input-search-bar {
+      background: $white;
+      border: 1px solid $silver;
+      border-right: 0px;
+      border-radius: 5px 0 0 5px !important;
+      padding: 0.675em 1em !important;
+      color: $charcoal;
+      max-width: 100% !important;
+      width: -webkit-calc(100% - 44px);
+      width:  -moz-calc(100% - 44px);
+      width:       calc(100% - 44px);
+      display: inline-block;
+      margin-right: 0;
+    }
+    .input-group-button {
+      display: inline-block;
+      background: $white;
+      border: 1px solid $silver;
+      border-left: 0;
+      width: 44px;
+      margin-left: -4px;
+      margin-top: -2px;
+      border-radius: 0 5px 5px 0 !important;
+      height: 39px;
+      padding-top: 8px;
+      svg {
+        height: 20px;
+        float: right;
+        padding-right: 12px;
+      }
+    }
+    .input-group-field {
+      border-right: 0px;
+      box-shadow: none;
+      border-radius: 5px 0 0 5px !important;
+      border-color: $silver;
+      background-color: $charcoal !important;
+    }
+    @media screen and (max-width: 1023px) {
+      margin: 1.5rem 5%;
+      width: 90%;
+      .input-search-bar {
+        // margin-right: 0.5rem;
+      }
+    }
+  }
+
+/***********************************************************************************************
+Admin Navigation
+***********************************************************************************************/
+ 
+.admin-nav {
+  left: 0;
+  position: fixed;
+  top: 120px;
+  background: $snow;
+  opacity: 0.9;
+  display: inline-block;
+  vertical-align: super;
+  text-align: left;
+  height: 50px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  z-index: 5;
+  border: 1px solid $ghost;
+  h4 {
+    padding: 0.5rem 0 0.5rem 1rem;
+    border-top: 1px solid $ghost;
+  }
+  img {
+    height: 20px;
+  }
+  .dropdown ul {
+    background: $snow;
+    border-bottom: 1px solid $ghost;
+    border-top: 1px solid $ghost;
+    border-right: 1px solid $ghost;
+    img {
+      height: 20px;
+      width: 20px;
+    }
+  }
+}
+

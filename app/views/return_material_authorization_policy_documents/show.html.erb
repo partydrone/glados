@@ -1,0 +1,27 @@
+<% content_for :title, @return_material_authorization_policy_document.title %>
+<h1>
+  <%= @return_material_authorization_policy_document.title %>
+  <ul class="button-group radius">
+    <li>
+      <%= link_to edit_return_material_authorization_policy_document_path(@return_material_authorization_policy_document), class: "button tiny secondary" do %>
+        <span class="fa fa-edit"></span>
+        Edit
+      <% end %>
+    </li>
+    <li>
+      <%= link_to @return_material_authorization_policy_document, class: "button tiny secondary", data: { confirm: %(Are you sure you want to delete the "#{l @return_material_authorization_policy_document.effective_on, format: :long} #{@return_material_authorization_policy_document.title} Document"?\n\nThis cannot be undone.) }, method: :delete do %>
+        <span class="fa fa-trash-o"></span>
+        Delete
+      <% end %>
+    </li>
+  </ul>
+</h1>
+<section>
+  <p>(Effective <%= l @return_material_authorization_policy_document.effective_on, format: :long %>)</p>
+  <%= raw markdown(@return_material_authorization_policy_document.body) %>
+</section>
+<section>
+  <p>
+    <%= link_to "Archive", return_material_authorization_policy_documents_path, class: "more" %>
+  </p>
+</section>

@@ -1,0 +1,17 @@
+past_website_privacy_policy_document:
+  type: WebsitePrivacyPolicyDocument
+  title: Past Website Policy Fixture
+  body: These are the old policies.
+  effective_on: <%= 1.year.ago.to_date.to_s(:db) %>
+
+current_website_privacy_policy_document:
+  type: WebsitePrivacyPolicyDocument
+  title: Current Website Policy Fixture
+  body: These are the current policies.
+  effective_on: <%= Date.today.to_s(:db) %>
+
+future_website_privacy_policy_document:
+  type: WebsitePrivacyPolicyDocument
+  title: Future Website Policy Fixture
+  body: These are the future policies.
+  effective_on: <%= 1.week.from_now.to_date.to_s(:db) %>

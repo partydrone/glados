@@ -1,0 +1,16 @@
+<% cache product_type do %>
+  <h2><%= product_type.name %></h2>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Part Number</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="products">
+      <%= render partial: 'list_item', collection: product_type.products %>
+    </tbody>
+  </table>
+<% end %>

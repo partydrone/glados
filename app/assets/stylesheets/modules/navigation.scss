@@ -1,0 +1,245 @@
+@import "../foundation_and_overrides";
+@import "../globals/all";
+
+//active section top-bar override
+//remove once factored into backend dynamics
+.temp-active-class {
+  color: $yellow !important;
+}
+
+/***********************************************************************************************
+Off Canvas
+***********************************************************************************************/
+  .off-canvas {
+    height: 100%;
+    a {
+      color: $ghost;
+      padding: 0.5em 1.2rem !important;
+      &:hover {
+        color: $yellow !important;
+      }
+    }
+  }
+
+  .off-canvas-title {
+    padding: 0 1em;
+    h4 {
+      padding-top: 1.2em;
+      color: $ghost;
+      border-bottom: 1px solid $ghost;
+    }
+  }
+
+  .menu-icon {
+    margin-top: 0.5rem;
+    background: none;
+  }
+
+  .title-bar {
+    position: fixed;
+    width: 100%;
+    z-index: 50;
+  }
+
+/************************************************************************************************
+Top Bar
+***********************************************************************************************/
+
+  @media screen and (min-width: 678px) {
+    main {
+      padding-top: $topbar-height;
+    }
+  }
+
+  .top-bar {
+    color: $steel;
+    padding: 0.5rem 0;
+    height: $topbar-height;
+    position: fixed;
+    width: 100%;
+    z-index: 50;
+    .topbar-dropdown {
+      color: $steel;
+      font-weight: $base-font-weight;
+      &:hover {
+        color: $yellow;
+      }
+    }
+    .is-active .topbar-dropdown {
+      color: $yellow;
+    }
+  }
+
+  .top-bar ul {
+    color: $silver;
+  }
+
+  .home-logo-link {
+    padding: 0 !important;
+  }
+
+  .topbar-search,
+  .topbar-admin {
+    line-height: 0 !important;
+    margin-top: -3px;
+    svg {
+      height: 13px;
+    }
+    .st0 {
+      fill: $steel;
+    }
+    &:hover svg .st0 {
+      fill: $yellow;
+    }
+  }
+
+  .is-active .topbar-search svg .st0 {
+    fill: $yellow;
+  }
+
+
+
+/***********************************************************************************************
+Megamenu Subnav
+***********************************************************************************************/
+
+  .mega-menu {
+    position: fixed !important;
+    top: $topbar-height !important;
+    width: 100%;
+    z-index: 20;
+    background: $charcoal !important;
+    color: $white !important;
+    visibility: hidden;
+    &.js-dropdown-active {
+      visibility: visible;
+    }
+  }
+
+  .mega-menu-dropdown {
+    max-width: 70em; //row width
+    background: $charcoal;
+    margin: 1em auto;
+    text-align: center;
+    .mega-menu-image {
+      height: 133px;
+      margin-bottom: 1rem;
+      position: relative;
+      img {
+        position: absolute;
+        bottom: 0;
+      }
+    }
+    h3 {
+      color: $white;
+    }
+    .mega-menu-item {
+      max-width: 24%;
+      display: inline-block;
+      text-align: left;
+      padding: 0 12px;
+      vertical-align: top;
+      h3 {
+        padding: 5px 0;
+      }
+    }
+    .social-media a {
+      float: left;
+      margin-right: 6px;
+        img {
+        background: $white;
+      }
+    }
+  }
+
+  .is-active .mega-menu {
+    animation: dropdownmenu 0.1s ease-out;
+    -webkit-animation: dropdownmenu 0.1s ease-out;
+  }
+
+  @-webkit-keyframes dropdownmenu {
+    from {
+      opacity: 0;
+      top: 0px;
+      visibility: hidden;
+      z-index: -25;
+    }
+    to {
+      opacity: 1;
+      top: $topbar-height;
+      visibility: visible;
+      z-index: 0;
+    }
+  }
+
+  /* Standard syntax */
+  @keyframes dropdownmenu {
+    from {
+      opacity: 0;
+      top: 0px;
+      visibility: hidden;
+    }
+    to {
+      opacity: 1;
+      top: $topbar-height;
+      visibility: visible;
+    }
+  }
+
+  .top-bar-right .dropdown .is-active {
+    position: relative;
+    background: transparent;
+    border: 0px solid transparent;
+    &:after {
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      border-color: transparent;
+    }
+    &:after {
+      border-top-color: $black;
+      border-width: 12px;
+      margin-left: 38%;
+      top: 43px;
+      z-index: 50;
+    }
+  }
+
+  .mega-menu-search-result {
+    text-align: left;
+    margin-top: 1rem;
+    img {
+      max-width: 67px;
+    }
+  }
+
+  .s1login {
+    border-left: 1px solid $ghost;
+    height: 231px;
+    padding-left: 30px !important;
+  }
+
+
+/************************************************************************************************
+Footer
+***********************************************************************************************/
+
+  footer {
+    font-family: $font-family-secondary;
+    padding: 10px;
+    margin-top: 30px;
+    a {
+      border-left: 1px solid $charcoal;
+      padding: 0px 1em;
+      color: $charcoal;
+      &:hover {
+        border-left: 1px solid $charcoal;
+      }
+      &:first-child {
+        margin-left: 1em;
+      }
+    }
+  }
+

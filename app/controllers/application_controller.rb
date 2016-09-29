@@ -65,7 +65,12 @@ class ApplicationController < ActionController::Base
     I18n.locale = locale
 
     unless request.fullpath =~ /^\/(#{I18n.available_locales.join('|')})/
-      redirect_to %(#{request.protocol}#{request.host}/#{I18n.locale}#{request.fullpath unless request.fullpath == '/'}), status: :found
+      url = request.protocol
+      url += request.host
+      url += ":#{request.port}" unless request.port.in? [80, 443]
+      url += "/#{I18n.locale}"
+      url += request.fullpath unless request.fullpath == '/'
+      redirect_to url, status: :found
     end
   end
 

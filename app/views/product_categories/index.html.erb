@@ -1,0 +1,23 @@
+<% content_for :title, 'Product Categories' %>
+<div class="row columns">
+  <h1>Product Categories</h1>
+
+  <%= link_to new_product_category_path, title: 'Create a new product category' do %>
+    <i class="fa fa-plus-square-o"></i>
+  <% end %>
+
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Product Type</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="product_categories" data-update-path="<%= sort_product_categories_path %>">
+      <%= render partial: 'list_item', collection: @product_categories %>
+    </tbody>
+  </table>
+</div>

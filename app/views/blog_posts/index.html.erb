@@ -1,0 +1,23 @@
+<% content_for :title, 'Blog Posts' %>
+<div class="row columns">
+<h1>Blog Posts</h1>
+
+<%= link_to new_blog_post_path, title: 'Create a new Product Type' do %>
+  <i class="fa fa-plus-square-o"></i>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Posted</th>
+      <th>Last Updated</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="blog_posts">
+    <%= render @blog_posts %>
+  </tbody>
+</table>
+</div>

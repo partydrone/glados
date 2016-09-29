@@ -1,0 +1,23 @@
+<% cache list_item do %>
+  <%= content_tag_for :tr, list_item do %>
+    <td>
+      <%= link_to product_category_path(list_item), class: 'delete', data: { confirm: %(Are you sure you want to delete "#{list_item.name}"? This cannot be undone.) }, method: :delete, title: %(Delete "#{list_item.name}") do %>
+        <i class="fa fa-trash-o"></i>
+      <% end %>
+    </td>
+    <td>
+      <%= list_item.name %>
+    </td>
+    <td>
+      <%= list_item.product_type.name %>
+    </td>
+    <td>
+      <%= link_to edit_product_category_path(list_item), title: %(Edit "#{list_item.name}") do %>
+        <i class="fa fa-edit"></i>
+      <% end %>
+    </td>
+    <td class="handle">
+      <i class="fa fa-ellipsis-v"></i>
+    </td>
+  <% end %>
+<% end %>

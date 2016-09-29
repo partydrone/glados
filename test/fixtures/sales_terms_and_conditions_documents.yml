@@ -1,0 +1,17 @@
+past_sales_terms_and_conditions_document:
+  type: SalesTermsAndConditionsDocument
+  title: Past Sales Terms Fixture
+  body: These are the old terms.
+  effective_on: <%= 1.year.ago.to_date.to_s(:db) %>
+
+current_sales_terms_and_conditions_document:
+  type: SalesTermsAndConditionsDocument
+  title: Current Sales Terms Fixture
+  body: These are the current terms.
+  effective_on: <%= Date.today.to_s(:db) %>
+
+future_sales_terms_and_conditions_document:
+  type: SalesTermsAndConditionsDocument
+  title: Future Sales Terms Fixture
+  body: These are the future terms.
+  effective_on: <%= 1.week.from_now.to_date.to_s(:db) %>

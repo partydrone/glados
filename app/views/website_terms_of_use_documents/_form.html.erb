@@ -1,0 +1,17 @@
+<%= form_for @website_terms_of_use_document do |f| %>
+  <%= content_tag :div, class: 'alert-box radius alert' do %>
+    <strong><%= pluralize @website_terms_of_use_document.errors.count, 'error' %> kept this form from submitting:</strong>
+    <ul>
+      <% @website_terms_of_use_document.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end if @website_terms_of_use_document.errors.any? %>
+  <%= f.label :title %>
+  <%= f.text_field :title, value: 'Wavetronix Website Terms of Use' %>
+  <%= f.label :effective_on %>
+  <%= f.date_field :effective_on, placeholder: 'yyyy-mm-dd' %>
+  <%= f.label :body %>
+  <%= f.text_area :body, rows: 20 %>
+  <%= f.submit nil, class: 'button radius' %>
+<% end %>

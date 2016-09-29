@@ -11,11 +11,54 @@ Rails.application.routes.draw do
     delete '/sign_out', to: 'sessions#destroy'
 
     ##
+    # Concerns
+
+    concern :listable do
+      get :list, on: :collection
+    end
+
+    concern :sortable do
+      post :sort, on: :collection
+    end
+
+    ##
     # Resource routes
 
     resources :identities, only: [:new]
 
-    resources :products, :users
+    resources :blog_posts,
+              :case_studies,
+              :patents,
+              :product_categories,
+              :return_material_authorization_policy_documents,
+              :sales_terms_and_conditions_documents,
+              :users,
+              :website_privacy_policy_documents,
+              :website_terms_of_use_documents
+
+    resources :products, concerns: :listable
+
+    resources :download_types, :product_categories, :product_types, concerns: :sortable
+
+    ##
+    # Static routes
+
+    namespace :about do
+      get '/news_events', to: 'base#news_events'
+      root to: 'base#index'
+    end
+
+    get '/jobs', to: redirect('http://wavetronix.recruiterbox.com/jobs')
+
+    namespace :legal do
+      root to: 'base#index'
+    end
+
+    namespace :support do
+      get '/marketing_app', to: 'marketing_app#index'
+      post '/marketing_app', to: 'marketing_app#submit'
+      root to: 'base#index'
+    end
 
     ##
     # Root route

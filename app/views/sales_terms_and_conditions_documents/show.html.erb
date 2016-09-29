@@ -1,0 +1,27 @@
+<% content_for :title, @sales_terms_and_conditions_document.title %>
+<h1>
+  <%= @sales_terms_and_conditions_document.title %>
+  <ul class="button-group radius">
+    <li>
+      <%= link_to edit_sales_terms_and_conditions_document_path(@sales_terms_and_conditions_document), class: "button tiny secondary" do %>
+        <span class="fa fa-edit"></span>
+        Edit
+      <% end %>
+    </li>
+    <li>
+      <%= link_to @sales_terms_and_conditions_document, class: "button tiny secondary", data: { confirm: %(Are you sure you want to delete the "#{l @sales_terms_and_conditions_document.effective_on, format: :long} #{@sales_terms_and_conditions_document.title} Document"?\n\nThis cannot be undone.) }, method: :delete do %>
+        <span class="fa fa-trash-o"></span>
+        Delete
+      <% end %>
+    </li>
+  </ul>
+</h1>
+<section>
+  <p>(Effective <%= l @sales_terms_and_conditions_document.effective_on, format: :long %>)</p>
+  <%= raw markdown(@sales_terms_and_conditions_document.body) %>
+</section>
+<section>
+  <p>
+    <%= link_to "Archive", sales_terms_and_conditions_documents_path, class: "more" %>
+  </p>
+</section>

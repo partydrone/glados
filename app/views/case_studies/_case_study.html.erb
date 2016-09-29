@@ -1,0 +1,23 @@
+<% cache case_study do %>
+  <%= content_tag_for :tr, case_study do %>
+    <td>
+      <%= link_to case_study_path(case_study), class: 'delete', data: { confirm: %(Are you sure you want to delete "#{case_study.title}"? This cannot be undone.) }, method: :delete, title: %(Delete "#{case_study.title}") do %>
+        <i class="fa fa-trash-o"></i>
+      <% end %>
+    </td>
+    <td>
+      <%= case_study.title %>
+    </td>
+    <td>
+      <%= l case_study.posted_on.to_date, format: :short %>
+    </td>
+    <td>
+      <%= l case_study.updated_at.to_date, format: :short %>
+    </td>
+    <td>
+      <%= link_to edit_case_study_path(case_study), title: %(Edit "#{case_study.title}") do %>
+        <i class="fa fa-edit"></i>
+      <% end %>
+    </td>
+  <% end %>
+<% end %>

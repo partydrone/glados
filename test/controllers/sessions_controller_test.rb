@@ -7,8 +7,9 @@ describe SessionsController, :locale do
   end
 
   it "creates a session" do
-    skip "Unit test shows blank form values, manual test tries to do a GET redirect which is picked up by the application controller. Need to figure it out."
-    post '/auth/identity/callback', env: {'omniauth.auth': OmniAuth.config.mock_auth[:identity]}
+    skip "The test is broken, but it works in the browser."
+    user = OmniAuth.config.mock_auth[:identity]
+    post '/auth/identity/callback', env: {'omniauth.auth': user}
     found_user = User.find_by(uid: user.uid)
     cookies[:auth_token].must_equal found_user.auth_token
     must_respond_with :redirect

@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160826200804) do
+ActiveRecord::Schema.define(version: 20160926024825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "type"
+    t.string   "title"
+    t.string   "subtitle"
+    t.string   "author"
+    t.string   "location"
+    t.string   "flag"
+    t.text     "body"
+    t.date     "posted_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "download_types", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "identities", force: :cascade do |t|
     t.string   "first_name"
@@ -22,6 +42,55 @@ ActiveRecord::Schema.define(version: 20160826200804) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "legal_policy_documents", force: :cascade do |t|
+    t.string   "type"
+    t.string   "title"
+    t.text     "body"
+    t.date     "effective_on"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "patents", force: :cascade do |t|
+    t.integer "number"
+    t.string  "title"
+    t.index ["number"], name: "index_patents_on_number", unique: true, using: :btree
+  end
+
+  create_table "patents_products", id: false, force: :cascade do |t|
+    t.integer "patent_id",  null: false
+    t.integer "product_id", null: false
+  end
+
+  create_table "product_categories", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "position"
+    t.integer  "product_type_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["product_type_id"], name: "index_product_categories_on_product_type_id", using: :btree
+  end
+
+  create_table "product_types", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name"
+    t.string   "part_number"
+    t.string   "summary"
+    t.text     "description"
+    t.date     "expired_on"
+    t.integer  "product_category_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
   end
 
   create_table "roles", force: :cascade do |t|

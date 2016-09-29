@@ -1,0 +1,23 @@
+<% cache blog_post do %>
+  <%= content_tag_for :tr, blog_post do %>
+    <td>
+      <%= link_to blog_post_path(blog_post), class: 'delete', data: { confirm: %(Are you sure you want to delete "#{blog_post.title}"? This cannot be undone.) }, method: :delete, title: %(Delete "#{blog_post.title}") do %>
+        <i class="fa fa-trash-o"></i>
+      <% end %>
+    </td>
+    <td>
+      <%= blog_post.title %>
+    </td>
+    <td>
+      <%= l blog_post.posted_on.to_date, format: :short %>
+    </td>
+    <td>
+      <%= l blog_post.updated_at.to_date, format: :short %>
+    </td>
+    <td>
+      <%= link_to edit_blog_post_path(blog_post), title: %(Edit "#{blog_post.title}") do %>
+        <i class="fa fa-edit"></i>
+      <% end %>
+    </td>
+  <% end %>
+<% end %>

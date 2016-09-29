@@ -1,0 +1,23 @@
+<% cache sales_terms_and_conditions_document do %>
+  <%= content_tag_for :tr, sales_terms_and_conditions_document do %>
+    <td>
+      <%= link_to sales_terms_and_conditions_document, class: 'delete', data: { confirm: %(Are you sure you want to delete "#{sales_terms_and_conditions_document.title}"? This cannot be undone.) }, method: :delete, title: %(Delete "#{sales_terms_and_conditions_document.title}") do %>
+        <i class="fa fa-trash-o"></i>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to sales_terms_and_conditions_document.title, sales_terms_and_conditions_document %>
+    </td>
+    <td>
+      <%= l sales_terms_and_conditions_document.effective_on.to_date, format: :long %>
+    </td>
+    <td>
+      <%= l sales_terms_and_conditions_document.updated_at.to_date, format: :long %>
+    </td>
+    <td>
+      <%= link_to edit_sales_terms_and_conditions_document_path(sales_terms_and_conditions_document), title: %(Edit "#{sales_terms_and_conditions_document.title}") do %>
+        <i class="fa fa-edit"></i>
+      <% end %>
+    </td>
+  <% end %>
+<% end %>

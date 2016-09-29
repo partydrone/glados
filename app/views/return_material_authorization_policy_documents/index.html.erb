@@ -1,0 +1,26 @@
+<% content_for :title, "Return Material Authorization Policy Documents" %>
+<div class="row columns">
+<h1>
+  Return Material Authorization Policy Documents
+  <small>
+    <%= link_to new_return_material_authorization_policy_document_path, title: "Create a new Return Material Authorization Policy Document" do %>
+      <i class="fa fa-plus-square-o"></i>
+    <% end %>
+  </small>
+</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Effective</th>
+      <th>Last modified</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @return_material_authorization_policy_documents %>
+  </tbody>
+</table>
+</div>

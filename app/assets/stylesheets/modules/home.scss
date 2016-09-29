@@ -1,0 +1,833 @@
+@import "foundation_and_overrides";
+@import "globals/all";
+
+/***********************************************************************************************
+Base Home
+***********************************************************************************************/
+
+	.home-nav-dots {
+		float: right;
+		width: 12px;
+		height: 172px;
+		margin-top: 38px;
+		text-align: center;
+		margin-right: 47px;
+		.nav-dots {
+			height: 15px;
+			width: 12px !important;
+			padding: 0;
+			margin-top: -8px;
+			background: none;
+		}
+		.first-dot {
+			margin-top: 37px;
+		}
+		a, a:hover, a:active {
+			background: transparent !important;
+		}
+	}
+
+	.home-section-text {
+		text-align: center;
+		max-width: 687px;
+		margin: 0 auto;
+		p {
+			margin-bottom: 50px;
+			@media screen and (max-width:40em) {
+				margin-bottom: 10px;
+			}
+		}
+		img {
+			width: 32px;
+			padding-bottom: 10px;
+			border-bottom: 2px solid $silver;
+			@media screen and (max-width:40em) {
+				border: 0;
+				display: inline-block;
+				margin-top: -15px;
+				margin-right: 10px;
+			}
+		}
+		@media screen and (max-width:40em) {
+			padding-top: 30px;
+			h1 {
+				display: inline-block;
+				color: $linkblue;
+				line-height: 32px;
+			}
+		}
+	}
+
+	.divider-img {
+		width: 4px;
+		margin-top: -40px;
+		padding-bottom: 25px;
+		position: relative;
+		z-index: 11;
+	}
+
+	.home-top-arrow {
+		width: 0; 
+		height: 0; 
+		border-left: 15px solid transparent;
+		border-right: 15px solid transparent;
+		border-top: 15px solid $white;
+		margin: auto;
+	}
+
+/***********************************************************************************************
+Top Banner
+***********************************************************************************************/
+
+	.home-video { //this will be replaced by a video
+		height: 650px;
+		background: url(image_path('home-smarter-traffic.png')) no-repeat center;
+		background-position: 50% 50%;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		@media screen and (max-width:40em) {
+			height: 421px;
+			background: url(image_path('home-smarter-traffic-small.png')) no-repeat center;
+	  }
+	}
+
+	.home-top-banner {
+		width: 100%;
+		text-align: center;
+		padding-top: 275px;
+		.home-header-text {
+			color: $white;
+			font-size: 84px;
+			font-weight: 500;
+			line-height: 100px;
+			font-family: $font-family-primary !important;
+			margin: 0;
+			span {
+				color: $yellow;
+		  }
+		}
+		h4 {
+			color: $white;
+			padding-right: 171px;
+			line-height: 0;
+			font-size: 36px;
+			font-weight: 400;
+		}
+		img {
+			height: 106px;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			padding-bottom: 1em;
+			margin-top: 8px;
+		}
+		@media screen and (max-width:40em) {
+			.home-header-text {
+		  	font-size: 46px;
+		  	line-height: 35px;
+		  }
+			h4 {
+		  	padding-right: 0;
+		  	font-size: 24px;
+		  	line-height: 1.75rem;
+		  }
+			.button {
+		  	margin-top: 10px;
+		  }
+		}
+	}
+
+/***********************************************************************************************
+Safer Section
+***********************************************************************************************/
+
+	.home-safe-left-img {
+		margin-top: -100px;
+	}
+
+	.home-safe .home-top-arrow {
+		margin: -124px auto 50px auto;
+		border-top: none;
+		border-bottom: 15px solid $white;
+		@media screen and (max-width:40em) {
+			border-top: 15px solid $black;
+			margin: auto;
+			border-bottom: 0;
+			margin-top: 0;
+		}
+	}
+
+	.home-safe h1 {
+		color: $linkblue;
+	}
+
+	.show-for-medium {
+		.orbit-slide {
+			height: 281px;
+		}
+	}
+
+	.home-safe .show-for-small-only {
+		.orbit-container {
+			padding-bottom: 100px;
+		}
+		h6 {
+			color: $charcoal;
+		}
+		.orbit-slide {
+			text-align: center;
+		}
+		.columns:last-child:not(:first-child) {
+			float: none;
+		}
+	}
+
+	@media screen and (max-width: 40em) {
+		.home-safe .home-stories {
+			padding-bottom: 30px;
+		}
+	}
+
+	.home-nav-dots-safe {
+		background: url(image_path('icons/Scroll_vertical-01.svg')) no-repeat center;
+	}
+
+	.home-safe-right-img {
+		position: absolute;
+		z-index: 0;
+		width: 300px;
+		margin-top: -173px;
+		height: 300px;
+		right: 0;
+		@media screen and (max-width: 1360px) {
+			background: url(image_path('home/home-car-smash-thin.png')) no-repeat right;
+		}
+		@media screen and (min-width: 1360px) {
+			background: url(image_path('home/home-car-smash.png')) no-repeat left;
+		}
+		img {
+			height: 100%;
+		}
+		@media screen and (max-width: 40em) {
+			background: url(image_path('home/home-car-smash-mobile.png')) no-repeat right;
+			margin-top: -184px;
+		}
+	}
+
+	.home-safe-small-preview {
+		text-align: left;
+	}
+
+/***********************************************************************************************
+Efficient Section
+***********************************************************************************************/
+
+	.home-efficient {
+		background: $ghost;
+		text-align: center;
+		height: 680px;
+		h1 {
+			color: $linkblue;
+		}
+		.home-stories h6 {
+			color: $charcoal;
+			background: rgba(230, 230, 230, 0.8);
+			padding: 5px 15px;
+		}
+		.home-stories a:hover h4 {
+			background: none;
+		}
+		.stories-hidden-text {
+			background: rgba(230, 230, 230, 0.8);
+			padding: 5px;
+			color: $white;
+			span {
+				color: $bluesteel;
+			}
+		}
+		.home-section-text {
+			z-index: 1;
+			position: relative;
+			p {
+				background: rgba(230, 230, 230, 0.8);
+				padding: 5px 15px;
+			}
+		}
+		@media screen and (max-width: 678px) {
+			height: auto;
+			.home-stories {
+				padding-bottom: 30px;
+			}
+		}
+		.home-stories-container {
+			.home-story-left {
+				height: 65px;
+				background: url(image_path('icons/arrow-left-backer.svg')) no-repeat center;
+				background-size: cover;
+				padding-top: 15px;
+			}
+			.home-story-right
+			 {
+				background: url(image_path('icons/arrow-right-backer.svg')) no-repeat center;
+			}
+		}
+		.stories-rollover-shown {
+			background: rgba(230, 230, 230, 0.8);
+		}
+	}
+
+	.home-efficient-left-img {
+		height: 680px;
+		position: absolute;
+		margin-top: -69px;
+		left: -118px;
+		z-index: 0;
+	}
+
+	.home-nav-dots-efficient {
+		background: url(image_path('icons/Scroll_vertical-02.svg')) no-repeat center;
+	}
+
+
+/***********************************************************************************************
+Reliable Section
+***********************************************************************************************/
+
+	.home-reliable {
+		text-align: center;
+		h2 {
+			color: $charcoal;
+		}
+		.home-stories h6,
+		.home-stories small {
+			color: $white;
+		}
+		.home-reliable-top {
+			background: #86d4f1; /* Old browsers */
+			background: -moz-linear-gradient(top, #86d4f1 0%, #5598cc 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top, #86d4f1 0%,#5598cc 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom, #86d4f1 0%,#5598cc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#86d4f1', endColorstr='#5598cc',GradientType=0 ); /* IE6-9 */
+		}
+		.home-reliable-bottom {
+			background: $fadedblue;
+		}
+		.menu {
+			height: 75px;
+			background: $tomato;
+		}
+		.home-section-text {
+			padding-top: 0;
+		}
+		.home-safe-small-preview {
+			text-align: center;
+		}
+		.callout {
+			color: $silver;
+			background: rgba(27, 46, 60, 0.75);
+			margin: 0 1em;
+		}
+		.home-section-text img {
+			border-bottom: 1px solid $charcoal;
+		}
+		.stories-hidden-text h5,
+		.stories-hidden-text p {
+			color: $white;
+		}
+	}
+
+	.home-nav-dots-reliable {
+		background: url(image_path('icons/Scroll_vertical-03.svg')) no-repeat center;
+	}
+
+	.home-reliable .show-for-small-only {
+		.orbit-slide {
+			text-align: center;
+		}
+		.columns:last-child:not(:first-child) {
+			float: none;
+		}
+		.orbit-previous, .orbit-next {
+			margin-top: 25px;
+		}
+		img {
+			padding-bottom: 25px;
+		}
+		h6, a {
+			color: $charcoal;
+		}
+	}
+
+/***********************************************************************************************
+Reliable Magellan Section
+***********************************************************************************************/
+
+	.home-reliable-nav-section .reset-row-width {
+		max-width: 100% !important;
+		.sticky {
+			z-index: 1;
+		}
+	}
+
+	.magellan-panel {
+		display: none;
+		width: 400px;
+		padding: 25px 30px 0 30px;
+		position: fixed;
+		margin-left:-16px;
+		h5 {
+			color: $yellow;
+			text-transform: capitalize;
+		}
+	}
+	.active .magellan-panel {
+		display: inline-block;
+	}
+	.active .mpanel2 {
+		margin-left:-149px;
+	}
+	.active .mpanel3 {
+		margin-left:-282px;
+	}
+
+	.home-sticky-container {
+		height: 0px !important;
+	}
+
+	.st0 {
+		fill: $fadedblue;
+	}
+	.active .st0 {
+		fill: $yellow;
+	}
+
+	.magellan-side-bar {
+		display: none;
+	}
+
+
+	.magellan-side-menu {
+		height: 100vh;
+		width: 400px;
+		margin-left: 10% !important;
+		background: rgba(27, 46, 60, 0.75);
+		a {
+			width: 133px;
+		}
+		svg {
+			margin-right: auto !important;
+			margin-left: auto;
+			width: 32px !important;
+			// padding-top: 100px;
+			display: block !important;
+			margin-top: 100px;
+		}
+		li {
+			display: inline-block;
+			vertical-align: top;
+		}
+	}
+
+	.active .magellan-side-bar-text {
+		color: $white;
+		text-align: left;
+		cursor: default;
+		h5 {
+			color: $yellow;
+			padding: 10px 0;
+		}
+	}
+
+	.lighting-background {
+		background: #5598cc url(image_path('reliable_1.png')) no-repeat center;
+		height: 100vh;
+	}
+
+	//I switched the 0.5 and 1 just so it isn't black for now. Fix later.
+	#reliableTopAnchor {
+		background: $black;
+		.scroll-stick {
+			opacity: 1;
+		}
+		.active.scroll-stick {
+			opacity: 0.5;
+		}
+		.mercy {
+			border: 10px solid yellow;
+		}
+		.roadhog {
+			opacity: 0.5;
+		}
+		.opacity-off {
+			opacity: 0.5;
+		}
+	}
+
+	.construction-background {
+		background: url(image_path('reliable_2.png')) no-repeat center;
+		height: 100vh;
+	}
+
+	.road-background {
+		background: url(image_path('reliable_3.png')) no-repeat center;
+		height: 100vh;
+	}
+
+	.home-reliable-background-image {
+		background-position: 50% 50%;
+		-webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	  background-attachment: fixed;
+	}
+
+	.home-reliable-nav-mobile {
+		background: #5598cc url(image_path('country.png')) no-repeat top;
+		background-position: 50% 0%;
+		-webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	  padding: 0px 10px 50px 10px;
+	  margin-top: 0;
+	  .st0 {
+	  	fill: $silver;
+	  }
+	  .tabs, .tabs-content {
+	  	color: $white;
+	  }
+	  .tabs-content {
+	  	background: rgba(27, 46, 60, 0.75);
+	  }
+	  .tabs-title > a:focus, .tabs-title > a[aria-selected='true'] .st0 {
+		  fill: rgba(27, 46, 60, 0.75);
+		}
+		svg {
+			width: 32px;
+		}
+		h6 {
+			color: $yellow;
+		}
+	}
+
+/***********************************************************************************************
+Cost Effective Section
+***********************************************************************************************/
+
+	.home-divider path {
+		fill: $green;
+	}
+
+	.home-nav-dots-cost {
+		background: url(image_path('icons/Scroll_vertical-04.svg')) no-repeat center;
+	}
+
+	.home-cost {
+		background: rgba(27, 46, 60, 1);
+		position: relative;
+		z-index: 5;
+		text-align: center;
+		color: $white;
+		@media screen and (min-width: 678px) {
+			.home-section-text img {
+				border-bottom: 2px solid $yellow;
+			}
+		}
+		h1,
+		h4,
+		.home-stories-container .stories-hidden-text p {
+			color: $white;
+			span {
+				color: $green;
+			}
+		}
+		h6 {
+			color: $yellow;
+		}
+	}
+
+	.cost-sensor {
+		width: 130px;
+	}
+
+	.dollars-rise:before,
+	.dollars-rise:after {
+	  content: " ";
+	  // display: table;
+	  margin-left: auto;
+	  margin-right: auto;
+	}
+
+	.dollars-rise:after {
+	  clear: both;
+	}
+
+	.ani-container {
+	  position: relative;
+	  text-align: center;
+	  min-height: 100px;
+	}
+
+	.animation-element {
+	  position: relative;
+	  margin: 0% auto;
+		@media screen and (max-width: 678px) {
+		  width: 100%;
+		  margin: 0px 0px 30px 0px;
+		}
+	}
+
+	.callout1 {
+		display: none;
+	}
+
+	.bounce-up .subject {
+	  opacity: 0;
+	  @include transition(all 700ms ease-out);
+	  @include transform(translate3d(0px, 200px, 0px));
+	  -webkit-backface-visibility: hidden;
+	  -moz-backface-visibility: hidden;
+	  backface-visibility: hidden;
+	}
+
+	.bounce-up.in-view .subject {
+	  opacity: 1;
+	  @include transform(translate3d(0px, 0px, 0px));
+	}
+
+	.subject {
+	  float: left;
+	  width: 100%;
+	  margin: 0% 1.33% 2.66% 1.33%;
+	  padding: 15px;
+	}
+
+	.home-cost .show-for-small-only {
+		.orbit-slide {
+			text-align: center;
+		}
+		.columns:last-child:not(:first-child) {
+			float: none;
+		}
+		.orbit-previous, .orbit-next {
+			margin-top: 25px;
+		}
+		img {
+			padding-bottom: 25px;
+		}
+	}
+
+	.home-cost-sensor {
+		h3 {
+			color: $white;
+		}
+		color: $yellow;
+	}
+
+	.home-cost-loopsaddup-background  {
+		background: url(image_path('Loopsaddup375w.jpg')) no-repeat bottom;
+		height: 453px;
+		background-position: 50% 50%;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		z-index: 30;
+		@media only screen and (min-width: 40.063em) and (max-width: 1023px) { 
+			height: 858px;
+			background: url(image_path('Loopsaddup768w.jpg')) no-repeat bottom;
+		}
+		@media screen and (min-width: 1024px) {
+			height: 100vh;
+			background: #1b2e3b url(image_path('Loopsaddup.jpg')) no-repeat center;
+			background-attachment: fixed;
+			background-position: 50% 90%;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+	}
+
+	.cost-loops {
+		background: url(image_path('Loops375w.png')) no-repeat center bottom;
+		height: 453px;
+		background-position: 0% 50%;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		padding-top: 200px;
+		z-index: 31;
+		@media only screen and (min-width: 40.063em) and (max-width: 1023px) { 
+			height: 858px;
+			background: url(image_path('Loops768w.png')) no-repeat center bottom;
+		}
+		@media only screen and (min-width: 1024px) { 
+			height: 100vh;
+			background: url(image_path('Loops1440w.png')) no-repeat center;
+			background-attachment: fixed;
+			background-position: 50% 90%;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+	}
+
+	.cost-one-sensor {
+		background: url(image_path('Beams375w.png')) no-repeat center bottom;
+		height: 453px;
+		background-position: 0% 50%;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		@media only screen and (min-width: 40.063em) and (max-width: 1023px) { 
+			height: 858px;
+			background: url(image_path('Beams768w.png')) no-repeat center bottom;
+		}
+		@media only screen and (min-width: 1024px) { 
+			height: 100vh;
+			background: url(image_path('Beams1440w.png')) no-repeat center;
+			background-attachment: fixed;
+			background-position: 50% 90%;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+	}
+
+
+/***********************************************************************************************
+Simple Section
+***********************************************************************************************/
+
+	.home-simple {
+		text-align: center;
+		.home-stories {
+			padding-bottom: 0px;
+		}
+		.orbit {
+			max-width: 625px;
+		}
+		.orbit-previous, .orbit-next {
+			padding: 0;
+			top: 75px;
+		}
+	}
+
+	.home-nav-dots-simple {
+		background: url(image_path('icons/Scroll_vertical-05.svg')) no-repeat center;
+	}
+
+	.white-backer {
+		background: $white;
+		height: 657px;
+	}
+
+	@media screen and (min-width: 640px) {
+		.simple-background {
+			width: 100%;
+			min-height: 657px;
+			background: url(image_path('traffic-work.png')) no-repeat right bottom;
+		}
+	}
+
+	.simple-divider-img {
+		width: 4px;
+		margin-top: -40px;
+		padding-bottom: 43px;
+		position: relative;
+		z-index: 11;
+		left: 21px;
+		path {
+			fill: $charcoal;
+		}
+	}
+
+	.home-simple .show-for-small-only {
+		.orbit-slide {
+			text-align: center;
+		}
+		.columns:last-child:not(:first-child) {
+			float: none;
+		}
+		.orbit-previous, .orbit-next {
+			margin-top: 25px;
+		}
+		img {
+			padding-bottom: 25px;
+		}
+		h6, a {
+			color: $charcoal;
+		}
+	}
+
+/***********************************************************************************************
+Support Section
+***********************************************************************************************/
+
+	.home-support {
+	  text-align: center;
+	  padding-bottom: 100px;
+	  .home-divider path {
+			fill: $yellow;
+		}
+	}
+
+	.home-nav-dots-support {
+		background: url(image_path('icons/Scroll_vertical-06.svg')) no-repeat center;
+		margin-top: 461px;
+	}
+
+	.support-image-backer {
+		background: $fadedblue url(image_path('home-support-background.png')) no-repeat top;
+		background-position: 50% 50%;
+		-webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	  height: 840px;
+	}
+
+	.support-white-backer {
+		margin-top: -382px;
+		background: -moz-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(255,255,255,1) 50%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 50%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+		padding-bottom: 10px;
+		p {
+			color: $charcoal;
+		}
+	}
+
+	.home-support .show-for-small-only {
+		margin-left: auto;
+		margin-right: auto;
+		.orbit-slide {
+			text-align: center;
+		}
+		.columns:last-child:not(:first-child) {
+			float: none;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.orbit-previous, .orbit-next {
+			margin-top: 25px;
+		}
+		img {
+			padding-bottom: 25px;
+		}
+		h6, a {
+			color: $charcoal;
+		}
+	}
+
+
+

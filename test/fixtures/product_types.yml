@@ -1,0 +1,11 @@
+detection:
+  name: Detection
+  position: 1
+
+cabinet-integration:
+  name: Cabinet Integration
+  position: 2
+
+data-management:
+  name: Data Management
+  position: 3

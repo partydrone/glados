@@ -1,0 +1,198 @@
+<div class="admin-nav">
+  <ul class="dropdown menu" data-dropdown-menu>
+    <li>
+      <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis.svg') %></a>
+      <ul class="menu">
+        <li><a href="#"><%= image_tag('icons/blue-cross.svg') %>New Blog Post</a></li>
+        <li><a href="#"><%= image_tag('icons/blue-cross.svg') %>New Case Study</a></li>
+        <li><a href="#"><%= image_tag('icons/blue-cross.svg') %>New Event</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+
+<div class="row">
+<div class="medium-10 medium-centered large-12 columns">
+
+<section>
+  <div class="row columns">
+    <h1>News</h1>
+  </div>
+
+  <section class="row news-articles-container">
+
+    <div class="news-article">
+      <%= link_to nil do %>
+        <img src="http://placehold.it/770x433" alt="placeholder">
+        <h2>Why Loops Aren't Cheap</h2>
+        <p>Amy Pond, there's something you better understand about me, 'cause it's important and one day your life may depend on it. I am definitely a madman with a box.</p>
+      <% end %>
+    </div>
+
+  </section>
+
+
+  <div class="row">
+    <div class="large-7 columns news-article-blurbs">
+      <div class="row news-links">
+        <%= link_to nil do %>
+          <div class="medium-6 large-4 columns">
+            <img src="http://placehold.it/770x433" alt="placeholder">
+          </div>
+          <div class="medium-6 large-8 columns">
+            <h2>All Weather Performance</h2>
+            <p>Think you know everything about traffic? Think again! You know nothing, Jon Snow! There are three lines of text here!</p>
+          </div>
+        <% end %>
+      </div>
+      <div class="row news-links">
+        <%= link_to nil do %>
+          <div class="large-4 medium-6 columns">
+            <img src="http://placehold.it/770x433" alt="placeholder">
+          </div>
+          <div class="large-8 medium-6 columns">
+            <h2>Detection In The UK</h2>
+            <p>Overwatch is a pretty fun game to play, which is strange for a FPS. Normally PVP games are reserved for meanies.</p>
+          </div>
+        <% end %>
+      </div>
+      <div class="row news-links">
+        <%= link_to nil do %>
+          <div class="large-4 medium-6 columns">
+            <img src="http://placehold.it/770x433" alt="placeholder">
+          </div>
+          <div class="large-8 medium-6 columns">
+            <h2>Loops Are Cutting In</h2>
+            <p>Ok, but if Marinette and Adrien actually chose their own names for Chat and Ladybug, why is it in history books?</p>
+          </div>
+        <% end %>
+      </div>
+      <div class="read-more">
+        <%= link_to "+ Read More Stories", nil %>
+      </div>
+    </div>
+  <div class="large-5 columns news-article-list show-for-large">
+    <ul class="tabs" data-tabs id="news-article-tabs">
+      <li class="tabs-title is-active"><a href="#news-toparticles" aria-selected="true"><h5>Top Articles</h5></a></li>
+      <li class="tabs-title"><a href="#news-topics"><h5>Topics</h5></a></li>
+      <li class="tabs-title"><a href="#news-regions"><h5>Regions</h5></a></li>
+    </ul>
+    <div class="tabs-content" data-tabs-content="news-article-tabs">
+      <div class="tabs-panel is-active news-toparticles" id="news-toparticles">
+        <%= link_to "1. Why Loops Aren't Cheap", nil %><br/>
+        <%= link_to "2. These are set as Links", nil %><br/>
+        <%= link_to "3. font and size", nil %><br/>
+        <%= link_to "4. and stuff", nil %><br/>
+        <%= link_to "5. Do they look right?", nil %><br/>
+        <%= link_to "6. They Are Suppose", nil %><br/>
+        <%= link_to "7. To Be", nil %><br/>
+        <%= link_to "8. Or Not To Be", nil %><br/>
+        <%= link_to "9. I Mean, Why Not?", nil %><br/>
+        <%= link_to "10. Link Blue or Faded Blue?", nil %><br/>
+      </div>
+      <div class="tabs-panel" id="news-topics">
+        <p>Stuck in an elevator, she takes me to the sky. I don't want to go down. It's beautiful with the stars and the Earth and the Moon a million miles but closer than I've ever been.</p>
+      </div>
+      <div class="tabs-panel" id="news-regions">
+        <p>Suspendisse dictum feugiat nisl ut dapibus.  Vivamus hendrerit arcu sed erat molestie vehicula. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor.  Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.</p>
+      </div>
+    </div>
+  </div>            
+</section>
+
+<section class="row news-events">
+  <div class="columns">
+    <h1>Events</h1>
+  </div>
+  <div class="hide-for-large columns search-bar">
+    <p class="no-marg-bottom">Find events near me</p>
+    <div class="news-find-events site-search-bar input-group">
+      <input class="input-search-bar" type="text"/>
+      <div class="input-group-button">
+        <?xml version="1.0" encoding="utf-8"?>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17">
+          <rect x="12.2" y="10" transform="translate(1 1)matrix(0.7071 -0.7071 0.7071 0.7071 -5.3589 12.9375)" class="st0" width="1.5" height="5.8"/><path class="st0" d="M7.3 14.3c-3.9 0-7-3.1-7-7 0-3.9 3.1-7 7-7 3.9 0 7 3.1 7 7C14.3 11.1 11.1 14.3 7.3 14.3zM7.3 1.8c-3 0-5.5 2.5-5.5 5.5 0 3 2.5 5.5 5.5 5.5 3 0 5.5-2.5 5.5-5.5C12.8 4.2 10.3 1.8 7.3 1.8z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="large-6 columns">
+    <div class="row event-listings">
+      <div class="medium-8 columns">
+        <h2>Pulse Live Traffic</h2>
+        <h4>Take control of your intersections with Wavetronix Radar</h4>
+        <a>Memphis, TN<br/>
+        <a class="event-date">
+          <%= image_tag("icons/calendar.svg") %>
+          May 1, 2016
+        </a>
+      </div>
+      <div class="medium-4 small-pull-1 medium-pull-0 columns event-map">
+        <img src="http://placehold.it/170x96" alt="placeholder">
+        <button class="button rounded expanded">Register</button>
+      </div>
+    </div>
+    <div class="row event-listings">
+      <div class="medium-8 columns">
+        <h2>Dealer Training</h2>
+        <h4>Introduction to RADAR and traffic management</h4>
+        <a>Provo, UT<br/>
+        <a class="event-date">
+          <%= image_tag("icons/calendar.svg") %>
+          July 14, 2016
+        </a>
+      </div>
+      <div class="medium-4 small-pull-1 medium-pull-0 columns event-map">
+        <img src="http://placehold.it/170x96" alt="placeholder">
+        <button class="button rounded expanded">Register</button>
+      </div>
+    </div>
+    <div class="row event-listings">
+      <div class="medium-8 columns">
+        <h2>ITS America</h2>
+        <h4>Showcase of the latest traffic detection systems from America</h4>
+        <a>Orlando, FL<br/>
+        <a class="event-date">
+          <%= image_tag("icons/calendar.svg") %>
+          October 21, 2016
+        </a>
+      </div>
+      <div class="medium-4 small-pull-1 medium-pull-0 columns event-map">
+        <img src="http://placehold.it/170x96" alt="placeholder">
+        <button class="button rounded expanded">Learn More</button>
+      </div>
+    </div>
+  </div>
+  <div class="large-6 columns">
+    <p class="no-marg-bottom show-for-large">Find events near me</p>
+    <div class="news-find-events site-search-bar input-group show-for-large">
+      <input class="input-search-bar" type="text"/>
+      <div class="input-group-button">
+        <?xml version="1.0" encoding="utf-8"?>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17">
+          <rect x="12.2" y="10" transform="translate(1 1)matrix(0.7071 -0.7071 0.7071 0.7071 -5.3589 12.9375)" class="st0" width="1.5" height="5.8"/><path class="st0" d="M7.3 14.3c-3.9 0-7-3.1-7-7 0-3.9 3.1-7 7-7 3.9 0 7 3.1 7 7C14.3 11.1 11.1 14.3 7.3 14.3zM7.3 1.8c-3 0-5.5 2.5-5.5 5.5 0 3 2.5 5.5 5.5 5.5 3 0 5.5-2.5 5.5-5.5C12.8 4.2 10.3 1.8 7.3 1.8z"/>
+        </svg>
+      </div>
+    </div>
+    <h4 class="text-centered">Request Updates</h4>
+    <div class="request-box">
+      <div class="request row">
+        <div class="medium-8 small-10 small-centered columns">
+          <p>Find out when Wavetronix is hosting or attending an event near you</p>
+          <form id="events-updates-form">
+            <input type="text" name="updates-name"><br>
+            <p class="request-label">Name</p>
+            <input type="text" name="updates-email"><br>
+            <p class="request-label">Email</p>
+            <input type="text" name="updates-zip"><br>
+            <p class="request-label">Zip Code or Country</p>
+          </form>
+          <button type="submit" form="events-updates-form" value="Submit" class="button rounded expanded">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+</div>

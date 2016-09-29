@@ -10,8 +10,12 @@ class ApplicationPolicy
     true
   end
 
+  def list?
+    false
+  end
+
   def show?
-    scope.where(:id => record.id).exists?
+    scope.where(id: record.id).exists?
   end
 
   def create?
@@ -32,6 +36,10 @@ class ApplicationPolicy
 
   def destroy?
     false
+  end
+
+  def manage?
+    create? || update? || destroy?
   end
 
   def scope

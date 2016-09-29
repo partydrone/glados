@@ -1,0 +1,214 @@
+@import "foundation_and_overrides";
+@import "globals/all";
+
+@media screen and (min-width: 40rem) {
+  .product-specific-intro,
+  .product-specific-features,
+  .product-specific-training,
+  .product-specific-support h1 {
+    text-align: center;
+  }
+}
+
+/***********************************************************************************************
+navigation
+***********************************************************************************************/
+
+  .product-specific-navigation {
+    background: $white;
+    .sticky {
+      width: 100% !important;
+      background: $white;
+      padding: 41px 0 5px 0;
+      opacity: 0.9;
+      border-bottom: 1px solid $silver;
+    }
+    .menu {
+      float: right;
+    }
+    a {
+      color: $charcoal;
+      font-weight: 500;
+    }
+    h4 {
+      line-height: 2.375rem;
+    }
+  }
+
+  .product-specific-navigation .active,
+  .product-specific-bottom-nav .active {
+    color: $linkblue !important;
+  }
+
+  .hide-me-on-dropdown.hover {
+    visibility: hidden;
+    width: 0;
+  }
+
+  .product-specific-top-nav {
+    position: fixed;
+    background: $white;
+    width: 100%;
+    margin-top: -65px;
+    padding-top: 9px;
+    opacity: 0.9;
+    z-index: 1;
+    border-bottom: 1px solid $silver;
+    .button {
+      margin-bottom: 9px;
+      padding: 0.6em;
+    }
+    .text-right {
+      text-align: right;
+    }
+  }
+
+  .product-specific-bottom-nav {
+    bottom: 0 !important;
+    width: 100%;
+    height: 50px;
+    background: $white;
+    position: fixed;
+    z-index: 5;
+    border-top: 1px solid $silver;
+    a {
+      font-size: 14px;
+      padding: 8px 0px 0px 0px !important;
+      color: $charcoal;
+    }
+    img {
+      height: 18px;
+      width: 18px;
+      margin-bottom: 0.15em !important;
+    }
+  }
+
+/***********************************************************************************************
+header
+***********************************************************************************************/
+
+  .product-specific-intro {
+    padding-bottom: 50px;
+    @media screen and (min-width: 1024px) {
+      text-align: center;
+    }
+  }
+
+  .product-intro-media {
+
+  }
+
+  .product-intro-product-image {
+    width: 100px;
+    margin: 50px auto 5px auto;
+  }
+
+  .product-intro-blurb {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+/***********************************************************************************************
+features
+***********************************************************************************************/
+
+  .product-specific-features {
+    .product-intro-media {
+      text-align: center;
+      padding: 0 0.8rem 0.8rem 0.8rem;
+    }
+    h4 {
+      padding: 0.8rem 0;
+    }
+    .product-feature {  
+      padding: 2rem 0;
+      &:nth-child(odd) {
+        background: rgba(230, 230, 230, 0.5);
+      }
+    }
+  }
+  
+/***********************************************************************************************
+request a demo
+***********************************************************************************************/
+  
+  .product-request-demo {
+    text-align: center;
+    padding-top: 0.85rem;
+  }
+
+/***********************************************************************************************
+courses
+***********************************************************************************************/
+
+  .product-specific-training {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .product-specific-course-listing {
+    padding: 1.5rem 0;
+    .course-duration {
+      img {
+        max-width: 1.25rem;
+        margin-top: -0.35rem;
+        padding-right: 5px;
+      }
+    }
+    button {
+      background: $bluesteel;
+      color: $ghost;
+    }
+  }
+
+/***********************************************************************************************
+support
+***********************************************************************************************/
+
+  .support-sections-container {
+    max-width: 1200px;
+    .support-section {
+      float: left;
+    }
+  }
+
+  .product-language-selection {
+    text-align: right;
+    .products-language-dropdown {
+      max-width: 9.375rem;
+      border-radius: 10px !important;
+      border-color: $silver;
+      float: left;
+    }
+  }
+
+  select.products-language-dropdown {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path style='fill:#54A5DB' class='st0' d='M26.4 11.7c0 0.3-0.1 0.6-0.3 0.8l-9.8 9.8 -9.8-9.8c-0.4-0.4-0.4-1.2 0-1.6s1.2-0.4 1.6 0l8.2 8.2 8.2-8.2c0.4-0.4 1.2-0.4 1.6 0C26.2 11.1 26.4 11.4 26.4 11.7z'/></svg>");
+    background-size: 26px 26px;
+  }
+
+  .product-specific-support {
+    padding: 1.5rem 0.8rem;
+    background: rgba(230, 230, 230, 0.5);
+  }
+
+  .support-section {
+    padding: 0.8rem;
+  }
+
+  .support-download-item {
+    padding: 0.5rem 0;
+    .small-1 {
+      padding: 0 !important;
+      text-align: right;
+    }
+    img {
+      max-width: 32px;
+    }
+  }
+
+  .support-view-more {
+    margin-bottom: 100px;
+    text-align: center;
+    border-bottom: 1px solid $charcoal;
+  }
