@@ -1,0 +1,13 @@
+---
+
+en:
+  application:
+    site_header:
+      about:     About Us
+      home:      Wavetronix
+      solutions: Explore Solutions
+      support:   Get Support
+      training:  Attend Training
+    site_footer:
+      jobs:      Careers
+      legal:     Legal
