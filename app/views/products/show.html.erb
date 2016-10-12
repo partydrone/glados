@@ -11,6 +11,12 @@
 		          <li>
 		            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
 		            <ul class="menu">
+		            	<li>
+                    <%= link_to nil, title: %(New) do %>
+                      <%= image_tag('icons/Plus16.svg', class: 'small-icon') %>
+                      New
+                    <% end %>
+                  </li>
 		              <li>
 		                <%= link_to nil, title: %(Edit) do %>
 		                  <%= image_tag('icons/edit16.svg', class: 'small-icon') %>
