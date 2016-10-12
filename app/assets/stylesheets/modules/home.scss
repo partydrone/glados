@@ -237,6 +237,9 @@ Efficient Section
 		.home-stories a:hover h4 {
 			background: none;
 		}
+		.home-story a:hover .stories-hidden-text {
+			height: auto;
+		}
 		.stories-hidden-text {
 			background: rgba(230, 230, 230, 0.8);
 			padding: 5px;
