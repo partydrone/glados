@@ -1,0 +1,151 @@
+@import "foundation_and_overrides";
+@import "globals/all";
+
+.training-request {
+	padding-top: 25px;
+	text-align: center;
+}
+
+.request-host {
+	padding-top: 25px;
+	.button {
+		width: 60%;
+	}
+	h4 {
+		margin-bottom: 1rem;
+	}
+}
+
+.training-grid-item {
+	width: 50%;
+}
+
+.event-location {
+	h6 {
+		margin: 0.5rem 0;
+		img {
+			height: 1rem;
+			margin-right: 0.25rem;
+		}
+	}
+	.button {
+		margin-top: 0.75rem;
+		width: 142px;
+	}
+}
+
+.request-host .button {
+	background: $dark-gray;
+		color: $white;
+		&:hover {
+			background-color: lighten($dark-gray, 10%);
+			color: $white !important;
+		}
+}
+
+.training-input-card {
+  width: 97%; 
+  @media screen and (min-width: 40em) {
+    width: 47%;
+  }
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;  
+  padding: 10px 0;
+  margin: 1%;
+  position: relative;
+  vertical-align: top;
+}
+
+.training-post-cards .post-card {
+	width: 97%; 
+  flex-basis: content;
+  @media screen and (min-width: 40em) {
+    width: 48%;
+  }
+	@media screen and (min-width: 40em) {
+		&:nth-child(1) {
+			margin-top: -530px;
+		}
+	}
+	.button {
+		background: $bluesteel;
+		color: $white;
+		&:hover {
+			background-color: lighten($bluesteel, 10%);
+			color: $white !important;
+		}
+	}
+}
+
+.training-post-cards .post-list {
+	overflow: visible;
+	@media screen and (min-width: 40em) {
+		max-height: 500px;
+	}
+}
+
+.training-input-container {
+	display: block;
+	width: 100%;
+}
+
+.training-courses-section {
+	margin-top: 2rem;
+}
+
+.training-course-card {
+	border: 1px solid $ghost;
+	padding: 2rem;
+	width: 100%;
+	vertical-align: top;
+	@media screen and (min-width: 40em) {
+		width: 47%;
+		margin: 1%;
+		display: inline-block;
+	}
+	.small-icon {
+		margin: 0.5rem 0.5rem 0.5rem 0;
+	}
+	.course-dropdown-container {
+    left: 0 !important;
+    top: 0px;
+    border: none !important;
+		height: 0;
+		position: relative;
+		&.is-open {
+			height: auto;
+			visibility: visible;
+			top: -30px !important;
+			width: 100%;
+			text-align: left;
+			padding: 0 !important;
+			img {
+				padding-bottom: 1rem;
+			}
+			.prereq-link {
+				color: $tomato;
+				font-weight: normal;
+			}
+			h6 img {
+				padding-top: 15px;
+				height: 49px;
+			}
+		}
+	}
+	.course-card-left,
+	.course-card-right {
+		width: 50%;
+		display: inline-block;
+	}
+	.course-card-right {
+		text-align: right;
+		float: right;
+		padding-top: 6px;
+	}
+}
+
+.learn-course {
+	text-align: center;
+	margin-bottom: -2rem;
+}

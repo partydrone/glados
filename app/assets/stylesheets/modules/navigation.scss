@@ -14,19 +14,46 @@ Off Canvas
     height: 100%;
     a {
       color: $ghost;
-      padding: 0.5em 1.2rem !important;
       &:hover {
         color: $yellow !important;
       }
     }
+    &.is-open {
+      border-left: 3px solid $yellow;
+    }
+    .is-accordion-submenu-parent > a::after {
+      display: none;
+    }
+    .site-search-bar {
+      margin-top: 0;
+    }
+  }
+
+  .off-canvas-logo {
+    padding-bottom: 0;
+    img {
+      height: 38px;
+    }
+  }
+
+  .off-canvas-menu-item {
+    border-top: 1px solid $ghost;
+    border-bottom: 1px solid $ghost;
+    margin-bottom: -1px;
+    .nested a {
+      font-weight: normal;
+      padding-left: 0;
+    }
   }
 
   .off-canvas-title {
-    padding: 0 1em;
-    h4 {
-      padding-top: 1.2em;
+    padding: 1em 0;
+    h3 {
       color: $ghost;
-      border-bottom: 1px solid $ghost;
+    }
+    &:hover,
+    &:hover h3 {
+      color: $yellow;
     }
   }
 
@@ -39,6 +66,15 @@ Off Canvas
     position: fixed;
     width: 100%;
     z-index: 50;
+  }
+  .js-off-canvas-exit {
+    background: rgba(0,0,0,0.5) !important;
+  }
+
+  .off-canvas-copyright {
+    color: $ghost;
+    text-align: right;
+    padding: 1rem;
   }
 
 /************************************************************************************************
@@ -67,6 +103,9 @@ Top Bar
     }
     .is-active .topbar-dropdown {
       color: $yellow;
+    }
+    input {
+      margin-right: 0 !important;
     }
   }
 
@@ -109,7 +148,6 @@ Megamenu Subnav
     width: 100%;
     z-index: 20;
     background: $charcoal !important;
-    color: $white !important;
     visibility: hidden;
     &.js-dropdown-active {
       visibility: visible;
@@ -120,7 +158,12 @@ Megamenu Subnav
     max-width: 70em; //row width
     background: $charcoal;
     margin: 1em auto;
-    text-align: center;
+    text-align: right;
+    a {
+      padding: 0 1rem;
+      color: $ghost;
+      font-weight: normal;
+    }
     .mega-menu-image {
       height: 133px;
       margin-bottom: 1rem;
@@ -141,13 +184,6 @@ Megamenu Subnav
       vertical-align: top;
       h3 {
         padding: 5px 0;
-      }
-    }
-    .social-media a {
-      float: left;
-      margin-right: 6px;
-        img {
-        background: $white;
       }
     }
   }
@@ -190,19 +226,17 @@ Megamenu Subnav
     position: relative;
     background: transparent;
     border: 0px solid transparent;
-    &:after {
+    &:before {
       border: solid transparent;
       content: " ";
       height: 0;
       width: 0;
       position: absolute;
       border-color: transparent;
-    }
-    &:after {
-      border-top-color: $black;
+      border-bottom-color: $charcoal;
       border-width: 12px;
       margin-left: 38%;
-      top: 43px;
+      top: 20px;
       z-index: 50;
     }
   }
@@ -219,6 +253,13 @@ Megamenu Subnav
     border-left: 1px solid $ghost;
     height: 231px;
     padding-left: 30px !important;
+  }
+
+  .admin-dropdown-menu {
+    width: 25vw;
+    text-align: right;
+    max-height: 90vh;
+    overflow-y: auto;
   }
 
 

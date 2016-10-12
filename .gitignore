@@ -11,6 +11,7 @@ capybara-*.html
 /public/assets/*
 !/public/assets/.sprockets-manifest-*.json
 /public/system
+/public/uploads/*
 /coverage/
 /spec/tmp
 **.orig

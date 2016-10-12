@@ -1,15 +1,20 @@
 <% content_for :title, 'Sign in' %>
-<div class="row columns">
-<h1>User Account Required</h1>
+<div class="new-session">
+	<div class="row">
+		<div class="medium-5 columns small-centered">
+			<div class="sign-on-panel">
+				<h4 class="text-centered">User Portal</h4>
 
-<%= form_tag '/auth/identity/callback' do %>
-  <%= label_tag :auth_key, 'Email' %>
-  <%= email_field_tag :auth_key %>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-  <%= submit_tag 'Sign in', class: 'button radius' %>
-<% end %>
+				<%= form_tag '/auth/identity/callback' do %>
+				  <%= email_field_tag :auth_key %>
+				  <p><%= label_tag :auth_key, 'Email' %></p>
+				  <%= password_field_tag :password %>
+				  <p><%= label_tag :password %></p>
+				  <%= submit_tag 'Login', class: 'button radius expanded' %>
+				<% end %>
 
-<h2>Don't have an account?</h2>
-<%= link_to 'create one here', new_identity_path %>
+				<h6>Don't have an account? <%= link_to 'create one here', new_identity_path %></h6>
+			</div>
+		</div>
+	</div>
 </div>

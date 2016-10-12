@@ -1,15 +1,14 @@
 <% content_for :title, 'Case Studies' %>
 <div class="row columns">
-<h1>Case Studies</h1>
-
-<%= link_to new_case_study_path, title: 'Create a new case study' do %>
-  <i class="fa fa-plus-square-o"></i>
-<% end %>
+<h1>Case Studies
+  <%= link_to new_case_study_path, title: 'Create a new case study' do %>
+    <%= image_tag('icons/Plus.svg', class: "icon") %>
+  <% end %>
+</h1>
 
 <table>
   <thead>
     <tr>
-      <th></th>
       <th>Title</th>
       <th>Posted</th>
       <th>Last Updated</th>

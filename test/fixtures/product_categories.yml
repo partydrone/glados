@@ -11,4 +11,4 @@ intersection:
 power:
   name: Power
   position: 1
-  product_type: cabinet-integration
+  product_type: cabinet_integration

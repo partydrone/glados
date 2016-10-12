@@ -1,0 +1,6 @@
+software_app:
+  locale: en
+  title: Software App
+  part_number: 101-0001
+  download_type: software
+  attachment_data:

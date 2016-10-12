@@ -1,23 +1,33 @@
 <% cache patent do %>
   <%= content_tag_for :tr, patent do %>
     <td>
-      <%= link_to patent, class: 'delete', data: { confirm: %(Are you sure you want to delete "#{patent.title} (##{number_with_delimiter patent.number})"? This cannot be undone.) }, method: :delete, title: %(Delete "#{patent.title}") do %>
-        <i class="fa fa-trash-o"></i>
-      <% end %>
-    </td>
-    <td>
       <%= number_with_delimiter patent.number %>
     </td>
     <td>
       <%= patent.title %>
     </td>
     <td>
-      <%= patent.products.map { |p| p.name }.join(', ') %>
-    </td>
-    <td>
-      <%= link_to edit_patent_path(patent), title: %(Edit "#{patent.title}") do %>
-        <i class="fa fa-edit"></i>
-      <% end %>
+      <div class="admin-nav">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li>
+            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
+            <ul class="menu">
+              <li>
+                <%= link_to edit_patent_path(patent), title: %(Edit "#{patent.title}") do %>
+                  <%= image_tag('icons/edit16.svg', class: 'small-icon') %>
+                  Edit
+                <% end %>
+              </li>
+              <li>
+                <%= link_to patent, class: 'delete', data: { confirm: %(Are you sure you want to delete "#{patent.title} (##{number_with_delimiter patent.number})"? This cannot be undone.) }, method: :delete, title: %(Delete "#{patent.title}") do %>
+                  <%= image_tag('icons/trash16.svg', class: 'small-icon') %>
+                  Delete
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </td>
   <% end %>
 <% end %>

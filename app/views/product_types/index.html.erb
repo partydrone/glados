@@ -1,22 +1,23 @@
 <% content_for :title, 'Product Types' %>
 <div class="row columns">
-<h1>Product Types</h1>
+  <h1>
+    Product Types
+    <%= link_to new_product_type_path, title: 'Create a new Product Type' do %>
+      <%= image_tag('icons/Plus.svg', class: "icon") %>
+    <% end %>
+  </h1>
 
-<%= link_to new_product_type_path, title: 'Create a new Product Type' do %>
-  <i class="fa fa-plus-square-o"></i>
-<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody id="product_types" data-update-path="<%= sort_product_types_path %>">
-    <%= render @product_types %>
-  </tbody>
-</table>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="product_types" data-update-path="<%= sort_product_types_path %>">
+      <%= render @product_types %>
+    </tbody>
+  </table>
 </div>

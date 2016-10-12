@@ -1,15 +1,15 @@
 <% content_for :title, 'Product Categories' %>
 <div class="row columns">
-  <h1>Product Categories</h1>
-
-  <%= link_to new_product_category_path, title: 'Create a new product category' do %>
-    <i class="fa fa-plus-square-o"></i>
-  <% end %>
+  <h1>
+    Product Categories
+    <%= link_to new_product_category_path, title: 'Create a new product category' do %>
+      <%= image_tag('icons/Plus.svg', class: "icon") %>
+    <% end %>
+  </h1>
 
   <table>
     <thead>
       <tr>
-        <th></th>
         <th>Name</th>
         <th>Product Type</th>
         <th></th>

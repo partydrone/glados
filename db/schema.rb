@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160926024825) do
+ActiveRecord::Schema.define(version: 20161006164443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,22 @@ ActiveRecord::Schema.define(version: 20160926024825) do
     t.integer  "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "downloads", force: :cascade do |t|
+    t.string   "locale"
+    t.string   "title"
+    t.string   "part_number"
+    t.integer  "download_type_id"
+    t.text     "attachment_data"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["download_type_id"], name: "index_downloads_on_download_type_id", using: :btree
+  end
+
+  create_table "downloads_products", id: false, force: :cascade do |t|
+    t.integer "download_id", null: false
+    t.integer "product_id",  null: false
   end
 
   create_table "identities", force: :cascade do |t|
@@ -103,6 +119,34 @@ ActiveRecord::Schema.define(version: 20160926024825) do
     t.index ["name"], name: "index_roles_on_name", using: :btree
   end
 
+  create_table "training_course_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "training_courses", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "number"
+    t.integer  "duration"
+    t.integer  "seats"
+    t.integer  "training_course_type_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["training_course_type_id"], name: "index_training_courses_on_training_course_type_id", using: :btree
+  end
+
+  create_table "training_events", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "started_at"
+    t.datetime "ended_at"
+    t.string   "location"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "provider"
     t.string   "uid"
@@ -122,4 +166,5 @@ ActiveRecord::Schema.define(version: 20160926024825) do
     t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
   end
 
+  add_foreign_key "downloads", "download_types"
 end

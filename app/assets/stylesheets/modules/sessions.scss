@@ -1,0 +1,36 @@
+@import "foundation_and_overrides";
+@import "globals/all";
+
+.new-session {
+	background: $charcoal;
+	height: 100vh;
+	margin-top: -65px;
+}
+
+.sign-on-panel {
+	h4 {
+		padding-bottom: 2rem;
+	}
+	padding: 2rem;
+	background: $ghost;
+	margin-top: 15vh;
+	border-radius: 5px;
+	label {
+    text-align: left;
+    line-height: 0;
+    margin-top: -5px;
+    margin-bottom: 26px;
+    &:last-child {
+      padding-bottom: 10px;
+    }
+  }
+  input#auth_key,
+  input#password {
+  	border: none;
+  	border-bottom: 1px solid $charcoal;
+  	background: transparent;
+    box-shadow: none;
+    font-size: 19px;
+    height: 26px;
+  }
+}

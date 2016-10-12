@@ -22,6 +22,12 @@ Home Stories
 		@media screen and (min-width: 64rem) {
 			width: 972px;
 		}
+		@media screen and (max-width: 372px) {
+			width: 90%;
+			.home-stories-image {
+				display: none;
+			}
+		}
 	}
 
 	.two-home-stories-container {

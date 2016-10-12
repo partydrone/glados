@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:edit, :update, :destroy]
 
   def index
     @product_categories = ProductCategory.includes(:products).where(product_type: ProductType.first)
@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.includes({downloads: [:download_type]}).find(params[:id])
   end
 
   def new
@@ -50,6 +51,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :part_number, :expired_on, :product_category_id)
+    params.require(:product).permit(:name, :part_number, :expired_on, :summary, :description, :product_category_id)
   end
 end

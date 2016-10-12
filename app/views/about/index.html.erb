@@ -1,0 +1,230 @@
+<%= content_for :title, 'About Us' %>
+
+<div class="page-sub-navigation show-for-large" data-sticky-container>
+  <div class="sticky" data-sticky data-anchor="legal" data-active-class>
+    <div class="row">
+      <div class="columns text-right">
+        <nav data-magellan>
+          <ul class="horizontal menu">
+            <li><%= link_to 'News', '#news' %></li>
+            <li><%= link_to 'About', '#about' %></li>
+            <li><%= link_to 'Downloads', '#downloads' %></li>
+            <li><%= link_to 'Careers', '#careers' %></li>
+            <li><%= link_to 'Legal', '#aboutlegal' %></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hide-for-large">
+  <div class="page-sub-bottom-nav">
+    <nav data-magellan>
+      <ul class="menu icon-top expanded">
+        <li><%= link_to 'News', '#news' %></li>
+        <li><%= link_to 'About', '#about' %></li>
+        <li><%= link_to 'Downloads', '#downloads' %></li>
+        <li><%= link_to 'Careers', '#careers' %></li>
+        <li><%= link_to 'Legal', '#legal' %></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+
+
+
+
+<div class="row">
+<div class="medium-10 medium-centered large-12 columns about-us-sections">
+
+
+<section id="news" data-magellan-target="news">
+  <div class="row columns">
+    <h1>News</h1>
+  </div>
+
+  <div class="row news-articles-container">
+    <div class="news-article">
+      <%= link_to nil do %>
+        <img src="http://placehold.it/770x433" alt="placeholder">
+        <h2>Why Loops Aren't Cheap</h2>
+        <p>Amy Pond, there's something you better understand about me, 'cause it's important and one day your life may depend on it. I am definitely a madman with a box.</p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-7 columns news-article-blurbs">
+      <div class="row news-links">
+        <%= link_to nil do %>
+          <div class="medium-6 large-4 columns">
+            <img src="http://placehold.it/770x433" alt="placeholder">
+          </div>
+          <div class="medium-6 large-8 columns">
+            <h2>All Weather Performance</h2>
+            <p>Think you know everything about traffic? Think again! You know nothing, Jon Snow! There are three lines of text here!</p>
+          </div>
+        <% end %>
+      </div>
+      <div class="row news-links">
+        <%= link_to nil do %>
+          <div class="large-4 medium-6 columns">
+            <img src="http://placehold.it/770x433" alt="placeholder">
+          </div>
+          <div class="large-8 medium-6 columns">
+            <h2>Detection In The UK</h2>
+            <p>Overwatch is a pretty fun game to play, which is strange for a FPS. Normally PVP games are reserved for meanies.</p>
+          </div>
+        <% end %>
+      </div>
+      <div class="row news-links">
+        <%= link_to nil do %>
+          <div class="large-4 medium-6 columns">
+            <img src="http://placehold.it/770x433" alt="placeholder">
+          </div>
+          <div class="large-8 medium-6 columns">
+            <h2>Loops Are Cutting In</h2>
+            <p>Ok, but if Marinette and Adrien actually chose their own names for Chat and Ladybug, why is it in history books?</p>
+          </div>
+        <% end %>
+      </div>
+      <div class="read-more">
+        <%= link_to nil do %>
+          Read More Stories <%= image_tag 'icons/stories-right-blue.svg', class: 'small-icon' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="large-5 columns news-article-list show-for-large">
+      <ul class="tabs" data-tabs id="news-article-tabs">
+        <li class="tabs-title is-active"><a href="#news-toparticles" aria-selected="true"><h5>Top Articles</h5></a></li>
+        <li class="tabs-title"><a href="#news-topics"><h5>Topics</h5></a></li>
+        <li class="tabs-title"><a href="#news-regions"><h5>Regions</h5></a></li>
+      </ul>
+      <div class="tabs-content" data-tabs-content="news-article-tabs">
+        <div class="tabs-panel is-active news-toparticles" id="news-toparticles">
+          <%= link_to "1. Why Loops Aren't Cheap", nil %><br/>
+          <%= link_to "2. These are set as Links", nil %><br/>
+          <%= link_to "3. font and size", nil %><br/>
+          <%= link_to "4. and stuff", nil %><br/>
+          <%= link_to "5. Do they look right?", nil %><br/>
+          <%= link_to "6. They Are Suppose", nil %><br/>
+          <%= link_to "7. To Be", nil %><br/>
+          <%= link_to "8. Or Not To Be", nil %><br/>
+          <%= link_to "9. I Mean, Why Not?", nil %><br/>
+          <%= link_to "10. Link Blue or Faded Blue?", nil %><br/>
+        </div>
+        <div class="tabs-panel" id="news-topics">
+          <p>Stuck in an elevator, she takes me to the sky. I don't want to go down. It's beautiful with the stars and the Earth and the Moon a million miles but closer than I've ever been.</p>
+        </div>
+        <div class="tabs-panel" id="news-regions">
+          <p>Suspendisse dictum feugiat nisl ut dapibus.  Vivamus hendrerit arcu sed erat molestie vehicula. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor.  Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="row" id="about" data-magellan-target="about">
+  <div class="small-12 columns">
+    <h1>About Us</h1>
+  </div>
+  <div class="large-7 columns">
+    <div class="flex-video">
+      <iframe src="https://www.youtube.com/embed/OE9_JYiA7zc" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+  <div class="small-10 small-pull-1 small-push-1 large-push-0 large-pull-0 large-5 columns">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis erat non ipsum scelerisque interdum. Fusce malesuada purus massa, consectetur luctus est condimentum eget. Nullam eu porttitor sapien, in euismod est. In vel sem vehicula ex elementum mattis eget vel sapien. Nullam in rutrum ante. Vivamus rhoncus dignissim eros, ac feugiat quam tempor sit amet. Vestibulum ullamcorper feugiat massa id pellentesque. Integer nisi mi, laoreet id tellus ac, condimentum blandit lacus. Mauris non augue malesuada, commodo ex eget, facilisis lectus. Duis sem mi, finibus id lacus non, vulputate euismod risus.</p>
+    <p>Quisque eleifend elementum leo sit amet mattis. Donec mollis euismod gravida. Aenean ut posuere velit. Vivamus consectetur eu justo hendrerit laoreet. Nunc felis urna, finibus a ante mattis, malesuada luctus turpis. Proin porta non augue ut tristique. Donec eget tempor lacus. Nulla pharetra bibendum nisi eu vulputate. Mauris blandit diam nec metus feugiat ultrices.</p>
+  </div>
+</section>
+
+<section class="row about-media" id="downloads" data-magellan-target="downloads">
+  <div class="small-12 columns">
+    <h1>Downloads</h1>
+  </div>
+  <div class="large-4 medium-6 columns">
+    <%= link_to(image_tag("thumb_Matrix_and_Advance.png"), image_path("full_Matrix_and_Advance.jpg")) %>
+    <div class="row">
+      <div class="small-6 columns">
+        <p>100kb</p>
+      </div>
+      <div class="small-6 columns text-right">
+        <%= link_to(image_tag("icons/download-icon.svg"), image_path("full_Matrix_and_Advance.jpg")) %>
+      </div>
+    </div>
+  </div>
+  <div class="large-4 medium-6 columns">
+    <%= link_to(image_tag("thumb_Advance.png"), image_path("full_Advance.jpg")) %>
+    <div class="row">
+      <div class="small-6 columns">
+        <p>100kb</p>
+      </div>
+      <div class="small-6 columns text-right">
+        <%= link_to(image_tag("icons/download-icon.svg"), image_path("full_Advance.jpg")) %>
+      </div>
+    </div>
+  </div>
+  <div class="large-4 medium-6 columns">
+    <%= link_to(image_tag("thumb_Matrix.png"), image_path("full_Matrix.jpg")) %>
+    <div class="row">
+      <div class="small-6 columns">
+        <p>100kb</p>
+      </div>
+      <div class="small-6 columns text-right">
+        <%= link_to(image_tag("icons/download-icon.svg"), image_path("full_Matrix.jpg")) %>
+      </div>
+    </div>
+  </div>
+  <div class="large-4 medium-6 columns">
+    <%= link_to(image_tag("thumb_HD.png"), image_path("full_HD.jpg")) %>
+    <div class="row">
+      <div class="small-6 columns">
+        <p>100kb</p>
+      </div>
+      <div class="small-6 columns text-right">
+        <%= link_to(image_tag("icons/download-icon.svg"), image_path("full_HD.jpg")) %>
+      </div>
+    </div>
+  </div>
+  <div class="large-4 medium-6 columns">
+    <%= link_to(image_tag("thumb_Advance_and_Matrix.png"), image_path("full_Advance_and_Matrix.jpg")) %>
+    <div class="row">
+      <div class="small-6 columns">
+        <p>100kb</p>
+      </div>
+      <div class="small-6 columns text-right">
+        <%= link_to(image_tag("icons/download-icon.svg"), image_path("full_Advance_and_Matrix.jpg")) %>
+      </div>
+    </div>
+  </div>
+  <div class="large-4 medium-6 columns">
+    <%= link_to(image_tag("thumb_Sensor_Family.png"), image_path("full_Sensor_Family.jpg")) %>
+    <div class="row">
+      <div class="small-6 columns">
+        <p>100kb</p>
+      </div>
+      <div class="small-6 columns text-right">
+        <%= link_to(image_tag("icons/download-icon.svg"), image_path("full_Sensor_Family.jpg")) %>
+      </div>
+    </div>
+  </div>
+  <div class="read-more small-12 columns">
+    <a href="#">+ View More Media</a>
+  </div>
+</section>
+
+</div>
+</div>
+
+<section class="about-careers-container" id="careers" data-magellan-target="careers">
+  <h1>Careers</h1>
+  <button class="button rounded large">Find Your Next Career</button>
+</section>
+
+<section class="about-legal-container" id="aboutlegal" data-magellan-target="legal">
+  <h1>Legal</h1>
+  <button class="button rounded secodnary large">View Legal Documents</button>
+</section>

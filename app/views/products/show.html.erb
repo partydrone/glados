@@ -1,14 +1,4 @@
-<div class="admin-nav">
-	<ul class="dropdown menu" data-dropdown-menu>
-	  <li>
-	    <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis.svg') %></a>
-	    <ul class="menu">
-	      <li><a href="#"><%= image_tag('icons/pencil.svg') %>Edit</a></li>
-	      <li><a href="#"><%= image_tag('icons/trash.svg') %>Delete</a></li>
-	    </ul>
-	  </li>
-	</ul>
-</div>
+<% content_for :title, @product.name %>
 
 <div class="product-specific-navigation show-for-large" data-sticky-container>
 	<div class="sticky" data-sticky data-active-class>
@@ -49,7 +39,7 @@
 	<div class="product-specific-top-nav">
 		<div class="row">
 			<div class="small-5 columns">
-				<h4>SmartSensor HD</h4>
+				<h4><%= @product.name %> <small>(<%= @product.part_number %>)</small></h4>
 			</div>
 			<div class="small-7 columns text-right">
 				<button class="button small hide-me-on-dropdown" type="button" data-toggle="demo-dropdown-small">Request a Demo</button>
@@ -84,7 +74,7 @@
 
 <div class="row columns">
 	<div class="product-specific-intro">
-		<h1>Proven Freeway/Arterial ITS</h1>
+		<h1><%= @product.summary %></h1>
 		<div class="product-intro-media">
 			<img src="http://placehold.it/1170x565">
 		</div>
@@ -92,7 +82,7 @@
 			<%= image_tag("HD_Front.png") %>
 		</div>
 		<div class="product-intro-blurb medium-7 medium-centered">
-			<h4>SmartSensor HD is the only vehicle detector with patented True High Definition, dual-beam radar, providing the most accurate vehicle data for ITS and planning applications.</h4>
+			<h4><%= @product.description %></h4>
 		</div>
 	</div>
 </div>
@@ -253,212 +243,12 @@
 				</section>
 			</div>
 
-			<div class="support-section medium-6 columns large-4">
-				<h2>Software</h2>
-				<div class="support-download-item row">
-					<%= link_to nil do %>
-						<div class="small-1 column">
-							<%= image_tag('icons/download-icon.svg') %>
-						</div>
-						<div class="small-11 columns">
-							SmartSensor Manager HD v2.1.5 Setup
-						</div>
-					<% end %>
+			<% @product.downloads.group_by(&:download_type).each do |download_type, downloads| %>
+				<div class="support-section medium-6 columns large-4">
+				  <h2><%= download_type.name %></h2>
+				  <%= render partial: 'download', collection: downloads %>
 				</div>
-			</div>
-
-			<div class="support-section medium-6 columns large-4">
-				<h2>Quick Reference Guides</h2>
-				<div class="support-download-item row">
-					<%= link_to nil do %>
-						<div class="small-1 column">
-							<%= image_tag('icons/document.svg') %>
-						</div>
-						<div class="small-11 columns">
-							SmartSensor HD Quick-reference Guide
-						</div>
-					<% end %>
-				</div>
-			</div>
-
-			<div class="support-section medium-6 columns large-4">
-				<h2>User Guides</h2>
-				<div class="support-download-item row">
-					<%= link_to nil do %>
-						<div class="small-1 column">
-							<%= image_tag('icons/document.svg') %>
-						</div>
-						<div class="small-11 columns">
-							Guide de l’utilisateur du SmartSensor HD (French)
-						</div>
-					<% end %>
-				</div>
-				<div class="support-download-item row">
-					<%= link_to nil do %>
-						<div class="small-1 column">
-							<%= image_tag('icons/document.svg') %>
-						</div>
-						<div class="small-11 columns">
-							SmartSensor HD User Guide
-						</div>
-					<% end %>
-				</div>
-			</div>
-
-			<div class="support-section medium-6 columns large-4">
-				<h2>Support icons/Documents</h2>
-				<div class="support-download-item row">
-					<%= link_to nil do %>
-						<div class="small-1 column">
-							<%= image_tag('icons/document.svg') %>
-						</div>
-						<div class="small-11 columns">
-							8-conductor Cable 10-pin Socket Assignment
-						</div>
-					<% end %>
-				</div>
-				<div class="support-download-item row">
-					<%= link_to nil do %>
-						<div class="small-1 column">
-							<%= image_tag('icons/document.svg') %>
-						</div>
-						<div class="small-11 columns">
-							Déclaration de Conformité UE (French)
-						</div>
-					<% end %>
-				</div>
-				<div class="support-download-item row">
-					<%= link_to nil do %>
-						<div class="small-1 column">
-							<%= image_tag('icons/document.svg') %>
-						</div>
-						<div class="small-11 columns">
-							Direct Serial Connections
-						</div>
-					<% end %>
-				</div>
-				<div class="support-download-item row">
-					<%= link_to nil do %>
-						<div class="small-1 column">
-							<%= image_tag('icons/document.svg') %>
-						</div>
-						<div class="small-11 columns">
-							EU Declaration of Conformity
-						</div>
-					<% end %>
-				</div>
-				<div class="support-download-item row">
-					<%= link_to nil do %>
-						<div class="small-1 column">
-							<%= image_tag('icons/document.svg') %>
-						</div>
-						<div class="small-11 columns">
-							Signaling Delays
-						</div>
-					<% end %>
-				</div>
-				<div class="support-download-item row">
-					<%= link_to nil do %>
-						<div class="small-1 column">
-							<%= image_tag('icons/document.svg') %>
-						</div>
-						<div class="small-11 columns">
-							SmartSensor HD Cable Length Recommendations
-						</div>
-					<% end %>
-				</div>
-				<div class="support-download-item row">
-					<%= link_to nil do %>
-						<div class="small-1 column">
-							<%= image_tag('icons/document.svg') %>
-						</div>
-						<div class="small-11 columns">
-							Wavetronix “Made in the USA” Compliance
-						</div>
-					<% end %>
-				</div>
-			</div>
-
-			<div class="support-section medium-6 columns large-4">
-				<h2>Datasheets</h2>
-				<div class="support-download-item row">
-					<%= link_to nil do %>
-						<div class="small-1 column">
-							<%= image_tag('icons/document.svg') %>
-						</div>
-						<div class="small-11 columns">
-							Ficha de Dados de SmartSensor HD (Portuguese)
-						</div>
-					<% end %>
-				</div>
-				<div class="support-download-item row">
-					<%= link_to nil do %>
-						<div class="small-1 column">
-							<%= image_tag('icons/document.svg') %>
-						</div>
-						<div class="small-11 columns">
-							Fiche technique du SmartSensor HD (French)
-						</div>
-					<% end %>
-				</div>
-				<div class="support-download-item row">
-					<%= link_to nil do %>
-						<div class="small-1 column">
-							<%= image_tag('icons/document.svg') %>
-						</div>
-						<div class="small-11 columns">
-							SmartSensor HD - 200 MHz Bandwidth Datasheet
-						</div>
-					<% end %>
-				</div>
-				<div class="support-download-item row">
-					<%= link_to nil do %>
-						<div class="small-1 column">
-							<%= image_tag('icons/document.svg') %>
-						</div>
-						<div class="small-11 columns">
-							SmartSensor HD Datasheet
-						</div>
-					<% end %>
-				</div>
-				<div class="support-download-item row">
-					<%= link_to nil do %>
-						<div class="small-1 column">
-							<%= image_tag('icons/document.svg') %>
-						</div>
-						<div class="small-11 columns">
-							SmartSensor HD Ficha Técnica (Spanish)
-						</div>
-					<% end %>
-				</div>
-				<div class="support-download-item row">
-					<%= link_to nil do %>
-						<div class="small-1 column">
-							<%= image_tag('icons/document.svg') %>
-						</div>
-						<div class="small-11 columns">
-							Specificazione del SmartSensor HD (Italian)
-						</div>
-					<% end %>
-				</div>
-				<div class="support-download-item row">
-					<%= link_to nil do %>
-						<div class="small-1 column">
-							<%= image_tag('icons/document.svg') %>
-						</div>
-						<div class="small-11 columns">
-							Паспорт SmartSensor HD (Russian)
-						</div>
-					<% end %>
-				</div>
-			</div>
-
-			<div class="support-section medium-6 columns large-4">
-				<h2>How-to properly align the SmartSensor HD</h2>
-				<div class="support-media">
-					<img src="http://placehold.it/639x325">
-				</div>
-			</div>
+			<% end %>
 
 			<div class="small-12 columns support-view-more">
 				<%= link_to "+ View More", nil %>

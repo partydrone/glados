@@ -1,3 +1,5 @@
+<%= content_for :title, 'Support' %>
+
 <div class="product-specific-navigation show-for-large" data-sticky-container>
 	<div class="sticky" data-sticky data-active-class>
 		<div class="row">
@@ -5,8 +7,9 @@
 				<nav data-magellan data-bar-offset="70">
 					<ul class="horizontal menu">
 						<li><a href="#product">Product</a></li>
-						<li><a href="#faqs">FAQs</a></li>
-						<li><a href="#return">Return</a></li>
+						<li><a href="#knowledge">Knowledge Base</a></li>
+						<li><a href="#return">Returns</a></li>
+						<li><a href="#app">App</a></li>
 						<li>
 							<button class="button small" type="button" data-toggle="demo-dropdown">Contact Your Dealer</button>
 						</li>
@@ -29,8 +32,9 @@
 		<nav data-magellan data-bar-offset="70">
 			<ul class="menu icon-top expanded">
 			  <li><a href="#product"><%= image_tag("icons/features.svg") %> <span>Product</span></a></li>
-			  <li><a href="#faqs"><%= image_tag("icons/features.svg") %> <span>FAQs</span></a></li>
-			  <li><a href="#return"><%= image_tag("icons/courses.svg") %> <span>Return</span></a></li>
+			  <li><a href="#knowledge"><%= image_tag("icons/features.svg") %> <span>Knowledge Base</span></a></li>
+			  <li><a href="#return"><%= image_tag("icons/courses.svg") %> <span>Returns</span></a></li>
+			  <li><a href="#app"><%= image_tag("icons/courses.svg") %> <span>App</span></a></li>
 			</ul>
 		</nav>
 	</div>
@@ -630,15 +634,15 @@
         <div class="medium-10 medium-centered columns">
           <div class="search-dropdown search-bar">
             <div class="site-search-bar input-group">
-              <input class="input-search-bar" type="text"/>
               <div class="input-group-button">
                 <?xml version="1.0" encoding="utf-8"?>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17">
                   <rect x="12.2" y="10" transform="translate(1 1)matrix(0.7071 -0.7071 0.7071 0.7071 -5.3589 12.9375)" class="st0" width="1.5" height="5.8"/><path class="st0" d="M7.3 14.3c-3.9 0-7-3.1-7-7 0-3.9 3.1-7 7-7 3.9 0 7 3.1 7 7C14.3 11.1 11.1 14.3 7.3 14.3zM7.3 1.8c-3 0-5.5 2.5-5.5 5.5 0 3 2.5 5.5 5.5 5.5 3 0 5.5-2.5 5.5-5.5C12.8 4.2 10.3 1.8 7.3 1.8z"/>
                 </svg>
               </div>
+              <input class="input-search-bar" type="text"/>
             </div>
-          </div>  
+          </div>
           <p>or visit</p>
           <button class="button rounded expanded">Knowledge Base</button>
         </div>
@@ -653,5 +657,13 @@
 		<h1>Returns</h1>
 		<h4>I’ve tried troubleshooting and still want to return the device</h4>
 		<button class="button rounded">View Return Policy</button>
+	</div>
+</div>
+
+<div class="support-app-container" id="app">
+	<div class="row">
+		<%= image_tag('icons/speech-bubbles.svg') %>
+		<h1>Looking for Our Mobile App Support?</h1>
+		<button class="button rounded">Visit App Support</button>
 	</div>
 </div>

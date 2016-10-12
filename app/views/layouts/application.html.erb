@@ -6,11 +6,10 @@
 
     <title><%= full_title yield(:title) %></title>
 
-    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'application', debug: false %>
     <%= csrf_meta_tags %>
 
     <!-- owl carousel -->
-
 
     <%= javascript_include_tag "https://use.fontawesome.com/540ab1d6d5.js" %>
     <script src="https://use.typekit.net/zjr7bnt.js"></script>
@@ -27,7 +26,6 @@
         </div> <!-- close off-canvas-content -->
       </div> <!-- close off-canvas inner wrapper -->
     </div> <!-- close off-canvas-wrapper -->
-    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'application', debug: false %>
   </body>
-
 </html>

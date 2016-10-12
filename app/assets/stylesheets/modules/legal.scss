@@ -2,48 +2,6 @@
 @import "globals/all";
 
 
-
-/***********************************************************************************************
-navigation
-***********************************************************************************************/
-	.legal-navigation {
-		background: $white;
-		.sticky {
-			width: 100% !important;
-			background: $white;
-			padding: 41px 0 5px 0;
-			opacity: 0.9;
-			border-bottom: 1px solid $silver;
-		}
-		.menu {
-			float: right;
-		}
-		a {
-			color: $charcoal;
-			font-weight: 500;
-		}
-	}
-
-	.legal-navigation .active,
-	.legal-bottom-nav .active {
-		color: $linkblue !important;
-	}
-
-	.legal-bottom-nav {
-		bottom: 0 !important;
-		width: 100%;
-		height: 50px;
-		background: $white;
-		position: fixed;
-		border-top: 1px solid $silver;
-		a {
-			padding: 8px 1px 0px 1px !important;
-			color: $charcoal;
-			font-weight: 400 !important;
-			font-size: 0.875rem;
-		}
-	}
-
 /***********************************************************************************************
 sections
 ***********************************************************************************************/

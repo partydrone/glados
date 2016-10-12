@@ -5,6 +5,13 @@ module ApplicationHelper
     title.join(' - ')
   end
 
+  def humanize_locale(locale)
+    locale =~ /^([a-z]{2,2})(?:[-|_]([A-Z]{2,2}))?$/i
+    output = t("languages.#{$1}")
+    output += " (#{t("countries.#{$2.try(:upcase)}")})" if $2
+    return output
+  end
+
   def markdown(text)
     options = {
       filter_html:     true,

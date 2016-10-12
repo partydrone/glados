@@ -1,11 +1,6 @@
 <% cache website_privacy_policy_document do %>
   <%= content_tag_for :tr, website_privacy_policy_document do %>
     <td>
-      <%= link_to website_privacy_policy_document, class: 'delete', data: { confirm: %(Are you sure you want to delete "#{website_privacy_policy_document.title}"? This cannot be undone.) }, method: :delete, title: %(Delete "#{website_privacy_policy_document.title}") do %>
-        <i class="fa fa-trash-o"></i>
-      <% end %>
-    </td>
-    <td>
       <%= link_to website_privacy_policy_document.title, website_privacy_policy_document %>
     </td>
     <td>
@@ -15,9 +10,27 @@
       <%= l website_privacy_policy_document.updated_at.to_date, format: :long %>
     </td>
     <td>
-      <%= link_to edit_website_privacy_policy_document_path(website_privacy_policy_document), title: %(Edit "#{website_privacy_policy_document.title}") do %>
-        <i class="fa fa-edit"></i>
-      <% end %>
+      <div class="admin-nav">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li>
+            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
+            <ul class="menu">
+              <li>
+                <%= link_to edit_website_privacy_policy_document_path(website_privacy_policy_document), title: %(Edit "#{website_privacy_policy_document.title}") do %>
+                  <%= image_tag('icons/edit16.svg', class: 'small-icon') %>
+                  Edit
+                <% end %>
+              </li>
+              <li>
+                <%= link_to website_privacy_policy_document, class: 'delete', data: { confirm: %(Are you sure you want to delete "#{website_privacy_policy_document.title}"? This cannot be undone.) }, method: :delete, title: %(Delete "#{website_privacy_policy_document.title}") do %>
+                  <%= image_tag('icons/trash16.svg', class: 'small-icon') %>
+                  Delete
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </td>
   <% end %>
 <% end %>

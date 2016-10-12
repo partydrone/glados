@@ -1,0 +1,26 @@
+<% cache download do %>
+  <%= content_tag_for :tr, download do %>
+    <td>
+      <%= link_to download, class: 'delete', data: { confirm: %(Are you sure you want to delete "#{download.title}"? This cannot be undone.) }, method: :delete, title: %(Delete "#{download.title}") do %>
+        <i class="fa fa-trash-o"></i>
+      <% end %>
+    </td>
+    <td>
+      <%= download.download_type.name %>
+    </td>
+    <td>
+      <%= humanize_locale download.locale %>
+    </td>
+    <td>
+      <%= download.title %>
+    </td>
+    <td>
+      <%= download.part_number %>
+    </td>
+    <td>
+      <%= link_to edit_download_path(download), title: %(Edit "#{download.title}") do %>
+        <i class="fa fa-edit"></i>
+      <% end %>
+    </td>
+  <% end %>
+<% end %>

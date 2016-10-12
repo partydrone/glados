@@ -1,10 +1,6 @@
 @import "foundation_and_overrides";
 @import "globals/all";
 
-.about-gold {
-	margin-bottom: 30px;
-}
-
 .about-media {
 	img {
 		margin-bottom: 10px;
@@ -18,10 +14,30 @@
 	}
 }
 
-.about-read-more {
+.about-us-sections {
+	section {
+		margin-bottom: 5rem;
+	}
+}
+
+.about-careers-container,
+.about-legal-container {
 	text-align: center;
-	border-bottom: 1px solid $silver;
-	padding-bottom: 10px;
-	padding-top: 35px;
-	margin-bottom: 50px;
+	padding: 10rem 0;
+	button {
+		margin-top: 2rem;
+	}
+}
+
+.about-careers-container {
+	background: $ghost;
+}
+
+.about-legal-container button {
+	background: $bluesteel;
+	color: $white;
+	&:hover {
+		background-color: lighten($bluesteel, 10%);
+		color: $white !important;
+	}
 }

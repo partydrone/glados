@@ -19,10 +19,9 @@ gem 'pundit'
 gem 'rolify'
 
 # File uploads
-gem 'mini_magick'
-gem 'refile', require: 'refile/rails'
-# gem 'refile-mini_magick'
-# gem 'refile-s3'
+gem 'shrine'
+gem 'aws-sdk', '~> 2.1'
+gem 'roda'
 
 # Front-end
 gem 'foundation-rails', '~> 6.0'

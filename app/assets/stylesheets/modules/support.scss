@@ -71,7 +71,6 @@ select.support-dropdown {
 	padding: 5rem 0;
 	img {
 		padding-bottom: 0.75rem;
-		border-bottom: 1px solid $charcoal;
 	}
 	button {
 		margin: 1.5rem 1rem 0 1rem;
@@ -140,5 +139,19 @@ select.support-dropdown {
 	margin-top: -16px
 }
 
+.support-app-container {
+	text-align: center;
+	margin-top: 3em;
+	padding: 5rem 0;
+	img {
+		padding-bottom: 0.75rem;
+	}
+	button {
+		margin: 1.5rem 1rem 0 1rem;
+	}
+	@media screen and (max-width: 1023px) {
+		margin-bottom: 7rem;
+	}
+}
 
 

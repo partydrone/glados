@@ -1,15 +1,15 @@
 <% content_for :title, 'Blog Posts' %>
 <div class="row columns">
-<h1>Blog Posts</h1>
-
-<%= link_to new_blog_post_path, title: 'Create a new Product Type' do %>
-  <i class="fa fa-plus-square-o"></i>
-<% end %>
+<h1>
+  Blog Posts
+  <%= link_to new_blog_post_path, title: 'Create a new Product Type' do %>
+    <%= image_tag('icons/Plus.svg', class: "icon") %>
+  <% end %>
+</h1>
 
 <table>
   <thead>
     <tr>
-      <th></th>
       <th>Title</th>
       <th>Posted</th>
       <th>Last Updated</th>

@@ -1,23 +1,36 @@
 <% cache list_item do %>
   <%= content_tag_for :tr, list_item do %>
     <td>
-      <%= link_to product_category_path(list_item), class: 'delete', data: { confirm: %(Are you sure you want to delete "#{list_item.name}"? This cannot be undone.) }, method: :delete, title: %(Delete "#{list_item.name}") do %>
-        <i class="fa fa-trash-o"></i>
-      <% end %>
-    </td>
-    <td>
       <%= list_item.name %>
     </td>
     <td>
       <%= list_item.product_type.name %>
     </td>
     <td>
-      <%= link_to edit_product_category_path(list_item), title: %(Edit "#{list_item.name}") do %>
-        <i class="fa fa-edit"></i>
-      <% end %>
+      <div class="admin-nav">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li>
+            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
+            <ul class="menu">
+              <li>
+                <%= link_to edit_product_category_path(list_item), title: %(Edit "#{list_item.name}") do %>
+                  <%= image_tag('icons/edit16.svg', class: 'small-icon') %>
+                  Edit
+                <% end %>
+              </li>
+              <li>
+                <%= link_to product_category_path(list_item), class: 'delete', data: { confirm: %(Are you sure you want to delete "#{list_item.name}"? This cannot be undone.) }, method: :delete, title: %(Delete "#{list_item.name}") do %>
+                  <%= image_tag('icons/trash16.svg', class: 'small-icon') %>
+                  Delete
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </td>
     <td class="handle">
-      <i class="fa fa-ellipsis-v"></i>
+      <%= image_tag('icons/ellipsisup-small.svg', class: 'small-icon') %>
     </td>
   <% end %>
 <% end %>

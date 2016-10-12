@@ -4,7 +4,7 @@
   Website Terms of Use Documents
   <small>
     <%= link_to new_website_terms_of_use_document_path, title: "Create a new Website Terms of Use document" do %>
-      <i class="fa fa-plus-square-o"></i>
+      <%= image_tag('icons/Plus.svg', class: "icon") %>
     <% end %>
   </small>
 </h1>
@@ -12,7 +12,6 @@
 <table>
   <thead>
     <tr>
-      <th></th>
       <th>Title</th>
       <th>Effective</th>
       <th>Last modified</th>

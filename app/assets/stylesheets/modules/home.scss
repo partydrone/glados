@@ -81,8 +81,7 @@ Top Banner
 
 	.home-video { //this will be replaced by a video
 		height: 650px;
-		background: url(image_path('home-smarter-traffic.png')) no-repeat center;
-		background-position: 50% 50%;
+		background: url(image_path('home-smarter-traffic.png')) no-repeat center center;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		-o-background-size: cover;
@@ -211,8 +210,7 @@ Safer Section
 			height: 100%;
 		}
 		@media screen and (max-width: 40em) {
-			background: url(image_path('home/home-car-smash-mobile.png')) no-repeat right;
-			margin-top: -184px;
+			display: none;
 		}
 	}
 
@@ -297,7 +295,7 @@ Reliable Section
 
 	.home-reliable {
 		text-align: center;
-		h2 {
+		h1 {
 			color: $charcoal;
 		}
 		.home-stories h6,
@@ -331,6 +329,9 @@ Reliable Section
 		}
 		.home-section-text img {
 			border-bottom: 1px solid $charcoal;
+			@media screen and (max-width: 40em) {
+				border-bottom: none;
+			}
 		}
 		.stories-hidden-text h5,
 		.stories-hidden-text p {
@@ -466,17 +467,16 @@ Reliable Magellan Section
 	}
 
 	.construction-background {
-		background: url(image_path('reliable_2.png')) no-repeat center;
+		background: url(image_path('reliable_2.png')) no-repeat center center;
 		height: 100vh;
 	}
 
 	.road-background {
-		background: url(image_path('reliable_3.png')) no-repeat center;
+		background: url(image_path('reliable_3.png')) no-repeat center center;
 		height: 100vh;
 	}
 
 	.home-reliable-background-image {
-		background-position: 50% 50%;
 		-webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
@@ -485,8 +485,7 @@ Reliable Magellan Section
 	}
 
 	.home-reliable-nav-mobile {
-		background: #5598cc url(image_path('country.png')) no-repeat top;
-		background-position: 50% 0%;
+		background: #5598cc url(image_path('country.png')) no-repeat center center;
 		-webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
@@ -709,6 +708,9 @@ Simple Section
 
 	.home-simple {
 		text-align: center;
+		h1 {
+			color: $linkblue;
+		}
 		.home-stories {
 			padding-bottom: 0px;
 		}
@@ -777,6 +779,9 @@ Support Section
 	  padding-bottom: 100px;
 	  .home-divider path {
 			fill: $yellow;
+		}
+		h1 {
+			color: $linkblue;
 		}
 	}
 

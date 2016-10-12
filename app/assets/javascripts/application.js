@@ -17,20 +17,20 @@
 //= require foundation
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function() {
+  $(document).foundation();
 
-jQuery(document).ready(function(){
   var storiesContainer = $(".home-stories-container");
   var storiesTwoContainer = $(".two-home-stories-container");
   if (storiesContainer.length > 0) {
-    if (jQuery().owlCarousel) {
+    if ($().owlCarousel) {
       storiesContainer.each(function(){
         var carousel= $(this).find('.owl-carousel'),
-          navigationNext = $(this).find('.home-story-right'),
-          navigationPrev = $(this).find('.home-story-left'),
-          nextBtn = navigationNext.find('.owl-next'),
-          prevBtn = navigationPrev.find('.owl-prev');
-            
+        navigationNext = $(this).find('.home-story-right'),
+        navigationPrev = $(this).find('.home-story-left'),
+        nextBtn = navigationNext.find('.owl-next'),
+        prevBtn = navigationPrev.find('.owl-prev');
+
         carousel.owlCarousel({
           autoPlay: false,
           items : 3,
@@ -45,22 +45,23 @@ jQuery(document).ready(function(){
         nextBtn.click(function(){
           carousel.trigger('owl.next');
         });
+
         prevBtn.click(function(){
           carousel.trigger('owl.prev');
         });
-
       });
     };
   };
+
   if (storiesTwoContainer.length > 0) {
-    if (jQuery().owlCarousel) {
+    if ($().owlCarousel) {
       storiesTwoContainer.each(function(){
         var carousel= $(this).find('.owl-carousel'),
-          navigationNext = $(this).find('.home-story-right'),
-          navigationPrev = $(this).find('.home-story-left'),
-          nextBtn = navigationNext.find('.owl-next'),
-          prevBtn = navigationPrev.find('.owl-prev');
-            
+        navigationNext = $(this).find('.home-story-right'),
+        navigationPrev = $(this).find('.home-story-left'),
+        nextBtn = navigationNext.find('.owl-next'),
+        prevBtn = navigationPrev.find('.owl-prev');
+
         carousel.owlCarousel({
           autoPlay: false,
           items : 2,
@@ -78,7 +79,6 @@ jQuery(document).ready(function(){
         prevBtn.click(function(){
           carousel.trigger('owl.prev');
         });
-
       });
     };
   };
