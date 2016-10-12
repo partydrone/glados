@@ -424,12 +424,13 @@ Admin Navigation
 ***********************************************************************************************/
  
 .admin-nav {
-  background: $snow;
   display: inline-block;
   text-align: left;
   border-radius: 5px;
   z-index: 5;
-  border: 1px solid $ghost;
+  a {
+    padding: 0.25rem 1rem !important;
+  }
   img {
     height: 16px;
     margin-right: 0 !important;

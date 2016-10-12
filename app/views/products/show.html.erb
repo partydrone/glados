@@ -4,7 +4,30 @@
 	<div class="sticky" data-sticky data-active-class>
 		<div class="row">
 			<div class="large-5 columns">
-				<h4><%= @product.name %> <small>(<%= @product.part_number %>)</small></h4>
+				<h4>
+					<%= @product.name %> <small>(<%= @product.part_number %>)</small>
+					<div class="admin-nav">
+		        <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
+		          <li>
+		            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
+		            <ul class="menu">
+		              <li>
+		                <%= link_to nil, title: %(Edit) do %>
+		                  <%= image_tag('icons/edit16.svg', class: 'small-icon') %>
+		                  Edit
+		                <% end %>
+		              </li>
+		              <li>
+		                <%= link_to nil, class: 'delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
+		                  <%= image_tag('icons/trash16.svg', class: 'small-icon') %>
+		                  Delete
+		                <% end %>
+		              </li>
+		            </ul>
+		          </li>
+		        </ul>
+		      </div>
+				</h4>
 			</div>
 			<div class="large-7 columns text-right">
 				<nav data-magellan data-bar-offset="70">
