@@ -158,25 +158,17 @@ Safer Section
 		}
 	}
 
+	.home-safe .goto-new:after {
+		content: url(image_path('icons/stories-right.svg')) !important;
+	}
+
 	.home-safe h1 {
 		color: $linkblue;
 	}
 
-	.show-for-medium {
-		.orbit-slide {
-			height: 281px;
-		}
-	}
-
 	.home-safe .show-for-small-only {
-		.orbit-container {
-			padding-bottom: 100px;
-		}
 		h6 {
 			color: $charcoal;
-		}
-		.orbit-slide {
-			text-align: center;
 		}
 		.columns:last-child:not(:first-child) {
 			float: none;
@@ -340,6 +332,9 @@ Reliable Section
 		.stories-hidden-text p {
 			color: $white;
 		}
+		.goto-new:after {
+    		content: url(image_path('icons/stories-right.svg')) !important;
+    	}
 	}
 
 	.home-nav-dots-reliable {
@@ -347,15 +342,6 @@ Reliable Section
 	}
 
 	.home-reliable .show-for-small-only {
-		.orbit-slide {
-			text-align: center;
-		}
-		.columns:last-child:not(:first-child) {
-			float: none;
-		}
-		.orbit-previous, .orbit-next {
-			margin-top: 25px;
-		}
 		img {
 			padding-bottom: 25px;
 		}
@@ -608,14 +594,8 @@ Cost Effective Section
 	}
 
 	.home-cost .show-for-small-only {
-		.orbit-slide {
-			text-align: center;
-		}
 		.columns:last-child:not(:first-child) {
 			float: none;
-		}
-		.orbit-previous, .orbit-next {
-			margin-top: 25px;
 		}
 		img {
 			padding-bottom: 25px;
@@ -717,13 +697,9 @@ Simple Section
 		.home-stories {
 			padding-bottom: 0px;
 		}
-		.orbit {
-			max-width: 625px;
-		}
-		.orbit-previous, .orbit-next {
-			padding: 0;
-			top: 75px;
-		}
+		.goto-new:after {
+    		content: url(image_path('icons/stories-right.svg')) !important;
+    	}
 	}
 
 	.home-nav-dots-simple {
@@ -756,14 +732,8 @@ Simple Section
 	}
 
 	.home-simple .show-for-small-only {
-		.orbit-slide {
-			text-align: center;
-		}
 		.columns:last-child:not(:first-child) {
 			float: none;
-		}
-		.orbit-previous, .orbit-next {
-			margin-top: 25px;
 		}
 		img {
 			padding-bottom: 25px;
@@ -786,6 +756,9 @@ Support Section
 		h1 {
 			color: $linkblue;
 		}
+		.goto-new:after {
+    	content: url(image_path('icons/stories-right.svg')) !important;
+   	}
 	}
 
 	.home-nav-dots-support {
@@ -818,16 +791,10 @@ Support Section
 	.home-support .show-for-small-only {
 		margin-left: auto;
 		margin-right: auto;
-		.orbit-slide {
-			text-align: center;
-		}
 		.columns:last-child:not(:first-child) {
 			float: none;
 			margin-left: auto;
 			margin-right: auto;
-		}
-		.orbit-previous, .orbit-next {
-			margin-top: 25px;
 		}
 		img {
 			padding-bottom: 25px;
