@@ -320,9 +320,21 @@ Read/View more
     text-align: center;
     border-bottom: 1px solid $silver;
     padding-bottom: 10px;
-    img {
-      width: 32px;
-    }
+  }
+
+  .goto-new:after {
+    content: url(image_path('icons/stories-right-blue.svg'));
+    width: 16px;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .expand-container:before {
+    content: url(image_path('icons/blue-down-arrow.svg'));
+    width: 16px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 0.5rem;
   }
 
 /***********************************************************************************************
