@@ -11,3 +11,7 @@ en:
     site_footer:
       jobs:      Careers
       legal:     Legal
+  training:
+    index:
+      events:     Training Events
+      courses:    Training Courses
