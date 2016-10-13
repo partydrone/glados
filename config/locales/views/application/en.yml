@@ -4,16 +4,12 @@ en:
   application:
     site_header:
       about:     About Us
+      contact:   Contact Us
       home:      Wavetronix
       solutions: Explore Solutions
       support:   Get Support
       training:  Attend Training
-      contact:   Contact Us
     site_footer:
-      jobs:      Careers
-      legal:     Legal
-      signin:    Manage
-  training:
-    index:
-      events:    Training Events
-      courses:   Training Courses
+      jobs:    Careers
+      legal:   Legal
+      sign_in: Manage
