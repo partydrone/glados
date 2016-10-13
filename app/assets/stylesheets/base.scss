@@ -337,6 +337,14 @@ Read/View more
     margin-right: 0.5rem;
   }
 
+  .close-container:before {
+    content: url(image_path('icons/blue-up-arrow.svg'));
+    width: 16px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 0.5rem;
+  }
+
 /***********************************************************************************************
 Request Dropdown
 ***********************************************************************************************/
