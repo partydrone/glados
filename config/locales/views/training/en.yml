@@ -3,6 +3,10 @@
 en:
   training:
     index:
-      courses: Training Courses
-      events:  Training Events
-      title:   Attend Training
+      courses:          Training Courses
+      events:           Training Events
+      title:            Attend Training
+      request:          Request Updates
+      want_host:        Want to host a training event?
+      host_when_where:  Just let us know when and where.
+      contact_us:       Contact Us
