@@ -2,5 +2,21 @@
 
 en:
   support:
-    index:
-      title: Get Support
+    base:
+      index:
+        title:                  Support
+        product:                Product
+        knowledge_base:         Knowledge Base
+        returns:                Returns
+        app:                    App
+        contact_dealer:         Contact Your Dealer
+        support:                Support
+        top_faqs:               Top 10 Frequently Asked Questions
+        helpful:                Was this helpful?
+        question:               Don't see your question? 
+        search_knowledge_base:  Search our Knowledge Base
+        visit:                  or visit
+        tried_troubleshooting:  I’ve tried troubleshooting and still want to return the device
+        return_policy:          View Return Policy
+        mobile_app:             Looking for Our Mobile App?
+        app_support:            Visit App Support
