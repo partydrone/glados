@@ -10,7 +10,6 @@ en:
         returns:                Returns
         app:                    App
         contact_dealer:         Contact Your Dealer
-        support:                Support
         top_faqs:               Top 10 Frequently Asked Questions
         helpful:                Was this helpful?
         question:               Don't see your question? 
@@ -20,3 +19,8 @@ en:
         return_policy:          View Return Policy
         mobile_app:             Looking for Our Mobile App?
         app_support:            Visit App Support
+    marketing_app:
+      index:
+        title:                  Wavetronix App
+        issue:                  Having an issue with the app?
+
