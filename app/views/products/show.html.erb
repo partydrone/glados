@@ -11,21 +11,18 @@
 		          <li>
 		            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
 		            <ul class="menu">
-		            	<li>
-                    <%= link_to nil, title: %(New) do %>
-                      <%= image_tag('icons/Plus16.svg', class: 'small-icon') %>
-                      New
-                    <% end %>
-                  </li>
 		              <li>
-		                <%= link_to nil, title: %(Edit) do %>
-		                  <%= image_tag('icons/edit16.svg', class: 'small-icon') %>
+		                <%= link_to nil, title: %(New), class: "admin-new" do %>
+		                  New
+		                <% end %>
+		              </li>
+		              <li>
+		                <%= link_to nil, title: %(Edit), class: "admin-edit" do %>
 		                  Edit
 		                <% end %>
 		              </li>
 		              <li>
-		                <%= link_to nil, class: 'delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
-		                  <%= image_tag('icons/trash16.svg', class: 'small-icon') %>
+		                <%= link_to nil, class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
 		                  Delete
 		                <% end %>
 		              </li>
@@ -38,9 +35,9 @@
 			<div class="large-7 columns text-right">
 				<nav data-magellan data-bar-offset="70">
 					<ul class="horizontal menu">
-						<li><a href="#features">Features</a></li>
-						<li><a href="#training">Courses</a></li>
-						<li><a href="#support">Support</a></li>
+						<li><a href="#features"><%= t(".features") %></a></li>
+						<li><a href="#training"><%= t(".courses") %></a></li>
+						<li><a href="#support"><%= t(".support") %></a></li>
 						<li>
 							<button class="button small hide-me-on-dropdown" type="button" data-toggle="demo-dropdown">Request a Demo</button>
 							<div class="dropdown-pane request-dropdown-container" id="demo-dropdown" data-dropdown data-auto-focus="true">
@@ -53,7 +50,7 @@
 						        <input type="text">
 						        <label>Email Address</label>
 									</form>
-									<button type="submit" form="request-dropdown-form" value="Submit" class="button rounded">Request a Demo</button><button class="button rounded cancel" data-toggle="demo-dropdown">Cancel</button>
+									<button type="submit" form="request-dropdown-form" value="Submit" class="button rounded"><%= t(".request_demo") %></button><button class="button rounded cancel" data-toggle="demo-dropdown"><%= t(".cancel") %></button>
 						    </div>
 							</div>
 						</li>
@@ -71,7 +68,7 @@
 				<h4><%= @product.name %> <small>(<%= @product.part_number %>)</small></h4>
 			</div>
 			<div class="small-7 columns text-right">
-				<button class="button small hide-me-on-dropdown" type="button" data-toggle="demo-dropdown-small">Request a Demo</button>
+				<button class="button small hide-me-on-dropdown" type="button" data-toggle="demo-dropdown-small"><%= t(".request_demo") %></button>
 				<div class="dropdown-pane request-dropdown-container" id="demo-dropdown-small" data-dropdown data-auto-focus="true">
 				   <div class="request-dropdown">
 						<form id="request-dropdown-form">
@@ -82,7 +79,7 @@
 					        <input type="text">
 					        <label>Email Address</label>
 						</form>
-						<button type="submit" form="request-dropdown-form" value="Submit" class="button small rounded">Request a Demo</button><button class="button small rounded cancel" data-toggle="demo-dropdown-small">Cancel</button>
+						<button type="submit" form="request-dropdown-form" value="Submit" class="button small rounded"><%= t(".request_demo") %></button><button class="button small rounded cancel" data-toggle="demo-dropdown-small"><%= t(".cancel") %></button>
 			    </div>
 				</div>
 			</div>
@@ -91,9 +88,9 @@
 	<div class="product-specific-bottom-nav">
 		<nav data-magellan data-bar-offset="70">
 			<ul class="menu icon-top expanded">
-			  <li><a href="#features"><%= image_tag("icons/features.svg") %> <span>Features</span></a></li>
-			  <li><a href="#training"><%= image_tag("icons/courses.svg") %> <span>Courses</span></a></li>
-			  <li><a href="#support"><%= image_tag("icons/support.svg") %> <span>Support</span></a></li>
+			  <li><a href="#features"><%= image_tag("icons/features.svg") %> <span><%= t(".features") %></span></a></li>
+			  <li><a href="#training"><%= image_tag("icons/courses.svg") %> <span><%= t(".courses") %></span></a></li>
+			  <li><a href="#support"><%= image_tag("icons/support.svg") %> <span><%= t(".support") %></span></a></li>
 			</ul>
 		</nav>
 	</div>
@@ -201,7 +198,7 @@
 	</section>
 
 	<section class="product-request-demo">
-		<h4>Request a Demo</h4>
+		<h4><%= t(".request_demo") %></h4>
 	  <div class="request-box">
 	    <div class="request row">
 	      <div class="medium-8 large-6 medium-centered columns">
@@ -214,7 +211,7 @@
 	          <p class="request-label">Zip Code or Country</p>
 	        </form>
 	        <button type="submit" form="app-support-form" value="Submit" class="button rounded">Request a Demo</button>
-	        <p>Prefer to contact us? Find your dealer <%= link_to "here.", nil %></p>
+	        <p><%= t(".perfer_contact") %> <%= link_to t(".here"), nil %>.</p>
 	      </div>
 	    </div>
 	  </div>
@@ -223,13 +220,13 @@
 
 	<!-- always white! -->
 	<section class="product-specific-training row" id="training" data-magellan-target="training">
-		<h1>Related Courses</h1>
+		<h1><%= t(".related_courses") %></h1>
 
 		<div class="product-specific-course-listing medium-8 medium-centered">
 			<h2>SmartSensor HD Installation</h2>
 			<p>Learn proper installation techniques for the SmartSensor HD in order to achieve accurate detections. Understand the steps to take the correctly troubleshoot possible communications or power issues.</p>
-			<div class="course-duration">
-				<p><%= image_tag("icons/blue-watch.svg") %> 4 hours</p>
+			<div class="course-duration event-location">
+				<p class="event-time">4 hours</p>
 			</div>
 			<p>Prerequisites: Intro to Radar</p>
 			<button class="button">Register</button>
@@ -238,8 +235,8 @@
 		<div class="product-specific-course-listing medium-8 medium-centered">
 			<h2>SmartSensor HD Configuration</h2>
 			<p>Learn proper installation techniques for the SmartSensor HD in order to achieve accurate detections. Understand the steps to take the correctly troubleshoot possible communications or power issues.</p>
-			<div class="course-duration">
-				<p><%= image_tag("icons/blue-watch.svg") %> 4 hours</p>
+			<div class="course-duration event-location">
+				<p class="event-time">4 hours</p>
 			</div>
 			<p>Prerequisites: Intro to Radar</p>
 			<button class="button">Register</button>
@@ -248,8 +245,8 @@
 		<div class="product-specific-course-listing medium-8 medium-centered">
 			<h2>SmartSensor Troubleshooting</h2>
 			<p>Learn proper installation techniques for the SmartSensor HD in order to achieve accurate detections. Understand the steps to take the correctly troubleshoot possible communications or power issues.</p>
-			<div class="course-duration">
-				<p><%= image_tag("icons/blue-watch.svg") %> 4 hours</p>
+			<div class="course-duration event-location">
+				<p class="event-time">4 hours</p>
 			</div>
 			<p>Prerequisites: SmartSensor Installation &amp Configuration Course</p>
 			<button class="button">Register</button>
@@ -260,7 +257,7 @@
 	<section class="product-specific-support" id="support" data-magellan-target="support">
 		<div class="row">
 			<div class="columns">
-				<h1>Support</h1>
+				<h1><%= t(".support") %></h1>
 			</div>
 			<div class="columns product-language-selection">
 				<section class="products-language-header">
@@ -280,7 +277,7 @@
 			<% end %>
 
 			<div class="small-12 columns support-view-more">
-				<%= link_to "View More", nil, class: "expand-container" %>
+				<%= link_to t(".view_more"), nil, class: "expand-container" %>
 			</div>
 
 		</div>

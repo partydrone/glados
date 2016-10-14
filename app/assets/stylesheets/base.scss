@@ -461,6 +461,22 @@ Admin Navigation
     width: 300px;
     border: 1px solid $ghost;
   }
+  .admin-new:before,
+  .admin-edit:before,
+  .admin-delete:before {
+    width: 16px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .admin-new:before {
+    content: url(image_path('icons/Plus16.svg'));
+  }
+  .admin-edit:before {
+    content: url(image_path('icons/edit16.svg'));
+  }
+  .admin-delete:before {
+    content: url(image_path('icons/trash16.svg'));
+  }
 }
 
 /***********************************************************************************************
