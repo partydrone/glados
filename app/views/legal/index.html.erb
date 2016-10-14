@@ -1,4 +1,4 @@
-<% content_for :title, 'Legal' %>
+<%= content_for :title, t(".title") %>
 
 <div class="page-sub-navigation show-for-large" data-sticky-container>
 	<div class="sticky" data-sticky data-anchor="legal" data-active-class>
@@ -27,7 +27,7 @@
 <div class="legal-sections row">
 
 	<%= content_tag :section, id: 'patents', class: 'legal-patents columns', data: {'magellan-target': 'patents'} do %>
-		<h1>Patents</h1>
+		<h1><%= t(".patents") %></h1>
 		<table class="hover">
 		  <thead>
 		    <tr>
