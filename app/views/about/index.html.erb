@@ -1,4 +1,4 @@
-<%= content_for :title, 'About Us' %>
+<%= content_for :title, t(".title") %>
 
 <div class="page-sub-navigation show-for-large" data-sticky-container>
   <div class="sticky" data-sticky data-anchor="legal" data-active-class>
@@ -6,11 +6,11 @@
       <div class="columns text-right">
         <nav data-magellan>
           <ul class="horizontal menu">
-            <li><%= link_to 'News', '#news' %></li>
-            <li><%= link_to 'About', '#about' %></li>
-            <li><%= link_to 'Downloads', '#downloads' %></li>
-            <li><%= link_to 'Careers', '#careers' %></li>
-            <li><%= link_to 'Legal', '#aboutlegal' %></li>
+            <li><%= link_to t(".news"), '#news' %></li>
+            <li><%= link_to t(".title"), '#about' %></li>
+            <li><%= link_to t(".downloads"), '#downloads' %></li>
+            <li><%= link_to t(".careers"), '#careers' %></li>
+            <li><%= link_to t(".legal"), '#aboutlegal' %></li>
           </ul>
         </nav>
       </div>
@@ -22,19 +22,15 @@
   <div class="page-sub-bottom-nav">
     <nav data-magellan>
       <ul class="menu icon-top expanded">
-        <li><%= link_to 'News', '#news' %></li>
-        <li><%= link_to 'About', '#about' %></li>
-        <li><%= link_to 'Downloads', '#downloads' %></li>
-        <li><%= link_to 'Careers', '#careers' %></li>
-        <li><%= link_to 'Legal', '#legal' %></li>
+        <li><%= link_to t(".news"), '#news' %></li>
+        <li><%= link_to t(".title"), '#about' %></li>
+        <li><%= link_to t(".downloads"), '#downloads' %></li>
+        <li><%= link_to t(".careers"), '#careers' %></li>
+        <li><%= link_to t(".legal"), '#legal' %></li>
       </ul>
     </nav>
   </div>
 </div>
-
-
-
-
 
 <div class="row">
 <div class="medium-10 medium-centered large-12 columns about-us-sections">
@@ -42,7 +38,7 @@
 
 <section id="news" data-magellan-target="news">
   <div class="row columns">
-    <h1>News</h1>
+    <h1><%= t(".news") %></h1>
   </div>
 
   <div class="row news-articles-container">
@@ -92,15 +88,15 @@
       </div>
       <div class="read-more">
         <%= link_to nil, class: "goto-new" do %>
-          Read More Stories
+          <%= t(".more_stories") %>
         <% end %>
       </div>
     </div>
     <div class="large-5 columns news-article-list show-for-large">
       <ul class="tabs" data-tabs id="news-article-tabs">
-        <li class="tabs-title is-active"><a href="#news-toparticles" aria-selected="true"><h5>Top Articles</h5></a></li>
-        <li class="tabs-title"><a href="#news-topics"><h5>Topics</h5></a></li>
-        <li class="tabs-title"><a href="#news-regions"><h5>Regions</h5></a></li>
+        <li class="tabs-title is-active"><a href="#news-toparticles" aria-selected="true"><h5><%= t(".top_articles") %></h5></a></li>
+        <li class="tabs-title"><a href="#news-topics"><h5><%= t(".topics") %></h5></a></li>
+        <li class="tabs-title"><a href="#news-regions"><h5><%= t(".regions") %></h5></a></li>
       </ul>
       <div class="tabs-content" data-tabs-content="news-article-tabs">
         <div class="tabs-panel is-active news-toparticles" id="news-toparticles">
@@ -128,7 +124,7 @@
 
 <section class="row" id="about" data-magellan-target="about">
   <div class="small-12 columns">
-    <h1>About Us</h1>
+    <h1><%= t(".title") %></h1>
   </div>
   <div class="large-7 columns">
     <div class="flex-video">
@@ -212,7 +208,7 @@
     </div>
   </div>
   <div class="read-more small-12 columns">
-    <a href="#" class="expand-container">View More Media</a>
+    <a href="#" class="expand-container"><%= t(".more_media") %></a>
   </div>
 </section>
 
@@ -220,11 +216,11 @@
 </div>
 
 <section class="about-careers-container" id="careers" data-magellan-target="careers">
-  <h1>Careers</h1>
-  <button class="button rounded large">Find Your Next Career</button>
+  <h1><%= t(".careers") %></h1>
+  <button class="button rounded large"><%= t(".find_career") %></button>
 </section>
 
 <section class="about-legal-container" id="aboutlegal" data-magellan-target="legal">
-  <h1>Legal</h1>
-  <button class="button rounded secodnary large">View Legal Documents</button>
+  <h1><%= t(".legal") %></h1>
+  <button class="button rounded secodnary large"><%= t(".view_legal") %></button>
 </section>

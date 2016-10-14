@@ -4,5 +4,7 @@ en:
   case_studies:
     index:
     show:
+      similar_stories:  Similar Stories
+      tags:             Tags
     new:
     edit:
