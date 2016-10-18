@@ -8,7 +8,7 @@
           <%= image_tag "icons/road-icon.svg", class: "icon" %>
           <h1>
             <%= product_category.name %>
-            <%= render 'options_menu', object: product_category, as: :object %>
+            <%= render partial: 'options_menu', locals: {object: product_category, instance_name: product_category.name} %>
           </h1>
           <div class="row products-product-box">
           <!-- only if there is no content
