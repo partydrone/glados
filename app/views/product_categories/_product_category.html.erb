@@ -8,30 +8,7 @@
           <%= image_tag "icons/road-icon.svg", class: "icon" %>
           <h1>
             <%= product_category.name %>
-            <div class="admin-nav">
-              <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
-                <li>
-                  <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
-                  <ul class="menu">
-                    <li>
-                      <%= link_to nil, class: 'admin-new', title: %(New) do %>
-                        New
-                      <% end %>
-                    </li>
-                    <li>
-                      <%= link_to nil, class: 'admin-edit', title: %(Edit) do %>
-                        Edit
-                      <% end %>
-                    </li>
-                    <li>
-                      <%= link_to nil, class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
-                        Delete
-                      <% end %>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
+            <%= render 'options_menu', object: product_category, as: :object %>
           </h1>
           <div class="row products-product-box">
           <!-- only if there is no content
