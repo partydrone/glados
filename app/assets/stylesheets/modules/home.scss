@@ -86,10 +86,10 @@ Top Banner
 		-moz-background-size: cover;
 		-o-background-size: cover;
 		background-size: cover;
-		background: url(image_path('home-smarter-traffic.png')) no-repeat center;
+		background: url(image_path('home/home-smarter-traffic.png')) no-repeat center;
 		@media screen and (max-width:40em) {
 			height: 421px;
-			background: url(image_path('home-smarter-traffic-small.png')) no-repeat center;
+			background: url(image_path('home/home-smarter-traffic-small.png')) no-repeat center;
 	  }
 	}
 
