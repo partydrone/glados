@@ -13,3 +13,6 @@ en:
       jobs:    Careers
       legal:   Legal
       sign_in: Manage
+
+  ui:
+    demo_button: Request a Demo
