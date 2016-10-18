@@ -107,7 +107,7 @@ Top Banner
 		width: 100%;
 		text-align: center;
 		padding-top: 275px;
-		position: fixed;
+		position: relative;
 		.home-header-text {
 			color: $white;
 			font-size: 84px;
@@ -450,7 +450,7 @@ Reliable Magellan Section
 	}
 
 	.lighting-background {
-		background: #5598cc url(image_path('reliable_1.png')) no-repeat center;
+		background: #5598cc url(image_path('home/reliable_1.png')) no-repeat center;
 		height: 100vh;
 	}
 
@@ -475,12 +475,12 @@ Reliable Magellan Section
 	}
 
 	.construction-background {
-		background: url(image_path('reliable_2.png')) no-repeat center center;
+		background: url(image_path('home/reliable_2.png')) no-repeat center center;
 		height: 100vh;
 	}
 
 	.road-background {
-		background: url(image_path('reliable_3.png')) no-repeat center center;
+		background: url(image_path('home/reliable_3.png')) no-repeat center center;
 		height: 100vh;
 	}
 
@@ -493,7 +493,7 @@ Reliable Magellan Section
 	}
 
 	.home-reliable-nav-mobile {
-		background: #5598cc url(image_path('country.png')) no-repeat center center;
+		background: #5598cc url(image_path('home/country.png')) no-repeat center center;
 		-webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
@@ -629,7 +629,7 @@ Cost Effective Section
 	}
 
 	.home-cost-loopsaddup-background  {
-		background: url(image_path('Loopsaddup375w.jpg')) no-repeat bottom;
+		background: url(image_path('home/Loopsaddup375w.jpg')) no-repeat bottom;
 		height: 453px;
 		background-position: 50% 50%;
 		-webkit-background-size: cover;
@@ -639,11 +639,11 @@ Cost Effective Section
 		z-index: 30;
 		@media only screen and (min-width: 40.063em) and (max-width: 1023px) { 
 			height: 858px;
-			background: url(image_path('Loopsaddup768w.jpg')) no-repeat bottom;
+			background: url(image_path('home/Loopsaddup768w.jpg')) no-repeat bottom;
 		}
 		@media screen and (min-width: 1024px) {
 			height: 100vh;
-			background: #1b2e3b url(image_path('Loopsaddup.jpg')) no-repeat center;
+			background: #1b2e3b url(image_path('home/Loopsaddup.jpg')) no-repeat center;
 			background-attachment: fixed;
 			background-position: 50% 90%;
 			-webkit-background-size: cover;
@@ -654,7 +654,7 @@ Cost Effective Section
 	}
 
 	.cost-loops {
-		background: url(image_path('Loops375w.png')) no-repeat center bottom;
+		background: url(image_path('home/Loops375w.png')) no-repeat center bottom;
 		height: 453px;
 		background-position: 0% 50%;
 		-webkit-background-size: cover;
@@ -665,11 +665,11 @@ Cost Effective Section
 		z-index: 31;
 		@media only screen and (min-width: 40.063em) and (max-width: 1023px) { 
 			height: 858px;
-			background: url(image_path('Loops768w.png')) no-repeat center bottom;
+			background: url(image_path('home/Loops768w.png')) no-repeat center bottom;
 		}
 		@media only screen and (min-width: 1024px) { 
 			height: 100vh;
-			background: url(image_path('Loops1440w.png')) no-repeat center;
+			background: url(image_path('home/Loops1440w.png')) no-repeat center;
 			background-attachment: fixed;
 			background-position: 50% 90%;
 			-webkit-background-size: cover;
@@ -680,7 +680,7 @@ Cost Effective Section
 	}
 
 	.cost-one-sensor {
-		background: url(image_path('Beams375w.png')) no-repeat center bottom;
+		background: url(image_path('home/Beams375w.png')) no-repeat center bottom;
 		height: 453px;
 		background-position: 0% 50%;
 		-webkit-background-size: cover;
@@ -689,11 +689,11 @@ Cost Effective Section
 		background-size: cover;
 		@media only screen and (min-width: 40.063em) and (max-width: 1023px) { 
 			height: 858px;
-			background: url(image_path('Beams768w.png')) no-repeat center bottom;
+			background: url(image_path('home/Beams768w.png')) no-repeat center bottom;
 		}
 		@media only screen and (min-width: 1024px) { 
 			height: 100vh;
-			background: url(image_path('Beams1440w.png')) no-repeat center;
+			background: url(image_path('home/Beams1440w.png')) no-repeat center;
 			background-attachment: fixed;
 			background-position: 50% 90%;
 			-webkit-background-size: cover;
@@ -734,7 +734,7 @@ Simple Section
 		.simple-background {
 			width: 100%;
 			min-height: 657px;
-			background: url(image_path('traffic-work.png')) no-repeat right bottom;
+			background: url(image_path('home/traffic-work.png')) no-repeat right bottom;
 		}
 	}
 
@@ -786,7 +786,7 @@ Support Section
 	}
 
 	.support-image-backer {
-		background: $fadedblue url(image_path('home-support-background.png')) no-repeat top;
+		background: $fadedblue url(image_path('home/home-support-background.png')) no-repeat top;
 		background-position: 50% 50%;
 		-webkit-background-size: cover;
 	  -moz-background-size: cover;
