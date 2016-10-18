@@ -211,16 +211,14 @@ Safer Section
 		margin-top: -173px;
 		height: 300px;
 		right: 0;
-		@media screen and (max-width: 1360px) {
-			background: url(image_path('home/home-car-smash-thin.png')) no-repeat right;
-		}
+		background: url(image_path('home/home-car-smash-thin.png')) no-repeat right;
 		@media screen and (min-width: 1360px) {
 			background: url(image_path('home/home-car-smash.png')) no-repeat left;
 		}
 		img {
 			height: 100%;
 		}
-		@media screen and (max-width: 40em) {
+		@media screen and (max-width: 880px) {
 			display: none;
 		}
 	}
