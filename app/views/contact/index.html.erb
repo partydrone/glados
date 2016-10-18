@@ -30,7 +30,33 @@
 
 <section class="row" id="dealers" data-magellan-target="dealers">
 	<div class="columns">
-		<h1><%= t(".locate_dealer") %></h1>
+		<h1>
+			<%= t(".locate_dealer") %>
+				<div class="admin-nav">
+	        <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
+	          <li>
+	            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
+	            <ul class="menu">
+	              <li>
+	                <%= link_to nil, title: %(New), class: "admin-new" do %>
+	                  New
+	                <% end %>
+	              </li>
+	              <li>
+	                <%= link_to nil, title: %(Edit), class: "admin-edit" do %>
+	                  Edit
+	                <% end %>
+	              </li>
+	              <li>
+	                <%= link_to nil, class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
+	                  Delete
+	                <% end %>
+	              </li>
+	            </ul>
+	          </li>
+	        </ul>
+	      </div>
+			</h1>
 		<div class="dealers-map">
 			<%= image_tag('dealermap.png', class: "map") %>
 			<div class="site-search-bar input-group">
@@ -49,7 +75,33 @@
 
 <section class="row" id="offices" data-magellan-target="offices">
 	<div class="columns">
-		<h1><%= t(".wavetronix_offices") %></h1>
+		<h1>
+			<%= t(".wavetronix_offices") %>
+			<div class="admin-nav">
+        <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
+          <li>
+            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
+            <ul class="menu">
+              <li>
+                <%= link_to nil, title: %(New), class: "admin-new" do %>
+                  New
+                <% end %>
+              </li>
+              <li>
+                <%= link_to nil, title: %(Edit), class: "admin-edit" do %>
+                  Edit
+                <% end %>
+              </li>
+              <li>
+                <%= link_to nil, class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
+                  Delete
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+		</h1>
 		<div class="row office-row">
 			<div class="large-3 medium-6 columns end">
 				<div class="office-information">

@@ -461,6 +461,8 @@ Admin Navigation
     width: 300px;
     border: 1px solid $ghost;
   }
+}
+
   .admin-new:before,
   .admin-edit:before,
   .admin-delete:before {
@@ -477,7 +479,6 @@ Admin Navigation
   .admin-delete:before {
     content: url(image_path('icons/trash16.svg'));
   }
-}
 
 /***********************************************************************************************
 post-cards

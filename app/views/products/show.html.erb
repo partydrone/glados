@@ -12,11 +12,6 @@
 		            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
 		            <ul class="menu">
 		              <li>
-		                <%= link_to nil, title: %(New), class: "admin-new" do %>
-		                  New
-		                <% end %>
-		              </li>
-		              <li>
 		                <%= link_to nil, title: %(Edit), class: "admin-edit" do %>
 		                  Edit
 		                <% end %>
@@ -117,6 +112,12 @@
 
 	<section class="product-specific-features" id="features" data-magellan-target="features">
 
+		<!-- only if there is no content
+    <%= link_to nil, title: %(New) do %>
+      <%= image_tag('icons/Plus.svg', class: 'icon') %>
+    <% end %>
+
+    else -->        
 		<div class="product-feature">
 			<div class="product-intro-media">
 				<img src="http://placehold.it/1200x550">
@@ -220,6 +221,13 @@
 
 	<!-- always white! -->
 	<section class="product-specific-training row" id="training" data-magellan-target="training">
+		<!-- only if there is no content
+			<h1><%= t(".related_courses") %></h1>
+	    <%= link_to nil, title: %(New) do %>
+	      <%= image_tag('icons/Plus.svg', class: 'icon') %>
+	    <% end %>
+
+    else -->
 		<h1><%= t(".related_courses") %></h1>
 
 		<div class="product-specific-course-listing medium-8 medium-centered">
@@ -257,6 +265,13 @@
 	<section class="product-specific-support" id="support" data-magellan-target="support">
 		<div class="row">
 			<div class="columns">
+				<!-- only if there is no content
+					<h1><%= t(".support") %></h1>
+			    <%= link_to nil, title: %(New) do %>
+			      <%= image_tag('icons/Plus.svg', class: 'icon') %>
+			    <% end %>
+
+		    else -->
 				<h1><%= t(".support") %></h1>
 			</div>
 			<div class="columns product-language-selection">

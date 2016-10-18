@@ -39,7 +39,28 @@
 <section class="article-header">
   <div class="row">
     <div class="large-12 medium-8 medium-offset-2 large-offset-0 columns">
-      <h1>Why Loops Aren't Cheap</h1>
+      <h1>
+        Why Loops Aren't Cheap
+        <div class="admin-nav">
+          <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
+            <li>
+              <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
+              <ul class="menu">
+                <li>
+                  <%= link_to nil, title: %(Edit), class: "admin-edit" do %>
+                    Edit
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to nil, class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
+                    Delete
+                  <% end %>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </h1>
       <h6>By Jen Clark</h6>
       <img src="http://placehold.it/1200x600" alt="placeholder">
     </div>

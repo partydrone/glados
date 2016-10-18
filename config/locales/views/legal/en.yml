@@ -7,8 +7,10 @@ en:
       patents:        Patents
     page_navigation:
       patents:        Patents
+      patent_title:   Title
+      patent_number:  Patent Number
+      privacy:        Privacy Policy
       rma:            RMA Policy
       sales_terms:    Sales Terms & Conditions
-      privacy:        Privacy Policy
       terms_use:      Terms of Use
     
