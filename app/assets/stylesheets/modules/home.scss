@@ -81,21 +81,33 @@ Top Banner
 
 	.home-video { //this will be replaced by a video
 		height: 650px;
-		background: url(image_path('home-smarter-traffic.png')) no-repeat center center;
+		overflow: hidden;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		-o-background-size: cover;
 		background-size: cover;
+		background: url(image_path('home-smarter-traffic.png')) no-repeat center;
 		@media screen and (max-width:40em) {
 			height: 421px;
 			background: url(image_path('home-smarter-traffic-small.png')) no-repeat center;
 	  }
 	}
 
+	.home-video-cake {
+		width: 100%;
+		position: relative;
+		height: 650px;
+		overflow: hidden;
+		z-index: 0;
+		object-fit: cover;
+	}
+
+
 	.home-top-banner {
 		width: 100%;
 		text-align: center;
 		padding-top: 275px;
+		position: fixed;
 		.home-header-text {
 			color: $white;
 			font-size: 84px;
@@ -136,6 +148,11 @@ Top Banner
 		  	margin-top: 10px;
 		  }
 		}
+		@media screen and (min-width: 1023px) {
+			margin-top: -650px;
+			position: absolute;
+			z-index: 1;
+		}
 	}
 
 /***********************************************************************************************
@@ -144,6 +161,8 @@ Safer Section
 
 	.home-safe-left-img {
 		margin-top: -100px;
+		position: relative;
+		z-index: 5;
 	}
 
 	.home-safe .home-top-arrow {
