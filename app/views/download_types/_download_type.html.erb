@@ -4,31 +4,7 @@
       <%= download_type.name %>
     </td>
     <td>
-      <div class="admin-nav">
-        <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
-          <li>
-            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
-            <ul class="menu">
-              <li>
-                <%= link_to edit_download_type_path(download_type), title: %(Edit "#{download_type.name}") do %>
-                  <%= image_tag('icons/edit16.svg', class: 'small-icon') %>
-                  Edit
-                <% end %>
-              </li>
-              <li>
-                <%= link_to download_type_path(download_type), class: 'delete', data: { confirm: %(Are you sure you want to delete "#{download_type.name}"? This cannot be undone.) }, method: :delete, title: %(Delete "#{download_type.name}") do %>
-                  Delete
-                <% end %>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-
-
-    </td>
-    <td class="handle">
-      <%= image_tag('icons/ellipsisup-small.svg', class: 'small-icon') %>
+      <%= render partial: 'options_menu', locals: {object: download_type, instance_name: download_type.name} %>
     </td>
   <% end %>
 <% end %>

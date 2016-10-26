@@ -25,6 +25,8 @@ describe ProductsController, :locale do
           name: 'System One',
           part_number: '500-0001',
           expired_on: '',
+          summary: 'System One summary',
+          description: 'System One description.',
           product_category_id: product_categories(:arterial).id
         }
       }
