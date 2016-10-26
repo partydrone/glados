@@ -1,4 +1,4 @@
-<%= content_for :title, 'Contact' %>
+<%= content_for :title, t(".title") %>
 
 <div class="page-sub-navigation show-for-large" data-sticky-container>
 	<div class="sticky" data-sticky data-anchor="training" data-active-class>
@@ -6,8 +6,8 @@
 			<div class="columns text-right">
 				<nav data-magellan data-bar-offset="70">
 					<ul class="horizontal menu">
-						<li><a href="#dealers">Locate Your Dealer</a></li>
-						<li><a href="#offices">Wavetronix Offices</a></li>
+						<li><a href="#dealers"><%= t(".locate_dealer") %></a></li>
+						<li><a href="#offices"><%= t(".wavetronix_offices") %></a></li>
 					</ul>
 				</nav>
 			</div>
@@ -19,8 +19,8 @@
 	<div class="page-sub-bottom-nav">
 		<nav data-magellan data-bar-offset="50">
 			<ul class="menu icon-top expanded">
-			 	<li><a href="#">Locate Your Dealer</a></li>
-			 	<li><a href="#">Wavetronix Offices</a></li>
+			 	<li><a href="#"><%= t(".locate_dealer") %></a></li>
+			 	<li><a href="#"><%= t(".wavetronix_offices") %></a></li>
 			</ul>
 		</nav>
 	</div>
@@ -30,9 +30,35 @@
 
 <section class="row" id="dealers" data-magellan-target="dealers">
 	<div class="columns">
-		<h1>Locate Your Dealer</h1>
+		<h1>
+			<%= t(".locate_dealer") %>
+				<div class="admin-nav">
+	        <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
+	          <li>
+	            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
+	            <ul class="menu">
+	              <li>
+	                <%= link_to nil, title: %(New), class: "admin-new" do %>
+	                  New
+	                <% end %>
+	              </li>
+	              <li>
+	                <%= link_to nil, title: %(Edit), class: "admin-edit" do %>
+	                  Edit
+	                <% end %>
+	              </li>
+	              <li>
+	                <%= link_to nil, class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
+	                  Delete
+	                <% end %>
+	              </li>
+	            </ul>
+	          </li>
+	        </ul>
+	      </div>
+			</h1>
 		<div class="dealers-map">
-			<%= image_tag('dealermap.png', class: "map") %>
+			<%= image_tag('contact/dealermap.png', class: "map") %>
 			<div class="site-search-bar input-group">
 		      <div class="input-group-button">
 		        <?xml version="1.0" encoding="utf-8"?>
@@ -40,7 +66,7 @@
 		          <rect x="12.2" y="10" transform="translate(1 1)matrix(0.7071 -0.7071 0.7071 0.7071 -5.3589 12.9375)" class="st0" width="1.5" height="5.8"/><path class="st0" d="M7.3 14.3c-3.9 0-7-3.1-7-7 0-3.9 3.1-7 7-7 3.9 0 7 3.1 7 7C14.3 11.1 11.1 14.3 7.3 14.3zM7.3 1.8c-3 0-5.5 2.5-5.5 5.5 0 3 2.5 5.5 5.5 5.5 3 0 5.5-2.5 5.5-5.5C12.8 4.2 10.3 1.8 7.3 1.8z"/>
 		        </svg>
 		      </div>
-		      <input class="input-search-bar" type="text" placeholder="Search by state, country or dealer name" />
+		      <input class="input-search-bar" type="text" placeholder="<%= t('.search') %>" />
 		    </div>
 		  </div>
 		</div>
@@ -49,7 +75,33 @@
 
 <section class="row" id="offices" data-magellan-target="offices">
 	<div class="columns">
-		<h1>Wavetronix Offices</h1>
+		<h1>
+			<%= t(".wavetronix_offices") %>
+			<div class="admin-nav">
+        <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
+          <li>
+            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
+            <ul class="menu">
+              <li>
+                <%= link_to nil, title: %(New), class: "admin-new" do %>
+                  New
+                <% end %>
+              </li>
+              <li>
+                <%= link_to nil, title: %(Edit), class: "admin-edit" do %>
+                  Edit
+                <% end %>
+              </li>
+              <li>
+                <%= link_to nil, class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
+                  Delete
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+		</h1>
 		<div class="row office-row">
 			<div class="large-3 medium-6 columns end">
 				<div class="office-information">
@@ -175,7 +227,7 @@
 		</div>
 		<div class="row">
 			<div class="large-7 columns end">
-				<h3>Website Feedback</h3>
+				<h3><%= t(".website_feedback") %></h3>
 				<p>Give us your feedback on or report any problems you experience with our website by sending an email to webmaster@wavetronix.com. Please note that we cannot respond to general questions and/or information requests through this email address. This email address will not help you recieve customer support. </p>
 			</div>
 		</div>

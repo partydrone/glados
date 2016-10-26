@@ -32,6 +32,23 @@
 		margin-top: 0.75rem;
 		width: 142px;
 	}
+	.event-city:before,
+	.event-date:before,
+	.event-time:before {
+    width: 16px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 0.5rem;
+	}
+	.event-city:before {
+		content: url(image_path('icons/Marker.svg'));
+	}
+	.event-date:before {
+		content: url(image_path('icons/calendar.svg'));
+	}
+	.event-time:before {
+		content: url(image_path('icons/stop-watch.svg'));
+	}
 }
 
 .request-host .button {
@@ -137,15 +154,31 @@
 	.course-card-right {
 		width: 50%;
 		display: inline-block;
+		margin: 0.5rem 0;
 	}
 	.course-card-right {
 		text-align: right;
 		float: right;
-		padding-top: 6px;
 	}
 }
 
 .learn-course {
 	text-align: center;
 	margin-bottom: -2rem;
+}
+
+.training-certified:before {
+	content: url(image_path('icons/Certified.svg'));
+    width: 16px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 0.5rem;
+}
+
+.training-hours:before {
+	content: url(image_path('icons/stop-watch.svg'));
+    width: 16px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 0.5rem;
 }

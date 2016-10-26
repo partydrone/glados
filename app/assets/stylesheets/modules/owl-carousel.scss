@@ -123,6 +123,7 @@ Home Stories
 		margin-right: auto;
 		margin-left: auto;
 		text-align: left;
+		height: 0;
 		.learn-more {
 			color: $gold;
 			font-weight: bold;
@@ -145,6 +146,7 @@ Home Stories
 			visibility: visible;
 			opacity: 1;
 			display: block;
+			height: auto;
 		}
 	}
 

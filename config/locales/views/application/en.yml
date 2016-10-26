@@ -1,0 +1,18 @@
+---
+
+en:
+  application:
+    site_header:
+      about:     About Us
+      contact:   Contact Us
+      home:      Wavetronix
+      solutions: Explore Solutions
+      support:   Get Support
+      training:  Attend Training
+    site_footer:
+      jobs:    Careers
+      legal:   Legal
+      sign_in: Manage
+
+  ui:
+    demo_button: Request a Demo

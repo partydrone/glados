@@ -3,3 +3,6 @@ smartsensor_hd:
   part_number: 101-0415
   expired_on:
   product_category: arterial
+  summary: SmartSensor HD summary
+  description: SmartSensor HD description.
+  product_category: arterial

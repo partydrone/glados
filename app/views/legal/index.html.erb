@@ -1,4 +1,4 @@
-<% content_for :title, 'Legal' %>
+<%= content_for :title, t(".title") %>
 
 <div class="page-sub-navigation show-for-large" data-sticky-container>
 	<div class="sticky" data-sticky data-anchor="legal" data-active-class>
@@ -27,12 +27,46 @@
 <div class="legal-sections row">
 
 	<%= content_tag :section, id: 'patents', class: 'legal-patents columns', data: {'magellan-target': 'patents'} do %>
-		<h1>Patents</h1>
+
+		<!-- only if there is no content
+		<h1><%= t(".patents") %></h1>
+		<%= link_to nil, title: %(New) do %>
+          <%= image_tag('icons/Plus.svg', class: 'icon') %>
+        <% end %>
+
+    else -->
+		<h1>
+			<%= t(".patents") %>
+			<div class="admin-nav">
+        <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
+          <li>
+            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
+            <ul class="menu">
+              <li>
+                <%= link_to nil, title: %(New), class: "admin-new" do %>
+                  New
+                <% end %>
+              </li>
+              <li>
+                <%= link_to nil, title: %(Edit), class: "admin-edit" do %>
+                  Edit
+                <% end %>
+              </li>
+              <li>
+                <%= link_to nil, class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
+                  Delete
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+		</h1>
 		<table class="hover">
 		  <thead>
 		    <tr>
-		      <th width="200">Patent Number</th>
-		      <th>Title</th>
+		      <th width="200"><%= t(".patent_number") %></th>
+		      <th><%= t(".patent_title") %></th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -42,7 +76,41 @@
 	<% end if @patents %>
 
 	<%= content_tag :section, id: 'rma', class: 'legal-rma columns', data: {'magellan-target': 'rma'} do %>
+
+		<!-- only if there is no content
 		<h1><%= @return_material_authorization_policy_document.title %></h1>
+		<%= link_to nil, title: %(New) do %>
+          <%= image_tag('icons/Plus.svg', class: 'icon') %>
+        <% end %>
+
+    else -->
+		<h1>
+			<%= @return_material_authorization_policy_document.title %>
+			<div class="admin-nav">
+        <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
+          <li>
+            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
+            <ul class="menu">
+              <li>
+                <%= link_to nil, title: %(New), class: "admin-new" do %>
+                  New
+                <% end %>
+              </li>
+              <li>
+                <%= link_to nil, title: %(Edit), class: "admin-edit" do %>
+                  Edit
+                <% end %>
+              </li>
+              <li>
+                <%= link_to nil, class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
+                  Delete
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+		</h1>
 		<h6>(Effective <%= l @return_material_authorization_policy_document.effective_on, format: :long %>)</h6>
 		<div class="legal-terms-download">
 			<%= link_to nil do %>
@@ -54,7 +122,41 @@
 	<% end if @return_material_authorization_policy_document %>
 
 	<%= content_tag :section, id: 'salesterms', class: 'legal-salesterms columns', data: {'magellan-target': 'salesterms'} do %>
+
+		<!-- only if there is no content
 		<h1><%= @sales_terms_and_conditions_document.title %></h1>
+		<%= link_to nil, title: %(New) do %>
+          <%= image_tag('icons/Plus.svg', class: 'icon') %>
+        <% end %>
+
+        else -->
+		<h1>
+			<%= @sales_terms_and_conditions_document.title %>
+			<div class="admin-nav">
+        <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
+          <li>
+            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
+            <ul class="menu">
+              <li>
+                <%= link_to nil, title: %(New), class: "admin-new" do %>
+                  New
+                <% end %>
+              </li>
+              <li>
+                <%= link_to nil, title: %(Edit), class: "admin-edit" do %>
+                  Edit
+                <% end %>
+              </li>
+              <li>
+                <%= link_to nil, class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
+                  Delete
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+		</h1>
 		<h6>(Effective <%= l @sales_terms_and_conditions_document.effective_on, format: :long %>)</h6>
 		<div class="legal-terms-download">
 			<%= link_to nil do %>
@@ -66,7 +168,41 @@
 	<% end if @sales_terms_and_conditions_document %>
 
 	<%= content_tag :section, id: 'privacy', class: 'legal-privacy columns', data: {'magellan-target': 'privacy'} do %>
+
+		<!-- only if there is no content
 		<h1><%= @website_privacy_policy_document.title %></h1>
+		<%= link_to nil, title: %(New) do %>
+          <%= image_tag('icons/Plus.svg', class: 'icon') %>
+        <% end %>
+
+        else -->
+		<h1>
+			<%= @website_privacy_policy_document.title %>
+			<div class="admin-nav">
+        <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
+          <li>
+            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
+            <ul class="menu">
+              <li>
+                <%= link_to nil, title: %(New), class: "admin-new" do %>
+                  New
+                <% end %>
+              </li>
+              <li>
+                <%= link_to nil, title: %(Edit), class: "admin-edit" do %>
+                  Edit
+                <% end %>
+              </li>
+              <li>
+                <%= link_to nil, class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
+                  Delete
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+		</h1>
 		<h6>(Effective <%= l @website_privacy_policy_document.effective_on, format: :long %>)</h6>
 		<div class="legal-terms-download">
 			<%= link_to nil do %>
@@ -78,7 +214,41 @@
 	<% end if @website_privacy_policy_document %>
 
 	<%= content_tag :section, id: 'termsuse', class: 'legal-termsuse columns', data: {'magellan-target': 'termsuse'} do %>
+
+		<!-- only if there is no content
 		<h1><%= @website_terms_of_use_document.title %></h1>
+		<%= link_to nil, title: %(New) do %>
+          <%= image_tag('icons/Plus.svg', class: 'icon') %>
+        <% end %>
+
+        else -->
+		<h1>
+			<%= @website_terms_of_use_document.title %>
+			<div class="admin-nav">
+        <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
+          <li>
+            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
+            <ul class="menu">
+              <li>
+                <%= link_to nil, title: %(New), class: "admin-new" do %>
+                  New
+                <% end %>
+              </li>
+              <li>
+                <%= link_to nil, title: %(Edit), class: "admin-edit" do %>
+                  Edit
+                <% end %>
+              </li>
+              <li>
+                <%= link_to nil, class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
+                  Delete
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+		</h1>
 		<h6>(Effective <%= l @website_terms_of_use_document.effective_on, format: :long %>)</h6>
 		<div class="legal-terms-download">
 			<%= link_to nil do %>

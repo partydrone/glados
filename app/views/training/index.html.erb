@@ -6,8 +6,8 @@
 			<div class="columns text-right">
 				<nav data-magellan data-bar-offset="70">
 					<ul class="horizontal menu">
-						<li><a href="#events">Events</a></li>
-						<li><a href="#courses">Courses</a></li>
+						<li><a href="#events"><%= t(".events") %></a></li>
+						<li><a href="#courses"><%= t(".courses") %></a></li>
 					</ul>
 				</nav>
 			</div>
@@ -19,19 +19,44 @@
 	<div class="page-sub-bottom-nav">
 		<nav data-magellan data-bar-offset="50">
 			<ul class="menu icon-top expanded">
-			 	<li><a href="#">Events</a></li>
-			 	<li><a href="#">Courses</a></li>
+			 	<li><a href="#"><%= t(".events") %></a></li>
+			 	<li><a href="#"><%= t(".courses") %></a></li>
 			</ul>
 		</nav>
 	</div>
 </div>
 
 <section class="row training-post-cards" id="events" data-magellan-target='events'>
-	<h1>Training Events</h1>
+	<h1><%= t(".events") %>
+		<div class="admin-nav">
+        <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
+          <li>
+            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
+            <ul class="menu">
+              <li>
+                <%= link_to nil, title: %(New), class: "admin-new" do %>
+                  New
+                <% end %>
+              </li>
+              <li>
+                <%= link_to nil, title: %(Edit), class: "admin-edit" do %>
+                  Edit
+                <% end %>
+              </li>
+              <li>
+                <%= link_to nil, class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
+                  Delete
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+	</h1>
 
 	<div class="training-input-container">
 	  <div class="training-input-card">
-      <h3>Find events near me</h3>
+      <h3><%= t(".find_events") %></h3>
       <div class="news-find-events site-search-bar input-group">
 	      <div class="input-group-button">
 	        <?xml version="1.0" encoding="utf-8"?>
@@ -45,11 +70,11 @@
 
 		<div class="training-input-card">
 			<div class="training-request">
-				<h4>Request Updates</h4>
+				<h4><%= t(".request") %></h4>
 				<div class="request-box">
 		      <div class="request row">
 		        <div class="medium-8 small-10 small-centered columns">
-		          <p>Join our mailing list and we’ll let you know when a training event is occuring near you.</p>
+		          <p><%= t(".join_mailing_list") %></p>
 		          <form id="events-updates-form">
 		            <input type="text" name="updates-name"><br>
 		            <p class="request-label">Name</p>
@@ -63,9 +88,9 @@
 		      </div>
 		    </div>
 		    <div class="training-request request-host">
-		    	<h4>Want to host a training event?</h4>
-		    	<p>Just let us know when and where.</p>
-		    	<button class="button rounded">Contact Us</button>
+		    	<h4><%= t(".want_host") %></h4>
+		    	<p><%= t(".host_when_where") %></p>
+		    	<button class="button rounded"><%= t(".contact_us") %></button>
 		    </div>
 			</div>
 		</div>
@@ -83,12 +108,12 @@
 				</div>
 				<div class="small-4 columns event-location">
 					<img src="http://placehold.it/142x80" />
-					<h6><%= image_tag('icons/Marker.svg') %> Memphis, TX</h6>
-					<h6><%= image_tag('icons/calendar.svg') %> 01 May 2016</h6>
-					<h6><%= image_tag('icons/stop-watch.svg') %> 8:00 AM</h6>
+					<h6 class="event-city">Memphis, TX</h6>
+					<h6 class="event-date">01 May 2016</h6>
+					<h6 class="event-time">8:00 AM</h6>
 				</div>
 				<div class="small-8 columns end">
-					<button class="button expanded rounded">Register</button>
+					<button class="button expanded rounded"><%= t(".register") %></button>
 		   	</div>
 		  </div>
 	  </div>
@@ -98,18 +123,18 @@
 					<h3>Introduction to Traffic Radar</h3>
 					<div class="ellipsed-text">
 						<p>In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Live demonstrations will show you how radar works, and the difference between frequency and bandwidth. You’ll become familiar with different types of traffic radar and which type would work for you. This is a whole bunch of extra text so we cna test the ellipsis and make sure that it is working so that it works because it needs to work becaus eI said so and this is a really long sentenc ehere but it's all for science so it's good.</p>
-						<!-- if more than 5 lines -->
-						<a href="#">Learn More</a>
+						<!-- if more than 6 lines -->
+						<a href="#" class="goto-new"><%= t(".learn_more") %></a>
 					</div>
 				</div>
 				<div class="small-4 columns event-location">
 					<img src="http://placehold.it/142x80" />
-					<h6><%= image_tag('icons/Marker.svg') %> Provo, UT</h6>
-					<h6><%= image_tag('icons/calendar.svg') %> 01 June 2016</h6>
-					<h6><%= image_tag('icons/stop-watch.svg') %> 8:00 AM</h6>
+					<h6 class="event-city">Provo, UT</h6>
+					<h6 class="event-date">01 June 2016</h6>
+					<h6 class="event-time">8:00 AM</h6>
 				</div>
 				<div class="small-8 columns end">
-					<button class="button expanded rounded">Register</button>
+					<button class="button expanded rounded"><%= t(".register") %></button>
 		   	</div>
 		  </div>
 	  </div>
@@ -123,16 +148,18 @@
 						050 – Introduction to Traffic Radar<br/>
 						101 – SmartSensor HD Installation<br/>
 						102 – SmartSensor HD Configuration</p>
+						<!-- if more than 6 lines -->
+						<a href="#" class="goto-new"><%= t(".learn_more") %></a>
 					</div>
 				</div>
 				<div class="small-4 columns event-location">
 					<img src="http://placehold.it/142x80" />
-					<h6><%= image_tag('icons/Marker.svg') %> Provo, UT</h6>
-					<h6><%= image_tag('icons/calendar.svg') %> 01 June 2016</h6>
-					<h6><%= image_tag('icons/stop-watch.svg') %> 8:00 AM</h6>
+					<h6 class="event-city">Provo, UT</h6>
+					<h6 class="event-date">01 June 2016</h6>
+					<h6 class="event-time">8:00 AM</h6>
 				</div>
 				<div class="small-8 columns end">
-					<button class="button expanded rounded">Register</button>
+					<button class="button expanded rounded"><%= t(".register") %></button>
 		   	</div>
 		  </div>
 	  </div>
@@ -142,33 +169,60 @@
 					<h3>Introduction to Traffic Radar</h3>
 					<div class="ellipsed-text">
 						<p>In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Live demonstrations will show you how radar works, and the difference between frequency and bandwidth. You’ll become familiar with different types of traffic radar and which type would work for you.</p>
+						<!-- if more than 6 lines -->
+						<a href="#" class="goto-new"><%= t(".learn_more") %></a>
 					</div>
 				</div>
 				<div class="small-4 columns event-location">
 					<img src="http://placehold.it/142x80" />
-					<h6><%= image_tag('icons/Marker.svg') %> Provo, UT</h6>
-					<h6><%= image_tag('icons/calendar.svg') %> 01 June 2016</h6>
-					<h6><%= image_tag('icons/stop-watch.svg') %> 8:00 AM</h6>
+					<h6 class="event-city">Provo, UT</h6>
+					<h6 class="event-date">01 June 2016</h6>
+					<h6 class="event-time">8:00 AM</h6>
 		   	</div>
 		   	<div class="small-8 columns end">
-					<button class="button expanded rounded">Register</button>
+					<button class="button expanded rounded"><%= t(".register") %></button>
 				</div>
 		  </div>
 	  </div>
 	</div>
 
 	<div class="read-more">
-		<!-- this needs to link to another page -->
-	  <a href="#">
-	  	View More <%= image_tag 'icons/stories-right-blue.svg', class: 'small-icon' %>
-	  </a>
+	  <a href="#" class="goto-new">View More</a>
 	</div>
 </section>
 
 
 <section class="training-courses-section" id="courses" data-magellan-target='courses'>
 	<div class="row columns">
-		<h1>Training Courses</h1>
+		<h1><%= t(".courses") %>
+			<div class="admin-nav">
+	      <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
+	        <li>
+	          <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
+	          <ul class="menu">
+	          	<li>
+	          <%= link_to nil, title: %(New) do %>
+	            <%= image_tag('icons/Plus16.svg', class: 'small-icon') %>
+	            New
+	          <% end %>
+	        </li>
+	            <li>
+	              <%= link_to nil, title: %(Edit) do %>
+	                <%= image_tag('icons/edit16.svg', class: 'small-icon') %>
+	                Edit
+	              <% end %>
+	            </li>
+	            <li>
+	              <%= link_to nil, class: 'delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
+	                <%= image_tag('icons/trash16.svg', class: 'small-icon') %>
+	                Delete
+	              <% end %>
+	            </li>
+	          </ul>
+	        </li>
+	      </ul>
+	    </div>
+		</h1>
 	</div>
 	<div class="row">
 		<div class="medium-5 columns">
@@ -191,24 +245,19 @@
 	<div class="row">
 		<div class="training-course-card">
 			<div class="horizontal menu">
-				<h3><%= image_tag('icons/Certified.svg', class: 'small-icon') %>Introduction to Traffic Radar Workshop</h3>
-				<div class="course-card-left">
-					<%= image_tag('icons/stop-watch.svg', class: 'small-icon') %> 2 hrs.
-				</div>
-				<div class="course-card-right">
-					Prerequisites Required
-				</div>
+				<h3 class="training-certified">Introduction to Traffic Radar Workshop</h3>
+				<div class="course-card-left training-hours">2 hrs.</div>
+				<div class="course-card-right"><%= t(".prerequisites") %></div>
 				<p>In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Live demonstrations will show you how radar works, and the difference between frequency and bandwidth. You’ll become familiar with different types of traffic radar and which type would work for you.</p>
 				<div class="learn-course">
-					<a class="hide-me-on-dropdown" data-toggle="traffic-workshop-dropdown"><%= image_tag 'icons/blue-down-arrow.svg', class: 'small-icon' %>Learn More</a>
+					<a class="hide-me-on-dropdown expand-container" data-toggle="traffic-workshop-dropdown"><%= t(".learn_more") %></a>
 					<div class="dropdown-pane course-dropdown-container" id="traffic-workshop-dropdown" data-dropdown data-auto-focus="true">
 						<p>This is more text below the cut I don't know what goes here but it will be stuff.</p>
 						<img src="http://placehold.it/461x258" />
 						<p>To enroll in this course, you must first successfully complete:<br/>
 						<a href="#" class="prereq-link">Introduction to Radar Workshop</a></p>
-						<h6><%= image_tag('icons/Certified.svg', class: 'icon') %>
-						Successful completion of this course provides technical certification</h6>
-						<a data-toggle="traffic-workshop-dropdown"><%= image_tag 'icons/blue-up-arrow.svg', class: 'icon' %>Hide</a>
+						<h6 class="training-certified"><%= t(".certification_on_completion") %></h6>
+						<a data-toggle="traffic-workshop-dropdown" class="close-container"><%= t(".hide") %></a>
 					</div>
 				</div>
 			</div>
@@ -217,17 +266,14 @@
 		<div class="training-course-card">
 			<div class="horizontal menu">
 				<h3>Pulse Live – ITS</h3>
-				<div class="course-card-left">
-					<%= image_tag('icons/stop-watch.svg', class: 'small-icon') %> 2 hrs.
-				</div>
-				<div class="course-card-right">
-				</div>
+				<div class="course-card-left training-hours">2 hrs.</div>
+				<div class="course-card-right"></div>
 				<p>In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Live demonstrations will show you how radar works, and the difference between frequency and bandwidth. You’ll become familiar with different types of traffic radar and which type would work for you.</p>
 				<div class="learn-course">
-					<a class="hide-me-on-dropdown" data-toggle="pulse-live-dropdown"><%= image_tag 'icons/blue-down-arrow.svg', class: 'small-icon' %>Learn More</a>
+					<a class="hide-me-on-dropdown expand-container" data-toggle="pulse-live-dropdown"><%= t(".learn_more") %></a>
 					<div class="dropdown-pane course-dropdown-container" id="pulse-live-dropdown" data-dropdown data-auto-focus="true">
 						<p>In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Live demonstrations will show you how radar works, and the difference between frequency and bandwidth. You’ll become familiar with different types of traffic radar and which type would work for you.</p>
-						<a data-toggle="pulse-live-dropdown"><%= image_tag 'icons/blue-up-arrow.svg', class: 'small-icon' %>Hide</a>
+						<a data-toggle="pulse-live-dropdown" class="close-container"><%= t(".hide") %></a>
 					</div>
 				</div>
 			</div>
@@ -235,19 +281,16 @@
 
 		<div class="training-course-card">
 			<div class="horizontal menu">
-				<h3><%= image_tag('icons/Certified.svg', class: 'small-icon') %>SmartSensor HD Configuration</h3>
-				<div class="course-card-left">
-					<%= image_tag('icons/stop-watch.svg', class: 'small-icon') %> 2 hrs.
-				</div>
-				<div class="course-card-right">
-					Prerequisites Required
-				</div>
+				<h3 class="training-certified">SmartSensor HD Configuration</h3>
+				<div class="course-card-left training-hours">2 hrs.</div>
+				<div class="course-card-right"></div>
 				<p>Use SSMHD to configure sensor to lanes of traffic. Perform accuracy tests, change certain settings to see effect each setting has on reported data.</p>
 				<div class="learn-course">
-					<a class="hide-me-on-dropdown" data-toggle="hdconfig-dropdown"><%= image_tag 'icons/blue-down-arrow.svg', class: 'small-icon' %>Learn More</a>
+					<a class="hide-me-on-dropdown expand-container" data-toggle="hdconfig-dropdown"><%= t(".learn_more") %></a>
 					<div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown" data-dropdown data-auto-focus="true">
 						<p>In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Live demonstrations will show you how radar works, and the difference between frequency and bandwidth. You’ll become familiar with different types of traffic radar and which type would work for you.</p>
-						<a data-toggle="hdconfig-dropdown"><%= image_tag 'icons/blue-up-arrow.svg', class: 'small-icon' %>Hide</a>
+						<h6 class="training-certified"><%= t(".certification_on_completion") %></h6>
+						<a data-toggle="hdconfig-dropdown" class="close-container"><%= t(".hide") %></a>
 					</div>
 				</div>
 			</div>
@@ -255,19 +298,16 @@
 
 		<div class="training-course-card">
 			<div class="horizontal menu">
-				<h3><%= image_tag('icons/Certified.svg', class: 'small-icon') %>SmartSensor Matrix Configuration</h3>
-				<div class="course-card-left">
-					<%= image_tag('icons/stop-watch.svg', class: 'small-icon') %> 2 hrs.
-				</div>
-				<div class="course-card-right">
-					Prerequisites Required
-				</div>
+				<h3 class="training-certified">SmartSensor Matrix Configuration</h3>
+				<div class="course-card-left training-hours">2 hrs.</div>
+				<div class="course-card-right"><%= t(".prerequisites") %></div>
 				<p>Identify a site where SmartSensor Matrix could be installed. Align sensor to the stop bar to get best results. Troubleshoot problems that could arise in communication or power lines.</p>
 				<div class="learn-course">
-					<a class="hide-me-on-dropdown" data-toggle="matrixconfig-dropdown"><%= image_tag 'icons/blue-down-arrow.svg', class: 'small-icon' %>Learn More</a>
+					<a class="hide-me-on-dropdown expand-container" data-toggle="matrixconfig-dropdown"><%= t(".learn_more") %></a>
 					<div class="dropdown-pane course-dropdown-container" id="matrixconfig-dropdown" data-dropdown data-auto-focus="true">
 						<p>Identify a site where SmartSensor Matrix could be installed. Align sensor to the stop bar to get best results. Troubleshoot problems that could arise in communication or power lines.</p>
-						<a data-toggle="matrixconfig-dropdown"><%= image_tag 'icons/blue-up-arrow.svg', class: 'small-icon' %>Hide</a>
+						<h6 class="training-certified"><%= t(".certification_on_completion") %></h6>
+						<a data-toggle="matrixconfig-dropdown" class="close-container"><%= t(".hide") %></a>
 					</div>
 				</div>
 			</div>

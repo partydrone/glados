@@ -2,10 +2,22 @@
 	<div class="row">
 	  <small>
 			&copy; 2016 Wavetronix, LLC
-			<%= link_to 'Careers', jobs_path, target: '_blank' %>
-			<%= link_to 'Legal', legal_path %>
-			<%= link_to 'United States', nil %>
-			<%= link_to 'Manage', sign_in_path unless current_user %>
+			<%= link_to t(".jobs"), jobs_path, target: '_blank' %>
+			<%= link_to t(".legal"), legal_path %>
+			<%= link_to t(".sign_in"), sign_in_path unless current_user %>
+			<div class="site-language-selection">
+		      <select class="site-language-dropdown" name="click">
+		        <option value="us-en">United States</option>
+		        <option value="fr-fr">France</option>
+		        <option value="la-la">Latvia</option>
+		        <option value="zh-ch">China</option>
+		        <option value="ja-ja">Japan</option>
+		        <option value="an-an">Antartica</option>
+		        <option value="ma-ma">Mars</option>
+		        <option value="au-au">Australia</option>
+		        <option value="to-pl">that other place</option>
+		      </select>
+    	</div>
 		</small>
 	</div>
 </footer>

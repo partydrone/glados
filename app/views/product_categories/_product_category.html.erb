@@ -6,8 +6,17 @@
         <div>
           <%# attachment_image_tag product_category, :icon, :fill, 32, 32 %>
           <%= image_tag "icons/road-icon.svg", class: "icon" %>
-          <h1><%= product_category.name %></h1>
+          <h1>
+            <%= product_category.name %>
+            <%= render partial: 'options_menu', locals: {object: product_category, instance_name: product_category.name} %>
+          </h1>
           <div class="row products-product-box">
+          <!-- only if there is no content
+            <%= link_to nil, title: %(New) do %>
+                  <%= image_tag('icons/Plus.svg', class: 'icon') %>
+                <% end %>
+
+            else -->
             <%= render product_category.products %>
           </div>
         </div>

@@ -80,13 +80,6 @@ select.support-dropdown {
 	}
 }
 
-.support-faqs-list {
-	padding-top: 1rem;
-	a {
-		line-height: 2rem;
-	}
-}
-
 .faq-question-container {
 	margin-left: 0.75rem;
 }
@@ -117,7 +110,6 @@ select.support-dropdown {
 		}
 	}
 }
-
 
 .is-accordion-submenu-parent[aria-expanded='true'] > a::after {
 	transform-origin: 50% 50%;
