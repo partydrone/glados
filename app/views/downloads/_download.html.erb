@@ -1,11 +1,6 @@
 <% cache download do %>
   <%= content_tag_for :tr, download do %>
     <td>
-      <%= link_to download, class: 'delete', data: { confirm: %(Are you sure you want to delete "#{download.title}"? This cannot be undone.) }, method: :delete, title: %(Delete "#{download.title}") do %>
-        <i class="fa fa-trash-o"></i>
-      <% end %>
-    </td>
-    <td>
       <%= download.download_type.name %>
     </td>
     <td>
@@ -18,9 +13,25 @@
       <%= download.part_number %>
     </td>
     <td>
-      <%= link_to edit_download_path(download), title: %(Edit "#{download.title}") do %>
-        <i class="fa fa-edit"></i>
-      <% end %>
+      <div class="admin-nav">
+        <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
+          <li>
+            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
+            <ul class="menu">
+              <li>
+                <%= link_to edit_download_path(download), title: %(Edit), class: "admin-edit" do %>
+                  Edit
+                <% end %>
+              </li>
+              <li>
+                <%= link_to download, class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
+                  Delete
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </td>
   <% end %>
 <% end %>

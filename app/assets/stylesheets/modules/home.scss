@@ -81,21 +81,33 @@ Top Banner
 
 	.home-video { //this will be replaced by a video
 		height: 650px;
-		background: url(image_path('home-smarter-traffic.png')) no-repeat center center;
+		overflow: hidden;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		-o-background-size: cover;
 		background-size: cover;
+		background: url(image_path('home/home-smarter-traffic.png')) no-repeat center;
 		@media screen and (max-width:40em) {
 			height: 421px;
-			background: url(image_path('home-smarter-traffic-small.png')) no-repeat center;
+			background: url(image_path('home/home-smarter-traffic-small.png')) no-repeat center;
 	  }
 	}
+
+	.home-video-background {
+		width: 100%;
+		position: relative;
+		height: 650px;
+		overflow: hidden;
+		z-index: 0;
+		object-fit: cover;
+	}
+
 
 	.home-top-banner {
 		width: 100%;
 		text-align: center;
 		padding-top: 275px;
+		position: relative;
 		.home-header-text {
 			color: $white;
 			font-size: 84px;
@@ -136,6 +148,11 @@ Top Banner
 		  	margin-top: 10px;
 		  }
 		}
+		@media screen and (min-width: 1023px) {
+			margin-top: -650px;
+			position: absolute;
+			z-index: 1;
+		}
 	}
 
 /***********************************************************************************************
@@ -144,6 +161,8 @@ Safer Section
 
 	.home-safe-left-img {
 		margin-top: -100px;
+		position: relative;
+		z-index: 5;
 	}
 
 	.home-safe .home-top-arrow {
@@ -158,25 +177,17 @@ Safer Section
 		}
 	}
 
+	.home-safe .goto-new:after {
+		content: url(image_path('icons/stories-right.svg')) !important;
+	}
+
 	.home-safe h1 {
 		color: $linkblue;
 	}
 
-	.show-for-medium {
-		.orbit-slide {
-			height: 281px;
-		}
-	}
-
 	.home-safe .show-for-small-only {
-		.orbit-container {
-			padding-bottom: 100px;
-		}
 		h6 {
 			color: $charcoal;
-		}
-		.orbit-slide {
-			text-align: center;
 		}
 		.columns:last-child:not(:first-child) {
 			float: none;
@@ -200,16 +211,14 @@ Safer Section
 		margin-top: -173px;
 		height: 300px;
 		right: 0;
-		@media screen and (max-width: 1360px) {
-			background: url(image_path('home/home-car-smash-thin.png')) no-repeat right;
-		}
+		background: url(image_path('home/home-car-smash-thin.png')) no-repeat right;
 		@media screen and (min-width: 1360px) {
 			background: url(image_path('home/home-car-smash.png')) no-repeat left;
 		}
 		img {
 			height: 100%;
 		}
-		@media screen and (max-width: 40em) {
+		@media screen and (max-width: 880px) {
 			display: none;
 		}
 	}
@@ -236,6 +245,9 @@ Efficient Section
 		}
 		.home-stories a:hover h4 {
 			background: none;
+		}
+		.home-story a:hover .stories-hidden-text {
+			height: auto;
 		}
 		.stories-hidden-text {
 			background: rgba(230, 230, 230, 0.8);
@@ -337,6 +349,9 @@ Reliable Section
 		.stories-hidden-text p {
 			color: $white;
 		}
+		.goto-new:after {
+    		content: url(image_path('icons/stories-right.svg')) !important;
+    	}
 	}
 
 	.home-nav-dots-reliable {
@@ -344,15 +359,6 @@ Reliable Section
 	}
 
 	.home-reliable .show-for-small-only {
-		.orbit-slide {
-			text-align: center;
-		}
-		.columns:last-child:not(:first-child) {
-			float: none;
-		}
-		.orbit-previous, .orbit-next {
-			margin-top: 25px;
-		}
 		img {
 			padding-bottom: 25px;
 		}
@@ -442,7 +448,7 @@ Reliable Magellan Section
 	}
 
 	.lighting-background {
-		background: #5598cc url(image_path('reliable_1.png')) no-repeat center;
+		background: #5598cc url(image_path('home/reliable_1.png')) no-repeat center;
 		height: 100vh;
 	}
 
@@ -467,12 +473,12 @@ Reliable Magellan Section
 	}
 
 	.construction-background {
-		background: url(image_path('reliable_2.png')) no-repeat center center;
+		background: url(image_path('home/reliable_2.png')) no-repeat center center;
 		height: 100vh;
 	}
 
 	.road-background {
-		background: url(image_path('reliable_3.png')) no-repeat center center;
+		background: url(image_path('home/reliable_3.png')) no-repeat center center;
 		height: 100vh;
 	}
 
@@ -485,7 +491,7 @@ Reliable Magellan Section
 	}
 
 	.home-reliable-nav-mobile {
-		background: #5598cc url(image_path('country.png')) no-repeat center center;
+		background: #5598cc url(image_path('home/country.png')) no-repeat center center;
 		-webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
@@ -605,14 +611,8 @@ Cost Effective Section
 	}
 
 	.home-cost .show-for-small-only {
-		.orbit-slide {
-			text-align: center;
-		}
 		.columns:last-child:not(:first-child) {
 			float: none;
-		}
-		.orbit-previous, .orbit-next {
-			margin-top: 25px;
 		}
 		img {
 			padding-bottom: 25px;
@@ -627,7 +627,7 @@ Cost Effective Section
 	}
 
 	.home-cost-loopsaddup-background  {
-		background: url(image_path('Loopsaddup375w.jpg')) no-repeat bottom;
+		background: url(image_path('home/Loopsaddup375w.jpg')) no-repeat bottom;
 		height: 453px;
 		background-position: 50% 50%;
 		-webkit-background-size: cover;
@@ -637,11 +637,11 @@ Cost Effective Section
 		z-index: 30;
 		@media only screen and (min-width: 40.063em) and (max-width: 1023px) { 
 			height: 858px;
-			background: url(image_path('Loopsaddup768w.jpg')) no-repeat bottom;
+			background: url(image_path('home/Loopsaddup768w.jpg')) no-repeat bottom;
 		}
 		@media screen and (min-width: 1024px) {
 			height: 100vh;
-			background: #1b2e3b url(image_path('Loopsaddup.jpg')) no-repeat center;
+			background: #1b2e3b url(image_path('home/Loopsaddup.jpg')) no-repeat center;
 			background-attachment: fixed;
 			background-position: 50% 90%;
 			-webkit-background-size: cover;
@@ -652,7 +652,7 @@ Cost Effective Section
 	}
 
 	.cost-loops {
-		background: url(image_path('Loops375w.png')) no-repeat center bottom;
+		background: url(image_path('home/Loops375w.png')) no-repeat center bottom;
 		height: 453px;
 		background-position: 0% 50%;
 		-webkit-background-size: cover;
@@ -663,11 +663,11 @@ Cost Effective Section
 		z-index: 31;
 		@media only screen and (min-width: 40.063em) and (max-width: 1023px) { 
 			height: 858px;
-			background: url(image_path('Loops768w.png')) no-repeat center bottom;
+			background: url(image_path('home/Loops768w.png')) no-repeat center bottom;
 		}
 		@media only screen and (min-width: 1024px) { 
 			height: 100vh;
-			background: url(image_path('Loops1440w.png')) no-repeat center;
+			background: url(image_path('home/Loops1440w.png')) no-repeat center;
 			background-attachment: fixed;
 			background-position: 50% 90%;
 			-webkit-background-size: cover;
@@ -678,7 +678,7 @@ Cost Effective Section
 	}
 
 	.cost-one-sensor {
-		background: url(image_path('Beams375w.png')) no-repeat center bottom;
+		background: url(image_path('home/Beams375w.png')) no-repeat center bottom;
 		height: 453px;
 		background-position: 0% 50%;
 		-webkit-background-size: cover;
@@ -687,11 +687,11 @@ Cost Effective Section
 		background-size: cover;
 		@media only screen and (min-width: 40.063em) and (max-width: 1023px) { 
 			height: 858px;
-			background: url(image_path('Beams768w.png')) no-repeat center bottom;
+			background: url(image_path('home/Beams768w.png')) no-repeat center bottom;
 		}
 		@media only screen and (min-width: 1024px) { 
 			height: 100vh;
-			background: url(image_path('Beams1440w.png')) no-repeat center;
+			background: url(image_path('home/Beams1440w.png')) no-repeat center;
 			background-attachment: fixed;
 			background-position: 50% 90%;
 			-webkit-background-size: cover;
@@ -714,13 +714,9 @@ Simple Section
 		.home-stories {
 			padding-bottom: 0px;
 		}
-		.orbit {
-			max-width: 625px;
-		}
-		.orbit-previous, .orbit-next {
-			padding: 0;
-			top: 75px;
-		}
+		.goto-new:after {
+    		content: url(image_path('icons/stories-right.svg')) !important;
+    	}
 	}
 
 	.home-nav-dots-simple {
@@ -736,7 +732,7 @@ Simple Section
 		.simple-background {
 			width: 100%;
 			min-height: 657px;
-			background: url(image_path('traffic-work.png')) no-repeat right bottom;
+			background: url(image_path('home/traffic-work.png')) no-repeat right bottom;
 		}
 	}
 
@@ -753,14 +749,8 @@ Simple Section
 	}
 
 	.home-simple .show-for-small-only {
-		.orbit-slide {
-			text-align: center;
-		}
 		.columns:last-child:not(:first-child) {
 			float: none;
-		}
-		.orbit-previous, .orbit-next {
-			margin-top: 25px;
 		}
 		img {
 			padding-bottom: 25px;
@@ -783,6 +773,9 @@ Support Section
 		h1 {
 			color: $linkblue;
 		}
+		.goto-new:after {
+    	content: url(image_path('icons/stories-right.svg')) !important;
+   	}
 	}
 
 	.home-nav-dots-support {
@@ -791,7 +784,7 @@ Support Section
 	}
 
 	.support-image-backer {
-		background: $fadedblue url(image_path('home-support-background.png')) no-repeat top;
+		background: $fadedblue url(image_path('home/home-support-background.png')) no-repeat top;
 		background-position: 50% 50%;
 		-webkit-background-size: cover;
 	  -moz-background-size: cover;
@@ -815,16 +808,10 @@ Support Section
 	.home-support .show-for-small-only {
 		margin-left: auto;
 		margin-right: auto;
-		.orbit-slide {
-			text-align: center;
-		}
 		.columns:last-child:not(:first-child) {
 			float: none;
 			margin-left: auto;
 			margin-right: auto;
-		}
-		.orbit-previous, .orbit-next {
-			margin-top: 25px;
 		}
 		img {
 			padding-bottom: 25px;

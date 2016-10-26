@@ -1,0 +1,20 @@
+---
+
+en:
+  training:
+    index:
+      certification_on_completion:    Successful completion of this course provides technical certification
+      contact_us:                     Contact Us
+      courses:                        Training Courses
+      events:                         Training Events
+      find_events:                    Find events near me
+      hide:                           Hide
+      host_when_where:                Just let us know when and where.
+      join_mailing_list:              Join our mailing list and we’ll let you know when a training event is occuring near you.
+      learn_more:                     Learn More
+      prerequisites:                  Prerequisites Required
+      register:                       Register
+      request:                        Request Updates
+      title:                          Attend Training
+      view_more:                      View More
+      want_host:                      Want to host a training event?

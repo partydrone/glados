@@ -1,17 +1,18 @@
 <main class="homepage" data-magellan>
 	<div class="home-video">
+    <%= video_tag "home/wavetronix.mp4", controls: false, autoplay: true, muted: true, loop: true, id: "bgvideo", type:"video/mp4", class: 'home-video-background show-for-large' %>
     <div class="home-top-banner">
       <h1 class="home-header-text">Smarter <span>Traffic</span></h1>
       <h4>Starts here.</h4>
       <%= image_tag 'icons/home-dots.svg', class: 'show-for-medium' %>
-      <%= button_to 'Request a Demo', nil, class: 'button large' %>
+      <%= button_tag t('ui.demo_button'), class: 'button large' %>
     </div>
   </div>
 
   <section class="home-safe" id="home-safe">
     <div class="row">
       <div class="home-safe-left-img show-for-medium">
-      	<%= image_tag 'home-smart-sensor-family.png' %>
+      	<%= image_tag 'home/home-smart-sensor-family.png' %>
       </div>
       <div class="home-top-arrow"></div>
       <div class="home-nav-dots home-nav-dots-safe show-for-large">
@@ -46,7 +47,7 @@
                 <h4 class="stories-rollover-shown">4 Steps to Create a Truck Rollover Prevention System</h4>
                 <div class="stories-hidden-text">
                   <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more">Read More ></span></p>
+                  <span class="learn-more goto-new">Read More</span></p>
                 </div>
               </a>
             </div>
@@ -59,7 +60,7 @@
                 <h4 class="stories-rollover-shown">Intersection Advance Warning</h4>
                 <div class="stories-hidden-text">
                   <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more">Read More ></span></p>
+                  <span class="learn-more goto-new">Read More</span></p>
                 </div>
               </a>
             </div>
@@ -72,7 +73,7 @@
                 <h4 class="stories-rollover-shown">The Evolution of Advanced Detection</h4>
                 <div class="stories-hidden-text">
                   <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more">Read More ></span></p>
+                  <span class="learn-more goto-new">Read More</span></p>
                 </div>
               </a>
             </div>
@@ -85,7 +86,7 @@
                 <h4 class="stories-rollover-shown">Safe Crossings</h4>
                 <div class="stories-hidden-text">
                   <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more">Read More ></span></p>
+                  <span class="learn-more goto-new">Read More</span></p>
                 </div>
               </a>
             </div>
@@ -98,7 +99,7 @@
                 <h4 class="stories-rollover-shown">Tustin, CA Inside a Box</h4>
                 <div class="stories-hidden-text">
                   <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more">Read More ></span></p>
+                  <span class="learn-more goto-new">Read More</span></p>
                 </div>
               </a>
             </div>
@@ -111,7 +112,7 @@
                 <h4 class="stories-rollover-shown">Running Red</h4>
                 <div class="stories-hidden-text">
                   <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more">Read More ></span></p>
+                  <span class="learn-more goto-new">Read More</span></p>
                 </div>
               </a>
             </div>
@@ -148,7 +149,7 @@
         <p class="show-for-small-only">Keep traffic moving.</p>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="home-stories-container">
         <div class="home-story-left">
@@ -165,7 +166,7 @@
                 <h4 class="stories-rollover-shown">4 Steps to Create a Truck Rollover Prevention System</h4>
                 <div class="stories-hidden-text">
                   <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more">Read More ></span></p>
+                  <span class="learn-more goto-new">Read More</span></p>
                 </div>
               </a>
             </div>
@@ -178,7 +179,7 @@
                 <h4 class="stories-rollover-shown">Intersection Advance Warning</h4>
                 <div class="stories-hidden-text">
                   <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more">Read More ></span></p>
+                  <span class="learn-more goto-new">Read More</span></p>
                 </div>
               </a>
             </div>
@@ -191,7 +192,7 @@
                 <h4 class="stories-rollover-shown">The Evolution of Advanced Detection</h4>
                 <div class="stories-hidden-text">
                   <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more">Read More ></span></p>
+                  <span class="learn-more goto-new">Read More</span></p>
                 </div>
               </a>
             </div>
@@ -204,7 +205,7 @@
                 <h4 class="stories-rollover-shown">Safe Crossings</h4>
                 <div class="stories-hidden-text">
                   <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more">Read More ></span></p>
+                  <span class="learn-more goto-new">Read More</span></p>
                 </div>
               </a>
             </div>
@@ -217,7 +218,7 @@
                 <h4 class="stories-rollover-shown">Tustin, CA Inside a Box</h4>
                 <div class="stories-hidden-text">
                   <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more">Read More ></span></p>
+                  <span class="learn-more goto-new">Read More</span></p>
                 </div>
               </a>
             </div>
@@ -230,7 +231,7 @@
                 <h4 class="stories-rollover-shown">Running Red</h4>
                 <div class="stories-hidden-text">
                   <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more">Read More ></span></p>
+                  <span class="learn-more goto-new">Read More</span></p>
                 </div>
               </a>
             </div>
@@ -279,7 +280,7 @@
                   <h4 class="stories-rollover-shown">4 Steps to Create a Truck Rollover Prevention System</h4>
                   <div class="stories-hidden-text">
                     <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                    <span class="learn-more">Read More ></span></p>
+                    <span class="learn-more goto-new">Read More</span></p>
                   </div>
                 </a>
               </div>
@@ -292,7 +293,7 @@
                   <h4 class="stories-rollover-shown">Intersection Advance Warning</h4>
                   <div class="stories-hidden-text">
                     <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                    <span class="learn-more">Read More ></span></p>
+                    <span class="learn-more goto-new">Read More</span></p>
                   </div>
                 </a>
               </div>
@@ -305,7 +306,7 @@
                   <h4 class="stories-rollover-shown">The Evolution of Advanced Detection</h4>
                   <div class="stories-hidden-text">
                     <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                    <span class="learn-more">Read More ></span></p>
+                    <span class="learn-more goto-new">Read More</span></p>
                   </div>
                 </a>
               </div>
@@ -318,7 +319,7 @@
                   <h4 class="stories-rollover-shown">Safe Crossings</h4>
                   <div class="stories-hidden-text">
                     <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                    <span class="learn-more">Read More ></span></p>
+                    <span class="learn-more goto-new">Read More</span></p>
                   </div>
                 </a>
               </div>
@@ -331,7 +332,7 @@
                   <h4 class="stories-rollover-shown">Tustin, CA Inside a Box</h4>
                   <div class="stories-hidden-text">
                     <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                    <span class="learn-more">Read More ></span></p>
+                    <span class="learn-more goto-new">Read More</span></p>
                   </div>
                 </a>
               </div>
@@ -344,7 +345,7 @@
                   <h4 class="stories-rollover-shown">Running Red</h4>
                   <div class="stories-hidden-text">
                     <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                    <span class="learn-more">Read More ></span></p>
+                    <span class="learn-more goto-new">Read More</span></p>
                   </div>
                 </a>
               </div>
@@ -490,7 +491,7 @@
         <p class="show-for-small-only">Saving time &amp money up front and over time.</p>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="home-stories-container">
         <div class="home-story-left">
@@ -507,7 +508,7 @@
                 <h4 class="stories-rollover-shown">4 Steps to Create a Truck Rollover Prevention System</h4>
                 <div class="stories-hidden-text">
                   <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more">Read More ></span></p>
+                  <span class="learn-more goto-new">Read More</span></p>
                 </div>
               </a>
             </div>
@@ -520,7 +521,7 @@
                 <h4 class="stories-rollover-shown">Intersection Advance Warning</h4>
                 <div class="stories-hidden-text">
                   <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more">Read More ></span></p>
+                  <span class="learn-more goto-new">Read More</span></p>
                 </div>
               </a>
             </div>
@@ -533,7 +534,7 @@
                 <h4 class="stories-rollover-shown">The Evolution of Advanced Detection</h4>
                 <div class="stories-hidden-text">
                   <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more">Read More ></span></p>
+                  <span class="learn-more goto-new">Read More</span></p>
                 </div>
               </a>
             </div>
@@ -546,7 +547,7 @@
                 <h4 class="stories-rollover-shown">Safe Crossings</h4>
                 <div class="stories-hidden-text">
                   <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more">Read More ></span></p>
+                  <span class="learn-more goto-new">Read More</span></p>
                 </div>
               </a>
             </div>
@@ -559,7 +560,7 @@
                 <h4 class="stories-rollover-shown">Tustin, CA Inside a Box</h4>
                 <div class="stories-hidden-text">
                   <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more">Read More ></span></p>
+                  <span class="learn-more goto-new">Read More</span></p>
                 </div>
               </a>
             </div>
@@ -572,7 +573,7 @@
                 <h4 class="stories-rollover-shown">Running Red</h4>
                 <div class="stories-hidden-text">
                   <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more">Read More ></span></p>
+                  <span class="learn-more goto-new">Read More</span></p>
                 </div>
               </a>
             </div>
@@ -633,7 +634,7 @@
                     <h4 class="stories-rollover-shown">4 Steps to Create a Truck Rollover Prevention System</h4>
                     <div class="stories-hidden-text">
                       <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more">Read More ></span></p>
+                      <span class="learn-more goto-new">Read More</span></p>
                     </div>
                   </a>
                 </div>
@@ -646,7 +647,7 @@
                     <h4 class="stories-rollover-shown">Intersection Advance Warning</h4>
                     <div class="stories-hidden-text">
                       <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more">Read More ></span></p>
+                      <span class="learn-more goto-new">Read More</span></p>
                     </div>
                   </a>
                 </div>
@@ -659,7 +660,7 @@
                     <h4 class="stories-rollover-shown">The Evolution of Advanced Detection</h4>
                     <div class="stories-hidden-text">
                       <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more">Read More ></span></p>
+                      <span class="learn-more goto-new">Read More</span></p>
                     </div>
                   </a>
                 </div>
@@ -672,7 +673,7 @@
                     <h4 class="stories-rollover-shown">Safe Crossings</h4>
                     <div class="stories-hidden-text">
                       <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more">Read More ></span></p>
+                      <span class="learn-more goto-new">Read More</span></p>
                     </div>
                   </a>
                 </div>
@@ -685,7 +686,7 @@
                     <h4 class="stories-rollover-shown">Tustin, CA Inside a Box</h4>
                     <div class="stories-hidden-text">
                       <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more">Read More ></span></p>
+                      <span class="learn-more goto-new">Read More</span></p>
                     </div>
                   </a>
                 </div>
@@ -698,7 +699,7 @@
                     <h4 class="stories-rollover-shown">Running Red</h4>
                     <div class="stories-hidden-text">
                       <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more">Read More ></span></p>
+                      <span class="learn-more goto-new">Read More</span></p>
                     </div>
                   </a>
                 </div>
@@ -755,7 +756,7 @@
                     <h4 class="stories-rollover-shown">4 Steps to Create a Truck Rollover Prevention System</h4>
                     <div class="stories-hidden-text">
                       <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more">Read More ></span></p>
+                      <span class="learn-more goto-new">Read More</span></p>
                     </div>
                   </a>
                 </div>
@@ -768,7 +769,7 @@
                     <h4 class="stories-rollover-shown">Intersection Advance Warning</h4>
                     <div class="stories-hidden-text">
                       <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more">Read More ></span></p>
+                      <span class="learn-more goto-new">Read More</span></p>
                     </div>
                   </a>
                 </div>
@@ -781,7 +782,7 @@
                     <h4 class="stories-rollover-shown">The Evolution of Advanced Detection</h4>
                     <div class="stories-hidden-text">
                       <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more">Read More ></span></p>
+                      <span class="learn-more goto-new">Read More</span></p>
                     </div>
                   </a>
                 </div>
@@ -794,7 +795,7 @@
                     <h4 class="stories-rollover-shown">Safe Crossings</h4>
                     <div class="stories-hidden-text">
                       <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more">Read More ></span></p>
+                      <span class="learn-more goto-new">Read More</span></p>
                     </div>
                   </a>
                 </div>
@@ -807,7 +808,7 @@
                     <h4 class="stories-rollover-shown">Tustin, CA Inside a Box</h4>
                     <div class="stories-hidden-text">
                       <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more">Read More ></span></p>
+                      <span class="learn-more goto-new">Read More</span></p>
                     </div>
                   </a>
                 </div>
@@ -820,7 +821,7 @@
                     <h4 class="stories-rollover-shown">Running Red</h4>
                     <div class="stories-hidden-text">
                       <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more">Read More ></span></p>
+                      <span class="learn-more goto-new">Read More</span></p>
                     </div>
                   </a>
                 </div>

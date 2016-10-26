@@ -1,28 +1,30 @@
+<%= content_for :title, 'Wavetronix App' %>
+
 <section class="row app">
   <div class="columns">
-    <h1>Wavetronix App</h1>
+    <h1><%= t(".title") %></h1>
   </div>
   <div class="columns">
-  	<%= image_tag("iPad-home.jpg") %>
+  	<%= image_tag("support/iPad-home.jpg") %>
   </div>
   <div class="large-1 columns show-for-large app-support-social social-media">
 
     <div class="social-media-container">
-      <div class="social-media-icon linkedin">
-        <i class="fa fa-linkedin fa" aria-hidden="true"></i>
-      </div>
-      <div class="social-media-icon twitter">
-        <i class="fa fa-twitter fa"></i>
-      </div>
-      <div class="social-media-icon facebook">
-        <i class="fa fa-facebook fa" aria-hidden="true"></i>
-      </div>
-      <div class="social-media-icon googleplus">
-        <i class="fa fa-google-plus fa" aria-hidden="true"></i>
-      </div>
-      <div class="social-media-icon email">
-        <%= image_tag("icons/email.svg") %>
-      </div>
+      <%= link_to nil, class: "social-media-icon" do %>
+        <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
+      <% end %>
+      <%= link_to nil, class: "social-media-icon" do %>
+        <%=image_tag('icons/Twitter.svg', class: "icon") %>
+      <% end %>
+      <%= link_to nil, class: "social-media-icon" do %>
+        <%=image_tag('icons/Facebook.svg', class: "icon") %>
+      <% end %>
+      <%= link_to nil, class: "social-media-icon" do %>
+        <%=image_tag('icons/Google.svg', class: "icon") %>
+      <% end %>
+      <%= link_to nil, class: "social-media-icon" do %>
+        <%=image_tag('icons/email.svg', class: "icon") %>
+      <% end %>
     </div>
 
   </div>
@@ -52,7 +54,7 @@
   	</div>
   </div>
   <div class="large-4 small-12 columns app-side-support">
-  	<h4>Having an issue with the app?</h4>
+  	<h4><%= t(".issue") %></h4>
     <div class="request-box">
       <div class="request row">
         <div class="medium-10 medium-centered columns">

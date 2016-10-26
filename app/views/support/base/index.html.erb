@@ -1,4 +1,4 @@
-<%= content_for :title, 'Support' %>
+<%= content_for :title, t(".title") %>
 
 <div class="product-specific-navigation show-for-large" data-sticky-container>
 	<div class="sticky" data-sticky data-active-class>
@@ -6,12 +6,12 @@
 			<div class="large-7 large-offset-5 columns text-right">
 				<nav data-magellan data-bar-offset="70">
 					<ul class="horizontal menu">
-						<li><a href="#product">Product</a></li>
-						<li><a href="#knowledge">Knowledge Base</a></li>
-						<li><a href="#return">Returns</a></li>
-						<li><a href="#app">App</a></li>
+						<li><a href="#product"><%= t(".product") %></a></li>
+						<li><a href="#knowledge"><%= t(".knowledge_base") %></a></li>
+						<li><a href="#return"><%= t(".returns") %></a></li>
+						<li><a href="#app"><%= t(".app") %></a></li>
 						<li>
-							<button class="button small" type="button" data-toggle="demo-dropdown">Contact Your Dealer</button>
+							<%= link_to t(".contact_dealer"), contact_path, class: "button small" %>
 						</li>
 					</ul>
 				</nav>
@@ -31,17 +31,43 @@
 	<div class="product-specific-bottom-nav">
 		<nav data-magellan data-bar-offset="70">
 			<ul class="menu icon-top expanded">
-			  <li><a href="#product"><%= image_tag("icons/features.svg") %> <span>Product</span></a></li>
-			  <li><a href="#knowledge"><%= image_tag("icons/features.svg") %> <span>Knowledge Base</span></a></li>
-			  <li><a href="#return"><%= image_tag("icons/courses.svg") %> <span>Returns</span></a></li>
-			  <li><a href="#app"><%= image_tag("icons/courses.svg") %> <span>App</span></a></li>
+			  <li><a href="#product"><%= image_tag("icons/features.svg") %> <span><%= t(".product") %></span></a></li>
+			  <li><a href="#knowledge"><%= image_tag("icons/features.svg") %> <span><%= t(".knowledge_base") %></span></a></li>
+			  <li><a href="#return"><%= image_tag("icons/courses.svg") %> <span><%= t(".returns") %></span></a></li>
+			  <li><a href="#app"><%= image_tag("icons/courses.svg") %> <span><%= t(".app") %></span></a></li>
 			</ul>
 		</nav>
 	</div>
 </div>
 
 <div class="row columns">
-	<h1>Support</h1>
+	<h1>
+		<%= t(".title") %>
+		<div class="admin-nav">
+        <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
+          <li>
+            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
+            <ul class="menu">
+              <li>
+                <%= link_to nil, title: %(New), class: "admin-new" do %>
+                  New
+                <% end %>
+              </li>
+              <li>
+                <%= link_to nil, title: %(Edit), class: "admin-edit" do %>
+                  Edit
+                <% end %>
+              </li>
+              <li>
+                <%= link_to nil, class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
+                  Delete
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+	</h1>
 </div>
 
 <div class="row" id="product">
@@ -98,9 +124,9 @@
 	</div>
 </div>
 
-<div class="row" id="faqs">
+<div class="row" id="knowledge">
 	<div class="large-8 columns">
-		<h2>Top 10 Frequently Asked Questions</h2>
+		<h2><%= t(".top_faqs") %></h2>
 
 		<ul class="vertical menu" data-accordion-menu data-multi-expand="true">
 		  <li class="faq-question-container">
@@ -111,7 +137,7 @@
 		      		It's a ballet shoe
 		      	</div>
 		      	<div class="faq-helpful">
-		      		<h4>Was this helpful?
+		      		<h4><%= t(".helpful") %>
 		      			<a href="#">
 		      				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 									viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
@@ -163,7 +189,7 @@
 		      		Steven and Amethyst!
 		      	</div>
 		      	<div class="faq-helpful">
-		      		<h4>Was this helpful?
+		      		<h4><%= t(".helpful") %>
 		      			<a href="#">
 		      				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 									viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
@@ -215,7 +241,7 @@
 		      		Marcos Super Awesome Nachos
 		      	</div>
 		      	<div class="faq-helpful">
-		      		<h4>Was this helpful?
+		      		<h4><%= t(".helpful") %>
 		      			<a href="#">
 		      				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 									viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
@@ -267,7 +293,7 @@
 		      		While Bill Cipher has the ability to manipulate everything in the dimension, he also can only do things inside Gravity Falls. Professor X is almost as powerful, but with the ability to do it all over the world I would say he wins.
 		      	</div>
 		      	<div class="faq-helpful">
-		      		<h4>Was this helpful?
+		      		<h4><%= t(".helpful") %>
 		      			<a href="#">
 		      				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 									viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
@@ -319,7 +345,7 @@
 		      		Ah-one, ah-two, three.
 		      	</div>
 		      	<div class="faq-helpful">
-		      		<h4>Was this helpful?
+		      		<h4><%= t(".helpful") %>
 		      			<a href="#">
 		      				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 									viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
@@ -371,7 +397,7 @@
 		      		.sdren, uoy gnihctaw m'I
 		      	</div>
 		      	<div class="faq-helpful">
-		      		<h4>Was this helpful?
+		      		<h4><%= t(".helpful") %>
 		      			<a href="#">
 		      				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 									viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
@@ -423,7 +449,7 @@
 		      		That would be Bob from accounting.
 		      	</div>
 		      	<div class="faq-helpful">
-		      		<h4>Was this helpful?
+		      		<h4><%= t(".helpful") %>
 		      			<a href="#">
 		      				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 									viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
@@ -475,7 +501,7 @@
 		      		A dastardly devious deceptive weapon of choice - frying pan.
 		      	</div>
 		      	<div class="faq-helpful">
-		      		<h4>Was this helpful?
+		      		<h4><%= t(".helpful") %>
 		      			<a href="#">
 		      				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 									viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
@@ -527,7 +553,7 @@
 		      		Sleeping Beauty/Briar Rose
 		      	</div>
 		      	<div class="faq-helpful">
-		      		<h4>Was this helpful?
+		      		<h4><%= t(".helpful") %>
 		      			<a href="#">
 		      				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 									viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
@@ -579,7 +605,7 @@
 		      		Rosita
 		      	</div>
 		      	<div class="faq-helpful">
-		      		<h4>Was this helpful?
+		      		<h4><%= t(".helpful") %>
 		      			<a href="#">
 		      				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 									viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
@@ -627,8 +653,8 @@
 
 	</div>
 	<div class="large-4 columns support-knowledge-base-search">
-  	<h4>Don't see your question?</h4>
-  	<h4>Search our Knowledge Base</h4>
+  	<h4><%= t(".question") %></h4>
+  	<h4><%= t(".search_knowledge_base") %></h4>
     <div class="request-box">
       <div class="request row">
         <div class="medium-10 medium-centered columns">
@@ -643,8 +669,8 @@
               <input class="input-search-bar" type="text"/>
             </div>
           </div>
-          <p>or visit</p>
-          <button class="button rounded expanded">Knowledge Base</button>
+          <p><%= t(".visit") %></p>
+          <button class="button rounded expanded"><%= t(".knowledge_base") %></button>
         </div>
       </div>
 	  </div>
@@ -654,16 +680,16 @@
 <div class="support-returns-container" id="return">
 	<div class="row">
 		<%= image_tag('icons/speech-bubbles.svg') %>
-		<h1>Returns</h1>
-		<h4>I’ve tried troubleshooting and still want to return the device</h4>
-		<button class="button rounded">View Return Policy</button>
+		<h1><%= t(".returns") %></h1>
+		<h4><%= t(".tried_troubleshooting") %></h4>
+		<button class="button rounded"><%= t(".return_policy") %></button>
 	</div>
 </div>
 
 <div class="support-app-container" id="app">
 	<div class="row">
-		<%= image_tag('icons/speech-bubbles.svg') %>
-		<h1>Looking for Our Mobile App Support?</h1>
-		<button class="button rounded">Visit App Support</button>
+		<%= image_tag('icons/mobilesupport.svg') %>
+		<h1><%= t(".mobile_app") %></h1>
+		<button class="button rounded"><%= t(".app_support") %></button>
 	</div>
 </div>

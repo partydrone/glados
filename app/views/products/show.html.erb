@@ -4,14 +4,17 @@
 	<div class="sticky" data-sticky data-active-class>
 		<div class="row">
 			<div class="large-5 columns">
-				<h4><%= @product.name %> <small>(<%= @product.part_number %>)</small></h4>
+				<h4>
+					<%= @product.name %> <small>(<%= @product.part_number %>)</small>
+					<%= render partial: 'options_menu', locals: {object: @product, instance_name: @product.name} %>
+				</h4>
 			</div>
 			<div class="large-7 columns text-right">
 				<nav data-magellan data-bar-offset="70">
 					<ul class="horizontal menu">
-						<li><a href="#features">Features</a></li>
-						<li><a href="#training">Courses</a></li>
-						<li><a href="#support">Support</a></li>
+						<li><a href="#features"><%= t(".features") %></a></li>
+						<li><a href="#training"><%= t(".courses") %></a></li>
+						<li><a href="#support"><%= t(".support") %></a></li>
 						<li>
 							<button class="button small hide-me-on-dropdown" type="button" data-toggle="demo-dropdown">Request a Demo</button>
 							<div class="dropdown-pane request-dropdown-container" id="demo-dropdown" data-dropdown data-auto-focus="true">
@@ -24,7 +27,7 @@
 						        <input type="text">
 						        <label>Email Address</label>
 									</form>
-									<button type="submit" form="request-dropdown-form" value="Submit" class="button rounded">Request a Demo</button><button class="button rounded cancel" data-toggle="demo-dropdown">Cancel</button>
+									<button type="submit" form="request-dropdown-form" value="Submit" class="button rounded"><%= t('.request_demo') %></button><button class="button rounded cancel" data-toggle="demo-dropdown"><%= t('.cancel') %></button>
 						    </div>
 							</div>
 						</li>
@@ -42,7 +45,7 @@
 				<h4><%= @product.name %> <small>(<%= @product.part_number %>)</small></h4>
 			</div>
 			<div class="small-7 columns text-right">
-				<button class="button small hide-me-on-dropdown" type="button" data-toggle="demo-dropdown-small">Request a Demo</button>
+				<button class="button small hide-me-on-dropdown" type="button" data-toggle="demo-dropdown-small"><%= t(".request_demo") %></button>
 				<div class="dropdown-pane request-dropdown-container" id="demo-dropdown-small" data-dropdown data-auto-focus="true">
 				   <div class="request-dropdown">
 						<form id="request-dropdown-form">
@@ -53,7 +56,7 @@
 					        <input type="text">
 					        <label>Email Address</label>
 						</form>
-						<button type="submit" form="request-dropdown-form" value="Submit" class="button small rounded">Request a Demo</button><button class="button small rounded cancel" data-toggle="demo-dropdown-small">Cancel</button>
+						<button type="submit" form="request-dropdown-form" value="Submit" class="button small rounded"><%= t(".request_demo") %></button><button class="button small rounded cancel" data-toggle="demo-dropdown-small"><%= t(".cancel") %></button>
 			    </div>
 				</div>
 			</div>
@@ -62,9 +65,9 @@
 	<div class="product-specific-bottom-nav">
 		<nav data-magellan data-bar-offset="70">
 			<ul class="menu icon-top expanded">
-			  <li><a href="#features"><%= image_tag("icons/features.svg") %> <span>Features</span></a></li>
-			  <li><a href="#training"><%= image_tag("icons/courses.svg") %> <span>Courses</span></a></li>
-			  <li><a href="#support"><%= image_tag("icons/support.svg") %> <span>Support</span></a></li>
+			  <li><a href="#features"><%= image_tag("icons/features.svg") %> <span><%= t(".features") %></span></a></li>
+			  <li><a href="#training"><%= image_tag("icons/courses.svg") %> <span><%= t(".courses") %></span></a></li>
+			  <li><a href="#support"><%= image_tag("icons/support.svg") %> <span><%= t(".support") %></span></a></li>
 			</ul>
 		</nav>
 	</div>
@@ -91,6 +94,12 @@
 
 	<section class="product-specific-features" id="features" data-magellan-target="features">
 
+		<!-- only if there is no content
+    <%= link_to nil, title: %(New) do %>
+      <%= image_tag('icons/Plus.svg', class: 'icon') %>
+    <% end %>
+
+    else -->
 		<div class="product-feature">
 			<div class="product-intro-media">
 				<img src="http://placehold.it/1200x550">
@@ -99,7 +108,7 @@
 				<div class="medium-8 medium-centered">
 					<h2>Digital Wave Radar</h2>
 					<p>Digital Wave Radar is Wavetronix’ patented process for digitally generating a radar signal. For proper and stable operation, frequency modulated continuous wave (FMCW) radars must transmit a stable and preferably linear frequency sweep. Any nonlinearities of the sweep can reduce range resolution.</p>
-					<%= link_to "Learn more about digital wave radar >", nil %>
+					<%= link_to "Learn more about digital wave radar", nil, class: "goto-new" %>
 				</div>
 			</div>
 		</div>
@@ -112,7 +121,7 @@
 				<div class="medium-8 medium-centered">
 					<h2>High Definition Radar</h2>
 					<p>SmartSensor HD operates at *245 MHz to produce clearer radar images for even greater accuracy. Sensors operating at lower bandwidths may not have the range resolution to accurately detect individual vehicles.</p>
-					<%= link_to "Learn more about high definition radar >", nil %>
+					<%= link_to "Learn more about high definition radar", nil, class: "goto-new" %>
 				</div>
 			</div>
 		</div>
@@ -125,7 +134,7 @@
 				<div class="medium-8 medium-centered">
 					<h2>Dual Radar</h2>
 					<p>SmartSensor HD’s two parallel radar beams create a speed trap that accurately detects per vehicle speeds, size and direction of travel. Single beam radars can only provide a best guess.</p>
-					<%= link_to "Learn more about dual radar >", nil %>
+					<%= link_to "Learn more about dual radar", nil, class: "goto-new" %>
 				</div>
 			</div>
 		</div>
@@ -138,7 +147,7 @@
 				<div class="medium-8 medium-centered">
 					<h2>True Coverage</h2>
 					<p>Our beam width of 65 degrees completely covers the 250-foot range at the minimum offset. Other sensors offer only 50-degree beam widths that are not sufficient for complete coverage at lower offsets.</p>
-					<%= link_to "Learn more about true coverage >", nil %>
+					<%= link_to "Learn more about true coverage", nil, class: "goto-new" %>
 				</div>
 			</div>
 		</div>
@@ -151,7 +160,7 @@
 				<div class="medium-8 medium-centered">
 					<h2>Auto-configuration</h2>
 					<p>Vehicle detections will automatically display in the Lane Configuration screen and auto-configured lanes are displayed in the right hand sidebar. </p>
-					<%= link_to "Learn more about auto-configuration >", nil %>
+					<%= link_to "Learn more about auto-configuration", nil, class: "goto-new" %>
 				</div>
 			</div>
 		</div>
@@ -164,7 +173,7 @@
 				<div class="medium-8 medium-centered">
 					<h2>Proven Performance</h2>
 					<p>Vehicle detections will automatically display in the Lane Configuration screen and auto-configured lanes are displayed in the right hand sidebar. </p>
-					<%= link_to "Learn more >", nil %>
+					<%= link_to "Learn more", nil, class: "goto-new" %>
 				</div>
 			</div>
 		</div>
@@ -172,7 +181,7 @@
 	</section>
 
 	<section class="product-request-demo">
-		<h4>Request a Demo</h4>
+		<h4><%= t(".request_demo") %></h4>
 	  <div class="request-box">
 	    <div class="request row">
 	      <div class="medium-8 large-6 medium-centered columns">
@@ -185,7 +194,7 @@
 	          <p class="request-label">Zip Code or Country</p>
 	        </form>
 	        <button type="submit" form="app-support-form" value="Submit" class="button rounded">Request a Demo</button>
-	        <p>Prefer to contact us? Find your dealer <%= link_to "here.", nil %></p>
+	        <p><%= t(".perfer_contact") %> <%= link_to t(".here"), nil %>.</p>
 	      </div>
 	    </div>
 	  </div>
@@ -194,13 +203,20 @@
 
 	<!-- always white! -->
 	<section class="product-specific-training row" id="training" data-magellan-target="training">
-		<h1>Related Courses</h1>
+		<!-- only if there is no content
+			<h1><%= t(".related_courses") %></h1>
+	    <%= link_to nil, title: %(New) do %>
+	      <%= image_tag('icons/Plus.svg', class: 'icon') %>
+	    <% end %>
+
+    else -->
+		<h1><%= t(".related_courses") %></h1>
 
 		<div class="product-specific-course-listing medium-8 medium-centered">
 			<h2>SmartSensor HD Installation</h2>
 			<p>Learn proper installation techniques for the SmartSensor HD in order to achieve accurate detections. Understand the steps to take the correctly troubleshoot possible communications or power issues.</p>
-			<div class="course-duration">
-				<p><%= image_tag("icons/blue-watch.svg") %> 4 hours</p>
+			<div class="course-duration event-location">
+				<p class="event-time">4 hours</p>
 			</div>
 			<p>Prerequisites: Intro to Radar</p>
 			<button class="button">Register</button>
@@ -209,8 +225,8 @@
 		<div class="product-specific-course-listing medium-8 medium-centered">
 			<h2>SmartSensor HD Configuration</h2>
 			<p>Learn proper installation techniques for the SmartSensor HD in order to achieve accurate detections. Understand the steps to take the correctly troubleshoot possible communications or power issues.</p>
-			<div class="course-duration">
-				<p><%= image_tag("icons/blue-watch.svg") %> 4 hours</p>
+			<div class="course-duration event-location">
+				<p class="event-time">4 hours</p>
 			</div>
 			<p>Prerequisites: Intro to Radar</p>
 			<button class="button">Register</button>
@@ -219,8 +235,8 @@
 		<div class="product-specific-course-listing medium-8 medium-centered">
 			<h2>SmartSensor Troubleshooting</h2>
 			<p>Learn proper installation techniques for the SmartSensor HD in order to achieve accurate detections. Understand the steps to take the correctly troubleshoot possible communications or power issues.</p>
-			<div class="course-duration">
-				<p><%= image_tag("icons/blue-watch.svg") %> 4 hours</p>
+			<div class="course-duration event-location">
+				<p class="event-time">4 hours</p>
 			</div>
 			<p>Prerequisites: SmartSensor Installation &amp Configuration Course</p>
 			<button class="button">Register</button>
@@ -231,7 +247,14 @@
 	<section class="product-specific-support" id="support" data-magellan-target="support">
 		<div class="row">
 			<div class="columns">
-				<h1>Support</h1>
+				<!-- only if there is no content
+					<h1><%= t(".support") %></h1>
+			    <%= link_to nil, title: %(New) do %>
+			      <%= image_tag('icons/Plus.svg', class: 'icon') %>
+			    <% end %>
+
+		    else -->
+				<h1><%= t(".support") %></h1>
 			</div>
 			<div class="columns product-language-selection">
 				<section class="products-language-header">
@@ -251,7 +274,7 @@
 			<% end %>
 
 			<div class="small-12 columns support-view-more">
-				<%= link_to "+ View More", nil %>
+				<%= link_to t(".view_more"), nil, class: "expand-container" %>
 			</div>
 
 		</div>

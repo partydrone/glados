@@ -1,0 +1,9 @@
+---
+
+en:
+  activerecord:
+    models:
+      download_type: Download Type
+    attributes:
+      download_type:
+        name:  Name

@@ -1,0 +1,13 @@
+---
+
+en:
+  blog_posts:
+    index:
+      title:            Blog Posts
+    show:
+      similar_stories:  Similar Stories
+      tags:             Tags
+    new:
+      title:            New Blog Post
+    edit:
+      title:            Edit Blog Post
