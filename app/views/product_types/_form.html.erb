@@ -25,7 +25,7 @@
   <div class="row">
     <div class="medium-6 columns">
       <%= f.label :billboard %>
-      <%= f.file_field :billboard, data: {'presigned-route': '/images/cache/presigned'} %>
+      <%= f.file_field :billboard, data: {'presigned-route': '/images/cache/presign'} %>
     </div>
     <div class="medium-6 columns">
       <p><%= link_to 'Preview', @product_type.billboard_url(public: true), class: 'goto-new' if @product_type.billboard %></p>

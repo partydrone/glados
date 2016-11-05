@@ -22,11 +22,11 @@
   <%= f.label :youtube_video_id %>
   <%= f.text_field :youtube_video_id %>
 
-  <%= f.hidden_field :icon, value: @product.cached_image_data %>
+  <%= f.hidden_field :image, value: @product.cached_image_data %>
   <div class="row">
     <div class="medium-6 columns">
       <%= f.label :image %>
-      <%= f.file_field :image, data: {'presigned-route': '/images/cache/presigned'} %>
+      <%= f.file_field :image, data: {'presigned-route': '/images/cache/presign'} %>
     </div>
     <div class="medium-6 columns">
       <p><%= link_to 'Preview', @product.image_url(public: true), class: 'goto-new' if @product.image %></p>
@@ -37,7 +37,7 @@
   <div class="row">
     <div class="medium-6 columns">
       <%= f.label :billboard %>
-      <%= f.file_field :billboard, data: {'presigned-route': '/images/cache/presigned'} %>
+      <%= f.file_field :billboard, data: {'presigned-route': '/images/cache/presign'} %>
     </div>
     <div class="medium-6 columns">
       <p><%= link_to 'Preview', @product.billboard_url(public: true), class: 'goto-new' if @product.billboard %></p>
