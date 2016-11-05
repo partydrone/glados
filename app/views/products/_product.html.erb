@@ -1,36 +1,11 @@
 <% cache product do %>
   <div class="medium-6 end columns">
     <div class="small-3 columns">
-      <%# attachment_image_tag product, :product_image, :fill, 70, 70, fallback: 'http://placehold.it/70x70' %>
-      <img src="http://placehold.it/70x70">
+      <%= image_tag product.image_url(public: true) if product.image_data? %>
     </div>
     <div class="small-9 columns">
       <h2>
         <%= product.name %>
-        <div class="admin-nav">
-          <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
-            <li>
-              <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
-              <ul class="menu">
-                <li>
-                  <%= link_to nil, class: 'admin-new', title: %(New) do %>
-                    New
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to nil, class: 'admin-edit', title: %(Edit) do %>
-                    Edit
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to nil, class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
-                    Delete
-                  <% end %>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
       </h2>
       <%= content_tag :p, product.description %>
       <%= link_to "Learn More", product_path(product), class: "goto-new" %>

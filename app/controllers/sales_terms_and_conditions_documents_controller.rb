@@ -43,6 +43,6 @@ class SalesTermsAndConditionsDocumentsController < ApplicationController
   end
 
   def sales_terms_and_conditions_document_params
-    params.require(:sales_terms_and_conditions_document).permit(:title, :body, :effective_on)
+    params.require(:sales_terms_and_conditions_document).permit(:title, :body, :effective_on, :attachment)
   end
 end

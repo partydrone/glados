@@ -1,4 +1,7 @@
 class Product < ApplicationRecord
+  include ImageUploader[:billboard]
+  include ImageUploader[:image]
+
   belongs_to :product_category
   has_and_belongs_to_many :downloads
   has_and_belongs_to_many :patents

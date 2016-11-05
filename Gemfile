@@ -19,9 +19,10 @@ gem 'pundit'
 gem 'rolify'
 
 # File uploads
-gem 'shrine'
 gem 'aws-sdk', '~> 2.1'
+gem 'jquery-fileupload-rails'
 gem 'roda'
+gem 'shrine'
 
 # Front-end
 gem 'foundation-rails', '~> 6.0'

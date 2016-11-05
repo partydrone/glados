@@ -27,7 +27,7 @@
 						        <input type="text">
 						        <label>Email Address</label>
 									</form>
-									<button type="submit" form="request-dropdown-form" value="Submit" class="button rounded"><%= t('.request_demo') %></button><button class="button rounded cancel" data-toggle="demo-dropdown"><%= t('.cancel') %></button>
+									<button type="submit" form="request-dropdown-form" value="Submit" class="button rounded"><%= t '.request_demo' %></button><button class="button rounded cancel" data-toggle="demo-dropdown"><%= t '.cancel' %></button>
 						    </div>
 							</div>
 						</li>
@@ -79,10 +79,16 @@
 	<div class="product-specific-intro">
 		<h1><%= @product.summary %></h1>
 		<div class="product-intro-media">
-			<img src="http://placehold.it/1170x565">
+			<% if @product.youtube_video_id.present? %>
+				<div class="flex-video widescreen">
+					<iframe src="https://www.youtube.com/embed/<%= @product.youtube_video_id %>?rel=0&showinfo=0" width="720" hieght="480" frameborder="0"></iframe>
+				</div>
+			<% elsif @product.billboard_data? %>
+				<%= image_tag @product.billboard_url(public: true) %>
+			<% end %>
 		</div>
 		<div class="product-intro-product-image">
-			<%= image_tag("HD_Front.png") %>
+			<%= image_tag @product.image_url(public: true) if @product.image_data? %>
 		</div>
 		<div class="product-intro-blurb medium-7 medium-centered">
 			<h4><%= @product.description %></h4>

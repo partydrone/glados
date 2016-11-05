@@ -1,6 +1,6 @@
-<%= form_for @download, class: 'dropzone' do |f| %>
-  <%= content_tag :div, class: "alert-box radius alert" do %>
-    <h2><%= pluralize @download.errors.count, "error" %> kept this form from submitting:</h2>
+<%= form_for @download do |f| %>
+  <%= content_tag :div, class: 'alert-box radius alert' do %>
+    <h2><%= pluralize @download.errors.count, 'error' %> kept this form from submitting:</h2>
     <ul>
       <% @download.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -13,11 +13,19 @@
   <%= f.select :locale, I18n.available_locales.collect { |l| [ humanize_locale(l), l ] }.sort %>
   <%= f.label :title %>
   <%= f.text_field :title %>
-  <%= f.label :part_number %>
-  <%= f.text_field :part_number %>
+  <%# f.label :part_number %>
+  <%# f.text_field :part_number %>
 
   <%= f.hidden_field :attachment, value: @download.cached_attachment_data %>
-  <%= f.file_field :attachment %>
+  <div class="row">
+    <div class="medium-6 columns">
+      <%= f.label :attachment %>
+      <%= f.file_field :attachment, data: {'presigned-route': '/attachments/cache/presign'} %>
+    </div>
+    <div class="medium-6 columns">
+      <p><%= link_to 'Preview', @download.attachment_url(public: true), class: 'goto-new' if @download.attachment %></p>
+    </div>
+  </div>
 
   <h3>Associated Products</h3>
   <div class="row">
@@ -35,5 +43,5 @@
     </div>
   <% end if @product_types %>
   </div>
-  <%= f.submit class: "button radius" %>
+  <%= f.submit class: 'button radius' %>
 <% end %>

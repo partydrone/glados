@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006164443) do
+ActiveRecord::Schema.define(version: 20161105025423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,8 +65,9 @@ ActiveRecord::Schema.define(version: 20161006164443) do
     t.string   "title"
     t.text     "body"
     t.date     "effective_on"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.text     "attachment_data"
   end
 
   create_table "patents", force: :cascade do |t|
@@ -87,14 +88,18 @@ ActiveRecord::Schema.define(version: 20161006164443) do
     t.integer  "product_type_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.text     "icon_data"
+    t.text     "billboard_data"
     t.index ["product_type_id"], name: "index_product_categories_on_product_type_id", using: :btree
   end
 
   create_table "product_types", force: :cascade do |t|
     t.string   "name"
     t.integer  "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.text     "icon_data"
+    t.text     "billboard_data"
   end
 
   create_table "products", force: :cascade do |t|
@@ -106,6 +111,9 @@ ActiveRecord::Schema.define(version: 20161006164443) do
     t.integer  "product_category_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.text     "image_data"
+    t.text     "billboard_data"
+    t.string   "youtube_video_id"
     t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
   end
 

@@ -1,22 +1,14 @@
 <% cache product_category do %>
   <section class="products-type-box">
-    <div class="products-category-image-backer" style="background-image: url('<%# attachment_url product_category, :background_image, :fill, 1920, 1080%>http://placehold.it/1920x1080')"></div>
+    <div class="products-category-image-backer" style="background-image: url('<%= product_category.billboard_url(public: true) %>');"></div>
     <div class="row">
       <div class="products-white-backer large-10 large-centered columns">
         <div>
-          <%# attachment_image_tag product_category, :icon, :fill, 32, 32 %>
-          <%= image_tag "icons/road-icon.svg", class: "icon" %>
+          <%= image_tag product_category.icon_url(public: true), class: "icon" if product_category.icon_data? %>
           <h1>
             <%= product_category.name %>
-            <%= render partial: 'options_menu', locals: {object: product_category, instance_name: product_category.name} %>
           </h1>
           <div class="row products-product-box">
-          <!-- only if there is no content
-            <%= link_to nil, title: %(New) do %>
-                  <%= image_tag('icons/Plus.svg', class: 'icon') %>
-                <% end %>
-
-            else -->
             <%= render product_category.products %>
           </div>
         </div>
