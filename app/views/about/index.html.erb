@@ -240,7 +240,7 @@
           <p>100kb</p>
         </div>
         <div class="small-6 columns text-right">
-          <%= link_to(image_tag("icons/download-icon.svg"), nil) %>
+          <%= link_to image_tag('icons/download-icon.svg'), nil %>
         </div>
       </div>
     <% end %>
@@ -253,7 +253,7 @@
           <p>100kb</p>
         </div>
         <div class="small-6 columns text-right">
-          <%= link_to(image_tag("icons/download-icon.svg"), nil) %>
+          <%= link_to image_tag('icons/download-icon.svg'), nil %>
         </div>
       </div>
     <% end %>
@@ -261,7 +261,7 @@
 
   <!-- if more than 6 media available -->
   <div class="read-more small-12 columns">
-    <a href="#" class="expand-container"><%= t(".more_media") %></a>
+    <a href="#" class="expand-container"><%= t('.more_media') %></a>
   </div>
 </section>
 
@@ -270,10 +270,11 @@
 
 <section class="about-careers-container" id="careers" data-magellan-target="careers">
   <h1><%= t(".careers") %></h1>
-  <button class="button rounded large"><%= t(".find_career") %></button>
+  <button class="button rounded large"><%= t('.find_career') %></button>
 </section>
 
 <section class="about-legal-container" id="aboutlegal" data-magellan-target="legal">
   <h1><%= t(".legal") %></h1>
-  <button class="button rounded large"><%= t(".view_legal") %></button>
+  <!-- <button class="button rounded large"><%= t('.view_legal') %></button> -->
+  <%= link_to t('.view_legal'), legal_path, class: 'button rounded large' %>
 </section>

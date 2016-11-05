@@ -1,23 +1,2 @@
 <% content_for :title, @sales_terms_and_conditions_document.title %>
-<div class="row columns">
-  <h1>
-    <%= @sales_terms_and_conditions_document.title %>
-    <div class="button-group radius">
-      <%= link_to edit_sales_terms_and_conditions_document_path(@sales_terms_and_conditions_document), class: "button" do %>
-        <%= image_tag('icons/edit16.svg', class: "small-icon") %> Edit
-      <% end %>
-      <%= link_to @sales_terms_and_conditions_document, class: "button", data: { confirm: %(Are you sure you want to delete the "#{l @sales_terms_and_conditions_document.effective_on, format: :long} #{@sales_terms_and_conditions_document.title} Document"?\n\nThis cannot be undone.) }, method: :delete do %>
-        <%= image_tag('icons/trash16.svg', class: "small-icon") %> Delete
-      <% end %>
-    </div>
-  </h1>
-  <section>
-    <p>(Effective <%= l @sales_terms_and_conditions_document.effective_on, format: :long %>)</p>
-    <%= raw markdown(@sales_terms_and_conditions_document.body) %>
-  </section>
-  <section>
-    <p>
-      <%= link_to "Archive", sales_terms_and_conditions_documents_path, class: "more" %>
-    </p>
-  </section>
-</div>
+<%= render 'show' %>
