@@ -8,7 +8,7 @@
     <section>
       <div class="product-alternate-text-container">
         <div class="product-alternate-header">
-          <%= image_tag product_type.icon_url(public: true), class: "icon" %>
+          <%= image_tag product_type.icon_url(public: true), class: "icon" if product_type.icon %>
           <h1><%= product_type.name %></h1>
         </div>
 
