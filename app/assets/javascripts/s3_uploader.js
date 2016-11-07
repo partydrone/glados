@@ -3,7 +3,7 @@ jQuery(function() {
     add: function(e, data) {
       console.log("add", data);
 
-      data.progressBar = $(`<progress value="0" max="100"></progress>`).insertAfter($(this));
+      data.progressBar = $('<progress value="0" max="100"></progress>').insertAfter($(this));
 
       var options = {
         extension: data.files[0].name.match(/(\.\w+)?$/)[0], // set the file extension
@@ -40,7 +40,7 @@ jQuery(function() {
         }
       }
 
-      $(`<p><code>` + file.metadata.filename + `</code> was uploaded successfully.</p>`).insertAfter($(this));
+      $('<p><code>' + file.metadata.filename + '</code> was uploaded successfully.</p>').insertAfter($(this));
 
       form = $(this).closest("form");
       form.find("[type=hidden][name='" + $(this).attr("name") + "']").attr("value", JSON.stringify(file));
