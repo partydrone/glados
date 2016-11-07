@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105025423) do
+ActiveRecord::Schema.define(version: 20161106005746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,26 @@ ActiveRecord::Schema.define(version: 20161105025423) do
   create_table "downloads_products", id: false, force: :cascade do |t|
     t.integer "download_id", null: false
     t.integer "product_id",  null: false
+  end
+
+  create_table "feature_associations", force: :cascade do |t|
+    t.integer  "feature_id"
+    t.integer  "product_id"
+    t.integer  "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feature_id"], name: "index_feature_associations_on_feature_id", using: :btree
+    t.index ["product_id"], name: "index_feature_associations_on_product_id", using: :btree
+  end
+
+  create_table "features", force: :cascade do |t|
+    t.string   "title"
+    t.text     "billboard_data"
+    t.string   "youtube_video_id"
+    t.text     "description"
+    t.text     "body"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "identities", force: :cascade do |t|
@@ -175,4 +195,6 @@ ActiveRecord::Schema.define(version: 20161105025423) do
   end
 
   add_foreign_key "downloads", "download_types"
+  add_foreign_key "feature_associations", "features"
+  add_foreign_key "feature_associations", "products"
 end

@@ -15,13 +15,17 @@
         <% product_type.product_categories.each do |product_category| %>
           <div class="row products-alternate-text-box">
             <div class="small-2 columns">
-                <%= image_tag("http://placehold.it/54x41") %>
-              </div>
-              <div class="small-10 columns">
-                <%= content_tag :h2, product_category.name %>
-                <p><%= product_category.description %></p>
-                <p><%= link_to "Learn More", product_category_path(product_category), class: "goto-new" %></p>
-              </div>
+              <% if product_category.icon %>
+                <%= image_tag product_category.icon_url(public: true) %>
+              <% else %>
+                <%= image_tag 'http://placehold.it/64x64.png' %>
+              <% end %>
+            </div>
+            <div class="small-10 columns">
+              <%= content_tag :h2, product_category.name %>
+              <p><%= product_category.description %></p>
+              <p><%= link_to "Learn More", product_category_path(product_category), class: "goto-new" %></p>
+            </div>
           </div>
         <% end %>
       </div>

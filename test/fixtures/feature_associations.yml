@@ -1,0 +1,6 @@
+---
+
+dual_beam_hd:
+  feature: dual_radar
+  product: smartsensor_hd
+  position: 1

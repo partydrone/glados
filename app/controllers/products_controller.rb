@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.includes({downloads: [:download_type]}).find(params[:id])
+    @product = Product.includes({downloads: [:download_type]}, :features).find(params[:id])
   end
 
   def new

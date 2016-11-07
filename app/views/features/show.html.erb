@@ -1,0 +1,14 @@
+<% content_for :title, @feature.title %>
+
+<div class="row columns">
+  <article>
+    <header>
+      <h1>
+        <%= @feature.title %>
+        <%= render partial: 'options_menu', locals: {object: @feature, instance_name: @feature.title} if current_user %>
+      </h1>
+      <%= image_tag @feature.billboard_url(public: true) if @feature.billboard %>
+    </header>
+    <%= raw markdown(@feature.body) %>
+  </article>
+</div>
