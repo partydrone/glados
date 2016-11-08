@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="large-5 columns">
 				<h4>
-					<%= @product.name %> <small>(<%= @product.part_number %>)</small>
+					<%= @product.name %>
 					<%= render partial: 'options_menu', locals: {object: @product, instance_name: @product.name} %>
 				</h4>
 			</div>
@@ -42,7 +42,7 @@
 	<div class="product-specific-top-nav">
 		<div class="row">
 			<div class="small-5 columns">
-				<h4><%= @product.name %> <small>(<%= @product.part_number %>)</small></h4>
+				<h4><%= @product.name %></h4>
 			</div>
 			<div class="small-7 columns text-right">
 				<button class="button small hide-me-on-dropdown" type="button" data-toggle="demo-dropdown-small"><%= t(".request_demo") %></button>
@@ -77,7 +77,7 @@
 
 <div class="row columns">
 	<div class="product-specific-intro">
-		<h1><%= @product.summary %></h1>
+		<h1><%= @product.product_category.name %></h1>
 		<div class="product-intro-media">
 			<% if @product.youtube_video_id.present? %>
 				<div class="flex-video widescreen">
