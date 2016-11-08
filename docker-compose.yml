@@ -9,6 +9,7 @@ services:
       - ./public:/var/app/public
     ports:
       - '3000:3000'
+      - '465:465'
     depends_on:
       - postgres
       # - redis
