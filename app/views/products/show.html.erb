@@ -5,16 +5,16 @@
 		<div class="row">
 			<div class="large-5 columns">
 				<h4>
-					<%= @product.name %> <small>(<%= @product.part_number %>)</small>
+					<%= @product.name %>
 					<%= render partial: 'options_menu', locals: {object: @product, instance_name: @product.name} %>
 				</h4>
 			</div>
 			<div class="large-7 columns text-right">
 				<nav data-magellan data-bar-offset="70">
 					<ul class="horizontal menu">
-						<li><a href="#features"><%= t(".features") %></a></li>
-						<li><a href="#training"><%= t(".courses") %></a></li>
-						<li><a href="#support"><%= t(".support") %></a></li>
+						<li><a href="#features"><%= t('.features') %></a></li>
+						<li><a href="#training"><%= t('.courses') %></a></li>
+						<li><a href="#support"><%= t('.support') %></a></li>
 						<li>
 							<button class="button small hide-me-on-dropdown" type="button" data-toggle="demo-dropdown">Request a Demo</button>
 							<div class="dropdown-pane request-dropdown-container" id="demo-dropdown" data-dropdown data-auto-focus="true">
@@ -27,7 +27,7 @@
 						        <input type="text">
 						        <label>Email Address</label>
 									</form>
-									<button type="submit" form="request-dropdown-form" value="Submit" class="button rounded"><%= t('.request_demo') %></button><button class="button rounded cancel" data-toggle="demo-dropdown"><%= t('.cancel') %></button>
+									<button type="submit" form="request-dropdown-form" value="Submit" class="button rounded"><%= t '.request_demo' %></button><button class="button rounded cancel" data-toggle="demo-dropdown"><%= t '.cancel' %></button>
 						    </div>
 							</div>
 						</li>
@@ -42,7 +42,7 @@
 	<div class="product-specific-top-nav">
 		<div class="row">
 			<div class="small-5 columns">
-				<h4><%= @product.name %> <small>(<%= @product.part_number %>)</small></h4>
+				<h4><%= @product.name %></h4>
 			</div>
 			<div class="small-7 columns text-right">
 				<button class="button small hide-me-on-dropdown" type="button" data-toggle="demo-dropdown-small"><%= t(".request_demo") %></button>
@@ -77,12 +77,18 @@
 
 <div class="row columns">
 	<div class="product-specific-intro">
-		<h1><%= @product.summary %></h1>
+		<h1><%= @product.product_category.name %></h1>
 		<div class="product-intro-media">
-			<img src="http://placehold.it/1170x565">
+			<% if @product.youtube_video_id.present? %>
+				<div class="flex-video widescreen">
+					<iframe src="https://www.youtube.com/embed/<%= @product.youtube_video_id %>?rel=0&showinfo=0" width="720" hieght="480" frameborder="0"></iframe>
+				</div>
+			<% elsif @product.billboard_data? %>
+				<%= image_tag @product.billboard_url(public: true) %>
+			<% end %>
 		</div>
 		<div class="product-intro-product-image">
-			<%= image_tag("HD_Front.png") %>
+			<%= image_tag @product.image_url(public: true) if @product.image_data? %>
 		</div>
 		<div class="product-intro-blurb medium-7 medium-centered">
 			<h4><%= @product.description %></h4>
@@ -93,91 +99,7 @@
 <div class="product-specific-sections">
 
 	<section class="product-specific-features" id="features" data-magellan-target="features">
-
-		<!-- only if there is no content
-    <%= link_to nil, title: %(New) do %>
-      <%= image_tag('icons/Plus.svg', class: 'icon') %>
-    <% end %>
-
-    else -->
-		<div class="product-feature">
-			<div class="product-intro-media">
-				<img src="http://placehold.it/1200x550">
-			</div>
-			<div class="row columns">
-				<div class="medium-8 medium-centered">
-					<h2>Digital Wave Radar</h2>
-					<p>Digital Wave Radar is Wavetronix’ patented process for digitally generating a radar signal. For proper and stable operation, frequency modulated continuous wave (FMCW) radars must transmit a stable and preferably linear frequency sweep. Any nonlinearities of the sweep can reduce range resolution.</p>
-					<%= link_to "Learn more about digital wave radar", nil, class: "goto-new" %>
-				</div>
-			</div>
-		</div>
-
-		<div class="product-feature">
-			<div class="product-intro-media">
-				<img src="http://placehold.it/1200x550">
-			</div>
-			<div class="row columns">
-				<div class="medium-8 medium-centered">
-					<h2>High Definition Radar</h2>
-					<p>SmartSensor HD operates at *245 MHz to produce clearer radar images for even greater accuracy. Sensors operating at lower bandwidths may not have the range resolution to accurately detect individual vehicles.</p>
-					<%= link_to "Learn more about high definition radar", nil, class: "goto-new" %>
-				</div>
-			</div>
-		</div>
-
-		<div class="product-feature">
-			<div class="product-intro-media">
-				<img src="http://placehold.it/1200x550">
-			</div>
-			<div class="row columns">
-				<div class="medium-8 medium-centered">
-					<h2>Dual Radar</h2>
-					<p>SmartSensor HD’s two parallel radar beams create a speed trap that accurately detects per vehicle speeds, size and direction of travel. Single beam radars can only provide a best guess.</p>
-					<%= link_to "Learn more about dual radar", nil, class: "goto-new" %>
-				</div>
-			</div>
-		</div>
-
-		<div class="product-feature">
-			<div class="product-intro-media">
-				<img src="http://placehold.it/1200x550">
-			</div>
-			<div class="row columns">
-				<div class="medium-8 medium-centered">
-					<h2>True Coverage</h2>
-					<p>Our beam width of 65 degrees completely covers the 250-foot range at the minimum offset. Other sensors offer only 50-degree beam widths that are not sufficient for complete coverage at lower offsets.</p>
-					<%= link_to "Learn more about true coverage", nil, class: "goto-new" %>
-				</div>
-			</div>
-		</div>
-
-		<div class="product-feature">
-			<div class="product-intro-media">
-				<img src="http://placehold.it/1200x550">
-			</div>
-			<div class="row columns">
-				<div class="medium-8 medium-centered">
-					<h2>Auto-configuration</h2>
-					<p>Vehicle detections will automatically display in the Lane Configuration screen and auto-configured lanes are displayed in the right hand sidebar. </p>
-					<%= link_to "Learn more about auto-configuration", nil, class: "goto-new" %>
-				</div>
-			</div>
-		</div>
-
-		<div class="product-feature">
-			<div class="product-intro-media">
-				<img src="http://placehold.it/1200x550">
-			</div>
-			<div class="row columns">
-				<div class="medium-8 medium-centered">
-					<h2>Proven Performance</h2>
-					<p>Vehicle detections will automatically display in the Lane Configuration screen and auto-configured lanes are displayed in the right hand sidebar. </p>
-					<%= link_to "Learn more", nil, class: "goto-new" %>
-				</div>
-			</div>
-		</div>
-
+		<%= render @product.features %>
 	</section>
 
 	<section class="product-request-demo">
@@ -276,9 +198,6 @@
 			<div class="small-12 columns support-view-more">
 				<%= link_to t(".view_more"), nil, class: "expand-container" %>
 			</div>
-
 		</div>
-
 	</section>
-
 </div>

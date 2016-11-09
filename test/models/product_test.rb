@@ -50,6 +50,10 @@ describe Product do
     product.must_respond_to :downloads
   end
 
+  it "has associated features" do
+    product.must_respond_to :features
+  end
+
   it "has associated patents" do
     product.must_respond_to :patents
   end

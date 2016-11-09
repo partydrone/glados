@@ -1,7 +1,12 @@
 class Product < ApplicationRecord
+  include ImageUploader[:billboard]
+  include ImageUploader[:image]
+
   belongs_to :product_category
   has_and_belongs_to_many :downloads
   has_and_belongs_to_many :patents
+  has_many :feature_associations, dependent: :destroy
+  has_many :features, through: :feature_associations
 
   validates :name, :part_number, :summary, :description, :product_category_id, presence: true
 

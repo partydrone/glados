@@ -13,5 +13,17 @@
   <%= f.date_field :effective_on, placeholder: 'yyyy-mm-dd' %>
   <%= f.label :body %>
   <%= f.text_area :body, rows: 20 %>
+
+  <%= f.hidden_field :attachment, value: @sales_terms_and_conditions_document.cached_attachment_data %>
+  <div class="row">
+    <div class="medium-6 columns">
+      <%= f.label :attachment %>
+      <%= f.file_field :attachment, data: {'presigned-route': '/attachments/cache/presign'} %>
+    </div>
+    <div class="medium-6 columns">
+      <p><%= link_to 'Preview', @sales_terms_and_conditions_document.attachment_url(public: true), class: 'goto-new' if @sales_terms_and_conditions_document.attachment %></p>
+    </div>
+  </div>
+
   <%= f.submit nil, class: 'button radius' %>
 <% end %>

@@ -9,5 +9,28 @@
   <% end if @product_type.errors.any? %>
   <%= f.label :name %>
   <%= f.text_field :name %>
+
+  <%= f.hidden_field :icon, value: @product_type.cached_icon_data %>
+  <div class="row">
+    <div class="medium-6 columns">
+      <%= f.label :icon %>
+      <%= f.file_field :icon %>
+    </div>
+    <div class="medium-6 columns">
+      <p><%= link_to 'Preview', @product_type.icon_url(public: true), class: 'goto-new' if @product_type.icon %></p>
+    </div>
+  </div>
+
+  <%= f.hidden_field :billboard, value: @product_type.cached_billboard_data %>
+  <div class="row">
+    <div class="medium-6 columns">
+      <%= f.label :billboard %>
+      <%= f.file_field :billboard, data: {'presigned-route': '/images/cache/presign'} %>
+    </div>
+    <div class="medium-6 columns">
+      <p><%= link_to 'Preview', @product_type.billboard_url(public: true), class: 'goto-new' if @product_type.billboard %></p>
+    </div>
+  </div>
+
   <%= f.submit nil, class: 'button radius' %>
 <% end %>

@@ -1,0 +1,51 @@
+<%= form_for @feature do |f| %>
+  <%= content_tag :div, class: 'alert-box radius alert' do %>
+    <strong><%= pluralize @feature.errors.count, 'error' %> kept this form from submitting:</strong>
+    <ul>
+      <% @feature.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end if @feature.errors.any? %>
+
+  <div class="row">
+    <div class="large-8 columns">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+      <%= f.label :description %>
+      <%= f.text_area :description, rows: 5 %>
+      <%= f.label :youtube_video_id %>
+      <%= f.text_field :youtube_video_id %>
+
+      <%= f.hidden_field :billboard, value: @feature.cached_billboard_data %>
+      <div class="row">
+        <div class="medium-6 columns">
+          <%= f.label :billboard %>
+          <%= f.file_field :billboard, data: {'presigned-route': '/images/cache/presign'} %>
+        </div>
+        <div class="medium-6 columns">
+          <p><%= link_to 'Preview', @feature.billboard_url(public: true), class: 'goto-new' if @feature.billboard %></p>
+        </div>
+      </div>
+
+      <%= f.label :body %>
+      <%= f.text_area :body, rows: 20 %>
+
+      <%= f.submit nil, class: 'button radius' %>
+    </div>
+    <div class="large-4 columns">
+      <h3>Associated Products</h3>
+      <% @product_types.each do |product_type| %>
+        <h4><%= product_type.name %></h4>
+        <ul class="no-bullet">
+          <%= f.collection_check_boxes :product_ids, product_type.products, :id, :name do |b| %>
+          <li>
+            <%= b.check_box %>
+            <%= b.label %>
+          </li>
+          <% end if product_type.products %>
+        </ul>
+      <% end if @product_types %>
+    </div>
+  </div>
+<% end %>

@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.includes({downloads: [:download_type]}).find(params[:id])
+    @product = Product.includes({downloads: [:download_type]}, :features, :product_category).find(params[:id])
   end
 
   def new
@@ -51,6 +51,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :part_number, :expired_on, :summary, :description, :product_category_id)
+    params.require(:product).permit(:name, :part_number, :expired_on, :summary, :description, :image, :billboard, :youtube_video_id, :product_category_id)
   end
 end

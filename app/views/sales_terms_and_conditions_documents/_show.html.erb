@@ -1,0 +1,19 @@
+<div class="row columns">
+  <h1>
+    <%= @sales_terms_and_conditions_document.title %>
+    <%= render partial: 'options_menu', locals: {object: @sales_terms_and_conditions_document, instance_name: @sales_terms_and_conditions_document.title} %>
+  </h1>
+  <section>
+    <p>(Effective <%= l @sales_terms_and_conditions_document.effective_on, format: :long %>)</p>
+    <%= content_tag :p do %>
+      <%= image_tag 'icons/document.svg', style: 'height: 1.5em;' %>
+      <%= link_to t('.download'), @sales_terms_and_conditions_document.attachment_url(public: true) %>
+    <% end if @sales_terms_and_conditions_document.attachment %>
+    <%= raw markdown(@sales_terms_and_conditions_document.body) %>
+  </section>
+  <section>
+    <p>
+      <%= link_to "Archive", sales_terms_and_conditions_documents_path, class: "goto-new" %>
+    </p>
+  </section>
+</div>

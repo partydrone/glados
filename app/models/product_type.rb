@@ -1,4 +1,7 @@
 class ProductType < ApplicationRecord
+  include ImageUploader[:billboard]
+  include ImageUploader[:icon]
+
   has_many :product_categories
   has_many :products, through: :product_categories
 

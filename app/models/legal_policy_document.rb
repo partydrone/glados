@@ -1,4 +1,6 @@
 class LegalPolicyDocument < ApplicationRecord
+  include AttachmentUploader[:attachment]
+
   validates :title, :body, :effective_on, presence: true
 
   default_scope { order('effective_on desc')}

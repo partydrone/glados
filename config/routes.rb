@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   ##
   # Shrine S3 uploader endpoints
 
-  mount AttachmentUploader::UploadEndpoint => "/attachments"
+  mount AttachmentUploader::UploadEndpoint => '/attachments'
+  mount ImageUploader::UploadEndpoint => '/images'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   scope '(:locale)', locale: /(?:[a-z]{2,2})(?:[-|_](?:[A-Z]{2,2}))?/ do
@@ -35,6 +36,7 @@ Rails.application.routes.draw do
     resources :blog_posts,
               :case_studies,
               :downloads,
+              :features,
               :patents,
               :product_categories,
               :return_material_authorization_policy_documents,
