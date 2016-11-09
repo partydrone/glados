@@ -1,5 +1,5 @@
 class MarketingAppMailer < ActionMailer::Base
-  default from: "webmaster@wavetronix.com.com"  
+  default from: "webmaster@wavetronix.com"  
 
   def send_app_support_email(name, email, desc)
   	@name = name

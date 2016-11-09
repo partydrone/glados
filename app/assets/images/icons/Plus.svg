@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 20.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 34 34" style="enable-background:new 0 0 34 34;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#54A5DB;}
-</style>
-<title>Group 4 Copy</title>
-<desc>Created with Sketch.</desc>
-<path class="st0" d="M31.8,15.8H17.4V1.8c0-0.5-0.4-1-1-1c-0.5,0-1,0.4-1,1v14.1H1.8c-0.5,0-1,0.4-1,1c0,0.5,0.4,1,1,1h13.8v14.1
-	c0,0.5,0.4,1,1,1c0.5,0,1-0.4,1-1V17.8h14.4c0.5,0,1-0.4,1-1C32.8,16.3,32.4,15.8,31.8,15.8z"/>
-</svg>
+<svg id="expanded" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><defs><style>.cls-1{fill:#54a4da;}</style></defs><title>Plus</title><path class="cls-1" d="M31.17,15H17V.83c0-.41-.59-.75-1-.75s-1,.34-1,.75V15H.83c-.41,0-.75.59-.75,1s.34,1,.75,1H15V31.17c0,.41.59.75,1,.75s1-.34,1-.75V17H31.17c.41,0,.75-.59.75-1S31.58,15,31.17,15Z"/><path class="cls-1" d="M31.17,15H17V.83c0-.41-.59-.75-1-.75s-1,.34-1,.75V15H.83c-.41,0-.75.59-.75,1s.34,1,.75,1H15V31.17c0,.41.59.75,1,.75s1-.34,1-.75V17H31.17c.41,0,.75-.59.75-1S31.58,15,31.17,15Z"/></svg>
