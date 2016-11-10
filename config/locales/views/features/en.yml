@@ -3,4 +3,6 @@
 en:
   features:
     index:
-      title: Features
+      title:            Features
+      similar_features: Similar Features
+      tags:             Tags
