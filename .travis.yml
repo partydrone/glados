@@ -15,7 +15,6 @@ env:
   AWS_S3_REGION:                        us-east-1
   BIND_ON:                              0.0.0.0:3000
   COMPOSE_PROJECT_NAME:                 glados
-  DATABASE_URL:                         postgresql://postgres@postgres:5432/glados_test?encoding=unicode&pool=5&timeout=5000
   DOCKER_COMPOSE_VERSION:               1.8.1
   LOG_LEVEL:                            debug
   RAILS_ENV:                            test
