@@ -45,7 +45,7 @@ before_install:
   - docker-compose --version
 
   - docker-compose build
-  - docker-compose up
+  - docker-compose up -d
   - docker-compose ps
 
   - docker-compose run --rm app rails db:create
