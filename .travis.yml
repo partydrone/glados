@@ -1,38 +1,66 @@
-sudo: false
+---
+
+sudo: required
+
+env:
+  DOCKER_COMPOSE_VERSION: 1.8.1
+
 language: ruby
-rvm:
-  - 2.2.5
-  - 2.3.1
-cache: bundler
-addons:
-  code_climate:
-    repo_token: 212a4731d9077e8b4227d940d95693c4c8fcfd5cee2f70623aab445206f05bdf
-  postgresql: '9.4'
+
+services:
+  - docker
+
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  - docker-compose --version
+
+  - docker-compose build
+  - docker-compose up
+  - docker-compose ps
+
+  - docker-compose run --rm app rails db:create RAILS_ENV=test
 
 script:
-  - RAILS_ENV=test bundle exec rails db:migrate --trace
-  - bundle exec rails db:test:prepare
+  - docker-compose run --rm app rails test
 
-before_script:
-  - psql -c "create database travis_ci_test;" -U postgres
-  - cp config/database.travis.yml config/database.yml
-  - cp config/secrets.travis.yml config/secrets.yml
-deploy:
-  - provider: opsworks
-    access_key_id: AKIAICOHX55UFK6DX4IA
-    secret_access_key:
-      secure: K71l/oBDP8skXeFRisINbVJANZ6NVi1ZyfFELFX1ovjCZzN8MEIxocmYouFd9l5i4rO6vQCTlZnhWLBhaHvUtMeV2qfpIuer3GwcklgBjemuHaTWjYHOtg9yzn9adyD5At4HglstXP5C15mJaRiGMpARdWDBqO6ulOa1HJV+WulsWwEPA8F8oxYKicuS55cJWThROT9i1ueIf2UEKDoMaAyF515BY4CdEFn75CM71rinValHEpT1VRvo11OOut6kU5IbvJne6kZhqOGFPQrwcL71rezFlCfS4stQrJdjlmOTy52RX2YKDt76FeSsbAnP4IzXyGc+rbVeCU7mTshYUgw+Ks6Gy9k9yOmV1ggng4CBofvC4g6+6x5wAmgPI8MS0vgQdnhCVQEJT2ydukciecFfwQHKepT5rguGxXcWZWj7X9otJDXhjcEv+4X+tvdSLaJwCnBzwsPtu9adc+0/puzfswpJzIkeVNb+gawrVf9U7PDqOAZ3a9naB7qhWCTbObcUUeDMmQvoY9I0K8VoFtGqREAhE4c3+iTm6bwNN3R6L006ldhtYpyy4zdryrqGGPTBztMKwNHH7blFfirGQP4aqleGzQ9coFawXrGC8i2w0ivy1Etuqx8AHGIGtLgrqXw84xzhyLDYCOCe/qoQzKaLe7iKCPnTknSi0ur24tQ=
-    app-id: 157075a2-1a57-43e5-bdbd-87e1fce7c01c
-    on:
-      repo: wavetronix/glados
-      branch: develop
-      rvm: 2.2.3
-  - provider: opsworks
-    access_key_id: AKIAICOHX55UFK6DX4IA
-    secret_access_key:
-      secure: K71l/oBDP8skXeFRisINbVJANZ6NVi1ZyfFELFX1ovjCZzN8MEIxocmYouFd9l5i4rO6vQCTlZnhWLBhaHvUtMeV2qfpIuer3GwcklgBjemuHaTWjYHOtg9yzn9adyD5At4HglstXP5C15mJaRiGMpARdWDBqO6ulOa1HJV+WulsWwEPA8F8oxYKicuS55cJWThROT9i1ueIf2UEKDoMaAyF515BY4CdEFn75CM71rinValHEpT1VRvo11OOut6kU5IbvJne6kZhqOGFPQrwcL71rezFlCfS4stQrJdjlmOTy52RX2YKDt76FeSsbAnP4IzXyGc+rbVeCU7mTshYUgw+Ks6Gy9k9yOmV1ggng4CBofvC4g6+6x5wAmgPI8MS0vgQdnhCVQEJT2ydukciecFfwQHKepT5rguGxXcWZWj7X9otJDXhjcEv+4X+tvdSLaJwCnBzwsPtu9adc+0/puzfswpJzIkeVNb+gawrVf9U7PDqOAZ3a9naB7qhWCTbObcUUeDMmQvoY9I0K8VoFtGqREAhE4c3+iTm6bwNN3R6L006ldhtYpyy4zdryrqGGPTBztMKwNHH7blFfirGQP4aqleGzQ9coFawXrGC8i2w0ivy1Etuqx8AHGIGtLgrqXw84xzhyLDYCOCe/qoQzKaLe7iKCPnTknSi0ur24tQ=
-    app-id: d8f7b51a-3c15-429a-9ec4-5b82488bdfaf
-    on:
-      repo: wavetronix/glados
-      branch: master
-      rvm: 2.2.2
+# sudo: false
+# language: ruby
+# rvm:
+#   - 2.2.5
+#   - 2.3.1
+# cache: bundler
+# addons:
+#   code_climate:
+#     repo_token: 212a4731d9077e8b4227d940d95693c4c8fcfd5cee2f70623aab445206f05bdf
+#   postgresql: '9.4'
+#
+# script:
+#   - RAILS_ENV=test bundle exec rails db:migrate --trace
+#   - bundle exec rails db:test:prepare
+#
+# before_script:
+#   - psql -c "create database travis_ci_test;" -U postgres
+#   - cp config/database.travis.yml config/database.yml
+#   - cp config/secrets.travis.yml config/secrets.yml
+# deploy:
+#   - provider: opsworks
+#     access_key_id: AKIAICOHX55UFK6DX4IA
+#     secret_access_key:
+#       secure: K71l/oBDP8skXeFRisINbVJANZ6NVi1ZyfFELFX1ovjCZzN8MEIxocmYouFd9l5i4rO6vQCTlZnhWLBhaHvUtMeV2qfpIuer3GwcklgBjemuHaTWjYHOtg9yzn9adyD5At4HglstXP5C15mJaRiGMpARdWDBqO6ulOa1HJV+WulsWwEPA8F8oxYKicuS55cJWThROT9i1ueIf2UEKDoMaAyF515BY4CdEFn75CM71rinValHEpT1VRvo11OOut6kU5IbvJne6kZhqOGFPQrwcL71rezFlCfS4stQrJdjlmOTy52RX2YKDt76FeSsbAnP4IzXyGc+rbVeCU7mTshYUgw+Ks6Gy9k9yOmV1ggng4CBofvC4g6+6x5wAmgPI8MS0vgQdnhCVQEJT2ydukciecFfwQHKepT5rguGxXcWZWj7X9otJDXhjcEv+4X+tvdSLaJwCnBzwsPtu9adc+0/puzfswpJzIkeVNb+gawrVf9U7PDqOAZ3a9naB7qhWCTbObcUUeDMmQvoY9I0K8VoFtGqREAhE4c3+iTm6bwNN3R6L006ldhtYpyy4zdryrqGGPTBztMKwNHH7blFfirGQP4aqleGzQ9coFawXrGC8i2w0ivy1Etuqx8AHGIGtLgrqXw84xzhyLDYCOCe/qoQzKaLe7iKCPnTknSi0ur24tQ=
+#     app-id: 157075a2-1a57-43e5-bdbd-87e1fce7c01c
+#     on:
+#       repo: wavetronix/glados
+#       branch: develop
+#       rvm: 2.2.3
+#   - provider: opsworks
+#     access_key_id: AKIAICOHX55UFK6DX4IA
+#     secret_access_key:
+#       secure: K71l/oBDP8skXeFRisINbVJANZ6NVi1ZyfFELFX1ovjCZzN8MEIxocmYouFd9l5i4rO6vQCTlZnhWLBhaHvUtMeV2qfpIuer3GwcklgBjemuHaTWjYHOtg9yzn9adyD5At4HglstXP5C15mJaRiGMpARdWDBqO6ulOa1HJV+WulsWwEPA8F8oxYKicuS55cJWThROT9i1ueIf2UEKDoMaAyF515BY4CdEFn75CM71rinValHEpT1VRvo11OOut6kU5IbvJne6kZhqOGFPQrwcL71rezFlCfS4stQrJdjlmOTy52RX2YKDt76FeSsbAnP4IzXyGc+rbVeCU7mTshYUgw+Ks6Gy9k9yOmV1ggng4CBofvC4g6+6x5wAmgPI8MS0vgQdnhCVQEJT2ydukciecFfwQHKepT5rguGxXcWZWj7X9otJDXhjcEv+4X+tvdSLaJwCnBzwsPtu9adc+0/puzfswpJzIkeVNb+gawrVf9U7PDqOAZ3a9naB7qhWCTbObcUUeDMmQvoY9I0K8VoFtGqREAhE4c3+iTm6bwNN3R6L006ldhtYpyy4zdryrqGGPTBztMKwNHH7blFfirGQP4aqleGzQ9coFawXrGC8i2w0ivy1Etuqx8AHGIGtLgrqXw84xzhyLDYCOCe/qoQzKaLe7iKCPnTknSi0ur24tQ=
+#     app-id: d8f7b51a-3c15-429a-9ec4-5b82488bdfaf
+#     on:
+#       repo: wavetronix/glados
+#       branch: master
+#       rvm: 2.2.2
