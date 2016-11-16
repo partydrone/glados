@@ -1,4 +1,0 @@
----
-
-test:
-  url: postgresql://postgres@postgres:5432/glados_test?encoding=unicode&pool=5&timeout=5000

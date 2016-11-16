@@ -3,31 +3,7 @@
 sudo: required
 
 env:
-  ACTION_CABLE_ALLOWED_REQUEST_ORIGINS: http:\/\/localhost*
-  ACTION_CABLE_BACKEND_URL:             redis://:yourpassword@redis:6379/0
-  ACTION_CABLE_FRONTEND_URL:            ws://localhost:28080
-  ACTION_MAILER_DEFAULT_FROM:           webmaster@wavetronix.com
-  ACTION_MAILER_DEFAULT_TO:             partydrone@gmail.com
-  ACTION_MAILER_HOST:                   localhost:3000
-  ACTIVE_JOB_QUEUE_PREFIX:              glados:jobs
-  ACTIVE_JOB_URL:                       redis://:yourpassword@redis:6379/0
-  AWS_S3_BUCKET:                        aporter-macbook
-  AWS_S3_REGION:                        us-east-1
-  BIND_ON:                              0.0.0.0:3000
-  COMPOSE_PROJECT_NAME:                 glados
   DOCKER_COMPOSE_VERSION:               1.8.1
-  LOG_LEVEL:                            debug
-  RAILS_ENV:                            test
-  RAILS_MAX_THREADS:                    1
-  REDIS_CACHE_URL:                      redis://:yourpassword@redis:6379/0/cache
-  REQUEST_TIMEOUT:                      5
-  SECRET_KEY_BASE:                      asecuretokenwouldnormallygohere
-  SMTP_ADDRESS:                         email-smtp.us-east-1.amazonaws.com
-  SMTP_AUTH:                            login
-  SMTP_DOMAIN:                          wavetronix.com
-  SMTP_ENABLE_STARTTLS_AUTO:            true
-  SMTP_PORT:                            587
-  WEB_CONCURRENCY:                      1
 
 language: ruby
 
@@ -35,8 +11,7 @@ services:
   - docker
 
 before_install:
-  - mv -f docker-compose.travis.yml docker-compose.yml
-  - mv -f config/database.travis.yml config/database.yml
+  - mv -f .env.travis .env
 
   - sudo rm /usr/local/bin/docker-compose
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
