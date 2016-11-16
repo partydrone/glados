@@ -107,15 +107,7 @@
 	  <div class="request-box">
 	    <div class="request row">
 	      <div class="medium-8 large-6 medium-centered columns">
-	        <form id="app-support-form">
-	          <input type="text" name="app-support-name"><br>
-	          <p class="request-label">Name</p>
-	          <input type="text" name="app-support-email"><br>
-	          <p class="request-label">Email</p>
-	          <input type="text" name="app-support-zip"><br>
-	          <p class="request-label">Zip Code or Country</p>
-	        </form>
-	        <button type="submit" form="app-support-form" value="Submit" class="button rounded">Request a Demo</button>
+	        <%= render 'demo_request_form' %>
 	        <p><%= t(".perfer_contact") %> <%= link_to t(".here"), nil %>.</p>
 	      </div>
 	    </div>

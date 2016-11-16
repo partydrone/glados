@@ -31,6 +31,8 @@ Rails.application.routes.draw do
     ##
     # Resource routes
 
+    resources :demo_requests, only: [:create]
+
     resources :identities, only: [:new]
 
     resources :blog_posts,
