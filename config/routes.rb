@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   ##
   # Shrine S3 uploader endpoints
-
   mount AttachmentUploader::UploadEndpoint => '/attachments'
   mount ImageUploader::UploadEndpoint => '/images'
 
@@ -11,7 +10,6 @@ Rails.application.routes.draw do
 
     ##
     # Authentication routes
-
     get '/auth/identity', to: 'sessions#new', as: :sign_in
     get '/auth/failure', to: 'identities#authentication_failure'
     post '/auth/:provider/callback', to: 'sessions#create'
@@ -19,7 +17,6 @@ Rails.application.routes.draw do
 
     ##
     # Concerns
-
     concern :listable do
       get :list, on: :collection
     end
@@ -30,7 +27,6 @@ Rails.application.routes.draw do
 
     ##
     # Resource routes
-
     resources :demo_requests, only: [:create]
 
     resources :identities, only: [:new]
@@ -56,7 +52,6 @@ Rails.application.routes.draw do
 
     ##
     # Static routes
-
     get '/about', to: 'about#index'
     get '/contact', to: 'contact#index'
     get '/jobs', to: redirect('http://wavetronix.recruiterbox.com/jobs')
@@ -66,13 +61,11 @@ Rails.application.routes.draw do
 
     namespace :support do
       get '/marketing_app', to: 'marketing_app#index'
-      post '/marketing_app', to: 'marketing_app#submit'
       root to: 'base#index'
     end
 
     ##
     # Root route
-
     root to: 'home#index'
   end
 end
