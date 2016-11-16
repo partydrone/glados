@@ -23,13 +23,12 @@ describe DemoRequest do
   end
 
   it "accepts a valid email address" do
-    addresses = %w[
+    addresses = %w(
       user@foo.com
       THE_USER@mail.example.com
       first.last@foo.jp
       a+b@foo.cn
-      a-b@foo.org
-    ]
+      a-b@foo.org)
     addresses.each do |valid_email|
       demo_request.email = valid_email
       demo_request.must_be :valid?
@@ -37,12 +36,11 @@ describe DemoRequest do
   end
 
   it "rejects an invalid email address" do
-    addresses = %w[
+    addresses = %w(
       user@foo,com
       user_at_foo.org
       example.user@foo.
-      foo@bar+baz.com
-    ]
+      foo@bar+baz.com)
     addresses.each do |invalid_email|
       demo_request.email = invalid_email
       demo_request.wont_be :valid?
