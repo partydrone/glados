@@ -6,4 +6,9 @@ describe WebsiteTermsOfUseDocument do
   it "is a valid object" do
     website_terms_of_use_document.must_be :valid?
   end
+
+  it "gets the current version" do
+    current = website_terms_of_use_documents(:current_website_terms_of_use_document)
+    WebsiteTermsOfUseDocument.current.must_equal current
+  end
 end
