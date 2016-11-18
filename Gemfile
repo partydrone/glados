@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '>= 5.0.0', '< 5.1'
 
+##
 # Defaults
 gem 'bcrypt', '~> 3.1.7'
 gem 'coffee-rails', '~> 4.1.0'
@@ -13,25 +14,35 @@ gem 'sass-rails', '~> 5.0'
 # gem 'turbolinks', '~> 5.x'
 gem 'uglifier', '>= 1.3.0'
 
+##
 # Authentication
 gem 'omniauth-identity'
 gem 'pundit'
 gem 'rolify'
 
+##
+# Background job processing
+gem 'sidekiq', '~> 4.1'
+# gem 'clockwork', '~> 2.0' # for recurring background tasks without needing cron
+
+##
 # File uploads
 gem 'aws-sdk', '~> 2.1'
 gem 'jquery-fileupload-rails'
 gem 'roda'
 gem 'shrine'
 
+##
 # Front-end
 gem 'foundation-rails', '~> 6.0'
 gem 'redcarpet', '~> 3.0'
 
+##
 # I18n
 # gem 'globalize'
 gem 'rails-i18n', '~> 5.0.0'
 
+##
 # List sorting
 gem 'acts_as_list'
 gem 'jquery-ui-rails'
