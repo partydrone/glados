@@ -1,0 +1,15 @@
+<%= content_tag :li do %>
+  <%= link_to t(".patents"), '#patents' %>
+<% end if @patents %>
+<%= content_tag :li do %>
+  <%= link_to t(".rma"), '#rma' %>
+<% end if @return_material_authorization_policy_document %>
+<%= content_tag :li do %>
+  <%= link_to t(".sales_terms"), '#salesterms' %>
+<% end if @sales_terms_and_conditions_document %>
+<%= content_tag :li do %>
+  <%= link_to t(".privacy"), '#privacy' %>
+<% end if @website_privacy_policy_document %>
+<%= content_tag :li do %>
+  <%= link_to t(".terms_use"), '#termsuse' %>
+<% end if @website_terms_of_use_document %>

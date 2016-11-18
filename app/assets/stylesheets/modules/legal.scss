@@ -1,0 +1,25 @@
+@import "foundation_and_overrides";
+@import "globals/all";
+
+
+/***********************************************************************************************
+sections
+***********************************************************************************************/
+
+	.legal-sections h1 {
+		margin-top: 3.5rem;
+	}
+
+	.legal-patents h1 {
+		margin-top: 0;
+	}
+
+	.legal-sections h3,
+	.legal-sections h2 {
+		margin: 2rem 0 0.5rem 0;
+	}
+
+	.legal-terms-download img {
+		height: 32px;
+		margin: 1rem 0;
+	}

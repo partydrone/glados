@@ -1,0 +1,14 @@
+<% cache product do %>
+  <div class="medium-6 end columns">
+    <div class="small-3 columns">
+      <%= image_tag product.image_url(public: true) if product.image_data? %>
+    </div>
+    <div class="small-9 columns">
+      <h2>
+        <%= product.name %>
+      </h2>
+      <%= content_tag :p, product.summary %>
+      <%= link_to "Learn More", product_path(product), class: "goto-new" %>
+    </div>
+  </div>
+<% end %>

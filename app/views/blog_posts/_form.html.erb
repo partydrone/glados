@@ -1,0 +1,21 @@
+<%= form_for @blog_post do |f| %>
+  <%= content_tag :div, class: 'alert-box radius alert' do %>
+    <strong><%= pluralize @blog_post.errors.count, 'error' %> kept this form from submitting:</strong>
+    <ul>
+      <% @blog_post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end if @blog_post.errors.any? %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :subtitle %>
+  <%= f.text_field :subtitle %>
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  <%= f.label :posted_on %>
+  <%= f.date_field :posted_on, placeholder: 'yyyy-mm-dd' %>
+  <%= f.submit nil, class: 'button radius' %>
+<% end %>

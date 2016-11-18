@@ -1,0 +1,46 @@
+<% content_for :title, 'Products' %>
+
+<div class="products-page">
+  <%= render @product_categories %>
+
+  <div class="product-alternate-sides-sections">
+    <% @product_types.each do |product_type| %>
+      <section>
+        <div class="product-alternate-text-container">
+          <div class="product-alternate-header">
+            <%= image_tag product_type.icon_url(public: true), class: "icon" if product_type.icon %>
+            <h1><%= product_type.name %></h1>
+          </div>
+
+          <!-- only if there is no content
+          <%= link_to nil, title: %(New) do %>
+            <%= image_tag('icons/Plus.svg', class: 'icon') %>
+          <% end %>
+
+          else -->
+
+          <% product_type.product_categories.each do |product_category| %>
+            <div class="row products-alternate-text-box">
+              <div class="small-2 columns">
+                <% if product_category.icon %>
+                  <%= image_tag product_category.icon_url(public: true) %>
+                <% else %>
+                  <%= image_tag 'http://placehold.it/64x64.png' %>
+                <% end %>
+              </div>
+              <div class="small-10 columns">
+                <%= content_tag :h2, product_category.name %>
+                <p><%= product_category.description %><br/>
+                <%= link_to "Learn More", product_category_path(product_category), class: "goto-new" %></p>
+              </div>
+            </div>
+          
+            <div class="product-alternate-image-container show-for-large" style="background-image: url('<%= product_type.billboard_url(public: true) %>'); background-size: cover;">
+            </div>
+          <% end %>
+        </div>
+      </section>
+    <% end %>
+  </div>
+
+</div>

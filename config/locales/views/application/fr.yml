@@ -1,0 +1,15 @@
+---
+
+fr:
+  application:
+    site_header:
+      about:     À propos de nous
+      contact:   Contactez nous
+      home:      Wavetronix
+      solutions: Explorez solutions
+      support:   Obtenir support
+      training:  Assister à la formation
+    site_footer:
+      jobs:    Carrières
+      legal:   Légal
+      sign_in: Gérer

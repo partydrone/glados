@@ -1,0 +1,43 @@
+@import "foundation_and_overrides";
+@import "globals/all";
+
+.about-media {
+	img {
+		margin-bottom: 10px;
+		min-width: 100%;
+	}
+	.text-right img {
+		height: 26px;
+	}
+	.text-right a {
+		float: right;
+	}
+}
+
+.about-us-sections {
+	section {
+		margin-bottom: 5rem;
+	}
+}
+
+.about-careers-container,
+.about-legal-container {
+	text-align: center;
+	padding: 10rem 0;
+	button {
+		margin-top: 2rem;
+	}
+}
+
+.about-careers-container {
+	background: $ghost;
+}
+
+.about-legal-container button {
+	background: $bluesteel;
+	color: $white;
+	&:hover {
+		background-color: lighten($bluesteel, 10%);
+		color: $white !important;
+	}
+}

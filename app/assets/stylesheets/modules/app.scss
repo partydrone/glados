@@ -1,0 +1,32 @@
+@import "foundation_and_overrides";
+@import "globals/all";
+
+.app {
+	.app-side-support {
+		text-align: center;
+		h4 {
+			margin-top: 42px;
+		}
+	}
+}
+
+.download-app {
+	.columns {
+		padding: 3px !important;
+	}
+	img {
+		max-height: 50px;
+	}
+}
+
+.app-support-social {
+	.social-media-icon {
+		margin-bottom: 16px;
+	}
+}
+
+.social-media {
+	.is-stuck {
+		margin-top: 60px !important;
+	}
+}

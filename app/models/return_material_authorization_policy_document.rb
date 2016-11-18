@@ -1,0 +1,3 @@
+class ReturnMaterialAuthorizationPolicyDocument < LegalPolicyDocument
+  
+end

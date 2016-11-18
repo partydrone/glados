@@ -1,0 +1,16 @@
+---
+
+en:
+  products:
+    index:
+      title:           Explore Solutions
+    show:
+      features:        Features
+      courses:         Courses
+      support:         Support
+      request_demo:    Request a Demo
+      cancel:          Cancel
+      related_courses: Related Courses
+      view_more:       View More
+      perfer_contact:  Prefer to contact us? Find your dealer
+      here:            here

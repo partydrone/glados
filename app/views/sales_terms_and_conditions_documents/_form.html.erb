@@ -1,0 +1,29 @@
+<%= form_for @sales_terms_and_conditions_document do |f| %>
+  <%= content_tag :div, class: 'alert-box radius alert' do %>
+    <strong><%= pluralize @sales_terms_and_conditions_document.errors.count, 'error' %> kept this form from submitting:</strong>
+    <ul>
+      <% @sales_terms_and_conditions_document.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end if @sales_terms_and_conditions_document.errors.any? %>
+  <%= f.label :title %>
+  <%= f.text_field :title, value: 'Wavetronix Domestic Terms and Conditions of Sale' %>
+  <%= f.label :effective_on %>
+  <%= f.date_field :effective_on, placeholder: 'yyyy-mm-dd' %>
+  <%= f.label :body %>
+  <%= f.text_area :body, rows: 20 %>
+
+  <%= f.hidden_field :attachment, value: @sales_terms_and_conditions_document.cached_attachment_data %>
+  <div class="row">
+    <div class="medium-6 columns">
+      <%= f.label :attachment %>
+      <%= f.file_field :attachment, data: {'presigned-route': '/attachments/cache/presign'} %>
+    </div>
+    <div class="medium-6 columns">
+      <p><%= link_to 'Preview', @sales_terms_and_conditions_document.attachment_url(public: true), class: 'goto-new' if @sales_terms_and_conditions_document.attachment %></p>
+    </div>
+  </div>
+
+  <%= f.submit nil, class: 'button radius' %>
+<% end %>

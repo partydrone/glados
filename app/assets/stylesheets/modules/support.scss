@@ -1,0 +1,149 @@
+@import "foundation_and_overrides";
+@import "globals/all";
+
+.support-search-image {
+	text-align: center;
+	padding-top: 20px;
+	img {
+		max-height: 71px;
+	}
+	h5 {
+		padding: 1.25rem 0;
+	}
+}
+
+.support-selection {
+	text-align: right;
+	.support-dropdown {
+		max-width: 9.375rem;
+		border-color: $silver;
+		float: left;
+	}
+}
+
+select.support-dropdown {
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path style='fill:#54A5DB' class='st0' d='M26.4 11.7c0 0.3-0.1 0.6-0.3 0.8l-9.8 9.8 -9.8-9.8c-0.4-0.4-0.4-1.2 0-1.6s1.2-0.4 1.6 0l8.2 8.2 8.2-8.2c0.4-0.4 1.2-0.4 1.6 0C26.2 11.1 26.4 11.4 26.4 11.7z'/></svg>");
+	background-size: 26px 26px;
+}
+
+.support-search-dropdown select {
+	border-radius: 5px;
+}
+
+.support-line-icon {
+	border-top: 1px solid $ghost;
+	text-align: center;
+	margin: 3rem auto;
+	img {
+		margin-top: -1rem;
+	}
+}
+
+.support-knowledge-base-search {
+	text-align: center;
+	.input-search-bar {
+		height: 39px;
+	}
+	.site-search-bar .input-group-button {
+		margin-top: -4px;
+	}
+	.site-search-bar {
+		width: 100%;
+		@media screen and (max-width: 1023px) {
+			margin-left: 0 !important;
+		}
+	}
+	.request-box {
+		background: $linkblue;
+		color: $white;
+		margin-bottom: 1rem;
+		z-index: 1;
+	}
+	@media screen and (max-width: 1023px) {
+		margin-top: 2rem;
+	}
+}
+
+.support-returns-container {
+	background: $ghost;
+	text-align: center;
+	margin-top: 3em;
+	padding: 5rem 0;
+	img {
+		padding-bottom: 0.75rem;
+	}
+	button {
+		margin: 1.5rem 1rem 0 1rem;
+	}
+	@media screen and (max-width: 1023px) {
+		margin-bottom: 7rem;
+	}
+}
+
+.faq-question-container {
+	margin-left: 0.75rem;
+}
+
+.faq-answer {
+	color: $charcoal;
+	font-weight: 400;
+	font-family: $font-family-secondary;
+}
+
+.faq-helpful {
+	margin: 2rem 0;
+	a svg {
+		height: 28px;
+		width: 28px;
+		margin-left: 1rem;
+		.positive,
+		.negative {
+			fill: $iron;
+		}
+		.active .positive,
+		&:hover .positive {
+			fill: $green;
+		}
+		.active .negative,
+		&:hover .negative {
+			fill: $tomato;
+		}
+	}
+}
+
+.is-accordion-submenu-parent[aria-expanded='true'] > a::after {
+	transform-origin: 50% 50%;
+	transform: scaleY(-1);
+	border: 0px !important;
+	left: -1rem;
+	width: 24px;
+	background: url(image_path('icons/blue-down-arrow.svg')) no-repeat right;
+	height: 32px;
+	margin-top: -16px;
+}
+
+.is-accordion-submenu-parent[aria-expanded='false'] > a::after {
+	border: 0px !important;
+	left: -1rem;
+	width: 24px;
+	background: url(image_path('icons/blue-down-arrow.svg')) no-repeat right;
+	height: 32px;
+	margin-top: -16px
+}
+
+.support-app-container {
+	text-align: center;
+	margin-top: 3em;
+	padding: 5rem 0;
+	img {
+		padding-bottom: 0.75rem;
+	}
+	button {
+		margin: 1.5rem 1rem 0 1rem;
+	}
+	@media screen and (max-width: 1023px) {
+		margin-bottom: 7rem;
+	}
+}
+
+

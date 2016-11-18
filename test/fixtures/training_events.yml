@@ -1,0 +1,7 @@
+---
+training_event:
+  title: Training Event
+  description: Wicked cool training event everyone wants to attend.
+  started_at: <%= 5.days.from_now.to_s(:db) %>
+  ended_at: <%= 6.days.from_now.to_s(:db) %>
+  location: Provo, Utah

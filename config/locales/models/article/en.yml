@@ -1,0 +1,16 @@
+---
+
+en:
+  activerecord:
+    models:
+      article:     Article
+    attributes:
+      article:
+        type:      Type
+        title:     Title
+        subtitle:  Subtitle
+        author:    Author
+        location:  Location
+        flag:      Flag
+        body:      Body
+        posted_on: Posted on

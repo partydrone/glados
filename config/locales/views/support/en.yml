@@ -1,0 +1,26 @@
+---
+
+en:
+  support:
+    base:
+      index:
+        app:                    App
+        app_support:            Visit App Support
+        contact_dealer:         Contact Your Dealer
+        helpful:                Was this helpful?
+        knowledge_base:         Knowledge Base
+        mobile_app:             Looking for Our Mobile App?
+        product:                Product
+        question:               Don't see your question? 
+        return_policy:          View Return Policy
+        returns:                Returns
+        search_knowledge_base:  Search our Knowledge Base
+        title:                  Support
+        top_faqs:               Top 10 Frequently Asked Questions
+        tried_troubleshooting:  I’ve tried troubleshooting and still want to return the device
+        visit:                  or visit
+    marketing_app:
+      index:
+        issue:                  Having an issue with the app?
+        title:                  Wavetronix App
+

@@ -1,0 +1,275 @@
+<%= content_for :title, t(".title") %>
+
+<div class="row">
+<div class="medium-10 medium-centered large-12 columns">
+
+<section>
+  <div class="row columns">
+    <h1>
+      News
+      <div class="admin-nav">
+        <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
+          <li>
+            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis16.svg', class: 'small-icon') %></a>
+            <ul class="menu">
+              <li>
+                <%= link_to nil, title: %(New), class: "admin-new" do %>
+                  New
+                <% end %>
+              </li>
+              <li>
+                <%= link_to nil, title: %(Edit), class: "admin-edit" do %>
+                  Edit
+                <% end %>
+              </li>
+              <li>
+                <%= link_to nil, class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
+                  Delete
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </h1>
+  </div>
+
+  <section class="row news-articles-container">
+
+    <div class="news-article">
+      <%= link_to nil do %>
+        <img src="http://placehold.it/770x433" alt="placeholder">
+        <h2>Why Loops Aren't Cheap</h2>
+        <p>Amy Pond, there's something you better understand about me, 'cause it's important and one day your life may depend on it. I am definitely a madman with a box.</p>
+      <% end %>
+    </div>
+
+  </section>
+
+
+  <div class="row">
+    <div class="large-7 columns news-article-blurbs">
+      <div class="row news-links">
+        <%= link_to nil do %>
+          <div class="medium-6 large-4 columns">
+            <img src="http://placehold.it/770x433" alt="placeholder">
+          </div>
+          <div class="medium-6 large-8 columns">
+            <h2>All Weather Performance</h2>
+            <p>Think you know everything about traffic? Think again! You know nothing, Jon Snow! There are three lines of text here!</p>
+          </div>
+        <% end %>
+      </div>
+      <div class="row news-links">
+        <%= link_to nil do %>
+          <div class="large-4 medium-6 columns">
+            <img src="http://placehold.it/770x433" alt="placeholder">
+          </div>
+          <div class="large-8 medium-6 columns">
+            <h2>Detection In The UK</h2>
+            <p>Overwatch is a pretty fun game to play, which is strange for a FPS. Normally PVP games are reserved for meanies.</p>
+          </div>
+        <% end %>
+      </div>
+      <div class="row news-links">
+        <%= link_to nil do %>
+          <div class="large-4 medium-6 columns">
+            <img src="http://placehold.it/770x433" alt="placeholder">
+          </div>
+          <div class="large-8 medium-6 columns">
+            <h2>Loops Are Cutting In</h2>
+            <p>Ok, but if Marinette and Adrien actually chose their own names for Chat and Ladybug, why is it in history books?</p>
+          </div>
+        <% end %>
+      </div>
+      <div class="read-more">
+        <%= link_to nil do %>
+          Read More Stories <%= image_tag 'icons/stories-right-blue.svg', class: 'small-icon' %>
+        <% end %>
+      </div>
+    </div>
+  <div class="large-5 columns news-article-list show-for-large">
+    <ul class="tabs" data-tabs id="news-article-tabs">
+      <li class="tabs-title is-active"><a href="#news-toparticles" aria-selected="true"><h5>Top Articles</h5></a></li>
+      <li class="tabs-title"><a href="#news-topics"><h5>Topics</h5></a></li>
+      <li class="tabs-title"><a href="#news-regions"><h5>Regions</h5></a></li>
+    </ul>
+    <div class="tabs-content" data-tabs-content="news-article-tabs">
+      <div class="tabs-panel is-active news-toparticles" id="news-toparticles">
+        <%= link_to "1. Why Loops Aren't Cheap", nil %><br/>
+        <%= link_to "2. These are set as Links", nil %><br/>
+        <%= link_to "3. font and size", nil %><br/>
+        <%= link_to "4. and stuff", nil %><br/>
+        <%= link_to "5. Do they look right?", nil %><br/>
+        <%= link_to "6. They Are Suppose", nil %><br/>
+        <%= link_to "7. To Be", nil %><br/>
+        <%= link_to "8. Or Not To Be", nil %><br/>
+        <%= link_to "9. I Mean, Why Not?", nil %><br/>
+        <%= link_to "10. Link Blue or Faded Blue?", nil %><br/>
+      </div>
+      <div class="tabs-panel" id="news-topics">
+        <p>Stuck in an elevator, she takes me to the sky. I don't want to go down. It's beautiful with the stars and the Earth and the Moon a million miles but closer than I've ever been.</p>
+      </div>
+      <div class="tabs-panel" id="news-regions">
+        <p>Suspendisse dictum feugiat nisl ut dapibus.  Vivamus hendrerit arcu sed erat molestie vehicula. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor.  Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.</p>
+      </div>
+    </div>
+  </div>            
+</section>
+
+
+<section class="row news-events training-post-cards" id="events" data-magellan-target='events'>
+  <div class="row columns">
+    <h1>
+      Training Events
+      <div class="admin-nav">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li>
+            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsisup-small.svg', class: 'icon') %></a>
+            <ul class="menu">
+              <li><a href="#"><%= image_tag('icons/Plus16.svg', class: 'icon') %>New Events</a></li>
+              <li><a href="#"><%= image_tag('icons/edit16.svg', class: 'icon') %>Manage Events</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </h1>
+  </div>
+  <div class="training-input-container">
+    <div class="training-input-card">
+      <h3>Find events near me</h3>
+      <div class="news-find-events site-search-bar input-group">
+        <div class="input-group-button">
+          <?xml version="1.0" encoding="utf-8"?>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17">
+            <rect x="12.2" y="10" transform="translate(1 1)matrix(0.7071 -0.7071 0.7071 0.7071 -5.3589 12.9375)" class="st0" width="1.5" height="5.8"/><path class="st0" d="M7.3 14.3c-3.9 0-7-3.1-7-7 0-3.9 3.1-7 7-7 3.9 0 7 3.1 7 7C14.3 11.1 11.1 14.3 7.3 14.3zM7.3 1.8c-3 0-5.5 2.5-5.5 5.5 0 3 2.5 5.5 5.5 5.5 3 0 5.5-2.5 5.5-5.5C12.8 4.2 10.3 1.8 7.3 1.8z"/>
+          </svg>
+        </div>
+        <input class="input-search-bar" type="text"/>
+      </div>
+    </div>
+
+    <div class="training-input-card">
+      <div class="training-request">
+        <h4>Request Updates</h4>
+        <div class="request-box">
+          <div class="request row">
+            <div class="medium-8 small-10 small-centered columns">
+              <p>Join our mailing list and we’ll let you know when a training event is occuring near you.</p>
+              <form id="events-updates-form">
+                <input type="text" name="updates-name"><br>
+                <p class="request-label">Name</p>
+                <input type="text" name="updates-email"><br>
+                <p class="request-label">Email</p>
+                <input type="text" name="updates-zip"><br>
+                <p class="request-label">Zip Code or Country</p>
+              </form>
+              <button type="submit" form="events-updates-form" value="Submit" class="button rounded expanded">Subscribe</button>
+            </div>
+          </div>
+        </div>
+        <div class="training-request request-host">
+          <h4>Want to host a training event?</h4>
+          <p>Just let us know when and where.</p>
+          <button class="button rounded">Contact Us</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-list">
+    <!-- 4 max items -->
+    <div class="post-card">
+      <div class="row">
+        <div class="small-8 columns">
+          <h3>Pulse Live Traffic</h3>
+          <div class="ellipsed-text">
+            <p>This event will teach you how to improve the safety of your intersection without sacrificing efficiency. You will discover hands-on the benefits of radar-based dilemma zone protection and the power of true presence stop bar detection.</p>
+          </div>
+        </div>
+        <div class="small-4 columns event-location">
+          <img src="http://placehold.it/142x80" />
+          <h6><%= image_tag('icons/Marker.svg') %> Memphis, TX</h6>
+          <h6><%= image_tag('icons/calendar.svg') %> 01 May 2016</h6>
+          <h6><%= image_tag('icons/stop-watch.svg') %> 8:00 AM</h6>
+        </div>
+        <div class="small-8 columns end">
+          <button class="button expanded rounded">Register</button>
+        </div>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="row">
+        <div class="small-8 columns">
+          <h3>Introduction to Traffic Radar</h3>
+          <div class="ellipsed-text">
+            <p>In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Live demonstrations will show you how radar works, and the difference between frequency and bandwidth. You’ll become familiar with different types of traffic radar and which type would work for you. This is a whole bunch of extra text so we cna test the ellipsis and make sure that it is working so that it works because it needs to work becaus eI said so and this is a really long sentenc ehere but it's all for science so it's good.</p>
+            <!-- if more than 5 lines -->
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+        <div class="small-4 columns event-location">
+          <img src="http://placehold.it/142x80" />
+          <h6><%= image_tag('icons/Marker.svg') %> Provo, UT</h6>
+          <h6><%= image_tag('icons/calendar.svg') %> 01 June 2016</h6>
+          <h6><%= image_tag('icons/stop-watch.svg') %> 8:00 AM</h6>
+        </div>
+        <div class="small-8 columns end">
+          <button class="button expanded rounded">Register</button>
+        </div>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="row">
+        <div class="small-8 columns">
+          <h3>SmartSensor HD Certified Training</h3>
+          <div class="ellipsed-text">
+            <p>Attend all related courses to complete certification in SmartSensor HD installation and configuration.<br/>
+            Courses offered at this event:<br/>
+            050 – Introduction to Traffic Radar<br/>
+            101 – SmartSensor HD Installation<br/>
+            102 – SmartSensor HD Configuration</p>
+          </div>
+        </div>
+        <div class="small-4 columns event-location">
+          <img src="http://placehold.it/142x80" />
+          <h6><%= image_tag('icons/Marker.svg') %> Provo, UT</h6>
+          <h6><%= image_tag('icons/calendar.svg') %> 01 June 2016</h6>
+          <h6><%= image_tag('icons/stop-watch.svg') %> 8:00 AM</h6>
+        </div>
+        <div class="small-8 columns end">
+          <button class="button expanded rounded">Register</button>
+        </div>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="row">
+        <div class="small-8 columns">
+          <h3>Introduction to Traffic Radar</h3>
+          <div class="ellipsed-text">
+            <p>In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Live demonstrations will show you how radar works, and the difference between frequency and bandwidth. You’ll become familiar with different types of traffic radar and which type would work for you.</p>
+          </div>
+        </div>
+        <div class="small-4 columns event-location">
+          <img src="http://placehold.it/142x80" />
+          <h6><%= image_tag('icons/Marker.svg') %> Provo, UT</h6>
+          <h6><%= image_tag('icons/calendar.svg') %> 01 June 2016</h6>
+          <h6><%= image_tag('icons/stop-watch.svg') %> 8:00 AM</h6>
+        </div>
+        <div class="small-8 columns end">
+          <button class="button expanded rounded">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="read-more">
+    <!-- this needs to link to another page -->
+    <a href="#">
+      View More <%= image_tag 'icons/stories-right-blue.svg', class: 'small-icon' %>
+    </a>
+  </div>
+
+</section>
+</div>
+</div>

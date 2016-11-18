@@ -1,0 +1,17 @@
+past_rma_policy_document:
+  type: ReturnMaterialAuthorizationPolicyDocument
+  title: Past RMA Policy Fixture
+  body: These are the old policies.
+  effective_on: <%= 1.year.ago.to_date.to_s(:db) %>
+
+current_rma_policy_document:
+  type: ReturnMaterialAuthorizationPolicyDocument
+  title: Current RMA Policy Fixture
+  body: These are the current policies.
+  effective_on: <%= Date.today.to_s(:db) %>
+
+future_rma_policy_document:
+  type: ReturnMaterialAuthorizationPolicyDocument
+  title: Future RMA Policy Fixture
+  body: These are the future policies.
+  effective_on: <%= 1.week.from_now.to_date.to_s(:db) %>

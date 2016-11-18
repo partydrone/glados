@@ -1,0 +1,14 @@
+past_legal_policy_document:
+  title: Terms
+  body: These are the old terms.
+  effective_on: <%= 1.year.ago.to_date.to_s(:db) %>
+
+current_legal_policy_document:
+  title: Terms
+  body: These are the current terms.
+  effective_on: <%= Date.today.to_s(:db) %>
+
+future_legal_policy_document:
+  title: Terms
+  body: These are the future terms.
+  effective_on: <%= 1.week.from_now.to_date.to_s(:db) %>

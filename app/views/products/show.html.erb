@@ -1,0 +1,236 @@
+<% content_for :title, @product.name %>
+
+<div class="product-specific-navigation show-for-large" data-sticky-container>
+	<div class="sticky" data-sticky data-active-class>
+		<div class="row">
+			<div class="large-5 columns">
+				<h4>
+					<%= @product.name %>
+		            <%= render partial: 'options_menu', locals: {object: @product, instance_name: @product.name} %>
+				</h4>
+			</div>
+			<div class="large-7 columns text-right">
+				<nav data-magellan data-bar-offset="70">
+					<ul class="horizontal menu">
+						<li><a href="#features"><%= t('.features') %></a></li>
+						<li><a href="#training"><%= t('.courses') %></a></li>
+						<li><a href="#support"><%= t('.support') %></a></li>
+						<li>
+							<button class="button small hide-me-on-dropdown" type="button" data-toggle="demo-dropdown">Request a Demo</button>
+							<div class="dropdown-pane request-dropdown-container" id="demo-dropdown" data-dropdown data-auto-focus="true">
+							   <div class="request-dropdown">
+									<form id="request-dropdown-form">
+								        <input type="text">
+								        <label>Name</label>
+								        <input type="text">
+								        <label>Zip, State, or Country</label>
+								        <input type="text">
+								        <label>Email Address</label>
+									</form>
+									<button type="submit" form="request-dropdown-form" value="Submit" class="button rounded"><%= t('.request_demo') %></button><button class="button rounded cancel" data-toggle="demo-dropdown"><%= t('.cancel') %></button>
+						    	</div>
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="hide-for-large">
+	<div class="product-specific-top-nav">
+		<div class="row">
+			<div class="small-5 columns">
+				<h4><%= @product.name %></h4>
+			</div>
+			<div class="small-7 columns text-right">
+				<button class="button small hide-me-on-dropdown" type="button" data-toggle="demo-dropdown-small"><%= t('.request_demo') %></button>
+				<div class="dropdown-pane request-dropdown-container" id="demo-dropdown-small" data-dropdown data-auto-focus="true">
+				   <div class="request-dropdown">
+						<form id="request-dropdown-form">
+					        <input type="text">
+					        <label>Name</label>
+					        <input type="text">
+					        <label>Zip, State, or Country</label>
+					        <input type="text">
+					        <label>Email Address</label>
+						</form>
+						<button type="submit" form="request-dropdown-form" value="Submit" class="button small rounded"><%= t('.request_demo') %></button><button class="button small rounded cancel" data-toggle="demo-dropdown-small"><%= t('.cancel') %></button>
+			    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="product-specific-bottom-nav">
+		<nav data-magellan data-bar-offset="70">
+			<ul class="menu icon-top expanded">
+			  <li><a href="#features"><%= image_tag("icons/features.svg") %> <span><%= t(".features") %></span></a></li>
+			  <li><a href="#training"><%= image_tag("icons/courses.svg") %> <span><%= t(".courses") %></span></a></li>
+			  <li><a href="#support"><%= image_tag("icons/support.svg") %> <span><%= t(".support") %></span></a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+
+
+
+<div class="row columns">
+	<div class="product-specific-intro">
+		<h1><%= @product.product_category.name %></h1>
+		<div class="product-intro-media">
+			<% if @product.youtube_video_id.present? %>
+				<div class="flex-video widescreen">
+					<iframe src="https://www.youtube.com/embed/<%= @product.youtube_video_id %>?rel=0&showinfo=0" width="720" hieght="480" frameborder="0"></iframe>
+				</div>
+			<% elsif @product.billboard_data? %>
+				<%= image_tag @product.billboard_url(public: true) %>
+			<% end %>
+		</div>
+		<div class="product-intro-product-image">
+			<%= image_tag @product.image_url(public: true) if @product.image_data? %>
+		</div>
+		<div class="product-intro-blurb medium-7 medium-centered">
+			<h4><%= @product.description %></h4>
+		</div>
+	</div>
+</div>
+
+<div class="product-specific-sections">
+
+	<section class="product-specific-features" id="features" data-magellan-target="features">
+		<%= render @product.features %>
+	</section>
+
+	<section class="product-request-demo">
+		<h4><%= t(".request_demo") %></h4>
+	  <div class="request-box">
+	    <div class="request row">
+	      <div class="medium-8 large-6 medium-centered columns">
+	        <%= render 'demo_request_form' %>
+	        <p><%= t(".perfer_contact") %> <%= link_to t(".here"), nil %>.</p>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+
+	<!-- always white! -->
+	<section class="product-specific-training row" id="training" data-magellan-target="training">
+		<!-- only if there is no content
+			<h1><%= t(".related_courses") %></h1>
+	    <%= link_to nil, title: %(New) do %>
+	      <%= image_tag('icons/Plus.svg', class: 'icon') %>
+	    <% end %>
+
+    else -->
+		<h1><%= t(".related_courses") %></h1>
+
+		<div class="training-course-card">
+			<div class="horizontal menu">
+				<h3 class="training-certified">SmartSensor HD Configuration</h3>
+				<div class="course-card-left training-hours">2 hrs.</div>
+				<div class="course-card-right"></div>
+				<p>Use SSMHD to configure sensor to lanes of traffic. Perform accuracy tests, change certain settings to see effect each setting has on reported data.</p>
+				<div class="learn-course">
+					<a class="hide-me-on-dropdown expand-container" data-toggle="hdconfig-dropdown"><%= t(".learn_more") %></a>
+					<div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown" data-dropdown data-auto-focus="true">
+						<p>In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Live demonstrations will show you how radar works, and the difference between frequency and bandwidth. You’ll become familiar with different types of traffic radar and which type would work for you.</p>
+						<h6 class="training-certified"><%= t(".certification_on_completion") %></h6>
+						<a data-toggle="hdconfig-dropdown" class="close-container"><%= t(".hide") %></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="training-course-card">
+			<div class="horizontal menu">
+				<h3 class="training-certified">SmartSensor HD Configuration</h3>
+				<div class="course-card-left training-hours">2 hrs.</div>
+				<div class="course-card-right"></div>
+				<p>Use SSMHD to configure sensor to lanes of traffic. Perform accuracy tests, change certain settings to see effect each setting has on reported data.</p>
+				<div class="learn-course">
+					<a class="hide-me-on-dropdown expand-container" data-toggle="hdconfig-dropdown"><%= t(".learn_more") %></a>
+					<div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown" data-dropdown data-auto-focus="true">
+						<p>In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Live demonstrations will show you how radar works, and the difference between frequency and bandwidth. You’ll become familiar with different types of traffic radar and which type would work for you.</p>
+						<h6 class="training-certified"><%= t(".certification_on_completion") %></h6>
+						<a data-toggle="hdconfig-dropdown" class="close-container"><%= t(".hide") %></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="training-course-card">
+			<div class="horizontal menu">
+				<h3 class="training-certified">SmartSensor HD Configuration</h3>
+				<div class="course-card-left training-hours">2 hrs.</div>
+				<div class="course-card-right"></div>
+				<p>Use SSMHD to configure sensor to lanes of traffic. Perform accuracy tests, change certain settings to see effect each setting has on reported data.</p>
+				<div class="learn-course">
+					<a class="hide-me-on-dropdown expand-container" data-toggle="hdconfig-dropdown"><%= t(".learn_more") %></a>
+					<div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown" data-dropdown data-auto-focus="true">
+						<p>In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Live demonstrations will show you how radar works, and the difference between frequency and bandwidth. You’ll become familiar with different types of traffic radar and which type would work for you.</p>
+						<h6 class="training-certified"><%= t(".certification_on_completion") %></h6>
+						<a data-toggle="hdconfig-dropdown" class="close-container"><%= t(".hide") %></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="training-course-card">
+			<div class="horizontal menu">
+				<h3 class="training-certified">SmartSensor HD Configuration</h3>
+				<div class="course-card-left training-hours">2 hrs.</div>
+				<div class="course-card-right"></div>
+				<p>Use SSMHD to configure sensor to lanes of traffic. Perform accuracy tests, change certain settings to see effect each setting has on reported data.</p>
+				<div class="learn-course">
+					<a class="hide-me-on-dropdown expand-container" data-toggle="hdconfig-dropdown"><%= t(".learn_more") %></a>
+					<div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown" data-dropdown data-auto-focus="true">
+						<p>In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Live demonstrations will show you how radar works, and the difference between frequency and bandwidth. You’ll become familiar with different types of traffic radar and which type would work for you.</p>
+						<h6 class="training-certified"><%= t(".certification_on_completion") %></h6>
+						<a data-toggle="hdconfig-dropdown" class="close-container"><%= t(".hide") %></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	<section class="product-specific-support" id="support" data-magellan-target="support">
+		<div class="row">
+			<div class="columns">
+				<!-- only if there is no content
+					<h1><%= t(".support") %></h1>
+			    <%= link_to nil, title: %(New) do %>
+			      <%= image_tag('icons/Plus.svg', class: 'icon') %>
+			    <% end %>
+
+		    else -->
+				<h1><%= t(".support") %></h1>
+			</div>
+			<div class="columns product-language-selection">
+				<section class="products-language-header">
+		      <select class="products-language-dropdown" name="language">
+		        <option value="english">English</option>
+		        <option value="french">French</option>
+		        <option value="latvian">Latvian</option>
+		      </select>
+				</section>
+			</div>
+
+			<% @product.downloads.group_by(&:download_type).each do |download_type, downloads| %>
+				<div class="support-section medium-6 columns large-4">
+				  <h2><%= download_type.name %></h2>
+				  <%= render partial: 'download', collection: downloads %>
+				</div>
+			<% end %>
+
+			<div class="small-12 columns support-view-more">
+				<%= link_to t(".view_more"), nil, class: "expand-container" %>
+			</div>
+
+		</div>
+
+	</section>
+
+</div>

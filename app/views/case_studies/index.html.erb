@@ -1,0 +1,22 @@
+<% content_for :title, 'Case Studies' %>
+<div class="row columns">
+<h1>Case Studies
+  <%= link_to new_case_study_path, title: 'Create a new case study' do %>
+    <%= image_tag('icons/Plus.svg', class: "small-icon") %>
+  <% end %>
+</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Posted</th>
+      <th>Last Updated</th>
+      <th style="width: 3rem;"></th>
+    </tr>
+  </thead>
+  <tbody id="case_studies">
+    <%= render @case_studies %>
+  </tbody>
+</table>
+</div>

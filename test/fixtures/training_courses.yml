@@ -1,0 +1,15 @@
+---
+smartsensor_hd_installation:
+  title: SmartSensor HD Installation
+  description: >
+    Learn proper installation techniques for the SmartSensor HD in order to
+    achieve accurate detections. Understand the steps to take the correctly
+    troubleshoot possible communications or power issues.
+
+    Skill Assessment – Select a correct location where a SmartSensor HD could be
+    installed. Install the sensor and properly align it to the traffic.
+    Troubleshoot communication and power lines.
+  number: 101
+  duration: 4
+  seats:
+  training_course_type: workshop

@@ -1,0 +1,3 @@
+class SalesTermsAndConditionsDocument < LegalPolicyDocument
+
+end

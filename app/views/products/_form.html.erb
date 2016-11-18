@@ -1,0 +1,48 @@
+<%= form_for @product do |f| %>
+  <%= content_tag :div, class: 'alert-box radius alert' do %>
+    <strong><%= pluralize @product.errors.count, 'error' %> kept this form from submitting:</strong>
+    <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end if @product.errors.any? %>
+  <%= f.label :product_category_id %>
+  <%= f.grouped_collection_select :product_category_id, ProductType.includes(:product_categories), :product_categories, :name, :id, :name %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :part_number %>
+  <%= f.text_field :part_number %>
+  <%= f.label :expired_on %>
+  <%= f.date_field :expired_on, placeholder: 'yyyy-mm-dd' %>
+  <%= f.label :summary %>
+  <%= f.text_field :summary %>
+  <%= f.label :description %>
+  <%= f.text_area :description, rows: 10 %>
+  <%= f.label :youtube_video_id %>
+  <%= f.text_field :youtube_video_id %>
+
+  <%= f.hidden_field :image, value: @product.cached_image_data %>
+  <div class="row">
+    <div class="medium-6 columns">
+      <%= f.label :image %>
+      <%= f.file_field :image, data: {'presigned-route': '/images/cache/presign'} %>
+    </div>
+    <div class="medium-6 columns">
+      <p><%= link_to 'Preview', @product.image_url(public: true), class: 'goto-new' if @product.image %></p>
+    </div>
+  </div>
+
+  <%= f.hidden_field :billboard, value: @product.cached_billboard_data %>
+  <div class="row">
+    <div class="medium-6 columns">
+      <%= f.label :billboard %>
+      <%= f.file_field :billboard, data: {'presigned-route': '/images/cache/presign'} %>
+    </div>
+    <div class="medium-6 columns">
+      <p><%= link_to 'Preview', @product.billboard_url(public: true), class: 'goto-new' if @product.billboard %></p>
+    </div>
+  </div>
+
+  <%= f.submit nil, class: 'button radius' %>
+<% end %>

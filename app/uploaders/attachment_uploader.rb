@@ -1,0 +1,3 @@
+class AttachmentUploader < Shrine
+  
+end

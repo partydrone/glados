@@ -1,0 +1,11 @@
+frodo:
+  first_name: Frodo
+  last_name: Baggins
+  email: frodo.baggins@bagend.com
+  password_digest: <%= BCrypt::Password.create('bilbo', cost: 4) %>
+
+sam:
+  first_name: Samwise
+  last_name: Gamgee
+  email: samwise.gamgee@bagend.com
+  password_digest: <%= BCrypt::Password.create('gaffer', cost: 4) %>

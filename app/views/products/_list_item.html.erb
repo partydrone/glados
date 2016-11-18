@@ -1,0 +1,13 @@
+<% cache list_item do %>
+  <tr>
+    <td>
+      <%= list_item.name %>
+    </td>
+    <td>
+      <%= list_item.part_number %>
+    </td>
+    <td style="text-align: right;">
+      <%= render partial: 'options_menu', locals: {object: list_item, instance_name: list_item.name} %>
+    </td>
+  </tr>
+<% end %>

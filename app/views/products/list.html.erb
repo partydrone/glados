@@ -1,0 +1,13 @@
+<% content_for :title, 'List Products' %>
+<div class="row columns">
+	<h1>
+		Products
+		<%= link_to new_product_path, title: 'Create a new product' do %>
+			<%= image_tag('icons/Plus.svg', class: "small-icon") %>
+		<% end %>
+	</h1>
+
+	<div class="row">
+		<%= render partial: 'product_type', collection: @product_types %>
+	</div>
+</div>

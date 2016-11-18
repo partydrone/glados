@@ -1,0 +1,74 @@
+<%= content_for :title, 'Wavetronix App' %>
+
+<section class="row app">
+  <div class="columns">
+    <h1><%= t(".title") %></h1>
+  </div>
+  <div class="columns">
+  	<%= image_tag("support/iPad-home.jpg") %>
+  </div>
+  <div class="large-1 columns show-for-large app-support-social social-media">
+
+    <div class="social-media-container">
+      <%= link_to nil, class: "social-media-icon" do %>
+        <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
+      <% end %>
+      <%= link_to nil, class: "social-media-icon" do %>
+        <%=image_tag('icons/Twitter.svg', class: "icon") %>
+      <% end %>
+      <%= link_to nil, class: "social-media-icon" do %>
+        <%=image_tag('icons/Facebook.svg', class: "icon") %>
+      <% end %>
+      <%= link_to nil, class: "social-media-icon" do %>
+        <%=image_tag('icons/Google.svg', class: "icon") %>
+      <% end %>
+      <%= link_to nil, class: "social-media-icon" do %>
+        <%=image_tag('icons/email.svg', class: "icon") %>
+      <% end %>
+    </div>
+
+  </div>
+  <div class="small-10 small-push-1 large-push-0 large-7 columns">
+  	<h3>
+  		The Wavetronix App brings experience and knowledge from some of the top radar and traffic experts in the world to the palm of your hand.
+  	</h3>
+  	<hr/>
+  	<p>The Wavetronix App provides unique content designed to assist traffic professionals in creating safe and efficient roadways while providing information for anyone interested in transportation issues including:</p>
+  	<ul class="normal-list">
+  		<li>Case studies featuring partnerships between Wavetronix and transportation agencies creating ITS applications that make a real difference.</li>
+  		<li>Social media integration so you can join in the conversation.</li>
+  		<li> Educational material designed to give anyone a basic foundational knowledge of radar traffic sensors and transportation systems.</li>
+  		<li>ITS application notes, guides, and other information to be used in the design office or in the field during installation.</li>
+  	</ul>
+  	<p>All content includes enhanced components including embedded video and multimedia content; interactive, exploratory features; links to third-party studies and research; and more. New content is added all the time so there is always something new to learn and enjoy.</p>
+  	<div class="download-app row">
+      <div class="medium-4 columns">
+  		  <%= image_tag("icons/appstore.svg") %>
+      </div>
+      <div class="medium-4 columns">
+        <%= image_tag("icons/googleplay.svg") %>
+      </div>
+      <div class="medium-4 columns">
+        <%= image_tag("icons/windowsstore.svg") %>
+      </div>
+  	</div>
+  </div>
+  <div class="large-4 small-12 columns app-side-support">
+  	<h4><%= t(".issue") %></h4>
+    <div class="request-box">
+      <div class="request row">
+        <div class="medium-10 medium-centered columns">
+          <form id="app-support-form">
+            <input type="text" name="app-support-name"><br>
+            <p class="request-label">Name</p>
+            <input type="text" name="app-support-email"><br>
+            <p class="request-label">Email</p>
+            <p class="request-label request-textarea-label">Description of Problem</p>
+            <textarea name="app-support-description" rows="5" cols="10"></textarea>
+          </form>
+          <button type="submit" form="app-support-form" value="Submit" class="button rounded expanded">Get Support</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

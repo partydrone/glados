@@ -1,0 +1,48 @@
+<%= form_for @download do |f| %>
+  <%= content_tag :div, class: 'alert-box radius alert' do %>
+    <h2><%= pluralize @download.errors.count, 'error' %> kept this form from submitting:</h2>
+    <ul>
+      <% @download.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end if @download.errors.any? %>
+  <%= f.label :download_type_id %>
+  <%= f.select :download_type_id, DownloadType.all.collect { |dt| [dt.name, dt.id] } %>
+  <%= f.label :locale %>
+  <%= f.select :locale, I18n.available_locales.collect { |l| [ humanize_locale(l), l ] }.sort %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%# f.label :part_number %>
+  <%# f.text_field :part_number %>
+
+  <%= f.hidden_field :attachment, value: @download.cached_attachment_data %>
+  <div class="row">
+    <div class="medium-6 columns">
+      <%= f.label :attachment %>
+      <%= f.file_field :attachment, data: {'presigned-route': '/attachments/cache/presign'} %>
+    </div>
+    <div class="medium-6 columns">
+      <p><%= link_to 'Preview', @download.attachment_url(public: true), class: 'goto-new' if @download.attachment %></p>
+    </div>
+  </div>
+
+  <h3>Associated Products</h3>
+  <div class="row">
+    <% @product_types.each do |product_type| %>
+      <div class="medium-<%= 12 / @product_types.count %> columns">
+        <h4><%= product_type.name %></h4>
+        <ul class="no-bullet">
+          <%= f.collection_check_boxes :product_ids, product_type.products, :id, :name do |b| %>
+            <li>
+              <%= b.check_box %>
+              <%= b.label %>
+            </li>
+          <% end if product_type.products %>
+        </ul>
+      </div>
+    <% end if @product_types %>
+  </div>
+  
+  <%= f.submit class: 'button radius' %>
+<% end %>
