@@ -21,11 +21,4 @@ describe LegalPolicyDocument do
     legal_policy_document.effective_on = ' '
     legal_policy_document.wont_be :valid?
   end
-
-  it "gets the current version" do
-    past = legal_policy_documents(:past_legal_policy_document)
-    current = legal_policy_documents(:current_legal_policy_document)
-    future = legal_policy_documents(:future_legal_policy_document)
-    LegalPolicyDocument.current.must_equal current
-  end
 end

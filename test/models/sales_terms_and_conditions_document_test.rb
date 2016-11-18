@@ -6,4 +6,9 @@ describe SalesTermsAndConditionsDocument do
   it "is a valid object" do
     sales_terms_and_conditions_document.must_be :valid?
   end
+
+  it "gets the current version" do
+    current = sales_terms_and_conditions_documents(:current_sales_terms_and_conditions_document)
+    SalesTermsAndConditionsDocument.current.must_equal current
+  end
 end
