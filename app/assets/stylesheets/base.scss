@@ -323,6 +323,23 @@ Request Box
       margin-bottom: 15px;
       padding-top: 24px;
     }
+    .request-button {
+      border-bottom: none;
+      background-color: $yellow;
+      height: 3.25rem;
+      font-size: 1rem;
+      padding: 0 3.25rem;
+      line-height: 3.25rem;
+      margin-bottom: 0.75rem;
+      font-family: $font-family-secondary;
+      &:hover {
+        background-color: lighten($yellow, 15%);
+      }
+    }
+    .select-label {
+      margin-top: -1rem;
+      margin-bottom: 1rem;
+    }
   }
 
   .request-box:after, 
@@ -356,7 +373,7 @@ Request Box
     background: transparent;
     box-shadow: none;
     font-size: 19px;
-    height: 26px;
+    height: 2rem;
   }
 
 /***********************************************************************************************
