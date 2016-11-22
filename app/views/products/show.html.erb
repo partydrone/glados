@@ -82,6 +82,7 @@
 			<% if @product.youtube_video_id.present? %>
 				<div class="flex-video widescreen">
 					<iframe src="https://www.youtube.com/embed/<%= @product.youtube_video_id %>?rel=0&showinfo=0" width="720" hieght="480" frameborder="0"></iframe>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/RpiFph3iTPs" frameborder="0" allowfullscreen></iframe>
 				</div>
 			<% elsif @product.billboard_data? %>
 				<%= image_tag @product.billboard_url(public: true) %>
