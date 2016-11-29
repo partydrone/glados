@@ -45,7 +45,7 @@ gem 'rails-i18n', '~> 5.0.0'
 ##
 # List sorting
 gem 'acts_as_list'
-gem 'jquery-ui-rails'
+gem 'jquery-ui-rails', '~> 5.0'
 gem 'record_tag_helper', '~> 1.0'
 
 group :development, :test do
