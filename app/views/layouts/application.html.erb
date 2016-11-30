@@ -13,10 +13,11 @@
 
     <%= javascript_include_tag "https://use.fontawesome.com/540ab1d6d5.js" %>
     <script src="https://use.typekit.net/zjr7bnt.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <script>try { Typekit.load({ async: true }); }catch(e){}</script>
   </head>
 
   <body>
+    <%= render 'flash' %>
     <div class="off-canvas-wrapper">
       <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
         <%= render 'site_header' %>
@@ -27,5 +28,6 @@
       </div> <!-- close off-canvas inner wrapper -->
     </div> <!-- close off-canvas-wrapper -->
     <%= javascript_include_tag 'application', debug: false %>
+    <%= render 'analytics' %>
   </body>
 </html>
