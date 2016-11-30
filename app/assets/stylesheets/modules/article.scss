@@ -115,6 +115,9 @@
 	@media screen and (min-width: 1024px) {
 		margin-left: -16.66667%;
 	}
+	.flex-video iframe {
+      border: 1px solid $silver;
+    }
 }
 
 .article-sub-head {
