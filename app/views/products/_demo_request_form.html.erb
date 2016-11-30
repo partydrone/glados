@@ -7,11 +7,11 @@
       <% end %>
     </ul>
   <% end if @demo_request.errors.any? %>
-  <%= f.label :name %>
   <%= f.text_field :name %>
-  <%= f.label :email %>
+  <%= f.label :name %>
   <%= f.email_field :email %>
-  <%= f.label :country %>
+  <%= f.label :email %>
   <%= f.select :country, COUNTRIES.invert.sort %>
-  <%= f.submit 'Request a demo', class: 'button radius' %>
+  <%= f.label :country, class:"select-label"%>
+  <%= f.submit 'Request a demo', class: 'button radius request-button' %>
 <% end %>

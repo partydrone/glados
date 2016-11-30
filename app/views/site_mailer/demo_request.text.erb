@@ -1,1 +1,3 @@
-<%= @demo_request.name %> from <%= @demo_request.country %>
+<%= @demo_request.name %> from <%= t "countries.#{@demo_request.country}" %>
+
+This email would be sent to <%= @send_to_email %>.
