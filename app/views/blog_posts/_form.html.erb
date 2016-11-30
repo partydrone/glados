@@ -1,12 +1,4 @@
 <%= form_for @blog_post do |f| %>
-  <%= content_tag :div, class: 'alert-box radius alert' do %>
-    <strong><%= pluralize @blog_post.errors.count, 'error' %> kept this form from submitting:</strong>
-    <ul>
-      <% @blog_post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end if @blog_post.errors.any? %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :subtitle %>

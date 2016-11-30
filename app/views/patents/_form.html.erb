@@ -1,12 +1,4 @@
 <%= form_for @patent do |f| %>
-  <%= content_tag :div, class: 'alert-box radius alert' do %>
-    <strong><%= pluralize @patent.errors.count, 'error' %> kept this form from submitting:</strong>
-    <ul>
-      <% @patent.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end if @patent.errors.any? %>
   <%= f.label :number %>
   <%= f.number_field :number %>
   <%= f.label :title %>
