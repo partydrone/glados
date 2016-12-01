@@ -63,22 +63,24 @@ navigation
       text-align: right;
     }
     h4 {
-      margin: 0;
+      margin-bottom: 10px;
+      margin-left: 10px;
     }
   }
 
   .product-specific-bottom-nav {
     bottom: 0 !important;
     width: 100%;
-    height: 50px;
+    height: auto;
     background: $white;
     position: fixed;
     z-index: 5;
     border-top: 1px solid $silver;
     a {
       font-size: 14px;
-      padding: 8px 0px 0px 0px !important;
+      padding: 5px 0px 5px 0px !important;
       color: $charcoal;
+      font-weight: normal;
     }
     img {
       height: 18px;
