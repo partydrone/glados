@@ -13,24 +13,9 @@
 				<nav data-magellan data-bar-offset="70">
 					<ul class="horizontal menu">
 						<li><a href="#features"><%= t('.features') %></a></li>
+						<li><a href="#requestdemo"><%= t('.request_demo') %></a></li>
 						<li><a href="#training"><%= t('.courses') %></a></li>
 						<li><a href="#support"><%= t('.support') %></a></li>
-						<li>
-							<button class="button small hide-me-on-dropdown" type="button" data-toggle="demo-dropdown">Request a Demo</button>
-							<div class="dropdown-pane request-dropdown-container" id="demo-dropdown" data-dropdown data-auto-focus="true">
-							   <div class="request-dropdown">
-									<form id="request-dropdown-form">
-								        <input type="text">
-								        <label>Name</label>
-								        <input type="text">
-								        <label>Zip, State, or Country</label>
-								        <input type="text">
-								        <label>Email Address</label>
-									</form>
-									<button type="submit" form="request-dropdown-form" value="Submit" class="button rounded"><%= t('.request_demo') %></button><button class="button rounded cancel" data-toggle="demo-dropdown"><%= t('.cancel') %></button>
-						    	</div>
-							</div>
-						</li>
 					</ul>
 				</nav>
 			</div>
@@ -40,34 +25,15 @@
 
 <div class="hide-for-large">
 	<div class="product-specific-top-nav">
-		<div class="row">
-			<div class="small-5 columns">
-				<h4><%= @product.name %></h4>
-			</div>
-			<div class="small-7 columns text-right">
-				<button class="button small hide-me-on-dropdown" type="button" data-toggle="demo-dropdown-small"><%= t('.request_demo') %></button>
-				<div class="dropdown-pane request-dropdown-container" id="demo-dropdown-small" data-dropdown data-auto-focus="true">
-				   <div class="request-dropdown">
-						<form id="request-dropdown-form">
-					        <input type="text">
-					        <label>Name</label>
-					        <input type="text">
-					        <label>Zip, State, or Country</label>
-					        <input type="text">
-					        <label>Email Address</label>
-						</form>
-						<button type="submit" form="request-dropdown-form" value="Submit" class="button small rounded"><%= t('.request_demo') %></button><button class="button small rounded cancel" data-toggle="demo-dropdown-small"><%= t('.cancel') %></button>
-			    </div>
-				</div>
-			</div>
-		</div>
+		<h4><%= @product.name %></h4>
 	</div>
 	<div class="product-specific-bottom-nav">
 		<nav data-magellan data-bar-offset="70">
 			<ul class="menu icon-top expanded">
-			  <li><a href="#features"><%= image_tag("icons/features.svg") %> <span><%= t(".features") %></span></a></li>
-			  <li><a href="#training"><%= image_tag("icons/courses.svg") %> <span><%= t(".courses") %></span></a></li>
-			  <li><a href="#support"><%= image_tag("icons/support.svg") %> <span><%= t(".support") %></span></a></li>
+			  <li><a href="#features"><%= image_tag("icons/check_circ16.svg") %> <span><%= t(".features") %></span></a></li>
+			  <li><a href="#requestdemo"><%= image_tag("icons/speech_convo16.svg") %> <span><%= t('.request_demo') %></span></a></li>
+			  <li><a href="#training"><%= image_tag("icons/educate16.svg") %> <span><%= t(".courses") %></span></a></li>
+			  <li><a href="#support"><%= image_tag("icons/utility16.svg") %> <span><%= t(".support") %></span></a></li>
 			</ul>
 		</nav>
 	</div>
@@ -103,7 +69,7 @@
 		<%= render @product.features %>
 	</section>
 
-	<section class="product-request-demo">
+	<section class="product-request-demo" id="requestdemo" data-magellan-target="requestdemo">
 		<h4><%= t(".request_demo") %></h4>
 	  <div class="request-box">
 	    <div class="request row">
@@ -124,7 +90,7 @@
 	      <%= image_tag('icons/Plus.svg', class: 'icon') %>
 	    <% end %>
 
-    else -->
+    	else -->
 		<h1><%= t(".related_courses") %></h1>
 
 		<div class="training-course-card">
@@ -134,11 +100,11 @@
 				<div class="course-card-right"></div>
 				<p>Use SSMHD to configure sensor to lanes of traffic. Perform accuracy tests, change certain settings to see effect each setting has on reported data.</p>
 				<div class="learn-course">
-					<a class="hide-me-on-dropdown expand-container" data-toggle="hdconfig-dropdown"><%= t(".learn_more") %></a>
-					<div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown" data-dropdown data-auto-focus="true">
+					<a class="hide-me-on-dropdown expand-container" data-toggle="hdconfig-dropdown1"><%= t(".learn_more") %></a>
+					<div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown1" data-dropdown data-auto-focus="true">
 						<p>In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Live demonstrations will show you how radar works, and the difference between frequency and bandwidth. You’ll become familiar with different types of traffic radar and which type would work for you.</p>
 						<h6 class="training-certified"><%= t(".certification_on_completion") %></h6>
-						<a data-toggle="hdconfig-dropdown" class="close-container"><%= t(".hide") %></a>
+						<a data-toggle="hdconfig-dropdown1" class="close-container"><%= t(".hide") %></a>
 					</div>
 				</div>
 			</div>
@@ -151,11 +117,11 @@
 				<div class="course-card-right"></div>
 				<p>Use SSMHD to configure sensor to lanes of traffic. Perform accuracy tests, change certain settings to see effect each setting has on reported data.</p>
 				<div class="learn-course">
-					<a class="hide-me-on-dropdown expand-container" data-toggle="hdconfig-dropdown"><%= t(".learn_more") %></a>
-					<div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown" data-dropdown data-auto-focus="true">
+					<a class="hide-me-on-dropdown expand-container" data-toggle="hdconfig-dropdown2"><%= t(".learn_more") %></a>
+					<div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown2" data-dropdown data-auto-focus="true">
 						<p>In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Live demonstrations will show you how radar works, and the difference between frequency and bandwidth. You’ll become familiar with different types of traffic radar and which type would work for you.</p>
 						<h6 class="training-certified"><%= t(".certification_on_completion") %></h6>
-						<a data-toggle="hdconfig-dropdown" class="close-container"><%= t(".hide") %></a>
+						<a data-toggle="hdconfig-dropdown2" class="close-container"><%= t(".hide") %></a>
 					</div>
 				</div>
 			</div>
@@ -168,11 +134,11 @@
 				<div class="course-card-right"></div>
 				<p>Use SSMHD to configure sensor to lanes of traffic. Perform accuracy tests, change certain settings to see effect each setting has on reported data.</p>
 				<div class="learn-course">
-					<a class="hide-me-on-dropdown expand-container" data-toggle="hdconfig-dropdown"><%= t(".learn_more") %></a>
-					<div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown" data-dropdown data-auto-focus="true">
+					<a class="hide-me-on-dropdown expand-container" data-toggle="hdconfig-dropdown3"><%= t(".learn_more") %></a>
+					<div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown3" data-dropdown data-auto-focus="true">
 						<p>In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Live demonstrations will show you how radar works, and the difference between frequency and bandwidth. You’ll become familiar with different types of traffic radar and which type would work for you.</p>
 						<h6 class="training-certified"><%= t(".certification_on_completion") %></h6>
-						<a data-toggle="hdconfig-dropdown" class="close-container"><%= t(".hide") %></a>
+						<a data-toggle="hdconfig-dropdown3" class="close-container"><%= t(".hide") %></a>
 					</div>
 				</div>
 			</div>
@@ -185,11 +151,11 @@
 				<div class="course-card-right"></div>
 				<p>Use SSMHD to configure sensor to lanes of traffic. Perform accuracy tests, change certain settings to see effect each setting has on reported data.</p>
 				<div class="learn-course">
-					<a class="hide-me-on-dropdown expand-container" data-toggle="hdconfig-dropdown"><%= t(".learn_more") %></a>
-					<div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown" data-dropdown data-auto-focus="true">
+					<a class="hide-me-on-dropdown expand-container" data-toggle="hdconfig-dropdown4"><%= t(".learn_more") %></a>
+					<div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown4" data-dropdown data-auto-focus="true">
 						<p>In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Live demonstrations will show you how radar works, and the difference between frequency and bandwidth. You’ll become familiar with different types of traffic radar and which type would work for you.</p>
 						<h6 class="training-certified"><%= t(".certification_on_completion") %></h6>
-						<a data-toggle="hdconfig-dropdown" class="close-container"><%= t(".hide") %></a>
+						<a data-toggle="hdconfig-dropdown4" class="close-container"><%= t(".hide") %></a>
 					</div>
 				</div>
 			</div>

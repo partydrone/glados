@@ -135,6 +135,7 @@ Top Banner
 			margin-top: 8px;
 		}
 		@media screen and (max-width:40em) {
+			padding-top: 210px;
 			.home-header-text {
 		  	font-size: 46px;
 		  	line-height: 35px;
@@ -508,7 +509,17 @@ Reliable Magellan Section
 	  	background: rgba(27, 46, 60, 0.75);
 	  }
 	  .tabs-title > a:focus, .tabs-title > a[aria-selected='true'] .st0 {
-		  fill: rgba(27, 46, 60, 0.75);
+		  fill: $gold;
+		}
+		.tabs-panel h5 {
+			color: $gold;
+		}
+		.tabs-title {
+			background: rgba(27, 46, 60, 0.75);
+			padding-top: 10px;
+			&:hover a {
+				background: transparent;
+			}
 		}
 		svg {
 			width: 32px;
