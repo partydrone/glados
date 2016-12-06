@@ -33,6 +33,10 @@ gem 'roda'
 gem 'shrine'
 
 ##
+# Forms
+gem 'client_side_validations', github: 'DavyJonesLocker/client_side_validations', branch: 'rails5'
+
+##
 # Front-end
 gem 'foundation-rails', '~> 6.0'
 gem 'redcarpet', '~> 3.0'
@@ -47,6 +51,12 @@ gem 'rails-i18n', '~> 5.0.0'
 gem 'acts_as_list'
 gem 'jquery-ui-rails', '~> 5.0'
 gem 'record_tag_helper', '~> 1.0'
+
+##
+# Profiling
+gem 'rack-mini-profiler', '~> 0.10'
+gem 'flamegraph'
+gem 'stackprof'
 
 group :development, :test do
   gem 'byebug', platform: :mri
