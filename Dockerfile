@@ -2,6 +2,7 @@ FROM ruby:2.3-slim
 MAINTAINER Andrew Porter <andrew.porter@wavetronix.com>
 RUN apt-get update -qq && apt-get install -qq -y --no-install-recommends \
     build-essential \
+    git \
     imagemagick \
     libpq-dev \
     nodejs
