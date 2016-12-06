@@ -1,0 +1,8 @@
+---
+
+en:
+  site_mailer:
+    demo_request:
+      subject: Demo Request
+    marketing_app_support_request:
+      subject: Marketing App Support Request

@@ -18,6 +18,7 @@
 //= require jquery-fileupload/jquery.fileupload
 //= require owl.carousel
 //= require foundation
+//= require rails.validations
 //= require_tree .
 
 $(function() {

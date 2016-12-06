@@ -1,2 +1,8 @@
-<h1><%= @demo_request.name %> from <%= t "countries.#{@demo_request.country}" %></h1>
+<h1><%= @demo_request.name %> from <%= t "countries.#{@demo_request.country}" %> would like to request a demo.</h1>
+
+<p>This request was sent from the following page on the website:</p>
+<p><%= @page %></p>
+
+<p>If you would like to respond to this request, simply reply to this email.</p>
+
 <p>This email would be sent to <%= @send_to_email %>.</p>
