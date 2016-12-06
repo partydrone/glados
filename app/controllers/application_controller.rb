@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :set_locale
+  before_action :enable_profiler, :set_locale
 
   rescue_from Pundit::NotAuthorizedError, with: :permission_denied
 
@@ -43,6 +43,12 @@ class ApplicationController < ActionController::Base
       scan(/(?:[a-z]{2,2})(?:[-|_](?:[A-Z]{2,2}))?/i).first do |str|
         str.gsub!(/([a-z]{2,2})(?:[-|_]([A-Z]{2,2}))?/i) { |s| $2 ? "#{$1}-#{$2.upcase}" : $1 }
       end
+    end
+  end
+
+  def enable_profiler
+    if Rails.env.staging?
+      Rack::MiniProfiler.authorize_request
     end
   end
 
