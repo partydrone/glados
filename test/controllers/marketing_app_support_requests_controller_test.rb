@@ -4,7 +4,7 @@ describe MarketingAppSupportRequestsController do
   let(:marketing_app_support_request) { MarketingAppSupportRequest.new(name: 'Bono', email: 'bono@u2.com', description: "I still haven't found what I'm looking for.") }
 
   it "sends an email" do
-    -> {
+    lambda do
       post marketing_app_support_requests_path, params: {
         marketing_app_support_request: {
           name: marketing_app_support_request.name,
@@ -12,7 +12,7 @@ describe MarketingAppSupportRequestsController do
           description: marketing_app_support_request.description
         }
       }
-    }
+    end
     # must_redirect_to referer URL
   end
 end

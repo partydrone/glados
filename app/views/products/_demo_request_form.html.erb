@@ -1,31 +1,12 @@
-<<<<<<< HEAD
 <%= form_for @demo_request, validate: true do |f| %>
-  <%= f.text_field :name %>
-=======
-<%= form_for @demo_request do |f| %>
-  <%= content_tag :div, class: 'alert-box radius alert' do %>
-    <strong><%= pluralize @demo_request.errors.count, 'error' %> kept this form from submitting:</strong>
-    <ul>
-      <% @demo_request.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end if @demo_request.errors.any? %>
->>>>>>> master
   <%= f.label :name %>
   <%= f.text_field :name %>
   <hr/>
   <%= f.label :email %>
-<<<<<<< HEAD
-  <%= f.select :country, COUNTRIES.invert.sort %>
-  <%= f.label :country, class: 'select-label' %>
-  <%= f.submit 'Request a demo', class: 'button radius request-button' %>
-=======
   <%= f.email_field :email %>
   <hr/>
   <%= f.label :country, class:"select-label"%>
   <%= f.select :country, COUNTRIES.invert.sort %>
   <hr/>
   <%= f.submit 'Request a demo', class: 'button radius expanded request-button' %>
->>>>>>> master
 <% end %>

@@ -47,9 +47,7 @@ class ApplicationController < ActionController::Base
   end
 
   def enable_profiler
-    if Rails.env.staging?
-      Rack::MiniProfiler.authorize_request
-    end
+    Rack::MiniProfiler.authorize_request if Rails.env.staging?
   end
 
   def set_locale
