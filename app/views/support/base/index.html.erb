@@ -690,6 +690,6 @@
 	<div class="row">
 		<%= image_tag('icons/mobilesupport.svg') %>
 		<h1><%= t(".mobile_app") %></h1>
-		<button class="button rounded"><%= t(".app_support") %></button>
+		<%= link_to 'Visit App Support', support_marketing_app_path, class: 'button rounded' %>
 	</div>
 </div>

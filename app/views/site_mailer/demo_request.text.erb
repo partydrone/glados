@@ -1,9 +1,9 @@
-<%= @demo_request.name %> from <%= t "countries.#{@demo_request.country}" %>
-
-This request was sent from the following page on the website:
-
+New Demo Request!
+<%= @demo_request.name %> from <%= t "countries.#{@demo_request.country}" %> requests a product demo. This request originated from the following page on the website:
 <%= @page %>
+To respond to this request, just reply to this email.
 
-If you would like to respond to this request, simply reply to this email.
+Thanks!
 
-This email would be sent to <%= @send_to_email %>.
+---
+This request would be sent to <%= @send_to_email %>
