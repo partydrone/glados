@@ -300,13 +300,31 @@ Request Box
     height: auto;
     text-align: center;
     padding: 35px 15px;
-    .request-label {
+    label {
       text-align: left;
-      line-height: 0;
-      margin-top: -10px;
-      margin-bottom: 26px;
+      // line-height: 0;
+      display: inline-block;
+      width: 10%;
       &:last-child {
         padding-bottom: 10px;
+      }
+    }
+    input {
+      margin: 0;
+      margin-top: 0.75rem;
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      font-size: 19px;
+      width: 89%;
+      display: inline-block;
+      vertical-align: text-bottom;
+      height: 21px;
+      padding: 0;
+      &:focus {
+        background: transparent;
+        border: none;
+        box-shadow: none;
       }
     }
     .mailed-request-label,
@@ -324,21 +342,17 @@ Request Box
       padding-top: 24px;
     }
     .request-button {
-      border-bottom: none;
       background-color: $yellow;
       height: 3.25rem;
       font-size: 1rem;
-      padding: 0 3.25rem;
-      line-height: 3.25rem;
-      margin-bottom: 0.75rem;
+      margin: 0.75rem auto;
       font-family: $font-family-secondary;
       &:hover {
         background-color: lighten($yellow, 15%);
       }
     }
-    .select-label {
-      margin-top: -1rem;
-      margin-bottom: 1rem;
+    .new_demo_request {
+      text-align: left;
     }
   }
 
@@ -364,16 +378,6 @@ Request Box
     border-width: 18px;
     margin-left: -18px;
     top: 0px;
-  }
-
-  .request-box input {
-    margin: 0;
-    border: none;
-    border-bottom: 1px solid $silver;
-    background: transparent;
-    box-shadow: none;
-    font-size: 19px;
-    height: 2rem;
   }
 
 /***********************************************************************************************
@@ -535,13 +539,13 @@ Admin Navigation
     vertical-align: top;
   }
   .admin-new:before {
-    content: url(image_path('icons/Plus16.svg'));
+    content: url(image_path('icons/Plus.svg'));
   }
   .admin-edit:before {
-    content: url(image_path('icons/edit16.svg'));
+    content: url(image_path('icons/edit.svg'));
   }
   .admin-delete:before {
-    content: url(image_path('icons/trash16.svg'));
+    content: url(image_path('icons/trash.svg'));
   }
 
 /***********************************************************************************************
