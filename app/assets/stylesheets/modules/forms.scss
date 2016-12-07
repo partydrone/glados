@@ -1,0 +1,12 @@
+@import "foundation_and_overrides";
+@import "globals/all";
+
+.validation-error {
+  color: $alert-color;
+  font-size: 0.875rem;
+  margin-top: -0.875rem;
+
+  &::before {
+    content: "^ ";
+  }
+}

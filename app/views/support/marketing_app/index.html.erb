@@ -58,15 +58,15 @@
     <div class="request-box">
       <div class="request row">
         <div class="medium-10 medium-centered columns">
-          <form id="app-support-form">
-            <input type="text" name="app-support-name"><br>
-            <p class="request-label">Name</p>
-            <input type="text" name="app-support-email"><br>
-            <p class="request-label">Email</p>
-            <p class="request-label request-textarea-label">Description of Problem</p>
-            <textarea name="app-support-description" rows="5" cols="10"></textarea>
-          </form>
-          <button type="submit" form="app-support-form" value="Submit" class="button rounded expanded">Get Support</button>
+          <%= form_for @marketing_app_support_request, validate: true do |f| %>
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+            <%= f.label :email %>
+            <%= f.email_field :email %>
+            <%= f.label :description %>
+            <%= f.text_area :description %>
+            <%= f.submit 'Get Support', class: 'button radius request-button' %>
+          <% end %>
         </div>
       </div>
     </div>

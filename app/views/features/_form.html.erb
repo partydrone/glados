@@ -1,13 +1,4 @@
 <%= form_for @feature do |f| %>
-  <%= content_tag :div, class: 'alert-box radius alert' do %>
-    <strong><%= pluralize @feature.errors.count, 'error' %> kept this form from submitting:</strong>
-    <ul>
-      <% @feature.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end if @feature.errors.any? %>
-
   <div class="row">
     <div class="large-8 columns">
       <%= f.label :title %>

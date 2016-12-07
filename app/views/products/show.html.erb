@@ -12,10 +12,12 @@
 			<div class="large-7 columns text-right">
 				<nav data-magellan data-bar-offset="70">
 					<ul class="horizontal menu">
-						<li><a href="#features"><%= t('.features') %></a></li>
-						<li><a href="#training"><%= t('.courses') %></a></li>
-						<li><a href="#support"><%= t('.support') %></a></li>
-						<li><a href="#requestdemo"><%= t('.request_demo') %></a></li>
+						<li><%= link_to t('.features'), '#features' %></li>
+						<li><%= link_to t('.courses'), '#training' %></li>
+						<li><%= link_to t('.support'), '#support' %></li>
+						<li>
+							<%= link_to t('.request_demo'), '#demo_request_form', class: 'button small' %>
+						</li>
 					</ul>
 				</nav>
 			</div>
@@ -25,8 +27,8 @@
 
 <div class="hide-for-large">
 	<div class="product-specific-top-nav">
-		<h4><%= @product.name %></h4>
-	</div>
+				<h4><%= @product.name %></h4>
+			</div>
 	<div class="product-specific-bottom-nav">
 		<nav data-magellan data-bar-offset="70">
 			<ul class="menu icon-top expanded">
@@ -47,15 +49,14 @@
 		<div class="product-intro-media">
 			<% if @product.youtube_video_id.present? %>
 				<div class="flex-video widescreen">
-					<iframe src="https://www.youtube.com/embed/<%= @product.youtube_video_id %>?rel=0&showinfo=0" width="720" hieght="480" frameborder="0"></iframe>
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/RpiFph3iTPs" frameborder="0" allowfullscreen></iframe>
+					<iframe src="https://www.youtube.com/embed/<%= @product.youtube_video_id %>?rel=0&showinfo=0" width="720" hieght="480" frameborder="0" allowfullscreen></iframe>
 				</div>
 			<% elsif @product.billboard_data? %>
 				<%= image_tag @product.billboard_url(public: true) %>
 			<% end %>
 		</div>
 		<div class="product-intro-product-image">
-			<%= image_tag @product.image_url(public: true) if @product.image_data? %> 
+			<%= image_tag @product.image_url(public: true) if @product.image_data? %>
 		</div>
 		<div class="product-intro-blurb medium-7 medium-centered">
 			<h4><%= @product.description %></h4>
@@ -69,13 +70,13 @@
 		<%= render @product.features %>
 	</section>
 
-	<section class="product-request-demo" id="requestdemo" data-magellan-target="requestdemo">
-		<h4><%= t(".request_demo") %></h4>
+	<section class="product-request-demo" id="demo_request_form" data-magellan-target="demo_request_form">
+		<h4><%= t '.request_demo' %></h4>
 	  <div class="request-box">
 	    <div class="request row">
 	      <div class="medium-8 large-6 medium-centered columns">
 	        <%= render 'demo_request_form' %>
-	        <p><%= t(".perfer_contact") %> <%= link_to t(".here"), nil %>.</p>
+	        <p><%= t '.perfer_contact' %> <%= link_to t('.here'), nil %>.</p>
 	      </div>
 	    </div>
 	  </div>
@@ -90,7 +91,7 @@
 	      <%= image_tag('icons/Plus.svg', class: 'icon') %>
 	    <% end %>
 
-    	else -->
+    else -->
 		<h1><%= t(".related_courses") %></h1>
 
 		<div class="training-course-card">
@@ -195,9 +196,6 @@
 			<div class="small-12 columns support-view-more">
 				<%= link_to t(".view_more"), nil, class: "expand-container" %>
 			</div>
-
 		</div>
-
 	</section>
-
 </div>

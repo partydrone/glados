@@ -1,12 +1,4 @@
 <%= form_for @product_category do |f| %>
-  <%= content_tag :div, class: 'alert-box radius alert' do %>
-    <strong><%= pluralize @product_category.errors.count, 'error' %> kept this form from submitting:</strong>
-    <ul>
-      <% @product_category.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end if @product_category.errors.any? %>
   <%= f.label :product_type_id %>
   <%= f.select :product_type_id, ProductType.all.collect { |pl| [pl.name, pl.id] } %>
   <%= f.label :name %>

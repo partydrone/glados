@@ -1,47 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Request Demo Mailer</title>
-  </head>
-
-  <body>
-    <table style="text-align: left; width: 100%; margin: 0; padding: 0;">
-      <tr>
-        <td align="center" valign="top">
-          <table bgcolor="#000000" align="center" style="width: 100%;">
-            <tr>
-              <th style="padding: 0; text-align: left;">
-                <a href="http://www.wavetronix.com">
-                  <img src="http://dw8wks5reei42.cloudfront.net/assets/icons/logo-977773153b61d0a9fd55c70c06b0142adc3c6eb85948531c2c30608632826094.svg">
-                </a>
-              </th>
-            </tr>
-          </table>
-          <table style="margin-left: 0; margin-right: auto;">
-            <tbody>
-              <tr>
-                <th style="text-align: left;">
-                  <h1>New Demo Request!</h1>
-                  <p><h1><%= @demo_request.name %> from <%= @demo_request.country %> has made a request for a product demo on the Wavetronix.com website. Please email them back at <a href="mailto:<%= @demo_request.email %>?Subject=Wavetronix Demo Request" target="_top"><%= @demo_request.email %></a>.</p>
-                </th>
-              </tr> 
-            </tbody>
-          </table>
-          <table style="margin-left: 0; margin-right: auto;">
-            <tbody>
-              <tr>
-                <th>
-                  <p style="font-size: 12px; text-align: left;">© 2016 Wavetronix, LLC | <a href="http://www.wavetronix.com">Wavetronix.com</a>
-                </th>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-      </tr>
-    </table>
-  </body>
-
-</html>
+<h1>New Demo Request!</h1>
+<p><%= @demo_request.name %> from <%= t "countries.#{@demo_request.country}" %> requests a product demo. This request originated from the following page on the website:</p>
+<p><%= @page %></p>
+<p>To respond to this request, just reply to this email.</p>
+<p>This request would be sent to <%= @send_to_email %></p>

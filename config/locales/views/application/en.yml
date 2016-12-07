@@ -16,3 +16,5 @@ en:
 
   ui:
     demo_button: Request a Demo
+    demo_request_error: 'We were unable to send your request. Please make sure to fill the form out completely.'
+    demo_request_sent: 'Thank you for submitting a request for a demo. We will contact you shortly.'

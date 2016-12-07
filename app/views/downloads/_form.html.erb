@@ -1,12 +1,4 @@
 <%= form_for @download do |f| %>
-  <%= content_tag :div, class: 'alert-box radius alert' do %>
-    <h2><%= pluralize @download.errors.count, 'error' %> kept this form from submitting:</h2>
-    <ul>
-      <% @download.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end if @download.errors.any? %>
   <%= f.label :download_type_id %>
   <%= f.select :download_type_id, DownloadType.all.collect { |dt| [dt.name, dt.id] } %>
   <%= f.label :locale %>
@@ -43,6 +35,6 @@
       </div>
     <% end if @product_types %>
   </div>
-  
+
   <%= f.submit class: 'button radius' %>
 <% end %>

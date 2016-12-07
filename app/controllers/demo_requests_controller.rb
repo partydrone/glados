@@ -1,8 +1,12 @@
 class DemoRequestsController < ApplicationController
   def create
     @demo_request = DemoRequest.new(demo_request_params)
-    SiteMailer.demo_request(@demo_request).deliver_now
-    redirect_back fallback_location: root_path, notice: 'We received your request.'
+    if @demo_request.valid?
+      SiteMailer.demo_request(@demo_request, request.referer).deliver_now
+      redirect_back fallback_location: root_path, notice: t('ui.demo_request_sent')
+    else
+      redirect_back fallback_location: root_path, alert: t('ui.demo_request_error')
+    end
   end
 
   private
