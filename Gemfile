@@ -34,7 +34,7 @@ gem 'shrine'
 
 ##
 # Forms
-gem 'client_side_validations', github: 'DavyJonesLocker/client_side_validations', branch: 'rails5'
+gem 'client_side_validations', git: 'https://github.com/DavyJonesLocker/client_side_validations.git', branch: 'rails5'
 
 ##
 # Front-end
