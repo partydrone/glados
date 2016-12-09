@@ -29,10 +29,11 @@ Base Home
 
 	.home-section-text {
 		text-align: center;
-		max-width: 687px;
+		max-width: 500px;
 		margin: 0 auto;
 		p {
 			margin-bottom: 50px;
+			padding: 0 1rem;
 			@media screen and (max-width:40em) {
 				margin-bottom: 10px;
 			}
@@ -710,6 +711,40 @@ Cost Effective Section
 			-o-background-size: cover;
 			background-size: cover;
 		}
+	}
+
+	.home-loops-backer {
+		background: url(image_path('home/Loops-Addup.jpg')) no-repeat center;
+		// background-attachment: fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		width: 100vw;
+		height: 100vh;
+	}
+
+	.home-one-sensor-backer {
+		background: url(image_path('home/One-Sensor.jpg')) no-repeat center;
+		background-attachment: fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		width: 100vw;
+		height: 100vh;
+		position: relative;
+		z-index: 10;
+		width: 100vw;
+		margin-top: 100vh;
+	}
+
+	.home-loops-overlay {
+		margin-top: -1px !important;
+	}
+
+	.loops-sensor-body {
+		padding: 0 !important;
 	}
 
 
