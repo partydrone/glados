@@ -30,6 +30,7 @@ gem 'sidekiq', '~> 4.1'
 gem 'aws-sdk', '~> 2.1'
 gem 'refile', require: 'refile/rails', git: 'https://github.com/refile/refile.git', branch: 'master'
 gem 'sinatra', require: nil, git: 'https://github.com/sinatra/sinatra.git', branch: 'master'
+gem 'refile-mini_magick'
 gem 'refile-s3'
 
 ##

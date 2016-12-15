@@ -77,13 +77,13 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     ansi (1.5.0)
     arel (7.1.4)
-    aws-sdk (2.6.35)
-      aws-sdk-resources (= 2.6.35)
-    aws-sdk-core (2.6.35)
+    aws-sdk (2.6.36)
+      aws-sdk-resources (= 2.6.36)
+    aws-sdk-core (2.6.36)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.6.35)
-      aws-sdk-core (= 2.6.35)
+    aws-sdk-resources (2.6.36)
+      aws-sdk-core (= 2.6.36)
     aws-sigv4 (1.0.0)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -108,7 +108,7 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.11.1)
+    coffee-script-source (1.12.1)
     concurrent-ruby (1.0.2)
     connection_pool (2.2.1)
     debug_inspector (0.0.2)
@@ -165,6 +165,7 @@ GEM
       mime-types (>= 1.16, < 4)
     method_source (0.8.2)
     mime-types (2.99.3)
+    mini_magick (4.6.0)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     minitest-capybara (0.8.2)
@@ -251,6 +252,9 @@ GEM
       actionview (~> 5.x)
     redcarpet (3.3.4)
     redis (3.3.2)
+    refile-mini_magick (0.2.0)
+      mini_magick (~> 4.0)
+      refile (~> 0.5)
     refile-s3 (0.2.0)
       aws-sdk (~> 2.0)
       refile (~> 0.6.0)
@@ -348,6 +352,7 @@ DEPENDENCIES
   redcarpet (~> 3.0)
   redis (~> 3.0)
   refile!
+  refile-mini_magick
   refile-s3
   rolify
   sass-rails (~> 5.0)

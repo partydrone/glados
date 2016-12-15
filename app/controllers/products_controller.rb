@@ -52,6 +52,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :part_number, :expired_on, :summary, :description, :product_image, :hero_image, :youtube_video_id, :product_category_id)
+    params.require(:product).permit(:name, :part_number, :expired_on, :summary, :description, :product_image, :remove_product_image, :hero_image, :remove_hero_image, :youtube_video_id, :product_category_id)
   end
 end
