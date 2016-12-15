@@ -1,7 +1,7 @@
 <% cache list_item do %>
   <%= content_tag_for :tr, list_item do %>
     <td>
-      <%= image_tag list_item.icon_url(public: true), style: 'height: 1em;' if list_item.icon %>
+      <%= attachment_image_tag list_item, :icon_image, fallback: 'http://placehold.it/20/eaa800/ffffff', style: 'height: 1em;' %>
     </td>
     <td>
       <%= list_item.name %>

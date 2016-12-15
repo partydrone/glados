@@ -7,8 +7,8 @@ describe Feature do
     cool_feature.must_be :valid?
   end
 
-  it "has a billboard image" do
-    cool_feature.must_respond_to :billboard
+  it "has a hero image" do
+    cool_feature.must_respond_to :hero_image
   end
 
   it "has a YouTube video ID" do

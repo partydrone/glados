@@ -48,7 +48,7 @@ class DownloadsController < ApplicationController
   end
 
   def download_params
-    params.require(:download).permit(:locale, :title, :part_number, :download_type_id, :attachment, product_ids: [])
+    params.require(:download).permit(:locale, :title, :part_number, :download_type_id, :file, product_ids: [])
   end
 
   def set_product_types

@@ -5,10 +5,6 @@
   </h1>
   <section>
     <p>(Effective <%= l @website_terms_of_use_document.effective_on, format: :long %>)</p>
-    <%= content_tag :p do %>
-      <%= image_tag 'icons/document.svg', style: 'height: 1.5em;' %>
-      <%= link_to t('.download'), @website_terms_of_use_document.attachment_url(public: true) %>
-    <% end if @website_terms_of_use_document.attachment %>
     <%= raw markdown(@website_terms_of_use_document.body) %>
   </section>
   <section>

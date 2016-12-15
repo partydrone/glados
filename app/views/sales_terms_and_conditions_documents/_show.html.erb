@@ -6,9 +6,8 @@
   <section>
     <p>(Effective <%= l @sales_terms_and_conditions_document.effective_on, format: :long %>)</p>
     <%= content_tag :p do %>
-      <%= image_tag 'icons/document.svg', style: 'height: 1.5em;' %>
-      <%= link_to t('.download'), @sales_terms_and_conditions_document.attachment_url(public: true) %>
-    <% end if @sales_terms_and_conditions_document.attachment %>
+      <%= link_to t('.download'), attachment_url(@sales_terms_and_conditions_document, :file, filename: @sales_terms_and_conditions_document.title.parameterize), class: set_class_for_content_type(@sales_terms_and_conditions_document.file_content_type) %>
+    <% end if @sales_terms_and_conditions_document.file && @sales_terms_and_conditions_document.file.exists? %>
     <%= raw markdown(@sales_terms_and_conditions_document.body) %>
   </section>
   <section>

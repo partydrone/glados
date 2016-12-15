@@ -6,7 +6,7 @@
 			<div class="large-5 columns">
 				<h4>
 					<%= @product.name %>
-		            <%= render partial: 'options_menu', locals: {object: @product, instance_name: @product.name} %>
+		      <%= render partial: 'options_menu', locals: {object: @product, instance_name: @product.name} %>
 				</h4>
 			</div>
 			<div class="large-7 columns text-right">
@@ -51,12 +51,12 @@
 				<div class="flex-video widescreen">
 					<iframe src="https://www.youtube.com/embed/<%= @product.youtube_video_id %>?rel=0&showinfo=0" width="720" hieght="480" frameborder="0" allowfullscreen></iframe>
 				</div>
-			<% elsif @product.billboard_data? %>
-				<%= image_tag @product.billboard_url(public: true) %>
+			<% else %>
+				<%= attachment_image_tag @product, :hero_image, fallback: 'http://placehold.it/1600x900' %>
 			<% end %>
 		</div>
 		<div class="product-intro-product-image">
-			<%= image_tag @product.image_url(public: true) if @product.image_data? %>
+			<%= attachment_image_tag @product, :product_image, :limit, 100, 90, fallback: 'http://placehold.it/100x90' %>
 		</div>
 		<div class="product-intro-blurb medium-7 medium-centered">
 			<h4><%= @product.description %></h4>
