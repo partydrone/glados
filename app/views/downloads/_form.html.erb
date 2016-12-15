@@ -1,4 +1,4 @@
-<%= form_for @download do |f| %>
+<%= form_for @download, validates: true do |f| %>
   <%= f.label :download_type_id %>
   <%= f.select :download_type_id, DownloadType.all.collect { |dt| [dt.name, dt.id] } %>
   <%= f.label :locale %>
@@ -8,14 +8,18 @@
   <%# f.label :part_number %>
   <%# f.text_field :part_number %>
 
-  <%= f.hidden_field :attachment, value: @download.cached_attachment_data %>
   <div class="row">
     <div class="medium-6 columns">
       <%= f.label :attachment %>
-      <%= f.file_field :attachment, data: {'presigned-route': '/attachments/cache/presign'} %>
+      <%= f.attachment_field :file, direct: true, presigned: true %>
     </div>
     <div class="medium-6 columns">
-      <p><%= link_to 'Preview', @download.attachment_url(public: true), class: 'goto-new' if @download.attachment %></p>
+      <%= f.label :current_file %>
+      <% if @download.file && @download.file.exists? %>
+        <%= link_to attachment_url(@download, :file, filename: @download.title.parameterize), target: '_blank' %>
+      <% else %>
+        N/A
+      <% end %>
     </div>
   </div>
 

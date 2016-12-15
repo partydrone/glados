@@ -52,6 +52,6 @@ class ProductTypesController < ApplicationController
   end
 
   def product_type_params
-    params.require(:product_type).permit(:name, :icon, :billboard)
+    params.require(:product_type).permit(:name, :hero_image, :icon_image)
   end
 end

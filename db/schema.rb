@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106005746) do
+ActiveRecord::Schema.define(version: 20161214221841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,8 +24,12 @@ ActiveRecord::Schema.define(version: 20161106005746) do
     t.string   "flag"
     t.text     "body"
     t.date     "posted_on"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "hero_image_id"
+    t.string   "hero_image_filename"
+    t.integer  "hero_image_size"
+    t.string   "hero_image_content_type"
   end
 
   create_table "download_types", force: :cascade do |t|
@@ -40,9 +44,12 @@ ActiveRecord::Schema.define(version: 20161106005746) do
     t.string   "title"
     t.string   "part_number"
     t.integer  "download_type_id"
-    t.text     "attachment_data"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "file_id"
+    t.string   "file_filename"
+    t.integer  "file_size"
+    t.string   "file_content_type"
     t.index ["download_type_id"], name: "index_downloads_on_download_type_id", using: :btree
   end
 
@@ -63,12 +70,15 @@ ActiveRecord::Schema.define(version: 20161106005746) do
 
   create_table "features", force: :cascade do |t|
     t.string   "title"
-    t.text     "billboard_data"
     t.string   "youtube_video_id"
     t.text     "description"
     t.text     "body"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "hero_image_id"
+    t.string   "hero_image_filename"
+    t.integer  "hero_image_size"
+    t.string   "hero_image_content_type"
   end
 
   create_table "identities", force: :cascade do |t|
@@ -85,9 +95,12 @@ ActiveRecord::Schema.define(version: 20161106005746) do
     t.string   "title"
     t.text     "body"
     t.date     "effective_on"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.text     "attachment_data"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "file_id"
+    t.string   "file_filename"
+    t.integer  "file_size"
+    t.string   "file_content_type"
   end
 
   create_table "patents", force: :cascade do |t|
@@ -106,20 +119,32 @@ ActiveRecord::Schema.define(version: 20161106005746) do
     t.text     "description"
     t.integer  "position"
     t.integer  "product_type_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.text     "icon_data"
-    t.text     "billboard_data"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "hero_image_id"
+    t.string   "hero_image_filename"
+    t.integer  "hero_image_size"
+    t.string   "hero_image_content_type"
+    t.string   "icon_image_id"
+    t.string   "icon_image_filename"
+    t.integer  "icon_image_size"
+    t.string   "icon_image_content_type"
     t.index ["product_type_id"], name: "index_product_categories_on_product_type_id", using: :btree
   end
 
   create_table "product_types", force: :cascade do |t|
     t.string   "name"
     t.integer  "position"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.text     "icon_data"
-    t.text     "billboard_data"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "hero_image_id"
+    t.string   "hero_image_filename"
+    t.integer  "hero_image_size"
+    t.string   "hero_image_content_type"
+    t.string   "icon_image_id"
+    t.string   "icon_image_filename"
+    t.integer  "icon_image_size"
+    t.string   "icon_image_content_type"
   end
 
   create_table "products", force: :cascade do |t|
@@ -129,11 +154,17 @@ ActiveRecord::Schema.define(version: 20161106005746) do
     t.text     "description"
     t.date     "expired_on"
     t.integer  "product_category_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.text     "image_data"
-    t.text     "billboard_data"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "youtube_video_id"
+    t.string   "hero_image_id"
+    t.string   "hero_image_filename"
+    t.integer  "hero_image_size"
+    t.string   "hero_image_content_type"
+    t.string   "product_image_id"
+    t.string   "product_image_filename"
+    t.integer  "product_image_size"
+    t.string   "product_image_content_type"
     t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
   end
 

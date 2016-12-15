@@ -43,7 +43,7 @@
         <%= @feature.title %>
         <%= render partial: 'options_menu', locals: {object: @feature, instance_name: @feature.title} if current_user %>
       </h1>
-      <%= image_tag @feature.billboard_url(public: true) if @feature.billboard %>
+      <%= attachment_image_tag @feature, :hero_image, fallback: 'http://placehold.it/1600x900' %>
     </div>
   </div>
 </section>

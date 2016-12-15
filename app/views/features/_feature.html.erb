@@ -4,8 +4,8 @@
       <div class="flex-video widescreen">
         <iframe src="https://www.youtube.com/embed/<%= feature.youtube_video_id %>?rel=0&showinfo=0" width="720" hieght="480" frameborder="0"></iframe>
       </div>
-    <% elsif feature.billboard_data? %>
-      <%= image_tag feature.billboard_url(public: true) %>
+    <% else %>
+      <%= attachment_image_tag feature, :hero_image, fallback: 'http://placehold.it/1600x900' %>
     <% end %>
   </div>
   <div class="row columns">

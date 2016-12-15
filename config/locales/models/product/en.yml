@@ -1,0 +1,17 @@
+---
+
+en:
+  activerecord:
+    models:
+      product: Product
+    attributes:
+      product:
+        name: Name
+        part_number: Part number
+        summary: Summary
+        description: Description
+        expred_on: Expired on
+        product_category_id: Product category
+        image: Product image
+        billboard: Billboard image
+        youtube_video_id: YouTube video ID

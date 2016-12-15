@@ -1,8 +1,8 @@
 class Download < ApplicationRecord
-  include AttachmentUploader[:attachment]
-
   belongs_to :download_type
   has_and_belongs_to_many :products
+
+  attachment :file
 
   validates :locale, :title, presence: true
 
