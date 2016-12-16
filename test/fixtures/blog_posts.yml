@@ -1,7 +1,7 @@
 new_blog_post:
   type: BlogPost
-  title: Temporary Title
+  title: My Blog Post Fixture
   subtitle: Temporary subtitle
   author: Barney Rubble
   body: This is the temporary blog post content.
-  posted_on: <%= Date.today.to_s(:db) %>
+  posted_on: <%= 12.months.ago.to_s(:db) %>
