@@ -13,7 +13,7 @@
       <%= download.part_number %>
     </td>
     <td>
-      <%= render partial: 'options_menu', locals: {object: download, instance_name: download.title} %>
+      <%= render partial: 'options_menu', locals: {object: download, instance_name: download.title} if current_user %>
     </td>
   <% end %>
 <% end %>

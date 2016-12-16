@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161214221841) do
+ActiveRecord::Schema.define(version: 20161215183432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,19 @@ ActiveRecord::Schema.define(version: 20161214221841) do
     t.string   "hero_image_filename"
     t.integer  "hero_image_size"
     t.string   "hero_image_content_type"
+  end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_id",                      null: false
+    t.string   "data_filename",                null: false
+    t.integer  "data_size"
+    t.string   "data_content_type"
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type", using: :btree
   end
 
   create_table "download_types", force: :cascade do |t|

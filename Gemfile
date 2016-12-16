@@ -35,6 +35,7 @@ gem 'refile-s3'
 
 ##
 # Forms
+gem 'ckeditor'
 gem 'client_side_validations', git: 'https://github.com/DavyJonesLocker/client_side_validations.git', branch: 'rails5'
 
 ##

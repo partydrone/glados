@@ -10,7 +10,7 @@
       <%= l case_study.updated_at.to_date, format: :short %>
     </td>
     <td style="text-align: right;">
-      <%= render partial: 'options_menu', locals: {object: case_study, instance_name: case_study.title} %>
+      <%= render partial: 'options_menu', locals: {object: case_study, instance_name: case_study.title} if current_user %>
     </td>
   <% end %>
 <% end %>

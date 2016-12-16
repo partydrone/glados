@@ -41,9 +41,10 @@
     <div class="large-12 medium-8 medium-offset-2 large-offset-0 columns">
       <h1>
         <%= @blog_post.title %>
+        <%= render partial: 'options_menu', locals: {object: @blog_post, instance_name: @blog_post.title} if current_user %>
       </h1>
       <h6>by <%= @blog_post.author %></h6>
-      <img src="http://placehold.it/1200x600" alt="placeholder">
+      <%= attachment_image_tag @blog_post, :hero_image, fallback: 'http://placehold.it/1600x900' %>
     </div>
   </div>
 </section>

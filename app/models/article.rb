@@ -3,6 +3,8 @@ class Article < ApplicationRecord
 
   validates :title, :body, presence: true
 
+  default_scope { order(posted_on: :desc) }
+
   def to_param
     "#{id}-#{title.parameterize}"
   end

@@ -12,7 +12,7 @@
     <div class="medium-6 medium-centered">
       <h2>
         <%= feature.title %>
-        <%= render partial: 'options_menu', locals: {object: feature, instance_name: feature.title} %>
+        <%= render partial: 'options_menu', locals: {object: feature, instance_name: feature.title} if current_user %>
       </h2>
       <%= raw markdown(feature.description) %>
       <%= link_to "Learn more", feature_path(feature), class: "goto-new" if feature.body.present? %>
