@@ -5,7 +5,7 @@ gem 'rails', '>= 5.0.0', '< 5.1'
 ##
 # Defaults
 gem 'bcrypt', '~> 3.1.7'
-gem 'coffee-rails', '~> 4.1.0'
+# gem 'coffee-rails', '~> 4.1.0'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'pg', '~> 0.18'
@@ -40,7 +40,7 @@ gem 'client_side_validations', git: 'https://github.com/DavyJonesLocker/client_s
 
 ##
 # Front-end
-gem 'foundation-rails', '~> 6.0'
+gem 'foundation-rails', '~> 6.2.0'
 gem 'redcarpet', '~> 3.0'
 
 ##
