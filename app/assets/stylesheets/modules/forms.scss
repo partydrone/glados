@@ -2,13 +2,15 @@
 @import "globals/all";
 
 form {
-  input, select, textarea {
+  input,
+  select,
+  textarea {
     font-family: $font-family-secondary;
   }
 }
 
 .field_with_errors {
-  label.message {
+  .message {
     color: $alert-color;
     font-size: 0.8rem;
   }
