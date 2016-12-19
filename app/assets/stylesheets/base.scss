@@ -133,29 +133,38 @@ a {
   font-family: $font-family-secondary;
   font-weight: $link-font-weight;
 }
-  a:hover, a:focus, a:hover h1, a:hover h2, a:hover h3, a:hover h4, a:hover h5, a:hover h6 {
-    color: $sky;
-    outline: none;
-    border: 0;
-  }
-  a img {
-    border: 0; }
 
-/**
-   * Remove the gray background color from active links in IE 10.
-   */
+a:hover,
+a:focus,
+a:hover h1,
+a:hover h2,
+a:hover h3,
+a:hover h4,
+a:hover h5,
+a:hover h6 {
+  color: $sky;
+  outline: none;
+  border: 0;
+}
+
+a img {
+  border: 0;
+}
+
 a {
-  background-color: transparent; }
+  background-color: transparent;
+}
 
 a:active,
 a:hover {
-  outline: 0; }
+  outline: 0;
+}
 
-  .text-centered {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.text-centered {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 hr {
   max-width: 62.5rem;
@@ -192,10 +201,13 @@ button {
   background: $yellow;
   font-weight: 400;
 }
-.button:hover, .button:focus {
+
+.button:hover,
+.button:focus {
   background-color: lighten($yellow, 15%);
   color: $oil !important;
 }
+
 .button {
   height: 2.5rem;
   font-size: 1rem;
@@ -219,14 +231,18 @@ button {
   }
 }
 
-.tabs, .tabs-content {
+.tabs,
+.tabs-content {
   border: none;
 }
-.tabs, a:hover {
+
+.tabs,
+a:hover {
   background: none;
 }
 
-.tabs-title > a:focus, .tabs-title > a[aria-selected='true'] {
+.tabs-title > a:focus,
+.tabs-title > a[aria-selected='true'] {
   background: transparent;
 }
 
@@ -261,20 +277,20 @@ label {
 Language Box select
 ***********************************************************************************************/
 
-select.site-language-dropdown {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path style='fill:#54A5DB' class='st0' d='M26.4 11.7c0 0.3-0.1 0.6-0.3 0.8l-9.8 9.8 -9.8-9.8c-0.4-0.4-0.4-1.2 0-1.6s1.2-0.4 1.6 0l8.2 8.2 8.2-8.2c0.4-0.4 1.2-0.4 1.6 0C26.2 11.1 26.4 11.4 26.4 11.7z'/></svg>");
-  background-size: 26px 26px;
-}
-
-.site-language-selection {
-  width: 200px;
-  display: inline-block;
-  select {
-    border-radius: 5px;
+  select.site-language-dropdown {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path style='fill:#54A5DB' class='st0' d='M26.4 11.7c0 0.3-0.1 0.6-0.3 0.8l-9.8 9.8 -9.8-9.8c-0.4-0.4-0.4-1.2 0-1.6s1.2-0.4 1.6 0l8.2 8.2 8.2-8.2c0.4-0.4 1.2-0.4 1.6 0C26.2 11.1 26.4 11.4 26.4 11.7z'/></svg>");
+    background-size: 26px 26px;
   }
-}
 
-.product-language-selection {
+  .site-language-selection {
+    width: 200px;
+    display: inline-block;
+    select {
+      border-radius: 5px;
+    }
+  }
+
+  .product-language-selection {
     text-align: right;
     .products-language-dropdown {
       max-width: 9.375rem;
@@ -444,26 +460,26 @@ Search Bar/Input
 /***********************************************************************************************
 Admin Navigation
 ***********************************************************************************************/
- 
-.admin-nav {
-  display: inline-block;
-  text-align: left;
-  border-radius: 5px;
-  z-index: 5;
-  vertical-align: bottom;
-  a {
-    padding: 0.25rem !important;
+   
+  .admin-nav {
+    display: inline-block;
+    text-align: left;
+    border-radius: 5px;
+    z-index: 5;
+    vertical-align: bottom;
+    a {
+      padding: 0.25rem !important;
+    }
+    img {
+      height: 16px;
+      margin-right: 0 !important;
+    }
+    .dropdown ul {
+      background: $snow;
+      width: 300px;
+      border: 1px solid $ghost;
+    }
   }
-  img {
-    height: 16px;
-    margin-right: 0 !important;
-  }
-  .dropdown ul {
-    background: $snow;
-    width: 300px;
-    border: 1px solid $ghost;
-  }
-}
 
   .admin-new:before,
   .admin-edit:before,
@@ -472,12 +488,15 @@ Admin Navigation
     display: inline-block;
     vertical-align: top;
   }
+
   .admin-new:before {
     content: url(image_path('icons/Plus.svg'));
   }
+
   .admin-edit:before {
     content: url(image_path('icons/edit.svg'));
   }
+
   .admin-delete:before {
     content: url(image_path('icons/trash.svg'));
   }
@@ -486,48 +505,43 @@ Admin Navigation
 post-cards
 ***********************************************************************************************/
 
-.post-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  max-height: 1100px; //this may need to be pulled out to change
-  max-width:  100%;
-  overflow-x: hidden;
-  position: relative;
-}
+  .post-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    max-height: 1100px; //this may need to be pulled out to change
+    max-width:  100%;
+    overflow-x: hidden;
+    position: relative;
+  }
 
-.post-card {
-  color: inherit;
-  text-decoration: none;
-  display: block;  
-  padding: 20px 1rem 0 1rem;
-  margin: 10px;
-  position: relative;
-  top: 0px;
-  left: 0px;
-  border: 1px solid $ghost;
-  height: 250px;
-}
+  .post-card {
+    color: inherit;
+    text-decoration: none;
+    display: block;  
+    padding: 20px 1rem 0 1rem;
+    margin: 10px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    border: 1px solid $ghost;
+    height: 250px;
+  }
 
-
-
-$lines-to-show: 6;
-.ellipsed-text p {
-  display: block; /* Fallback for non-webkit */
-  display: -webkit-box;
-  max-width: 400px;
-  height: 16*19*$lines-to-show; /* Fallback for non-webkit */
-  margin: 0 auto;
-  -webkit-line-clamp: $lines-to-show;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-
-
+  $lines-to-show: 6;
+  .ellipsed-text p {
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    max-width: 400px;
+    height: 16*19*$lines-to-show; /* Fallback for non-webkit */
+    margin: 0 auto;
+    -webkit-line-clamp: $lines-to-show;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
 /***********************************************************************************************
 upper sub nav
@@ -569,4 +583,3 @@ upper sub nav
       font-size: 0.875rem;
     }
   }
-
