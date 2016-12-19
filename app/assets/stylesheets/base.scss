@@ -273,6 +273,21 @@ label {
   font-weight: 100 !important;
 }
 
+.alert-box {
+  text-align: center;
+  padding: 0.5rem;
+  background-color: $tomato;
+  color: $white;
+}
+
+.alert-box-close {
+  content: url(image_path('icons/close-white.svg'));
+  height: 11px;
+  width: 11px;
+  margin-left: 1rem;
+}
+
+
 /***********************************************************************************************
 Language Box select
 ***********************************************************************************************/
@@ -304,7 +319,6 @@ Language Box select
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path style='fill:#54A5DB' class='st0' d='M26.4 11.7c0 0.3-0.1 0.6-0.3 0.8l-9.8 9.8 -9.8-9.8c-0.4-0.4-0.4-1.2 0-1.6s1.2-0.4 1.6 0l8.2 8.2 8.2-8.2c0.4-0.4 1.2-0.4 1.6 0C26.2 11.1 26.4 11.4 26.4 11.7z'/></svg>");
     background-size: 26px 26px;
   }
-
 
 /***********************************************************************************************
 Request Box
