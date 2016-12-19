@@ -80,7 +80,7 @@ Base Home
 Top Banner
 ***********************************************************************************************/
 
-	.home-video { //this will be replaced by a video
+	.home-video { 
 		height: 650px;
 		overflow: hidden;
 		-webkit-background-size: cover;
@@ -102,7 +102,6 @@ Top Banner
 		z-index: 0;
 		object-fit: cover;
 	}
-
 
 	.home-top-banner {
 		width: 100%;
@@ -133,14 +132,14 @@ Top Banner
 			margin-left: auto;
 			margin-right: auto;
 			padding-bottom: 1em;
-			margin-top: 8px;
+			margin-top: -2rem;
 		}
 		@media screen and (max-width:40em) {
 			padding-top: 210px;
 			.home-header-text {
-		  	font-size: 46px;
-		  	line-height: 35px;
-		  }
+			  	font-size: 46px;
+			  	line-height: 35px;
+			  }
 			h4 {
 		  	padding-right: 0;
 		  	font-size: 24px;
@@ -452,11 +451,17 @@ Reliable Magellan Section
 	.lighting-background {
 		background: #5598cc url(image_path('home/reliable_1.png')) no-repeat center;
 		height: 100vh;
+		-webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	  position: static;
+	  z-index: 0;
 	}
 
 	//I switched the 0.5 and 1 just so it isn't black for now. Fix later.
 	#reliableTopAnchor {
-		background: $black;
+		background: #5598cc;
 		.scroll-stick {
 			opacity: 1;
 		}
