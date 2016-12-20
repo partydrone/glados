@@ -6,25 +6,23 @@
   <%= f.label :description %>
   <%= f.text_area :description, rows: 5 %>
 
-  <%= f.hidden_field :icon, value: @product_category.cached_icon_data %>
   <div class="row">
     <div class="medium-6 columns">
-      <%= f.label :icon %>
-      <%= f.file_field :icon %>
+      <%= f.label :icon_image %>
+      <%= f.attachment_field :icon_image, direct: true, presinged: true %>
     </div>
     <div class="medium-6 columns">
-      <p><%= link_to 'Preview', @product_category.icon_url(public: true), class: 'goto-new' if @product_category.icon %></p>
+      <%= attachment_image_tag @product_category, :icon_image if @product_category.icon_image && @product_category.icon_image.exists? %>
     </div>
   </div>
 
-  <%= f.hidden_field :billboard, value: @product_category.cached_billboard_data %>
   <div class="row">
     <div class="medium-6 columns">
-      <%= f.label :billboard %>
-      <%= f.file_field :billboard, data: {'presigned-route': '/images/cache/presign'} %>
+      <%= f.label :hero_image %>
+      <%= f.attachment_field :hero_image, direct: true, presinged: true %>
     </div>
     <div class="medium-6 columns">
-      <p><%= link_to 'Preview', @product_category.billboard_url(public: true), class: 'goto-new' if @product_category.billboard %></p>
+      <%= attachment_image_tag @product_category, :hero_image if @product_category.hero_image && @product_category.hero_image.exists? %>
     </div>
   </div>
 

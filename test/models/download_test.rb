@@ -1,7 +1,7 @@
 require 'test_helper'
 
 describe Download do
-  let(:download) { Download.new(locale: 'en', title: 'User Guide', part_number: '101-0042', download_type_id: download_types(:software).id, attachment_data: nil) }
+  let(:download) { Download.new(locale: 'en', title: 'User Guide', part_number: '101-0042', download_type_id: download_types(:software).id) }
 
   it "is a valid object" do
     download.must_be :valid?

@@ -1,7 +1,7 @@
 require 'test_helper'
 
 describe ApplicationHelper do
-  describe "full_title" do
+  describe "#full_title" do
     it "formats a title without an argument" do
       full_title.must_equal 'Wavetronix'
     end
@@ -15,7 +15,7 @@ describe ApplicationHelper do
     end
   end
 
-  describe "humanize_locale" do
+  describe "#humanize_locale" do
     it "expands a simple locale into a readable string" do
       I18n.locale = :en
       humanize_locale(:de).must_equal 'German'
@@ -24,6 +24,13 @@ describe ApplicationHelper do
     it "expands a compound locale into a readable string" do
       I18n.locale = :en
       humanize_locale(:'zh-CN').must_equal 'Chinese (China)'
+    end
+  end
+
+  describe "#set_class_for_content_type" do
+    it "converts content type into CSS class" do
+      set_class_for_content_type('application/pdf').must_equal 'application-pdf'
+      set_class_for_content_type('image/jpeg').must_equal 'image-jpeg'
     end
   end
 end

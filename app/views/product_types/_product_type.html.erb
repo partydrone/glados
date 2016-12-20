@@ -1,13 +1,13 @@
 <% cache product_type do %>
   <%= content_tag_for :tr, product_type do %>
     <td>
-      <%= image_tag product_type.icon_url(public: true), style: 'height: 1em;' if product_type.icon %>
+      <%= attachment_image_tag product_type, :icon_image, fallback: 'http://placehold.it/20/eaa800/ffffff', style: 'height: 1em;' %>
     </td>
     <td>
       <%= product_type.name %>
     </td>
     <td style="width: 3rem;">
-      <%= render partial: 'options_menu', locals: {object: product_type, instance_name: product_type.name} %>
+      <%= render partial: 'options_menu', locals: {object: product_type, instance_name: product_type.name} if current_user %>
     </td>
     <td class="handle" style="width: 3rem;">
       <%= image_tag('icons/ellipsisup-small.svg', class: 'small-icon') %>

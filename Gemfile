@@ -5,7 +5,7 @@ gem 'rails', '>= 5.0.0', '< 5.1'
 ##
 # Defaults
 gem 'bcrypt', '~> 3.1.7'
-gem 'coffee-rails', '~> 4.1.0'
+# gem 'coffee-rails', '~> 4.1.0'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'pg', '~> 0.18'
@@ -28,17 +28,19 @@ gem 'sidekiq', '~> 4.1'
 ##
 # File uploads
 gem 'aws-sdk', '~> 2.1'
-gem 'jquery-fileupload-rails'
-gem 'roda'
-gem 'shrine'
+gem 'refile', require: 'refile/rails', git: 'https://github.com/refile/refile.git', branch: 'master'
+gem 'sinatra', require: nil, git: 'https://github.com/sinatra/sinatra.git', branch: 'master'
+gem 'refile-mini_magick'
+gem 'refile-s3'
 
 ##
 # Forms
+gem 'ckeditor'
 gem 'client_side_validations', git: 'https://github.com/DavyJonesLocker/client_side_validations.git', branch: 'rails5'
 
 ##
 # Front-end
-gem 'foundation-rails', '~> 6.0'
+gem 'foundation-rails', '~> 6.2.0'
 gem 'redcarpet', '~> 3.0'
 
 ##

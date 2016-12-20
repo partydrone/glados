@@ -1,12 +1,17 @@
 @import "foundation_and_overrides";
 @import "globals/all";
 
-.validation-error {
-  color: $alert-color;
-  font-size: 0.875rem;
-  margin-top: -0.875rem;
+form {
+  input,
+  select,
+  textarea {
+    font-family: $font-family-secondary;
+  }
+}
 
-  &::before {
-    content: "^ ";
+.field_with_errors {
+  .message {
+    color: $alert-color;
+    font-size: 0.8rem;
   }
 }

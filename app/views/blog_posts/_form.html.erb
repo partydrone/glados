@@ -1,12 +1,30 @@
-<%= form_for @blog_post do |f| %>
+<%= form_for @blog_post, validate: true do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :subtitle %>
   <%= f.text_field :subtitle %>
   <%= f.label :author %>
   <%= f.text_field :author %>
+  <div class="row">
+    <div class="medium-6 columns">
+      <%= f.label :hero_image %>
+      <%= f.attachment_field :hero_image, direct: true, presigned: true %>
+    </div>
+    <div class="medium-6 columns">
+      <% if @blog_post.hero_image && @blog_post.hero_image.exists? %>
+        <div>
+          <%= f.label :current_hero_image %>
+          <%= attachment_image_tag @blog_post, :hero_image %>
+        </div>
+        <div>
+          <%= f.check_box :remove_hero_image %>
+          <%= f.label :remove_hero_image %>
+        </div>
+      <% end %>
+    </div>
+  </div>
   <%= f.label :body %>
-  <%= f.text_area :body %>
+  <%= f.cktext_area :body, rows: 10 %>
   <%= f.label :posted_on %>
   <%= f.date_field :posted_on, placeholder: 'yyyy-mm-dd' %>
   <%= f.submit nil, class: 'button radius' %>

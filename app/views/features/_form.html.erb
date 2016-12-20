@@ -8,19 +8,27 @@
       <%= f.label :youtube_video_id %>
       <%= f.text_field :youtube_video_id %>
 
-      <%= f.hidden_field :billboard, value: @feature.cached_billboard_data %>
       <div class="row">
         <div class="medium-6 columns">
-          <%= f.label :billboard %>
-          <%= f.file_field :billboard, data: {'presigned-route': '/images/cache/presign'} %>
+          <%= f.label :hero_image %>
+          <%= f.attachment_field :hero_image, direct: true, presigned: true %>
         </div>
         <div class="medium-6 columns">
-          <p><%= link_to 'Preview', @feature.billboard_url(public: true), class: 'goto-new' if @feature.billboard %></p>
+          <% if @feature.hero_image && @feature.hero_image.exists? %>
+            <div>
+              <%= f.label :current_hero_image %>
+              <%= attachment_image_tag @feature, :hero_image %>
+            </div>
+            <div>
+              <%= f.check_box :remove_hero_image %>
+              <%= f.label :remove_hero_image %>
+            </div>
+          <% end %>
         </div>
       </div>
 
       <%= f.label :body %>
-      <%= f.text_area :body, rows: 20 %>
+      <%= f.cktext_area :body, rows: 20 %>
 
       <%= f.submit nil, class: 'button radius' %>
     </div>

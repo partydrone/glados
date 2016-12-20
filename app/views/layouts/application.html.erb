@@ -11,17 +11,17 @@
 
     <!-- owl carousel -->
 
-    <%# javascript_include_tag "https://use.fontawesome.com/540ab1d6d5.js" %>
+    <%= javascript_include_tag Ckeditor.cdn_url %>
     <script src="https://use.typekit.net/zjr7bnt.js"></script>
     <script>try { Typekit.load({ async: true }); }catch(e){}</script>
   </head>
 
   <body>
-    <%= render 'flash' %>
     <div class="off-canvas-wrapper">
       <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
         <%= render 'site_header' %>
         <div class="off-canvas-content" data-off-canvas-content>
+          <%= render 'flash' %>
           <%= yield %>
           <%= render 'site_footer' %>
         </div> <!-- close off-canvas-content -->

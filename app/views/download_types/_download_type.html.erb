@@ -4,7 +4,7 @@
       <%= download_type.name %>
     </td>
     <td>
-      <%= render partial: 'options_menu', locals: {object: download_type, instance_name: download_type.name} %>
+      <%= render partial: 'options_menu', locals: {object: download_type, instance_name: download_type.name} if current_user %>
     </td>
   <% end %>
 <% end %>

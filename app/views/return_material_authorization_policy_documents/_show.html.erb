@@ -1,14 +1,10 @@
 <div class="row columns">
   <h1>
     <%= @return_material_authorization_policy_document.title %>
-    <%= render partial: 'options_menu', locals: {object: @return_material_authorization_policy_document, instance_name: @return_material_authorization_policy_document.title} %>
+    <%= render partial: 'options_menu', locals: {object: @return_material_authorization_policy_document, instance_name: @return_material_authorization_policy_document.title} if current_user %>
   </h1>
   <section>
     <p>(Effective <%= l @return_material_authorization_policy_document.effective_on, format: :long %>)</p>
-    <%= content_tag :p do %>
-      <%= image_tag 'icons/document.svg', style: 'height: 1.5em;' %>
-      <%= link_to t('.download'), @return_material_authorization_policy_document.attachment_url(public: true) %>
-    <% end if @return_material_authorization_policy_document.attachment %>
     <%= raw markdown(@return_material_authorization_policy_document.body) %>
   </section>
   <section>

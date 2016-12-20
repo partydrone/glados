@@ -32,4 +32,8 @@ module ApplicationHelper
 
     markdown.render(text).html_safe
   end
+
+  def set_class_for_content_type(content_type)
+    content_type.gsub('/', '-')
+  end
 end

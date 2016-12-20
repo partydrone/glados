@@ -1,12 +1,9 @@
 <%= form_for @demo_request, validate: true do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
-  <hr/>
   <%= f.label :email %>
   <%= f.email_field :email %>
-  <hr/>
   <%= f.label :country, class:"select-label"%>
   <%= f.select :country, COUNTRIES.invert.sort %>
-  <hr/>
   <%= f.submit 'Request a demo', class: 'button radius expanded request-button' %>
 <% end %>

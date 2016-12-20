@@ -43,20 +43,20 @@
         <%= @feature.title %>
         <%= render partial: 'options_menu', locals: {object: @feature, instance_name: @feature.title} if current_user %>
       </h1>
-      <%= image_tag @feature.billboard_url(public: true) if @feature.billboard %>
+      <% if @feature.youtube_video_id.present? %>
+				<div class="flex-video widescreen">
+					<iframe src="https://www.youtube.com/embed/<%= @feature.youtube_video_id %>?rel=0&showinfo=0" width="720" hieght="480" frameborder="0" allowfullscreen></iframe>
+				</div>
+			<% else %>
+				<%= attachment_image_tag @feature, :hero_image, fallback: 'http://placehold.it/1600x900' %>
+			<% end %>
     </div>
   </div>
 </section>
 
 <section class="row">
   <div class="large-6 large-offset-1 medium-8 medium-offset-2 columns article-body" id="article-container" data-something data-margin-top="5">
-    <%= raw markdown(@feature.body) %>
-    <div class="article-sub-movie">
-      <div class="flex-video">
-        <iframe src="https://www.youtube.com/embed/OE9_JYiA7zc" frameborder="0" allowfullscreen></iframe>
-      </div>
-      <h6>The coolest caption you've ever read.</h6>
-    </div>
+    <%= @feature.body.html_safe %>
   </div>
 
   <div class="small-10 small-offset-1 medium-8 medium-offset-2 large-4 large-offset-0 columns similar-stories-side end" data-sticky-container>
@@ -74,12 +74,11 @@
       </a>
       <a href="#" class="row">
         <img src="http://placehold.it/558x313" alt="placeholder" class="large-6 columns">
-        <h2 class="large-6 columns similar-side-text">AF - Hansen & Henneberg Test in Farum, Denmark</h2>
+        <h2 class="large-6 columns similar-side-text">AF - Hansen &amp; Henneberg Test in Farum, Denmark</h2>
         <p class="hide-for-large">This is a summary of the article and doesn't really contain any information. Isn't that special? Probably not. I don't even know anymore.</p>
       </a>
     </div>
   </div>
-
 </section>
 
 <section class="article-tags show-for-large">

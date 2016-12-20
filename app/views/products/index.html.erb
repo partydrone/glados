@@ -8,7 +8,7 @@
       <section>
         <div class="product-alternate-text-container">
           <div class="product-alternate-header">
-            <%= image_tag product_type.icon_url(public: true), class: "icon" if product_type.icon %>
+            <%= attachment_image_tag product_type, :icon_image, fallback: 'http://placehold.it/50/eaa800/ffffff', class: 'icon' %>
             <h1><%= product_type.name %></h1>
           </div>
 
@@ -22,11 +22,7 @@
           <% product_type.product_categories.each do |product_category| %>
             <div class="row products-alternate-text-box">
               <div class="small-2 columns">
-                <% if product_category.icon %>
-                  <%= image_tag product_category.icon_url(public: true) %>
-                <% else %>
-                  <%= image_tag 'http://placehold.it/54x72.png' %>
-                <% end %>
+                <%= attachment_image_tag product_category, :icon_image, fallback: 'http://placehold.it/50/eaa800/ffffff' %>
               </div>
               <div class="small-10 columns">
                 <%= content_tag :h2, product_category.name %>
@@ -34,8 +30,8 @@
                 <%= link_to "Learn More", product_category_path(product_category), class: "goto-new" %></p>
               </div>
             </div>
-          
-            <div class="product-alternate-image-container show-for-large" style="background-image: url('<%= product_type.billboard_url(public: true) %>'); background-size: cover;">
+
+            <div class="product-alternate-image-container show-for-large" style="background-image: url('<%= attachment_url product_type, :hero_image, fallback: 'http://placehold.it/600x300' %>'); background-size: cover;">
             </div>
           <% end %>
         </div>
