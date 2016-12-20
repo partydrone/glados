@@ -148,28 +148,10 @@ request a demo
     h4 {
       margin-bottom: 1rem;
     }
-    hr {
-      margin-top: 1px;
-    }
     select {
       background-color: transparent;
-      padding-top: 0;
-      padding-bottom: 0;
-      margin-bottom: 0;
       background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path style='fill:#54A5DB' class='st0' d='M26.4 11.7c0 0.3-0.1 0.6-0.3 0.8l-9.8 9.8 -9.8-9.8c-0.4-0.4-0.4-1.2 0-1.6s1.2-0.4 1.6 0l8.2 8.2 8.2-8.2c0.4-0.4 1.2-0.4 1.6 0C26.2 11.1 26.4 11.4 26.4 11.7z'/></svg>");
       background-size: 26px 26px;
-      display: inline-block;
-      width: 89%;
-      vertical-align: text-bottom;
-    }
-    label:last-child {
-        line-height: 0;
-    }
-  }
-
-  .request-demo-button {
-    div {
-      margin: 0 !important;
     }
   }
 
