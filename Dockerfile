@@ -6,11 +6,11 @@ RUN apt-get update -qq && apt-get install -qq -y --no-install-recommends \
     imagemagick \
     libpq-dev \
     nodejs
-RUN gem update bundler
 ENV APP_DIR /var/app
 RUN mkdir -p $APP_DIR
 WORKDIR $APP_DIR
 COPY Gemfile* ./
+RUN gem update bundler
 RUN bundle config --global jobs 8
 RUN bundle install --system
 COPY . .

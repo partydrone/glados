@@ -1,6 +1,6 @@
 # GLaDOS
 
-[![Build Status](https://travis-ci.org/wavetronix/glados.svg?branch=master)](https://travis-ci.org/wavetronix/glados)
+[ ![Codeship Status for wavetronix/glados](https://app.codeship.com/projects/e318e0e0-a906-0134-18e9-4e0002e2f9ac/status?branch=master)](https://app.codeship.com/projects/191513)
 [![codebeat badge](https://codebeat.co/badges/fedc55e1-aa4c-4be4-be6b-38c23eeadd37)](https://codebeat.co/projects/github-com-wavetronix-glados)
 
 ## Getting started

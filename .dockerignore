@@ -7,3 +7,5 @@
 Dockerfile
 README.md
 gource.*
+*.example
+*.travis

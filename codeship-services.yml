@@ -1,0 +1,12 @@
+---
+
+glados:
+  build:
+    image: wavetronix/glados
+    dockerfile_path: Dockerfile
+  links:
+    - postgres
+  encrypted_env_file: .env.encrypted
+
+postgres:
+  image: postgres:9.6-alpine
