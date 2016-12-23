@@ -81,12 +81,6 @@ Off Canvas
 Top Bar
 ***********************************************************************************************/
 
-  @media screen and (min-width: 678px) {
-    main {
-      padding-top: $topbar-height;
-    }
-  }
-
   .top-bar {
     color: $steel;
     padding: 0.5rem 0;

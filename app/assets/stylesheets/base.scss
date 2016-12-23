@@ -83,7 +83,7 @@ h1 {
 h2 {
   font-size: $subhead-font-size;
   line-height: $subhead-line-height;
-  font-family: $font-family-primary;
+  font-family: 'KlavikaMedium', 'Klavika', "Source Sans Pro", Calibri, sans-serif;
   font-weight: $subhead-font-weight;
   margin-bottom: 0.5rem;
 }
@@ -285,6 +285,8 @@ label {
   height: 11px;
   width: 11px;
   margin-left: 1rem;
+  position: relative;
+  z-index: 51;
 }
 
 
@@ -433,8 +435,8 @@ Search Bar/Input
       color: $charcoal;
       max-width: 100% !important;
       width: -webkit-calc(100% - 44px);
-      width:  -moz-calc(100% - 44px);
-      width:       calc(100% - 44px);
+      width: -moz-calc(100% - 44px);
+      width: calc(100% - 44px);
       display: inline-block;
       margin-left: 0;
     }
@@ -445,7 +447,7 @@ Search Bar/Input
       border-right: 0;
       width: 44px;
       margin-right: -4px;
-      margin-top: -2px;
+      margin-top: -1px;
       border-radius: 5px 0 0 5px !important;
       height: 39px;
       padding-top: 8px;
