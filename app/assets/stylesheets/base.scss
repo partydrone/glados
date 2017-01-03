@@ -546,7 +546,7 @@ post-cards
     height: 250px;
   }
 
-  $lines-to-show: 6;
+  $lines-to-show: 4;
   .ellipsed-text p {
     display: block; /* Fallback for non-webkit */
     display: -webkit-box;
