@@ -21,6 +21,5 @@
 
 $(function() {
   $(document).foundation();
-  $(window).trigger('load.zf.sticky'); 
 });
 //= require turbolinks
