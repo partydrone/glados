@@ -63,9 +63,3 @@ jQuery(function() {
     };
   };
 });
-
-$(document).ready(function(){
-  if ( $('.gingerbread').is('is-stuck') ) {
-    $('#mercy').addClass('disneyland');
-  }
-});
