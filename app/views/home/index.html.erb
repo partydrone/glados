@@ -1,4 +1,14 @@
 <main class="homepage" data-magellan>
+
+<script>
+      $(document).ready(function() {
+        if (navigator.userAgent.match(/msie|trident/i)) {
+          alert('You are using the worst browser on this planet.');
+          $('.cakers').hide();
+        }
+      });
+ </script>
+ 
 	<div class="home-video">
     <%= video_tag "home/wavetronixSMALL.mp4", controls: false, autoplay: true, muted: true, loop: true, id: "bgvideo", type:"video/mp4", class: 'home-video-background show-for-large' %>
     <div class="home-top-banner">
