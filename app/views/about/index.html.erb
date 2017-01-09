@@ -45,7 +45,7 @@
           <%= attachment_image_tag @featured_article, :hero_image, :fill, 816, 459, fallback: 'http://placehold.it/816x459' %>
           <h2><%= @featured_article.title %></h2>
           <p><%= @featured_article.subtitle %></p>
-        <% end %>
+        <% end if @featured_article %>
       </div>
     </div>
 
