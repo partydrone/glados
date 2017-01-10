@@ -88,7 +88,7 @@ Top Bar
     position: fixed;
     width: 100%;
     z-index: 50;
-    .topbar-dropdown {
+    a {
       color: $steel;
       font-weight: $base-font-weight;
       &:hover {
@@ -101,10 +101,6 @@ Top Bar
     input {
       margin-right: 0 !important;
     }
-  }
-
-  .top-bar ul {
-    color: $silver;
   }
 
   .home-logo-link {
@@ -124,6 +120,11 @@ Top Bar
     &:hover svg .st0 {
       fill: $yellow;
     }
+  }
+
+  .admin-dropdown-menu {
+    right: 0 !important;
+    top: 40px !important;
   }
 
   .is-active .topbar-search svg .st0 {
