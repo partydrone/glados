@@ -95,6 +95,6 @@ jQuery(function() {
 //   }
 // }
 
-document.addEventListener("DOMContentLoaded", function(event) {
-  detect();
-});
+// document.addEventListener("DOMContentLoaded", function(event) {
+//   detect();
+// });
