@@ -36,7 +36,7 @@
   </div>
 </div>
 
-<section class="article-header">
+<header class="article-header">
   <div class="row">
     <div class="large-12 medium-8 medium-offset-2 large-offset-0 columns">
       <h1>
@@ -47,17 +47,39 @@
       <%= attachment_image_tag @blog_post, :hero_image, fallback: 'http://placehold.it/1600x900' %>
     </div>
   </div>
-</section>
+</header>
 
-<section class="row">
-  <div class="large-6 large-offset-1 medium-8 medium-offset-2 columns article-body" id="article-container" data-something data-margin-top="5">
+<article class="row">
+  <div class="large-6 large-offset-2 medium-8 medium-offset-2 columns article-body" id="article-container" data-something data-margin-top="5">
     <h3 class="article-deckhead">
       <%= @blog_post.subtitle %>
       <hr/>
     </h3>
     <%= @blog_post.body.html_safe %>
   </div>
-</section>
+
+  <aside class="large-4 large-offset-0 medium-8 medium-offset-2 small-10 small-offset-1 columns similar-stories-side end sticky-container" data-sticky-container>
+    <div class="sticky" data-sticky data-anchor="article-container" data-sticky-on="large">
+      <div class="article-side-title"><%= t(".similar_stories") %></div>
+      <a href="#" class="row">
+        <img src="http://placehold.it/558x313" alt="placeholder" class="large-6 columns">
+        <h3 class="large-6 columns similar-side-text">Texas Transportation Institue Evaluation for Arizona DOT</h3>
+        <p class="hide-for-large">This is a summary of the article and doesn't really contain any information. Isn't that special? Probably not. I don't even know anymore.</p>
+      </a>
+      <a href="#" class="row">
+        <img src="http://placehold.it/558x313" alt="placeholder" class="large-6 columns">
+        <h3 class="large-6 columns similar-side-text">ATRC Test in Lewiston, Maine</h3>
+        <p class="hide-for-large">This is a summary of the article and doesn't really contain any information. Isn't that special? Probably not. I don't even know anymore.</p>
+      </a>
+      <a href="#" class="row">
+        <img src="http://placehold.it/558x313" alt="placeholder" class="large-6 columns">
+        <h3 class="large-6 columns similar-side-text">AF - Hansen & Henneberg Test in Farum, Denmark</h3>
+        <p class="hide-for-large">This is a summary of the article and doesn't really contain any information. Isn't that special? Probably not. I don't even know anymore.</p>
+      </a>
+    </div>
+  </aside>
+
+</article>
 
 <section class="article-tags show-for-large">
   <%= t(".tags") %>: <a href="#">News,</a> <a href="#">Loops,</a> <a href="#">California</a>

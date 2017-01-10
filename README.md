@@ -1,6 +1,6 @@
-# GlaDOS
+# GLaDOS
 
-[![Build Status](https://travis-ci.org/wavetronix/glados.svg?branch=master)](https://travis-ci.org/wavetronix/glados)
+[ ![Codeship Status for wavetronix/glados](https://app.codeship.com/projects/e318e0e0-a906-0134-18e9-4e0002e2f9ac/status?branch=master)](https://app.codeship.com/projects/191513)
 [![codebeat badge](https://codebeat.co/badges/fedc55e1-aa4c-4be4-be6b-38c23eeadd37)](https://codebeat.co/projects/github-com-wavetronix-glados)
 
 ## Getting started
@@ -76,7 +76,7 @@ $ docker-compose down
 Use this command in the terminal at the source of the project:
 
 ```
-$ gource --key --background-image ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/Pictures/GLaDOS1.jpg --title "GlaDOS Development" --hide filenames --seconds-per-day 0.67 --auto-skip-seconds 1 -1920x1080 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 gource.mp4
+$ gource --key --background-image ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/Pictures/GLaDOS1.jpg --title "GLaDOS Development" --hide filenames --seconds-per-day 0.67 --auto-skip-seconds 1 -1920x1080 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 gource.mp4
 ```
 
 You can substitute any value for the `--background-image` parameter that you like, or leave it out for the default black background.
