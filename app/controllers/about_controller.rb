@@ -1,6 +1,6 @@
 class AboutController < ApplicationController
   def index
-    @articles = Article.order(posted_on: :desc).limit(4).to_a
+    @articles = Article.current.order(posted_on: :desc).limit(4).to_a
     @featured_article = @articles.shift
   end
 
