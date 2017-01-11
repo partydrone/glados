@@ -73,6 +73,7 @@ h1 {
   color: $charcoal;
   font-family: $font-family-primary-lite !important;
   font-weight: 500;
+  margin-bottom: 1rem;
   @media screen and (max-width: 40em) {
     font-size: $title-font-size-mobile;
     line-height: $title-line-height-mobile;
@@ -400,7 +401,7 @@ Read/View more
     content: url(image_path('icons/stories-right-blue.svg'));
     width: 16px;
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
   }
 
   .expand-container:before {

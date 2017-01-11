@@ -5,10 +5,6 @@
 Base Home
 ***********************************************************************************************/
 
-	.homepage {
-		// padding-top: 65px;
-	}
-
 	.home-nav-dots {
 		float: right;
 		width: 12px;
@@ -78,6 +74,11 @@ Base Home
 		border-right: 15px solid transparent;
 		border-top: 15px solid $white;
 		margin: auto;
+	}
+
+	.stories-hidden-text .goto-new:after {
+		content: url(image-path('icons/stories-right.svg')) !important;
+		margin-top: 3px;
 	}
 
 /***********************************************************************************************
@@ -175,15 +176,8 @@ Safer Section
 		border-top: none;
 		border-bottom: 15px solid $white;
 		@media screen and (max-width:40em) {
-			border-top: 15px solid $black;
-			margin: auto;
-			border-bottom: 0;
-			margin-top: 0;
+			margin: -15px auto 8px auto;
 		}
-	}
-
-	.home-safe .goto-new:after {
-		content: url(image-path('icons/stories-right.svg')) !important;
 	}
 
 	.home-safe h1 {
@@ -213,17 +207,20 @@ Safer Section
 		position: absolute;
 		z-index: 0;
 		width: 300px;
-		margin-top: -173px;
-		height: 300px;
+		margin-top: -113px;
+		height: 291px;
 		right: 0;
 		background: url(image-path('home/home-car-smash-thin.png')) no-repeat right;
-		@media screen and (min-width: 1360px) {
-			background: url(image-path('home/home-car-smash.png')) no-repeat left;
-		}
 		img {
 			height: 100%;
 		}
-		@media screen and (max-width: 880px) {
+		@media screen and (min-width: 1360px) {
+			background: url(image-path('home/home-car-smash.png')) no-repeat left;
+		}
+		@media screen and (min-width: 1024px) {
+			margin-top: -158px;
+		}
+		@media screen and (max-width: 475px) {
 			display: none;
 		}
 	}
@@ -258,23 +255,10 @@ Efficient Section
 			background: rgba(230, 230, 230, 0.8);
 			padding: 5px;
 			color: $white;
-			span {
-				color: $bluesteel;
-			}
 		}
 		.home-section-text {
 			z-index: 1;
 			position: relative;
-			p {
-				background: rgba(230, 230, 230, 0.8);
-				padding: 5px 15px;
-			}
-		}
-		@media screen and (max-width: 678px) {
-			height: auto;
-			.home-stories {
-				padding-bottom: 30px;
-			}
 		}
 		.home-stories-container {
 			.home-story-left {
@@ -290,6 +274,12 @@ Efficient Section
 		}
 		.stories-rollover-shown {
 			background: rgba(230, 230, 230, 0.8);
+		}
+		@media screen and (max-width: 678px) {
+			height: auto;
+			.home-stories {
+				padding-bottom: 30px;
+			}
 		}
 	}
 
@@ -353,9 +343,6 @@ Reliable Section
 		.stories-hidden-text p {
 			color: $white;
 		}
-		.goto-new:after {
-    		content: url(image-path('icons/stories-right.svg')) !important;
-    	}
 	}
 
 	.home-nav-dots-reliable {
@@ -417,7 +404,6 @@ Reliable Magellan Section
 	.magellan-side-bar {
 		display: none;
 	}
-
 
 	.magellan-side-menu {
 		height: 100vh;
@@ -497,27 +483,52 @@ Reliable Magellan Section
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
 	  background-size: cover;
-	  padding: 0px 10px 50px 10px;
 	  margin-top: 0;
+	  height: 400px;
 	  .st0 {
-	  	fill: $silver;
+	  	fill: #1b2e3c;
+	  }
+	  .tabs {
+	  	text-align: center;
 	  }
 	  .tabs, .tabs-content {
 	  	color: $white;
 	  }
 	  .tabs-content {
-	  	background: rgba(27, 46, 60, 0.75);
+	  	width: 66%;
+	  	margin-left: auto;
+	  	margin-right: auto;
+	  	border-radius: 5px 5px 0 0;
+			background: -moz-linear-gradient(top,  rgba(27,46,60,1) 14%, rgba(27,46,60,1) 24%, rgba(27,46,60,0.4) 87%, rgba(27,46,60,0) 100%);
+			background: -webkit-linear-gradient(top,  rgba(27,46,60,1) 14%,rgba(27,46,60,1) 24%,rgba(27,46,60,0.4) 87%,rgba(27,46,60,0) 100%);
+			background: linear-gradient(to bottom,  rgba(27,46,60,1) 14%,rgba(27,46,60,1) 24%,rgba(27,46,60,0.4) 87%,rgba(27,46,60,0) 100%);
 	  }
 	  .tabs-title > a:focus, .tabs-title > a[aria-selected='true'] .st0 {
-		  fill: $gold;
+		  fill: $white;
 		}
-		.tabs-panel h5 {
-			color: $gold;
+		.tabs-panel {
+			padding: 1.5rem 1rem;
+			h5 {
+				color: $gold;
+			}
 		}
+		.tabs-title.is-active:after {
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      border-color: transparent;
+      border-bottom-color: #1b2e3c;
+      border-width: 12px;
+      margin-left: -12px;
+      z-index: 50;
+    }
 		.tabs-title {
-			background: rgba(27, 46, 60, 0.75);
-			padding-top: 10px;
-			&:hover a {
+			padding-bottom: 20px;
+			float: none !important;
+			display: inline-block;
+			a:hover {
 				background: transparent;
 			}
 		}
@@ -526,6 +537,11 @@ Reliable Magellan Section
 		}
 		h6 {
 			color: $yellow;
+		}
+		@media screen and (max-width: 678px) {
+			.tabs-content {
+				width: 75%;
+			}
 		}
 	}
 
@@ -547,25 +563,24 @@ Cost Effective Section
 		z-index: 5;
 		text-align: center;
 		color: $white;
-		@media screen and (min-width: 678px) {
-			.home-section-text img {
-				border-bottom: 2px solid $yellow;
-			}
-		}
 		h1,
 		h4,
 		.home-stories-container .stories-hidden-text p {
 			color: $white;
-			span {
-				color: $green;
-			}
 		}
 		h6 {
 			color: $yellow;
 		}
 		.home-stories-container {
-			padding-bottom: 0;
 			z-index: 10;
+		}
+		.home-section-text span {
+			color: $green;
+		}
+		@media screen and (min-width: 678px) {
+			.home-section-text img {
+				border-bottom: 2px solid $yellow;
+			}
 		}
 	}
 
@@ -823,9 +838,9 @@ Simple Section
 		.home-stories {
 			padding-bottom: 0px;
 		}
-		.goto-new:after {
-    		content: url(image-path('icons/stories-right.svg')) !important;
-    	}
+		.home-section-text {
+			padding-top: 0;
+		}
 	}
 
 	.home-nav-dots-simple {
@@ -851,9 +866,16 @@ Simple Section
 		padding-bottom: 43px;
 		position: relative;
 		z-index: 11;
-		left: 21px;
 		path {
-			fill: $charcoal;
+			fill: $gold;
+		}
+		@media screen and (max-width: 60em) {
+			margin-left: auto;
+			margin-right: auto;
+			display: inherit;
+		}
+		@media screen and (min-width:60em) {
+			left: 21px;
 		}
 	}
 
