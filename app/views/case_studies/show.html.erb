@@ -45,6 +45,9 @@
       </h1>
       <h6>by <%= @case_study.author %></h6>
       <%= attachment_image_tag @case_study, :hero_image, fallback: 'http://placehold.it/1600x900' %>
+      <div>
+        <%= @case_study.location%>
+      </div>
     </div>
   </div>
 </header>
