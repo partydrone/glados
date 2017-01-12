@@ -3,6 +3,8 @@ class Article < ApplicationRecord
 
   validates :title, :body, presence: true
 
+  scope :current, -> { where 'posted_on < ?', Date.tomorrow }
+
   def to_param
     "#{id}-#{title.parameterize}"
   end
