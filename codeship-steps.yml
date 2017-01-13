@@ -4,5 +4,8 @@
   type: parallel
   steps:
     - name: tests
-      service: glados
-      command: bundle exec rails db:create db:migrate && bundle exec rails test
+      service: app
+      command: script/ci test
+    # - name: seeds
+    #   service: app
+    #   command: script/ci seed
