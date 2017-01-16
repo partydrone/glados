@@ -28,6 +28,7 @@ describe Article do
 
     articles = Article.current
 
+    articles.must_include past_article
     articles.wont_include future_article
   end
 end
