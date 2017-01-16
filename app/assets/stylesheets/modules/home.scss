@@ -5,6 +5,10 @@
 Base Home
 ***********************************************************************************************/
 
+	.always-hide-for-ie {
+		display: none;
+	}
+
 	.home-nav-dots {
 		float: right;
 		width: 12px;
@@ -355,6 +359,12 @@ Reliable Section
 		}
 		h6, a {
 			color: $charcoal;
+		}
+	}
+
+	.reliable-tabs-display {
+		@media screen and (min-width: 1024px) {
+			display: none;
 		}
 	}
 
@@ -764,17 +774,17 @@ Cost Effective Section
 		padding: 0 !important;
 	}
 
-	.cakers {
+	.slide-up-image {
 		margin-top: -1px;
 	}
 
-	.cakers .columns {
+	.slide-up-image .columns {
 		padding: 0;
 		height: 200vh;
 		background: #1b2e3d;
 	}
 
-	.junkrat {
+	.one-sensor-image {
 		width: 100vw;
 		margin-top: 100vh;
 		position: relative;
@@ -797,7 +807,7 @@ Cost Effective Section
 		padding: 0;
 	}
 
-	.mei {
+	.loops-box {
 		top: -61px !important;
 		bottom: auto;
 		width: 100vw !important;
@@ -821,7 +831,7 @@ Cost Effective Section
 		}
 	}
 
-	.reaper {
+	.loops-image {
 		height: 100vh;
 	}
 
