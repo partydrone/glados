@@ -33,12 +33,12 @@ CKEDITOR.editorConfig = function (config) {
         "Link",
         "Unlink"
       ]
-    },
-    {
-      name: "insert",
-      items: [
-        "Image"
-      ]
+    // },
+    // {
+    //   name: "insert",
+    //   items: [
+    //     "Image"
+    //   ]
     }
   ]
 }

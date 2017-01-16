@@ -1,12 +1,20 @@
 ---
 
-glados:
+app:
   build:
     image: wavetronix/glados
-    dockerfile_path: Dockerfile
+    dockerfile_path: Dockerfile.ci
+  encrypted_env_file: .env.encrypted
   links:
     - postgres
-  encrypted_env_file: .env.encrypted
+    - redis
+  cached: true
+  volumes:
+    - .:/var/app
+    - ./public:/var/app/public
 
 postgres:
   image: postgres:9.6-alpine
+
+redis:
+  image: redis:3.2-alpine

@@ -1,7 +1,7 @@
 <% cache case_study do %>
   <%= content_tag_for :tr, case_study do %>
     <td>
-      <%= case_study.title %>
+      <%= link_to case_study.title, case_study%>
     </td>
     <td>
       <%= l case_study.posted_on.to_date, format: :short %>
@@ -14,3 +14,5 @@
     </td>
   <% end %>
 <% end %>
+
+

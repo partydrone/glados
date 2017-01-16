@@ -1,0 +1,33 @@
+# Article for Dockerfile at ADD_URL_FOR_THIS
+# We're using the Ruby 2.2 base container and extend it
+FROM ruby:2.3-slim
+
+# We install certain OS packages necessary for running our build
+# Node.js needs to be installed for compiling assets
+# libpq-dev is necessary for installing the pg gem
+# libmysqlclient-dev is necessary for installing the mysql2 gem
+RUN apt-get update -qq && \
+    apt-get install -qq -y --no-install-recommends \
+      build-essential \
+      git \
+      imagemagick \
+      libpq-dev \
+      nodejs
+
+# INSTALL any further tools you need here so they are cached in the docker build
+
+# Create a directory for your application code and set it as the WORKDIR. All following commands will be run in this directory.
+RUN mkdir /var/app
+WORKDIR /var/app
+
+# Set the Rails Environment to test
+ENV RAILS_ENV test
+
+# COPY Gemfile and Gemfile.lock and install dependencies before adding the full code so the cache only
+# gets invalidated when dependencies are changed
+COPY Gemfile* ./
+RUN gem install bundler
+RUN bundle install -j20
+
+# Copy the whole repository into the container
+COPY . ./
