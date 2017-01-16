@@ -60,6 +60,10 @@ gem 'rack-mini-profiler', '~> 0.10'
 gem 'flamegraph'
 gem 'stackprof'
 
+##
+# Tagging
+gem 'acts-as-taggable-on', '~> 4.0'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'puma', '~> 3.0'
