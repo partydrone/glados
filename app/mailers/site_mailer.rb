@@ -11,7 +11,7 @@ class SiteMailer < ApplicationMailer
 
   def marketing_app_support_request(marketing_app_support_request)
     @marketing_app_support_request = marketing_app_support_request
-    mail to:    'webmaster@wavetronix.com',
+    mail to:    'marketing@wavetronix.com',
          reply_to: %("#{@marketing_app_support_request.name}" <#{@marketing_app_support_request.email}>),
          subject:  t('.subject')
   end
