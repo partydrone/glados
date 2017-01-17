@@ -45,6 +45,6 @@ class CaseStudiesController < ApplicationController
   end
 
   def case_study_params
-    params.require(:case_study).permit(:title, :subtitle, :location, :flag, :hero_image, :remove_hero_image, :body, :posted_on)
+    params.require(:case_study).permit(:title, :subtitle, :location, :flag, :hero_image, :remove_hero_image, :body, :tag_list, :posted_on)
   end
 end
