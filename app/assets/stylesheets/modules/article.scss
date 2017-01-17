@@ -13,6 +13,9 @@
 		opacity: 0.9;
 		@media screen and (max-width: 640px) {
 			padding-top: 0;
+			top: 52px;
+			position: fixed;
+			z-index: 5;
 		}
 	}
 	a {
@@ -22,6 +25,10 @@
 	img {
 		width: 32px;
 	}
+}
+
+.article-header {
+	padding-top: 30px;
 }
 
 .article-header .hero_image {
@@ -63,6 +70,10 @@
 	hr {
 		border: 1px solid $silver;
 	}
+}
+
+.social-media-side {
+	margin: 75px 0 15px 0;
 }
 
 .similar-stories-side {

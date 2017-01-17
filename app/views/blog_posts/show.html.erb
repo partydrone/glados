@@ -1,37 +1,37 @@
 <%= content_for :title, @blog_post.title %>
 
-<div class="social-media-sticky-header" data-sticky-container>
+<div class="social-media-sticky-header hide-for-large" data-sticky-container>
   <div class="sticky" data-sticky>
     <div class="row">
-        <nav data-magellan>
-          <ul class="horizontal menu">
-            <li>
-              <%= link_to nil do %>
-                <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to nil do %>
-                <%=image_tag('icons/Twitter.svg', class: "icon") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to nil do %>
-                <%=image_tag('icons/Facebook.svg', class: "icon") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to nil do %>
-                <%=image_tag('icons/Google.svg', class: "icon") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to nil do %>
-                <%=image_tag('icons/email.svg', class: "icon") %>
-              <% end %>
-            </li>
-          </ul>
-        </nav>
+      <nav data-magellan>
+        <ul class="horizontal menu">
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Twitter.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Facebook.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Google.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/email.svg', class: "icon") %>
+            <% end %>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
 </div>
@@ -50,7 +50,41 @@
 </header>
 
 <article class="row">
-  <div class="large-6 large-offset-2 medium-8 medium-offset-2 columns article-body" id="article-container" data-something data-margin-top="5">
+  <aside class="large-1 columns sticky-container show-for-large" data-sticky-container>
+    <div class="sticky" data-sticky data-anchor="article-container">
+      <nav class="social-media-side" data-magellan>
+        <ul class="vertical menu">
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Twitter.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Facebook.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Google.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/email.svg', class: "icon") %>
+            <% end %>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <div class="large-6 large-offset-1 medium-8 medium-offset-2 columns article-body" id="article-container" data-something data-margin-top="5">
     <h3 class="article-deckhead">
       <%= @blog_post.subtitle %>
       <hr/>
