@@ -28,7 +28,7 @@
   <%= f.label :body %>
   <%= f.cktext_area :body, rows: 10 %>
   <%= f.label :tag_list, 'Tags (separated by commas)' %>
-  <%= f.text_field :tag_list %>
+  <%= f.text_field :tag_list, value: f.object.tag_list.to_s %>
   <%= f.label :posted_on %>
   <%= f.date_field :posted_on, placeholder: 'yyyy-mm-dd' %>
   <%= f.submit nil, class: 'button radius' %>
