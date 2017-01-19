@@ -74,13 +74,13 @@ function detect(){
   // Blink engine detection
   var isBlink = (isChrome || isOpera) && !!window.CSS;
 
-  let m = document.getElementById('ReliableMagellan');
-  let h = document.getElementById('CostEffectiveLoops');
-  let k = document.getElementById('ReliableTabs');
+  var m = document.getElementById('ReliableMagellan');
+  var h = document.getElementById('CostEffectiveLoops');
+  var k = document.getElementById('ReliableTabs');
   if(isEdge){
     m.className += ' always-hide-for-ie';
     h.className += ' always-hide-for-ie';
-  // } else if(isChrome){ 
+  // } else if(isChrome){
   //keep for testing
     // m.className += ' reliable-magellan-display';
     // k.className += ' reliable-tabs-display';

@@ -18,7 +18,6 @@
 //= require rails.validations
 //= require refile
 //= require_tree .
-//= require turbolinks
 
 $(function() {
   $(document).foundation();
