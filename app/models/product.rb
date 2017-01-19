@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  include Taggable
+
   belongs_to :product_category
   has_and_belongs_to_many :downloads
   has_and_belongs_to_many :patents

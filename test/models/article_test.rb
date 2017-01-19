@@ -31,4 +31,8 @@ describe Article do
     articles.must_include past_article
     articles.wont_include future_article
   end
+
+  it "has tags" do
+    article.must_respond_to :tags
+  end
 end
