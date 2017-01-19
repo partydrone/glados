@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
-  acts_as_taggable
+  include Taggable
 
   attachment :hero_image, content_type: %w(image/jpeg image/png image/gif)
 
