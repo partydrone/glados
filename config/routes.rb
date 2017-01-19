@@ -28,6 +28,7 @@ Rails.application.routes.draw do
                 :features,
                 :patents,
                 :product_categories,
+                :products,
                 :return_material_authorization_policy_documents,
                 :sales_terms_and_conditions_documents,
                 :training_course_types,

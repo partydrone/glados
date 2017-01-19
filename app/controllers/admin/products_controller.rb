@@ -3,11 +3,6 @@ module Admin
     before_action :set_product, only: [:edit, :update, :destroy]
 
     def index
-      @product_categories = ProductCategory.includes(:products).where(product_type: ProductType.first)
-      @product_types = ProductType.includes(:product_categories).all[1..-1]
-    end
-
-    def list
       @product_types = ProductType.includes(:products)
     end
 
@@ -27,7 +22,7 @@ module Admin
       @product = Product.new(product_params)
 
       if @product.save
-        redirect_to @product, notice: %(Saved "#{@product.name}" successfully.)
+        redirect_to [:admin, @product], notice: %(Saved "#{@product.name}" successfully.)
       else
         render :new
       end
@@ -35,7 +30,7 @@ module Admin
 
     def update
       if @product.update(product_params)
-        redirect_to @product, notice: %(Updated "#{@product.name} successfully.")
+        redirect_to [:admin, @product], notice: %(Updated "#{@product.name} successfully.")
       else
         render :edit
       end
@@ -43,7 +38,7 @@ module Admin
 
     def destroy
       @product.destroy
-      redirect_to list_admin_products_path, notice: %(Deleted #{@product.name} successfully.)
+      redirect_to admin_products_path, notice: %(Deleted #{@product.name} successfully.)
     end
 
     private
