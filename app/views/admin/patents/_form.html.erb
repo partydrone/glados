@@ -1,0 +1,23 @@
+<%= form_for @patent do |f| %>
+  <%= f.label :number %>
+  <%= f.number_field :number %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <h3>Associated Products</h3>
+  <div class="row">
+  <% @product_types.each do |product_type| %>
+    <div class="medium-<%= 12 / @product_types.count %> columns">
+      <h4><%= product_type.name %></h4>
+      <ul class="no-bullet">
+        <%= f.collection_check_boxes :product_ids, product_type.products, :id, :name do |b| %>
+          <li>
+            <%= b.check_box %>
+            <%= b.label %>
+          </li>
+        <% end if product_type.products %>
+      </ul>
+    </div>
+  <% end if @product_types %>
+  </div>
+  <%= f.submit nil, class: 'button radius' %>
+<% end %>

@@ -1,0 +1,9 @@
+<%= form_for @website_privacy_policy_document do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, value: 'Wavetronix Website Privacy Policy' %>
+  <%= f.label :effective_on %>
+  <%= f.date_field :effective_on, placeholder: 'yyyy-mm-dd' %>
+  <%= f.label :body %>
+  <%= f.text_area :body, rows: 20 %>
+  <%= f.submit nil, class: 'button radius' %>
+<% end %>

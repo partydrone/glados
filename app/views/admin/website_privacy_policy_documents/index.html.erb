@@ -1,0 +1,25 @@
+<% content_for :title, "Website Privacy Policy Documents" %>
+<div class="row columns">
+<h1>
+  Website Privacy Policy Documents
+  <small>
+    <%= link_to new_website_privacy_policy_document_path, title: "Create a new Website Privacy Policy document" do %>
+      <%= image_tag('icons/Plus.svg', class: "small-icon") %>
+    <% end %>
+  </small>
+</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Effective</th>
+      <th>Last modified</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @website_privacy_policy_documents %>
+  </tbody>
+</table>
+</div>

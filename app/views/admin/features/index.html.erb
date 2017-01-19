@@ -1,0 +1,23 @@
+<% content_for :title, t('.title') %>
+<div class="row columns">
+  <h1>
+    <%= t '.title' %>
+    <%= link_to new_feature_path, title: 'Create a new feature' do %>
+			<%= image_tag('icons/Plus.svg', class: "small-icon") %>
+		<% end %>
+  </h1>
+
+  <div class="row">
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th style="width: 40px;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: 'list_item', collection: @features %>
+      </tbody>
+    </table>
+  </div>
+</div>
