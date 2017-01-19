@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   scope '(:locale)', locale: /(?:[a-z]{2,2})(?:[-|_](?:[A-Z]{2,2}))?/ do
-    mount Ckeditor::Engine => '/ckeditor'
 
     ##
     # Authentication routes
@@ -10,6 +10,39 @@ Rails.application.routes.draw do
     get '/auth/failure', to: 'identities#authentication_failure'
     post '/auth/:provider/callback', to: 'sessions#create'
     delete '/sign_out', to: 'sessions#destroy'
+
+    ##
+    # Content management interface
+    namespace :admin do    
+      ##
+      # Concerns
+      concern :sortable do
+        post :sort, on: :collection
+      end
+
+      ##
+      # Resource routes
+      resources :blog_posts,
+                :case_studies,
+                :downloads,
+                :features,
+                :patents,
+                :product_categories,
+                :return_material_authorization_policy_documents,
+                :sales_terms_and_conditions_documents,
+                :training_course_types,
+                :training_courses,
+                :training_events,
+                :users,
+                :website_privacy_policy_documents,
+                :website_terms_of_use_documents
+
+      resources :download_types, :product_categories, :product_types, concerns: :sortable
+
+      ##
+      # Admin root route
+      root to: 'base#index'
+    end
 
     ##
     # Concerns
