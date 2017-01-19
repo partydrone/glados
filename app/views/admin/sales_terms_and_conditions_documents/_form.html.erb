@@ -1,4 +1,4 @@
-<%= form_for @sales_terms_and_conditions_document do |f| %>
+<%= form_for [:admin,@sales_terms_and_conditions_document] do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title, value: 'Wavetronix Domestic Terms and Conditions of Sale' %>
   <%= f.label :effective_on %>

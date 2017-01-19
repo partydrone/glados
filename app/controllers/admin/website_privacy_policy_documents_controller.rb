@@ -20,7 +20,7 @@ module Admin
       @website_privacy_policy_document = WebsitePrivacyPolicyDocument.new(website_privacy_policy_document_params)
 
       if @website_privacy_policy_document.save
-        redirect_to @website_privacy_policy_document, notice: %(Saved "#{@website_privacy_policy_document.title}" successfully.)
+        redirect_to [:admin,@website_privacy_policy_document], notice: %(Saved "#{@website_privacy_policy_document.title}" successfully.)
       else
         render :new
       end
@@ -28,7 +28,7 @@ module Admin
 
     def update
       if @website_privacy_policy_document.update(website_privacy_policy_document_params)
-        redirect_to @website_privacy_policy_document, notice: %(Updated "#{@website_privacy_policy_document.title}" successfully.)
+        redirect_to [:admin,@website_privacy_policy_document], notice: %(Updated "#{@website_privacy_policy_document.title}" successfully.)
       end
     end
 

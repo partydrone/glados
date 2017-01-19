@@ -21,7 +21,7 @@ module Admin
       @feature = Feature.new(feature_params)
 
       if @feature.save
-        redirect_to @feature, notice: %(Saved "#{@feature.title}" successfully.)
+        redirect_to [:admin,@feature], notice: %(Saved "#{@feature.title}" successfully.)
       else
         set_product_types
         render :new
@@ -30,7 +30,7 @@ module Admin
 
     def update
       if @feature.update(feature_params)
-        redirect_to @feature, notice: %(Updated "#{@feature.title}" successfully.)
+        redirect_to [:admin, @feature], notice: %(Updated "#{@feature.title}" successfully.)
       else
         set_product_types
         render :edit

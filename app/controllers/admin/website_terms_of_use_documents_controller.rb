@@ -20,7 +20,7 @@ module Admin
       @website_terms_of_use_document = WebsiteTermsOfUseDocument.new(website_terms_of_use_document_params)
 
       if @website_terms_of_use_document.save
-        redirect_to @website_terms_of_use_document, notice: %(Saved "#{@website_terms_of_use_document.title}" successfully.)
+        redirect_to [:admin,@website_terms_of_use_document], notice: %(Saved "#{@website_terms_of_use_document.title}" successfully.)
       else
         render :new
       end
@@ -28,7 +28,7 @@ module Admin
 
     def update
       if @website_terms_of_use_document.update(website_terms_of_use_document_params)
-        redirect_to @website_terms_of_use_document, notice: %(Updated "#{@website_terms_of_use_document.title}" successfully.)
+        redirect_to [:admin,@website_terms_of_use_document], notice: %(Updated "#{@website_terms_of_use_document.title}" successfully.)
       end
     end
 

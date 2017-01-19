@@ -1,4 +1,4 @@
-<%= form_for @product_category do |f| %>
+<%= form_for [:admin,@product_category] do |f| %>
   <%= f.label :product_type_id %>
   <%= f.select :product_type_id, ProductType.all.collect { |pl| [pl.name, pl.id] } %>
   <%= f.label :name %>

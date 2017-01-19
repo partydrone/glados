@@ -20,7 +20,7 @@ module Admin
       @case_study = CaseStudy.new(case_study_params)
 
       if @case_study.save
-        redirect_to @case_study, notice: %(Saved "#{@case_study.title}" successfully.)
+        redirect_to [:admin,@case_study], notice: %(Saved "#{@case_study.title}" successfully.)
       else
         render :new
       end
@@ -28,7 +28,7 @@ module Admin
 
     def update
       if @case_study.update(case_study_params)
-        redirect_to @case_study, notice: %(Updated "#{@case_study.title}" successfully.)
+        redirect_to [:admin,@case_study], notice: %(Updated "#{@case_study.title}" successfully.)
       else
         render :edit
       end

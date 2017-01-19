@@ -20,7 +20,7 @@ module Admin
       @blog_post = BlogPost.new(blog_post_params)
 
       if @blog_post.save
-        redirect_to @blog_post, notice: %(Saved "#{@blog_post.title}" successfully.)
+        redirect_to [:admin,@blog_post], notice: %(Saved "#{@blog_post.title}" successfully.)
       else
         render :new
       end
@@ -28,7 +28,7 @@ module Admin
 
     def update
       if @blog_post.update(blog_post_params)
-        redirect_to @blog_post, notice: %(Updated "#{@blog_post.title}" successfully.)
+        redirect_to [:admin,@blog_post], notice: %(Updated "#{@blog_post.title}" successfully.)
       else
         render :edit
       end
