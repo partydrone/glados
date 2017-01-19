@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
     ##
     # Content management interface
-    namespace :admin do    
+    namespace :admin do
       ##
       # Concerns
       concern :sortable do
