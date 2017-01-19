@@ -1,16 +1,18 @@
-class UsersController < BaseController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+module Admin
+  class UsersController < BaseController
+    before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @users = User.all
-  end
+    def index
+      @users = User.all
+    end
 
-  def show
-  end
+    def show
+    end
 
-  private
+    private
 
-  def set_user
-    @user = User.find(params[:id])
+    def set_user
+      @user = User.find(params[:id])
+    end
   end
 end
