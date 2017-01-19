@@ -12,7 +12,7 @@ module Taggable
     self.taggings.find_or_create_by(tag_id: tag.id)
   end
 
-  def tag_names
+  def tag_list
     tags.collect(&:name)
   end
 end
