@@ -1,8 +1,9 @@
-<% content_for :title, t('.title') %>
+<%= content_for :title, t('.title') %>
+
 <div class="row columns">
   <h1>
     <%= t '.title' %>
-    <%= link_to new_feature_path, title: 'Create a new feature' do %>
+    <%= link_to new_admin_feature_path, title: 'Create a new feature' do %>
 			<%= image_tag('icons/Plus.svg', class: "small-icon") %>
 		<% end %>
   </h1>

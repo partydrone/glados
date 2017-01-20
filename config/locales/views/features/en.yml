@@ -6,3 +6,7 @@ en:
       title:            Features
       similar_features: Similar Features
       tags:             Tags
+  admin:
+    features:
+      index:
+        title: Features
