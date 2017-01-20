@@ -5,37 +5,7 @@ class TrainingCoursesController < ApplicationController
     @training_courses = TrainingCourse.all
   end
 
-  def new
-    @training_course = TrainingCourse.new
-  end
-
-  def edit
-  end
-
-  def create
-    @training_course = TrainingCourse.new(training_course_params)
-
-    if @training_course.save
-      redirect_to training_courses_path, notice: %(Saved "#{@training_course.title}" successfully.)
-    else
-      set_training_course_types
-      render :new
-    end
-  end
-
-  def update
-    if @training_course.update(training_course_params)
-      redirect_to training_courses_path, notice: %(Updated "#{@training_course.title}" successfully.)
-    else
-      set_training_course_types
-      render :edit
-    end
-  end
-
-  def destroy
-    @training_course.destroy
-    redirect_to training_courses_path, notice: %(Deleted "#{@training_course.title}" successfully.)
-  end
+  
 
   private
 
