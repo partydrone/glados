@@ -1,13 +1,12 @@
 <% content_for :title, 'List Products' %>
-<div class="row columns">
+<div class="row columns admin-table">
 	<h1>
 		Products
 		<%= link_to new_admin_product_path, title: 'Create a new product' do %>
-			<%= image_tag 'icons/Plus.svg', class: 'small-icon' %>
+			<%= image_tag 'icons/Plus.svg', class: 'small-icon admin-add-icon' %>
 		<% end %>
 	</h1>
 
-	<div class="row">
-		<%= render partial: 'product_type', collection: @product_types %>
-	</div>
+	<%= render partial: 'product_type', collection: @product_types %>
+
 </div>

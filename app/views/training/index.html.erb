@@ -19,39 +19,39 @@
 	<div class="page-sub-bottom-nav">
 		<nav data-magellan data-bar-offset="50">
 			<ul class="menu icon-top expanded">
-			 	<li><a href="#"><%= t(".events") %></a></li>
-			 	<li><a href="#"><%= t(".courses") %></a></li>
+			 	<li><a href="#events"><%= t(".events") %></a></li>
+			 	<li><a href="#courses"><%= t(".courses") %></a></li>
 			</ul>
 		</nav>
 	</div>
 </div>
 
-<section class="row training-post-cards" id="events" data-magellan-target='events'>
+<section class="row columns training-post-cards" id="events" data-magellan-target='events'>
 	<h1><%= t(".events") %>
 		<div class="admin-nav">
-        <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
-          <li>
-            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis.svg', class: 'small-icon') %></a>
-            <ul class="menu">
-              <li>
-                <%= link_to nil, title: %(New), class: "admin-new" do %>
-                  New
-                <% end %>
-              </li>
-              <li>
-                <%= link_to nil, title: %(Edit), class: "admin-edit" do %>
-                  Edit
-                <% end %>
-              </li>
-              <li>
-                <%= link_to nil, class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
-                  Delete
-                <% end %>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+      <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
+        <li>
+          <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis.svg', class: 'small-icon') %></a>
+          <ul class="menu">
+            <li>
+              <%= link_to nil, title: %(New), class: "admin-new" do %>
+                New
+              <% end %>
+            </li>
+            <li>
+              <%= link_to nil, title: %(Edit), class: "admin-edit" do %>
+                Edit
+              <% end %>
+            </li>
+            <li>
+              <%= link_to nil, class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
+                Delete
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
 	</h1>
 
 	<div class="training-input-container">
@@ -76,12 +76,12 @@
 		        <div class="medium-8 small-10 small-centered columns">
 		          <p><%= t(".join_mailing_list") %></p>
 		          <form id="events-updates-form">
-		            <input type="text" name="updates-name"><br>
-		            <p class="request-label">Name</p>
-		            <input type="text" name="updates-email"><br>
-		            <p class="request-label">Email</p>
+		            <label>Name</label>
+		            <input type="text" name="updates-name">
+		            <label>Email</label>
+		            <input type="text" name="updates-email">
+		            <label>Zip Code or Country</label>
 		            <input type="text" name="updates-zip"><br>
-		            <p class="request-label">Zip Code or Country</p>
 		          </form>
 		          <button type="submit" form="events-updates-form" value="Submit" class="button rounded expanded">Subscribe</button>
 		        </div>

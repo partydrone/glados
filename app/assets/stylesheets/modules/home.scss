@@ -5,6 +5,10 @@
 Base Home
 ***********************************************************************************************/
 
+	.homepage {
+		margin-top: -20px;
+	}
+
 	.always-hide-for-ie {
 		display: none;
 	}
@@ -92,11 +96,12 @@ Top Banner
 	.home-video { 
 		height: 650px;
 		overflow: hidden;
+		background: url(image-path('home/home-smarter-traffic.png')) no-repeat center;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		-o-background-size: cover;
 		background-size: cover;
-		background: url(image-path('home/home-smarter-traffic.png')) no-repeat center;
+		background-position: 50% 50%;
 		@media screen and (max-width:40em) {
 			height: 421px;
 			background: url(image-path('home/home-smarter-traffic-small.png')) no-repeat center;
@@ -166,7 +171,7 @@ Top Banner
 	}
 
 /***********************************************************************************************
-Safer Section
+Safe Section
 ***********************************************************************************************/
 
 	.home-safe-left-img {
@@ -182,10 +187,6 @@ Safer Section
 		@media screen and (max-width:40em) {
 			margin: -15px auto 8px auto;
 		}
-	}
-
-	.home-safe h1 {
-		color: $linkblue;
 	}
 
 	.home-safe .show-for-small-only {
@@ -241,9 +242,6 @@ Efficient Section
 		background: $ghost;
 		text-align: center;
 		height: 680px;
-		h1 {
-			color: $linkblue;
-		}
 		.home-stories h6 {
 			color: $charcoal;
 			background: rgba(230, 230, 230, 0.8);
@@ -299,16 +297,12 @@ Efficient Section
 		background: url(image-path('icons/Scroll_vertical-02.svg')) no-repeat center;
 	}
 
-
 /***********************************************************************************************
 Reliable Section
 ***********************************************************************************************/
 
 	.home-reliable {
 		text-align: center;
-		h1 {
-			color: $charcoal;
-		}
 		.home-stories h6,
 		.home-stories small {
 			color: $white;
@@ -343,7 +337,7 @@ Reliable Section
 				border-bottom: none;
 			}
 		}
-		.stories-hidden-text h5,
+		.stories-rollover-shown,
 		.stories-hidden-text p {
 			color: $white;
 		}
@@ -799,7 +793,7 @@ Cost Effective Section
 		background-size: cover;
 	}
 
-	.dva {
+	.loops-image-container {
 		height: 100vh !important;
 		float: none;
 		position: relative;
@@ -808,7 +802,7 @@ Cost Effective Section
 	}
 
 	.loops-box {
-		top: -61px !important;
+		top: -60px !important;
 		bottom: auto;
 		width: 100vw !important;
 		max-width: none !important;
@@ -835,6 +829,44 @@ Cost Effective Section
 		height: 100vh;
 	}
 
+	.static-loops-image {
+		background: url(image-path('home/Loops-Addup.jpg')) no-repeat center;
+		height: 100vh;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		@media screen and (max-width: 40em) {
+			background: url(image-path('home/Loops_640px.jpg')) no-repeat center;
+			height: 500px;
+		}
+		@media screen and (min-width: 40.1em) and (max-width: 60em) {
+			background: url(image-path('home/Loopsaddup1024w.jpg')) no-repeat center;
+			height: 500px;
+		}
+	}
+
+	.static-one-sensor-image {
+		background: url(image-path('home/One-Sensor.jpg')) no-repeat center bottom;
+		height: 100vh;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		@media screen and (max-width: 40em) {
+			background: url(image-path('home/LSS_Replace_640px.jpg')) no-repeat center bottom;
+			height: 500px;
+		}
+		@media screen and (min-width: 40.1em) and (max-width: 60em) {
+			background: url(image-path('home/Onesmartsensor1024w.jpg')) no-repeat center bottom;
+			height: 500px;
+		}
+	}
+
+	.home-post-loops-divider {
+		height: 200vh;
+	}
+
 
 /***********************************************************************************************
 Simple Section
@@ -842,9 +874,6 @@ Simple Section
 
 	.home-simple {
 		text-align: center;
-		h1 {
-			color: $linkblue;
-		}
 		.home-stories {
 			padding-bottom: 0px;
 		}
@@ -911,9 +940,6 @@ Support Section
 	  .home-divider path {
 			fill: $yellow;
 		}
-		h1 {
-			color: $linkblue;
-		}
 		.goto-new:after {
     	content: url(image-path('icons/stories-right.svg')) !important;
    	}
@@ -922,26 +948,47 @@ Support Section
 	.home-nav-dots-support {
 		background: url(image-path('icons/Scroll_vertical-06.svg')) no-repeat center;
 		margin-top: 461px;
+		@media screen and (min-width: 60em) {
+			margin-top: 567px;
+		}
 	}
 
 	.support-image-backer {
-		background: $fadedblue url(image-path('home/home-support-background.png')) no-repeat top;
-		background-position: 50% 50%;
+		background: $fadedblue url(image-path('home/home-support-background.png')) no-repeat bottom;
+		background-position: 50%;
 		-webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
 	  background-size: cover;
-	  height: 840px;
+	  height: 373px;
+	  @media screen and (min-width: 40em) and (max-width: 60em) {
+	  	height: 681px;
+	  }
+	  @media screen and (min-width: 60em) {
+	  	height: 840px;
+	  }
 	}
 
 	.support-white-backer {
-		margin-top: -382px;
-		background: -moz-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(255,255,255,1) 50%); /* FF3.6-15 */
-		background: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 50%); /* Chrome10-25,Safari5.1-6 */
-		background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		margin-top: -166px;
+		background: -moz-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(255,255,255,1) 20%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 20%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 20%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 		padding-bottom: 10px;
 		p {
 			color: $charcoal;
+		}
+		@media screen and (min-width: 60em) {
+			margin-top: -324px;
+			background: -moz-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(255,255,255,1) 50%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 50%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		}
+		@media screen and (min-width: 40em) and (max-width: 60em) {
+			margin-top: -382px;
+			background: -moz-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(255,255,255,1) 50%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 50%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 		}
 	}
 

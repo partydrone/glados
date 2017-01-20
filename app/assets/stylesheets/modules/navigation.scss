@@ -50,6 +50,7 @@ Off Canvas
     padding: 1em 0;
     h3 {
       color: $ghost;
+      margin-bottom: 0;
     }
     &:hover,
     &:hover h3 {
@@ -107,8 +108,7 @@ Top Bar
     padding: 0 !important;
   }
 
-  .topbar-search,
-  .topbar-admin {
+  .topbar-search {
     line-height: 0 !important;
     margin-top: -3px;
     svg {
@@ -122,16 +122,24 @@ Top Bar
     }
   }
 
-  .admin-dropdown-menu {
-    right: 0 !important;
-    top: 40px !important;
-  }
-
   .is-active .topbar-search svg .st0 {
     fill: $yellow;
   }
 
+/************************************************************************************************
+Top Bar
+***********************************************************************************************/
 
+  .top-bar.admin-top-bar,
+  .top-bar.admin-top-bar ul {
+    background: $charcoal;
+    a {
+      color: $gold;
+    }
+    .topbar-search .st0 {
+      fill: $gold;
+    }
+  }
 
 /***********************************************************************************************
 Megamenu Subnav
@@ -279,3 +287,11 @@ Footer
     }
   }
 
+/************************************************************************************************
+Admin Footer
+***********************************************************************************************/
+
+  .admin-footer a {
+    font-size: 14px;
+    font-weight: 100;
+  }
