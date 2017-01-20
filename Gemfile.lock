@@ -1,14 +1,4 @@
 GIT
-  remote: https://github.com/DavyJonesLocker/client_side_validations.git
-  revision: fe23ff15e115e7fe2e1ee07c129608e6468c7b24
-  branch: rails5
-  specs:
-    client_side_validations (5.0.0)
-      jquery-rails (~> 4.0, >= 4.0.1)
-      js_regex (~> 1.0, >= 1.0.19)
-      rails (>= 5.0.0, < 5.1.0)
-
-GIT
   remote: https://github.com/refile/refile.git
   revision: d7a42dcd7cf631ba94b01231f535bda061f6af92
   branch: master
@@ -79,13 +69,13 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     ansi (1.5.0)
     arel (7.1.4)
-    aws-sdk (2.6.44)
-      aws-sdk-resources (= 2.6.44)
-    aws-sdk-core (2.6.44)
+    aws-sdk (2.6.49)
+      aws-sdk-resources (= 2.6.49)
+    aws-sdk-core (2.6.49)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.6.44)
-      aws-sdk-core (= 2.6.44)
+    aws-sdk-resources (2.6.49)
+      aws-sdk-core (= 2.6.49)
     aws-sigv4 (1.0.0)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -106,6 +96,10 @@ GEM
     ckeditor (4.2.2)
       cocaine
       orm_adapter (~> 0.5.0)
+    client_side_validations (6.0.0)
+      jquery-rails (~> 4.2)
+      js_regex (~> 1.2)
+      rails (~> 5.0.0, >= 5.0.0.1)
     climate_control (0.1.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
@@ -198,7 +192,7 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    omniauth (1.3.1)
+    omniauth (1.3.2)
       hashie (>= 1.2, < 4)
       rack (>= 1.0, < 3)
     omniauth-identity (1.1.1)
@@ -335,7 +329,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
   ckeditor
-  client_side_validations!
+  client_side_validations
   flamegraph
   foundation-rails (~> 6.2.0)
   guard
