@@ -1,0 +1,21 @@
+<div class="product-feature">
+  <div class="product-intro-media">
+    <% if feature.youtube_video_id.present? %>
+      <div class="flex-video widescreen">
+        <iframe src="https://www.youtube.com/embed/<%= feature.youtube_video_id %>?rel=0&showinfo=0" width="720" hieght="480" frameborder="0"></iframe>
+      </div>
+    <% else %>
+      <%= attachment_image_tag feature, :hero_image, fallback: 'http://placehold.it/1600x900' %>
+    <% end %>
+  </div>
+  <div class="row columns">
+    <div class="medium-6 medium-centered">
+      <h2>
+        <%= feature.title %>
+        <%= render partial: 'options_menu', locals: {object: feature, instance_name: feature.title} if current_user %>
+      </h2>
+      <%= raw markdown(feature.description) %>
+      <%= link_to "Learn more", feature_path(feature), class: "goto-new" if feature.body.present? %>
+    </div>
+  </div>
+</div>

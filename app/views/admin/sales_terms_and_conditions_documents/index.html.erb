@@ -1,0 +1,25 @@
+<% content_for :title, "Sales Terms and Conditions Documents" %>
+<div class="row columns">
+<h1>
+  Sales Terms and Conditions Documents
+  <small>
+    <%= link_to new_admin_sales_terms_and_conditions_document_path, title: "Create a new Sales Terms and Conditions document" do %>
+      <%= image_tag('icons/Plus.svg', class: "small-icon") %>
+    <% end %>
+  </small>
+</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Effective</th>
+      <th>Last modified</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @sales_terms_and_conditions_documents %>
+  </tbody>
+</table>
+</div>

@@ -1,0 +1,10 @@
+<div class="row products-alternate-text-box">
+  <div class="small-2 columns">
+    <%= attachment_image_tag product_category, :icon_image, fallback: 'http://placehold.it/50/eaa800/ffffff' %>
+  </div>
+  <div class="small-10 columns">
+    <%= content_tag :h2, product_category.name %>
+    <p><%= product_category.description %><br/>
+    <%= link_to "Learn More", product_category_path(product_category), class: "goto-new" %></p>
+  </div>
+</div>

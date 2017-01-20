@@ -1,0 +1,30 @@
+<%= form_for [:admin,@product_category] do |f| %>
+  <%= f.label :product_type_id %>
+  <%= f.select :product_type_id, ProductType.all.collect { |pl| [pl.name, pl.id] } %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :description %>
+  <%= f.text_area :description, rows: 5 %>
+
+  <div class="row">
+    <div class="medium-6 columns">
+      <%= f.label :icon_image %>
+      <%= f.attachment_field :icon_image, direct: true, presinged: true %>
+    </div>
+    <div class="medium-6 columns">
+      <%= attachment_image_tag @product_category, :icon_image if @product_category.icon_image && @product_category.icon_image.exists? %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-6 columns">
+      <%= f.label :hero_image %>
+      <%= f.attachment_field :hero_image, direct: true, presinged: true %>
+    </div>
+    <div class="medium-6 columns">
+      <%= attachment_image_tag @product_category, :hero_image if @product_category.hero_image && @product_category.hero_image.exists? %>
+    </div>
+  </div>
+
+  <%= f.submit nil, class: 'button radius' %>
+<% end %>

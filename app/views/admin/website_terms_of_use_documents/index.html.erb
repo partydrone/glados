@@ -1,0 +1,25 @@
+<% content_for :title, "Website Terms of Use Documents" %>
+<div class="row columns">
+<h1>
+  Website Terms of Use Documents
+  <small>
+    <%= link_to new_admin_website_terms_of_use_document_path, title: "Create a new Website Terms of Use document" do %>
+      <%= image_tag('icons/Plus.svg', class: "small-icon") %>
+    <% end %>
+  </small>
+</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Effective</th>
+      <th>Last modified</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @website_terms_of_use_documents %>
+  </tbody>
+</table>
+</div>

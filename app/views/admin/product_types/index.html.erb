@@ -1,0 +1,24 @@
+<% content_for :title, 'Product Types' %>
+<div class="row columns">
+  <h1>
+    Product Types
+    <%= link_to new_admin_product_type_path, title: 'Create a new Product Type' do %>
+      <%= image_tag('icons/Plus.svg', class: "small-icon") %>
+    <% end %>
+  </h1>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>Icon</th>
+        <th>Name</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="product_types" data-update-path="<%= sort_product_types_path %>">
+      <%= render @product_types %>
+    </tbody>
+  </table>
+</div>

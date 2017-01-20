@@ -1,0 +1,69 @@
+<%= content_for :title, t(".title") %>
+
+<div class="page-sub-navigation show-for-large" data-sticky-container>
+	<div class="sticky" data-sticky data-anchor="legal" data-active-class>
+		<div class="row">
+			<div class="columns text-right">
+				<nav data-magellan data-bar-offset="70">
+					<ul class="horizontal menu">
+						<%= render 'page_navigation' %>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="hide-for-large">
+	<div class="page-sub-bottom-nav">
+		<nav data-magellan data-bar-offset="50">
+			<ul class="menu icon-top expanded">
+			 	<%= render 'page_navigation' %>
+			</ul>
+		</nav>
+	</div>
+</div>
+
+<div class="legal-sections row">
+
+	<%= content_tag :section, id: 'patents', class: 'legal-patents columns', data: {'magellan-target': 'patents'} do %>
+
+		<!-- only if there is no content
+		<h1><%= t(".patents") %></h1>
+		<%= link_to nil, title: %(New) do %>
+          <%= image_tag('icons/Plus.svg', class: 'icon') %>
+        <% end %>
+
+    else -->
+		<h1>
+			<%= t(".patents") %>
+		</h1>
+		<table class="hover">
+		  <thead>
+		    <tr>
+		      <th width="200"><%= t(".patent_number") %></th>
+		      <th><%= t(".patent_title") %></th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <%= render partial: 'patent', collection: @patents %>
+		  </tbody>
+		</table>
+	<% end if @patents %>
+
+	<%= content_tag :section, id: 'rma', class: 'legal-rma columns', data: {'magellan-target': 'rma'} do %>
+		<%= render 'return_material_authorization_policy_documents/show' %>
+	<% end if @return_material_authorization_policy_document %>
+
+	<%= content_tag :section, id: 'salesterms', class: 'legal-salesterms columns', data: {'magellan-target': 'salesterms'} do %>
+		<%= render 'sales_terms_and_conditions_documents/show' %>
+	<% end if @sales_terms_and_conditions_document %>
+
+	<%= content_tag :section, id: 'privacy', class: 'legal-privacy columns', data: {'magellan-target': 'privacy'} do %>
+		<%= render 'website_privacy_policy_documents/show' %>
+	<% end if @website_privacy_policy_document %>
+
+	<%= content_tag :section, id: 'termsuse', class: 'legal-termsuse columns', data: {'magellan-target': 'termsuse'} do %>
+		<%= render 'website_terms_of_use_documents/show' %>
+	<% end if @website_terms_of_use_document %>
+</div>

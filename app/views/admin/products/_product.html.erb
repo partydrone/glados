@@ -1,0 +1,14 @@
+<% cache product do %>
+  <div class="medium-6 end columns">
+    <div class="small-3 columns">
+      <%= attachment_image_tag product, :product_image, fallback: 'http://placehold.it/50' %>
+    </div>
+    <div class="small-9 columns">
+      <h2>
+        <%= product.name %>
+      </h2>
+      <%= content_tag :p, product.summary %>
+      <%= link_to "Learn More", product_path(product), class: "goto-new" %>
+    </div>
+  </div>
+<% end %>
