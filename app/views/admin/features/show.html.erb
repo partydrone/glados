@@ -41,7 +41,7 @@
     <div class="large-12 medium-8 medium-offset-2 large-offset-0 columns">
       <h1>
         <%= @feature.title %>
-        <%= render partial: 'options_menu', locals: {object: @feature, instance_name: @feature.title} if current_user %>
+        <%= render partial: 'options_menu', locals: {object: @feature, instance_name: @feature.title} %>
       </h1>
       <% if @feature.youtube_video_id.present? %>
 				<div class="flex-video widescreen">
