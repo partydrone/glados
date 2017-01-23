@@ -1,5 +1,8 @@
 <% cache list_item do %>
   <%= content_tag_for :tr, list_item do %>
+    <td class="handle admin-table-move">
+      <%= image_tag 'icons/ellipsisup-small.svg', class: 'small-icon' %>
+    </td>
     <td>
       <%= attachment_image_tag list_item, :icon_image, fallback: 'http://placehold.it/20/eaa800/ffffff', style: 'height: 1em;' %>
     </td>
@@ -9,11 +12,8 @@
     <td>
       <%= list_item.product_type.name %>
     </td>
-    <td>
+    <td class="admin-table-edit">
       <%= render partial: 'options_menu', locals: {object: list_item, instance_name: list_item.name} %>
-    </td>
-    <td class="handle">
-      <%= image_tag 'icons/ellipsisup-small.svg', class: 'small-icon' %>
     </td>
   <% end %>
 <% end %>
