@@ -1,7 +1,7 @@
 <div class="row columns">
   <h1>
     <%= @website_privacy_policy_document.title %>
-    <%= render partial: 'options_menu', locals: {object: @website_privacy_policy_document, instance_name: @website_privacy_policy_document.title} %>
+    <%= render partial: 'options_menu', locals: {object: @website_privacy_policy_document, instance_name: @website_privacy_policy_document.title} if current_user %>
   </h1>
   <section>
     <p>(Effective <%= l @website_privacy_policy_document.effective_on, format: :long %>)</p>

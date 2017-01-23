@@ -38,14 +38,21 @@ Rails.application.routes.draw do
                 :website_privacy_policy_documents,
                 :website_terms_of_use_documents
 
-      resources :download_types,
-                :product_categories,
-                :product_types,
-                concerns: :sortable
+      resources :download_types, :product_categories, :product_types, concerns: :sortable
 
       ##
       # Admin root route
       root to: 'base#index'
+    end
+
+    ##
+    # Concerns
+    concern :listable do
+      get :list, on: :collection
+    end
+
+    concern :sortable do
+      post :sort, on: :collection
     end
 
     ##
@@ -56,18 +63,22 @@ Rails.application.routes.draw do
 
     resources :blog_posts,
               :case_studies,
+              :downloads,
               :features,
+              :patents,
               :product_categories,
-              only: [:show]
-
-    resources :products,
               :return_material_authorization_policy_documents,
               :sales_terms_and_conditions_documents,
-              :website_privacy_policy_documents,
-              :website_terms_of_use_documents,
+              :training_course_types,
               :training_courses,
               :training_events,
-              only: [:index, :show]
+              :users,
+              :website_privacy_policy_documents,
+              :website_terms_of_use_documents
+
+    resources :products, concerns: :listable
+
+    resources :download_types, :product_categories, :product_types, concerns: :sortable
 
     ##
     # Static routes
