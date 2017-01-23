@@ -41,7 +41,7 @@
     <div class="large-12 medium-8 medium-offset-2 large-offset-0 columns">
       <h1>
         <%= @case_study.title %>
-        <%= render partial: 'options_menu', locals: {object: @case_study, instance_name: @case_study.title} if current_user %>
+        <%= render partial: 'options_menu', locals: {object: @case_study, instance_name: @case_study.title} %>
       </h1>
       <h6>by <%= @case_study.author %></h6>
       <%= attachment_image_tag @case_study, :hero_image, fallback: 'http://placehold.it/1600x900' %>
