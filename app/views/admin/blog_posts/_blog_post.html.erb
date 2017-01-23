@@ -10,7 +10,7 @@
       <%= l blog_post.updated_at.to_date, format: :short %>
     </td>
     <td style="text-align: right;">
-      <%= render partial: 'options_menu', locals: {object: blog_post, instance_name: blog_post.title} if current_user %>
+      <%= render partial: 'options_menu', locals: {object: blog_post, instance_name: blog_post.title} %>
     </td>
   <% end %>
 <% end %>

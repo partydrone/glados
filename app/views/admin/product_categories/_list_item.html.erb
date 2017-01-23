@@ -10,7 +10,7 @@
       <%= list_item.product_type.name %>
     </td>
     <td>
-      <%= render partial: 'options_menu', locals: {object: list_item, instance_name: list_item.name} if current_user %>
+      <%= render partial: 'options_menu', locals: {object: list_item, instance_name: list_item.name} %>
     </td>
     <td class="handle">
       <%= image_tag 'icons/ellipsisup-small.svg', class: 'small-icon' %>
