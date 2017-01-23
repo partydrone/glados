@@ -1,7 +1,7 @@
 <div class="row columns">
   <h1>
     <%= @sales_terms_and_conditions_document.title %>
-    <%= render partial: 'options_menu', locals: {object: @sales_terms_and_conditions_document, instance_name: @sales_terms_and_conditions_document.title} %>
+    <%= render partial: 'options_menu', locals: {object: @sales_terms_and_conditions_document, instance_name: @sales_terms_and_conditions_document.title} if current_user %>
   </h1>
   <section>
     <p>(Effective <%= l @sales_terms_and_conditions_document.effective_on, format: :long %>)</p>
