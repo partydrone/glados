@@ -1,6 +1,6 @@
 <main class="homepage" data-magellan>
 
-	<div class="home-video">
+  <div class="home-video">
     <%= video_tag "home/wavetronixSMALL.mp4", controls: false, autoplay: true, muted: true, loop: true, id: "bgvideo", type:"video/mp4", class: 'home-video-background show-for-large' %>
     <div class="home-top-banner">
       <h1 class="home-header-text">Smarter <span>Traffic</span></h1>
@@ -13,7 +13,7 @@
   <section class="home-safe" id="home-safe">
     <div class="row">
       <div class="home-safe-left-img show-for-medium">
-      	<%= image_tag 'home/home-smart-sensor-family.png' %>
+        <%= image_tag 'home/home-smart-sensor-family.png' %>
       </div>
       <div class="home-top-arrow"></div>
       <div class="home-nav-dots home-nav-dots-safe show-for-large">
@@ -25,7 +25,7 @@
         <a href="#home-support" class="nav-dots button" alt="scroll to Support"> </a>
       </div>
       <div class="home-section-text">
-      	<%= image_tag 'icons/blue-cross.svg' %>
+        <%= image_tag 'icons/blue-cross.svg' %>
         <h1>Safe</h1>
         <p class="show-for-medium">Smart traffic systems save lives, and Wavetronix radar provides the most reliable data for these systems.  Our unique, patented features help increase safety – and because Wavetronix products install above the road, they are safer for road workers as well.</p>
         <p class="show-for-small-only">Smart traffic systems save lives.</p>
@@ -130,9 +130,9 @@
   </section>
 
   <section class="home-efficient" id="home-efficient">
-  	<%= image_tag "icons/home-section-line.svg", class: "divider-img" %>
+    <%= image_tag "icons/home-section-line.svg", class: "divider-img" %>
     <div class="home-efficient-left-img show-for-large">
-    	<%= image_tag 'home/home-traffic-light.png' %>
+      <%= image_tag 'home/home-traffic-light.png' %>
     </div>
     <div class="row">
       <div class="home-nav-dots home-nav-dots-efficient show-for-large">
@@ -144,7 +144,7 @@
         <a href="#home-support" class="nav-dots button" alt="scroll to Support"> </a>
       </div>
       <div class="home-section-text">
-      	<%= image_tag 'icons/blue-watch.svg' %>
+        <%= image_tag 'icons/blue-watch.svg' %>
         <h1>Efficient</h1>
         <p class="show-for-medium">Get to where you need to go on time. Wavetronix radar makes intelligent traffic systems more efficient. Our sensors are proven to offer most accurate and reliable detection for even greater roadway efficiency.</p>
         <p class="show-for-small-only">Keep traffic moving.</p>
@@ -247,7 +247,7 @@
 
   <section class="home-reliable" id="home-reliable">
     <div class="home-reliable-top">
-    	<%= image_tag 'icons/home-section-line.svg', class: 'divider-img' %>
+      <%= image_tag 'icons/home-section-line.svg', class: 'divider-img' %>
       <div class="row">
         <div class="home-nav-dots home-nav-dots-reliable show-for-large">
           <a href="#home-safe" class="nav-dots first-dot button" alt="scroll to Safe"> </a>
@@ -258,7 +258,7 @@
           <a href="#home-support" class="nav-dots button" alt="scroll to Support"> </a>
         </div>
         <div class="home-section-text">
-        	<%= image_tag 'icons/home-rain-cloud.svg' %>
+          <%= image_tag 'icons/home-rain-cloud.svg' %>
           <h1>Reliable</h1>
           <p class="show-for-medium">You should demand consistent, quality performance, and with Wavetronix radar, that is what you get.  Our SmartSensors are trusted by transportation professionals because they work, providing accurate detection in even difficult conditions.</p>
           <p class="show-for-small-only">Works in difficult conditions &amp over time.</p>
@@ -456,16 +456,16 @@
       </ul>
       <div class="tabs-content" data-tabs-content="example-tabs">
         <div class="tabs-panel is-active" id="panel1">
-          <h5>Weather and Lighting Conditions</h5>
-          <p>The weather conditions you hate to drive in are no match for SmartSensor. Wavetronix radar keeps working in difficult weather. The wavelength of radar is larger than visible light, so it can see through snow, rain, fog and other conditions where detection may fail.</p>
+          <h5>Roads</h5>
+          <p>Wavetronix radar is non-intrusive, so our detections are not affected by changes to the road.  Road surfaces degrade over time and, can be damaged by environmental factors.  Wavetronix radar keeps accurately detecting, even if the road is resurfaced or lanes are shifted - quickly and easily configure your sensor and you’re good to go!</p>
         </div>
         <div class="tabs-panel" id="panel2">
           <h5>Construction</h5>
           <p>Construction zones are some of the most dangerous situations faced by drivers and workers. Where other detection methods fail, SmartSensors keep detecting so you can navigate through construction zones easily throughout any project. SmartSensor’s non-intrusive nature also allows you to install detection when you’re ready for it, regardless of pavement concerns.</p>
         </div>
         <div class="tabs-panel" id="panel3">
-          <h5>Roads</h5>
-          <p>Wavetronix radar is non-intrusive, so our detections are not affected by changes to the road.  Road surfaces degrade over time and, can be damaged by environmental factors.  Wavetronix radar keeps accurately detecting, even if the road is resurfaced or lanes are shifted - quickly and easily configure your sensor and you’re good to go!</p>
+          <h5>Weather and Lighting Conditions</h5>
+          <p>The weather conditions you hate to drive in are no match for SmartSensor. Wavetronix radar keeps working in difficult weather. The wavelength of radar is larger than visible light, so it can see through snow, rain, fog and other conditions where detection may fail.</p>
         </div>
       </div>
     </div>
@@ -587,18 +587,26 @@
 
     <article id="CostEffectiveLoops" class="slide-up-image show-for-large">
       <div class="large-6 columns" id="loops-anchor" data-something data-margin-top="5">
-        <div class="one-sensor-image"">
+        <div class="one-sensor-image">
         </div>
       </div>
 
-      <aside class="large-6 columns dva similar-stories-side end sticky-container" data-sticky-container>
+      <aside class="large-6 columns loops-image-container similar-stories-side end sticky-container" data-sticky-container>
         <div class="sticky loops-box" data-sticky data-anchor="loops-anchor" data-sticky-on="large">
           <div class="loops-image"></div>
         </div>
       </aside>
 
     </article>
+
+    <div id="StaticCostLoops" class="static-cost-loops">
+      <div class="static-loops-image"></div>
+      <div class="static-one-sensor-image"></div>
+    </div>
   </section>
+
+  <div id="HomePostLoopsDivider" class="home-post-loops-divider show-for-large">
+  </div>
 
   <section class="home-simple" id="home-simple">
     <div class="row">
@@ -611,13 +619,13 @@
         <a href="#home-support" class="nav-dots button" alt="scroll to Support"> </a>
       </div>
       <div class="simple-background">
-      <div class="medium-8 columns end white-backer">
+      <div class="large-8 columns end white-backer">
         <div class="home-section-text">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 84" class="simple-divider-img">
             <path class="st0" d="M2.5 80.1V0h-1v80.1C0.6 80.3 0 81.1 0 82c0 1.1 0.9 2 2 2s2-0.9 2-2C4 81.1 3.4 80.3 2.5 80.1z"/>
           </svg>
-          <%= image_tag 'icons/blue-cross.svg' %>
-          <h1>Simplicity</h1>
+          <%= image_tag 'icons/check-circle.svg' %>
+          <h1>Simple</h1>
           <p class="show-for-medium">Wavetronix products are designed to help you simply create smarter traffic systems.  Easy to install and configurable in under an hour, our radar performs complex tasks in a simple way, so you can focus on managing difficult traffic as quickly and easily as possible.</p>
           <p class="show-for-small-only">The easiest way to smarter traffic</p>
         </div>
@@ -740,7 +748,7 @@
       <div class="support-white-backer">
         <%= image_tag 'icons/home-section-line.svg', class: 'divider-img' %>
         <div class="home-section-text">
-          <%= image_tag 'icons/support-icon.svg' %>
+          <%= image_tag 'icons/life-saver.svg' %>
           <h1>Support</h1>
           <p class="show-for-medium">Wavetronix is with you every step of the way.  From planning to roadside installation and beyond, our experts can provide the answers and technical training you need to get the results you’re looking for.  At Wavetronix, we don’t succeed until you do.</p>
         <p class="show-for-small-only">With you every step of the way.</p>

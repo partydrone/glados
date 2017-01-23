@@ -67,6 +67,11 @@
         <li><%= link_to "Legal", legal_path %></li>
       </ul>
     </li>
+    <li class="off-canvas-menu-item">
+      <%= link_to admin_root_path, class:"off-canvas-title" do %>
+        <h3><%= t(".sign_in") %></h3>
+      <% end %>
+    </li>
 
   </ul>
   <div class="off-canvas-copyright">

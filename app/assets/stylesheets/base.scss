@@ -279,6 +279,11 @@ label {
   padding: 0.5rem;
   background-color: $tomato;
   color: $white;
+  position: relative;
+  z-index: 51;
+  margin-top: -20px;
+  height: 49px;
+  line-height: 34px;
 }
 
 .alert-box-close {
@@ -593,6 +598,7 @@ upper sub nav
     background: $white;
     position: fixed;
     border-top: 1px solid $silver;
+    z-index: 5;
     a {
       padding: 8px 1px 0px 1px !important;
       color: $charcoal;

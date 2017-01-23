@@ -1,2 +1,57 @@
-<h1>Admin::Base#index</h1>
-<p>Find me in app/views/admin/base/index.html.erb</p>
+<div class="row columns">
+	<h1>Admin</h1>
+	<ul class="admin-list row">
+		<li class="admin-list-header small-12 medium-6 large-3 columns">
+			<div class="admin-sub-list-collection">
+				<h3>Marketing</h3>
+				<ul>
+					<li><%= link_to "Blog Posts", admin_blog_posts_path %></li>
+					<li><%= link_to "Case Studies", admin_case_studies_path %></li>
+					<li><%= link_to "Features", admin_features_path %></li>
+				</ul>
+			</div>
+		</li>
+		<li class="admin-list-header small-12 medium-6 large-3 columns">
+			<div class="admin-sub-list-collection">
+				<h3>Legal</h3>
+				<ul>
+					<li><%= link_to "RMAs", admin_return_material_authorization_policy_documents_path %></li>
+					<li><%= link_to "Sales Terms & Conditions", admin_sales_terms_and_conditions_documents_path %></li>
+					<li><%= link_to "Patents", admin_patents_path %></li>
+					<li><%= link_to "Website Privacy Policy", admin_website_privacy_policy_documents_path %></li>
+					<li><%= link_to "Website Terms of Use", admin_website_terms_of_use_documents_path %></li>
+				</ul>
+			</div>
+		</li>
+		<li class="admin-list-header small-12 medium-6 large-3 columns">
+			<div class="admin-sub-list-collection">
+				<h3>Products</h3>
+				<ul>
+					<li><%= link_to "Products List", admin_products_path %></li>
+					<li><%= link_to "Product Categories", admin_product_categories_path %></li>
+					<li><%= link_to "Products Types", admin_product_types_path %></li>
+					<li><%= link_to "Download Types", admin_download_types_path %></li>
+					<li><%= link_to "Downloads", admin_downloads_path %></li>
+				</ul>
+			</div>
+		</li>
+		<li class="admin-list-header small-12 medium-6 large-3 columns">
+			<div class="admin-sub-list-collection">
+				<h3>Training</h3>
+				<ul>
+					<li><%= link_to "Training Course Types", admin_training_course_types_path %></li>
+					<li><%= link_to "Training Courses", admin_training_courses_path %></li>
+					<li><%= link_to "Training Events", admin_training_events_path %></li>
+				</ul>
+			</div>
+		</li>
+		<li class="admin-list-header small-12 medium-6 large-3 columns">
+			<div class="admin-sub-list-collection">
+				<h3>Website Admin</h3>
+				<ul>
+					<li><%= link_to "Users", admin_users_path %></li>
+				</ul>
+			</div>
+		</li>   
+	</ul>
+</li>

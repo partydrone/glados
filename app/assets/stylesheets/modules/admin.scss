@@ -1,0 +1,69 @@
+@import "foundation_and_overrides";
+@import "globals/all";
+
+.admin-list-header {
+	display: block;
+	padding: 10px;
+	border-radius: 5px;
+	ul {
+		margin-left: 0;
+	}
+}
+
+.admin-sub-list-collection {
+	border: 1px solid $ghost;
+	padding: 10px;
+	border-radius: 5px;
+	a {
+		font-weight: 100;
+	}
+	li {
+		margin: 5px 0;
+	}
+}
+
+.admin-table {
+	h2 {
+		color: $charcoal;
+		margin-bottom: 0;
+	}
+	thead {
+		background: none;
+		color: $silver;
+		border: none;
+	}
+	th {
+		padding-bottom: 5px;
+	}
+	table {
+		margin-bottom: 30px;
+	}
+}
+
+.admin-table-edit {
+	text-align: center;
+	background: $fadedblue;
+	border-bottom: 1px solid silver;
+}
+
+.ellipsis-link .small-icon {
+	margin-right: 0;
+}
+
+.admin-title-bar {
+	background: $charcoal !important;
+}
+
+.mobile-admin-title {
+	padding-top: 1px;
+	vertical-align: text-top;
+	display: inline-block;
+	a{
+		color: $gold;
+		font-weight: 400;
+	}
+}
+
+.admin-add-icon {
+	margin-bottom: 8px;
+}

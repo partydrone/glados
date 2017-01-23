@@ -48,7 +48,7 @@ jQuery(function() {
           dots: false,
           scrollPerPage: true,
           itemsDesktop : [1024,2],
-          itemsDesktopSmall : [1023,1],
+          itemsDesktopSmall : [1023,2],
           itemsTablet: [640,1],
           itesmMobile: false
         });
@@ -77,21 +77,21 @@ function detect(){
   var m = document.getElementById('ReliableMagellan');
   var h = document.getElementById('CostEffectiveLoops');
   var k = document.getElementById('ReliableTabs');
-  if(isEdge){
+  let j = document.getElementById('HomePostLoopsDivider');
+  let s = document.getElementById('StaticCostLoops');
+  if(isEdge || isIE){
     m.className += ' always-hide-for-ie';
     h.className += ' always-hide-for-ie';
+    j.className += ' always-hide-for-ie';
   // } else if(isChrome){
-  //keep for testing
-    // m.className += ' reliable-magellan-display';
-    // k.className += ' reliable-tabs-display';
-    // h.className += ' cost-loops-display';
-  } else if(isIE){
-    m.className += ' always-hide-for-ie';
-    h.className += ' always-hide-for-ie';
+  // // keep for testing
+  //   m.className += ' always-hide-for-ie';
+  //   h.className += ' always-hide-for-ie';
+  //   j.className += ' always-hide-for-ie';
   } else {
-    m.className += ' reliable-magellan-display';
     k.className += ' reliable-tabs-display';
     h.className += ' cost-loops-display';
+    s.className += ' hide-for-large'
   }
 }
 
