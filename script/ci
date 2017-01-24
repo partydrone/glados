@@ -8,6 +8,28 @@ set -e
 # Adding a check so an argument has to be passed to the container
 COMMAND=${1:?'You need to pass a command as the first parameter!'}
 
+# Make sure required services are running
+function test_postgresql {
+  pg_isready -h "${POSTGRESQL_HOST}" -U "${POSTGRESQL_USER}"
+}
+
+function test_redis {
+  redis-cli -h "${REDIS_HOST}" PING
+}
+
+count=0
+# Chain tests together by using &&
+until ( test_postgresql && test_redis )
+do
+  ((count++))
+  if [ ${count} -gt 50 ]
+  then
+    echo "Services didn't become ready in time"
+    exit 1
+  fi
+  sleep 0.1
+done
+
 # Create and init the database
 bundle exec rails db:create db:migrate
 
