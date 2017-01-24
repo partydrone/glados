@@ -1,20 +1,21 @@
 <%= content_for :title, t(".title") %>
 
-<div class="row columns">
+<div class="row columns admin-table">
 <h1>
   Blog Posts
   <%= link_to new_admin_blog_post_path, title: 'Create a new Product Type' do %>
-    <%= image_tag('icons/Plus.svg', class: "small-icon") %>
+    <%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
   <% end %>
 </h1>
 
 <table>
   <thead>
     <tr>
+      <th width="30"></th>
       <th>Title</th>
       <th>Posted</th>
       <th>Last Updated</th>
-      <th style="width: 3rem;"></th>
+      <th width="30"></th>
     </tr>
   </thead>
   <tbody id="blog_posts">

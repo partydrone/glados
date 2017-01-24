@@ -1,24 +1,23 @@
 <%= content_for :title, t('.title') %>
 
-<div class="row columns">
+<div class="row columns admin-table">
   <h1>
     <%= t '.title' %>
     <%= link_to new_admin_feature_path, title: 'Create a new feature' do %>
-			<%= image_tag('icons/Plus.svg', class: "small-icon") %>
+			<%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
 		<% end %>
   </h1>
 
-  <div class="row">
-    <table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th style="width: 40px;"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render partial: 'list_item', collection: @features %>
-      </tbody>
-    </table>
-  </div>
+  <table>
+    <thead>
+      <tr>
+        <th width="30"></th>
+        <th>Title</th>
+        <th width="30"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: 'list_item', collection: @features %>
+    </tbody>
+  </table>
 </div>

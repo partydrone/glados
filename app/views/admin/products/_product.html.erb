@@ -1,13 +1,16 @@
 <% cache product do %>
   <tr>
+    <td class="admin-left-edit">
+      <%= render partial: 'options_edit', locals: {object: product, instance_name: product.name} %>
+    </td>
     <td>
       <%= product.name %>
     </td>
     <td>
       <%= product.part_number %>
     </td>
-    <td class="admin-table-edit">
-      <%= render partial: 'options_menu', locals: {object: product, instance_name: product.name} %>
+    <td class="admin-right-delete">
+      <%= render partial: 'options_delete', locals: {object: product, instance_name: product.name} %>
     </td>
   </tr>
 <% end %>

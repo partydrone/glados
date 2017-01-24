@@ -22,6 +22,16 @@
 	}
 }
 
+.admin-left-edit {
+	padding-right: 4px;
+	border-right: 1px solid $ghost;
+}
+
+.admin-right-delete {
+	border-left: 1px solid $ghost;
+	padding-right: 4px;
+}
+
 .admin-table {
 	h2 {
 		color: $charcoal;
@@ -40,18 +50,26 @@
 	}
 }
 
-.admin-table-edit {
-	text-align: center;
-	background: $fadedblue;
-	border-bottom: 1px solid silver;
-	width: 48px;
+.admin-edit,
+.admin-delete {
+	padding: 0 0.25rem !important;
+}
+
+.admin-edit-container {
+	width: 28px;
+	margin-top: 6px;
 }
 
 .admin-table-move {
 	text-align: center;
-	background: $green;
+	background: $silver;
 	border-bottom: 1px solid silver;
-	width: 48px;
+	width: 30px;
+}
+
+.admin-table-icon {
+	width: 25px;
+	text-align: center;
 }
 
 .ellipsis-link .small-icon {
