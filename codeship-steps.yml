@@ -3,9 +3,9 @@
 - name: ci
   type: parallel
   steps:
-    - name: tests
+    - name: integration
       service: app
-      command: script/ci test
-    # - name: seeds
-    #   service: app
-    #   command: script/ci seed
+      command: script/ci integration
+    - name: unit
+      service: app
+      command: script/ci unit
