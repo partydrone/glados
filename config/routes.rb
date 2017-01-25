@@ -63,7 +63,8 @@ Rails.application.routes.draw do
               :product_categories,
               only: [:show]
 
-    resources :products,
+    resources :knowledge_base_articles,
+              :products,
               :return_material_authorization_policy_documents,
               :sales_terms_and_conditions_documents,
               :website_privacy_policy_documents,
