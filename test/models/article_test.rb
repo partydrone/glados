@@ -35,4 +35,16 @@ describe Article do
   it "has tags" do
     article.must_respond_to :tags
   end
+
+  it "has views" do
+    article.must_respond_to :views
+  end
+
+  it "logs views" do
+    article.views = 0
+    article.save
+    article.log_view
+    article.reload
+    article.views.must_equal 1
+  end
 end

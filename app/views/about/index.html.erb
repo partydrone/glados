@@ -52,13 +52,13 @@
     <div class="row">
       <div class="large-7 columns news-article-blurbs">
 
-        <%= render partial: 'article', collection: @articles %>
+        <%= render partial: 'recent_article', collection: @recent_articles %>
 
-        <div class="read-more">
+        <%= content_tag :div, class: 'read-more' do %>
           <%= link_to nil, class: "goto-new" do %>
             <%= t(".more_stories") %>
           <% end %>
-        </div>
+        <% end if Article.count > 4 %>
       </div>
       <div class="large-5 columns news-article-list show-for-large">
         <ul class="tabs" data-tabs id="news-article-tabs">
@@ -68,16 +68,9 @@
         </ul>
         <div class="tabs-content" data-tabs-content="news-article-tabs">
           <div class="tabs-panel is-active news-toparticles" id="news-toparticles">
-            <%= link_to "1. Why Loops Aren't Cheap", nil %><br/>
-            <%= link_to "2. These are set as Links", nil %><br/>
-            <%= link_to "3. font and size", nil %><br/>
-            <%= link_to "4. and stuff", nil %><br/>
-            <%= link_to "5. Do they look right?", nil %><br/>
-            <%= link_to "6. They Are Suppose", nil %><br/>
-            <%= link_to "7. To Be", nil %><br/>
-            <%= link_to "8. Or Not To Be", nil %><br/>
-            <%= link_to "9. I Mean, Why Not?", nil %><br/>
-            <%= link_to "10. Link Blue or Faded Blue?", nil %><br/>
+            <ol>
+              <%= render partial: 'top_article', collection: @top_articles %>
+            </ol>
           </div>
           <div class="tabs-panel" id="news-topics">
             <p>Stuck in an elevator, she takes me to the sky. I don't want to go down. It's beautiful with the stars and the Earth and the Moon a million miles but closer than I've ever been.</p>

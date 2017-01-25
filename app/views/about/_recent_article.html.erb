@@ -1,0 +1,11 @@
+<div class="row news-links">
+  <%= link_to recent_article do %>
+    <div class="medium-6 large-4 columns">
+      <%= attachment_image_tag recent_article, :hero_image, :fill, 624, 351, fallback: 'http://placehold.it/624x351' %>
+    </div>
+    <div class="medium-6 large-8 columns">
+      <h2><%= recent_article.title %></h2>
+      <p><%= recent_article.subtitle %></p>
+    </div>
+  <% end %>
+</div>
