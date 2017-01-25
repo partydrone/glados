@@ -1,20 +1,19 @@
 <% content_for :title, 'Product Types' %>
-<div class="row columns">
+<div class="row columns admin-table">
   <h1>
     Product Types
     <%= link_to new_admin_product_type_path, title: 'Create a new Product Type' do %>
-      <%= image_tag('icons/Plus.svg', class: "small-icon") %>
+      <%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
     <% end %>
   </h1>
-
 
   <table>
     <thead>
       <tr>
-        <th>Icon</th>
+        <th width="30"></th>
+        <th width="30">Icon</th>
         <th>Name</th>
-        <th></th>
-        <th></th>
+        <th width="30"></th>
       </tr>
     </thead>
     <tbody id="product_types" data-update-path="<%= sort_admin_product_types_path %>">

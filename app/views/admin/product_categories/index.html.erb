@@ -3,18 +3,19 @@
   <h1>
     Product Categories
     <%= link_to new_admin_product_category_path, title: 'Create a new product category' do %>
-      <%= image_tag('icons/Plus.svg', class: "small-icon") %>
+      <%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
     <% end %>
   </h1>
 
   <table>
     <thead>
       <tr>
-        <th>Icon</th>
+        <th width="30"></th>
+        <th width="30"></th>
+        <th width="30">Icon</th>
         <th>Name</th>
         <th>Product Type</th>
-        <th></th>
-        <th></th>
+        <th width="30"></th>
       </tr>
     </thead>
     <tbody id="product_categories" data-update-path="<%= sort_admin_product_categories_path %>">

@@ -1,0 +1,23 @@
+<%= content_for :title, t('.title') %>
+
+<div class="row columns admin-table">
+  <h1>
+    <%= t '.title' %>
+    <%= link_to nil, title: 'Create a new feature' do %>
+			<%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
+		<% end %>
+  </h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th width="30"></th>
+        <th>Title</th>
+        <th width="30"></th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+</div>

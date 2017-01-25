@@ -1,18 +1,19 @@
 <% content_for :title, 'Case Studies' %>
-<div class="row columns">
+<div class="row columns admin-table">
 <h1>Case Studies
   <%= link_to new_admin_case_study_path, title: 'Create a new case study' do %>
-    <%= image_tag('icons/Plus.svg', class: "small-icon") %>
+    <%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
   <% end %>
 </h1>
 
 <table>
   <thead>
     <tr>
+      <th width="30"></th>
       <th>Title</th>
       <th>Posted</th>
       <th>Last Updated</th>
-      <th style="width: 3rem;"></th>
+      <th width="30"></th>
     </tr>
   </thead>
   <tbody id="case_studies">

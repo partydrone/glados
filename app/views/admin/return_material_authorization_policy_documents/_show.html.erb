@@ -1,7 +1,6 @@
 <div class="row columns">
   <h1>
     <%= @return_material_authorization_policy_document.title %>
-    <%= render partial: 'options_menu', locals: {object: @return_material_authorization_policy_document, instance_name: @return_material_authorization_policy_document.title} %>
   </h1>
   <section>
     <p>(Effective <%= l @return_material_authorization_policy_document.effective_on, format: :long %>)</p>
