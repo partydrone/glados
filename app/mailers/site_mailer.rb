@@ -11,7 +11,7 @@ class SiteMailer < ApplicationMailer
 
   def marketing_app_support_request(marketing_app_support_request)
     @marketing_app_support_request = marketing_app_support_request
-    mail to:    'appsupport@wavetronix.com',
+    mail to:    '"Marketing App Support" <appsupport@wavetronix.com>',
          reply_to: %("#{@marketing_app_support_request.name}" <#{@marketing_app_support_request.email}>),
          subject:  t('.subject')
   end
@@ -21,15 +21,15 @@ class SiteMailer < ApplicationMailer
   def set_demo_request_recipient(country)
     case @demo_request.country
     when 'HK', 'ID', 'IN', 'KR', 'MO', 'MY', 'SG', 'TH'
-      return 'apsales@wavetronix.com'
+      return '"Asia Pacific Sales" <apsales@wavetronix.com>'
     when 'CN', 'TW'
-      return 'chinasales@wavetronix.com'
+      return '"China Sales" <chinasales@wavetronix.com>'
     when 'AE', 'BE', 'BY', 'CZ', 'ES', 'FR', 'GR', 'IT', 'KZ', 'KW', 'LU', 'PL', 'PT', 'QA', 'RU', 'SK', 'TR'
-      return 'eusales@wavetronix.com'
+      return '"EU Sales" <eusales@wavetronix.com>'
     when 'GB', 'IE'
-      return 'uksales@wavetronix.com'
+      return '"UK Sales" <uksales@wavetronix.com>'
     else
-      return ['sales@wavetronix.com', 'nasales@wavetronix.com', 'gasales@wavetronix.com', 'tnsales@wavetronix.com']
+      return ['"Wavetronix Sales" <sales@wavetronix.com>', '"North America Sales" <nasales@wavetronix.com>', '"Georgia Sales" <gasales@wavetronix.com>', '"Tennessee Sales" <tnsales@wavetronix.com>']
     end
   end
 end
