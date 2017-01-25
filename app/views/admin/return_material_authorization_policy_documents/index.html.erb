@@ -1,19 +1,20 @@
 <% content_for :title, "Return Material Authorization Policy Documents" %>
-<div class="row columns">
+<div class="row columns admin-table">
 <h1>
   Return Material Authorization Policy Documents
   <%= link_to new_admin_return_material_authorization_policy_document_path, title: "Create a new Return Material Authorization Policy Document" do %>
-    <%= image_tag('icons/Plus.svg', class: "small-icon") %>
+    <%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
   <% end %>
 </h1>
 
 <table>
   <thead>
     <tr>
+      <th width="30"></th>
       <th>Title</th>
       <th>Effective</th>
       <th>Last modified</th>
-      <th></th>
+      <th width="30"></th>
     </tr>
   </thead>
   <tbody>

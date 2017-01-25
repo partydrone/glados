@@ -1,10 +1,10 @@
 <% content_for :title, "Sales Terms and Conditions Documents" %>
-<div class="row columns">
+<div class="row columns admin-table">
 <h1>
   Sales Terms and Conditions Documents
   <small>
     <%= link_to new_admin_sales_terms_and_conditions_document_path, title: "Create a new Sales Terms and Conditions document" do %>
-      <%= image_tag('icons/Plus.svg', class: "small-icon") %>
+      <%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
     <% end %>
   </small>
 </h1>
@@ -12,10 +12,11 @@
 <table>
   <thead>
     <tr>
+      <th width="30"></th>
       <th>Title</th>
       <th>Effective</th>
       <th>Last modified</th>
-      <th></th>
+      <th width="30"></th>
     </tr>
   </thead>
   <tbody>

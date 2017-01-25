@@ -1,7 +1,6 @@
 <div class="row columns">
   <h1>
     <%= @website_terms_of_use_document.title %>
-    <%= render partial: 'options_menu', locals: {object: @website_terms_of_use_document, instance_name: @website_terms_of_use_document.title} if current_user %>
   </h1>
   <section>
     <p>(Effective <%= l @website_terms_of_use_document.effective_on, format: :long %>)</p>

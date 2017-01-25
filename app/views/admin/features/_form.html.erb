@@ -29,13 +29,13 @@
 
       <%= f.label :body %>
       <%= f.cktext_area :body, rows: 20 %>
-
+      <p></p>
       <%= f.submit nil, class: 'button radius' %>
     </div>
     <div class="large-4 columns">
-      <h3>Associated Products</h3>
+      <h2>Associated Products</h2>
       <% @product_types.each do |product_type| %>
-        <h4><%= product_type.name %></h4>
+        <h3><%= product_type.name %></h3>
         <ul class="no-bullet">
           <%= f.collection_check_boxes :product_ids, product_type.products, :id, :name do |b| %>
           <li>

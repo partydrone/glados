@@ -1,10 +1,13 @@
 <% cache download_type do %>
   <%= content_tag_for :tr, download_type do %>
+  	<td class="admin-left-edit">
+  		<%= render partial: 'options_edit', locals: {object: download_type, instance_name: download_type.name} %>
+  	</td>
     <td>
       <%= download_type.name %>
     </td>
-    <td>
-      <%= render partial: 'options_menu', locals: {object: download_type, instance_name: download_type.name} %>
+    <td class="admin-right-delete">
+      <%= render partial: 'options_delete', locals: {object: download_type, instance_name: download_type.name} %>
     </td>
   <% end %>
 <% end %>

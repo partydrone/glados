@@ -1,4 +1,11 @@
 <tr>
-  <td><%= link_to list_item.title, feature_path(list_item) %></td>
-  <td style="width: 40px;"><%= render partial: 'options_menu', locals: {object: list_item, instance_name: list_item.title} %></td>
+	<td class="admin-left-edit">
+		<%= render partial: 'options_edit', locals: {object: list_item, instance_name: list_item.title} %>
+	</td>
+  <td>
+  	<%= link_to list_item.title, feature_path(list_item) %>
+  </td>
+  <td class="admin-right-delete">
+  	<%= render partial: 'options_delete', locals: {object: list_item, instance_name: list_item.title} %>
+  </td>
 </tr>

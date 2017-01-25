@@ -1,0 +1,4 @@
+<div class="admin-edit-container">
+  <%= link_to send("admin_#{ActiveModel::Naming.param_key object.class}_path", object), class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete #{instance_name}? This cannot be undone.)}, method: :delete do %>
+      <% end %>
+</div>
