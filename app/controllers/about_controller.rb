@@ -1,6 +1,6 @@
 class AboutController < ApplicationController
   def index
-    @recent_articles  = Article.current.order(posted_on: :desc).limit(4).to_a
+    @recent_articles  = Article.current.select(:id, :type, :title, :subtitle, :hero_image_id).order(posted_on: :desc).limit(4).to_a
     @featured_article = @recent_articles.shift
 
     @top_articles = Article.current.select(:id, :type, :title).order(views: :desc).limit(10)
