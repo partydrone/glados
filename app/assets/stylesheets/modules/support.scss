@@ -116,19 +116,19 @@ select.support-dropdown {
 	transform: scaleY(-1);
 	border: 0px !important;
 	left: -1rem;
-	width: 24px;
+	width: 16px;
 	background: url(image_path('icons/blue-down-arrow.svg')) no-repeat right;
-	height: 32px;
-	margin-top: -16px;
+	height: 16px;
+	margin-top: -8px;
 }
 
 .is-accordion-submenu-parent[aria-expanded='false'] > a::after {
 	border: 0px !important;
 	left: -1rem;
-	width: 24px;
+	width: 16px;
 	background: url(image_path('icons/blue-down-arrow.svg')) no-repeat right;
-	height: 32px;
-	margin-top: -16px
+	height: 16px;
+	margin-top: -8px
 }
 
 .support-app-container {

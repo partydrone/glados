@@ -6,8 +6,8 @@
       <div class="columns text-right">
         <nav data-magellan>
           <ul class="horizontal menu">
-            <li><%= link_to t(".news"), '#news' %></li>
             <li><%= link_to t(".title"), '#about' %></li>
+            <li><%= link_to t(".news"), '#news' %></li>
             <li><%= link_to t(".downloads"), '#downloads' %></li>
             <li><%= link_to t(".careers"), '#careers' %></li>
             <li><%= link_to t(".legal"), '#aboutlegal' %></li>
@@ -22,8 +22,8 @@
   <div class="page-sub-bottom-nav">
     <nav data-magellan>
       <ul class="menu icon-top expanded">
-        <li><%= link_to t(".news"), '#news' %></li>
         <li><%= link_to t(".title"), '#about' %></li>
+        <li><%= link_to t(".news"), '#news' %></li>
         <li><%= link_to t(".downloads"), '#downloads' %></li>
         <li><%= link_to t(".careers"), '#careers' %></li>
         <li><%= link_to t(".legal"), '#legal' %></li>
@@ -35,6 +35,21 @@
 <div class="row">
   <div class="medium-10 medium-centered large-12 columns about-us-sections">
 
+  <section class="row" id="about" data-magellan-target="about">
+    <div class="small-12 columns">
+      <h1><%= t(".title") %></h1>
+    </div>
+    <div class="large-7 columns">
+      <div class="flex-video">
+        <iframe src="https://www.youtube.com/embed/OE9_JYiA7zc" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="small-10 small-pull-1 small-push-1 large-push-0 large-pull-0 large-5 columns">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis erat non ipsum scelerisque interdum. Fusce malesuada purus massa, consectetur luctus est condimentum eget. Nullam eu porttitor sapien, in euismod est. In vel sem vehicula ex elementum mattis eget vel sapien. Nullam in rutrum ante. Vivamus rhoncus dignissim eros, ac feugiat quam tempor sit amet. Vestibulum ullamcorper feugiat massa id pellentesque. Integer nisi mi, laoreet id tellus ac, condimentum blandit lacus. Mauris non augue malesuada, commodo ex eget, facilisis lectus. Duis sem mi, finibus id lacus non, vulputate euismod risus.</p>
+      <p>Quisque eleifend elementum leo sit amet mattis. Donec mollis euismod gravida. Aenean ut posuere velit. Vivamus consectetur eu justo hendrerit laoreet. Nunc felis urna, finibus a ante mattis, malesuada luctus turpis. Proin porta non augue ut tristique. Donec eget tempor lacus. Nulla pharetra bibendum nisi eu vulputate. Mauris blandit diam nec metus feugiat ultrices.</p>
+    </div>
+  </section>
+  
   <section id="news" data-magellan-target="news">
     <div class="row columns">
       <h1><%= t '.news' %></h1>
@@ -87,21 +102,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="row" id="about" data-magellan-target="about">
-    <div class="small-12 columns">
-      <h1><%= t(".title") %></h1>
-    </div>
-    <div class="large-7 columns">
-      <div class="flex-video">
-        <iframe src="https://www.youtube.com/embed/OE9_JYiA7zc" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-    <div class="small-10 small-pull-1 small-push-1 large-push-0 large-pull-0 large-5 columns">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis erat non ipsum scelerisque interdum. Fusce malesuada purus massa, consectetur luctus est condimentum eget. Nullam eu porttitor sapien, in euismod est. In vel sem vehicula ex elementum mattis eget vel sapien. Nullam in rutrum ante. Vivamus rhoncus dignissim eros, ac feugiat quam tempor sit amet. Vestibulum ullamcorper feugiat massa id pellentesque. Integer nisi mi, laoreet id tellus ac, condimentum blandit lacus. Mauris non augue malesuada, commodo ex eget, facilisis lectus. Duis sem mi, finibus id lacus non, vulputate euismod risus.</p>
-      <p>Quisque eleifend elementum leo sit amet mattis. Donec mollis euismod gravida. Aenean ut posuere velit. Vivamus consectetur eu justo hendrerit laoreet. Nunc felis urna, finibus a ante mattis, malesuada luctus turpis. Proin porta non augue ut tristique. Donec eget tempor lacus. Nulla pharetra bibendum nisi eu vulputate. Mauris blandit diam nec metus feugiat ultrices.</p>
     </div>
   </section>
 
