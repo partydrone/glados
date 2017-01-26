@@ -77,8 +77,8 @@ function detect(){
   var m = document.getElementById('ReliableMagellan');
   var h = document.getElementById('CostEffectiveLoops');
   var k = document.getElementById('ReliableTabs');
-  let j = document.getElementById('HomePostLoopsDivider');
-  let s = document.getElementById('StaticCostLoops');
+  var j = document.getElementById('HomePostLoopsDivider');
+  var s = document.getElementById('StaticCostLoops');
   if(isEdge || isIE){
     m.className += ' always-hide-for-ie';
     h.className += ' always-hide-for-ie';
