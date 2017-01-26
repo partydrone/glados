@@ -53,3 +53,11 @@
 		margin-right: 0.5rem;
 	}
 }
+
+.is-accordion-submenu-parent[aria-expanded='false'] > .knowledge-base-view-more-link::before {
+	content: 'view more'
+}
+
+.is-accordion-submenu-parent[aria-expanded='true'] > .knowledge-base-view-more-link::before {
+	content: 'view less'
+}
