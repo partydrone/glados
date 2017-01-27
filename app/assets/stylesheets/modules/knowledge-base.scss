@@ -1,0 +1,63 @@
+@import "foundation_and_overrides";
+@import "globals/all";
+
+.knowledge-base-header {
+	height: 300px; 
+	background: $linkblue;
+	padding-top: 130px;
+	margin-top: -20px;
+	text-align: center;
+	h1 {
+		color: $white;
+	}
+}
+
+.knowledge-base-search {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	@media screen and (min-width: 40em) {
+		width: 50vw !important;
+	}
+}
+
+.knowledge-base-body {
+	margin-top: 50px;
+}
+
+.knowledge-base-question {
+	border-bottom: 1px solid $ghost;
+	padding: 0.5rem 0;
+}
+
+.knowledge-base-view-more .menu.nested {
+	margin-left: 0;
+}
+
+.knowledge-base-view-more-link {
+	text-align: center;
+	&::after {
+		left: -6rem !important;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.knowledge-base-answer {
+	.answer-download {
+		margin: 0.5rem 0;
+	}
+	img {
+		height: 24px;
+		width: 24px;
+		margin-right: 0.5rem;
+	}
+}
+
+.is-accordion-submenu-parent[aria-expanded='false'] > .knowledge-base-view-more-link::before {
+	content: 'view more'
+}
+
+.is-accordion-submenu-parent[aria-expanded='true'] > .knowledge-base-view-more-link::before {
+	content: 'view less'
+}
