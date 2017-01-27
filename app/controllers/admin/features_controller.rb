@@ -8,6 +8,7 @@ module Admin
     end
 
     def show
+      render 'features/show'
     end
 
     def new
@@ -21,7 +22,7 @@ module Admin
       @feature = Feature.new(feature_params)
 
       if @feature.save
-        redirect_to [:admin,@feature], notice: %(Saved "#{@feature.title}" successfully.)
+        redirect_to [:admin, @feature], notice: %(Saved "#{@feature.title}" successfully.)
       else
         set_product_types
         render :new

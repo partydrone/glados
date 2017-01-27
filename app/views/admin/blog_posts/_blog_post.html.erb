@@ -1,19 +1,17 @@
-<% cache blog_post do %>
-  <%= content_tag_for :tr, blog_post do %>
-    <td class="admin-left-edit">
-      <%= render partial: 'options_edit', locals: {object: blog_post, instance_name: blog_post.title} %>
-    </td>
-    <td>
-      <%= link_to blog_post.title, blog_post %>
-    </td>
-    <td>
-      <%= l blog_post.posted_on.to_date, format: :short %>
-    </td>
-    <td>
-      <%= l blog_post.updated_at.to_date, format: :short %>
-    </td>
-    <td class="admin-right-delete">
-      <%= render partial: 'options_delete', locals: {object: blog_post, instance_name: blog_post.title} %>
-    </td>
-  <% end %>
+<%= content_tag_for :tr, blog_post do %>
+  <td class="admin-left-edit">
+    <%= render partial: 'options_edit', locals: {object: blog_post, instance_name: blog_post.title} %>
+  </td>
+  <td>
+    <%= link_to blog_post.title, [:admin, blog_post] %>
+  </td>
+  <td>
+    <%= l blog_post.posted_on.to_date, format: :short %>
+  </td>
+  <td>
+    <%= l blog_post.updated_at.to_date, format: :short %>
+  </td>
+  <td class="admin-right-delete">
+    <%= render partial: 'options_delete', locals: {object: blog_post, instance_name: blog_post.title} %>
+  </td>
 <% end %>

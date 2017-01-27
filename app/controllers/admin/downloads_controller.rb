@@ -1,13 +1,10 @@
 module Admin
   class DownloadsController < BaseController
-    before_action :set_download, only: [:show, :edit, :update, :destroy]
+    before_action :set_download, only: [:edit, :update, :destroy]
     before_action :set_product_types, only: [:new, :edit]
 
     def index
       @downloads = Download.all
-    end
-
-    def show
     end
 
     def new

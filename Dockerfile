@@ -6,7 +6,7 @@ RUN apt-get update -qq && apt-get install -qq -y --no-install-recommends \
     imagemagick \
     libpq-dev \
     nodejs
-ENV APP_DIR /var/app
+ENV APP_DIR /var/glados
 RUN mkdir -p $APP_DIR
 WORKDIR $APP_DIR
 COPY Gemfile* ./

@@ -1,13 +1,10 @@
 module Admin
   class PatentsController < BaseController
-    before_action :set_patent, only: [:show, :edit, :update, :destroy]
+    before_action :set_patent, only: [:edit, :update, :destroy]
     before_action :set_product_types, only: [:new, :edit]
 
     def index
       @patents = Patent.all
-    end
-
-    def show
     end
 
     def new

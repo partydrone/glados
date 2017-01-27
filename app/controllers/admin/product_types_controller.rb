@@ -1,12 +1,9 @@
 module Admin
   class ProductTypesController < BaseController
-    before_action :set_product_type, only: [:show, :edit, :update, :destroy]
+    before_action :set_product_type, only: [:edit, :update, :destroy]
 
     def index
       @product_types = ProductType.all
-    end
-
-    def show
     end
 
     def new

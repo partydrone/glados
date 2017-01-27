@@ -29,11 +29,6 @@ describe Admin::TrainingEventsController, :locale do
     must_redirect_to admin_training_events_path
   end
 
-  it "gets show" do
-    get admin_training_event_path(training_event)
-    must_respond_with :success
-  end
-
   it "gets edit" do
     get edit_admin_training_event_path(training_event)
     must_respond_with :success

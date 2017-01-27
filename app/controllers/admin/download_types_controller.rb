@@ -1,12 +1,9 @@
 module Admin
   class DownloadTypesController < BaseController
-    before_action :set_download_type, only: [:show, :edit, :update, :destroy]
+    before_action :set_download_type, only: [:edit, :update, :destroy]
 
     def index
       @download_types = DownloadType.all
-    end
-
-    def show
     end
 
     def new

@@ -6,12 +6,9 @@ module Admin
       @product_categories = ProductCategory.includes(:product_type)
     end
 
-    def list
-      @product_categories = ProductCategory.includes(:product_type)
-    end
-
     def show
       @product_category = ProductCategory.includes(:products).find(params[:id])
+      render 'product_categories/show'
     end
 
     def new

@@ -27,25 +27,27 @@ Rails.application.routes.draw do
       # Resource routes
       resources :blog_posts,
                 :case_studies,
-                :downloads,
                 :features,
-                :patents,
-                :product_categories,
                 :products,
                 :return_material_authorization_policy_documents,
                 :sales_terms_and_conditions_documents,
-                :training_course_types,
-                :training_courses,
                 :training_events,
-                :users,
                 :website_privacy_policy_documents,
                 :website_terms_of_use_documents
 
-      resources :download_types,
-                :product_categories,
-                :product_types,
-                concerns: :sortable
+      resources :product_categories, concerns: :sortable
 
+      resources :downloads,
+                :patents,
+                :training_course_types,
+                :training_courses,
+                :users,
+                except: [:show]
+
+      resources :download_types,
+                :product_types,
+                except: [:show],
+                concerns: :sortable
       ##
       # Admin root route
       root to: 'base#index'

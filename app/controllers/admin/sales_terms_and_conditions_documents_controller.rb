@@ -7,6 +7,7 @@ module Admin
     end
 
     def show
+      render 'sales_terms_and_conditions_documents/show'
     end
 
     def new
@@ -20,7 +21,7 @@ module Admin
       @sales_terms_and_conditions_document = SalesTermsAndConditionsDocument.new(sales_terms_and_conditions_document_params)
 
       if @sales_terms_and_conditions_document.save
-        redirect_to [:admin,@sales_terms_and_conditions_document], notice: %(Saved "#{@sales_terms_and_conditions_document.title}" successfully.)
+        redirect_to [:admin, @sales_terms_and_conditions_document], notice: %(Saved "#{@sales_terms_and_conditions_document.title}" successfully.)
       else
         render :new
       end
@@ -28,7 +29,7 @@ module Admin
 
     def update
       if @sales_terms_and_conditions_document.update(sales_terms_and_conditions_document_params)
-        redirect_to [:admin,@sales_terms_and_conditions_document], notice: %(Updated "#{@sales_terms_and_conditions_document.title}" successfully.)
+        redirect_to [:admin, @sales_terms_and_conditions_document], notice: %(Updated "#{@sales_terms_and_conditions_document.title}" successfully.)
       end
     end
 
