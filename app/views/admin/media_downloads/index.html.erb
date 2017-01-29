@@ -1,0 +1,26 @@
+<% content_for :title, "Media Library" %>
+<div class="row columns admin-table">
+  <h1>
+    <%= yield :title %>
+    <small>
+      <%= link_to new_admin_media_download_path, title: "Create a new media download" do %>
+        <%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
+      <% end %>
+    </small>
+  </h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th width="30"></th>
+        <th>Thumbnail</th>
+        <th>File Size</th>
+        <th>Description</th>
+        <th width="30"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @media_downloads %>
+    </tbody>
+  </table>
+</div>

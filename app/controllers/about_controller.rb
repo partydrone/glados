@@ -6,6 +6,8 @@ class AboutController < ApplicationController
     @top_articles = Article.current.select(:id, :type, :title).order(views: :desc).limit(10)
     @top_tags     = nil
     @top_regions  = nil
+
+    @media_downloads = MediaDownload.limit(6)
   end
 
   def news_events

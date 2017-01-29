@@ -1,0 +1,19 @@
+<% cache media_download do %>
+  <%= content_tag_for :tr, media_download do %>
+    <td class="admin-left-edit">
+      <%= render partial: 'options_edit', locals: {object: media_download, instance_name: 'this media file'} %>
+    </td>
+    <td>
+      <%= attachment_image_tag media_download, :file, :fit, 160, 160, fallback: 'http://placehold.it/160x90' %>
+    </td>
+    <td>
+      <%= number_to_human_size media_download.file_size %>
+    </td>
+    <td>
+      <%= media_download.description %>
+    </td>
+    <td class="admin-right-delete">
+      <%= render partial: 'options_delete', locals: {object: media_download, instance_name: 'this media file'} %>
+    </td>
+  <% end %>
+<% end %>

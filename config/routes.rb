@@ -38,6 +38,7 @@ Rails.application.routes.draw do
       resources :product_categories, concerns: :sortable
 
       resources :downloads,
+                :media_downloads,
                 :patents,
                 :training_course_types,
                 :training_courses,
