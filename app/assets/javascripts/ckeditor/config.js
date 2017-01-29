@@ -1,4 +1,5 @@
 CKEDITOR.editorConfig = function (config) {
+  // config.extraPlugins = 'embed,embedbase';
   config.toolbar = [
     {
       name: "styles",
