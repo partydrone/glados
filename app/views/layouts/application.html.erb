@@ -7,7 +7,7 @@
 
     <title><%= full_title yield(:title) %></title>
 
-    <%= stylesheet_link_tag 'application', debug: false %>
+    <%= stylesheet_link_tag 'application' %>
     <%= csrf_meta_tags %>
 
     <!-- owl carousel -->
@@ -28,7 +28,7 @@
         </div> <!-- close off-canvas-content -->
       </div> <!-- close off-canvas inner wrapper -->
     </div> <!-- close off-canvas-wrapper -->
-    <%= javascript_include_tag 'application', debug: false %>
+    <%= javascript_include_tag 'application' %>
     <%= render 'analytics' if Rails.env.production? %>
   </body>
 </html>
