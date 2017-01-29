@@ -26,6 +26,10 @@ gem 'sidekiq', '~> 4.1'
 # gem 'clockwork', '~> 2.0' # for recurring background tasks without needing cron
 
 ##
+# Browser check
+gem 'browser'
+
+##
 # File uploads
 gem 'aws-sdk', '~> 2.1'
 gem 'refile', require: 'refile/rails', git: 'https://github.com/refile/refile.git', branch: 'master'

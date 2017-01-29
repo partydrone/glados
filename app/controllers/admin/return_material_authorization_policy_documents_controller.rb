@@ -7,6 +7,7 @@ module Admin
     end
 
     def show
+      render 'return_material_authorization_policy_documents/show'
     end
 
     def new
@@ -20,7 +21,7 @@ module Admin
       @return_material_authorization_policy_document = ReturnMaterialAuthorizationPolicyDocument.new(return_material_authorization_policy_document_params)
 
       if @return_material_authorization_policy_document.save
-        redirect_to [:admin,@return_material_authorization_policy_document], notice: %(Saved "#{@return_material_authorization_policy_document.title}" successfully.)
+        redirect_to [:admin, @return_material_authorization_policy_document], notice: %(Saved "#{@return_material_authorization_policy_document.title}" successfully.)
       else
         render :new
       end
@@ -28,7 +29,7 @@ module Admin
 
     def update
       if @return_material_authorization_policy_document.update(return_material_authorization_policy_document_params)
-        redirect_to [:admin,@return_material_authorization_policy_document], notice: %(Updated "#{@return_material_authorization_policy_document.title}" successfully.)
+        redirect_to [:admin, @return_material_authorization_policy_document], notice: %(Updated "#{@return_material_authorization_policy_document.title}" successfully.)
       end
     end
 

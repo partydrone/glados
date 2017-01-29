@@ -17,8 +17,8 @@ RUN apt-get update -qq && \
 # INSTALL any further tools you need here so they are cached in the docker build
 
 # Create a directory for your application code and set it as the WORKDIR. All following commands will be run in this directory.
-RUN mkdir /var/app
-WORKDIR /var/app
+RUN mkdir /var/glados
+WORKDIR /var/glados
 
 # Set the Rails Environment to test
 ENV RAILS_ENV test

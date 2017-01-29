@@ -5,8 +5,8 @@ services:
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
-      - .:/var/app
-      - ./public:/var/app/public
+      - .:/var/glados
+      - ./public:/var/glados/public
     ports:
       - 3000:3000
     depends_on:
@@ -23,7 +23,7 @@ services:
   #   ports:
   #     - 28080:28080
   #   volumes:
-  #     - .:/var/app
+  #     - .:/var/glados
   #   env_file:
   #     - .env
 
@@ -51,7 +51,7 @@ services:
     build: .
     command: sidekiq -C config/sidekiq.yml
     volumes:
-      - .:/var/app
+      - .:/var/glados
     env_file:
       - .env
 

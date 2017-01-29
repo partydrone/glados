@@ -1,0 +1,123 @@
+<%= content_for :title, @article.title %>
+
+<div class="social-media-sticky-header hide-for-large" data-sticky-container>
+  <div class="sticky" data-sticky>
+    <div class="row">
+      <nav data-magellan>
+        <ul class="horizontal menu">
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Twitter.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Facebook.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Google.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/email.svg', class: "icon") %>
+            <% end %>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<header class="article-header">
+  <div class="row">
+    <div class="large-12 medium-8 medium-offset-2 large-offset-0 columns">
+      <h1>
+        <%= @article.title %>
+      </h1>
+      <%= content_tag :h6 do %>by <%= @article.author %><% end if @article.author %>
+      <%= content_tag :h6 do %>
+        <%= image_tag "flags/16/#{@article.flag.downcase}.png" %>
+        <%= @article.location %>
+      <% end if @article.location %>
+      <%= attachment_image_tag @article, :hero_image, fallback: 'http://placehold.it/1600x900' %>
+    </div>
+  </div>
+</header>
+
+<article class="row">
+  <aside class="large-1 columns sticky-container show-for-large" data-sticky-container>
+    <div class="sticky" data-sticky data-anchor="article-container">
+      <nav class="social-media-side" data-magellan>
+        <ul class="vertical menu">
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Twitter.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Facebook.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Google.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/email.svg', class: "icon") %>
+            <% end %>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <div class="large-6 large-offset-1 medium-8 medium-offset-2 columns article-body" id="article-container" data-something data-margin-top="5">
+    <h3 class="article-deckhead">
+      <%= @article.subtitle %>
+      <hr/>
+    </h3>
+    <%= @article.body.html_safe %>
+  </div>
+
+  <aside class="large-4 large-offset-0 medium-8 medium-offset-2 small-10 small-offset-1 columns similar-stories-side end sticky-container" data-sticky-container>
+    <div class="sticky" data-sticky data-anchor="article-container" data-sticky-on="large">
+      <div class="article-side-title"><%= t(".similar_stories") %></div>
+      <a href="#" class="row">
+        <img src="http://placehold.it/558x313" alt="placeholder" class="large-6 columns">
+        <h3 class="large-6 columns similar-side-text">Texas Transportation Institue Evaluation for Arizona DOT</h3>
+        <p class="hide-for-large">This is a summary of the article and doesn't really contain any information. Isn't that special? Probably not. I don't even know anymore.</p>
+      </a>
+      <a href="#" class="row">
+        <img src="http://placehold.it/558x313" alt="placeholder" class="large-6 columns">
+        <h3 class="large-6 columns similar-side-text">ATRC Test in Lewiston, Maine</h3>
+        <p class="hide-for-large">This is a summary of the article and doesn't really contain any information. Isn't that special? Probably not. I don't even know anymore.</p>
+      </a>
+      <a href="#" class="row">
+        <img src="http://placehold.it/558x313" alt="placeholder" class="large-6 columns">
+        <h3 class="large-6 columns similar-side-text">AF - Hansen & Henneberg Test in Farum, Denmark</h3>
+        <p class="hide-for-large">This is a summary of the article and doesn't really contain any information. Isn't that special? Probably not. I don't even know anymore.</p>
+      </a>
+    </div>
+  </aside>
+
+</article>
+
+<section class="article-tags show-for-large">
+  <%= t(".tags") %>: <%= @article.tag_list %>
+</section>

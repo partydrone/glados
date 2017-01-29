@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170118230646) do
+ActiveRecord::Schema.define(version: 20170126213750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,12 +24,13 @@ ActiveRecord::Schema.define(version: 20170118230646) do
     t.string   "flag"
     t.text     "body"
     t.date     "posted_on"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "hero_image_id"
     t.string   "hero_image_filename"
     t.integer  "hero_image_size"
     t.string   "hero_image_content_type"
+    t.integer  "views",                   default: 0
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|

@@ -4,7 +4,7 @@
       <%= render partial: 'options_edit', locals: {object: case_study, instance_name: case_study.title} %>
     </td>
     <td>
-      <%= link_to case_study.title, case_study%>
+      <%= link_to case_study.title, [:admin, case_study] %>
     </td>
     <td>
       <%= l case_study.posted_on.to_date, format: :short %>

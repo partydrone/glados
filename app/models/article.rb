@@ -7,6 +7,12 @@ class Article < ApplicationRecord
 
   scope :current, -> { where 'posted_on < ?', Date.tomorrow }
 
+  def log_view(by = 1)
+    self.views ||= 0
+    self.views += by
+    self.save
+  end
+
   def to_param
     "#{id}-#{title.parameterize}"
   end

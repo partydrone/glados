@@ -7,6 +7,8 @@ module Admin
     end
 
     def show
+      @article = @blog_post
+      render 'articles/show'
     end
 
     def new
@@ -46,7 +48,7 @@ module Admin
     end
 
     def blog_post_params
-      params.require(:blog_post).permit(:title, :subtitle, :author, :hero_image, :remove_hero_image, :body, :tag_list, :posted_on)
+      params.require(:blog_post).permit(:title, :subtitle, :author, :hero_image, :remove_hero_image, :body, :posted_on)
     end
   end
 end
