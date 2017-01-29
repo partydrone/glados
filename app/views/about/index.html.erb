@@ -1,4 +1,4 @@
-<%= content_for :title, t(".title") %>
+<%= content_for :title, t('.title') %>
 
 <div class="page-sub-navigation show-for-large" data-sticky-container>
   <div class="sticky" data-sticky data-anchor="legal" data-active-class>
@@ -49,7 +49,7 @@
       <p>Quisque eleifend elementum leo sit amet mattis. Donec mollis euismod gravida. Aenean ut posuere velit. Vivamus consectetur eu justo hendrerit laoreet. Nunc felis urna, finibus a ante mattis, malesuada luctus turpis. Proin porta non augue ut tristique. Donec eget tempor lacus. Nulla pharetra bibendum nisi eu vulputate. Mauris blandit diam nec metus feugiat ultrices.</p>
     </div>
   </section>
-  
+
   <section id="news" data-magellan-target="news">
     <div class="row columns">
       <h1><%= t '.news' %></h1>
@@ -100,78 +100,15 @@
 
   <section class="row about-media" id="downloads" data-magellan-target="downloads">
     <div class="small-12 columns">
-      <h1>Downloads</h1>
-    </div>
-    <div class="large-4 medium-6 columns end">
-      <%= link_to nil do %>
-        <%= image_tag("http://placehold.it/370x208") %>
-        <div class="row">
-          <div class="small-6 columns">
-            <p>100kb</p>
-          </div>
-          <div class="small-6 columns text-right">
-            <%= link_to(image_tag("icons/download-icon.svg"), nil) %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <div class="large-4 medium-6 columns end">
-      <%= link_to nil do %>
-        <%= image_tag("http://placehold.it/370x208") %>
-        <div class="row">
-          <div class="small-6 columns">
-            <p>100kb</p>
-          </div>
-          <div class="small-6 columns text-right">
-            <%= link_to(image_tag("icons/download-icon.svg"), nil) %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <div class="large-4 medium-6 columns end">
-      <%= link_to nil do %>
-        <%= image_tag("http://placehold.it/370x208") %>
-        <div class="row">
-          <div class="small-6 columns">
-            <p>100kb</p>
-          </div>
-          <div class="small-6 columns text-right">
-            <%= link_to(image_tag("icons/download-icon.svg"), nil) %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <div class="large-4 medium-6 columns end">
-      <%= link_to nil do %>
-        <%= image_tag("http://placehold.it/370x208") %>
-        <div class="row">
-          <div class="small-6 columns">
-            <p>100kb</p>
-          </div>
-          <div class="small-6 columns text-right">
-            <%= link_to image_tag('icons/download-icon.svg'), nil %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <div class="large-4 medium-6 columns end">
-      <%= link_to nil do %>
-        <%= image_tag("http://placehold.it/370x208") %>
-        <div class="row">
-          <div class="small-6 columns">
-            <p>100kb</p>
-          </div>
-          <div class="small-6 columns text-right">
-            <%= link_to image_tag('icons/download-icon.svg'), nil %>
-          </div>
-        </div>
-      <% end %>
+      <h1>Media Library</h1>
     </div>
 
+    <%= render partial: 'media_download', collection: @media_downloads %>
+
     <!-- if more than 6 media available -->
-    <div class="read-more small-12 columns">
+    <%= content_tag :div, class: 'read-more small-12 columns' do %>
       <a href="#" class="expand-container"><%= t('.more_media') %></a>
-    </div>
+    <% end if MediaDownload.count > 6 %>
   </section>
 
   </div>
