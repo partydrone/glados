@@ -86,6 +86,7 @@ Rails.application.routes.draw do
     get '/training', to: 'training#index'
 
     namespace :support do
+      post '/select_product', to: 'base#select_product'
       get '/marketing_app', to: 'marketing_app#index'
       root to: 'base#index'
     end

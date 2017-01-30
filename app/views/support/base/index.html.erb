@@ -42,56 +42,12 @@
 
 <div class="row columns">
 	<h1>
-		<%= t(".title") %>
+		<%= yield :title %>
 	</h1>
 </div>
 
 <div class="row" id="product">
-	<div class="medium-4 small-8 small-offset-2 medium-offset-0 columns">
-		<div class="support-search-image">
-			<%= image_tag('icons/smartsensors.svg') %>
-			<h5>SmartSensors</h5>
-		</div>
-		<div class="support-search-dropdown">
-			<section class="products-language-header support-dropdown">
-	      <select class="products-language-dropdown" name="smartsensor">
-	        <option value="smartsensorhd">SmartSensor HD</option>
-	        <option value="smartsensormatrix">SmartSensor Matrix</option>
-	        <option value="smartsensoradvance">SmartSensor Advance</option>
-	      </select>
-			</section>
-		</div>
-	</div>
-	<div class="medium-4 small-8 small-offset-2 medium-offset-0 columns">
-		<div class="support-search-image">
-			<%= image_tag('icons/cabinet.svg') %>
-			<h5>Cabinet Integration</h5>
-		</div>
-		<div class="support-search-dropdown">
-			<section class="products-language-header support-dropdown">
-	      <select class="products-language-dropdown" name="click">
-	        <option value="click100">Click 100</option>
-	        <option value="click200">Click 200</option>
-	        <option value="click300">Click 300</option>
-	      </select>
-			</section>
-		</div>
-	</div>
-	<div class="medium-4 small-8 small-offset-2 end medium-offset-0 columns">
-		<div class="support-search-image">
-			<%= image_tag('icons/realtime-software.svg') %>
-			<h5>Real Time Software</h5>
-		</div>
-		<div class="support-search-dropdown">
-			<section class="products-language-header support-dropdown">
-	      <select class="products-language-dropdown" name="rtsoftware">
-	        <option value="command">Command</option>
-	        <option value="wow">World of Warcraft</option>
-	        <option value="spotify">Spotify</option>
-	      </select>
-			</section>
-		</div>
-	</div>
+	<%= render partial: 'product_type', collection: @product_types %>
 </div>
 
 <div class="row">
