@@ -6,7 +6,7 @@
 
   <div class="support-search-dropdown">
     <section class="products-language-header support-dropdown">
-      <%= form_tag({action: :select_product}, {class: ''}) do %>
+      <%= form_tag action: :select_product do %>
         <%= select_tag :product, options_from_collection_for_select(product_type.products, :id, :name), prompt: 'Select a product…', class: 'products-language-dropdown support_base_index_select_product' %>
       <% end %>
     </section>

@@ -38,9 +38,9 @@
     <li class="off-canvas-menu-item">
       <a class="off-canvas-title"><h3><%= t(".support") %></h3></a>
       <ul class="menu vertical nested">
-        <li><%= link_to "Product Support", support_root_path %></li>
+        <li><%= link_to "Product Support", support_path %></li>
         <li><%= link_to "Frequently Asked Questions", nil %></li>
-        <li><%= link_to "Mobile App", support_marketing_app_path %></li>
+        <li><%= link_to "Mobile App", marketing_app_path %></li>
         <li><%= link_to "Returns", nil %></li>
       </ul>
     </li>
@@ -100,7 +100,7 @@
         </li>
 
         <li>
-          <%= link_to t(".support"), support_root_path %>
+          <%= link_to t(".support"), support_path %>
         </li>
 
         <li>

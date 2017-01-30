@@ -82,14 +82,11 @@ Rails.application.routes.draw do
     get '/contact', to: 'contact#index'
     get '/jobs', to: redirect('http://wavetronix.recruiterbox.com/jobs')
     get '/legal', to: 'legal#index'
+    get '/marketing_app', to: 'marketing_app#index'
     get '/news_events', to: 'about#news_events'
+    get '/support', to: 'support#index'
+    post '/support', to: 'support#select_product'
     get '/training', to: 'training#index'
-
-    namespace :support do
-      post '/select_product', to: 'base#select_product'
-      get '/marketing_app', to: 'marketing_app#index'
-      root to: 'base#index'
-    end
 
     ##
     # Root route
