@@ -1,0 +1,13 @@
+<%= form_for [:admin,@training_event], validate: true do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :started_at %>
+  <%= f.date_field :started_at, placeholder: 'yyyy-mm-dd' %>
+  <%= f.label :ended_at %>
+  <%= f.date_field :ended_at, placeholder: 'yyyy-mm-dd' %>
+  <%= f.submit nil, class: 'button radius' %>
+<% end %>

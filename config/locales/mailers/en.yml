@@ -6,3 +6,5 @@ en:
       subject: Demo Request
     marketing_app_support_request:
       subject: Marketing App Support Request
+    training_event_request:
+      subject: Training Event Request
