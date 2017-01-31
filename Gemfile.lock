@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/sinatra/sinatra.git
-  revision: 27d36fdad2104780b609aec8ac55f5fb8fa4ed18
+  revision: 12b93f99012ddcd0f6bca3913dadb67b49760f67
   branch: master
   specs:
     rack-protection (2.0.0.beta2)
@@ -69,13 +69,13 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     ansi (1.5.0)
     arel (7.1.4)
-    aws-sdk (2.7.2)
-      aws-sdk-resources (= 2.7.2)
-    aws-sdk-core (2.7.2)
+    aws-sdk (2.7.3)
+      aws-sdk-resources (= 2.7.3)
+    aws-sdk-core (2.7.3)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.7.2)
-      aws-sdk-core (= 2.7.2)
+    aws-sdk-resources (2.7.3)
+      aws-sdk-core (= 2.7.3)
     aws-sigv4 (1.0.0)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -121,7 +121,7 @@ GEM
       sprockets-es6 (>= 0.9.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    guard (2.14.0)
+    guard (2.14.1)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
       lumberjack (~> 1.0)
@@ -206,7 +206,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     public_suffix (2.0.5)
-    puma (3.6.2)
+    puma (3.7.0)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (2.0.1)
@@ -243,7 +243,7 @@ GEM
     raindrops (0.17.0)
     rake (12.0.0)
     rb-fsevent (0.9.8)
-    rb-inotify (0.9.7)
+    rb-inotify (0.9.8)
       ffi (>= 0.5.0)
     record_tag_helper (1.0.0)
       actionview (~> 5.x)
@@ -370,4 +370,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.14.2
+   1.14.3
