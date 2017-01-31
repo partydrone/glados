@@ -1,5 +1,7 @@
+<% content_for :title, t('.title') %>
+
 <div class="row columns">
-	<h1>Admin</h1>
+	<h1><%= yield :title %></h1>
 	<ul class="admin-list row">
 		<li class="admin-list-header small-12 medium-6 large-3 columns">
 			<div class="admin-sub-list-collection">
