@@ -1,11 +1,11 @@
 <% content_for :meta do %>
   <meta name="apple-itunes-app" content="app-id=840962745">
 <% end %>
-<%= content_for :title, 'Wavetronix App' %>
+<%= content_for :title, t('.title') %>
 
 <section class="row app">
   <div class="columns">
-    <h1><%= t(".title") %></h1>
+    <h1><%= yield :title %></h1>
   </div>
   <div class="columns">
   	<%= image_tag("support/iPad-home.jpg") %>
