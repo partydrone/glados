@@ -1,0 +1,21 @@
+<h1>New Training Event Request!</h1>
+
+
+<p>Training Request Event</p>
+<ul>
+    <li>Company Name: <%= @training_event_request.company_name %></li>
+    <li>Full Name: <%= @training_event_request.full_name %></li>
+    <li>Email: <%= @training_event_request.email %></li>
+    <li>Phone: <%= @training_event_request.phone %></li>
+    <li>Address: <%= @training_event_request.address %></li>
+    <li>City: <%= @training_event_request.city %></li>
+    <li>Postal Code: <%= @training_event_request.postal_code %></li>
+    <li>Region: <%= @training_event_request.region %></li>
+    <li>Country: <%= t "countries.#{@training_event_request.country}"%></li>
+    <li>Start Date: <%= l @training_event_request.started_at.to_date, format: :long %></li>
+    <li>End Date: <%= l @training_event_request.ended_at.to_date, format: :long %></li>
+    <li>Capacity <%= @training_event_request.capacity %></li>
+    
+</ul>
+<p>To respond to this request, just reply to this email.</p>
+

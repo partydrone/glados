@@ -16,11 +16,11 @@ class SiteMailer < ApplicationMailer
          subject:  t('.subject')
   end
 
-  def training_event_request(training_event_reqest)
-    @training_event_reqest = training_event_reqest
-    main to: '"Training" <jeremy.conterio@wavetronix.com>',
-         reply_to: %("#{@training_event_reqest.name}" <#{@training_event_reqest.email}>),
-         subject: t('.subject')
+  def training_event_request(training_event_request)
+    @training_event_request = training_event_request
+    mail to: '"Training" <jeremy.conterio@wavetronix.com>',
+         reply_to: %("#{@training_event_request.company_name}" <#{@training_event_request.email}>),
+         subject: t('.subject')         
 
   end
 

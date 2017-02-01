@@ -1,0 +1,22 @@
+<%= content_for :title, t(".title") %>
+
+
+
+<div class="row columns admin-table">
+        <a href='https://projects.invisionapp.com/d/main#/console/6785125/187607212/preview'>Elizabeth click here to view</a>
+    <h1>Events</h1>
+    <%= render @training_events %>
+
+
+
+
+	<section>
+    <div class="medium-8 large-6 medium-centered columns">
+		<h4>Want to host a training event?</h4>
+            <h6>Just let us know when and where.</h6>	      
+             <%= link_to 'Contact Us', new_training_event_request_path %>
+              
+	  </div>
+	</section>
+
+</div>

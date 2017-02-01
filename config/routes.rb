@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
-Rails.application.routes.draw do
+Rails.application.routes.draw do 
+
   mount Ckeditor::Engine => '/ckeditor'
   mount Sidekiq::Web => '/sidekiq'
 
@@ -57,6 +58,8 @@ Rails.application.routes.draw do
     ##
     # Resource routes
     resources :demo_requests, :marketing_app_support_requests, only: [:create]
+
+    resources :training_event_requests, only: [:create, :new]
 
     resources :identities, only: [:new]
 
