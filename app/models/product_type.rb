@@ -6,6 +6,7 @@ class ProductType < ApplicationRecord
   attachment :icon_image, content_type: %w(image/jpeg image/png image/gif)
 
   validates :name, presence: true
+  validates :hero_image, :icon_image, presence: true, on: :create
 
   default_scope { order('position') }
 

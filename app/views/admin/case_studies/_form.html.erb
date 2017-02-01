@@ -21,14 +21,8 @@
   </div>
   <div class="row">
     <%= content_tag :div, class: 'medium-8 columns' do %>
-    <div>
       <%= f.label :current_hero_image %>
       <%= attachment_image_tag @case_study, :hero_image %>
-    </div>
-    <div>
-      <%= f.check_box :remove_hero_image %>
-      <%= f.label :remove_hero_image %>
-    </div>
     <% end if @case_study.hero_image && @case_study.hero_image.exists? %>
     <div class="medium-4 columns">
       <%= f.label :hero_image %>

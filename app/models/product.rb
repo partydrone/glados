@@ -11,6 +11,7 @@ class Product < ApplicationRecord
   attachment :product_image, content_type: %w(image/jpeg image/png image/gif)
 
   validates :name, :part_number, :summary, :description, :product_category_id, presence: true
+  validates :hero_image, :product_image, presence: true, on: :create
 
   default_scope { order('name ASC') }
 

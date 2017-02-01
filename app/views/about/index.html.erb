@@ -6,11 +6,11 @@
       <div class="columns text-right">
         <nav data-magellan>
           <ul class="horizontal menu">
-            <li><%= link_to t(".title"), '#about' %></li>
-            <li><%= link_to t(".news"), '#news' %></li>
-            <li><%= link_to t(".downloads"), '#downloads' %></li>
-            <li><%= link_to t(".careers"), '#careers' %></li>
-            <li><%= link_to t(".legal"), '#aboutlegal' %></li>
+            <li><%= link_to yield(:title), '#about' %></li>
+            <li><%= link_to t('.news'), '#news' %></li>
+            <li><%= link_to t('.downloads'), '#downloads' %></li>
+            <li><%= link_to t('.careers'), '#careers' %></li>
+            <li><%= link_to t('.legal'), '#aboutlegal' %></li>
           </ul>
         </nav>
       </div>
@@ -22,11 +22,11 @@
   <div class="page-sub-bottom-nav">
     <nav data-magellan>
       <ul class="menu icon-top expanded">
-        <li><%= link_to t(".title"), '#about' %></li>
-        <li><%= link_to t(".news"), '#news' %></li>
-        <li><%= link_to t(".downloads"), '#downloads' %></li>
-        <li><%= link_to t(".careers"), '#careers' %></li>
-        <li><%= link_to t(".legal"), '#legal' %></li>
+        <li><%= link_to yield(:title), '#about' %></li>
+        <li><%= link_to t('.news'), '#news' %></li>
+        <li><%= link_to t('.downloads'), '#downloads' %></li>
+        <li><%= link_to t('.careers'), '#careers' %></li>
+        <li><%= link_to t('.legal'), '#legal' %></li>
       </ul>
     </nav>
   </div>
@@ -37,7 +37,7 @@
 
   <section class="row" id="about" data-magellan-target="about">
     <div class="small-12 columns">
-      <h1><%= t(".title") %></h1>
+      <h1><%= yield :title %></h1>
     </div>
     <div class="large-7 columns">
       <div class="flex-video">
@@ -77,9 +77,9 @@
       </div>
       <div class="large-5 columns news-article-list show-for-large">
         <ul class="tabs" data-tabs id="news-article-tabs">
-          <li class="tabs-title is-active"><a href="#news-toparticles" aria-selected="true"><h5><%= t(".top_articles") %></h5></a></li>
-          <li class="tabs-title"><a href="#news-topics"><h5><%= t(".topics") %></h5></a></li>
-          <li class="tabs-title"><a href="#news-regions"><h5><%= t(".regions") %></h5></a></li>
+          <li class="tabs-title is-active"><a href="#news-toparticles" aria-selected="true"><h5><%= t('.top_articles') %></h5></a></li>
+          <li class="tabs-title"><a href="#news-topics"><h5><%= t('.topics') %></h5></a></li>
+          <li class="tabs-title"><a href="#news-regions"><h5><%= t('.regions') %></h5></a></li>
         </ul>
         <div class="tabs-content" data-tabs-content="news-article-tabs">
           <div class="tabs-panel is-active news-toparticles" id="news-toparticles">
@@ -91,7 +91,9 @@
             <p>Stuck in an elevator, she takes me to the sky. I don't want to go down. It's beautiful with the stars and the Earth and the Moon a million miles but closer than I've ever been.</p>
           </div>
           <div class="tabs-panel" id="news-regions">
-            <p>Suspendisse dictum feugiat nisl ut dapibus.  Vivamus hendrerit arcu sed erat molestie vehicula. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor.  Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.</p>
+            <ul>
+              <%= render partial: 'continent', collection: CONTINENTS %>
+            </ul>
           </div>
         </div>
       </div>

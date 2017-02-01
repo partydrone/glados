@@ -3,7 +3,7 @@
 fr:
   continents:
     AF: Afrique
-    AN: Antarctique
+    # AN: Antarctique
     AS: Asie
     EU: L'Europe
     NA: Amérique du Nord

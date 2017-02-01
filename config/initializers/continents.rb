@@ -2,7 +2,7 @@
 
 CONTINENTS = {
   AF: 'Africa',
-  AN: 'Antarctica',
+  # AN: 'Antarctica',
   AS: 'Asia',
   EU: 'Europe',
   NA: 'North America',
