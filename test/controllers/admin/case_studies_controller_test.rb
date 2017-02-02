@@ -14,6 +14,7 @@ describe Admin::CaseStudiesController, :locale do
   end
 
   it "creates a blog post" do
+    hero_image = Refile::Backend::FileSystem.new('tmp/uploads/cache').upload fixture_file_upload('files/shark.jpg')
     -> {
       post admin_case_studies_path, params: {
         case_study: {
@@ -22,7 +23,13 @@ describe Admin::CaseStudiesController, :locale do
           location: 'Florida',
           flag: 'us',
           body: 'System one has been five years in the making, and it is totally worth the wait!',
-          posted_on: Date.today.to_s(:db)
+          posted_on: Date.today.to_s(:db),
+          hero_image: {
+            id: hero_image.id,
+            filename: 'shark.jpg',
+            content_type: 'image/jpeg',
+            size: hero_image.size
+          }.to_json
         }
       }
     }.must_change 'CaseStudy.count'

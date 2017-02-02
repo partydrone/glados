@@ -1,7 +1,7 @@
 require 'test_helper'
 
 describe Feature do
-  let(:cool_feature) { Feature.new(title: 'Product Feature', description: 'Feature description.', body: 'Post body text.') }
+  let(:cool_feature) { Feature.new(title: 'Product Feature', description: 'Feature description.', body: 'Post body text.', hero_image_id: 1) }
 
   it "is a valid object" do
     cool_feature.must_be :valid?
@@ -22,6 +22,11 @@ describe Feature do
 
   it "has a body" do
     cool_feature.must_respond_to :body
+  end
+
+  it "requires a hero image" do
+    cool_feature.hero_image_id = ''
+    cool_feature.wont_be :valid?
   end
 
   it "has associated products" do

@@ -1,7 +1,7 @@
 require 'test_helper'
 
 describe CaseStudy do
-  let(:case_study) { CaseStudy.new(title: 'Case Study Title', subtitle: 'Case study subtitle', location: 'Wisconsin', flag: 'us', body: 'Case study body text.', posted_on: Date.yesterday.to_s(:db)) }
+  let(:case_study) { CaseStudy.new(title: 'Case Study Title', subtitle: 'Case study subtitle', location: 'Wisconsin', flag: 'us', body: 'Case study body text.', posted_on: Date.yesterday.to_s(:db), hero_image_id: 1) }
 
   it "is a valid object" do
     case_study.must_be :valid?
