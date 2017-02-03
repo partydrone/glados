@@ -1,4 +1,4 @@
-FROM ruby:2.3-slim
+FROM ruby:2.4
 MAINTAINER Andrew Porter <andrew.porter@wavetronix.com>
 RUN apt-get update -qq && apt-get install -qq -y --no-install-recommends \
     build-essential \
