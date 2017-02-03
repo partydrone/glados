@@ -1,8 +1,8 @@
 require 'test_helper'
 
-describe AboutController, :locale do
+describe NewsController, :locale do
   it "gets index" do
-    get about_path
+    get news_path
     must_respond_with :success
   end
 end

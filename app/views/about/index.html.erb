@@ -70,7 +70,7 @@
         <%= render partial: 'recent_article', collection: @recent_articles %>
 
         <%= content_tag :div, class: 'read-more' do %>
-          <%= link_to nil, class: "goto-new" do %>
+          <%= link_to news_path, class: "goto-new" do %>
             <%= t(".more_stories") %>
           <% end %>
         <% end if Article.count > 4 %>

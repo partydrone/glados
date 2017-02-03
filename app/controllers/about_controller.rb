@@ -9,7 +9,4 @@ class AboutController < ApplicationController
 
     @media_downloads = MediaDownload.limit(6)
   end
-
-  def news_events
-  end
 end
