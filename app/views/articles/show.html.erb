@@ -44,7 +44,7 @@
       </h1>
       <%= content_tag :h6 do %>by <%= @article.author %><% end if @article.author %>
       <%= content_tag :h6 do %>
-        <%= image_tag "flags/16/#{@article.flag.downcase}.png" %>
+        <span class="flag-icon flag-icon-<%= @article.flag.downcase %>"></span>
         <%= @article.location %>
       <% end if @article.location %>
       <%= attachment_image_tag @article, :hero_image, fallback: 'http://placehold.it/1600x900' %>

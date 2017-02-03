@@ -1,5 +1,6 @@
 @import "foundation_and_overrides";
 @import "globals/all";
+@import "flags/flag-icon";
 
 html,
 base {
@@ -363,7 +364,7 @@ Request Box
     }
   }
 
-  .request-box:after, 
+  .request-box:after,
   .request-box:before {
     border: solid transparent;
     content: " ";
@@ -389,13 +390,13 @@ Request Box
 
   .field_with_errors .message {
     color: $tomato;
-    margin-top: 0; 
+    margin-top: 0;
   }
 
 /***********************************************************************************************
 Read/View more
 ***********************************************************************************************/
- 
+
   .read-more {
     text-align: center;
     border-bottom: 1px solid $silver;
@@ -428,7 +429,7 @@ Read/View more
 /***********************************************************************************************
 Search Bar/Input
 ***********************************************************************************************/
- 
+
   .site-search-bar {
     width: 100%;
     margin-bottom: 1rem;
@@ -483,7 +484,7 @@ Search Bar/Input
 /***********************************************************************************************
 Admin Navigation
 ***********************************************************************************************/
-   
+
   .admin-nav {
     display: inline-block;
     text-align: left;
@@ -543,7 +544,7 @@ post-cards
   .post-card {
     color: inherit;
     text-decoration: none;
-    display: block;  
+    display: block;
     padding: 20px 1rem 0 1rem;
     margin: 10px;
     position: relative;
