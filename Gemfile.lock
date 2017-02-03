@@ -107,6 +107,9 @@ GEM
     coderay (1.1.1)
     concurrent-ruby (1.0.4)
     connection_pool (2.2.1)
+    debase (0.2.1)
+      debase-ruby_core_source
+    debase-ruby_core_source (0.9.6)
     debug_inspector (0.0.2)
     domain_name (0.5.20161129)
       unf (>= 0.0.5, < 1.0.0)
@@ -261,6 +264,8 @@ GEM
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
     rolify (5.1.0)
+    ruby-debug-ide (0.6.0)
+      rake (>= 0.8.1)
     ruby-progressbar (1.8.1)
     sass (3.4.23)
     sass-rails (5.0.6)
@@ -332,6 +337,7 @@ DEPENDENCIES
   byebug
   ckeditor
   client_side_validations
+  debase
   flamegraph
   foundation-rails (~> 6.2.0)
   guard
@@ -357,6 +363,7 @@ DEPENDENCIES
   refile-mini_magick
   refile-s3
   rolify
+  ruby-debug-ide
   sass-rails (~> 5.0)
   sidekiq (~> 4.1)
   sinatra!
