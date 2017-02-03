@@ -64,6 +64,7 @@ Rails.application.routes.draw do
               :case_studies,
               :features,
               :product_categories,
+              :tags,
               only: [:show]
 
     resources :knowledge_base_articles,
