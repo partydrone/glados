@@ -4,4 +4,6 @@ class Tag < ApplicationRecord
   has_many :case_studies, through: :taggings, source: :taggable, source_type: CaseStudy
 
   validates :name, presence: true
+
+  default_scope { order(:name) }
 end
