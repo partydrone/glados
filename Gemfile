@@ -70,7 +70,9 @@ gem 'acts-as-taggable-on', '~> 4.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'debase'
   gem 'puma', '~> 3.0'
+  gem 'ruby-debug-ide'
 end
 
 group :production, :staging do
