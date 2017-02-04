@@ -64,7 +64,6 @@ Rails.application.routes.draw do
               :case_studies,
               :features,
               :product_categories,
-              :tags,
               only: [:show]
 
     resources :knowledge_base_articles,
@@ -87,6 +86,7 @@ Rails.application.routes.draw do
     get '/news', to: 'news#index'
     get '/support', to: 'support#index'
     post '/support', to: 'support#select_product'
+    get '/tags/:name', to: 'tags#show', as: :tag
     get '/training', to: 'training#index'
 
     ##

@@ -1,2 +1,13 @@
-<h1>Tags#show</h1>
-<p>Find me in app/views/tags/show.html.erb</p>
+<% content_for :title, "#{t '.title'}: #{@tag.name}" %>
+
+<div class="row">
+  <div class="medium-10 medium-centered large-12 columns">
+    <h1><%= yield :title %></h1>
+
+    <div>
+      <% @tag.taggings.each do |tagging| %>
+        <%= render partial: tagging.taggable_type.underscore, object: tagging.taggable %>
+      <% end %>
+    </div>
+  </div>
+</div>
