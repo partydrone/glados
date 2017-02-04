@@ -110,7 +110,7 @@
       </a>
       <a href="#" class="row">
         <img src="http://placehold.it/558x313" alt="placeholder" class="large-6 columns">
-        <h3 class="large-6 columns similar-side-text">AF - Hansen & Henneberg Test in Farum, Denmark</h3>
+        <h3 class="large-6 columns similar-side-text">AF - Hansen &amp; Henneberg Test in Farum, Denmark</h3>
         <p class="hide-for-large">This is a summary of the article and doesn't really contain any information. Isn't that special? Probably not. I don't even know anymore.</p>
       </a>
     </div>
@@ -119,5 +119,5 @@
 </article>
 
 <section class="article-tags show-for-large">
-  <%= t(".tags") %>: <%= @article.tag_list %>
+  <%= t(".tags") %>: <%= raw @article.tags.map { |t| link_to t.name, tag_path(t.name) }.join(', ') %>
 </section>
