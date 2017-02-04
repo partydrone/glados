@@ -88,7 +88,9 @@
             </ol>
           </div>
           <div class="tabs-panel" id="news-topics">
-            <p>Stuck in an elevator, she takes me to the sky. I don't want to go down. It's beautiful with the stars and the Earth and the Moon a million miles but closer than I've ever been.</p>
+            <ol>
+              <%= render partial: 'top_tag', collection: @top_tags %>
+            </ol>
           </div>
           <div class="tabs-panel" id="news-regions">
             <ul>
