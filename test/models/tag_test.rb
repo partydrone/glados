@@ -15,4 +15,8 @@ describe Tag do
   it "has taggings" do
     tag.must_respond_to :taggings
   end
+
+  it "has articles" do
+    tag.must_respond_to :articles
+  end
 end
