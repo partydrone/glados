@@ -16,5 +16,7 @@
 # end
 
 ActiveSupport::Inflector.inflections(:en) do |inflect|
+  inflect.acronym 'HD'
+  inflect.acronym 'SmartSensor'
   inflect.acronym 'YouTube'
 end
