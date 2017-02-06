@@ -66,6 +66,8 @@ Rails.application.routes.draw do
               :product_categories,
               only: [:show]
 
+    resources :tags, only: [:show], param: :name
+
     resources :knowledge_base_articles,
               :products,
               :return_material_authorization_policy_documents,
@@ -86,7 +88,6 @@ Rails.application.routes.draw do
     get '/news', to: 'news#index'
     get '/support', to: 'support#index'
     post '/support', to: 'support#select_product'
-    get '/tags/:name', to: 'tags#show', as: :tag
     get '/training', to: 'training#index'
 
     ##

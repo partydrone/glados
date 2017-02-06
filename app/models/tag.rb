@@ -5,4 +5,8 @@ class Tag < ApplicationRecord
   validates :name, presence: true
 
   default_scope { order(:name) }
+
+  def to_param
+    name.parameterize
+  end
 end
