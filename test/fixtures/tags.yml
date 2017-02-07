@@ -1,4 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+advance:
+  name: advance
+
+asia:
+  name: asia
+
+freeway:
+  name: freeway
+
 intersection:
   name: intersection
+
+north_america:
+  name: north america
