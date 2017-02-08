@@ -31,6 +31,13 @@
 
       <%= f.label :youtube_video_id %>
       <%= f.text_field :youtube_video_id %>
+
+      <%= f.label :feature_order %>
+      <table>
+        <tbody id="feature_associations" data-update-path="<%= sort_admin_feature_associations_path %>">
+          <%= render partial: 'feature_association', collection: @product.feature_associations %>
+        </tbody>
+      </table>
     </div>
   </div>
 

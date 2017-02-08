@@ -49,6 +49,9 @@ Rails.application.routes.draw do
                 :product_types,
                 except: [:show],
                 concerns: :sortable
+
+      resources :feature_associations, concerns: :sortable, only: [:sortable]
+
       ##
       # Admin root route
       root to: 'base#index'
