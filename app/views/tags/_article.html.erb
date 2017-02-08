@@ -1,5 +1,15 @@
-<%= link_to article, class: 'tag-result-tile' do %>
-  <%= attachment_image_tag article, :hero_image, :fill, 744, 419 %>
-  <h2><%= article.title %></h2>
-  <p><%= article.subtitle %></p>
-<% end %>
+<div class="tag-container medium-6 large-4 end columns">
+	<div data-equalizer-watch>
+		<%= link_to article, class: 'tag-result-tile' do %>
+			<div class="row">
+				<div class="small-6 large-3 columns">
+			  	<%= attachment_image_tag article, :hero_image, :fill, 744, 419 %>
+			  </div>
+			  <div class="small-6 large-9 columns">
+				  <h3><%= article.title %></h3>
+				  <p><%= article.subtitle %></p>
+			  </div>
+		  </div>
+		<% end %>
+	</div>
+</div>

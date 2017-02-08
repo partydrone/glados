@@ -47,7 +47,9 @@
         <span class="flag-icon flag-icon-<%= @article.flag.downcase %>"></span>
         <%= @article.location %>
       <% end if @article.location %>
-      <%= attachment_image_tag @article, :hero_image, fallback: 'http://placehold.it/1600x900' %>
+      <div class="article-hero-container">
+        <%= attachment_image_tag @article, :hero_image, fallback: 'http://placehold.it/1600x900' %>
+      </div>
     </div>
   </div>
 </header>

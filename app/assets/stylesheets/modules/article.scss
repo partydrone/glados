@@ -31,6 +31,10 @@
 	padding-top: 30px;
 }
 
+.article-hero-container {
+	text-align: center;
+}
+
 .article-header .hero_image {
 	margin: 25px 0;
 }
@@ -167,3 +171,19 @@
 	font-family: $font-family-secondary;
 	font-weight: 600;
 }
+
+/***********************************************************************************************
+Tags
+***********************************************************************************************/
+
+	.tag-container {
+		margin-bottom: 15px;
+		a {
+			color: $charcoal;
+		}
+		@media screen and (max-width: 40em) {
+			margin-bottom: 25px;
+		}
+	}
+
+
