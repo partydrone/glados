@@ -119,5 +119,5 @@
 </article>
 
 <section class="article-tags show-for-large">
-  <%= t(".tags") %>: <%= raw @article.tags.map { |t| link_to t.name, tag_path(t.name) }.join(', ') %>
+  <%= t(".tags") %>: <%= render_tags_for @article %>
 </section>
