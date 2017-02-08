@@ -36,9 +36,17 @@ describe Product do
     product.wont_be :valid?
   end
 
-  it "requires a hero image" do
+  it "requires a hero image or YouTube ID" do
+    product.youtube_video_id = ' '
     product.hero_image_id = ''
     product.wont_be :valid?
+
+    product.youtube_video_id = '1Vk74oiCWrg'
+    product.must_be :valid?
+
+    product.youtube_video_id = ' '
+    product.hero_image_id = 1
+    product.must_be :valid?
   end
 
   it "requires a product image" do

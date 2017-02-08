@@ -24,9 +24,17 @@ describe Feature do
     cool_feature.must_respond_to :body
   end
 
-  it "requires a hero image" do
+  it "requires a hero image or YouTube ID" do
+    cool_feature.youtube_video_id = ' '
     cool_feature.hero_image_id = ''
     cool_feature.wont_be :valid?
+
+    cool_feature.youtube_video_id = '1Vk74oiCWrg'
+    cool_feature.must_be :valid?
+
+    cool_feature.youtube_video_id = ' '
+    cool_feature.hero_image_id = 1
+    cool_feature.must_be :valid?
   end
 
   it "has associated products" do

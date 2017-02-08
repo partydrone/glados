@@ -11,7 +11,7 @@ class Product < ApplicationRecord
   attachment :product_image, content_type: %w(image/jpeg image/png image/gif)
 
   validates :name, :part_number, :summary, :description, :product_category_id, presence: true
-  validates :hero_image, :product_image, presence: true, on: :create
+  validates :hero_image, :product_image, presence: true, on: :create, unless: :youtube_video_id_present?
 
   default_scope { order('name ASC') }
 
@@ -21,5 +21,11 @@ class Product < ApplicationRecord
 
   def to_param
     "#{id}-#{name.parameterize}"
+  end
+  
+  private
+
+  def youtube_video_id_present?
+    youtube_video_id.present?
   end
 end
