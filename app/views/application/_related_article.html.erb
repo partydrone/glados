@@ -1,0 +1,5 @@
+<%= link_to related_article do %>
+  <%= attachment_image_tag related_article, :hero_image, :fill, 558, 313, class: 'large-6 columns' %>
+  <h3 class="large-6 columns similar-side-text"><%= related_article.title %></h3>
+  <p class="hide-for-large"><%= related_article.subtitle %></p>
+<% end %>

@@ -7,7 +7,7 @@ module Taggable
   end
 
   def get_related
-    Tagging.select('distinct on (taggable_id) *').where(tag_id: tag_ids).where.not(taggable_id: id)
+    Tagging.select('distinct on (taggable_id) *').where(tag_id: tag_ids).where.not(taggable_id: id).limit(5)
   end
 
   def tag_list
