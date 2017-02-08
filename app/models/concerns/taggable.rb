@@ -6,6 +6,10 @@ module Taggable
     has_many :tags, through: :taggings
   end
 
+  def get_related
+    Tagging.select('distinct on (taggable_id) *').where(tag_id: tag_ids).where.not(taggable_id: id)
+  end
+
   def tag_list
     tags.map(&:name).join(', ')
   end
