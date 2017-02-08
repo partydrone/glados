@@ -39,7 +39,7 @@ gem 'refile-s3'
 
 ##
 # Forms
-# gem 'ckeditor'
+gem 'ckeditor'
 gem 'client_side_validations'
 
 ##
