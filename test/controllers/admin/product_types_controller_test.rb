@@ -14,11 +14,25 @@ describe Admin::ProductTypesController, :locale do
   end
 
   it "creates a Product Type" do
+    hero_image = Refile::Backend::FileSystem.new('tmp/uploads/cache').upload fixture_file_upload('files/shark.jpg')
+    icon_image = Refile::Backend::FileSystem.new('tmp/uploads/cache').upload fixture_file_upload('files/shark.jpg')
     -> {
       post admin_product_types_path, params: {
         product_type: {
           name: 'System One',
-          position: '4'
+          position: '4',
+          hero_image: {
+            id: hero_image.id,
+            filename: 'shark.jpg',
+            content_type: 'image/jpeg',
+            size: hero_image.size
+          }.to_json,
+          icon_image: {
+            id: icon_image.id,
+            filename: 'shark.jpg',
+            content_type: 'image/jpeg',
+            size: icon_image.size
+          }.to_json
         }
       }
     }.must_change 'ProductType.count'

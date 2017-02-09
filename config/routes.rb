@@ -1,11 +1,11 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  mount Ckeditor::Engine => '/ckeditor'
   mount Sidekiq::Web => '/sidekiq'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   scope '(:locale)', locale: /(?:[a-z]{2,2})(?:[-|_](?:[A-Z]{2,2}))?/ do
+    mount Ckeditor::Engine => '/ckeditor'
 
     ##
     # Authentication routes
@@ -49,6 +49,9 @@ Rails.application.routes.draw do
                 :product_types,
                 except: [:show],
                 concerns: :sortable
+
+      resources :feature_associations, concerns: :sortable, only: [:sortable]
+
       ##
       # Admin root route
       root to: 'base#index'
@@ -65,6 +68,8 @@ Rails.application.routes.draw do
               :features,
               :product_categories,
               only: [:show]
+
+    resources :tags, only: [:show], param: :name
 
     resources :knowledge_base_articles,
               :products,
@@ -83,7 +88,7 @@ Rails.application.routes.draw do
     get '/jobs', to: redirect('http://wavetronix.recruiterbox.com/jobs')
     get '/legal', to: 'legal#index'
     get '/marketing_app', to: 'marketing_app#index'
-    get '/news_events', to: 'about#news_events'
+    get '/news', to: 'news#index'
     get '/support', to: 'support#index'
     post '/support', to: 'support#select_product'
     get '/training', to: 'training#index'

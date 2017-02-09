@@ -61,7 +61,22 @@ products = Product.create([
   { name: 'Command Viewpoint', part_number: 'CMD-VP', product_category_id: product_categories[8].id, summary: 'Product summary', description: 'Better product description goes here.' },
 ])
 
-features = Feature.create([
+Feature.create([
   { title: 'Digital Wave Radar', description: 'Feature description', product_ids: [products[0].id, products[1].id, products[2].id, products[3].id, products[4].id, products[5].id] },
   { title: 'High-definition Radar', description: 'Feature description', product_ids: [products[2].id, products[3].id, products[4].id] }
+])
+
+Patent.create([
+  { number: 6556916, title: 'System and Method for Identification of Traffic Lane Positions' },
+  { number: 6693557, title: 'Vehicular Traffic Sensor' },
+  { number: 7426450, title: 'Systems and Methods for Monitoring Speed' },
+  { number: 7427930, title: 'Vehicular Traffic Sensor' },
+  { number: 7573400, title: 'Systems and Methods for Configuring Intersection Detection Zones' },
+  { number: 7889097, title: 'Detecting Targets in Roadway Intersections' },
+  { number: 7889098, title: 'Detecting Targets in Roadway Intersections' },
+  { number: 7924170, title: 'Detecting Targets in Roadway Intersections' },
+  { number: 7991542, title: 'Monitoring Signalized Traffic Flow' },
+  { number: 8248272, title: 'Detecting Targets in Roadway Intersections' },
+  { number: 8665113, title: 'Detecting Roadway Targets Across Beams Including Filtering Computed Positions' },
+  { number: 9240125, title: 'Detecting Roadway Targets Across Beams' }
 ])

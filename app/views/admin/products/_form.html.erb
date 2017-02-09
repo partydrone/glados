@@ -19,32 +19,25 @@
       <%= f.attachment_field :product_image, direct: true, presinged: true %>
 
       <% if @product.product_image && @product.product_image.exists? %>
-        <div>
-          <%= attachment_image_tag @product, :product_image %>
-        </div>
-
-        <div>
-          <%= f.check_box :remove_product_image %>
-          <%= f.label :remove_product_image %>
-        </div>
+        <%= attachment_image_tag @product, :product_image %>
       <% end %>
 
       <%= f.label :hero_image %>
       <%= f.attachment_field :hero_image, direct: true, presinged: true %>
 
       <% if @product.hero_image && @product.hero_image.exists? %>
-        <div>
-          <%= attachment_image_tag @product, :hero_image %>
-        </div>
-
-        <div>
-          <%= f.check_box :remove_hero_image %>
-          <%= f.label :remove_hero_image %>
-        </div>
+        <%= attachment_image_tag @product, :hero_image %>
       <% end %>
 
       <%= f.label :youtube_video_id %>
       <%= f.text_field :youtube_video_id %>
+
+      <%= f.label :feature_order %>
+      <table>
+        <tbody id="feature_associations" data-update-path="<%= sort_admin_feature_associations_path %>">
+          <%= render partial: 'feature_association', collection: @product.feature_associations %>
+        </tbody>
+      </table>
     </div>
   </div>
 
