@@ -1,0 +1,3 @@
+class KnowledgeBaseArticle < Article
+
+end
