@@ -22,11 +22,6 @@ describe Article do
     article.wont_be :valid?
   end
 
-  it "requires a hero image" do
-    article.hero_image_id = ''
-    article.wont_be :valid?
-  end
-
   it "returns a list of current articles" do
     past_article = articles(:past_article)
     future_article = articles(:future_article)
