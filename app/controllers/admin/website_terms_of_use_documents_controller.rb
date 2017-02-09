@@ -7,7 +7,8 @@ module Admin
     end
 
     def show
-      render 'website_terms_of_use_documents/show'
+      @legal_policy_document = @website_terms_of_use_document
+      render 'legal_policy_documents/show'
     end
 
     def new

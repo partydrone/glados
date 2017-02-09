@@ -4,7 +4,7 @@
       <%= render partial: 'options_edit', locals: {object: return_material_authorization_policy_document, instance_name: return_material_authorization_policy_document.title} %>
     </td>
     <td>
-      <%= link_to return_material_authorization_policy_document.title, return_material_authorization_policy_document %>
+      <%= link_to return_material_authorization_policy_document.title, [:admin, return_material_authorization_policy_document] %>
     </td>
     <td>
       <%= l return_material_authorization_policy_document.effective_on.to_date, format: :long %>
