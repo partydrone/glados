@@ -1,35 +1,39 @@
 <%= form_for [:admin,@case_study], validate: true do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :subtitle %>
-  <%= f.text_field :subtitle %>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <%= f.label :flag %>
-  <%= f.select :flag, COUNTRIES.invert.sort %>
   <div class="row">
-    <div class="medium-6 columns">
+    <div class="medium-9 columns">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div class="medium-3 columns">
+      <%= f.label :posted_on %>
+      <%= f.date_field :posted_on, placeholder: 'yyyy-mm-dd' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-3 columns">
+      <%= f.label :flag %>
+      <%= f.select :flag, COUNTRIES.invert.sort %>
+    </div>
+    <div class="medium-9 columns">
+      <%= f.label :location %>
+      <%= f.text_field :location %>
+    </div>
+  </div>
+  <div class="row">
+    <%= content_tag :div, class: 'medium-8 columns' do %>
+      <%= f.label :current_hero_image %>
+      <%= attachment_image_tag @case_study, :hero_image %>
+    <% end if @case_study.hero_image && @case_study.hero_image.exists? %>
+    <div class="medium-4 columns">
       <%= f.label :hero_image %>
       <%= f.attachment_field :hero_image, direct: true, presigned: true %>
     </div>
-    <div class="medium-6 columns">
-      <% if @case_study.hero_image && @case_study.hero_image.exists? %>
-        <div>
-          <%= f.label :current_hero_image %>
-          <%= attachment_image_tag @case_study, :hero_image %>
-        </div>
-        <div>
-          <%= f.check_box :remove_hero_image %>
-          <%= f.label :remove_hero_image %>
-        </div>
-      <% end %>
-    </div>
   </div>
+  <%= f.label :subtitle %>
+  <%= f.text_area :subtitle, rows: 3 %>
   <%= f.label :body %>
   <%= f.cktext_area :body, rows: 10 %>
-  <%= f.label :tag_list, 'Tags (separated by commas)' %>
+  <%= f.label :tag_list, 'Tags (separated by commas) (regions include: africa, asia, europe, north america, oceana, and south america)' %>
   <%= f.text_field :tag_list, value: f.object.tag_list.to_s %>
-  <%= f.label :posted_on %>
-  <%= f.date_field :posted_on, placeholder: 'yyyy-mm-dd' %>
   <%= f.submit nil, class: 'button radius' %>
 <% end %>

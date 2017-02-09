@@ -1,0 +1,17 @@
+past_article:
+  type: BlogPost
+  title: Past Article Fixture
+  subtitle: Temporary subtitle
+  author: Barney Rubble
+  body: This is the temporary blog post content.
+  posted_on: <%= 5.days.ago.to_s(:db) %>
+  hero_image_id: 1
+
+future_article:
+  type: CaseStudy
+  title: Future Article Fixture
+  subtitle: Temporary subtitle
+  author: Barney Rubble
+  body: This is the temporary case study content.
+  posted_on: <%= 5.days.from_now.to_s(:db) %>
+  hero_image_id: 1

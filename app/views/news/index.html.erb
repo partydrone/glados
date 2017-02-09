@@ -1,0 +1,11 @@
+<% content_for :title, t('.title') %>
+
+<div class="row">
+  <div class="medium-10 medium-centered large-12 columns">
+    <h1><%= yield :title %></h1>
+
+    <div class="news-articles-container">
+      <%= render partial: 'article', collection: @articles %>
+    </div>
+  </div>
+</div>

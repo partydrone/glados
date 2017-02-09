@@ -14,6 +14,7 @@ describe Admin::BlogPostsController, :locale do
   end
 
   it "creates a blog post" do
+    hero_image = Refile::Backend::FileSystem.new('tmp/uploads/cache').upload fixture_file_upload('files/shark.jpg')
     -> {
       post admin_blog_posts_path, params: {
         blog_post: {
@@ -21,7 +22,13 @@ describe Admin::BlogPostsController, :locale do
           subtitle: 'Meet the new memeber of the Wavetronix family.',
           author: 'Dan Levitan',
           body: 'System one has been five years in the making, and it is totally worth the wait!',
-          posted_on: Date.today.to_s(:db)
+          posted_on: Date.today.to_s(:db),
+          hero_image: {
+            id: hero_image.id,
+            filename: 'shark.jpg',
+            content_type: 'image/jpeg',
+            size: hero_image.size
+          }.to_json
         }
       }
     }.must_change 'BlogPost.count'

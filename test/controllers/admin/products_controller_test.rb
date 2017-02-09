@@ -15,6 +15,8 @@ module Admin
     end
 
     it "creates a product" do
+      hero_image    = Refile::Backend::FileSystem.new('tmp/uploads/cache').upload fixture_file_upload('files/shark.jpg')
+      product_image = Refile::Backend::FileSystem.new('tmp/uploads/cache').upload fixture_file_upload('files/shark.jpg')
       -> {
         post admin_products_path, params: {
           product: {
@@ -23,7 +25,19 @@ module Admin
             expired_on: '',
             summary: 'System One summary',
             description: 'System One description.',
-            product_category_id: product_categories(:arterial).id
+            product_category_id: product_categories(:arterial).id,
+            hero_image: {
+              id: hero_image.id,
+              filename: 'shark.jpg',
+              content_type: 'image/jpeg',
+              size: hero_image.size
+            }.to_json,
+            product_image: {
+              id: product_image.id,
+              filename: 'shark.jpg',
+              content_type: 'image/jpeg',
+              size: product_image.size
+            }.to_json
           }
         }
       }.must_change 'Product.count'

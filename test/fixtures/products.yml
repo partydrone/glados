@@ -6,3 +6,5 @@ smartsensor_hd:
   summary: SmartSensor HD summary
   description: SmartSensor HD description.
   product_category: arterial
+  hero_image_id: 1
+  product_image_id: 1

@@ -5,9 +5,4 @@ describe AboutController, :locale do
     get about_path
     must_respond_with :success
   end
-
-  it "gets news & events" do
-    get news_events_path
-    must_respond_with :success
-  end
 end

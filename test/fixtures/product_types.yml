@@ -1,11 +1,19 @@
 detection:
   name: Detection
   position: 1
+  hero_image_id: 1
+  icon_image_id: 1
+
 
 cabinet_integration:
   name: Cabinet Integration
   position: 2
+  hero_image_id: 2
+  icon_image_id: 2
+
 
 data_management:
   name: Data Management
   position: 3
+  hero_image_id: 3
+  icon_image_id: 3
