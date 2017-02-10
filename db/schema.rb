@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204164831) do
+ActiveRecord::Schema.define(version: 20170210212215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,11 @@ ActiveRecord::Schema.define(version: 20170204164831) do
     t.integer  "hero_image_size"
     t.string   "hero_image_content_type"
     t.integer  "views",                   default: 0
+  end
+
+  create_table "articles_products", id: false, force: :cascade do |t|
+    t.integer "article_id", null: false
+    t.integer "product_id", null: false
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
