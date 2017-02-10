@@ -36,6 +36,10 @@ describe Article do
     article.must_respond_to :tags
   end
 
+  it "has associated products" do
+    article.must_respond_to :products
+  end
+
   it "has views" do
     article.must_respond_to :views
   end

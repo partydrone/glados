@@ -72,6 +72,10 @@ describe Product do
     product.must_respond_to :features
   end
 
+  it "has associated knowledge base articles" do
+    product.must_respond_to :articles
+  end
+
   it "has associated patents" do
     product.must_respond_to :patents
   end
