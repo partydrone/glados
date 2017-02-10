@@ -1,4 +1,4 @@
-<%= form_for [:admin, @blog_post], validate: true do |f| %>
+<%= form_for [:admin, @knowledge_base_article], validate: true do |f| %>
   <div class="row">
     <div class="medium-9 columns">
       <%= f.label :title %>
@@ -9,20 +9,6 @@
       <%= f.date_field :posted_on, placeholder: 'yyyy-mm-dd' %>
     </div>
   </div>
-  <%= f.label :author %>
-  <%= f.text_field :author %>
-  <div class="row">
-    <%= content_tag :div, class: 'medium-8 columns' do %>
-      <%= f.label :current_hero_image %>
-      <%= attachment_image_tag @blog_post, :hero_image %>
-    <% end if @blog_post.hero_image && @blog_post.hero_image.exists? %>
-    <div class="medium-4 columns">
-      <%= f.label :hero_image %>
-      <%= f.attachment_field :hero_image, direct: true, presigned: true %>
-    </div>
-  </div>
-  <%= f.label :subtitle %>
-  <%= f.text_area :subtitle, rows: 3 %>
   <%= f.label :body %>
   <%= f.cktext_area :body, rows: 30 %>
   <%= f.label :tag_list, 'Tags (separated by commas) (regions include: africa, asia, europe, north america, oceana, and south america)' %>
