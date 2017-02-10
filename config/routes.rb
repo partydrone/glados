@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       resources :blog_posts,
                 :case_studies,
                 :features,
+                :knowledge_base_articles,
                 :products,
                 :return_material_authorization_policy_documents,
                 :sales_terms_and_conditions_documents,

@@ -1,0 +1,25 @@
+<%= content_for :title, t(".title") %>
+
+<div class="row columns admin-table">
+<h1>
+  <%= yield :title %>
+  <%= link_to new_admin_knowledge_base_article_path, title: 'Create a new Product Type' do %>
+    <%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
+  <% end %>
+</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th width="30"></th>
+      <th>Title</th>
+      <th>Posted</th>
+      <th>Last Updated</th>
+      <th width="30"></th>
+    </tr>
+  </thead>
+  <tbody id="knowledge_base_articles">
+    <%= render @knowledge_base_articles %>
+  </tbody>
+</table>
+</div>

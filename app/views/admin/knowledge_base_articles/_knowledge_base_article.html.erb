@@ -1,0 +1,17 @@
+<%= content_tag_for :tr, knowledge_base_article do %>
+  <td class="admin-left-edit">
+    <%= render partial: 'options_edit', locals: {object: knowledge_base_article, instance_name: knowledge_base_article.title} %>
+  </td>
+  <td>
+    <%= link_to knowledge_base_article.title, [:admin, knowledge_base_article] %>
+  </td>
+  <td>
+    <%= l knowledge_base_article.posted_on.to_date, format: :short %>
+  </td>
+  <td>
+    <%= l knowledge_base_article.updated_at.to_date, format: :short %>
+  </td>
+  <td class="admin-right-delete">
+    <%= render partial: 'options_delete', locals: {object: knowledge_base_article, instance_name: knowledge_base_article.title} %>
+  </td>
+<% end %>
