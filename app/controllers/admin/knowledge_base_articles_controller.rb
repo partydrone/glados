@@ -1,6 +1,7 @@
 module Admin
   class KnowledgeBaseArticlesController < BaseController
     before_action :set_knowledge_base_article, only: [:show, :edit, :update, :destroy]
+    before_action :set_product_types, only: [:new, :edit]
 
     def index
       @knowledge_base_articles = KnowledgeBaseArticle.all
@@ -24,6 +25,7 @@ module Admin
       if @knowledge_base_article.save
         redirect_to [:admin,@knowledge_base_article], notice: %(Saved "#{@knowledge_base_article.title}" successfully.)
       else
+        set_product_types
         render :new
       end
     end
@@ -32,6 +34,7 @@ module Admin
       if @knowledge_base_article.update(knowledge_base_article_params)
         redirect_to [:admin,@knowledge_base_article], notice: %(Updated "#{@knowledge_base_article.title}" successfully.)
       else
+        set_product_types
         render :edit
       end
     end
@@ -48,7 +51,11 @@ module Admin
     end
 
     def knowledge_base_article_params
-      params.require(:knowledge_base_article).permit(:title, :body, :posted_on, :tag_list)
+      params.require(:knowledge_base_article).permit(:title, :body, :posted_on, :tag_list, product_ids: [])
+    end
+
+    def set_product_types
+      @product_types = ProductType.includes(:products).reorder(:position).order('products.name')
     end
   end
 end
