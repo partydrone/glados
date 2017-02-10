@@ -1,2 +1,2 @@
 <% content_for :title, @legal_policy_document.title %>
-<%= render 'legal_policy_documents/show' %>
+<%= render partial: 'legal_policy_documents/show', object: @legal_policy_document, as: :legal_policy_document %>
