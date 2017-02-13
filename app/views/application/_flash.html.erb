@@ -1,6 +1,12 @@
 <% flash.each do |name, msg| %>
   <%= content_tag :div, data: { alert: "" }, class: "alert-box #{name} radius" do %>
-    <%= msg %>
-    <%= link_to content_tag(:span, nil, class: "alert-box-close"), nil, class: "close" %>
+  	<div class="row columns">
+	  	<div class="alert-box-left">
+	    	<%= msg %>
+	    </div>
+	    <div class="alert-box-right">
+	    	<%= link_to content_tag(:span, nil, class: "alert-box-close"), nil, class: "close" %>
+	    </div>
+    </div>
   <% end %>
 <% end %>
