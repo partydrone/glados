@@ -276,15 +276,24 @@ label {
 }
 
 .alert-box {
-  text-align: center;
   padding: 0.5rem;
-  background-color: $tomato;
+  background-color: $linkblue;
   color: $white;
   position: relative;
   z-index: 51;
   margin-top: -20px;
   height: 49px;
   line-height: 34px;
+}
+
+.alert-box-left {
+  float: left;
+  display: inline-block;
+}
+
+.alert-box-right {
+  display: inline-block;
+  float: right;
 }
 
 .alert-box-close {
@@ -294,6 +303,7 @@ label {
   margin-left: 1rem;
   position: relative;
   z-index: 51;
+  text-align: right;
 }
 
 
