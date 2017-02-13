@@ -1,5 +1,6 @@
 class KnowledgeBaseArticlesController < ApplicationController
   def index
+    @products = Product.includes(:articles).where(articles: {type: 'KnowledgeBaseArticle'})
   end
 
   def show
