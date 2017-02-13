@@ -1,0 +1,13 @@
+<div class="home-story">
+  <%= link_to article do %>
+    <div class="home-stories-image">
+      <h4 class="stories-rollover-hidden"><%= article.title %></h4>
+      <%= attachment_image_tag article, :hero_image, :fill, 270, 152, fallback: 'http://placehold.it/270x152' %>
+    </div>
+    <h4 class="stories-rollover-shown"><%= article.title %></h4>
+    <div class="stories-hidden-text hide-for-small">
+      <p><%= article.subtitle.truncate(50, separator: /\s/) %><br/>
+      <span class="learn-more goto-new">Read More</span></p>
+    </div>
+  <% end %>
+</div>
