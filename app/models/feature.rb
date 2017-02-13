@@ -1,4 +1,6 @@
 class Feature < ApplicationRecord
+  include Taggable
+
   has_many :feature_associations, dependent: :destroy
   has_many :products, through: :feature_associations
 
