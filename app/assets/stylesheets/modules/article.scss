@@ -126,6 +126,13 @@
 	}
 }
 
+.article-body .flex-video {
+	margin-left: auto;
+	@media screen and (min-width: 40em) {
+		margin-left: -16.6667%;
+	}
+}
+
 .article-body blockquote {
 	display: block;
 	padding: 10px 0 30px 0px;
