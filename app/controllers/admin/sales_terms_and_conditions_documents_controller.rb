@@ -7,7 +7,8 @@ module Admin
     end
 
     def show
-      render 'sales_terms_and_conditions_documents/show'
+      @legal_policy_document = @sales_terms_and_conditions_document
+      render 'legal_policy_documents/show'
     end
 
     def new
@@ -45,7 +46,7 @@ module Admin
     end
 
     def sales_terms_and_conditions_document_params
-      params.require(:sales_terms_and_conditions_document).permit(:title, :body, :effective_on, :attachment)
+      params.require(:sales_terms_and_conditions_document).permit(:title, :body, :effective_on, :file)
     end
   end
 end

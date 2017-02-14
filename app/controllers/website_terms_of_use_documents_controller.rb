@@ -4,6 +4,7 @@ class WebsiteTermsOfUseDocumentsController < ApplicationController
   end
 
   def show
-    @website_terms_of_use_document = WebsiteTermsOfUseDocument.find(params[:id])
+    @legal_policy_document = WebsiteTermsOfUseDocument.find(params[:id])
+    render 'legal_policy_documents/show'
   end
 end

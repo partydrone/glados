@@ -4,6 +4,7 @@ class SalesTermsAndConditionsDocumentsController < ApplicationController
   end
 
   def show
-    @sales_terms_and_conditions_document = SalesTermsAndConditionsDocument.find(params[:id])
+    @legal_policy_document = SalesTermsAndConditionsDocument.find(params[:id])
+    render 'legal_policy_documents/show'
   end
 end

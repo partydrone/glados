@@ -25,7 +25,7 @@
       <%= f.submit nil, class: 'button radius' %>
     </div>
     <div class="large-4 columns">
-      <h2>Associated Products</h2>
+      <%= f.label :associated_products %>
       <% @product_types.each do |product_type| %>
         <h3><%= product_type.name %></h3>
         <ul class="no-bullet">
