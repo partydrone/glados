@@ -11,4 +11,9 @@ describe BlogPost do
     blog_post.author = ' '
     blog_post.wont_be :valid?
   end
+
+  it "requires a hero image" do
+    blog_post.hero_image_id = ''
+    blog_post.wont_be :valid?
+  end
 end

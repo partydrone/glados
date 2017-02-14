@@ -21,4 +21,9 @@ describe CaseStudy do
     case_study.flag = nil
     case_study.wont_be :valid?
   end
+
+  it "requires a hero image" do
+    case_study.hero_image_id = ''
+    case_study.wont_be :valid?
+  end
 end
