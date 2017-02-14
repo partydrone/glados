@@ -1,12 +1,6 @@
 @import "../foundation_and_overrides";
 @import "../globals/all";
 
-//active section top-bar override
-//remove once factored into backend dynamics
-.temp-active-class {
-  color: $yellow !important;
-}
-
 /***********************************************************************************************
 Off Canvas
 ***********************************************************************************************/
@@ -96,6 +90,13 @@ Top Bar
         color: $yellow;
       }
     }
+    .topbar-dropdown {
+      color: $steel;
+      font-weight: $base-font-weight;
+      &:hover {
+        color: $yellow;
+      }
+    }
     .is-active .topbar-dropdown {
       color: $yellow;
     }
@@ -157,37 +158,23 @@ Megamenu Subnav
     }
   }
 
+  .mega-menu-dropdown-container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
   .mega-menu-dropdown {
-    max-width: 70em; //row width
+    max-width: 50rem;
     background: $charcoal;
     margin: 1em auto;
-    text-align: right;
+    text-align: center;
     a {
       padding: 0 1rem;
       color: $ghost;
       font-weight: normal;
     }
-    .mega-menu-image {
-      height: 133px;
-      margin-bottom: 1rem;
-      position: relative;
-      img {
-        position: absolute;
-        bottom: 0;
-      }
-    }
     h3 {
       color: $white;
-    }
-    .mega-menu-item {
-      max-width: 24%;
-      display: inline-block;
-      text-align: left;
-      padding: 0 12px;
-      vertical-align: top;
-      h3 {
-        padding: 5px 0;
-      }
     }
   }
 
@@ -238,7 +225,7 @@ Megamenu Subnav
       border-color: transparent;
       border-bottom-color: $charcoal;
       border-width: 12px;
-      margin-left: 38%;
+      margin-left: 20%;
       top: 20px;
       z-index: 50;
     }
@@ -251,20 +238,6 @@ Megamenu Subnav
       max-width: 67px;
     }
   }
-
-  .s1login {
-    border-left: 1px solid $ghost;
-    height: 231px;
-    padding-left: 30px !important;
-  }
-
-  .admin-dropdown-menu {
-    width: 25vw;
-    text-align: right;
-    max-height: 90vh;
-    overflow-y: auto;
-  }
-
 
 /************************************************************************************************
 Footer
