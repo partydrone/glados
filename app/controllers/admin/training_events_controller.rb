@@ -25,7 +25,12 @@ module Admin
     end
 
     def update
-      if @training_event.update(training_event_params)
+      #training_event_course = TrainingEventCourse.find(params[:training_event_courses_attributes_id])
+      @training_event = TrainingEvent.find(params[:id])
+
+
+
+      if @training_event.update_attributes(training_event_params)
         redirect_to admin_training_events_path, notice: %(Updated "#{@training_event.title}" successfully.)
       else
         render :edit
@@ -44,7 +49,7 @@ module Admin
     end
 
     def training_event_params
-      params.require(:training_event).permit(:title, :description, :started_at, :ended_at, :location, training_event_courses_attributes: [:training_course_id, :seats, :started_at, :_destroy])
+      params.require(:training_event).permit(:id, :title, :description, :started_at, :ended_at, :location, training_event_courses_attributes: [:id, :training_course_id, :seats, :started_at, :_destroy])
     end
   end
 end

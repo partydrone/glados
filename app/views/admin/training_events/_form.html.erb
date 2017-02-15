@@ -14,10 +14,11 @@
       <%= f.submit  class: 'button radius' %>
     </div>
     <div class="medium-4 columns">
-      <%= f.fields_for :training_event_courses do |builder| %>
+      <%= f.nested_fields_for :training_event_courses do |builder| %>
         <%= render 'training_event_course_record', f: builder %>
       <% end %>
-      <%= link_to 'Add another training course', nil, class: 'button round' %>
+      <%= f.add_nested_fields_link :training_event_courses, 'Add another course' %>
+      
     </div>
   </div>
 <% end %>

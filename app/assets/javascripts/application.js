@@ -18,7 +18,8 @@
 //= require rails.validations
 //= require refile
 //= require_tree .
+//= require nested_form_fields
 
 $(function() {
-  $(document).foundation();
+    $(document).foundation();
 });
