@@ -2,8 +2,8 @@ class TrainingEvent < ApplicationRecord
   has_many :training_courses
   has_many :training_event_courses
   has_many :training_courses, through: :training_event_courses
-  accepts_nested_attributes_for :training_event_courses, allow_destroy: true
 
+  accepts_nested_attributes_for :training_event_courses, allow_destroy: true
 
   validates :title, :description, :started_at, :ended_at, :location, presence: true
   validate :starts_before_ends

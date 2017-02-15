@@ -1,6 +1,14 @@
-<%= f.label 'Course' %>
-<%= f.select :training_course_id, TrainingCourse.all.collect {|p| [p.title, p.id]} %>
-<%= f.label :seats %>
-<%= f.number_field :seats %>
-<%= f.label :started_at %>
-<%= f.date_field :started_at, placeholder: 'yyyy-mm-dd'%>
+<%= f.label :training_course_id %>
+<%= f.collection_select :training_course_id, TrainingCourse.all, :id, :full_title %>
+<div class="row">
+  <div class="medium-4 columns">
+    <%= f.label :seats %>
+    <%= f.number_field :seats %>
+  </div>
+  <div class="medium-8 columns">
+    <%= f.label :started_at %>
+    <%= f.datetime_field :started_at, placeholder: 'yyyy-mm-dd hh:mm:ss' %>
+  </div>
+</div>
+<%= f.check_box :_destroy %>
+<%= f.label :_destroy, 'Remove this course' %>
