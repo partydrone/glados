@@ -71,7 +71,7 @@ training_courses = TrainingCourse.create([
   { title: 'Introduction to Traffic Radar Workshop', duration: 2, description:'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type  you.'},
   { title: 'Introduction to HD SmartSensor Workshop', duration: 3, description:'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type or you.'},
   { title: 'Introduction to JeremyCool Workshop', duration: 4, description:'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and d work for you.'}
-  
+
 ])
 
 Patent.create([
@@ -87,5 +87,4 @@ Patent.create([
   { number: 8248272, title: 'Detecting Targets in Roadway Intersections' },
   { number: 8665113, title: 'Detecting Roadway Targets Across Beams Including Filtering Computed Positions' },
   { number: 9240125, title: 'Detecting Roadway Targets Across Beams' }
-
 ])

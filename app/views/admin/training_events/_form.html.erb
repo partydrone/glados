@@ -1,22 +1,23 @@
 <%= form_for [:admin, @training_event], html: { multipart: true }, validate: true do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.label :started_at %>
-  <%= f.date_field :started_at, placeholder: 'yyyy-mm-dd' %>
-  <%= f.label :ended_at %>
-  <%= f.date_field :ended_at, placeholder: 'yyyy-mm-dd' %>
-
-  <h1>Courses to add</h1>
-
-  <%= f.fields_for :training_event_course do |builder| %>
- 
-    <%= render "training_event_course_record", f: builder %>
-  
-  <%end%>
-
-  <%= f.submit  class: 'button radius' %>
+  <div class="row">
+    <div class="medium-8 columns">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+      <%= f.label :location %>
+      <%= f.text_field :location %>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+      <%= f.label :started_at %>
+      <%= f.date_field :started_at, placeholder: 'yyyy-mm-dd' %>
+      <%= f.label :ended_at %>
+      <%= f.date_field :ended_at, placeholder: 'yyyy-mm-dd' %>
+      <%= f.submit  class: 'button radius' %>
+    </div>
+    <div class="medium-4 columns">
+      <%= f.fields_for :training_event_courses do |builder| %>
+        <%= render 'training_event_course_record', f: builder %>
+      <% end %>
+      <%= link_to 'Add another training course', nil, class: 'button round' %>
+    </div>
+  </div>
 <% end %>
