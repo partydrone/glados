@@ -1,0 +1,6 @@
+<%= f.label 'Course' %>
+<%= f.select :training_course_id, TrainingCourse.all.collect {|p| [p.title, p.id]} %>
+<%= f.label :seats %>
+<%= f.number_field :seats %>
+<%= f.label :started_at %>
+<%= f.date_field :started_at, placeholder: 'yyyy-mm-dd'%>

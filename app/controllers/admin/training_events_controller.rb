@@ -8,16 +8,18 @@ module Admin
 
     def new
       @training_event = TrainingEvent.new
+      @training_courses = TrainingCourse.all
     end
 
     def edit
     end
 
     def create
-      @training_event = TrainingEvent.new(training_event_params)
-
+      @training_event = TrainingEvent.new(training_event_params)      
+     
+      
       if @training_event.save
-        redirect_to admin_training_events_path, notice: %(Saved "#{@training_event.title}" successfully.)
+          redirect_to admin_training_events_path, notice: %(Saved "#{@training_event.title}" successfully.)        
       else
         render :new
       end
@@ -43,7 +45,8 @@ module Admin
     end
 
     def training_event_params
-      params.require(:training_event).permit(:title, :description, :started_at, :ended_at, :location)
+      params.require(:training_event).permit(:title, :description, :started_at, :ended_at, :location, :training_event_course_attributes => [:training_course_id, :seats, :started_at])
     end
+
   end
 end

@@ -1,0 +1,58 @@
+
+<div class="large-6 columns">
+    <h1>Host a Training Event</h1>
+    <h4>Host Information</h4>
+    <p>Please provide us with the following information to rquest hosting an event</p>
+
+    <%= form_for @training_event_request, validate: true do |f| %>
+    <%= f.label :company_name %>
+    <%= f.text_field :company_name %>
+    <%= f.label :full_name %>
+    <%= f.text_field :full_name %>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+    <%= f.label :postal_code %>
+    <%= f.text_field :postal_code %>
+    <%= f.label :region %>
+    <%= f.text_field :region %>
+    <%= f.label :country, class:"select-label"%>
+    <%= f.select :country, COUNTRIES.invert.sort %>
+    <%= f.label :started_at, 'Start date and time' %>
+    <%= f.datetime_field :started_at, placeholder: 'yyyy-mm-dd' %>
+    <%= f.label :ended_at, 'End date and time' %>
+    <%= f.datetime_field :ended_at, placeholder: 'yyyy-mm-dd' %>
+    <%= f.label :capacity, 'How many people do you want to host at this event' %>
+    <%= f.text_field :capacity %>
+    <%= f.submit 'Request', class: 'button radius expanded request-button' %>    
+</div>
+<div class="large-6 columns">
+    <h4><center>Request Courses<center></h4>    
+</div>
+
+
+<div class="row">
+    <div class="large-12 columns">
+        <h1>Training Courses</h1> 
+        <%= f.collection_check_boxes :training_course_ids, @training_courses, :id, :title do |b| %>
+            <div class="training-course-card">
+                <div class="horizontal menu"> 
+                    <h3 class="training-certified"><%= b.label %></h3>
+                    <div class="course-card-left training-hours">
+                        <%= b.object.duration %>
+                    </div>                
+                    <%= b.object.description %>
+                    <%= b.check_box %>
+                   
+                </div>
+            </div>
+        <%end%>
+    </div>
+</div>
+<% end %>
+

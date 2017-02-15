@@ -14,8 +14,14 @@
     <li>Country: <%= t "countries.#{@training_event_request.country}"%></li>
     <li>Start Date: <%= l @training_event_request.started_at.to_date, format: :long %></li>
     <li>End Date: <%= l @training_event_request.ended_at.to_date, format: :long %></li>
-    <li>Capacity <%= @training_event_request.capacity %></li>
+    <li>Capacity <%= @training_event_request.capacity %></li>    
     
+</ul>
+<p>Courses Requested</p>
+<ul>
+   <% @training_courses.each do |course| %>
+   <li><%= course.title %></li>
+   <%end%>
 </ul>
 <p>To respond to this request, just reply to this email.</p>
 
