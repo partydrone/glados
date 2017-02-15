@@ -1,7 +1,7 @@
 require 'test_helper'
 
 describe Article do
-  let(:article) { Article.new(title: 'Article Title', body: 'Article body text.', posted_on: Date.today.to_s(:db)) }
+  let(:article) { Article.new(title: 'Article Title', body: 'Article body text.', posted_on: Date.today.to_s(:db), hero_image_id: 1) }
 
   it "is a valid object" do
     article.must_be :valid?
@@ -23,8 +23,8 @@ describe Article do
   end
 
   it "returns a list of current articles" do
-    past_article = Article.create(title: "Past Article", body: "Past article body", posted_on: 5.days.ago)
-    future_article = Article.create(title: "Future Article", body: "Future article body", posted_on: 5.days.from_now)
+    past_article = articles(:past_article)
+    future_article = articles(:future_article)
 
     articles = Article.current
 
@@ -34,6 +34,10 @@ describe Article do
 
   it "has tags" do
     article.must_respond_to :tags
+  end
+
+  it "has associated products" do
+    article.must_respond_to :products
   end
 
   it "has views" do

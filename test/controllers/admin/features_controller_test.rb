@@ -14,12 +14,19 @@ describe Admin::FeaturesController, :locale do
   end
 
   it "creates a feature" do
+    hero_image = Refile::Backend::FileSystem.new('tmp/uploads/cache').upload fixture_file_upload('files/shark.jpg')
     -> {
       post admin_features_path, params: {
         feature: {
           title:       'System One',
           description: 'Meet the new memeber of the Wavetronix family.',
-          body:        'System one has been five years in the making, and it is totally worth the wait!'
+          body:        'System one has been five years in the making, and it is totally worth the wait!',
+          hero_image: {
+            id: hero_image.id,
+            filename: 'shark.jpg',
+            content_type: 'image/jpeg',
+            size: hero_image.size
+          }.to_json
         }
       }
     }.must_change 'Feature.count'

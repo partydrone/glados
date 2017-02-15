@@ -14,12 +14,26 @@ describe Admin::ProductCategoriesController, :locale do
   end
 
   it "creates a product category" do
+    hero_image = Refile::Backend::FileSystem.new('tmp/uploads/cache').upload fixture_file_upload('files/shark.jpg')
+    icon_image = Refile::Backend::FileSystem.new('tmp/uploads/cache').upload fixture_file_upload('files/shark.jpg')
     -> {
       post admin_product_categories_path, params: {
         product_category: {
           name: 'System One',
           position: '4',
-          product_type_id: product_types(:detection).id
+          product_type_id: product_types(:detection).id,
+          hero_image: {
+            id: hero_image.id,
+            filename: 'shark.jpg',
+            content_type: 'image/jpeg',
+            size: hero_image.size
+          }.to_json,
+          icon_image: {
+            id: icon_image.id,
+            filename: 'shark.jpg',
+            content_type: 'image/jpeg',
+            size: icon_image.size
+          }.to_json
         }
       }
     }.must_change 'ProductCategory.count'

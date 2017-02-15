@@ -14,10 +14,17 @@ describe Admin::MediaDownloadsController, :locale do
   end
 
   it "creates a media download" do
+    file = Refile::Backend::FileSystem.new('tmp/uploads/cache').upload fixture_file_upload('files/shark.jpg')
     -> {
       post admin_media_downloads_path, params: {
         media_download: {
-          description: 'Wicked cool picture of wicked cool people.'
+          description: 'Wicked cool picture of wicked cool people.',
+          file: {
+            id: file.id,
+            filename: 'shark.jpg',
+            content_type: 'image/jpeg',
+            size: file.size
+          }.to_json
         }
       }
     }.must_change 'MediaDownload.count'

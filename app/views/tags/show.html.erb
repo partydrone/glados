@@ -1,0 +1,11 @@
+<% content_for :title, "#{t '.title'}: #{@tag.name}" %>
+
+<div class="row columns">
+	<h1><%= yield :title %></h1>
+</div>
+
+<div class="row" data-equalizer data-equalize-on="medium">
+  <% @tag.taggings.each do |tagging| %>
+    <%= render partial: tagging.taggable_type.underscore, object: tagging.taggable %>
+  <% end %>
+</div>

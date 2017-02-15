@@ -4,6 +4,7 @@ class ReturnMaterialAuthorizationPolicyDocumentsController < ApplicationControll
   end
 
   def show
-    @return_material_authorization_policy_document = ReturnMaterialAuthorizationPolicyDocument.find(params[:id])
+    @legal_policy_document = ReturnMaterialAuthorizationPolicyDocument.find(params[:id])
+    render 'legal_policy_documents/show'
   end
 end

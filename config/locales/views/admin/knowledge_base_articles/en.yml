@@ -1,0 +1,9 @@
+---
+
+en:
+  admin:
+    knowledge_base_articles:
+      index:
+        title: Knowledge Base Articles
+      new:
+        title: New Knowledge Base Article

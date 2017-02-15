@@ -23,7 +23,7 @@
 #   sleep 0.1
 # done
 
-sleep 30
+sleep 10
 
 # This makes sure the script fails on the first failing command
 set -e

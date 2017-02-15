@@ -9,21 +9,13 @@
       <%= f.text_field :youtube_video_id %>
 
       <div class="row">
-        <div class="medium-6 columns">
+        <%= content_tag :div, class: 'medium-8 columns' do %>
+          <%= f.label :current_hero_image %>
+          <%= attachment_image_tag @feature, :hero_image %>
+        <% end if @feature.hero_image && @feature.hero_image.exists? %>
+        <div class="medium-4 columns">
           <%= f.label :hero_image %>
           <%= f.attachment_field :hero_image, direct: true, presigned: true %>
-        </div>
-        <div class="medium-6 columns">
-          <% if @feature.hero_image && @feature.hero_image.exists? %>
-            <div>
-              <%= f.label :current_hero_image %>
-              <%= attachment_image_tag @feature, :hero_image %>
-            </div>
-            <div>
-              <%= f.check_box :remove_hero_image %>
-              <%= f.label :remove_hero_image %>
-            </div>
-          <% end %>
         </div>
       </div>
 
@@ -33,7 +25,7 @@
       <%= f.submit nil, class: 'button radius' %>
     </div>
     <div class="large-4 columns">
-      <h2>Associated Products</h2>
+      <%= f.label :associated_products %>
       <% @product_types.each do |product_type| %>
         <h3><%= product_type.name %></h3>
         <ul class="no-bullet">

@@ -1,16 +1,10 @@
 <%= form_for [:admin, @media_download], validate: true do |f| %>
   <div class="row">
-    <%= content_tag :div, class: 'medium-6 columns' do %>
-      <div>
-        <%= f.label :current_file %>
-        <%= attachment_image_tag @media_download, :file %>
-      </div>
-      <div>
-        <%= f.check_box :remove_file %>
-        <%= f.label :remove_file %>
-      </div>
+    <%= content_tag :div, class: 'medium-8 columns' do %>
+      <%= f.label :current_image %>
+      <%= attachment_image_tag @media_download, :file %>
     <% end if @media_download.file && @media_download.file.exists? %>
-    <div class="medium-6 columns">
+    <div class="medium-4 columns">
       <%= f.label :file %>
       <%= f.attachment_field :file, direct: true, presigned: true %>
     </div>

@@ -1,7 +1,7 @@
 require 'test_helper'
 
 describe Product do
-  let(:product) { Product.new(name: 'SmartSensor HD', part_number: '101-0415', summary: 'SmartSensor HD summary.', description: 'SmartSensor HD description.', product_category_id: product_categories(:arterial).id) }
+  let(:product) { Product.new(name: 'SmartSensor HD', part_number: '101-0415', summary: 'SmartSensor HD summary.', description: 'SmartSensor HD description.', product_category_id: product_categories(:arterial).id, hero_image_id: 1, product_image_id: 1) }
 
   it "is a valid object" do
     product.must_be :valid?
@@ -36,6 +36,24 @@ describe Product do
     product.wont_be :valid?
   end
 
+  it "requires a hero image or YouTube ID" do
+    product.youtube_video_id = ' '
+    product.hero_image_id = ''
+    product.wont_be :valid?
+
+    product.youtube_video_id = '1Vk74oiCWrg'
+    product.must_be :valid?
+
+    product.youtube_video_id = ' '
+    product.hero_image_id = 1
+    product.must_be :valid?
+  end
+
+  it "requires a product image" do
+    product.product_image_id = ''
+    product.wont_be :valid?
+  end
+
   it "is not discontinued" do
     product.expired_on = 1.week.from_now
     product.wont_be :discontinued?
@@ -52,6 +70,10 @@ describe Product do
 
   it "has associated features" do
     product.must_respond_to :features
+  end
+
+  it "has associated knowledge base articles" do
+    product.must_respond_to :articles
   end
 
   it "has associated patents" do

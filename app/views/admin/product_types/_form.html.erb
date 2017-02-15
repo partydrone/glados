@@ -3,22 +3,24 @@
   <%= f.text_field :name %>
 
   <div class="row">
-    <div class="medium-6 columns">
+    <%= content_tag :div, class: 'medium-8 columns' do %>
+      <%= f.label :current_icon %>
+      <%= attachment_image_tag @product_type, :icon_image %>
+    <% end if @product_type.icon_image && @product_type.icon_image.exists? %>
+    <div class="medium-4 columns">
       <%= f.label :icon_image %>
       <%= f.attachment_field :icon_image, direct: true, presinged: true %>
-    </div>
-    <div class="medium-6 columns">
-      <%= attachment_image_tag @product_type, :icon_image if @product_type.icon_image && @product_type.icon_image.exists? %>
     </div>
   </div>
 
   <div class="row">
-    <div class="medium-6 columns">
+    <%= content_tag :div, class: 'medium-8 columns' do %>
+      <%= f.label :current_hero_image %>
+      <%= attachment_image_tag @product_type, :hero_image %>
+    <% end if @product_type.hero_image && @product_type.hero_image.exists? %>
+    <div class="medium-4 columns">
       <%= f.label :hero_image %>
       <%= f.attachment_field :hero_image, direct: true, presinged: true %>
-    </div>
-    <div class="medium-6 columns">
-      <%= attachment_image_tag @product_type, :hero_image if @product_type.hero_image && @product_type.hero_image.exists? %>
     </div>
   </div>
 

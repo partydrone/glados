@@ -4,6 +4,7 @@ class WebsitePrivacyPolicyDocumentsController < ApplicationController
   end
 
   def show
-    @website_privacy_policy_document = WebsitePrivacyPolicyDocument.find(params[:id])
+    @legal_policy_document = WebsitePrivacyPolicyDocument.find(params[:id])
+    render 'legal_policy_documents/show'
   end
 end

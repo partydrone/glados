@@ -82,7 +82,7 @@
 				display: block;
 				padding: 10px;
 				img,
-				h2 {
+				h2, p {
 					width: 100%;
 				}
 				img {
@@ -101,7 +101,7 @@ News Articles
 	}
 	@media screen and (min-width: 1024px) {
 		.news-events-featured {
-			background: $ghost;		
+			background: $ghost;
 			h2 {
 				padding-top: 40%;
 			}
@@ -157,6 +157,10 @@ News Articles
 		}
 	}
 
+	.news-article-blurbs .medium-6 .hero_image {
+		margin-bottom: 10px;
+	}
+
 	.news-toparticles {
 		line-height: 31px;
 	}
@@ -206,4 +210,3 @@ All Articles
 			margin-top: -3px;
 		}
 	}
-

@@ -44,10 +44,12 @@
       </h1>
       <%= content_tag :h6 do %>by <%= @article.author %><% end if @article.author %>
       <%= content_tag :h6 do %>
-        <%= image_tag "flags/16/#{@article.flag.downcase}.png" %>
+        <span class="flag-icon flag-icon-<%= @article.flag.downcase %>"></span>
         <%= @article.location %>
       <% end if @article.location %>
-      <%= attachment_image_tag @article, :hero_image, fallback: 'http://placehold.it/1600x900' %>
+      <%= content_tag :div, class: 'article-hero-container' do %>
+        <%= attachment_image_tag @article, :hero_image, fallback: 'http://placehold.it/1600x900' %>
+      <% end if @article.hero_image && @article.hero_image.exists? %>
     </div>
   </div>
 </header>
@@ -92,32 +94,20 @@
       <%= @article.subtitle %>
       <hr/>
     </h3>
-    <%= @article.body.html_safe %>
+    <%= embed_youtube_videos_for(@article.body).html_safe %>
   </div>
 
   <aside class="large-4 large-offset-0 medium-8 medium-offset-2 small-10 small-offset-1 columns similar-stories-side end sticky-container" data-sticky-container>
     <div class="sticky" data-sticky data-anchor="article-container" data-sticky-on="large">
       <div class="article-side-title"><%= t(".similar_stories") %></div>
-      <a href="#" class="row">
-        <img src="http://placehold.it/558x313" alt="placeholder" class="large-6 columns">
-        <h3 class="large-6 columns similar-side-text">Texas Transportation Institue Evaluation for Arizona DOT</h3>
-        <p class="hide-for-large">This is a summary of the article and doesn't really contain any information. Isn't that special? Probably not. I don't even know anymore.</p>
-      </a>
-      <a href="#" class="row">
-        <img src="http://placehold.it/558x313" alt="placeholder" class="large-6 columns">
-        <h3 class="large-6 columns similar-side-text">ATRC Test in Lewiston, Maine</h3>
-        <p class="hide-for-large">This is a summary of the article and doesn't really contain any information. Isn't that special? Probably not. I don't even know anymore.</p>
-      </a>
-      <a href="#" class="row">
-        <img src="http://placehold.it/558x313" alt="placeholder" class="large-6 columns">
-        <h3 class="large-6 columns similar-side-text">AF - Hansen & Henneberg Test in Farum, Denmark</h3>
-        <p class="hide-for-large">This is a summary of the article and doesn't really contain any information. Isn't that special? Probably not. I don't even know anymore.</p>
-      </a>
+      <% @article.get_related.take(3).each do |tagging| %>
+        <%= render partial: "related_#{tagging.taggable_type.underscore}", object: tagging.taggable %>
+      <% end %>
     </div>
   </aside>
 
 </article>
 
 <section class="article-tags show-for-large">
-  <%= t(".tags") %>: <%= @article.tag_list %>
+  <%= t(".tags") %>: <%= render_tags_for @article %>
 </section>

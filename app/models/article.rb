@@ -1,6 +1,8 @@
 class Article < ApplicationRecord
   include Taggable
 
+  has_and_belongs_to_many :products
+
   attachment :hero_image, content_type: %w(image/jpeg image/png image/gif)
 
   validates :title, :body, :posted_on, presence: true

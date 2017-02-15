@@ -1,7 +1,7 @@
 require 'test_helper'
 
 describe ProductCategory do
-  let(:product_category) { ProductCategory.new(name: 'Arterial', product_type: product_types(:detection)) }
+  let(:product_category) { ProductCategory.new(name: 'Arterial', product_type: product_types(:detection), hero_image_id: 1, icon_image_id: 1) }
 
   it "is a valid object" do
     product_category.must_be :valid?
@@ -9,6 +9,16 @@ describe ProductCategory do
 
   it "requires a name" do
     product_category.name = ' '
+    product_category.wont_be :valid?
+  end
+
+  it "requires a hero image" do
+    product_category.hero_image_id = ''
+    product_category.wont_be :valid?
+  end
+
+  it "requires an icon image" do
+    product_category.icon_image_id = ''
     product_category.wont_be :valid?
   end
 
