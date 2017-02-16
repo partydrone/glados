@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="large-4-offset-2 columns">
+        <h1><%= @training_event.title %></h1>
+        <p><%= @training_event.description%></p>
+    </div>
+    <div class="large-4 columns">
+        <h6>Event hosted by: ...</h6>
+        <img src="http://placehold.it/461x258" />
+        <h6><%= @training_event.location %></h6>
+        <h6><%= l @training_event.started_at.to_date, format: :long %></h6>
+    </div>
+</div>
+
+
+
+
+
+<div class="row">
+    <div class="large-12 columns">
+        <h1>Training Courses</h1> 
+        <% @training_courses.each do |c| %>    
+            <div class="training-course-card">
+                <div class="horizontal menu"> 
+                    <h3 class="training-certified"><%= c.title %></h3>
+                    <div class="course-card-left training-hours">
+                        <%= c.duration %>
+                    </div>                
+                    <%= c.description %>                   
+            </div>
+        </div>
+        <%end%>
+        
+    </div>
+</div>
+
+

@@ -2,21 +2,143 @@
 
 
 
-<div class="row columns admin-table">
-        <a href='https://projects.invisionapp.com/d/main#/console/6785125/187607212/preview'>Elizabeth click here to view</a>
-    <h1>Events</h1>
-    <%= render @training_events %>
-
-
-
-
-	<section>
-    <div class="medium-8 large-6 medium-centered columns">
-		<h4>Want to host a training event?</h4>
-            <h6>Just let us know when and where.</h6>	      
-             <%= link_to 'Contact Us', new_training_event_request_path %>
-              
-	  </div>
-	</section>
-
+<div class="page-sub-navigation show-for-large" data-sticky-container>
+	<div class="sticky" data-sticky data-anchor="training" data-active-class>
+		<div class="row">
+			<div class="columns text-right">
+				<nav data-magellan data-bar-offset="70">
+					<ul class="horizontal menu">
+						<li><a href="#events"><%= t(".events") %></a></li>
+						<li><a href="#courses"><%= t(".courses") %></a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
 </div>
+
+<div class="hide-for-large">
+	<div class="page-sub-bottom-nav">
+		<nav data-magellan data-bar-offset="50">
+			<ul class="menu icon-top expanded">
+			 	<li><a href="#events"><%= t(".events") %></a></li>
+			 	<li><a href="#courses"><%= t(".courses") %></a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+
+<section class="row columns training-post-cards" id="events" data-magellan-target='events'>
+	<h1><%= t(".events") %></h1>
+
+	<div class="training-input-container">
+	  <div class="training-input-card">
+      <h3><%= t(".find_events") %></h3>
+      <div class="news-find-events site-search-bar input-group">
+	      <div class="input-group-button">
+	        <?xml version="1.0" encoding="utf-8"?>
+	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17">
+	          <rect x="12.2" y="10" transform="translate(1 1)matrix(0.7071 -0.7071 0.7071 0.7071 -5.3589 12.9375)" class="st0" width="1.5" height="5.8"/><path class="st0" d="M7.3 14.3c-3.9 0-7-3.1-7-7 0-3.9 3.1-7 7-7 3.9 0 7 3.1 7 7C14.3 11.1 11.1 14.3 7.3 14.3zM7.3 1.8c-3 0-5.5 2.5-5.5 5.5 0 3 2.5 5.5 5.5 5.5 3 0 5.5-2.5 5.5-5.5C12.8 4.2 10.3 1.8 7.3 1.8z"/>
+	        </svg>
+	      </div>
+	      <input class="input-search-bar" type="text"/>
+	    </div>
+	  </div>
+
+		<div class="training-input-card">
+			<div class="training-request">
+				<h4><%= t(".request") %></h4>
+				<div class="request-box">
+		      <div class="request row">
+		        <div class="medium-8 small-10 small-centered columns">
+		          <p><%= t(".join_mailing_list") %></p>
+		          <form id="events-updates-form">
+		            <label>Name</label>
+		            <input type="text" name="updates-name">
+		            <label>Email</label>
+		            <input type="text" name="updates-email">
+		            <label>Zip Code or Country</label>
+		            <input type="text" name="updates-zip"><br>
+		          </form>
+		          <button type="submit" form="events-updates-form" value="Submit" class="button rounded expanded">Subscribe</button>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="training-request request-host">
+		    	<h4><%= t(".want_host") %></h4>
+		    	<p><%= t(".host_when_where") %></p>
+                
+		    	<button class="button rounded"><%= link_to 'Contact Us', new_training_event_request_path %></button>
+		    </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="post-list">
+		<!-- 4 max items -->
+        <%= render partial: 'training_event', collection: @training_events %>  
+	</div>
+
+	<div class="read-more">
+	  <a href="#" class="goto-new">View More</a>
+	</div>
+</section>
+
+
+<section class="training-courses-section" id="courses" data-magellan-target='courses'>
+	<div class="row columns">
+		<h1><%= t(".courses") %>
+			<div class="admin-nav">
+	      <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
+	        <li>
+	          <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis.svg', class: 'small-icon') %></a>
+	          <ul class="menu">
+	          	<li>
+	          <%= link_to nil, title: %(New) do %>
+	            <%= image_tag('icons/Plus.svg', class: 'small-icon') %>
+	            New
+	          <% end %>
+	        </li>
+	            <li>
+	              <%= link_to nil, title: %(Edit) do %>
+	                <%= image_tag('icons/edit.svg', class: 'small-icon') %>
+	                Edit
+	              <% end %>
+	            </li>
+	            <li>
+	              <%= link_to nil, class: 'delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
+	                <%= image_tag('icons/trash.svg', class: 'small-icon') %>
+	                Delete
+	              <% end %>
+	            </li>
+	          </ul>
+	        </li>
+	      </ul>
+	    </div>
+		</h1>
+	</div>
+	<div class="row">
+		<div class="medium-5 columns">
+			<div class="support-search-dropdown">
+				<section class="products-language-header support-dropdown">
+		      <select class="products-language-dropdown" name="smartsensor">
+		        <option value="allcourses">All Courses</option>
+		        <option value="certtech">Certified Technical Training</option>
+		        <option value="techworkshops">Technical Workshops</option>
+		        <option value="ssadvanced">SmartSensor Advance Courses</option>
+		        <option value="sshd">SmartSensor HD Courses</option>
+		        <option value="ssmatrix">SmartSensor Matrix Courses</option>
+		        <option value="click">Click Courses</option>
+		        <option value="command">Command Courses</option>
+		      </select>
+				</section>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+
+        <%= render partial: 'training_course', collection: @training_courses %>  
+		
+
+	</div>
+</section>
