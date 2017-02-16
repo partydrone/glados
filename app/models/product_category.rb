@@ -3,7 +3,7 @@ class ProductCategory < ApplicationRecord
   has_many :products
 
   attachment :hero_image, content_type: %w(image/jpeg image/png image/gif)
-  attachment :icon_image, content_type: %w(image/jpeg image/png image/gif)
+  attachment :icon_image, content_type: %w(image/jpeg image/png image/gif image/svg+xml)
 
   validates :name, :product_type, presence: true
   validates :hero_image, :icon_image, presence: true, on: :create
