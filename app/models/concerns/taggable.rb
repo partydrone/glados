@@ -15,7 +15,7 @@ module Taggable
   end
 
   def tag_list=(names)
-    self.tags = names.split(',').map do |n|
+    self.tags = names.split(',').delete_if { |n| n.blank? }.map do |n|
       n.downcase!
       Tag.find_or_create_by!(name: n.strip)
     end
