@@ -6,7 +6,7 @@ module Taggable
     has_many :tags, through: :taggings
   end
 
-  def get_related
+  def related
     Tagging.select('distinct on (taggable_id) *').where(tag_id: tag_ids).where.not(taggable_id: id).limit(5)
   end
 
