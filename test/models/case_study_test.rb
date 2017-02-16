@@ -26,4 +26,9 @@ describe CaseStudy do
     case_study.hero_image_id = ''
     case_study.wont_be :valid?
   end
+
+  it "requires a subtitle" do
+    case_study.subtitle = ' '
+    case_study.wont_be :valid?
+  end
 end
