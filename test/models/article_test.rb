@@ -51,4 +51,14 @@ describe Article do
     article.reload
     article.views.must_equal 1
   end
+
+  it "filters news articles" do
+    blog_post  = blog_posts(:new_blog_post)
+    case_study = case_studies(:new_case_study)
+    kb_article = knowledge_base_articles(:kb_article_one)
+
+    Article.news_articles.must_include blog_post
+    Article.news_articles.must_include case_study
+    Article.news_articles.wont_include kb_article
+  end
 end
