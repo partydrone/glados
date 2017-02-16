@@ -5,7 +5,7 @@ en:
     index:
       title:            Blog Posts
     show:
-      similar_stories:  Similar Stories
+      related_articles:  Related Articles
       tags:             Tags
     new:
       title:            New Blog Post

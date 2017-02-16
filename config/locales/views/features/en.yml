@@ -4,7 +4,7 @@ en:
   features:
     index:
       title:            Features
-      similar_features: Similar Features
+      related_articles: Related Articles
       tags:             Tags
   admin:
     features:

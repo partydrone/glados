@@ -47,7 +47,9 @@
 					<iframe src="https://www.youtube.com/embed/<%= @feature.youtube_video_id %>?rel=0&showinfo=0" width="720" hieght="480" frameborder="0" allowfullscreen></iframe>
 				</div>
 			<% else %>
-				<%= attachment_image_tag @feature, :hero_image, fallback: 'http://placehold.it/1600x900' %>
+        <%= content_tag :div, class: 'article-hero-container' do %>
+				  <%= attachment_image_tag @feature, :hero_image, fallback: 'http://placehold.it/1600x900' %>
+        <% end %>
 			<% end %>
     </div>
   </div>
@@ -60,7 +62,7 @@
 
   <div class="small-10 small-offset-1 medium-8 medium-offset-2 large-4 large-offset-0 columns similar-stories-side end" data-sticky-container>
     <div class="sticky" data-sticky data-anchor="article-container" data-sticky-on="large">
-      <div class="article-side-title"><%= t(".similar_features") %></div>
+      <div class="article-side-title"><%= t(".related_articles") %></div>
       <a href="#" class="row">
         <img src="http://placehold.it/558x313" alt="placeholder" class="large-6 columns">
         <h2 class="large-6 columns similar-side-text">Texas Transportation Institue Evaluation for Arizona DOT</h2>

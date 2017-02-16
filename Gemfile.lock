@@ -69,13 +69,13 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     ansi (1.5.0)
     arel (7.1.4)
-    aws-sdk (2.7.7)
-      aws-sdk-resources (= 2.7.7)
-    aws-sdk-core (2.7.7)
+    aws-sdk (2.7.8)
+      aws-sdk-resources (= 2.7.8)
+    aws-sdk-core (2.7.8)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.7.7)
-      aws-sdk-core (= 2.7.7)
+    aws-sdk-resources (2.7.8)
+      aws-sdk-core (= 2.7.8)
     aws-sigv4 (1.0.0)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -377,4 +377,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.14.3
+   1.14.4
