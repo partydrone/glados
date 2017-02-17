@@ -134,11 +134,13 @@
 </div>
 
 <section class="about-careers-container" id="careers" data-magellan-target="careers">
+  <%= image_tag 'icons/careers.svg', class: 'large-icon' %>
   <h1><%= t(".careers") %></h1>
   <%= link_to t('.find_career'), 'http://wavetronix.recruiterbox.com', class: 'button rounded large', target: '_blank' %>
 </section>
 
 <section class="about-legal-container" id="aboutlegal" data-magellan-target="legal">
+  <%= image_tag 'icons/legal.svg', class: 'large-icon' %>
   <h1><%= t(".legal") %></h1>
   <!-- <button class="button rounded large"><%= t('.view_legal') %></button> -->
   <%= link_to t('.view_legal'), legal_path, class: 'button rounded large' %>
