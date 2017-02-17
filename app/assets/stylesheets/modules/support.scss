@@ -49,15 +49,17 @@ select.support-dropdown {
 	}
 	.site-search-bar {
 		width: 100%;
-		@media screen and (max-width: 1023px) {
-			margin-left: 0 !important;
-		}
+		margin: 0;
 	}
 	.request-box {
 		background: $linkblue;
 		color: $white;
 		margin-bottom: 1rem;
 		z-index: 1;
+	}
+	.input-group-button svg {
+		padding-top: 1px;
+		padding-right: 16px !important;
 	}
 	@media screen and (max-width: 1023px) {
 		margin-top: 2rem;

@@ -19,6 +19,15 @@
 	width: 50%;
 }
 
+.news-find-events {
+	width: 100%;
+	border: 1px solid $silver;
+	border-radius: 5px;
+	input {
+		margin-bottom: 0;
+	}
+}
+
 .event-location {
 	h6 {
 		margin: 0.5rem 0;

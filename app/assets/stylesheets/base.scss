@@ -440,15 +440,17 @@ Read/View more
 Search Bar/Input
 ***********************************************************************************************/
 
+  .search-dropdown {
+    background: $white;
+    border-radius: 5px;
+    border: 1px solid $silver;
+  }
+
   .site-search-bar {
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
     vertical-align: top;
     .input-search-bar {
-      background: $white;
-      border: 1px solid $silver;
-      border-left: 0px;
-      border-radius: 0 5px 5px 0 !important;
       padding: 0.675em 1em !important;
       color: $charcoal;
       max-width: 100% !important;
@@ -460,13 +462,9 @@ Search Bar/Input
     }
     .input-group-button {
       display: inline-block;
-      background: $white;
-      border: 1px solid $silver;
-      border-right: 0;
       width: 44px;
       margin-right: -4px;
       margin-top: -1px;
-      border-radius: 5px 0 0 5px !important;
       height: 39px;
       padding-top: 8px;
       svg {
@@ -474,6 +472,9 @@ Search Bar/Input
         float: right;
         padding-right: 12px;
       }
+    }
+    input {
+      border: none;
     }
     .input-group-field {
       border-right: 0px;
