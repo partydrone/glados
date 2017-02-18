@@ -60,7 +60,7 @@ Rails.application.routes.draw do
 
     ##
     # Resource routes
-    resources :demo_requests, :marketing_app_support_requests, only: [:create]
+    resources :demo_requests, :marketing_app_support_requests, :enrollments, only: [:create]
 
     resources :training_event_requests, only: [:create, :new]
 

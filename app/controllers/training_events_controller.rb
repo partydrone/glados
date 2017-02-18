@@ -7,9 +7,9 @@ class TrainingEventsController < ApplicationController
   end
 
   def show
+    @enrollment = Enrollment.new
     @training_event = TrainingEvent.find(params[:id])        
     @training_courses = TrainingCourse.find(TrainingEventCourse.where(:training_event_id => @training_event.id).pluck(:training_course_id))
-
   end
   
 end
