@@ -1,6 +1,30 @@
-<div class="large-pull-8 columns end text-right">
+<div class="large-pull-8 columns end">
 	<h3><%= product.name %></h3>
 </div>
 <div class="large-7 large-offset-4 end columns">
-	<%= render product.articles %>
+	<!-- first 3 questions -->
+	<ul class="vertical menu" data-accordia-menu>
+		<% product.articles[0,3].each do |kba| %>
+			<li class="knowledge-base-question">
+				<%= link_to kba.title, kba %>
+			</li>
+		<% end %>
+	</ul>
+	<% if product.articles.count > 3 %>
+		<!-- all the other questions -->
+		<ul class="vertical menu knowledge-base-view-more" data-accordion-menu>
+			<li>
+			  <ul class="menu vertical nested">
+			  	<% product.articles[3..-1].each do |kba| %>
+			    	<li class="knowledge-base-question">
+			    		<%= link_to kba.title, kba %>
+			    	</li>
+			    <% end %>
+			   </ul>
+			    <a href="#" class="knowledge-base-view-more-link"></a>
+			 </li>
+		</ul>
+	<% else %>
+		<div class="kb-spacer"></div>
+	<% end %>
 </div>

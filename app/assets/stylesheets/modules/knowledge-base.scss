@@ -35,6 +35,11 @@
 
 .knowledge-base-body {
 	margin-top: 50px;
+	@media screen and (min-width: 1024px) {
+		h3 {
+			text-align: right;
+		}
+	}
 }
 
 .knowledge-base-question {
@@ -72,4 +77,8 @@
 
 .is-accordion-submenu-parent[aria-expanded='true'] > .knowledge-base-view-more-link::before {
 	content: 'view less'
+}
+
+.kb-spacer {
+	height: 30px;
 }
