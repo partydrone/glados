@@ -23,7 +23,12 @@
     <nav data-magellan>
       <ul class="menu icon-top expanded">
         <li><%= link_to yield(:title), '#about' %></li>
-        <li><%= link_to t('.news'), '#news' %></li>
+        <li>
+          <%= link_to '#news' do %>
+            <%= image_tag "icons/legal.svg", class: 'small-icon' %>
+            <span><%= t('.news') %></span>
+          <% end %>
+        </li>
         <li><%= link_to t('.downloads'), '#downloads' %></li>
         <li><%= link_to t('.careers'), '#careers' %></li>
         <li><%= link_to t('.legal'), '#legal' %></li>
