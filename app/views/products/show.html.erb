@@ -1,26 +1,30 @@
 <% content_for :title, @product.name %>
 
-<div class="product-specific-navigation show-for-large" data-sticky-container>
-	<div class="sticky" data-sticky data-active-class>
-		<div class="row">
-			<div class="large-5 columns">
-				<h4>
-					<%= @product.name %>
-				</h4>
-			</div>
-			<div class="large-7 columns text-right">
-				<nav data-magellan data-bar-offset="70">
-					<ul class="horizontal menu">
-						<li><%= link_to t('.features'), '#features' %></li>
-						<li><%= link_to t('.courses'), '#training' %></li>
-						<li><%= link_to t('.support'), '#support' %></li>
-						<li><%= link_to t('.request_demo'), '#demo_request_form', class: 'button small' %></li>
-					</ul>
-				</nav>
+<section class="product-specific-features" id="top-of-page" data-magellan-target="top-of-page"></section>
+
+<% if @product.features.present? %>
+	<div class="product-specific-navigation show-for-large" data-sticky-container>
+		<div class="sticky" data-sticky data-active-class>
+			<div class="row">
+				<div class="large-5 columns">
+					<h4 data-magellan>
+						<%= link_to @product.name, '#top-of-page' %>
+					</h4>
+				</div>
+				<div class="large-7 columns text-right">
+					<nav data-magellan data-bar-offset="70">
+						<ul class="horizontal menu">
+							<li><%= link_to t('.features'), '#features' %></li>
+							<li><%= link_to t('.courses'), '#training' %></li>
+							<li><%= link_to t('.support'), '#support' %></li>
+							<li><%= link_to t('.request_demo'), '#demo_request_form', class: 'button small' %></li>
+						</ul>
+					</nav>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+<% end %>
 
 <div class="hide-for-large">
 	<div class="product-specific-top-nav">
@@ -61,21 +65,23 @@
 
 <div class="product-specific-sections">
 
-	<section class="product-specific-features" id="features" data-magellan-target="features">
-		<%= render @product.features %>
-	</section>
+	<% if @product.features.present? %>
+		<section class="product-specific-features" id="features" data-magellan-target="features">
+			<%= render @product.features %>
+		</section>
 
-	<section class="product-request-demo" id="demo_request_form" data-magellan-target="demo_request_form">
-		<h4><%= t '.request_demo' %></h4>
-	  <div class="request-box">
-	    <div class="request row">
-	      <div class="medium-8 large-6 medium-centered columns">
-	        <%= render 'demo_request_form' %>
-	        <p><%= t '.perfer_contact' %> <%= link_to t('.here'), nil %>.</p>
-	      </div>
-	    </div>
-	  </div>
-	</section>
+		<section class="product-request-demo" id="demo_request_form" data-magellan-target="demo_request_form">
+			<h4><%= t '.request_demo' %></h4>
+		  <div class="request-box">
+		    <div class="request row">
+		      <div class="medium-8 large-6 medium-centered columns">
+		        <%= render 'demo_request_form' %>
+		        <p><%= t '.perfer_contact' %> <%= link_to t('.here'), nil %>.</p>
+		      </div>
+		    </div>
+		  </div>
+		</section>
+	<% end %>
 
 
 	<!-- always white! -->
