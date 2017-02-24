@@ -11,5 +11,46 @@ smartsensor_hd_installation:
     Troubleshoot communication and power lines.
   number: 101
   duration: 4
-  seats:
+  training_course_type: workshop
+
+training_course_one:
+  title: Training Course One
+  description: Training course one description.
+  number: 001
+  duration: 2
+  training_course_type: workshop
+
+training_course_two:
+  title: Training Course Two
+  description: Training course two description.
+  number: 002
+  duration: 2
+  training_course_type: workshop
+
+training_course_three:
+  title: Training Course Three
+  description: Training course three description.
+  number: 003
+  duration: 2
+  training_course_type: workshop
+
+training_course_four:
+  title: Training Course Four
+  description: Training course four description.
+  number: 004
+  duration: 2
+  training_course_type: workshop
+
+training_course_five:
+  title: Training Course Five
+  description: Training course five description.
+  number: 005
+  duration: 2
+  training_course_type: workshop
+
+training_course_six:
+  title: Training Course Six
+  description: Training course six description.
+  number: 006
+  duration: 2
   training_course_type: workshop

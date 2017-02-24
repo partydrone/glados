@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170218004941) do
+ActiveRecord::Schema.define(version: 20170224002626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -149,6 +149,11 @@ ActiveRecord::Schema.define(version: 20170218004941) do
   create_table "patents_products", id: false, force: :cascade do |t|
     t.integer "patent_id",  null: false
     t.integer "product_id", null: false
+  end
+
+  create_table "prerequisites_training_courses", force: :cascade do |t|
+    t.integer "prerequisite_id"
+    t.integer "training_course_id"
   end
 
   create_table "product_categories", force: :cascade do |t|
