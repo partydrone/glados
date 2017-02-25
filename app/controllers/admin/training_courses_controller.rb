@@ -7,14 +7,15 @@ module Admin
     end
 
     def new
-      @training_course = TrainingCourse.new
+      @training_course = TrainingCourse.new   
+      @training_courses = TrainingCourse.all      
     end
 
     def edit
     end
 
     def create
-      @training_course = TrainingCourse.new(training_course_params)
+      @training_course = TrainingCourse.new(training_course_params)      
 
       if @training_course.save
         redirect_to admin_training_courses_path, notice: %(Saved "#{@training_course.title}" successfully.)
@@ -45,7 +46,7 @@ module Admin
     end
 
     def training_course_params
-      params.require(:training_course).permit(:title, :description, :number, :duration, :seats, :training_course_type_id)
+      params.require(:training_course).permit(:title, :description, :number, :duration, :seats, :training_course_type_id, prerequisite_ids: [])
     end
   end
 end
