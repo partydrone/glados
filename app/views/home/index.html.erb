@@ -39,8 +39,8 @@
         </div>
         <div class="home-story-center">
           <div id="safety-carousel" class="owl-carousel safety-carousel">
-            <% @safe_articles.each do |tagging| %>
-              <%= render partial: tagging.taggable_type.underscore, object: tagging.taggable %>
+            <% @safe_articles.each do |object| %>
+              <%= render partial: object.class.to_s.underscore, object: object %>
             <% end %>
           </div>
         </div>
@@ -83,8 +83,8 @@
         </div>
         <div class="home-story-center">
           <div id="efficiency-carousel" class="owl-carousel efficiency-carousel">
-            <% @efficient_articles.each do |tagging| %>
-              <%= render partial: tagging.taggable_type.underscore, object: tagging.taggable %>
+            <% @efficient_articles.each do |object| %>
+              <%= render partial: object.class.to_s.underscore, object: object %>
             <% end %>
           </div>
         </div>
@@ -122,8 +122,8 @@
           </div>
           <div class="home-story-center">
             <div id="efficiency-carousel" class="owl-carousel efficiency-carousel">
-              <% @reliable_articles.each do |tagging| %>
-                <%= render partial: tagging.taggable_type.underscore, object: tagging.taggable %>
+              <% @reliable_articles.each do |object| %>
+                <%= render partial: object.class.to_s.underscore, object: object %>
               <% end %>
             </div>
           </div>
@@ -274,8 +274,8 @@
         </div>
         <div class="home-story-center">
           <div id="efficiency-carousel" class="owl-carousel efficiency-carousel">
-            <% @cost_effective_articles.each do |tagging| %>
-              <%= render partial: tagging.taggable_type.underscore, object: tagging.taggable %>
+            <% @cost_effective_articles.each do |object| %>
+              <%= render partial: object.class.to_s.underscore, object: object %>
             <% end %>
           </div>
         </div>
@@ -337,8 +337,8 @@
             </div>
             <div class="home-story-center">
               <div id="efficiency-carousel" class="owl-carousel efficiency-carousel">
-                <% @simple_articles.each do |tagging| %>
-                  <%= render partial: tagging.taggable_type.underscore, object: tagging.taggable %>
+                <% @simple_articles.each do |object| %>
+                  <%= render partial: object.class.to_s.underscore, object: object %>
                 <% end %>
               </div>
             </div>
@@ -385,8 +385,8 @@
             </div>
             <div class="home-story-center">
               <div id="efficiency-carousel" class="owl-carousel efficiency-carousel">
-                <% @support_articles.each do |tagging| %>
-                  <%= render partial: tagging.taggable_type.underscore, object: tagging.taggable %>
+                <% @support_articles.each do |object| %>
+                  <%= render partial: object.class.to_s.underscore, object: object %>
                 <% end %>
               </div>
             </div>
