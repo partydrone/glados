@@ -7,7 +7,6 @@
 
     <%= render partial: 'product_category', collection: product_type.product_categories %>
 
-    <div class="product-alternate-image-container show-for-large" style="background-image: url('<%= attachment_url product_type, :hero_image, fallback: 'http://placehold.it/600x300' %>'); background-size: cover;">
-    </div>
   </div>
+  <div class="product-alternate-image-container show-for-large" style="background-image: url('<%= attachment_url product_type, :hero_image, fallback: 'http://placehold.it/600x300' %>'); background-size: cover;"></div>
 </section>
