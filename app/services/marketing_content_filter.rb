@@ -5,7 +5,7 @@ class MarketingContentFilter
 
   def filter
     return @collection if @collection.empty?
-    @collection.reject! do |object|
+    @collection.delete_if do |object|
       object.class == KnowledgeBaseArticle ||
       (object.class == Feature && object.body.blank?)
     end
