@@ -8,6 +8,7 @@ class Article < ApplicationRecord
   validates :title, :body, :posted_on, presence: true
 
   scope :current, -> { where 'posted_on < ?', Date.tomorrow }
+  scope :news_articles, -> { where type: ['BlogPost', 'CaseStudy'] }
 
   def log_view(by = 1)
     self.views ||= 0
