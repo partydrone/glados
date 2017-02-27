@@ -102,7 +102,7 @@
       <div class="article-side-title row">
         <%= t(".related_articles") %>
       </div>
-      <% MarketingContentFilter.new(@article.related.map(&:taggable)).filter.shift(3).each do |object| %>
+      <% MarketingContentFilter.new(@article.related).filter.shift(3).each do |object| %>
         <%= render partial: "related_#{object.class.to_s.underscore}", object: object %>
       <% end %>
     </div>
