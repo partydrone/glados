@@ -18,10 +18,10 @@
           <%= f.attachment_field :hero_image, direct: true, presigned: true %>
         </div>
       </div>
-
       <%= f.label :body %>
       <%= f.cktext_area :body, rows: 20 %>
-      <p></p>
+      <%= f.label :tag_list, 'Tags (separated by commas) (regions include: africa, asia, europe, north america, oceana, and south america)' %>
+      <%= f.text_field :tag_list, value: f.object.tag_list.to_s %>
       <%= f.submit nil, class: 'button radius' %>
     </div>
     <div class="large-4 columns">
