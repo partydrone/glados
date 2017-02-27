@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170210212215) do
+ActiveRecord::Schema.define(version: 20170210212316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,14 @@ ActiveRecord::Schema.define(version: 20170210212215) do
   create_table "downloads_products", id: false, force: :cascade do |t|
     t.integer "download_id", null: false
     t.integer "product_id",  null: false
+  end
+
+  create_table "enrollments", force: :cascade do |t|
+    t.integer "training_event_course_id"
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "email"
+    t.index ["training_event_course_id"], name: "index_enrollments_on_training_event_course_id", using: :btree
   end
 
   create_table "feature_associations", force: :cascade do |t|
@@ -241,6 +249,17 @@ ActiveRecord::Schema.define(version: 20170210212215) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.index ["training_course_type_id"], name: "index_training_courses_on_training_course_type_id", using: :btree
+  end
+
+  create_table "training_event_courses", force: :cascade do |t|
+    t.integer  "training_course_id"
+    t.integer  "training_event_id"
+    t.integer  "seats"
+    t.datetime "started_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["training_course_id"], name: "index_training_event_courses_on_training_course_id", using: :btree
+    t.index ["training_event_id"], name: "index_training_event_courses_on_training_event_id", using: :btree
   end
 
   create_table "training_events", force: :cascade do |t|
