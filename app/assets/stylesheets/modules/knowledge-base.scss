@@ -13,9 +13,21 @@
 }
 
 .knowledge-base-search {
-	width: 100%;
+	width: 80%;
+	background: $white;
 	margin-left: auto;
 	margin-right: auto;
+	border-radius: 5px;
+	border: 1px solid $silver;
+	input {
+		margin-bottom: 0;
+		border: none;
+		box-shadow: none;
+	}
+	@media screen and (max-width: 1023px) {
+		margin-right: auto !important;
+		margin-left: auto !important;
+	}
 	@media screen and (min-width: 40em) {
 		width: 50vw !important;
 	}
@@ -23,6 +35,11 @@
 
 .knowledge-base-body {
 	margin-top: 50px;
+	@media screen and (min-width: 1024px) {
+		h3 {
+			text-align: right;
+		}
+	}
 }
 
 .knowledge-base-question {
@@ -60,4 +77,8 @@
 
 .is-accordion-submenu-parent[aria-expanded='true'] > .knowledge-base-view-more-link::before {
 	content: 'view less'
+}
+
+.kb-spacer {
+	height: 30px;
 }
