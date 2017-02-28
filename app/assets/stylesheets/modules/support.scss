@@ -44,6 +44,9 @@ select.support-dropdown {
 	.input-search-bar {
 		height: 39px;
 	}
+	.search-bar {
+		margin-bottom: 15px;
+	}
 	.site-search-bar .input-group-button {
 		margin-top: -1px;
 	}
@@ -56,6 +59,7 @@ select.support-dropdown {
 		color: $white;
 		margin-bottom: 1rem;
 		z-index: 1;
+		padding-bottom: 15px;
 	}
 	.input-group-button svg {
 		padding-top: 1px;
@@ -74,7 +78,7 @@ select.support-dropdown {
 	img {
 		padding-bottom: 0.75rem;
 	}
-	button {
+	.button {
 		margin: 1.5rem 1rem 0 1rem;
 	}
 	@media screen and (max-width: 1023px) {
