@@ -273,7 +273,7 @@
           <a class="owl-prev"><%= image_tag 'icons/stories-left.svg' %></a>
         </div>
         <div class="home-story-center">
-          <div id="efficiency-carousel" class="owl-carousel efficiency-carousel">
+          <div id="cost-carousel" class="owl-carousel cost-carousel">
             <% @cost_effective_articles.each do |object| %>
               <%= render partial: object.class.to_s.underscore, object: object %>
             <% end %>
@@ -336,7 +336,7 @@
               <a class="owl-prev"><%= image_tag 'icons/stories-left.svg' %></a>
             </div>
             <div class="home-story-center">
-              <div id="efficiency-carousel" class="owl-carousel efficiency-carousel">
+              <div id="simple-carousel" class="owl-carousel simple-carousel">
                 <% @simple_articles.each do |object| %>
                   <%= render partial: object.class.to_s.underscore, object: object %>
                 <% end %>
@@ -384,7 +384,7 @@
               <a class="owl-prev"><%= image_tag 'icons/stories-left.svg' %></a>
             </div>
             <div class="home-story-center">
-              <div id="efficiency-carousel" class="owl-carousel efficiency-carousel">
+              <div id="support-carousel" class="owl-carousel support-carousel">
                 <% @support_articles.each do |object| %>
                   <%= render partial: object.class.to_s.underscore, object: object %>
                 <% end %>
