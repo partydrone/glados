@@ -69,15 +69,6 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     ansi (1.5.0)
     arel (7.1.4)
-<<<<<<< HEAD
-    aws-sdk (2.7.8)
-      aws-sdk-resources (= 2.7.8)
-    aws-sdk-core (2.7.8)
-      aws-sigv4 (~> 1.0)
-      jmespath (~> 1.0)
-    aws-sdk-resources (2.7.8)
-      aws-sdk-core (= 2.7.8)
-=======
     aws-sdk (2.7.13)
       aws-sdk-resources (= 2.7.13)
     aws-sdk-core (2.7.13)
@@ -85,7 +76,6 @@ GEM
       jmespath (~> 1.0)
     aws-sdk-resources (2.7.13)
       aws-sdk-core (= 2.7.13)
->>>>>>> master
     aws-sigv4 (1.0.0)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
