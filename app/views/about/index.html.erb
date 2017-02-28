@@ -22,16 +22,36 @@
   <div class="page-sub-bottom-nav">
     <nav data-magellan>
       <ul class="menu icon-top expanded">
-        <li><%= link_to yield(:title), '#about' %></li>
         <li>
           <%= link_to '#news' do %>
-            <%= image_tag "icons/legal.svg", class: 'small-icon' %>
+            <%= image_tag "icons/news.svg", class: 'small-icon' %>
             <span><%= t('.news') %></span>
           <% end %>
         </li>
-        <li><%= link_to t('.downloads'), '#downloads' %></li>
-        <li><%= link_to t('.careers'), '#careers' %></li>
-        <li><%= link_to t('.legal'), '#legal' %></li>
+        <li>
+          <%= link_to '#about' do %>
+            <%= image_tag "icons/world.svg", class: 'small-icon' %>
+            <span><%= t('.about') %></span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#downloads' do %>
+            <%= image_tag "icons/cloud.svg", class: 'small-icon' %>
+            <span>Downloads</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#careers' do %>
+            <%= image_tag "icons/careers.svg", class: 'small-icon' %>
+            <span><%= t('.careers') %></span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#legal' do %>
+            <%= image_tag "icons/legal.svg", class: 'small-icon' %>
+            <span><%= t('.legal') %></span>
+          <% end %>
+        </li>
       </ul>
     </nav>
   </div>

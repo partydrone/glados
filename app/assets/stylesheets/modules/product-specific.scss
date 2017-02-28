@@ -33,7 +33,7 @@ navigation
     h4 {
       line-height: 2.375rem;
       @include no-pad-marg;
-      .active {
+      .active, a:focus, a:hover, a {
         color: $charcoal !important;
       }
     }
