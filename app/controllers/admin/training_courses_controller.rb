@@ -12,6 +12,7 @@ module Admin
     end
 
     def edit
+      @training_courses = TrainingCourse.where.not(id: @training_course.id)
     end
 
     def create
