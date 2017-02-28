@@ -3,7 +3,7 @@
     <div class="medium-6 columns">
       <%= f.label :title %>
       <%= f.text_field :title %>
-      <%= f.label :description %>
+      <%= f.cktext_area :description %>
       <%= f.text_field :description %>
       <%= f.label :number %>
       <%= f.text_field :number %>
@@ -26,9 +26,7 @@
             </div>
             
           <% end if @training_courses %>
-        
+          <%= f.submit  class: 'button radius' %>    
       </div>      
-  
-    <%= f.submit  class: 'button radius' %>
   </div>
 <% end %>
