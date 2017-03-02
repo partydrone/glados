@@ -65,6 +65,10 @@ gem 'flamegraph'
 gem 'stackprof'
 
 ##
+# Search
+gem 'pg_search'
+
+##
 # Tagging
 gem 'acts-as-taggable-on', '~> 4.0'
 
