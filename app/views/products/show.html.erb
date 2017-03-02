@@ -44,7 +44,8 @@
 
 <div class="row columns">
 	<div class="product-specific-intro">
-		<h1><%= @product.product_category.name %></h1>
+		<h1><%= @product.name %></h1>
+		<h6><%= @product.product_category.name %></h6>
 		<div class="product-intro-media">
 			<% if @product.youtube_video_id.present? %>
 				<div class="flex-video widescreen">
