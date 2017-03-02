@@ -1,17 +1,12 @@
 require 'test_helper'
 
-class BlogPost; end
-class CaseStudy; end
-class KnowledgeBaseArticle; end
-
-class Feature
-  def body
-    'some text'
-  end
-end
-
 describe ContentFilter do
   describe "filter" do
+    let(:blog_post) { BlogPost.new }
+    let(:case_study) { CaseStudy.new }
+    let(:kb_article) { KnowledgeBaseArticle.new }
+    let(:product_feature) { Feature.new(body: 'some content') }
+
     it "returns an empty array if it gets an empty array" do
       collection = []
       ContentFilter.new(collection).filter(:whatever).must_equal []
@@ -32,32 +27,35 @@ describe ContentFilter do
       ContentFilter.new(collection).filter(:marketing_content).must_equal collection
     end
 
-    it "filters out everything but marketing content" do
-      blog_post  = BlogPost.new
-      case_study = CaseStudy.new
-      feature    = Feature.new
-      kb_article = KnowledgeBaseArticle.new
-      collection = [blog_post, case_study, feature, kb_article]
+    describe "marketing_content" do
+      it "filters out everything but marketing content" do
+        collection = [blog_post, case_study, product_feature, kb_article]
 
-      ContentFilter.new(collection).filter(:marketing_content).must_include blog_post
-      ContentFilter.new(collection).filter(:marketing_content).must_include case_study
-      ContentFilter.new(collection).filter(:marketing_content).must_include feature
+        ContentFilter.new(collection).filter(:marketing_content).must_include blog_post
+        ContentFilter.new(collection).filter(:marketing_content).must_include case_study
+        ContentFilter.new(collection).filter(:marketing_content).must_include product_feature
 
-      ContentFilter.new(collection).filter(:marketing_content).wont_include kb_article
+        ContentFilter.new(collection).filter(:marketing_content).wont_include kb_article
+      end
+
+      it "doesn't include features with no body" do
+        bad_feature  = Feature.new(body: '')
+        collection   = [bad_feature, product_feature]
+
+        ContentFilter.new(collection).filter(:marketing_content).wont_include bad_feature
+        ContentFilter.new(collection).filter(:marketing_content).must_include product_feature
+      end
     end
 
-    it "filters out everything but support content" do
-      blog_post  = BlogPost.new
-      case_study = CaseStudy.new
-      feature    = Feature.new
-      kb_article = KnowledgeBaseArticle.new
-      collection = [blog_post, case_study, feature, kb_article]
+    describe "support_content" do
+      it "filters out everything but support content" do
+        collection = [blog_post, case_study, kb_article]
 
-      ContentFilter.new(collection).filter(:support_content).must_include kb_article
+        ContentFilter.new(collection).filter(:support_content).must_include kb_article
 
-      ContentFilter.new(collection).filter(:support_content).wont_include blog_post
-      ContentFilter.new(collection).filter(:support_content).wont_include case_study
-      ContentFilter.new(collection).filter(:support_content).wont_include feature
+        ContentFilter.new(collection).filter(:support_content).wont_include blog_post
+        ContentFilter.new(collection).filter(:support_content).wont_include case_study
+      end
     end
   end
 end
