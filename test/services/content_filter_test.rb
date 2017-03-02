@@ -39,7 +39,7 @@ describe ContentFilter do
       end
 
       it "doesn't include features with no body" do
-        bad_feature  = Feature.new(body: '')
+        bad_feature  = Feature.new
         collection   = [bad_feature, product_feature]
 
         ContentFilter.new(collection).filter(:marketing_content).wont_include bad_feature
