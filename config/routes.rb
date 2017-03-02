@@ -60,7 +60,9 @@ Rails.application.routes.draw do
 
     ##
     # Resource routes
-    resources :demo_requests, :marketing_app_support_requests, :enrollments, only: [:create]
+    resources :demo_requests, :marketing_app_support_requests, only: [:create]
+
+    resources :enrollments, only: [:create, :show]
 
     resources :training_event_requests, only: [:create, :new]
 
@@ -69,7 +71,7 @@ Rails.application.routes.draw do
     resources :blog_posts,
               :case_studies,
               :features,
-              :product_categories,
+              :product_categories,              
               only: [:show]
 
     resources :tags, only: [:show], param: :name
