@@ -342,7 +342,8 @@ Reliable Section
 			}
 		}
 		.stories-rollover-shown,
-		.stories-hidden-text p {
+		.stories-hidden-text p,
+		.reliable-carousel h4 {
 			color: $white;
 		}
 	}
@@ -352,9 +353,6 @@ Reliable Section
 	}
 
 	.home-reliable .show-for-small-only {
-		img {
-			padding-bottom: 25px;
-		}
 		h6, a {
 			color: $charcoal;
 		}
@@ -652,9 +650,6 @@ Cost Effective Section
 		.columns:last-child:not(:first-child) {
 			float: none;
 		}
-		img {
-			padding-bottom: 25px;
-		}
 	}
 
 	.home-cost-sensor {
@@ -926,9 +921,6 @@ Simple Section
 		.columns:last-child:not(:first-child) {
 			float: none;
 		}
-		img {
-			padding-bottom: 25px;
-		}
 		h6, a {
 			color: $charcoal;
 		}
@@ -1003,9 +995,6 @@ Support Section
 			float: none;
 			margin-left: auto;
 			margin-right: auto;
-		}
-		img {
-			padding-bottom: 25px;
 		}
 		h6, a {
 			color: $charcoal;
