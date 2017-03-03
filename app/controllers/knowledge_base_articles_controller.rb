@@ -1,6 +1,6 @@
 class KnowledgeBaseArticlesController < ApplicationController
   def index
-    @products = Product.joins(product_category: :product_type).knowledge_base_article_search(params[:query]).reorder('product_types.position, products.name')
+    @products = Product.knowledge_base_article_search(params[:query])
   end
 
   def show

@@ -21,9 +21,15 @@ class Product < ApplicationRecord
 
   def self.knowledge_base_article_search(query = nil)
     if query.present?
-      knowledge_base_articles.where('articles.title @@ :q or articles.subtitle @@ :q or articles.body @@ :q', q: query).references(:articles)
+      joins(product_category: :product_type)
+      .knowledge_base_articles
+      .where('articles.title @@ :q or articles.subtitle @@ :q or articles.body @@ :q', q: query)
+      .references(:articles)
+      .reorder('product_types.position, products.name')
     else
-      knowledge_base_articles
+      joins(product_category: :product_type)
+      .knowledge_base_articles
+      .reorder('product_types.position, products.name')
     end
   end
 
