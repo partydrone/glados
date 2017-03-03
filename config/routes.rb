@@ -96,7 +96,7 @@ Rails.application.routes.draw do
     get '/news', to: 'news#index'
     get '/support', to: 'support#index'
     post '/support', to: 'support#select_product'
-    get '/training', to: 'training#index'
+    get '/training', to: 'training#index'    
 
     ##
     # Root route

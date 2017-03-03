@@ -4,8 +4,11 @@
         <p>Congradulations, you're now registered. Hhere are the details:</p>
         
 
-        <%= @enrollmentsasdf %>
-        
+        <%= @training_event.title %>
+        <% @training_courses.each do |c| %>
+            <%= c.title %>
+
+        <% end %>
 
     </div>
 </div>
