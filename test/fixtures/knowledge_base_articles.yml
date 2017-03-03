@@ -3,5 +3,6 @@
 kb_article_one:
   type: KnowledgeBaseArticle
   title: Knowledge Base Article Fixture One
+  subtitle: Knowledge base article fixture one subtitle.
   body: Knowledge base article fixture one body.
   posted_on: <%= Date.today.to_s(:db) %>

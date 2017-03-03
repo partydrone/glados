@@ -1,5 +1,4 @@
 class Product < ApplicationRecord
-  # include PgSearch
   include Taggable
 
   belongs_to :product_category
