@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
+
 gem 'rails', '>= 5.0.0', '< 5.1'
 
 ##
@@ -32,8 +37,8 @@ gem 'browser'
 ##
 # File uploads
 gem 'aws-sdk', '~> 2.1'
-gem 'refile', require: 'refile/rails', git: 'https://github.com/refile/refile.git', branch: 'master'
-gem 'sinatra', require: nil, git: 'https://github.com/sinatra/sinatra.git', branch: 'master'
+gem 'refile', require: 'refile/rails', github: 'refile', branch: 'master'
+gem 'sinatra', require: nil, github: 'sinatra', branch: 'master'
 gem 'refile-mini_magick'
 gem 'refile-s3'
 
