@@ -1,6 +1,6 @@
 class KnowledgeBaseArticlesController < ApplicationController
   def index
-    @products = Product.includes(:articles).where(articles: {type: 'KnowledgeBaseArticle'})
+    @products = Product.knowledge_base_article_search(params[:query])
   end
 
   def show
