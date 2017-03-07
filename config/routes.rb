@@ -51,6 +51,7 @@ Rails.application.routes.draw do
 
       resources :download_types,
                 :product_types,
+                :offices,
                 except: [:show],
                 concerns: :sortable
 
