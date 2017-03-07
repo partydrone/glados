@@ -93,3 +93,15 @@
 .admin-add-icon {
 	margin-bottom: 8px;
 }
+
+.admin-back-link {
+	font-weight: normal;
+	margin-top: 1rem;
+	display: block;
+	&:before {
+		content: url(image_path('icons/stories-left-blue.svg'));
+	    width: 16px;
+	    display: inline-block;
+	    vertical-align: middle;
+	}
+}

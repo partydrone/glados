@@ -42,46 +42,66 @@
 	<div class="columns">
 		<h1>
 			<%= t(".locate_dealer") %>
-				<div class="admin-nav">
-	        <ul class="dropdown menu" data-dropdown-menu data-options="disableHover:true;clickOpen:true;">
-	          <li>
-	            <a href="#" class="ellipsis-link"><%= image_tag('icons/ellipsis.svg', class: 'small-icon') %></a>
-	            <ul class="menu">
-	              <li>
-	                <%= link_to nil, title: %(New), class: "admin-new" do %>
-	                  New
-	                <% end %>
-	              </li>
-	              <li>
-	                <%= link_to nil, title: %(Edit), class: "admin-edit" do %>
-	                  Edit
-	                <% end %>
-	              </li>
-	              <li>
-	                <%= link_to nil, class: 'delete admin-delete', data: {confirm: %(Are you sure you want to delete? This cannot be undone.)}, method: :delete, title: %(Delete) do %>
-	                  Delete
-	                <% end %>
-	              </li>
-	            </ul>
-	          </li>
-	        </ul>
-	      </div>
-			</h1>
+		</h1>
 		<div class="dealers-map">
 			<%= image_tag('contact/dealermap.png', class: "map") %>
 			<div class="site-search-bar input-group">
-		      <div class="input-group-button">
-		        <?xml version="1.0" encoding="utf-8"?>
-		        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17">
-		          <rect x="12.2" y="10" transform="translate(1 1)matrix(0.7071 -0.7071 0.7071 0.7071 -5.3589 12.9375)" class="st0" width="1.5" height="5.8"/><path class="st0" d="M7.3 14.3c-3.9 0-7-3.1-7-7 0-3.9 3.1-7 7-7 3.9 0 7 3.1 7 7C14.3 11.1 11.1 14.3 7.3 14.3zM7.3 1.8c-3 0-5.5 2.5-5.5 5.5 0 3 2.5 5.5 5.5 5.5 3 0 5.5-2.5 5.5-5.5C12.8 4.2 10.3 1.8 7.3 1.8z"/>
-		        </svg>
-		      </div>
-		      <input class="input-search-bar" type="text" placeholder="<%= t('.search') %>" />
-		    </div>
-		  </div>
+				<%= search_form_for @q, url: contact_path do |f| %>
+				  <%= f.button  do %>
+				  	<div class="input-group-button">
+			        <?xml version="1.0" encoding="utf-8"?>
+			        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17">
+			          <rect x="12.2" y="10" transform="translate(1 1)matrix(0.7071 -0.7071 0.7071 0.7071 -5.3589 12.9375)" class="st0" width="1.5" height="5.8"/><path class="st0" d="M7.3 14.3c-3.9 0-7-3.1-7-7 0-3.9 3.1-7 7-7 3.9 0 7 3.1 7 7C14.3 11.1 11.1 14.3 7.3 14.3zM7.3 1.8c-3 0-5.5 2.5-5.5 5.5 0 3 2.5 5.5 5.5 5.5 3 0 5.5-2.5 5.5-5.5C12.8 4.2 10.3 1.8 7.3 1.8z"/>
+			        </svg>
+			      </div>
+					<% end %>
+				  <%= f.search_field :name_or_country_id_or_region_cont, class: "input-search-bar", placeholder: t('.search') %>
+				<% end %>
+			</div>
 		</div>
 	</path>
 </section>
+
+<% if params[:q] %>
+	<div class="contact-search-results">
+		<div class="row columns text-right">
+	  	<%= link_to "close x", contact_path %>
+	  </div>
+	  <ul class="row small-up-2 large-up-4">
+	    <% @dealers.each do |dealer| %>
+	      <li class="column column-block">
+					<div class="office-information">
+						<% ter = Territory.find(dealer.id) %>
+						<h6>Dealer for <%= ter.name %></h6>
+						<h3><%= dealer.name %></h3>
+						<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= dealer.address %><br/>
+						<%= dealer.city %><br/>
+						<%= dealer.region %><br/>
+						<%= dealer.zip %><br/>
+						<%= t "countries.#{dealer.country_id}" %><br/>
+						<% if dealer.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= dealer.phone %><br/><% end %>
+						<% if dealer.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= dealer.email %><br/><% end %>
+						<% if dealer.website.present? %><%= image_tag('icons/world.svg', class: "small-icon") %><%= dealer.website %></p><% end %>
+					</div>
+	      </li>
+	      <li class="large-3 medium-6 columns">
+					<div class="office-information">
+						<h6>Office for <%= dealer.name %></h6>
+						<% office = Office.find(ter.office) %>
+						<h3><%= office.name %></h3>
+						<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.address %><br/>
+						<%= office.city %><br/>
+						<%= office.region %><br/>
+						<%= office.zip %><br/>
+						<%= t "countries.#{office.country}" %><br/>
+						<% if office.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.phone %><br/><% end %>
+						<% if office.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= office.email %><br/><% end %>
+					</div>
+	      </li>
+	    <% end %>
+	  </ul>
+  </div>
+<% end %>
 
 <section class="row" id="offices" data-magellan-target="offices">
 	<div class="columns">

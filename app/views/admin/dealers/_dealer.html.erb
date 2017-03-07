@@ -1,0 +1,17 @@
+<%= content_tag_for :tr, dealer do %>
+  <td class="admin-left-edit">
+    <%= render partial: 'options_edit', locals: {object: dealer, instance_name: dealer.name} %>
+  </td>
+  <td>
+    <%= link_to dealer.name, [:admin, dealer] %>
+  </td>
+  <td>
+    <%= dealer.region %>
+  </td>
+  <td>
+    <%= t "countries.#{dealer.country_id}" %>
+  </td>
+  <td class="admin-right-delete">
+    <%= render partial: 'options_delete', locals: {object: dealer, instance_name: dealer.name} %>
+  </td>
+<% end %>

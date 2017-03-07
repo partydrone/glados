@@ -1,0 +1,12 @@
+<% content_for :title, "#{@territory.name}" %>
+
+<div class="row columns">
+	<h1><%= yield :title %></h1>
+</div>
+
+<div class="row columns" data-equalizer data-equalize-on="medium">
+    <%= t "countries.#{@territory.country}" %><br/>
+    <%= Office.find(@territory.office).name %><br/>
+    <%= Dealer.find(@territory.dealer).name %>
+    <%= link_to "back to admin territories page", admin_territories_path, class: "admin-back-link" %>
+</div>

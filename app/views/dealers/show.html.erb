@@ -1,0 +1,11 @@
+<% content_for :title, "#{t '.title'}: #{@dealer.name}" %>
+
+<div class="row columns">
+	<h1><%= yield :title %></h1>
+</div>
+
+<div class="row" data-equalizer data-equalize-on="medium">
+  <% Dealer.each do |dealer| %>
+    <%= dealer.name %>
+  <% end %>
+</div>

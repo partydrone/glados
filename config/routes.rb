@@ -27,11 +27,13 @@ Rails.application.routes.draw do
       # Resource routes
       resources :blog_posts,
                 :case_studies,                
+                :dealers,
                 :features,
                 :knowledge_base_articles,
                 :products,
                 :return_material_authorization_policy_documents,
                 :sales_terms_and_conditions_documents,
+                :territories,
                 :training_events,
                 :website_privacy_policy_documents,
                 :website_terms_of_use_documents
@@ -48,6 +50,7 @@ Rails.application.routes.draw do
 
       resources :download_types,
                 :product_types,
+                :offices,
                 except: [:show],
                 concerns: :sortable
 
