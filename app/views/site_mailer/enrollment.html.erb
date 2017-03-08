@@ -2,13 +2,13 @@
 
 
 <p>Training Event</p>
-<ul>
-    <li>Title: <%= @training_event.title %></li>
-    <li>Full Name: <%= @training_event.description %></li>
-    <li>Email: <%= @training_event.location %></li>
-    <li>Start Date: <%= l @training_event.started_at.to_date, format: :long %></li>
-    <li>End Date: <%= l @training_event.ended_at.to_date, format: :long %></li>    
-</ul>
+
+<%= @training_event.title %>
+<%= @training_event.description %>
+<%= @training_event.location %>
+Starts <%= l @training_event.started_at.to_date, format: :long %>
+Ends <%= l @training_event.ended_at.to_date, format: :long %>
+
 <p>Courses you registered for</p>
 <ul>
    <% @training_courses.each do |course| %>
