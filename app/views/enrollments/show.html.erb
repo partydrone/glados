@@ -4,9 +4,9 @@
         <p>Congradulations, you're now registered. Hhere are the details:</p>
         
 
-        <%= @training_event.title %>
+        <h2><%= @training_event.title %></h2>
         <% @training_courses.each do |c| %>
-            <%= c.title %>
+            <h6><%= c.title %></h6>
 
         <% end %>
 

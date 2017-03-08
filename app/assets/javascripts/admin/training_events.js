@@ -38,10 +38,10 @@ var training_events = {
     validateCourses() {
         // display displayAlert if HAS prerequisites or waitlisted courses
         if (training_events.getDisplayAlert()) {
-            alert("you have waitlisted or prerequisites!");
+            alert("you have waitlisted or prerequisites!"); //here is where we will unhide alert div
             return false;
         }
-
+        return true;
     },
 
     //gets the status of displayAlert
@@ -59,7 +59,7 @@ var training_events = {
 
 //jquery events-------------------------------------------------------------------------------------
 
-//when user adds any training course
+//when user adds/removes any training course
 $('.course-check').on('click', function(event) {
     training_events.courseCheck($(this));
 });
