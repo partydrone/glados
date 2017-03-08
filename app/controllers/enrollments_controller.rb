@@ -21,6 +21,10 @@ class EnrollmentsController < ApplicationController
         redirect_to enrollment_path, notice: %(Error in registration.)
       end
     end
+    #send email
+    @training_event = TrainingEvent.find(training_event_id)
+    @training_courses = TrainingCourse.find(course_ids)
+    SiteMailer.enrollment(@training_event, @training_courses, email).deliver_now
     redirect_to enrollment_path controller: 'Enrollments', action: 'show', id: training_event_id, courses: course_ids
     
   end
@@ -32,3 +36,19 @@ class EnrollmentsController < ApplicationController
   end
 end
  
+
+
+ #############################
+ def create
+    @training_event_request = TrainingEventRequest.new(training_event_request_params)
+    @training_courses = TrainingCourse.find(@training_event_request.training_course_ids.reject!(&:empty?))
+    if @training_event_request.valid?
+      SiteMailer.training_event_request(@training_event_request, @training_courses).deliver_now
+      redirect_to training_events_path, notice: "request sent"
+    else
+      @training_courses = TrainingCourse.all
+      render :new
+    end
+
+  end
+  #########################

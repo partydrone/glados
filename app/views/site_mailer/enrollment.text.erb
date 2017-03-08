@@ -1,0 +1,19 @@
+Enrollment Confirmation
+
+
+Training Event
+
+    <%= @training_event.title %>
+    <%= @training_event.description %>
+    <%= @training_event.location %>
+    Starts<%= l @training_event.started_at.to_date, format: :long %><
+    Ends<%= l @training_event.ended_at.to_date, format: :long %>
+
+Courses you registered for
+
+   <% @training_courses.each do |course| %>
+   <%= course.number %> - <%= course.title %>
+   <%end%>
+
+To respond to this request, just reply to this email.
+
