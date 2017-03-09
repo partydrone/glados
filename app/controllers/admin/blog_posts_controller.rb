@@ -8,7 +8,6 @@ module Admin
 
     def show
       @article = @blog_post
-      render 'articles/show'
     end
 
     def new

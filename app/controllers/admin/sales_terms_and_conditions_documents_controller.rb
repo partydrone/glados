@@ -8,7 +8,6 @@ module Admin
 
     def show
       @legal_policy_document = @sales_terms_and_conditions_document
-      render 'legal_policy_documents/show'
     end
 
     def new

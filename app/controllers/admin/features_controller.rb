@@ -8,7 +8,6 @@ module Admin
     end
 
     def show
-      render 'features/show'
     end
 
     def new
