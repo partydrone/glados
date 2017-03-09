@@ -38,7 +38,8 @@ Rails.application.routes.draw do
                 :website_privacy_policy_documents,
                 :website_terms_of_use_documents
 
-      resources :product_categories, concerns: :sortable
+      resources :product_categories,
+                :offices,concerns: :sortable
 
       resources :downloads,
                 :media_downloads,
@@ -50,7 +51,6 @@ Rails.application.routes.draw do
 
       resources :download_types,
                 :product_types,
-                :offices,
                 except: [:show],
                 concerns: :sortable
 
