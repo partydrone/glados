@@ -35,20 +35,3 @@ class EnrollmentsController < ApplicationController
     params.require(:enrollment).permit(:first_name, :last_name, :email, :training_event_course_id => [])
   end
 end
- 
-
-
- #############################
- def create
-    @training_event_request = TrainingEventRequest.new(training_event_request_params)
-    @training_courses = TrainingCourse.find(@training_event_request.training_course_ids.reject!(&:empty?))
-    if @training_event_request.valid?
-      SiteMailer.training_event_request(@training_event_request, @training_courses).deliver_now
-      redirect_to training_events_path, notice: "request sent"
-    else
-      @training_courses = TrainingCourse.all
-      render :new
-    end
-
-  end
-  #########################

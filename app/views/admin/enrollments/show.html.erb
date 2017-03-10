@@ -1,0 +1,10 @@
+<h1><%= @training_event_course.title %></h1>
+
+<ol>
+<% @training_event_course.enrollments.each do |enrollment| %>
+
+    <li><%= enrollment.first_name %> <%= enrollment.last_name %> <%= enrollment.email %></li>
+
+
+<% end %>
+</ol>
