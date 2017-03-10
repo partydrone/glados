@@ -15,16 +15,12 @@
         <%= f.submit  class: 'button radius' %>
       </div>
       <div>
-        <h1>Edit Training Event Courses Enrollments</h1>
-        <%= render 'training_event_course_enrollment_record', :f => f %>
+        <h1>Edit Training Event Course Enrollments</h1>
+        <%= render 'training_event_course_enrollment_record', :enrollment => f %>
       </div>
     </div>
-    <div class="medium-4 columns">
-      <%= f.nested_fields_for :training_event_courses do |builder| %>
-        <%= render 'training_event_course_record', f: builder %>
-      <% end %>
-      <%= f.add_nested_fields_link :training_event_courses, 'Add another course' %>
-      
+    <div class="medium-4 columns">     
+        <%= render 'training_event_course_record', :training_course => f %>      
     </div>
   </div>
 <% end %>

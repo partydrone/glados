@@ -1,16 +1,21 @@
-<%= f.label :training_course_id %>
-<%= f.collection_select :training_course_id, TrainingCourse.all, :id, :full_title %>
-<div class="row">
-  <div class="medium-4 columns">
-    <%= f.label :seats %>
-    <%= f.number_field :seats %>
+<%= training_course.nested_fields_for :training_event_courses do |builder| %>
+  <%= builder.label :training_course_id %>
+  <%= builder.collection_select :training_course_id, TrainingCourse.all, :id, :full_title %>
+  <div class="row">
+    <div class="medium-4 columns">
+      <%= builder.label :seats %>
+      <%= builder.number_field :seats %>
+    </div>
+    <div class="medium-8 columns">
+      <%= builder.label :started_at %>
+      <%= builder.datetime_field :started_at, placeholder: 'yyyy-mm-dd hh:mm:ss' %>
+    </div>
   </div>
-  <div class="medium-8 columns">
-    <%= f.label :started_at %>
-    <%= f.datetime_field :started_at, placeholder: 'yyyy-mm-dd hh:mm:ss' %>
-  </div>
-</div>
-<%= f.remove_nested_fields_link 'Remove this course' %>
+  <%= builder.remove_nested_fields_link 'Remove this course' %>
+<% end %>
+<%= training_course.add_nested_fields_link :training_event_courses, 'Add another course' %>
 
-
-
+      
+      
+      
+     

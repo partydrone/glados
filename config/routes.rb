@@ -26,8 +26,7 @@ Rails.application.routes.draw do
       ##
       # Resource routes
       resources :blog_posts,
-                :case_studies,
-                :enrollments,
+                :case_studies,                
                 :features,
                 :knowledge_base_articles,
                 :products,

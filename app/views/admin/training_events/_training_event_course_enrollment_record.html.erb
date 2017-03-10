@@ -1,6 +1,6 @@
 
 
-    <%= f.nested_fields_for :training_event_courses do |tec| %>
+    <%= enrollment.nested_fields_for :training_event_courses do |tec| %>
       
       <h3><%= tec.object.title_by_id(tec.object.training_course_id) %></h3>
       <%= tec.nested_fields_for :enrollments do |builder| %>
