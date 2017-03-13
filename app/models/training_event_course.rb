@@ -10,11 +10,9 @@ class TrainingEventCourse < ApplicationRecord
   end
 
   def title_by_id(id)
-    begin
-      TrainingCourse.find(id).title
-    rescue =>
-      TrainingCourse.find(1).title
-    end
+      if (TrainingCourse.exists?(id)) then
+        TrainingCourse.find(id).title
+      end
   end
 
   def get_enrollments(seats,id)
