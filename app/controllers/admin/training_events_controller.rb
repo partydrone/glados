@@ -6,6 +6,10 @@ module Admin
       @training_events = TrainingEvent.all
     end
 
+    def show
+      @training_event = TrainingEvent.includes(training_event_courses: [:training_course]).find(params[:id])
+    end
+
     def new
       @training_event = TrainingEvent.new
       @training_event.training_event_courses.build

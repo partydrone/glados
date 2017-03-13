@@ -3,7 +3,7 @@
     <%= render partial: 'options_edit', locals: {object: training_event, instance_name: training_event.title} %>
   </td>
   <td>
-    <%= training_event.title %>
+    <%= link_to training_event.title, [:admin, training_event] %>
   </td>
   <td>
     <%= training_event.location %>
