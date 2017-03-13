@@ -1,13 +1,12 @@
 module Admin
   class TrainingEventsController < BaseController
-    before_action :set_training_event, only: [:update]
+    before_action :set_training_event, only: [:show, :edit, :update, :destroy]
 
     def index
       @training_events = TrainingEvent.all
     end
 
-    def show
-      @training_event = TrainingEvent.includes(training_event_courses: [:training_course]).find(params[:id])
+    def show      
     end
 
     def new
@@ -15,8 +14,7 @@ module Admin
       @training_event.training_event_courses.build
     end
 
-    def edit
-      @training_event = TrainingEvent.includes(training_event_courses: [:training_course]).find(params[:id])
+    def edit      
     end
 
     def create
@@ -29,8 +27,7 @@ module Admin
       end
     end
 
-    def update      
-      @training_event = TrainingEvent.find(params[:id])
+    def update           
 
       if @training_event.update_attributes(training_event_params)
         redirect_to admin_training_events_path, notice: %(Updated "#{@training_event.title}" successfully.)
@@ -40,8 +37,7 @@ module Admin
     end
 
     def destroy  
-      @training_event = TrainingEvent.includes(training_event_courses: [:training_course]).find(params[:id])
-
+      
       @training_event.destroy
       redirect_to admin_training_events_path, notice: %(Deleted "#{@training_event.title}" successfully.)
     end
@@ -49,7 +45,7 @@ module Admin
     private
 
     def set_training_event
-      @training_event = TrainingEvent.find(params[:id])
+      @training_event = TrainingEvent.includes(training_event_courses: [:training_course]).find(params[:id])
     end
 
     def training_event_params
