@@ -1,6 +1,6 @@
 class TrainingEvent < ApplicationRecord
   has_many :training_courses
-  has_many :training_event_courses
+  has_many :training_event_courses, dependent: :destroy
   has_many :training_courses, -> { uniq }, through: :training_event_courses
 
   accepts_nested_attributes_for :training_event_courses, allow_destroy: true

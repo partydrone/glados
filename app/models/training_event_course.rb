@@ -1,7 +1,7 @@
 class TrainingEventCourse < ApplicationRecord
   belongs_to :training_event
   belongs_to :training_course
-  has_many :enrollments
+  has_many :enrollments, dependent: :destroy
 
   accepts_nested_attributes_for :enrollments, allow_destroy: true
 
