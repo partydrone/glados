@@ -77,14 +77,6 @@ ActiveRecord::Schema.define(version: 20170210212316) do
     t.integer "product_id",  null: false
   end
 
-  create_table "enrollments", force: :cascade do |t|
-    t.integer "training_event_course_id"
-    t.string  "first_name"
-    t.string  "last_name"
-    t.string  "email"
-    t.index ["training_event_course_id"], name: "index_enrollments_on_training_event_course_id", using: :btree
-  end
-
   create_table "feature_associations", force: :cascade do |t|
     t.integer  "feature_id"
     t.integer  "product_id"
@@ -249,17 +241,6 @@ ActiveRecord::Schema.define(version: 20170210212316) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.index ["training_course_type_id"], name: "index_training_courses_on_training_course_type_id", using: :btree
-  end
-
-  create_table "training_event_courses", force: :cascade do |t|
-    t.integer  "training_course_id"
-    t.integer  "training_event_id"
-    t.integer  "seats"
-    t.datetime "started_at"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.index ["training_course_id"], name: "index_training_event_courses_on_training_course_id", using: :btree
-    t.index ["training_event_id"], name: "index_training_event_courses_on_training_event_id", using: :btree
   end
 
   create_table "training_events", force: :cascade do |t|
