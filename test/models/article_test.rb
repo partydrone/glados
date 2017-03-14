@@ -1,7 +1,7 @@
 require 'test_helper'
 
 describe Article do
-  let(:article) { Article.new(title: 'Article Title', body: 'Article body text.', posted_on: Date.today.to_s(:db), hero_image_id: 1) }
+  let(:article) { Article.new(title: 'Article Title', subtitle: 'Article subtitle text.', body: 'Article body text.', posted_on: Date.today.to_s(:db), hero_image_id: 1) }
 
   it "is a valid object" do
     article.must_be :valid?

@@ -100,7 +100,7 @@
   <aside class="large-4 large-offset-0 medium-8 medium-offset-2 small-10 small-offset-1 columns similar-stories-side end sticky-container" data-sticky-container>
     <div class="sticky" data-sticky data-anchor="article-container" data-sticky-on="large">
       <div class="article-side-title"><%= t(".similar_stories") %></div>
-      <% ContentFilter.new(@article.related).filter(:marketing_content).shift(3).each do |object| %>
+      <% ContentFilter.new(@article.related).filter(:support_content).shift(3).each do |object| %>
         <%= render partial: "related_#{object.class.to_s.underscore}", object: object %>
       <% end %>
     </div>
@@ -109,7 +109,6 @@
 
 
 
-<!-- only if knowledge base article
 <div class="faq-helpful">
   <h4>Was this helpful?
     <a href="#">
@@ -152,7 +151,7 @@
     </a>
   </h4>
 </div>
--->
+
 
 
 <section class="article-tags show-for-large">
