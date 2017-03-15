@@ -1,0 +1,11 @@
+<%= link_to related_feature do %>
+	<div class="row article-side-container">
+		<div class="large-6 columns">
+	  	<%= attachment_image_tag related_feature, :hero_image, :fill, 558, 313 %>
+	  </div>
+	  <div class="large-6 columns">
+		  <h3 class="similar-side-text"><%= related_feature.title %></h3>
+		  <p class="hide-for-large"><%= related_feature.description %></p>
+	  </div>
+  </div>
+<% end %>

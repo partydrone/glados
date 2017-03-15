@@ -22,11 +22,36 @@
   <div class="page-sub-bottom-nav">
     <nav data-magellan>
       <ul class="menu icon-top expanded">
-        <li><%= link_to yield(:title), '#about' %></li>
-        <li><%= link_to t('.news'), '#news' %></li>
-        <li><%= link_to t('.downloads'), '#downloads' %></li>
-        <li><%= link_to t('.careers'), '#careers' %></li>
-        <li><%= link_to t('.legal'), '#legal' %></li>
+        <li>
+          <%= link_to '#news' do %>
+            <%= image_tag "icons/news.svg", class: 'small-icon' %>
+            <span><%= t('.news') %></span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#about' do %>
+            <%= image_tag "icons/world.svg", class: 'small-icon' %>
+            <span><%= t('.about') %></span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#downloads' do %>
+            <%= image_tag "icons/cloud.svg", class: 'small-icon' %>
+            <span>Downloads</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#careers' do %>
+            <%= image_tag "icons/careers.svg", class: 'small-icon' %>
+            <span><%= t('.careers') %></span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#legal' do %>
+            <%= image_tag "icons/legal.svg", class: 'small-icon' %>
+            <span><%= t('.legal') %></span>
+          <% end %>
+        </li>
       </ul>
     </nav>
   </div>
@@ -134,11 +159,13 @@
 </div>
 
 <section class="about-careers-container" id="careers" data-magellan-target="careers">
+  <%= image_tag 'icons/careers.svg', class: 'large-icon' %>
   <h1><%= t(".careers") %></h1>
   <%= link_to t('.find_career'), 'http://wavetronix.recruiterbox.com', class: 'button rounded large', target: '_blank' %>
 </section>
 
 <section class="about-legal-container" id="aboutlegal" data-magellan-target="legal">
+  <%= image_tag 'icons/legal.svg', class: 'large-icon' %>
   <h1><%= t(".legal") %></h1>
   <!-- <button class="button rounded large"><%= t('.view_legal') %></button> -->
   <%= link_to t('.view_legal'), legal_path, class: 'button rounded large' %>

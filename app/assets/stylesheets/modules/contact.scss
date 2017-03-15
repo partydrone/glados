@@ -13,12 +13,23 @@
 		top: 150px;
 		width: 50%;
 		margin-left: 25%;
+		background: $white;
+		border: 1px solid $silver;
+		border-radius: 5px;
+		input {
+			margin-bottom: 0;
+			box-shadow: none;
+		}
+		@media screen and (max-width: 60em) {
+			top: 50px;
+		}
 	}
 }
 
 .office-row {
 	border-bottom: 2px solid $ghost;
 	margin: 1rem 0;
+	padding-bottom: 1rem;
 	h4 {
 		margin-bottom: 1rem;
 	}

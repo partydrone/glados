@@ -11,6 +11,8 @@
           <%= f.date_field :posted_on, placeholder: 'yyyy-mm-dd' %>
         </div>
       </div>
+      <%= f.label :subtitle %>
+      <%= f.text_area :subtitle, rows: 3 %>
       <%= f.label :body %>
       <%= f.cktext_area :body, rows: 30 %>
       <%= f.label :tag_list, 'Tags (separated by commas) (regions include: africa, asia, europe, north america, oceana, and south america)' %>

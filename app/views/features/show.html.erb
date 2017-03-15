@@ -1,6 +1,6 @@
 <%= content_for :title, @feature.title %>
 
-<div class="social-media-sticky-header" data-sticky-container>
+<div class="social-media-sticky-header hide-for-large" data-sticky-container>
   <div class="sticky" data-sticky>
     <div class="row">
         <nav data-magellan>
@@ -47,38 +47,70 @@
 					<iframe src="https://www.youtube.com/embed/<%= @feature.youtube_video_id %>?rel=0&showinfo=0" width="720" hieght="480" frameborder="0" allowfullscreen></iframe>
 				</div>
 			<% else %>
-				<%= attachment_image_tag @feature, :hero_image, fallback: 'http://placehold.it/1600x900' %>
+        <%= content_tag :div, class: 'article-hero-container' do %>
+				  <%= attachment_image_tag @feature, :hero_image, fallback: 'http://placehold.it/1600x900' %>
+        <% end %>
 			<% end %>
     </div>
   </div>
 </section>
 
-<section class="row">
+<article class="row">
+  <aside class="large-1 columns sticky-container show-for-large" data-sticky-container>
+    <div class="sticky" data-sticky data-anchor="article-container">
+      <nav class="social-media-side" data-magellan>
+        <ul class="vertical menu">
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Twitter.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Facebook.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Google.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/email.svg', class: "icon") %>
+            <% end %>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
   <div class="large-6 large-offset-1 medium-8 medium-offset-2 columns article-body" id="article-container" data-something data-margin-top="5">
-    <%= @feature.body.html_safe %>
+    <h3 class="article-deckhead">
+      <%= @feature.description %>
+      <hr/>
+    </h3>
+    <%= embed_youtube_videos_for(@feature.body).html_safe %>
   </div>
 
-  <div class="small-10 small-offset-1 medium-8 medium-offset-2 large-4 large-offset-0 columns similar-stories-side end" data-sticky-container>
+  <aside class="large-4 large-offset-0 medium-8 medium-offset-2 small-10 small-offset-1 columns similar-stories-side end sticky-container" data-sticky-container>
     <div class="sticky" data-sticky data-anchor="article-container" data-sticky-on="large">
-      <div class="article-side-title"><%= t(".similar_features") %></div>
+      <div class="article-side-title row">
+        <%= t(".related_articles") %>
+      </div>
       <a href="#" class="row">
         <img src="http://placehold.it/558x313" alt="placeholder" class="large-6 columns">
         <h2 class="large-6 columns similar-side-text">Texas Transportation Institue Evaluation for Arizona DOT</h2>
         <p class="hide-for-large">This is a summary of the article and doesn't really contain any information. Isn't that special? Probably not. I don't even know anymore.</p>
       </a>
-      <a href="#" class="row">
-        <img src="http://placehold.it/558x313" alt="placeholder" class="large-6 columns">
-        <h2 class="large-6 columns similar-side-text">ATRC Test in Lewiston, Maine</h2>
-        <p class="hide-for-large">This is a summary of the article and doesn't really contain any information. Isn't that special? Probably not. I don't even know anymore.</p>
-      </a>
-      <a href="#" class="row">
-        <img src="http://placehold.it/558x313" alt="placeholder" class="large-6 columns">
-        <h2 class="large-6 columns similar-side-text">AF - Hansen &amp; Henneberg Test in Farum, Denmark</h2>
-        <p class="hide-for-large">This is a summary of the article and doesn't really contain any information. Isn't that special? Probably not. I don't even know anymore.</p>
-      </a>
     </div>
-  </div>
-</section>
+  </aside>
+</article>
 
 <section class="article-tags show-for-large">
   <%= t(".tags") %>: <%= render_tags_for @feature %>

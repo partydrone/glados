@@ -1,2 +1,26 @@
-<h3><%= product.name %></h3>
-<%= render product.articles %>
+<div class="large-pull-8 columns end">
+	<h3><%= product.name %></h3>
+</div>
+<div class="large-7 large-offset-4 end columns">
+	<!-- first 3 questions -->
+	<ul class="vertical menu" data-accordia-menu>
+		<% product.articles[0, 3].each do |article| %>
+			<%= render article %>
+		<% end %>
+	</ul>
+	<% if product.articles[3 .. -1] %>
+		<!-- all the other questions -->
+		<ul class="vertical menu knowledge-base-view-more" data-accordion-menu>
+			<li>
+			  <ul class="menu vertical nested">
+			  	<% product.articles[3..-1].each do |article| %>
+			    	<%= render article %>
+			    <% end %>
+			   </ul>
+			    <a href="#" class="knowledge-base-view-more-link"></a>
+			 </li>
+		</ul>
+	<% else %>
+		<div class="kb-spacer"></div>
+	<% end %>
+</div>

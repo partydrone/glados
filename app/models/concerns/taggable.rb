@@ -6,8 +6,8 @@ module Taggable
     has_many :tags, through: :taggings
   end
 
-  def get_related
-    Tagging.select('distinct on (taggable_id) *').where(tag_id: tag_ids).where.not(taggable_id: id).limit(5)
+  def related
+    Tagging.select('distinct on (taggable_id) *').where(tag_id: tag_ids).where.not(taggable_id: id).includes(:taggable).map(&:taggable)
   end
 
   def tag_list
@@ -15,7 +15,7 @@ module Taggable
   end
 
   def tag_list=(names)
-    self.tags = names.split(',').map do |n|
+    self.tags = names.split(',').delete_if { |n| n.blank? }.map do |n|
       n.downcase!
       Tag.find_or_create_by!(name: n.strip)
     end

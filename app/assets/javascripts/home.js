@@ -71,6 +71,7 @@ function detect(){
   var isIE = /*@cc_on!@*/false || !!document.documentMode;
   var isEdge = !isIE && !!window.StyleMedia;
   var isChrome = !!window.chrome && !!window.chrome.webstore;
+  var isiPad = /iPad/i.test(navigator.userAgent) || /iPhone OS 3_1_2/i.test(navigator.userAgent) || /iPhone OS 3_2_2/i.test(navigator.userAgent);
   // Blink engine detection
   var isBlink = (isChrome || isOpera) && !!window.CSS;
 
@@ -79,7 +80,7 @@ function detect(){
   var k = document.getElementById('ReliableTabs');
   var j = document.getElementById('HomePostLoopsDivider');
   var s = document.getElementById('StaticCostLoops');
-  if(isEdge || isIE){
+  if(isEdge || isIE || isiPad){
     m.className += ' always-hide-for-ie';
     h.className += ' always-hide-for-ie';
     j.className += ' always-hide-for-ie';

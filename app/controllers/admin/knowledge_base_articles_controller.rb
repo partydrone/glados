@@ -51,7 +51,7 @@ module Admin
     end
 
     def knowledge_base_article_params
-      params.require(:knowledge_base_article).permit(:title, :body, :posted_on, :tag_list, product_ids: [])
+      params.require(:knowledge_base_article).permit(:title, :subtitle, :body, :posted_on, :tag_list, product_ids: [])
     end
 
     def set_product_types

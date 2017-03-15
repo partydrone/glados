@@ -39,84 +39,9 @@
         </div>
         <div class="home-story-center">
           <div id="safety-carousel" class="owl-carousel safety-carousel">
-            <div class="home-story">
-              <a href="#">
-                <div class="home-stories-image">
-                  <h4 class="stories-rollover-hidden">4 Steps to Create a Truck Rollover Prevention System</h4>
-                  <img src="http://placehold.it/270x152"/>
-                </div>
-                <h4 class="stories-rollover-shown">4 Steps to Create a Truck Rollover Prevention System</h4>
-                <div class="stories-hidden-text hide-for-small">
-                  <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more goto-new">Read More</span></p>
-                </div>
-              </a>
-            </div>
-            <div class="home-story">
-              <a href="#">
-                <div class="home-stories-image">
-                  <h4 class="stories-rollover-hidden">Intersection Advance Warning</h4>
-                  <img src="http://placehold.it/270x152"/>
-                </div>
-                <h4 class="stories-rollover-shown">Intersection Advance Warning</h4>
-                <div class="stories-hidden-text hide-for-small">
-                  <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more goto-new">Read More</span></p>
-                </div>
-              </a>
-            </div>
-            <div class="home-story">
-              <a href="#">
-                <div class="home-stories-image">
-                  <h4 class="stories-rollover-hidden">The Evolution of Advanced Detection</h4>
-                  <img src="http://placehold.it/270x152">
-                </div>
-                <h4 class="stories-rollover-shown">The Evolution of Advanced Detection</h4>
-                <div class="stories-hidden-text hide-for-small">
-                  <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more goto-new">Read More</span></p>
-                </div>
-              </a>
-            </div>
-            <div class="home-story">
-              <a href="#">
-                <div class="home-stories-image">
-                  <h4 class="stories-rollover-hidden">Safe Crossings</h4>
-                  <img src="http://placehold.it/270x152"/>
-                </div>
-                <h4 class="stories-rollover-shown">Safe Crossings</h4>
-                <div class="stories-hidden-text hide-for-small">
-                  <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more goto-new">Read More</span></p>
-                </div>
-              </a>
-            </div>
-            <div class="home-story">
-              <a href="#">
-                <div class="home-stories-image">
-                  <h4 class="stories-rollover-hidden">Tustin, CA Inside a Box</h4>
-                  <img src="http://placehold.it/270x152">
-                </div>
-                <h4 class="stories-rollover-shown">Tustin, CA Inside a Box</h4>
-                <div class="stories-hidden-text hide-for-small">
-                  <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more goto-new">Read More</span></p>
-                </div>
-              </a>
-            </div>
-            <div class="home-story">
-              <a href="#">
-                <div class="home-stories-image">
-                  <h4 class="stories-rollover-hidden">Running Red</h4>
-                  <img src="http://placehold.it/270x152">
-                </div>
-                <h4 class="stories-rollover-shown">Running Red</h4>
-                <div class="stories-hidden-text">
-                  <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more goto-new">Read More</span></p>
-                </div>
-              </a>
-            </div>
+            <% @safe_articles.each do |object| %>
+              <%= render partial: object.class.to_s.underscore, object: object %>
+            <% end %>
           </div>
         </div>
         <div class="home-story-right">
@@ -158,84 +83,9 @@
         </div>
         <div class="home-story-center">
           <div id="efficiency-carousel" class="owl-carousel efficiency-carousel">
-            <div class="home-story">
-              <a href="#">
-                <div class="home-stories-image">
-                  <h4 class="stories-rollover-hidden">4 Steps to Create a Truck Rollover Prevention System</h4>
-                  <img src="http://placehold.it/270x152"/>
-                </div>
-                <h4 class="stories-rollover-shown">4 Steps to Create a Truck Rollover Prevention System</h4>
-                <div class="stories-hidden-text">
-                  <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more goto-new">Read More</span></p>
-                </div>
-              </a>
-            </div>
-            <div class="home-story">
-              <a href="#">
-                <div class="home-stories-image">
-                  <h4 class="stories-rollover-hidden">Intersection Advance Warning</h4>
-                  <img src="http://placehold.it/270x152"/>
-                </div>
-                <h4 class="stories-rollover-shown">Intersection Advance Warning</h4>
-                <div class="stories-hidden-text">
-                  <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more goto-new">Read More</span></p>
-                </div>
-              </a>
-            </div>
-            <div class="home-story">
-              <a href="#">
-                <div class="home-stories-image">
-                  <h4 class="stories-rollover-hidden">The Evolution of Advanced Detection</h4>
-                  <img src="http://placehold.it/270x152">
-                </div>
-                <h4 class="stories-rollover-shown">The Evolution of Advanced Detection</h4>
-                <div class="stories-hidden-text">
-                  <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more goto-new">Read More</span></p>
-                </div>
-              </a>
-            </div>
-            <div class="home-story">
-              <a href="#">
-                <div class="home-stories-image">
-                  <h4 class="stories-rollover-hidden">Safe Crossings</h4>
-                  <img src="http://placehold.it/270x152"/>
-                </div>
-                <h4 class="stories-rollover-shown">Safe Crossings</h4>
-                <div class="stories-hidden-text">
-                  <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more goto-new">Read More</span></p>
-                </div>
-              </a>
-            </div>
-            <div class="home-story">
-              <a href="#">
-                <div class="home-stories-image">
-                  <h4 class="stories-rollover-hidden">Tustin, CA Inside a Box</h4>
-                  <img src="http://placehold.it/270x152">
-                </div>
-                <h4 class="stories-rollover-shown">Tustin, CA Inside a Box</h4>
-                <div class="stories-hidden-text">
-                  <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more goto-new">Read More</span></p>
-                </div>
-              </a>
-            </div>
-            <div class="home-story">
-              <a href="#">
-                <div class="home-stories-image">
-                  <h4 class="stories-rollover-hidden">Running Red</h4>
-                  <img src="http://placehold.it/270x152">
-                </div>
-                <h4 class="stories-rollover-shown">Running Red</h4>
-                <div class="stories-hidden-text">
-                  <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more goto-new">Read More</span></p>
-                </div>
-              </a>
-            </div>
+            <% @efficient_articles.each do |object| %>
+              <%= render partial: object.class.to_s.underscore, object: object %>
+            <% end %>
           </div>
         </div>
         <div class="home-story-right">
@@ -272,84 +122,9 @@
           </div>
           <div class="home-story-center">
             <div id="efficiency-carousel" class="owl-carousel efficiency-carousel">
-              <div class="home-story">
-                <a href="#">
-                  <div class="home-stories-image">
-                    <h4 class="stories-rollover-hidden">4 Steps to Create a Truck Rollover Prevention System</h4>
-                    <img src="http://placehold.it/270x152"/>
-                  </div>
-                  <h4 class="stories-rollover-shown">4 Steps to Create a Truck Rollover Prevention System</h4>
-                  <div class="stories-hidden-text">
-                    <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                    <span class="learn-more goto-new">Read More</span></p>
-                  </div>
-                </a>
-              </div>
-              <div class="home-story">
-                <a href="#">
-                  <div class="home-stories-image">
-                    <h4 class="stories-rollover-hidden">Intersection Advance Warning</h4>
-                    <img src="http://placehold.it/270x152"/>
-                  </div>
-                  <h4 class="stories-rollover-shown">Intersection Advance Warning</h4>
-                  <div class="stories-hidden-text">
-                    <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                    <span class="learn-more goto-new">Read More</span></p>
-                  </div>
-                </a>
-              </div>
-              <div class="home-story">
-                <a href="#">
-                  <div class="home-stories-image">
-                    <h4 class="stories-rollover-hidden">The Evolution of Advanced Detection</h4>
-                    <img src="http://placehold.it/270x152">
-                  </div>
-                  <h4 class="stories-rollover-shown">The Evolution of Advanced Detection</h4>
-                  <div class="stories-hidden-text">
-                    <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                    <span class="learn-more goto-new">Read More</span></p>
-                  </div>
-                </a>
-              </div>
-              <div class="home-story">
-                <a href="#">
-                  <div class="home-stories-image">
-                    <h4 class="stories-rollover-hidden">Safe Crossings</h4>
-                    <img src="http://placehold.it/270x152"/>
-                  </div>
-                  <h4 class="stories-rollover-shown">Safe Crossings</h4>
-                  <div class="stories-hidden-text">
-                    <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                    <span class="learn-more goto-new">Read More</span></p>
-                  </div>
-                </a>
-              </div>
-              <div class="home-story">
-                <a href="#">
-                  <div class="home-stories-image">
-                    <h4 class="stories-rollover-hidden">Tustin, CA Inside a Box</h4>
-                    <img src="http://placehold.it/270x152">
-                  </div>
-                  <h4 class="stories-rollover-shown">Tustin, CA Inside a Box</h4>
-                  <div class="stories-hidden-text">
-                    <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                    <span class="learn-more goto-new">Read More</span></p>
-                  </div>
-                </a>
-              </div>
-              <div class="home-story">
-                <a href="#">
-                  <div class="home-stories-image">
-                    <h4 class="stories-rollover-hidden">Running Red</h4>
-                    <img src="http://placehold.it/270x152">
-                  </div>
-                  <h4 class="stories-rollover-shown">Running Red</h4>
-                  <div class="stories-hidden-text">
-                    <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                    <span class="learn-more goto-new">Read More</span></p>
-                  </div>
-                </a>
-              </div>
+              <% @reliable_articles.each do |object| %>
+                <%= render partial: object.class.to_s.underscore, object: object %>
+              <% end %>
             </div>
           </div>
           <div class="home-story-right">
@@ -498,85 +273,10 @@
           <a class="owl-prev"><%= image_tag 'icons/stories-left.svg' %></a>
         </div>
         <div class="home-story-center">
-          <div id="efficiency-carousel" class="owl-carousel efficiency-carousel">
-            <div class="home-story">
-              <a href="#">
-                <div class="home-stories-image">
-                  <h4 class="stories-rollover-hidden">4 Steps to Create a Truck Rollover Prevention System</h4>
-                  <img src="http://placehold.it/270x152"/>
-                </div>
-                <h4 class="stories-rollover-shown">4 Steps to Create a Truck Rollover Prevention System</h4>
-                <div class="stories-hidden-text">
-                  <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more goto-new">Read More</span></p>
-                </div>
-              </a>
-            </div>
-            <div class="home-story">
-              <a href="#">
-                <div class="home-stories-image">
-                  <h4 class="stories-rollover-hidden">Intersection Advance Warning</h4>
-                  <img src="http://placehold.it/270x152"/>
-                </div>
-                <h4 class="stories-rollover-shown">Intersection Advance Warning</h4>
-                <div class="stories-hidden-text">
-                  <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more goto-new">Read More</span></p>
-                </div>
-              </a>
-            </div>
-            <div class="home-story">
-              <a href="#">
-                <div class="home-stories-image">
-                  <h4 class="stories-rollover-hidden">The Evolution of Advanced Detection</h4>
-                  <img src="http://placehold.it/270x152">
-                </div>
-                <h4 class="stories-rollover-shown">The Evolution of Advanced Detection</h4>
-                <div class="stories-hidden-text">
-                  <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more goto-new">Read More</span></p>
-                </div>
-              </a>
-            </div>
-            <div class="home-story">
-              <a href="#">
-                <div class="home-stories-image">
-                  <h4 class="stories-rollover-hidden">Safe Crossings</h4>
-                  <img src="http://placehold.it/270x152"/>
-                </div>
-                <h4 class="stories-rollover-shown">Safe Crossings</h4>
-                <div class="stories-hidden-text">
-                  <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more goto-new">Read More</span></p>
-                </div>
-              </a>
-            </div>
-            <div class="home-story">
-              <a href="#">
-                <div class="home-stories-image">
-                  <h4 class="stories-rollover-hidden">Tustin, CA Inside a Box</h4>
-                  <img src="http://placehold.it/270x152">
-                </div>
-                <h4 class="stories-rollover-shown">Tustin, CA Inside a Box</h4>
-                <div class="stories-hidden-text">
-                  <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more goto-new">Read More</span></p>
-                </div>
-              </a>
-            </div>
-            <div class="home-story">
-              <a href="#">
-                <div class="home-stories-image">
-                  <h4 class="stories-rollover-hidden">Running Red</h4>
-                  <img src="http://placehold.it/270x152">
-                </div>
-                <h4 class="stories-rollover-shown">Running Red</h4>
-                <div class="stories-hidden-text">
-                  <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                  <span class="learn-more goto-new">Read More</span></p>
-                </div>
-              </a>
-            </div>
+          <div id="cost-carousel" class="owl-carousel cost-carousel">
+            <% @cost_effective_articles.each do |object| %>
+              <%= render partial: object.class.to_s.underscore, object: object %>
+            <% end %>
           </div>
         </div>
         <div class="home-story-right">
@@ -636,85 +336,10 @@
               <a class="owl-prev"><%= image_tag 'icons/stories-left.svg' %></a>
             </div>
             <div class="home-story-center">
-              <div id="efficiency-carousel" class="owl-carousel efficiency-carousel">
-                <div class="home-story">
-                  <a href="#">
-                    <div class="home-stories-image">
-                      <h4 class="stories-rollover-hidden">4 Steps to Create a Truck Rollover Prevention System</h4>
-                      <img src="http://placehold.it/270x152"/>
-                    </div>
-                    <h4 class="stories-rollover-shown">4 Steps to Create a Truck Rollover Prevention System</h4>
-                    <div class="stories-hidden-text">
-                      <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more goto-new">Read More</span></p>
-                    </div>
-                  </a>
-                </div>
-                <div class="home-story">
-                  <a href="#">
-                    <div class="home-stories-image">
-                      <h4 class="stories-rollover-hidden">Intersection Advance Warning</h4>
-                      <img src="http://placehold.it/270x152"/>
-                    </div>
-                    <h4 class="stories-rollover-shown">Intersection Advance Warning</h4>
-                    <div class="stories-hidden-text">
-                      <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more goto-new">Read More</span></p>
-                    </div>
-                  </a>
-                </div>
-                <div class="home-story">
-                  <a href="#">
-                    <div class="home-stories-image">
-                      <h4 class="stories-rollover-hidden">The Evolution of Advanced Detection</h4>
-                      <img src="http://placehold.it/270x152">
-                    </div>
-                    <h4 class="stories-rollover-shown">The Evolution of Advanced Detection</h4>
-                    <div class="stories-hidden-text">
-                      <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more goto-new">Read More</span></p>
-                    </div>
-                  </a>
-                </div>
-                <div class="home-story">
-                  <a href="#">
-                    <div class="home-stories-image">
-                      <h4 class="stories-rollover-hidden">Safe Crossings</h4>
-                      <img src="http://placehold.it/270x152"/>
-                    </div>
-                    <h4 class="stories-rollover-shown">Safe Crossings</h4>
-                    <div class="stories-hidden-text">
-                      <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more goto-new">Read More</span></p>
-                    </div>
-                  </a>
-                </div>
-                <div class="home-story">
-                  <a href="#">
-                    <div class="home-stories-image">
-                      <h4 class="stories-rollover-hidden">Tustin, CA Inside a Box</h4>
-                      <img src="http://placehold.it/270x152">
-                    </div>
-                    <h4 class="stories-rollover-shown">Tustin, CA Inside a Box</h4>
-                    <div class="stories-hidden-text">
-                      <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more goto-new">Read More</span></p>
-                    </div>
-                  </a>
-                </div>
-                <div class="home-story">
-                  <a href="#">
-                    <div class="home-stories-image">
-                      <h4 class="stories-rollover-hidden">Running Red</h4>
-                      <img src="http://placehold.it/270x152">
-                    </div>
-                    <h4 class="stories-rollover-shown">Running Red</h4>
-                    <div class="stories-hidden-text">
-                      <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more goto-new">Read More</span></p>
-                    </div>
-                  </a>
-                </div>
+              <div id="simple-carousel" class="owl-carousel simple-carousel">
+                <% @simple_articles.each do |object| %>
+                  <%= render partial: object.class.to_s.underscore, object: object %>
+                <% end %>
               </div>
             </div>
             <div class="home-story-right">
@@ -759,85 +384,10 @@
               <a class="owl-prev"><%= image_tag 'icons/stories-left.svg' %></a>
             </div>
             <div class="home-story-center">
-              <div id="efficiency-carousel" class="owl-carousel efficiency-carousel">
-                <div class="home-story">
-                  <a href="#">
-                    <div class="home-stories-image">
-                      <h4 class="stories-rollover-hidden">4 Steps to Create a Truck Rollover Prevention System</h4>
-                      <img src="http://placehold.it/270x152"/>
-                    </div>
-                    <h4 class="stories-rollover-shown">4 Steps to Create a Truck Rollover Prevention System</h4>
-                    <div class="stories-hidden-text">
-                      <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more goto-new">Read More</span></p>
-                    </div>
-                  </a>
-                </div>
-                <div class="home-story">
-                  <a href="#">
-                    <div class="home-stories-image">
-                      <h4 class="stories-rollover-hidden">Intersection Advance Warning</h4>
-                      <img src="http://placehold.it/270x152"/>
-                    </div>
-                    <h4 class="stories-rollover-shown">Intersection Advance Warning</h4>
-                    <div class="stories-hidden-text">
-                      <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more goto-new">Read More</span></p>
-                    </div>
-                  </a>
-                </div>
-                <div class="home-story">
-                  <a href="#">
-                    <div class="home-stories-image">
-                      <h4 class="stories-rollover-hidden">The Evolution of Advanced Detection</h4>
-                      <img src="http://placehold.it/270x152">
-                    </div>
-                    <h4 class="stories-rollover-shown">The Evolution of Advanced Detection</h4>
-                    <div class="stories-hidden-text">
-                      <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more goto-new">Read More</span></p>
-                    </div>
-                  </a>
-                </div>
-                <div class="home-story">
-                  <a href="#">
-                    <div class="home-stories-image">
-                      <h4 class="stories-rollover-hidden">Safe Crossings</h4>
-                      <img src="http://placehold.it/270x152"/>
-                    </div>
-                    <h4 class="stories-rollover-shown">Safe Crossings</h4>
-                    <div class="stories-hidden-text">
-                      <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more goto-new">Read More</span></p>
-                    </div>
-                  </a>
-                </div>
-                <div class="home-story">
-                  <a href="#">
-                    <div class="home-stories-image">
-                      <h4 class="stories-rollover-hidden">Tustin, CA Inside a Box</h4>
-                      <img src="http://placehold.it/270x152">
-                    </div>
-                    <h4 class="stories-rollover-shown">Tustin, CA Inside a Box</h4>
-                    <div class="stories-hidden-text">
-                      <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more goto-new">Read More</span></p>
-                    </div>
-                  </a>
-                </div>
-                <div class="home-story">
-                  <a href="#">
-                    <div class="home-stories-image">
-                      <h4 class="stories-rollover-hidden">Running Red</h4>
-                      <img src="http://placehold.it/270x152">
-                    </div>
-                    <h4 class="stories-rollover-shown">Running Red</h4>
-                    <div class="stories-hidden-text">
-                      <p>SmartSensor Matrix's high-definition corner radar is helping to make...<br/>
-                      <span class="learn-more goto-new">Read More</span></p>
-                    </div>
-                  </a>
-                </div>
+              <div id="support-carousel" class="owl-carousel support-carousel">
+                <% @support_articles.each do |object| %>
+                  <%= render partial: object.class.to_s.underscore, object: object %>
+                <% end %>
               </div>
             </div>
             <div class="home-story-right">

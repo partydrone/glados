@@ -18,6 +18,7 @@ describe Admin::KnowledgeBaseArticlesController, :locale do
       post admin_knowledge_base_articles_path, params: {
         knowledge_base_article: {
           title: 'System One',
+          subtitle: 'Get ready for the next generation of traffic detection solutions.',
           body: 'System one has been five years in the making, and it is totally worth the wait!',
           posted_on: Date.today.to_s(:db)
         }
