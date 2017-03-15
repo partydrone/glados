@@ -5,8 +5,8 @@
         
 
         <h2><%= @training_event.title %></h2>
-        <% @training_courses.each do |c| %>
-            <h6><%= c.title %></h6>
+        <% @training_event.training_event_courses.each do |c| %>
+            <h6><%= c.title_by_id(c.training_course_id) %></h6>
 
         <% end %>
 

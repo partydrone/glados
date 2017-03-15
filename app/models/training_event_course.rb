@@ -15,6 +15,12 @@ class TrainingEventCourse < ApplicationRecord
       end
   end
 
+  def course_number_by_id(id)
+    if (TrainingCourse.exists?(id)) then
+        TrainingCourse.find(id).number
+      end
+  end
+
   def get_enrollments(seats,id)
     seats - Enrollment.where("training_event_course_id = ?", id).count
   end

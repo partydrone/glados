@@ -11,8 +11,8 @@ Ends <%= l @training_event.ended_at.to_date, format: :long %>
 
 <p>Courses you registered for</p>
 <ul>
-   <% @training_courses.each do |course| %>
-   <li><%= course.number %> - <%= course.title %></li>
+   <% @training_event.training_event_courses.each do |c| %>
+        <li><%= c.course_number_by_id(c.training_course_id) %> - <%= c.title_by_id(c.training_course_id) %></li>
    <%end%>
 </ul>
 <p>To respond to this request, just reply to this email.</p>

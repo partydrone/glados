@@ -10,9 +10,8 @@ Training Event
     Ends<%= l @training_event.ended_at.to_date, format: :long %>
 
 Courses you registered for
-
-   <% @training_courses.each do |course| %>
-   <%= course.number %> - <%= course.title %>
+   <% @training_event.training_event_courses.each do |c| %>
+    <%= c.course_number_by_id(c.training_course_id) %> - <%= c.title_by_id(c.training_course_id) %>
    <%end%>
 
 To respond to this request, just reply to this email.
