@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="home-stories-container">
+
+    <% if story.count > 3 %>
+      <div class="home-story-left show-for-small">
+        <a class="owl-prev"><%= image_tag 'icons/stories-left.svg' %></a>
+      </div>
+	  <% elsif story.count == 3 %>
+      <div class="home-story-left hide-for-large">
+        <a class="owl-prev"><%= image_tag 'icons/stories-left.svg' %></a>
+      </div>
+	  <% elsif story.count == 2 %>
+	  	<div class="home-story-left show-for-small-only">
+        <a class="owl-prev"><%= image_tag 'icons/stories-left.svg' %></a>
+      </div>
+    <% end %>
+
+    <div class="home-story-center">
+    	<div id=<%= "#{articleType}-carousel" %> class='<%= "#{articleType}-carousel" %> owl-carousel'>
+        <% story.each do |object| %>
+          <%= render partial: object.class.to_s.underscore, object: object %>
+        <% end %>
+      </div>
+    </div>
+
+    <% if story.count > 3 %>
+      <div class="home-story-right">
+        <a class="owl-next"><%= image_tag 'icons/stories-right.svg' %></a>
+      </div>
+    <% elsif story.count == 3 %>
+    	<div class="home-story-right hide-for-large">
+        <a class="owl-next"><%= image_tag 'icons/stories-right.svg' %></a>
+      </div>
+    <% elsif story.count == 2 %>
+    	<div class="home-story-right show-for-small-only">
+        <a class="owl-next"><%= image_tag 'icons/stories-right.svg' %></a>
+      </div>
+    <% end %>
+
+  </div>
+</div>
