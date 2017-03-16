@@ -54,3 +54,11 @@ training_course_six:
   number: 006
   duration: 2
   training_course_type: workshop
+
+training_course_seven:
+  id: 7
+  title: Training Course seven
+  description: Training course six description.
+  number: 007
+  duration: 2
+  training_course_type: workshop
