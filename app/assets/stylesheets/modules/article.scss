@@ -117,7 +117,8 @@
 	border-bottom: 1px solid $steel;
 }
 
-.article-body {
+.article-body,
+.product-intro-blurb {
 	ol {
 		list-style-type: decimal;
 	}
