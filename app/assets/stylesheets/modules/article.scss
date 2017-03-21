@@ -84,9 +84,6 @@
 	a {
 		color: $charcoal;
 	}
-	.is-stuck {
-		margin-top: 60px !important;
-	}
 	img {
 		display: inline-block;
 	}
@@ -99,7 +96,7 @@
 	@media screen and (min-width: 1024px) {
 		h2 {
 			font-size: 16px;
-			line-height: 33px;
+			line-height: 24px;
 		}
 		.similar-side-text {
 			padding: 0 10px;
@@ -113,7 +110,7 @@
 
 .article-side-title {
 	text-align: center;
-	margin: 75px 0 15px 0;
+	margin: 75px auto 15px auto;
 	border-bottom: 1px solid $steel;
 }
 

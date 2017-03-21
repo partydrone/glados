@@ -1,0 +1,26 @@
+New Training Event Request!
+
+
+Training Request Event
+
+    Company Name: <%= @training_event_request.company_name %>
+    Full Name: <%= @training_event_request.full_name %>
+    Email: <%= @training_event_request.email %>
+    Phone: <%= @training_event_request.phone %>
+    Address: <%= @training_event_request.address %>
+    City: <%= @training_event_request.city %>
+    Postal Code: <%= @training_event_request.postal_code %>
+    Region: <%= @training_event_request.region %>
+    Country: <%= t "countries.#{@training_event_request.country}"%>
+    Start Date: <%= l @training_event_request.started_at.to_date, format: :long %>
+    End Date: <%= l @training_event_request.ended_at.to_date, format: :long %>
+    Capacity <%= @training_event_request.capacity %>
+    Courses Requested
+
+   <% @training_courses.each do |course| %>
+   <%= course.title %>
+   <%end%>
+
+
+To respond to this request, just reply to this email.
+

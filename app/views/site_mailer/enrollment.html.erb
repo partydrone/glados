@@ -1,0 +1,19 @@
+<h1>Enrollment Confirmation</h1>
+
+
+<p>Training Event</p>
+
+<%= @training_event.title %>
+<%= @training_event.description %>
+<%= @training_event.location %>
+Starts <%= l @training_event.started_at.to_date, format: :long %>
+Ends <%= l @training_event.ended_at.to_date, format: :long %>
+
+<p>Courses you registered for</p>
+<ul>
+   <% @training_event.training_event_courses.each do |c| %>
+        <li><%= c.course_number_by_id(c.training_course_id) %> - <%= c.title_by_id(c.training_course_id) %></li>
+   <%end%>
+</ul>
+<p>To respond to this request, just reply to this email.</p>
+

@@ -1,6 +1,6 @@
 require 'sidekiq/web'
 
-Rails.application.routes.draw do
+Rails.application.routes.draw do   
   mount Sidekiq::Web => '/sidekiq'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       ##
       # Resource routes
       resources :blog_posts,
-                :case_studies,
+                :case_studies,                
                 :features,
                 :knowledge_base_articles,
                 :products,
@@ -62,12 +62,16 @@ Rails.application.routes.draw do
     # Resource routes
     resources :demo_requests, :marketing_app_support_requests, only: [:create]
 
+    resources :enrollments, only: [:create, :show]
+
+    resources :training_event_requests, only: [:create, :new]
+
     resources :identities, only: [:new]
 
     resources :blog_posts,
               :case_studies,
               :features,
-              :product_categories,
+              :product_categories,              
               only: [:show]
 
     resources :tags, only: [:show], param: :name
@@ -91,8 +95,7 @@ Rails.application.routes.draw do
     get '/marketing_app', to: 'marketing_app#index'
     get '/news', to: 'news#index'
     get '/support', to: 'support#index'
-    post '/support', to: 'support#select_product'
-    get '/training', to: 'training#index'
+    post '/support', to: 'support#select_product'        
 
     ##
     # Root route

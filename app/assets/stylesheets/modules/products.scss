@@ -20,9 +20,9 @@
 
 .products-white-backer {
   margin-top: -217px;
-  background: -moz-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(255,255,255,1) 25%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 25%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 25%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: -moz-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(255,255,255,1) 210px); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 210px); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 210px); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   padding: 30px 0 100px 0;
   .small-3 img {
     float: right;
@@ -40,6 +40,9 @@
   }
   .medium-6 {
     padding-top: 50px;
+  }
+  img {
+    max-height: 140px;
   }
   @media screen and (min-width: 40em) {
     .medium-6 {
@@ -79,7 +82,7 @@ Product Types
     margin: 3rem 0;
     .product-alternate-image-container {
       background: url(http://placehold.it/805x650) no-repeat left;
-      width: 50vw;
+      width: 40vw;
       overflow: hidden;
       flex-direction: row-reverse;
       -webkit-background-size: cover;
@@ -107,7 +110,7 @@ Product Types
         }
       }
       @media screen and (min-width: 1024px){
-        width: 50vw;
+        width: 60vw;
         float: right;
         display: inline-block;
         vertical-align: top;
@@ -130,7 +133,7 @@ Product Types
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
-        width: 50vw;
+        width: 40vw;
         display: inline-block;
         vertical-align: top;
       }
@@ -145,7 +148,7 @@ Product Types
           margin-right: auto;
         }
         @media screen and (min-width: 1024px){
-          width: 50vw;
+          width: 60vw;
           float: left;
           .products-alternate-text-box,
           .product-alternate-header {

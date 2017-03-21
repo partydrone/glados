@@ -19,8 +19,18 @@
 	<div class="page-sub-bottom-nav">
 		<nav data-magellan data-bar-offset="50">
 			<ul class="menu icon-top expanded">
-			 	<li><a href="#"><%= t(".locate_dealer") %></a></li>
-			 	<li><a href="#"><%= t(".wavetronix_offices") %></a></li>
+			 	<li>
+          <%= link_to '#dealers' do %>
+            <%= image_tag "icons/map.svg", class: 'small-icon' %>
+            <span><%= t(".locate_dealer") %></span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#offices' do %>
+            <%= image_tag "icons/map_location.svg", class: 'small-icon' %>
+            <span><%= t(".wavetronix_offices") %></span>
+          <% end %>
+        </li>
 			</ul>
 		</nav>
 	</div>
@@ -79,125 +89,154 @@
 			<%= t(".wavetronix_offices") %>
 		</h1>
 		<div class="row office-row">
-			<div class="large-3 medium-6 columns end">
-				<div class="office-information">
+			<div class="large-3 medium-6 columns end vcard">
+				<div class="office-information adr">
 					<h3>Wavetronix Headquarters</h3>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>78 E 1700 S</p>
+					<p><%= image_tag('icons/map_location.svg', class: "small-icon") %>78 E 1700 S</p>
 					<p>Provo, UT</p>
 					<p>84606</p>
 					<p>United States</p>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>(801) 734-7200</p>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>+1 (801) 734-7201</p>
+					<p><%= image_tag('icons/phone.svg', class: "small-icon") %>(801) 734-7200</p>
+					<p><%= image_tag('icons/fax_print.svg', class: "small-icon") %>+1 (801) 734-7201</p>
 				</div>
 			</div>
 			<div class="large-3 medium-6 columns end">
 				<h3>Social Media</h3>
+        <%= link_to "https://www.linkedin.com/company/53678" do %>
+          <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
+        <% end %>
+        <%= link_to "https://twitter.com/wavetronix_llc" do %>
+          <%=image_tag('icons/Twitter.svg', class: "icon") %>
+        <% end %>
+        <%= link_to "https://www.facebook.com/wavetronix/" do %>
+          <%=image_tag('icons/Facebook.svg', class: "icon") %>
+        <% end %>
+        <%= link_to "https://plus.google.com/b/107158630240614790564/?pageId=107158630240614790564" do %>
+          <%=image_tag('icons/Google.svg', class: "icon") %>
+        <% end %>
+        <%= link_to nil do %>
+          <%=image_tag('icons/email.svg', class: "icon") %>
+        <% end %>
 			</div>
 			<div class="large-3 medium-6 columns end">
 				<h3>Public Relations</h3>
+				<p>For news and other press related questions, email info@wavetronix.com</p>
 			</div>
 		</div>
 		<div class="row office-row">
 			<div class="columns">
 				<h4>Asia/Pacific</h4>
 			</div>
-			<div class="large-3 medium-6 columns end">
-				<div class="office-information">
+			<div class="large-3 medium-6 columns end vcard">
+				<div class="office-information adr">
 					<h3>Wavetronix China</h3>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>Room 1906 Hui Xin</p>
+					<p><%= image_tag('icons/map_location.svg', class: "small-icon") %>Room 1906 Hui Xin</p>
 					<p>Apartment</p>
 					<p>Bei Chen E. Road</p>
 					<p>Chao Yang District</p>
 					<p>Beijing</p>
 					<p>100101</p>
 					<p>China</p>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>(86) 10-6494-3046</p>
+					<p><%= image_tag('icons/phone.svg', class: "small-icon") %>(86) 10-6494-3046</p>
 					<p><%= image_tag('icons/email.svg', class: "small-icon") %>chinasales@wavetronix.com</p>
 				</div>
 			</div>
-			<div class="large-3 medium-6 columns end">
-				<div class="office-information">
-					<h3>Wavetronix China</h3>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>Room 1906 Hui Xin</p>
-					<p>Apartment</p>
-					<p>Bei Chen E. Road</p>
-					<p>Chao Yang District</p>
-					<p>Beijing</p>
-					<p>100101</p>
-					<p>China</p>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>(86) 10-6494-3046</p>
-					<p><%= image_tag('icons/email.svg', class: "small-icon") %>chinasales@wavetronix.com</p>
+			<div class="large-3 medium-6 columns end vcard">
+				<div class="office-information adr">
+					<h3>Wavetronix Singapore</h3>
+					<p><%= image_tag('icons/map_location.svg', class: "small-icon") %>Paya Lebar Square 60 Paya</p>
+					<p>Lebar Road Unit #09-38</p>
+					<p>Singapore</p>
+					<p>409051</p>
+					<p>Singapore</p>
+					<p><%= image_tag('icons/phone.svg', class: "small-icon") %>+1 (801) 734-7200</p>
+					<p><%= image_tag('icons/email.svg', class: "small-icon") %>apsales@wavetronix.com</p>
 				</div>
 			</div>
 
 		</div>
 		<div class="row office-row">
-			<div class="large-3 medium-6 columns end">
-				<div class="office-information">
-					<h3>Wavetronix Headquarters</h3>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>78 E 1700 S</p>
-					<p>Provo, UT</p>
-					<p>84606</p>
-					<p>United States</p>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>(801) 734-7200</p>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>+1 (801) 734-7201</p>
+			<div class="columns">
+				<h4>Europe</h4>
+			</div>
+			<div class="large-3 medium-6 columns end vcard">
+				<div class="office-information adr">
+					<h3>Wavetronix France</h3>
+					<p><%= image_tag('icons/map_location.svg', class: "small-icon") %>ESTIA 2 Allee Theodore</p>
+					<p>Monod Technopole</p>
+					<p>Izarbel</p>
+					<p>Bidart</p>
+					<p>64210</p>
+					<p>France</p>
+					<p><%= image_tag('icons/phone.svg', class: "small-icon") %>+33 (0)5 59 43 85 10</p>
+					<p><%= image_tag('icons/email.svg', class: "small-icon") %>eusales@wavetronix.com</p>
 				</div>
 			</div>
-			<div class="large-3 medium-6 columns end">
-				<div class="office-information">
-					<h3>Wavetronix Headquarters</h3>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>78 E 1700 S</p>
-					<p>Provo, UT</p>
-					<p>84606</p>
-					<p>United States</p>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>(801) 734-7200</p>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>+1 (801) 734-7201</p>
+			<div class="large-3 medium-6 columns end vcard">
+				<div class="office-information adr">
+					<h3>Wavetronix UK</h3>
+					<p><%= image_tag('icons/map_location.svg', class: "small-icon") %>Suite 4B Gatwick House</p>
+					<p>Peeks Brook Lane</p>
+					<p>Horley</p>
+					<p>Surrey</p>
+					<p>RH6 9ST</p>
+					<p>United Kingdom</p>
+					<p><%= image_tag('icons/phone.svg', class: "small-icon") %>+44 (0) 1293 775 487</p>
+					<p><%= image_tag('icons/email.svg', class: "small-icon") %>uksales@wavetronix.com</p>
 				</div>
 			</div>
 		</div>
+
 		<div class="row office-row">
-			<div class="large-3 medium-6 columns end">
-				<div class="office-information">
-					<h3>Wavetronix Headquarters</h3>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>78 E 1700 S</p>
-					<p>Provo, UT</p>
-					<p>84606</p>
+			<div class="columns">
+				<h4>North America</h4>
+			</div>
+			<div class="large-3 medium-6 columns end vcard">
+				<div class="office-information adr">
+					<h3>Wavetronix Florida</h3>
+					<p><%= image_tag('icons/map_location.svg', class: "small-icon") %>3000 Dovera Drive</p>
+					<p>Suite 100</p>
+					<p>Oviedo</p>
+					<p>Florida</p>
+					<p>32765</p>
 					<p>United States</p>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>(801) 734-7200</p>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>+1 (801) 734-7201</p>
+					<p><%= image_tag('icons/phone.svg', class: "small-icon") %>(407) 366-5144</p>
+					<p><%= image_tag('icons/email.svg', class: "small-icon") %>nasales@wavetronix.com</p>
 				</div>
 			</div>
-			<div class="large-3 medium-6 columns end">
-				<div class="office-information">
-					<h3>Wavetronix Headquarters</h3>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>78 E 1700 S</p>
-					<p>Provo, UT</p>
-					<p>84606</p>
+			<div class="large-3 medium-6 columns end vcard">
+				<div class="office-information adr">
+					<h3>Wavetronix Georgia</h3>
+					<p><%= image_tag('icons/map_location.svg', class: "small-icon") %>1395 South Marietta Parkway</p>
+					<p>Suite 208</p>
+					<p>Building 400</p>
+					<p>Marietta</p>
+					<p>Georgia</p>
+					<p>30067</p>
 					<p>United States</p>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>(801) 734-7200</p>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>+1 (801) 734-7201</p>
 				</div>
 			</div>
-			<div class="large-3 medium-6 columns end">
-				<div class="office-information">
+			<div class="large-3 medium-6 columns end vcard">
+				<div class="office-information adr">
 					<h3>Wavetronix Headquarters</h3>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>78 E 1700 S</p>
+					<p><%= image_tag('icons/map_location.svg', class: "small-icon") %>78 E 1700 S</p>
 					<p>Provo, UT</p>
 					<p>84606</p>
 					<p>United States</p>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>(801) 734-7200</p>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>+1 (801) 734-7201</p>
+					<p><%= image_tag('icons/phone.svg', class: "small-icon") %>(801) 734-7200</p>
+					<p><%= image_tag('icons/fax_print.svg', class: "small-icon") %>+1 (801) 734-7201</p>
 				</div>
 			</div>
-			<div class="large-3 medium-6 columns end">
-				<div class="office-information">
-					<h3>Wavetronix Headquarters</h3>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>78 E 1700 S</p>
-					<p>Provo, UT</p>
-					<p>84606</p>
+			<div class="large-3 medium-6 columns end vcard">
+				<div class="office-information adr">
+					<h3>Wavetronix Tennessee</h3>
+					<p><%= image_tag('icons/map_location.svg', class: "small-icon") %>1295 Old Hickory Blvd</p>
+					<p>Nashville</p>
+					<p>Tennessee</p>
+					<p>37207</p>
 					<p>United States</p>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>(801) 734-7200</p>
-					<p><%= image_tag('icons/Marker.svg', class: "small-icon") %>+1 (801) 734-7201</p>
+					<p><%= image_tag('icons/phone.svg', class: "small-icon") %>(615) 410-0737</p>
+					<p><%= image_tag('icons/email.svg', class: "small-icon") %>TNsales@wavetronix.com</p>
 				</div>
 			</div>
 		</div>

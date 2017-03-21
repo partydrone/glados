@@ -1,0 +1,19 @@
+<div class="training-course-card">
+			<div class="horizontal menu">
+				<h3 class="training-certified"><%= training_course.title %></h3>
+				<div class="course-card-left training-hours"><%= training_course.duration %></div>
+				<div class="course-card-right"><%= t(".prerequisites") %></div>
+				<p><%= training_course.description %></p>
+				<div class="learn-course">
+					<a class="hide-me-on-dropdown expand-container" data-toggle="traffic-workshop-dropdown"><%= t(".learn_more") %></a>
+					<div class="dropdown-pane course-dropdown-container" id="traffic-workshop-dropdown" data-dropdown data-auto-focus="true">
+						<p>This is more text below the cut I don't know what goes here but it will be stuff.</p>
+						<img src="http://placehold.it/461x258" />
+						<p>To enroll in this course, you must first successfully complete:<br/>
+						<a href="#" class="prereq-link">Introduction to Radar Workshop</a></p>
+						<h6 class="training-certified"><%= t(".certification_on_completion") %></h6>
+						<a data-toggle="traffic-workshop-dropdown" class="close-container"><%= t(".hide") %></a>
+					</div>
+				</div>
+			</div>
+		</div>

@@ -49,3 +49,4 @@ bower.json
 
 # Ignore any local encryption keys
 *.aes
+.vscode/launch.json
