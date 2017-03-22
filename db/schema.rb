@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224002626) do
+ActiveRecord::Schema.define(version: 20170308205942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,20 @@ ActiveRecord::Schema.define(version: 20170224002626) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.index ["type"], name: "index_ckeditor_assets_on_type", using: :btree
+  end
+
+  create_table "dealers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "region"
+    t.string   "zip"
+    t.string   "country_id", limit: 2
+    t.string   "phone"
+    t.string   "email"
+    t.string   "website"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "download_types", force: :cascade do |t|
@@ -138,6 +152,20 @@ ActiveRecord::Schema.define(version: 20170224002626) do
     t.string   "file_content_type"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "offices", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "region"
+    t.string   "zip"
+    t.string   "country"
+    t.string   "phone"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "position"
   end
 
   create_table "patents", force: :cascade do |t|
@@ -236,6 +264,15 @@ ActiveRecord::Schema.define(version: 20170224002626) do
     t.datetime "updated_at",     null: false
     t.integer  "taggings_count"
     t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
+  end
+
+  create_table "territories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "country"
+    t.string   "office"
+    t.string   "dealer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "training_course_types", force: :cascade do |t|

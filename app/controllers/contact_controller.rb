@@ -1,7 +1,6 @@
 class ContactController < ApplicationController
 	def index
-		@q = Dealer.ransack(params[:q])
-		@dealers = @q.result(distinct: true)
+		@dealers = Dealer.text_search(params[:query])
 		@territories = Territory.all
 	end
 

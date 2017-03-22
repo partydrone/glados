@@ -1,7 +1,7 @@
 class Dealer < ApplicationRecord
-	def self.search(name)
-	  if name
-	  	Dealer.where('name @@ :search OR country @@ :search OR region @@ :search', search: search)
+	def self.text_search(query)
+	  if query.present?
+	  	Dealer.where('name @@ :q OR country_id @@ :q OR region @@ :q', q: query)
 	  else
 	    all
 	  end
