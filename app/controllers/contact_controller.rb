@@ -1,7 +1,6 @@
 class ContactController < ApplicationController
 	def index
-		@dealers = Dealer.text_search(params[:query])
-		@territories = Territory.all
+		@pg_search_documents = PgSearch.multisearch(params[:query])
 	end
 
 
