@@ -254,6 +254,9 @@ Efficient Section
 		.home-stories a:hover h4 {
 			background: none;
 		}
+		.home-story h4 {
+			background: $ghost;
+		}
 		.home-story a:hover .stories-hidden-text {
 			height: auto;
 		}
