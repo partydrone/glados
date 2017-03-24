@@ -14,7 +14,10 @@
   </td>
   <td>
     <%= training_course.description %>
-  </td>  
+  </td>
+  <td>
+    <%= training_course.summary %>
+  </td>
   <td class="admin-right-delete">
     <%= render partial: 'options_delete', locals: {object: training_course, instance_name: training_course.title} %>
   </td>

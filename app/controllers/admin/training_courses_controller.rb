@@ -47,7 +47,7 @@ module Admin
     end
 
     def training_course_params
-      params.require(:training_course).permit(:title, :description, :number, :duration, :seats, :training_course_type_id, prerequisite_ids: [])
+      params.require(:training_course).permit(:title, :description, :number, :duration, :summary, :seats, :training_course_type_id, prerequisite_ids: [])
     end
   end
 end
