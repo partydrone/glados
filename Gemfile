@@ -19,6 +19,9 @@ gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5.x'
 gem 'uglifier', '>= 1.3.0'
 
+#nested_form
+gem 'nested_form_fields'
+
 ##
 # Authentication
 gem 'omniauth-identity'

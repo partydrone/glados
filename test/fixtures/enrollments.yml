@@ -1,0 +1,6 @@
+enrollment_one:
+  id: 1  
+  first_name: John
+  last_name: Doe
+  email: john@doe.com
+  training_event_course_id: ["",1,2]

@@ -1,0 +1,23 @@
+<%= form_for [:admin, @training_event], html: { multipart: true }, validate: true do |f| %>
+  <div class="row">
+    <div class="medium-12 columns">
+      <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+        <%= f.label :location %>
+        <%= f.text_field :location %>
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+        <%= f.label :started_at %>
+        <%= f.date_field :started_at, placeholder: 'yyyy-mm-dd' %>
+        <%= f.label :ended_at %>
+        <%= f.date_field :ended_at, placeholder: 'yyyy-mm-dd' %>
+        <%= f.submit  class: 'button radius' %>
+      </div>
+      <div>
+        <h1>Edit Training Event Courses</h1>
+        <%= render 'training_event_course_record', :enrollment => f %>
+      </div>
+    </div>
+
+<% end %>

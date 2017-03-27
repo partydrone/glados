@@ -23,6 +23,21 @@ class SiteMailer < ApplicationMailer
          subject:  t('.subject')
   end
 
+  def training_event_request(training_event_request, training_courses)
+    @training_event_request = training_event_request
+    @training_courses = training_courses
+    mail to: '"Training" <jeremy.conterio@wavetronix.com>',
+         reply_to: %("#{@training_event_request.company_name}" <#{@training_event_request.email}>),
+         subject: t('.subject')
+  end
+
+  def enrollment(training_event, email)
+    @training_event = training_event    
+    mail to: %("Registration Confirmation" <#{email}>),
+         replay_to: '"Training" <jeremy.conterio@wavetronix.com>',
+         subject: 'Course Enrollment Confirmation'
+  end
+
   private
 
   def set_demo_request_recipient(country)

@@ -1,0 +1,52 @@
+
+
+    <%= enrollment.nested_fields_for :training_event_courses do |tec| %>
+    <div style="border:1px solid grey; margin:10px; padding:10px">
+      <h3><%= tec.object.title_by_id(tec.object.training_course_id) %></h3>
+      <%= tec.label :training_course_id %>
+      <%= tec.collection_select :training_course_id, TrainingCourse.all, :id, :full_title %>
+      <div class="row">
+        <div class="medium-4 columns">
+          <%= tec.label :seats %>
+          <%= tec.number_field :seats %>
+        </div>
+        <div class="medium-8 columns">
+          <%= tec.label :started_at %>
+          <%= tec.datetime_field :started_at, placeholder: 'yyyy-mm-dd hh:mm:ss' %>
+        </div>
+      </div>
+      <%= tec.remove_nested_fields_link 'Remove this course' %>
+    
+
+
+
+        <h3>Edit Enrollments</h3>
+        <%= tec.nested_fields_for :enrollments do |builder| %>
+          <div class="row">
+            <div class="medium-3 columns">
+              <%= builder.label :first_name %>
+              <%= builder.text_field :first_name %>
+            </div>
+            <div class="medium-3 columns">
+              <%= builder.label :last_name %>
+              <%= builder.text_field :last_name %>
+            </div>
+            <div class="medium-3 columns">
+              <%= builder.label :email %>
+              <%= builder.text_field :email %>
+            </div>
+            <div class="medium-3 columns">
+              <%= builder.remove_nested_fields_link 'Remove this Enrollment' %>
+            </div>
+          </div>      
+          
+        <% end %>
+        <%= tec.add_nested_fields_link :enrollments, 'Add another Enrollment' %>
+
+
+
+      <% end %>
+    </div>
+    <%= enrollment.add_nested_fields_link :training_event_courses, 'Add another course' %>
+
+ 

@@ -61,7 +61,6 @@ Base Home
 			padding-top: 30px;
 			h1 {
 				display: inline-block;
-				color: $linkblue;
 				line-height: 32px;
 			}
 		}
@@ -88,6 +87,7 @@ Base Home
 		content: url(image-path('icons/stories-right.svg')) !important;
 		margin-top: 3px;
 	}
+
 
 /***********************************************************************************************
 Top Banner
@@ -178,6 +178,10 @@ Safe Section
 		margin-top: -100px;
 		position: relative;
 		z-index: 5;
+	}
+
+	.home-safe .home-stories-container {
+		margin-bottom: 80px;
 	}
 
 	.home-safe .home-top-arrow {
@@ -338,7 +342,8 @@ Reliable Section
 			}
 		}
 		.stories-rollover-shown,
-		.stories-hidden-text p {
+		.stories-hidden-text p,
+		.reliable-carousel h4 {
 			color: $white;
 		}
 	}
@@ -348,9 +353,6 @@ Reliable Section
 	}
 
 	.home-reliable .show-for-small-only {
-		img {
-			padding-bottom: 25px;
-		}
 		h6, a {
 			color: $charcoal;
 		}
@@ -421,9 +423,8 @@ Reliable Magellan Section
 			margin-right: auto !important;
 			margin-left: auto;
 			width: 32px !important;
-			// padding-top: 100px;
 			display: block !important;
-			margin-top: 100px;
+			margin-top: 20vh;
 		}
 		li {
 			display: inline-block;
@@ -647,9 +648,6 @@ Cost Effective Section
 	.home-cost .show-for-small-only {
 		.columns:last-child:not(:first-child) {
 			float: none;
-		}
-		img {
-			padding-bottom: 25px;
 		}
 	}
 
@@ -922,9 +920,6 @@ Simple Section
 		.columns:last-child:not(:first-child) {
 			float: none;
 		}
-		img {
-			padding-bottom: 25px;
-		}
 		h6, a {
 			color: $charcoal;
 		}
@@ -999,9 +994,6 @@ Support Section
 			float: none;
 			margin-left: auto;
 			margin-right: auto;
-		}
-		img {
-			padding-bottom: 25px;
 		}
 		h6, a {
 			color: $charcoal;

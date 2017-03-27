@@ -8,3 +8,5 @@ en:
       subject: Knowledge Base Article Feedback
     marketing_app_support_request:
       subject: Marketing App Support Request
+    training_event_request:
+      subject: Training Event Request

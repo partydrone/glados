@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="large-6 large-6-offset-4 columns">
+    <h3>Course Registration</h3>
+
+    <%= form_for @enrollment, :id=>"enrollment_form",  validate: true do |f| %>
+    <%= f.hidden_field :training_event_id, :value => params[:id] %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>  
+    <%# f.submit 'Register', class: 'button radius' %>
+    <input type="submit" id="submit-btn" class='button radius' value="Register"/>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+    <h1>Course Descriptions</h1> 
+    <%= f.collection_check_boxes :training_event_course_id, @training_event.training_event_courses, :id, :title do |b| %>
+    <div class="training-course-card">
+      <div class="horizontal menu"> 
+        <span class="training-certified">
+          <%= b.label  %>
+          <% if b.object.get_enrollments(b.object.seats, b.object.id) > 0 %>
+            <div>seats available <%= b.object.get_enrollments(b.object.seats, b.object.id) %></div>
+          <% else %>
+            <div class="wait-listed" id="<%= b.object.title %>">
+              (waitlisted)
+            </div>
+          <% end %>
+        </span>
+        <div class="course-card-left training-hours">
+        <%= b.object.training_course.duration %>
+        <% if b.object.training_course.prerequisites.count > 0 %>
+          <span class="prerequisites" id="<%= b.object.title %>">
+            prerequisites required
+          </span>
+        <% end %>
+        
+        </div>
+        <br/>                
+        <%= b.object.training_course.description  %>
+        <span class="course-check">
+          <%= b.check_box %>
+        </span>
+
+      </div>
+    </div>
+    <%end%>
+  </div>
+</div>
+<% end %>
+
+
