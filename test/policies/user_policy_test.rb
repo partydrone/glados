@@ -38,4 +38,10 @@ describe UserPolicy do
       user.must_permit admin, :destroy
     end
   end
+
+  describe "for unauthorized user" do
+    it "prohibits index" do
+      :user.wont_permit nil, index
+    end
+  end
 end
