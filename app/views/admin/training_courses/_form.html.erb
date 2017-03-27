@@ -1,6 +1,6 @@
 <%= form_for [:admin, @training_course], html: { multipart: true }, validate: true do |f| %>
   <div class="row">
-    <div class="medium-6 columns">
+    <div class="large-8 columns">
       <%= f.label :title %>
       <%= f.text_field :title %>
       <%= f.cktext_area :description %>
@@ -12,21 +12,30 @@
       <%= f.label :summary %>
       <%= f.text_field :summary %>
       
-    </div>    
+    </div>
+    <div class="large-4 columns">
+      <%= f.label :training_course_products %>
+      <% @product_types.each do |product_type| %>
+        <h3><%= product_type.name %></h3>
+        <ul class="no-bullet">
+          <%= f.collection_check_boxes :product_ids, product_type.products, :id, :name do |b| %>
+          <li>
+            <%= b.check_box %>
+            <%= b.label %>
+          </li>
+          <% end if product_type.products %>
+        </ul>
+      <% end if @product_types %>
+    </div>
   </div>
   <h3>Prerequisite Courses</h3>
-  <div class="row">
-   
+  <div class="row">   
       <div class="medium-12 columns">
-       
-        
-          <%= f.collection_check_boxes :prerequisite_ids, @training_courses, :id, :title do |b| %>
-            
-            <div>
+          <%= f.collection_check_boxes :prerequisite_ids, @training_courses, :id, :title do |b| %>            
+          <div>
               <%= b.check_box %>
               <%= b.label %>
-            </div>
-            
+          </div>            
           <% end if @training_courses %>
           <%= f.submit  class: 'button radius' %>    
       </div>      

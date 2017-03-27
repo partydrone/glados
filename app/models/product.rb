@@ -4,6 +4,8 @@ class Product < ApplicationRecord
   belongs_to :product_category
   has_many :feature_associations, dependent: :destroy
   has_many :features, through: :feature_associations
+  has_many :training_course_products, dependent: :destroy
+  has_many :training_courses, through: :training_course_products
   has_and_belongs_to_many :articles
   has_and_belongs_to_many :downloads
   has_and_belongs_to_many :patents

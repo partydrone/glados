@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170324173510) do
+ActiveRecord::Schema.define(version: 20170327212015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -238,6 +238,14 @@ ActiveRecord::Schema.define(version: 20170324173510) do
     t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
   end
 
+  create_table "training_course_products", force: :cascade do |t|
+    t.integer "training_course_id"
+    t.integer "product_id"
+    t.integer "position"
+    t.index ["product_id"], name: "index_training_course_products_on_product_id", using: :btree
+    t.index ["training_course_id"], name: "index_training_course_products_on_training_course_id", using: :btree
+  end
+
   create_table "training_course_types", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -300,4 +308,6 @@ ActiveRecord::Schema.define(version: 20170324173510) do
   add_foreign_key "feature_associations", "features"
   add_foreign_key "feature_associations", "products"
   add_foreign_key "taggings", "tags"
+  add_foreign_key "training_course_products", "products"
+  add_foreign_key "training_course_products", "training_courses"
 end
