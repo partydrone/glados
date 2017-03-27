@@ -4,5 +4,7 @@ en:
   site_mailer:
     demo_request:
       subject: Demo Request
+    knowledge_base_article_feedback:
+      subject: Knowledge Base Article Feedback
     marketing_app_support_request:
       subject: Marketing App Support Request

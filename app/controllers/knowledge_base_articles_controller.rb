@@ -8,4 +8,8 @@ class KnowledgeBaseArticlesController < ApplicationController
     @article.log_view unless browser.bot?
     # LogArticleViewJob.perform_later @article unless browser.bot?
   end
+
+  def update
+
+  end
 end
