@@ -9,6 +9,7 @@ module Admin
 
     def show
       @article = @knowledge_base_article
+      render 'knowledge_base_articles/show'
     end
 
     def new
