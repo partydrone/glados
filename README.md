@@ -48,7 +48,8 @@ When you're ready to fire it up:
 $ docker-compose up -d
 ```
 
-It may take a bit for all the container images to download the first time, but once it's done you can make sure everything is running with the following command:
+It may take a bit for all the container images to download the first time, but
+once it's done you can make sure everything is running with the following command:
 
 ```
 docker-compose ps
@@ -80,4 +81,5 @@ Use this command in the terminal at the source of the project:
 $ gource --key --background-image ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/Pictures/GLaDOS1.jpg --title "GLaDOS Development" --hide filenames --seconds-per-day 0.67 --auto-skip-seconds 1 -1920x1080 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 gource.mp4
 ```
 
-You can substitute any value for the `--background-image` parameter that you like, or leave it out for the default black background.
+You can substitute any value for the `--background-image` parameter that you
+like, or leave it out for the default black background.
