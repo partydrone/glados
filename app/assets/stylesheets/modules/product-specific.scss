@@ -35,6 +35,7 @@ navigation
       @include no-pad-marg;
       .active, a:focus, a:hover, a {
         color: $charcoal !important;
+        font-size: 1.375rem;
       }
     }
   }

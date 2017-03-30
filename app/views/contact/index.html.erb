@@ -167,9 +167,9 @@
         <%= link_to "https://plus.google.com/b/107158630240614790564/?pageId=107158630240614790564" do %>
           <%=image_tag('icons/Google.svg', class: "icon") %>
         <% end %>
-        <%= link_to nil do %>
-          <%=image_tag('icons/email.svg', class: "icon") %>
-        <% end %>
+        <%= mail_to "sales@wavetronix.com" do %>
+        	<%=image_tag('icons/email.svg', class: "icon") %>
+     		<% end %>
 			</div>
 			<div class="large-3 medium-6 columns end">
 				<h3>Public Relations</h3>

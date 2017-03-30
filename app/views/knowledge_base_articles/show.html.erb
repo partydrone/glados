@@ -6,27 +6,27 @@
       <nav data-magellan>
         <ul class="horizontal menu">
           <li>
-            <%= link_to nil do %>
+            <%= link_to "http://www.linkedin.com/shareArticle?mini=true&amp;url=#{request.url}" do %>
               <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
             <% end %>
           </li>
           <li>
-            <%= link_to nil do %>
+            <%= link_to "https://twitter.com/share?url=#{request.url}&amp;text=#{@article.title}&amp;hashtags=wavetronix" do %>
               <%=image_tag('icons/Twitter.svg', class: "icon") %>
             <% end %>
           </li>
           <li>
-            <%= link_to nil do %>
+            <%= link_to "http://www.facebook.com/sharer.php?u=#{request.url}" do %>
               <%=image_tag('icons/Facebook.svg', class: "icon") %>
             <% end %>
           </li>
           <li>
-            <%= link_to nil do %>
+            <%= link_to "https://plus.google.com/share?url=#{request.url}" do %>
               <%=image_tag('icons/Google.svg', class: "icon") %>
             <% end %>
           </li>
           <li>
-            <%= link_to nil do %>
+            <%= mail_to "", subject: "#{@article.title}", body: "I thought you might be interested in this article from Wavetronix. \n\n #{@article.title} \n #{@article.subtitle} \n Read more at www.wavetronix.com#{url_for(@article)}" do %>
               <%=image_tag('icons/email.svg', class: "icon") %>
             <% end %>
           </li>
@@ -60,27 +60,27 @@
       <nav class="social-media-side" data-magellan>
         <ul class="vertical menu">
           <li>
-            <%= link_to nil do %>
+            <%= link_to "http://www.linkedin.com/shareArticle?mini=true&amp;url=#{request.url}" do %>
               <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
             <% end %>
           </li>
           <li>
-            <%= link_to nil do %>
+            <%= link_to "https://twitter.com/share?url=#{request.url}&amp;text=#{@article.title}&amp;hashtags=wavetronix" do %>
               <%=image_tag('icons/Twitter.svg', class: "icon") %>
             <% end %>
           </li>
           <li>
-            <%= link_to nil do %>
+            <%= link_to "http://www.facebook.com/sharer.php?u=#{request.url}" do %>
               <%=image_tag('icons/Facebook.svg', class: "icon") %>
             <% end %>
           </li>
           <li>
-            <%= link_to nil do %>
+            <%= link_to "https://plus.google.com/share?url=#{request.url}" do %>
               <%=image_tag('icons/Google.svg', class: "icon") %>
             <% end %>
           </li>
           <li>
-            <%= link_to nil do %>
+            <%= mail_to "", subject: "#{@article.title}", body: "I thought you might be interested in this article from Wavetronix. \n\n #{@article.title} \n #{@article.subtitle} \n Read more at www.wavetronix.com#{url_for(@article)}" do %>
               <%=image_tag('icons/email.svg', class: "icon") %>
             <% end %>
           </li>
@@ -109,7 +109,7 @@
 
 
 
-<div class="faq-helpful">
+<div class="faq-helpful row columns">
   <h4>Was this helpful?
     <a href="#">
       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
