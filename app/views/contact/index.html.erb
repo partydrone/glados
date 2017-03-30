@@ -89,7 +89,7 @@
 			      	<% office = Office.find(pg.searchable.office) %>
 			      		<h6>Office for <%= dealer.name %></h6>
 			      		<h3><%= office.name %></h3>
-			      		<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= dealer.address %><br/>
+			      		<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.address %><br/>
 								<%= office.city %><br/>
 								<%= office.region %><br/>
 								<%= office.zip %><br/>
@@ -102,6 +102,8 @@
 		    <% if pg.searchable_type == "Dealer" %>
 		     	<li class="column column-block">
 						<div class="office-information">
+							<% territory = Territory.where("dealer like ?", "%#{pg.searchable.id}%").first %>
+							<h6>Dealer for <%= territory.name %></h6>
 							<h3><%= pg.searchable.name %></h3>
 							<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= pg.searchable.address %><br/>
 							<%= pg.searchable.city %><br/>
@@ -112,9 +114,16 @@
 		      </li>
 		      <li class="column column-block">
 						<div class="office-information">
-							<% territory = Territory.where("dealer like ?", "%#{pg.searchable.id}%").first %>
-							<h3><%= territory.name %></h3>
-							<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= territory.country %></p>
+							<% office = Office.find(territory.office) %>
+							<h6>Office for <%= pg.searchable.name %></h6>
+							<h3><%= office.name %></h3>
+			      		<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.address %><br/>
+								<%= office.city %><br/>
+								<%= office.region %><br/>
+								<%= office.zip %><br/>
+								<%= t "countries.#{office.country}" %><br/>
+								<% if office.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.phone %><br/><% end %>
+								<% if office.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= office.email %></p><% end %>
 						</div>
 		      </li>
 
