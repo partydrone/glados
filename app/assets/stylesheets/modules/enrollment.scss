@@ -1,0 +1,15 @@
+@import "foundation_and_overrides";
+@import "globals/all";
+.class_checkbox {
+    display: none;
+}
+
+.class_checkbox+label {
+    width: 25px;
+    height: 25px;
+    content: url(image_path('icons/Plus.svg'));
+}
+
+.class_checkbox.checked+label {
+    content: url(image_path('icons/check.svg'));
+}
