@@ -33,8 +33,9 @@ navigation
     h4 {
       line-height: 2.375rem;
       @include no-pad-marg;
-      .active, a:focus, a:hover, a {
-        color: $charcoal !important;
+      a {
+        font-size: 1.375rem;
+        font-weight: 300;
       }
     }
   }
@@ -210,6 +211,11 @@ support
   .product-specific-support {
     padding: 1.5rem 0.8rem;
     background: rgba(230, 230, 230, 0.5);
+    @media screen and (min-width: 1024px) {
+      min-height: -webkit-calc(100vh - 100px);
+      min-height: -moz-calc(100vh - 100px);
+      min-height: calc(100vh - 100px);
+    }
   }
 
   .support-section {

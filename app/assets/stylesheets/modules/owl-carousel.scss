@@ -29,6 +29,9 @@ Home Stories
 				display: none;
 			}
 		}
+		@media screen and (max-width: 40em) {
+			height: 355px;
+		}
 	}
 
 	.two-home-stories-container {
