@@ -15,7 +15,8 @@ class EnrollmentsController < ApplicationController
       end
     end
     #send email
-    @training_event = TrainingEvent.includes(training_event_courses: [:training_course]).find(params[:enrollment][:training_event_id])    
+    @training_event = TrainingEvent.find(params[:enrollment][:training_event_id])
+    @training_event.training_courses = TrainingCourse.find(course_ids)
     SiteMailer.enrollment(@training_event, params[:enrollment][:email]).deliver_now
     redirect_to enrollment_path controller: 'Enrollments', action: 'show', id: params[:enrollment][:training_event_id]
     

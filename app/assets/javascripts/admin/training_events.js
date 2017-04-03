@@ -43,7 +43,8 @@ var training_events = {
     validateCourses: function() {
         // display displayAlert if HAS prerequisites or waitlisted courses
         if (training_events.getDisplayAlert()) {
-            alert("you have waitlisted or prerequisites!"); //here is where we will unhide alert div
+            //alert("you have waitlisted or prerequisites!"); //here is where we will unhide alert div
+            training_events.displayCourseAlerts();
             return false;
         }
         return true;
@@ -53,12 +54,54 @@ var training_events = {
     getDisplayAlert: function() {
         //check arrays to see if we have any prerequisites or waitlisted courses
         if (training_events.waitlisted.length > 0 || training_events.prerequisites.length > 0) {
+
+            //validate client side validation
+            var first_name = $("#enrollment_first_name").val();
+            var last_name = $("#enrollment_last_name").val();
+            var email = $("#enrollment_email").val();
+            if (first_name.length <= 0 || last_name.length <= 0 || last_name.lenght <= 0 || email.length <= 0 || !training_events.validateEmail(email)) {
+                return false;
+            }
             return true;
         }
         return false;
+    },
+
+    //displays the course alerts for prerequisite(s) and waitlist(ed) courses
+    displayCourseAlerts: function() {
+        var html = training_events.buildHTML();
+        $(".show-courses").html(html);
+        $(".course_alerts").show();
+        $(".enrollment-form").hide();
+    },
+
+    //builds the html used to show the user what prerequisite &/or waitlist courses
+    buildHTML: function() {
+        var html = "";
+
+        if (training_events.prerequisites.length > 0) {
+            html += "<h3>Prerequisite Required</h3><p>You have selected courses that require these prerequisites:</p><ul>";
+            training_events.prerequisites.forEach(function(course) {
+                html += "<li>" + course + "</li>";
+            });
+            html += "</ul><p></p><p>Please confirm that you have completed these required courses before proceeding</p>";
+        }
+        if (training_events.waitlisted.length > 0) {
+            html += "<h3>Waitlist</h3><p>You have selected courses that are currently full:</p><ul>";
+            training_events.waitlisted.forEach(function(course) {
+                html += "<li>" + course + "</li>";
+            });
+            html += "</ul><p></p><p>You will be placed on a waitlist and notified if a spot becomes available.</p>";
+        }
+
+        return html;
+    },
+
+    //validates the email field for client side validation
+    validateEmail: function(email) {
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        return emailReg.test(email);
     }
-
-
 
 }; //end namespace
 
@@ -73,6 +116,22 @@ $('.course-check').on('click', function(event) {
 $('#submit-btn').on('click', function() {
     return training_events.validateCourses();
 });
+
+//when user clicks the cancel button
+$("#cancel-btn").on('click', function() {
+    $(".course_alerts").hide();
+    $(".enrollment-form").show();
+});
+
+//when user confirms corse-check
+$("#confirm-btn").on('click', function() {
+    $(function() {
+        $("#enrollment_form").submit(function(event) {
+            console.log("working" + event);
+            return false;
+        });
+    });
+})
 
 
 

@@ -1,15 +1,33 @@
 @import "foundation_and_overrides";
 @import "globals/all";
+.enrollment-form {
+    background-color: #e6e6e6;
+    padding: 30px
+}
+
 .class_checkbox {
     display: none;
 }
 
 .class_checkbox+label {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     content: url(image_path('icons/Plus.svg'));
 }
 
 .class_checkbox.checked+label {
-    content: url(image_path('icons/check.svg'));
+    content: url(image_path('icons/checkmark.svg'));
+}
+
+.course_alerts {
+    color: #fff;
+    h3 {
+        color: #fff;
+    }
+    background-color: #4c4c4c;
+    padding: 30px;
+    ul {
+        margin: 20px;
+        list-style-type: square;
+    }
 }
