@@ -41,3 +41,11 @@
 		color: $white !important;
 	}
 }
+
+.about-legal-container {
+	@media screen and (min-width: 1024px) {
+       min-height: -webkit-calc(100vh - 100px);
+       min-height: -moz-calc(100vh - 100px);
+       min-height: calc(100vh - 100px);
+      }
+}
