@@ -12,7 +12,8 @@ Rails.application.configure do
   }
 
   config.action_mailer.default_url_options = {
-    host: ENV['ACTION_MAILER_HOST']
+    host:   ENV['ACTION_MAILER_HOST'],
+    locale: I18n.locale
   }
 
   config.action_mailer.default_options = {

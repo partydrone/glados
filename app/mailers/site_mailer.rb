@@ -9,6 +9,13 @@ class SiteMailer < ApplicationMailer
          subject:  t('.subject')
   end
 
+  def knowledge_base_article_feedback(article, feedback)
+    @article  = article
+    @feedback = feedback
+    mail to:      '"Technical Support" <andrew.porter@wavetronix.com>',
+         subject: t('.subject')
+  end
+
   def marketing_app_support_request(marketing_app_support_request)
     @marketing_app_support_request = marketing_app_support_request
     mail to:    '"Marketing App Support" <appsupport@wavetronix.com>',
@@ -25,7 +32,7 @@ class SiteMailer < ApplicationMailer
   end
 
   def enrollment(training_event, email)
-    @training_event = training_event    
+    @training_event = training_event
     mail to: %("Registration Confirmation" <#{email}>),
          replay_to: '"Training" <jeremy.conterio@wavetronix.com>',
          subject: 'Course Enrollment Confirmation'

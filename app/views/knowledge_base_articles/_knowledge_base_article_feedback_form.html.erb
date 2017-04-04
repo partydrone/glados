@@ -1,0 +1,6 @@
+<%= form_for KnowledgeBaseArticleFeedback.new, html: {class: 'hide'} do |f| %>
+  <%= f.hidden_field :article_id, value: @article.id %>
+  <p>Uh oh, what could we do better?</p>
+  <%= f.text_area :message, rows: 4 %>
+  <%= f.submit 'Submit feedback', class: 'button radius' %>
+<% end %>

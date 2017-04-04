@@ -1,6 +1,6 @@
 require 'sidekiq/web'
 
-Rails.application.routes.draw do   
+Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -26,10 +26,10 @@ Rails.application.routes.draw do
       ##
       # Resource routes
       resources :blog_posts,
-                :case_studies,                
+                :case_studies,
                 :features,
-                :knowledge_base_articles,
                 :products,
+                :knowledge_base_articles,
                 :return_material_authorization_policy_documents,
                 :sales_terms_and_conditions_documents,
                 :training_events,
@@ -60,7 +60,10 @@ Rails.application.routes.draw do
 
     ##
     # Resource routes
-    resources :demo_requests, :marketing_app_support_requests, only: [:create]
+    resources :demo_requests,
+              :knowledge_base_article_feedbacks,
+              :marketing_app_support_requests,
+              only: [:create]
 
     resources :enrollments, only: [:create, :show]
 
@@ -71,7 +74,7 @@ Rails.application.routes.draw do
     resources :blog_posts,
               :case_studies,
               :features,
-              :product_categories,              
+              :product_categories,
               only: [:show]
 
     resources :tags, only: [:show], param: :name
@@ -86,6 +89,10 @@ Rails.application.routes.draw do
               :training_events,
               only: [:index, :show]
 
+    resources :knowledge_base_articles do
+      get :vote, on: :member
+    end
+
     ##
     # Static routes
     get '/about', to: 'about#index'
@@ -95,7 +102,7 @@ Rails.application.routes.draw do
     get '/marketing_app', to: 'marketing_app#index'
     get '/news', to: 'news#index'
     get '/support', to: 'support#index'
-    post '/support', to: 'support#select_product'        
+    post '/support', to: 'support#select_product'
 
     ##
     # Root route
