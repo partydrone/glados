@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/sinatra/sinatra.git
-  revision: 949e62b2b37e1d58fc226b56ed2c6af2504d279f
+  revision: 34521720b6028c2fa696cf85109345a89f306c99
   branch: master
   specs:
     rack-protection (2.0.0.rc2)
@@ -63,19 +63,19 @@ GEM
       tzinfo (~> 1.1)
     acts-as-taggable-on (4.0.0)
       activerecord (>= 4.0)
-    acts_as_list (0.9.4)
+    acts_as_list (0.9.5)
       activerecord (>= 3.0)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     ansi (1.5.0)
     arel (7.1.4)
-    aws-sdk (2.9.1)
-      aws-sdk-resources (= 2.9.1)
-    aws-sdk-core (2.9.1)
+    aws-sdk (2.9.2)
+      aws-sdk-resources (= 2.9.2)
+    aws-sdk-core (2.9.2)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.9.1)
-      aws-sdk-core (= 2.9.1)
+    aws-sdk-resources (2.9.2)
+      aws-sdk-core (= 2.9.2)
     aws-sigv4 (1.0.0)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -323,12 +323,12 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
-    uglifier (3.1.12)
+    uglifier (3.1.13)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
-    unicorn (5.2.0)
+    unicorn (5.3.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
     web-console (3.5.0)
