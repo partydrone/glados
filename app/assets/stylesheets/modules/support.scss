@@ -106,11 +106,11 @@ select.support-dropdown {
 		.negative {
 			fill: $iron;
 		}
-		.active .positive,
+		.active.positive,
 		&:hover .positive {
 			fill: $green;
 		}
-		.active .negative,
+		.active.negative,
 		&:hover .negative {
 			fill: $tomato;
 		}
@@ -156,5 +156,3 @@ select.support-dropdown {
 	   min-height: calc(100vh - 100px);
   	}
 }
-
-
