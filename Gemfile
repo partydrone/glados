@@ -85,6 +85,7 @@ group :development, :test do
   gem 'debase'
   gem 'puma', '~> 3.0'
   gem 'ruby-debug-ide'
+  gem 'web-console'
 end
 
 group :production, :staging do
@@ -96,7 +97,6 @@ group :development do
   gem 'pry-rails'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'web-console'
 end
 
 group :test do
