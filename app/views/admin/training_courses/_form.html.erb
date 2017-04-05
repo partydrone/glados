@@ -1,17 +1,21 @@
 <%= form_for [:admin, @training_course], html: { multipart: true }, validate: true do |f| %>
   <div class="row">
     <div class="large-8 columns">
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-      <%= f.cktext_area :description %>
-      
-      <%= f.label :number %>
-      <%= f.text_field :number %>
-      <%= f.label :duration %>
-      <%= f.text_field :duration %>
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.label :title %>
+          <%= f.text_field :title %>
+        </div>
+        <div class="large-6 columns">
+          <%= f.label :number, "Course Number" %>
+          <%= f.text_field :number %>
+        </div>
+      </div>      
       <%= f.label :summary %>
       <%= f.text_field :summary %>
-      
+      <%= f.cktext_area :description %>      
+      <%= f.label :duration %>
+      <%= f.text_field :duration %>      
     </div>
     <div class="large-4 columns">
       <%= f.label :training_course_products %>
