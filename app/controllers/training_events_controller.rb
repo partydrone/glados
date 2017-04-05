@@ -13,6 +13,7 @@ class TrainingEventsController < ApplicationController
 
   def show
     @training_event = TrainingEvent.includes(training_event_courses: [:training_course]).find(params[:id])
+    @training_event.start_time = get_start_time(@training_event).strftime("%I:%M %p")
     @enrollment = Enrollment.new
   end
 
