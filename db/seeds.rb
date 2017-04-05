@@ -68,10 +68,20 @@ Feature.create([
 
 
 training_courses = TrainingCourse.create([
-  { title: 'Introduction to Traffic Radar Workshop', duration: 2, description:'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type  you.'},
-  { title: 'Introduction to HD SmartSensor Workshop', duration: 3, description:'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type or you.'},
-  { title: 'Introduction to JeremyCool Workshop', duration: 4, description:'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and d work for you.'}
+  { title: 'Introduction to Traffic Radar Workshop', number: '105', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type  you.', duration: 2, description:'This is the description portion of the course'},
+  { title: 'Introduction to HD SmartSensor Workshop', number: '105', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type or you.', duration: 3, description:'This is the description part of this course!'},
+  { title: 'Introduction to JeremyCool Workshop', number: '105', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and d work for you.', duration: 4, description:'Here we are describing how cool this course really is.'}
+])
 
+training_courses[0].prerequisites << training_courses[1]
+training_courses[1].prerequisites << training_courses[2]
+
+training_event = TrainingEvent.create( title: 'SmartSensor HD Training', location: 'Provo, UT', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec sapien erat. Maecenas quis pharetra ipsum. Nunc non massa et tellus varius tincidunt. Praesent vel purus sed nunc venenatis posuere. Aliquam vitae ante nulla. Nullam bibendum ligula ac ante vestibulum tempus. Curabitur vitae purus sit amet tellus feugiat mattis at id sem. Suspendisse bibendum posuere lacus ut rhoncus. Phasellus pellentesque consequat enim. Nunc luctus non sapien quis mattis. Praesent velit quam, suscipit ut venenatis eu, interdum vitae quam. Morbi accumsan metus et arcu consectetur iaculis.  Praesent tortor ipsum, tincidunt id efficitur non, porta id turpis. Praesent eleifend tincidunt posuere. Sed rutrum tellus nisi, ut varius odio eleifend in. Aliquam volutpat turpis non urna fringilla, eget scelerisque nibh maximus. Sed velit urna, sagittis eget consectetur et, feugiat ut lectus. Nunc commodo augue et mi hendrerit, eu eleifend tellus tempus. Morbi fermentum vel ex quis feugiat. In maximus magna vel magna facilisis condimentum. Proin aliquet iaculis purus in tristique. Duis vulputate mauris sit amet tincidunt dignissim.', started_at:'2017-04-07', ended_at:'2017-04-07')
+
+training_event_courses = TrainingEventCourse.create([
+  { training_course_id: training_courses[0].id, training_event_id: training_event.id, seats:5, started_at:'2017-02-06 10:00', room: 'Library 401'},
+  { training_course_id: training_courses[1].id, training_event_id: training_event.id, seats:0, started_at:'2017-02-06 11:00', room: 'Library 301'},
+  { training_course_id: training_courses[2].id, training_event_id: training_event.id, seats:0, started_at:'2017-02-06 12:00', room: 'Ball Room'}
 ])
 
 Patent.create([
