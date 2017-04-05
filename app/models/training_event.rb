@@ -8,6 +8,8 @@ class TrainingEvent < ApplicationRecord
   validates :title, :description, :started_at, :ended_at, :location, presence: true
   validate :starts_before_ends
 
+  attr_accessor :start_time
+
   protected
 
   def starts_before_ends
