@@ -12,15 +12,15 @@
     <div>
     
     <h1>Training Event Courses</h1>
-    <% @training_event.training_event_courses.each do |tec| %>
+    <% @training_event.training_event_courses.each do |training_event_course| %>
     <div style="border:1px solid grey; margin:10px; padding:10px">
-        <h3><%= tec.title %></h3>
+        <h3><%= training_event_course.title %></h3>
         <div class="row">
             <div class="medium-4 columns">
-                <h4>Capacity: <%= tec.seats %></h4>
+                <h4>Capacity: <%= training_event_course.seats %></h4>
             </div>
             <div class="medium-8 columns">
-                <h4><%= tec.started_at %></h4>
+                <h4><%= training_event_course.started_at %></h4>
             </div>
         </div>
 
@@ -28,7 +28,7 @@
         <h3>Enrollments</h3>
         <div class="row">            
             <ol>
-            <% tec.enrollments.each do |enrollment| %>                
+            <% training_event_course.enrollments.each do |enrollment| %>                
             
                 <div class="medium-12 columns">
                     <li><%= enrollment.first_name %>  <%= enrollment.last_name %> <%= enrollment.email %> </li>

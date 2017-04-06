@@ -10,7 +10,7 @@ class TrainingEvent < ApplicationRecord
 
   def start_time
     if self.training_event_courses.length > 0
-      self.training_event_courses.order(:started_at).first.started_at
+      self.training_event_courses.order(:started_at).first.started_at.strftime("%I:%M %p")
     else
       nil
     end
