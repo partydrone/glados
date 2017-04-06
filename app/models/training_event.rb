@@ -8,7 +8,13 @@ class TrainingEvent < ApplicationRecord
   validates :title, :description, :started_at, :ended_at, :location, presence: true
   validate :starts_before_ends
 
-  attr_accessor :start_time
+  def start_time
+    if self.training_event_courses.length > 0
+      self.training_event_courses.order(:started_at).first.started_at
+    else
+      nil
+    end
+  end
 
   protected
 
