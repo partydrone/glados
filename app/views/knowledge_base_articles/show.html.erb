@@ -89,22 +89,13 @@
     </div>
   </aside>
 
-  <div class="large-6 large-offset-1 medium-8 medium-offset-2 columns article-body" id="article-container" data-something data-margin-top="5">
+  <div class="large-6 large-offset-1 medium-8 medium-offset-2 columns article-body end" id="article-container" data-something data-margin-top="5">
     <h3 class="article-deckhead">
       <%= @article.subtitle %>
       <hr/>
     </h3>
     <%= embed_youtube_videos_for(@article.body).html_safe %>
   </div>
-
-  <aside class="large-4 large-offset-0 medium-8 medium-offset-2 small-10 small-offset-1 columns similar-stories-side end sticky-container" data-sticky-container>
-    <div class="sticky" data-sticky data-anchor="article-container" data-sticky-on="large">
-      <div class="article-side-title"><%= t(".similar_stories") %></div>
-      <% ContentFilter.new(@article.related).filter(:support_content).shift(3).each do |object| %>
-        <%= render partial: "related_#{object.class.to_s.underscore}", object: object %>
-      <% end %>
-    </div>
-  </aside>
 </article>
 
 <div class="row">
@@ -161,7 +152,3 @@
     <% end %>
   </div>
 </div>
-
-<section class="article-tags show-for-large">
-  <%= t(".tags") %>: <%= render_tags_for @article %>
-</section>
