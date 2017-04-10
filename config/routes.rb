@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get '/auth/identity', to: 'sessions#new', as: :sign_in
     get '/auth/failure', to: 'identities#authentication_failure'
     post '/auth/:provider/callback', to: 'sessions#create'
-    get '/sign_out', to: 'sessions#destroy', as: :sign_out
+    delete '/sign_out', to: 'sessions#destroy', as: :sign_out
 
     ##
     # Content management interface
