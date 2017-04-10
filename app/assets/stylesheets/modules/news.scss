@@ -47,8 +47,9 @@
 	@media screen and (min-width: 1024px) {
 		.news-article {
 			width: 50%;
-			float: left;
+			float: inherit;
 			display: inline-block;
+			vertical-align: top;
 			padding: 10px;
 			img,
 			h2,
@@ -82,10 +83,6 @@
 			}
 			&:nth-child(2),
 			&:nth-child(3) {
-				width: 50%;
-				float: inherit;
-				vertical-align: top;
-				display: inline-block;
 				padding: 10px;
 				img,
 				h2, p {
