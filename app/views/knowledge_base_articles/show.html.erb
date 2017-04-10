@@ -111,7 +111,7 @@
   <div class="medium-8 large-8 medium-centered columns">
     <%= content_tag :div, class: 'faq-helpful' do %>
       <h4>Was this helpful?
-        <%= link_to vote_knowledge_base_article_path(@article), class: 'kb-artible-up-vote', remote: true do %>
+        <%= link_to vote_knowledge_base_article_path(@article), class: 'kb-article-up-vote', remote: true do %>
           <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
           viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
             <g>
@@ -153,7 +153,12 @@
       </h4>
 
       <%= render 'knowledge_base_article_feedback_form' %>
-    <% end unless cookies["kb_article_#{@article.id}_vote"] == @article.digest %>
+
+      <div id="kb_feedback_thanks" class="kb-feedback-thanks">
+        <h6>Thanks for your feedback!</h6>
+      </div>
+
+    <% end %>
   </div>
 </div>
 
