@@ -89,29 +89,20 @@
     </div>
   </aside>
 
-  <div class="large-6 large-offset-1 medium-8 medium-offset-2 columns article-body" id="article-container" data-something data-margin-top="5">
+  <div class="large-6 large-offset-1 medium-8 medium-offset-2 columns article-body end" id="article-container" data-something data-margin-top="5">
     <h3 class="article-deckhead">
       <%= @article.subtitle %>
       <hr/>
     </h3>
     <%= embed_youtube_videos_for(@article.body).html_safe %>
   </div>
-
-  <aside class="large-4 large-offset-0 medium-8 medium-offset-2 small-10 small-offset-1 columns similar-stories-side end sticky-container" data-sticky-container>
-    <div class="sticky" data-sticky data-anchor="article-container" data-sticky-on="large">
-      <div class="article-side-title"><%= t(".similar_stories") %></div>
-      <% ContentFilter.new(@article.related).filter(:support_content).shift(3).each do |object| %>
-        <%= render partial: "related_#{object.class.to_s.underscore}", object: object %>
-      <% end %>
-    </div>
-  </aside>
 </article>
 
 <div class="row">
   <div class="medium-8 large-8 medium-centered columns">
     <%= content_tag :div, class: 'faq-helpful' do %>
       <h4>Was this helpful?
-        <%= link_to vote_knowledge_base_article_path(@article), class: 'kb-artible-up-vote', remote: true do %>
+        <%= link_to vote_knowledge_base_article_path(@article), class: 'kb-article-up-vote', remote: true do %>
           <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
           viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
             <g>
@@ -153,10 +144,11 @@
       </h4>
 
       <%= render 'knowledge_base_article_feedback_form' %>
-    <% end unless cookies["kb_article_#{@article.id}_vote"] == @article.digest %>
+
+      <div id="kb_feedback_thanks" class="kb-feedback-thanks">
+        <h6>Thanks for your feedback!</h6>
+      </div>
+
+    <% end %>
   </div>
 </div>
-
-<section class="article-tags show-for-large">
-  <%= t(".tags") %>: <%= render_tags_for @article %>
-</section>
