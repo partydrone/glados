@@ -9,7 +9,9 @@
         <img src="http://placehold.it/461x258" />
         <h6 class="event-city"><%= @training_event.location %></h6>        
         <h6 class="event-date"><%= l @training_event.started_at.to_date, format: :long %></h6>
-        <h6 class="event-time"><%= @training_event.start_time %></h6>
+        <% if !@training_event.start_time.nil? %>
+            <h6 class="event-time"><%= @training_event.start_time %></h6>
+        <% end %>
     </div>
 </div>
 

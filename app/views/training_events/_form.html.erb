@@ -1,63 +1,76 @@
 <div class="row enrollment-form">
   <div class="large-12 columns">    
-    <div class="large-centered" style="width:40%">
-      <h3>Course Registration</h3>
-      <%= form_for @enrollment, :id=>"enrollment_form",  validate: true do |f| %>
-      <%= f.hidden_field :training_event_id, :value => params[:id] %>
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
-      <%= f.label :email %>
-      <%= f.text_field :email %>  
-      <%# f.submit 'Register', class: 'button radius' %>
-      <input type="submit" id="submit-btn" class='button radius' value="Register"/>
-    </div>    
-  </div>
-</div>
-<div class="row course_alerts" hidden>
-  <div class='large-12 columns'>
-    <div class='large-centered' style="width:40%">
-      <div class="show-courses"></div>
-        <input id='cancel-btn' class='button radius' value='Cancel'/>
-        <input type="submit" id='confirm-btn' class='button radius' value='Confirm'/>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="large-12 columns">
-    <h1>Course Descriptions</h1> 
-    <%= f.collection_check_boxes :training_event_course_id, @training_event.training_event_courses, :id, :title do |b| %>
-    <div class="training-course-card">
-      <div class="horizontal menu">         
-        <h3><%= b.text %>
-          <% if b.object.get_enrollments(b.object.seats, b.object.id) > 0 %>
-            <!--<div>seats available <%= b.object.get_enrollments(b.object.seats, b.object.id) %></div>-->
-          <% else %>
-            <span class="wait-listed" id="<%= b.object.title %>">
-              (waitlist)
-            </span>
-          <% end %>
-        </h3>
-        
-        <div class="course-card-left training-hours">
-          <%= b.object.training_course.duration %> hrs.
-        </div>
-        <% if b.object.training_course.prerequisites.count > 0 %>          
-          <div class="prerequisites course-card-right" id="<%= b.object.title %>">Prerequisites Required</div>          
-        <% end %>
-        <p>
-          <%= b.object.training_course.description  %>
-        </p>      
-        <div class="course-card-left">
-          Learn More
-        </div>
-        <div class="course-card-right">
-          <%= b.check_box :class => 'class_checkbox', :id => b.object.id %><label class="course-check" for="<%= b.object.id %>"></label>            
-        </div>
-      </div>
-    </div>
-    <%end%>
+    <div class="large-centered"> 
+		<%= form_for @enrollment, :id=>"enrollment_form",  validate: true do |f| %>
+		<h1>Enrollment</h1> 
+		<%= f.collection_check_boxes :training_event_course_id, @training_event.training_event_courses, :id, :title do |b| %>
+		<div class="enrollment-course-card">
+			<div class="horizontal menu">         
+				<h3><%= b.text %>
+					<% if b.object.get_enrollments(b.object.seats, b.object.id) > 0 %>
+						<!--<div>seats available <%= b.object.get_enrollments(b.object.seats, b.object.id) %></div>-->
+					<% else %>
+						<span class="wait-listed" id="<%= b.object.title %>">
+							(waitlist)
+						</span>
+					<% end %>
+				</h3>
+				
+				<div class="enrollment-card-left training-hours">
+					<%= b.object.training_course.duration %> hrs.
+				</div>
+				<% if b.object.training_course.prerequisites.count > 0 %>          
+					<div class="prerequisites course-card-right" id="<%= b.object.title %>">Prerequisites Required</div>          
+				<% end %>
+				<p><%= b.object.training_course.description  %></p>
+				<div class="enrollment-card-bottom">
+					<span class="enrollment-card-left">
+						Learn More
+					</span>
+					<span class="enrollment-card-right">
+						<%= b.check_box :class => 'class_checkbox', :id => b.object.id %><label class="course-check" for="<%= b.object.id %>"></label>            
+					</span>
+				</div>
+			</div>
+		</div>
+		<%end%>
+		
+		<div class="row">		
+			<div class="large-12 columns">    
+				<div class="large-centered"> 				
+					<div class="enrollment-course-form registration">
+						<div class="horizontal menu">				
+							
+							<%= f.hidden_field :training_event_id, :value => params[:id] %>
+							<div class="enrollment-card-left">
+							<%= f.label :first_name %>
+							<%= f.text_field :first_name %>
+							</div>
+							<div class="enrollment-card-right">
+							<%= f.label :last_name %>
+							<%= f.text_field :last_name %>
+							</div>
+							<%= f.label :email %>
+							<%= f.text_field :email %>  
+							<div>&nbsp</div>
+							<input type="submit" id="submit-btn" class='button radius' value="Register"/>	
+						</div>
+					</div>
+				</div>					
+			</div>					
+		</div>
+
+		<div class="row course_alerts" hidden>
+			<div class='large-12 columns'>
+				<div class='large-centered'>
+					<div class="show-courses"></div>
+						<input id='cancel-btn' class='button radius' value='Cancel'/>
+						<input type="submit" id='confirm-btn' class='button radius' value='Confirm'/>
+					</div>
+				</div>
+			</div>
+    	</div> 
+		
   </div>
 </div>
 <% end %>

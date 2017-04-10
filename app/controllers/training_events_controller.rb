@@ -5,7 +5,7 @@ class TrainingEventsController < ApplicationController
   end
 
   def show    
-    @training_event = TrainingEvent.find(params[:id])
+    @training_event = TrainingEvent.includes(:training_event_courses).find(params[:id])
     @enrollment = Enrollment.new
   end
 end

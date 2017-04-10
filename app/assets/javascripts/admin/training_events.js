@@ -11,7 +11,7 @@ var training_events = {
     //3. push and pop titles in/out of arrays to display to user    
     courseCheck: function(label) {
         var check_box = label.prev();
-        var training_card = label.parent().parent().parent();
+        var training_card = label.parent().parent().parent().parent();
 
         //remove from array
         if (check_box[0].checked) {
@@ -72,7 +72,7 @@ var training_events = {
         var html = training_events.buildHTML();
         $(".show-courses").html(html);
         $(".course_alerts").show();
-        $(".enrollment-form").hide();
+        $(".registration").hide();
     },
 
     //builds the html used to show the user what prerequisite &/or waitlist courses
@@ -120,7 +120,7 @@ $('#submit-btn').on('click', function() {
 //when user clicks the cancel button
 $("#cancel-btn").on('click', function() {
     $(".course_alerts").hide();
-    $(".enrollment-form").show();
+    $(".registration").show();
 });
 
 //when user confirms corse-check
