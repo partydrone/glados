@@ -10,8 +10,6 @@ class KnowledgeBaseArticlesController < ApplicationController
     # LogArticleViewJob.perform_later @article unless browser.bot?
   end
 
-
-
   private
 
   def set_knowledge_base_article

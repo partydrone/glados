@@ -5,7 +5,7 @@ class KnowledgeBaseArticleFeedbacksController < ApplicationController
 
     if @knowledge_base_article_feedback.valid?
       SiteMailer.knowledge_base_article_feedback(@knowledge_base_article, @knowledge_base_article_feedback).deliver_now
-      cookies.permanent["kb_article_#{@knowledge_base_article.id}_vote"] = @knowledge_base_article.digest
+      # cookies.permanent["kb_article_#{@knowledge_base_article.id}_vote"] = @knowledge_base_article.digest
       redirect_back fallback_location: root_path, notice: t('ui.knowledge_base_article_feedback_sent')
     else
       redirect_back fallback_location: root_path, alert: t('ui.knowledge_base_article_feedback_error')
