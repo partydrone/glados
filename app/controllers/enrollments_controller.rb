@@ -2,7 +2,7 @@ class EnrollmentsController < ApplicationController
   
   def index    
     @training_event = TrainingEvent.find(params[:id])
-    @training_event_courses = TrainingEventCourse.find(params[:training_event_ids])
+    @training_event_courses = TrainingEventCourse.find(params[:training_event_ids])      
   end
 
   def create       

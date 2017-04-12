@@ -16,7 +16,7 @@
 }
 
 .class_checkbox.checked+label {
-    content: url(image_path('icons/checkmark.svg'));
+    content: url(image_path('icons/close.svg'));
 }
 
 .course_alerts {
@@ -30,6 +30,11 @@
         margin: 20px;
         list-style-type: square;
     }
+}
+
+.inner_course_alerts {
+    margin: 0 auto;
+    width: 50%;
 }
 
 .enrollment-course-card {
@@ -143,4 +148,25 @@
     .enrollment-card-right {
         float: right;
     }
+}
+
+.enrollment-list {
+    overflow: auto;
+    height: 200px;
+    background-color: #fefefe;
+    padding: 20px;
+}
+
+.enrollment-remove:before {
+    content: url(image_path('icons/trash.svg'));
+    width: 16px;
+    cursor: pointer;
+    float: right;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 0.5rem;
+}
+
+.enrollment_warning {
+    color: red;
 }
