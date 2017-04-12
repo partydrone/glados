@@ -13,16 +13,16 @@
   <div class="large-1 columns show-for-large app-support-social social-media">
 
     <div class="social-media-container">
-      <%= link_to "https://www.linkedin.com/company/53678", class: "social-media-icon" do %>
+      <%= link_to "http://www.linkedin.com/shareArticle?mini=true&amp;url=#{request.url}", class: "social-media-icon" do %>
         <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
       <% end %>
-      <%= link_to "https://twitter.com/wavetronix_llc", class: "social-media-icon" do %>
+      <%= link_to "https://twitter.com/share?url=#{request.url}&amp;text=Wavetronix%20Marketing%20App&amp;hashtags=wavetronix", class: "social-media-icon" do %>
         <%=image_tag('icons/Twitter.svg', class: "icon") %>
       <% end %>
-      <%= link_to "https://www.facebook.com/wavetronix/", class: "social-media-icon" do %>
+      <%= link_to "http://www.facebook.com/sharer.php?u=#{request.url}", class: "social-media-icon" do %>
         <%=image_tag('icons/Facebook.svg', class: "icon") %>
       <% end %>
-      <%= link_to "https://plus.google.com/b/107158630240614790564/?pageId=107158630240614790564", class: "social-media-icon" do %>
+      <%= link_to "https://plus.google.com/share?url=#{request.url}", class: "social-media-icon" do %>
         <%=image_tag('icons/Google.svg', class: "icon") %>
       <% end %>
       <%= mail_to "", subject: "The Wavetronix Marketing App Support Page", body: "The Wavetronix App provides unique content designed to assist traffic professionals in creating safe and efficient roadways while providing information for anyone interested in transportation . For more information, visit www.wavetronix.com/marketing_app \n Download the app from the Apple Store here: https://itunes.apple.com/us/app/wavetronix/id840962745?ls=1&mt=8 \n Download the app from the Google Play store here: https://play.google.com/store/apps/details?id=com.wavetronix.wavetronix \n Download the app from the Windows Store here: http://apps.microsoft.com/windows/app/wavetronix/5f652365-b23e-494e-b92a-1ea4155fbc0b", class: "social-media-icon" do %>

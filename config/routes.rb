@@ -27,16 +27,19 @@ Rails.application.routes.draw do
       # Resource routes
       resources :blog_posts,
                 :case_studies,
+                :dealers,
                 :features,
                 :products,
                 :knowledge_base_articles,
                 :return_material_authorization_policy_documents,
                 :sales_terms_and_conditions_documents,
+                :territories,
                 :training_events,
                 :website_privacy_policy_documents,
                 :website_terms_of_use_documents
 
-      resources :product_categories, concerns: :sortable
+      resources :product_categories,
+                :offices,concerns: :sortable
 
       resources :downloads,
                 :media_downloads,

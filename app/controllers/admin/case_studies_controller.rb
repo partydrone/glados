@@ -8,7 +8,6 @@ module Admin
 
     def show
       @article = @case_study
-      render 'articles/show'
     end
 
     def new
