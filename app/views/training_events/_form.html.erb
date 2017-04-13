@@ -2,13 +2,15 @@
 	<div class="large-12 columns">    
 		<div class="large-centered"> 
 			<%= form_for @enrollment, :id=>"enrollment_form",  validate: true do |f| %>
-			<h1>Enrollment</h1> 
+			<h1>Enrollment</h1>
 			<%= f.collection_check_boxes :training_event_course_id, @training_event.training_event_courses, :id, :title do |b| %>
 			<div class="enrollment-course-card" id="<%= b.object.title %>">
 				<div class="horizontal menu">         
 					<h3><%= b.text %>
 						<% if b.object.get_enrollments(b.object.seats, b.object.id) <= 0 %>
 							<span class="wait-listed">(waitlist)</span>
+						<% else %>							
+							<span>(<%= b.object.get_enrollments(b.object.seats, b.object.id) %> seats)</span>
 						<% end %>
 					</h3>					
 					<div class="enrollment-card-left training-hours">
@@ -46,10 +48,9 @@
 								</div>
 								<%= f.label :email %>
 								<%= f.text_field :email %>  
-								
-								<label>Courses<label>							
-								<div class="enrollment-list" placeholder="Click + on the course description to add it to your list"></div>							
-								<div>&nbsp</div>
+								<div class="row enrollment-list" placeholder="Click + on the course description to add it to your list">
+									<label>My Courses<label>
+								</div>															
 								<input type="submit" id="submit-btn" class='button radius' value="Enroll"/><span class="enrollment_warning"></span>	
 							</div>
 						</div>
@@ -59,7 +60,6 @@
 		</div>
 	</div>
 </div>
-
 
 <div class="row course_alerts" hidden>
 	<div class="inner_course_alerts">

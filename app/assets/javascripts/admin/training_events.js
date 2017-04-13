@@ -58,21 +58,26 @@ var training_events = {
     showEnrollmentList() {
         var enrollment_list = $(".enrollment-list");
         enrollment_list.empty();
+        enrollment_list.append("<label>My Courses<label><ul>");
         for (i = 0; i < training_events.list.length; ++i) {
-            enrollment_list.append("<li>" + training_events.list[i] + "<span class='enrollment-remove' for='" + training_events.course_num[i] + "'></span></li>");
+            //enrollment_list.append("<li>" + training_events.list[i] + "<span class='enrollment-remove' for='" + training_events.course_num[i] + "'></span></li>");
+            enrollment_list.append("<li>" + training_events.list[i] + "</li>");
         }
+        enrollment_list.append("</ul>");
     },
 
     validateCourses: function() {
         //check if user selected course
-        if (training_events.waitlisted.length <= 0 || training_events.prerequisites.length <= 0) {
+        if (training_events.list.length <= 0) {
             $(".enrollment_warning").html(" You much select at least one course.");
             return false;
         }
         // display displayAlert if HAS prerequisites or waitlisted courses
-        if (training_events.getDisplayAlert()) {
-            training_events.displayCourseAlerts();
-            return false;
+        if (training_events.waitlisted.length > 0 || training_events.prerequisites.length > 0) {
+            if (training_events.getDisplayAlert()) {
+                training_events.displayCourseAlerts();
+                return false;
+            }
         }
         return true;
     },
@@ -137,17 +142,17 @@ $('.course-check').on('click', function(event) {
 });
 
 //when user clicks trash can in enrollment-list
-$(document).on('click', '.enrollment-remove', function(event) {
-    var for_value = this.attributes.for.value;
-    var label = $(".course-check[for='" + for_value + "'");
-    var check_box = label.prev();
-    training_events.courseCheck(label);
-    if (check_box[0].checked == true) {
-        check_box[0].checked = false;
-    } else {
-        check_box[0].checked = true;
-    }
-});
+// $(document).on('click', '.enrollment-remove', function(event) {
+//     var for_value = this.attributes.for.value;
+//     var label = $(".course-check[for='" + for_value + "'");
+//     var check_box = label.prev();
+//     training_events.courseCheck(label);
+//     if (check_box[0].checked == true) {
+//         check_box[0].checked = false;
+//     } else {
+//         check_box[0].checked = true;
+//     }
+// });
 
 //when user clicks on the submit button validate courses
 $('#submit-btn').on('click', function() {
