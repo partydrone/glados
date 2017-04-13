@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
   include Taggable
+  include PgSearch
+    multisearchable :against => [:name, :summary, :description]
 
   belongs_to :product_category
   has_many :feature_associations, dependent: :destroy
