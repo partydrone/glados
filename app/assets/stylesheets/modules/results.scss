@@ -1,0 +1,28 @@
+@import "foundation_and_overrides";
+@import "globals/all";
+
+#sitequery {
+	margin-bottom: 0;
+}
+.results-search-bar .site-search-bar {
+	border: 1px solid $ghost;
+	border-radius: 10px;
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	input {
+		box-shadow: none;
+	}
+}
+
+.result-container {
+	margin-top: 2rem;
+	vertical-align: top;
+	// border: 1px solid red;
+	img {
+		float: right;
+	}
+	a {
+		color: $charcoal;
+	}
+}
