@@ -85,9 +85,9 @@ training_event = TrainingEvent.create([
 ])
 
 training_event_courses = TrainingEventCourse.create([
-  { training_course_id: training_courses[0].id, training_event_id: training_event[0].id, seats:5, started_at:'2017-02-06 10:00', room: 'Library 401'},
-  { training_course_id: training_courses[1].id, training_event_id: training_event[0].id, seats:0, started_at:'2017-02-06 11:00', room: 'Library 301'},
-  { training_course_id: training_courses[2].id, training_event_id: training_event[0].id, seats:0, started_at:'2017-02-06 12:00', room: 'Ball Room'}
+  { training_course_id: training_courses[0].id, training_event_id: training_event[0].id, seats:5, started_at:'2017-02-06 10:00', ended_at:'2017-02-06 1:00', room: 'Library 401'},
+  { training_course_id: training_courses[1].id, training_event_id: training_event[0].id, seats:0, started_at:'2017-02-06 11:00', ended_at:'2017-02-06 2:00', room: 'Library 301'},
+  { training_course_id: training_courses[2].id, training_event_id: training_event[0].id, seats:0, started_at:'2017-02-06 12:00', ended_at:'2017-02-06 3:00', room: 'Ball Room'}
 ])
 
 Patent.create([

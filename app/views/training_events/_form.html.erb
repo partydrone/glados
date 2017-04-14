@@ -2,7 +2,7 @@
 	<div class="large-12 columns">    
 		<div class="large-centered"> 
 			<%= form_for @enrollment, :id=>"enrollment_form",  validate: true do |f| %>
-			<h1>Enrollment</h1>
+			<h1 >Enrollment</h1>
 			<%= f.collection_check_boxes :training_event_course_id, @training_event.training_event_courses, :id, :title do |b| %>
 			<div class="enrollment-course-card" id="<%= b.object.title %>">
 				<div class="horizontal menu">         
@@ -12,19 +12,24 @@
 						<% else %>							
 							<span>(<%= b.object.get_enrollments(b.object.seats, b.object.id) %> seats)</span>
 						<% end %>
-					</h3>					
-					<div class="enrollment-card-left training-hours">
-						<%= b.object.training_course.duration %> hrs.
+					</h3>
+					<div class="enrollment-card-mid">					
+						<span class="enrollment-card-left training-hours">
+							<%= b.object.started_at.strftime("%I:%M%P") %> to <%= b.object.ended_at.strftime("%I:%M%P") %>
+						</span>
+						<span class="enrollment-card-right training-room">
+							<%= b.object.room %>
+						</span>
 					</div>
-					<% if b.object.training_course.prerequisites.count > 0 %>          
-						<div class="prerequisites course-card-right">Prerequisites Required</div>          
-					<% end %>
 					<p><%= b.object.training_course.description  %></p>
 					<div class="enrollment-card-bottom">
 						<span class="enrollment-card-left">
 							Learn More
 						</span>
 						<span class="enrollment-card-right">
+							<% if b.object.training_course.prerequisites.count > 0 %>          
+								<span class="prerequisites course-card-right">Prerequisites Required</span> 
+							<% end %>
 							<%= b.check_box :class => 'class_checkbox', :id => b.object.id %><label class="course-check" for="<%= b.object.id %>"></label>            
 						</span>
 					</div>
@@ -48,10 +53,11 @@
 								</div>
 								<%= f.label :email %>
 								<%= f.text_field :email %>  
-								<div class="row enrollment-list" placeholder="Click + on the course description to add it to your list">
+								<div class="row enrollment-list">
 									<label>My Courses<label>
+									<div style="color:#B4B4B4">Click + on the course description to add it to your list</div>
 								</div>															
-								<input type="submit" id="submit-btn" class='button radius' value="Enroll"/><span class="enrollment_warning"></span>	
+								<input type="submit" id="submit-btn" class='button long radius' value="Enroll"/><span class="enrollment_warning"></span>	
 							</div>
 						</div>
 					</div>					
@@ -64,8 +70,8 @@
 <div class="row course_alerts" hidden>
 	<div class="inner_course_alerts">
 		<div class="show-courses"></div>
-		<input id='cancel-btn' class='button radius' value='Cancel'/>
-		<input type="submit" id='confirm-btn' class='button radius' value='Confirm'/>
+		<input id='cancel-btn' class='button cancel radius' value='Cancel'/>
+		<input type="submit" id='confirm-btn' class='button medium radius' value='Confirm'/>
 	</div>
 </div>
     	

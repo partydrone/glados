@@ -6,8 +6,8 @@
             <h1><%= @training_event.title %></h1>
             <h3><%= @training_event.location %></h3>
             <h3><%= @training_event.description %></h3>
-            <h3><%= @training_event.started_at %></h3>
-            <h3><%= @training_event.ended_at %></h3>
+            <h3>Start date: <%= @training_event.started_at.to_date %></h3>
+            <h3>End Date: <%= @training_event.ended_at.to_date %></h3>
         </div>
     <div>
     
@@ -16,11 +16,17 @@
     <div style="border:1px solid grey; margin:10px; padding:10px">
         <h3><%= training_event_course.title %></h3>
         <div class="row">
-            <div class="medium-4 columns">
-                <h4>Capacity: <%= training_event_course.seats %></h4>
+            <div class="medium-3 columns">
+                <h3>Capacity: <%= training_event_course.seats %></h3>
             </div>
-            <div class="medium-8 columns">
-                <h4><%= training_event_course.started_at %></h4>
+            <div class="medium-3 columns">
+                <h3>Room: <%= training_event_course.room %></h3>
+            </div>
+            <div class="medium-3 columns">
+                <h3>Starts at: <%=  training_event_course.started_at %></h3>
+            </div>
+            <div class="medium-3 columns">
+                <h3>Ends at: <%=  training_event_course.ended_at %></h3>
             </div>
         </div>
 

@@ -13,9 +13,13 @@
         <%= tec.label :room %>
         <%= tec.text_field :room %>
       </div>
-      <div class="medium-6 columns">
+      <div class="medium-3 columns">
         <%= tec.label :started_at %>
-        <%= tec.datetime_field :started_at, placeholder: 'yyyy-mm-dd hh:mm:ss' %>
+        <%= tec.datetime_field :started_at, placeholder: 'yyyy-mm-dd hh:mm' %>
+      </div>
+      <div class="medium-3 columns">
+        <%= tec.label :ended_at %>
+        <%= tec.datetime_field :ended_at, placeholder: 'yyyy-mm-dd hh:mm' %>
       </div>
     </div>
     <%= tec.remove_nested_fields_link 'Remove this course' %>

@@ -13,8 +13,8 @@
 }
 
 .class_checkbox+label {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     content: url(image_path('icons/Plus.svg'));
 }
 
@@ -83,18 +83,31 @@
             }
         }
     }
-    .enrollment-card-bottom {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        padding: 2rem;
+    .enrollment-card-mid {
         margin: 0px;
         width: 100%;
         .enrollment-card-left,
         .enrollment-card-right {
-            width: 50%;
             display: inline-block;
-            margin: 0.5rem 0;
+        }
+        .enrollment-card-right,
+        {
+            float: right;
+        }
+    }
+    .enrollment-card-bottom {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding-left: 2rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        padding-right: 1rem;
+        margin: 0px;
+        width: 100%;
+        .enrollment-card-left,
+        .enrollment-card-right {
+            display: inline-block;
         }
         .enrollment-card-right,
         label {
@@ -172,4 +185,52 @@
 
 .enrollment_warning {
     color: red;
+}
+
+.training-room:before {
+    content: url(image_path('icons/map.svg'));
+    width: 16px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 0.5rem;
+}
+
+.enrollment-show-list {
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.enrollment-gap {
+    margin: 5rem;
+}
+
+.enrollment-notice {
+    color: #B4B4B4;
+}
+
+.button:hover,
+.button:focus {
+    background-color: lighten($yellow, 15%);
+    color: $oil !important;
+}
+
+.button {
+    height: 2.5rem;
+    font-size: 1rem;
+    line-height: 2.5rem;
+    font-family: $font-family-secondary;
+    font-weight: 100;
+    &.medium {
+        margin-left: 2rem;
+        width: 50%;
+    }
+    &.cancel {
+        background-color: #808080;
+    }
+    &.long {
+        width: 100%;
+        background-color: #4F5F6C;
+        color: white;
+    }
 }

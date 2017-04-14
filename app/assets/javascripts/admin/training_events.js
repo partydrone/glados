@@ -54,16 +54,21 @@ var training_events = {
 
     }, //end course check
 
-    //displays the courses they've checked in the enrollment list box
+    //displays the courses they've checked in the enrollment list box or default message
     showEnrollmentList() {
         var enrollment_list = $(".enrollment-list");
         enrollment_list.empty();
-        enrollment_list.append("<label>My Courses<label><ul>");
-        for (i = 0; i < training_events.list.length; ++i) {
-            //enrollment_list.append("<li>" + training_events.list[i] + "<span class='enrollment-remove' for='" + training_events.course_num[i] + "'></span></li>");
-            enrollment_list.append("<li>" + training_events.list[i] + "</li>");
+        if (training_events.list.length > 0) {
+            enrollment_list.append("<label>My Courses<label><ul>");
+            for (i = 0; i < training_events.list.length; ++i) {
+                //enrollment_list.append("<li>" + training_events.list[i] + "<span class='enrollment-remove' for='" + training_events.course_num[i] + "'></span></li>");
+                enrollment_list.append("<li>" + training_events.list[i] + "</li>");
+            }
+            enrollment_list.append("</ul>");
+        } else {
+            enrollment_list.append('<label>My Courses<label><div style="color:#B4B4B4">Click + on the course description to add it to your list</div>');
         }
-        enrollment_list.append("</ul>");
+
     },
 
     validateCourses: function() {
@@ -109,18 +114,18 @@ var training_events = {
         var html = "";
 
         if (training_events.prerequisites.length > 0) {
-            html += "<h3>Prerequisite Required</h3><p>You have selected courses that require these prerequisites:</p><ul>";
+            html += "<h3 style='text-align: center;'>Prerequisite Required</h3><p>You have selected courses that require these prerequisites:</p><div class='enrollment-show-list'><ul>";
             training_events.prerequisites.forEach(function(course) {
                 html += "<li>" + course + "</li>";
             });
-            html += "</ul><p></p><p>Please confirm that you have completed these required courses before proceeding</p>";
+            html += "</ul></div><p></p><p>Please confirm that you have completed these required courses before proceeding</p><div class='enrollment-gap'></div>";
         }
         if (training_events.waitlisted.length > 0) {
-            html += "<h3>Waitlist</h3><p>You have selected courses that are currently full:</p><ul>";
+            html += "<h3 style='text-align: center;'>Waitlist</h3><p>You have selected courses that are currently full:</p><div class='enrollment-show-list'><ul>";
             training_events.waitlisted.forEach(function(course) {
                 html += "<li>" + course + "</li>";
             });
-            html += "</ul><p></p><p>You will be placed on a waitlist and notified if a spot becomes available.</p>";
+            html += "</ul></div><p></p><p>You will be placed on a waitlist and notified if a spot becomes available.</p>";
         }
 
         return html;
