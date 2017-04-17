@@ -51,6 +51,20 @@ ActiveRecord::Schema.define(version: 20170413205422) do
     t.index ["type"], name: "index_ckeditor_assets_on_type", using: :btree
   end
 
+  create_table "dealers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "region"
+    t.string   "zip"
+    t.string   "country_id", limit: 2
+    t.string   "phone"
+    t.string   "email"
+    t.string   "website"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "download_types", force: :cascade do |t|
     t.string   "name"
     t.integer  "position"
@@ -140,6 +154,20 @@ ActiveRecord::Schema.define(version: 20170413205422) do
     t.datetime "updated_at",        null: false
   end
 
+  create_table "offices", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "region"
+    t.string   "zip"
+    t.string   "country"
+    t.string   "phone"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "position"
+  end
+
   create_table "patents", force: :cascade do |t|
     t.integer "number"
     t.string  "title"
@@ -149,6 +177,15 @@ ActiveRecord::Schema.define(version: 20170413205422) do
   create_table "patents_products", id: false, force: :cascade do |t|
     t.integer "patent_id",  null: false
     t.integer "product_id", null: false
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text     "content"
+    t.string   "searchable_type"
+    t.integer  "searchable_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
   end
 
   create_table "prerequisites_training_courses", force: :cascade do |t|
@@ -236,6 +273,15 @@ ActiveRecord::Schema.define(version: 20170413205422) do
     t.datetime "updated_at",     null: false
     t.integer  "taggings_count"
     t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
+  end
+
+  create_table "territories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "country"
+    t.string   "office"
+    t.string   "dealer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "training_course_products", force: :cascade do |t|
