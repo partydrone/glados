@@ -1,0 +1,16 @@
+<div class="training-course-card">
+    <div class="horizontal menu">
+        <h3 class="training-certified"><%= related_course.title %></h3>
+        <div class="course-card-left training-hours"><%= related_course.duration %> hrs.</div>
+        <div class="course-card-right"></div>
+        <p><%= related_course.summary %></p>
+        <div class="learn-course">
+            <a class="hide-me-on-dropdown expand-container" data-toggle="hdconfig-dropdown1<%=related_course.id%>"><%= t(".learn_more") %></a>
+            <div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown1<%=related_course.id%>" data-dropdown data-auto-focus="true">
+                <p><%= related_course.description %></p>
+                <a data-toggle="hdconfig-dropdown1<%=related_course.id%>" class="close-container"><%= t(".hide") %></a>
+            </div>
+        </div>
+    </div>
+</div>
+
