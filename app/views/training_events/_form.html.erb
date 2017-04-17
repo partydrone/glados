@@ -12,28 +12,34 @@
 						<% else %>							
 							<span>(<%= b.object.get_enrollments(b.object.seats, b.object.id) %> seats)</span>
 						<% end %>
-					</h3>
-					<div class="enrollment-card-mid">					
-						<span class="enrollment-card-left training-hours">
-							<%= b.object.started_at.strftime("%I:%M%P") %> to <%= b.object.ended_at.strftime("%I:%M%P") %>
-						</span>
-						<span class="enrollment-card-right training-room">
-							<%= b.object.room %>
-						</span>
-					</div>
+					</h3>					
+					<span class="course-card-left training-hours">
+						<%= b.object.started_at.strftime("%I:%M%P") %> to <%= b.object.ended_at.strftime("%I:%M%P") %>
+					</span>
+					<span class="course-card-right training-room">
+						<%= b.object.room %>
+					</span>
+					<div>&nbsp</div>					
 					<p><%= b.object.training_course.description  %></p>
-					<div class="enrollment-card-bottom">
-						<span class="enrollment-card-left">
-									Learn More
-	
-									
-						</span>
-						<span class="enrollment-card-right">
+					<div class="learn-course">
+						<div class="course-card-left">
+							<a class="hide-me-on-dropdown expand-container" data-toggle="hdconfig-dropdown1<%=b.object.training_course.id%>"><%= t(".learn_more") %></a>
+							<div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown1<%=b.object.training_course.id%>" data-dropdown data-auto-focus="true">
+								<p><%= b.object.training_course.description %></p>
+								<div>
+									<% b.object.training_course.prerequisites.each do |prereq| %>
+										<%= prereq.title %>
+									<% end %>
+								</div>
+								<a data-toggle="hdconfig-dropdown1<%=b.object.training_course.id%>" class="close-container"><%= t(".hide") %></a>
+							</div>
+						</div>
+						<div class="course-card-right">
 							<% if b.object.training_course.prerequisites.count > 0 %>          
-								<span class="prerequisites course-card-right">Prerequisites Required</span> 
+								<span class="prerequisites">Prerequisites Required</span>
 							<% end %>
 							<%= b.check_box :class => 'class_checkbox', :id => b.object.id %><label class="course-check" for="<%= b.object.id %>"></label>            
-						</span>
+						</div>
 					</div>
 				</div>
 			</div>
