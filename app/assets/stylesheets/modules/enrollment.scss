@@ -57,32 +57,6 @@
     .small-icon {
         margin: 0.5rem 0.5rem 0.5rem 0;
     }
-    .course-dropdown-container {
-        left: 0 !important;
-        top: 0px;
-        border: none !important;
-        height: 0;
-        position: relative;
-        &.is-open {
-            height: auto;
-            visibility: visible;
-            top: -30px !important;
-            width: 100%;
-            text-align: left;
-            padding: 0 !important;
-            img {
-                padding-bottom: 1rem;
-            }
-            .prereq-link {
-                color: $tomato;
-                font-weight: normal;
-            }
-            h6 img {
-                padding-top: 15px;
-                height: 49px;
-            }
-        }
-    }
     .enrollment-card-mid {
         margin: 0px;
         width: 100%;
@@ -105,6 +79,32 @@
         padding-right: 1rem;
         margin: 0px;
         width: 100%;
+        .course-dropdown-container {
+            left: 0 !important;
+            top: 0px;
+            border: none !important;
+            height: 0;
+            position: relative;
+            &.is-open {
+                height: 500;
+                visibility: visible;
+                top: -30px !important;
+                width: 100%;
+                text-align: left;
+                padding: 0 !important;
+                img {
+                    padding-bottom: 1rem;
+                }
+                .prereq-link {
+                    color: $tomato;
+                    font-weight: normal;
+                }
+                h6 img {
+                    padding-top: 15px;
+                    height: 49px;
+                }
+            }
+        }
         .enrollment-card-left,
         .enrollment-card-right {
             display: inline-block;
@@ -233,4 +233,14 @@
         background-color: #4F5F6C;
         color: white;
     }
+}
+
+#expand {
+    height: 0px;
+    overflow: hidden;
+    transition: height 0.5s;
+}
+
+#toggle:checked~#expand {
+    height: 250px;
 }

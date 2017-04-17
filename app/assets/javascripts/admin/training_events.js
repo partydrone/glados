@@ -61,12 +61,11 @@ var training_events = {
         if (training_events.list.length > 0) {
             enrollment_list.append("<label>My Courses<label><ul>");
             for (i = 0; i < training_events.list.length; ++i) {
-                //enrollment_list.append("<li>" + training_events.list[i] + "<span class='enrollment-remove' for='" + training_events.course_num[i] + "'></span></li>");
                 enrollment_list.append("<li>" + training_events.list[i] + "</li>");
             }
             enrollment_list.append("</ul>");
         } else {
-            enrollment_list.append('<label>My Courses<label><div style="color:#B4B4B4">Click + on the course description to add it to your list</div>');
+            enrollment_list.append('<label>My Courses<label><div class="enrollment-notice">Click + on the course description to add it to your list</div>');
         }
 
     },
@@ -145,19 +144,6 @@ var training_events = {
 $('.course-check').on('click', function(event) {
     training_events.courseCheck($(this));
 });
-
-//when user clicks trash can in enrollment-list
-// $(document).on('click', '.enrollment-remove', function(event) {
-//     var for_value = this.attributes.for.value;
-//     var label = $(".course-check[for='" + for_value + "'");
-//     var check_box = label.prev();
-//     training_events.courseCheck(label);
-//     if (check_box[0].checked == true) {
-//         check_box[0].checked = false;
-//     } else {
-//         check_box[0].checked = true;
-//     }
-// });
 
 //when user clicks on the submit button validate courses
 $('#submit-btn').on('click', function() {
