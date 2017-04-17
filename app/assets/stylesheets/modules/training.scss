@@ -120,6 +120,7 @@
 
 .training-course-card {
     border: 1px solid $ghost;
+    border-radius: 10px;
     padding: 2rem;
     width: 100%;
     vertical-align: top;
@@ -139,7 +140,7 @@
         height: 0;
         position: relative;
         &.is-open {
-            height: 250px;
+            height: auto;
             visibility: visible;
             top: -30px !important;
             width: 100%;
@@ -148,9 +149,8 @@
             img {
                 padding-bottom: 1rem;
             }
-            .prereq-link {
+            .prereq {
                 color: $tomato;
-                font-weight: normal;
             }
             h6 img {
                 padding-top: 15px;

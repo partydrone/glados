@@ -1,8 +1,8 @@
-<%= content_for :title, t('.title') %>
+<%= content_for :title, "Training Courses" %>
 
 <div class="row columns admin-table">
   <h1>
-    <%= t '.title' %>
+    Training Courses
     <%= link_to new_admin_training_course_path, title: 'Create a new feature' do %>
 			<%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
 		<% end %>
@@ -12,10 +12,9 @@
   <thead>
     <tr>
       <th width="30"></th>
-      <th>Course Num</th>
+      <th>Course #</th>
       <th>Title</th>            
       <th>Duration</th>
-      <th>Description</th>
       <th>Summary</th>
       <th width="30"></th>
     </tr>
