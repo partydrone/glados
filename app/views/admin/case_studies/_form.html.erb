@@ -37,3 +37,6 @@
   <%= f.text_field :tag_list, value: f.object.tag_list.to_s %>
   <%= f.submit nil, class: 'button radius' %>
 <% end %>
+
+<%= content_tag :div, class: "taggable_items", data: {taggable_items: @taggable_items} do %>
+<% end %>
