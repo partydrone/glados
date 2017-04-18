@@ -25,6 +25,9 @@
 							<div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown1<%=b.object.training_course.id%>" data-dropdown data-auto-focus="true">
 								<p><%= b.object.training_course.description.html_safe %></p>
 								<ul class="prereq-list">
+									<% if b.object.training_course.prerequisites && b.object.training_course.prerequisites.exists? %>
+										<li>Prerequisites:</li>
+									<% end %>
 									<% b.object.training_course.prerequisites.each do |prereq| %>
 										<li><%= prereq.title %></li>
 									<% end %>

@@ -13,7 +13,7 @@
     <%= training_course.duration %>
   </td>
   <td>
-  <% if training_course.summary && training_course.summary.exist? %>  
+  <% if training_course.summary %>  
     <%= training_course.summary.truncate(60) %>      
   <% end %>
   </td>
