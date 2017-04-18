@@ -8,7 +8,7 @@ class TrainingCourse < ApplicationRecord
 
   accepts_nested_attributes_for :prerequisites, allow_destroy: true
 
-  validates :title, :description, presence: true
+  validates :title, :description, :summary, presence: true
   validates :duration, numericality: { only_integer: true }, if: 'duration.present?'
 
   attr_accessor :enrollments
