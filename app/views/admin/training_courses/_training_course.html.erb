@@ -13,7 +13,9 @@
     <%= training_course.duration %>
   </td>
   <td>
-    <%= training_course.summary.truncate(60) %>
+  <% if training_course.summary %>  
+    <%= training_course.summary.truncate(60) %>      
+  <% end %>
   </td>
   <td class="admin-right-delete">
     <%= render partial: 'options_delete', locals: {object: training_course, instance_name: training_course.title} %>

@@ -6,7 +6,10 @@
     </div>
     <div class="large-4 columns">
         <h6>Event hosted by: ...</h6>
-        <img src="http://placehold.it/461x258" />
+        <iframe width="461" height="258" frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAGAqmFJ3MVdossndC6O6E_Rk5U5qkCh7Y
+  &q=<%= @training_event.location %>" allowfullscreen>
+        </iframe>
         <h6 class="event-city"><%= @training_event.location %></h6>        
         <h6 class="event-date"><%= l @training_event.started_at.to_date, format: :long %></h6>
         <% if !@training_event.start_time.nil? %>

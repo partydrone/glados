@@ -1,5 +1,6 @@
 @import "foundation_and_overrides";
 @import "globals/all";
+
 .enrollment-form {
     background-color: #e6e6e6;
     padding: 30px;
@@ -171,6 +172,7 @@
 
 .enrollment-course-card {
     border: 1px solid $ghost;
+    border-radius: 10px;
     padding: 2rem;
     background-color: #fefefe;
     width: 100%;
@@ -191,9 +193,9 @@
         height: 0;
         position: relative;
         &.is-open {
-            height: 250px;
+            height: auto;
             visibility: visible;
-            top: -30px !important;
+            top: -7px !important;
             width: 100%;
             text-align: left;
             padding: 0 !important;
@@ -210,6 +212,9 @@
             }
         }
     }
+    .learn-bottom {
+        margin-bottom: -1rem;
+    }
     .course-card-left,
     .course-card-right {
         width: 50%;
@@ -219,5 +224,19 @@
     .course-card-right {
         text-align: right;
         float: right;
+    }
+    .course-prereq {
+        text-align: right;
+        float: right;
+        margin-top: -34px;
+        z-index: 11;
+        position: relative;
+    }
+    .course-learn-link {
+        text-align: left;
+        float: left;
+    }
+    .prereq-list {
+        padding-bottom: 1rem;
     }
 }
