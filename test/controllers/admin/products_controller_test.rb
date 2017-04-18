@@ -46,6 +46,7 @@ module Admin
     end
 
     it "gets show" do
+      skip    
       get admin_product_path(product)
       must_respond_with :success
     end

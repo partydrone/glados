@@ -19,6 +19,7 @@ describe Admin::TrainingCoursesController, :locale do
         training_course: {
           title: "How to Solve a Rubik's Cube",
           description: 'Learn all the skills, patterns, and tricks you need to know.',
+          summary: 'solve in 5 moves',
           number: '410',
           duration: 4,
           training_course_type_id: training_course_types(:workshop).id
@@ -42,7 +43,8 @@ describe Admin::TrainingCoursesController, :locale do
   it "updates a training course" do
     patch admin_training_course_path(training_course), params: {
       training_course: {
-        title: training_course.title
+        title: training_course.title,
+        summary: 'new summary'
       }
     }
     must_redirect_to admin_training_courses_path
