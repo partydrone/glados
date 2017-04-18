@@ -9,6 +9,7 @@ var training_events = {
     //this function is called when user adds a course
     //1. checks to see if the course has prerequisites
     //2. checks to see if the course waitlisted(not enough seats available)
+
     //3. push and pop titles in/out of arrays to display to user    
     courseCheck: function(label) {
         var check_box = label.prev();
@@ -27,6 +28,7 @@ var training_events = {
             if (training_card.find(".prerequisites").length > 0) {
                 //pop title out of prerequisites array
                 training_events.prerequisites.pop(title);
+
             }
             if (training_card.find(".wait-listed").length > 0) {
                 //pop title out of waitlisted array
@@ -34,7 +36,7 @@ var training_events = {
             }
             training_card.css({ "border-color": "#e6e6e6", "border-width": "2px", "border-style": "solid" });
         }
-        //add to array
+
         else {
             //add the title to the courses list            
             training_events.list.push(title);
@@ -53,6 +55,7 @@ var training_events = {
         training_events.showEnrollmentList();
 
     }, //end course check
+
 
     //displays the courses they've checked in the enrollment list box or default message
     showEnrollmentList() {
@@ -74,6 +77,7 @@ var training_events = {
         //check if user selected course
         if (training_events.list.length <= 0) {
             $(".enrollment_warning").html(" You much select at least one course.");
+
             return false;
         }
         // display displayAlert if HAS prerequisites or waitlisted courses
@@ -88,6 +92,7 @@ var training_events = {
 
     //gets the status of displayAlert
     getDisplayAlert: function() {
+
         //check arrays to see if we have any prerequisites or waitlisted courses         
         $(".enrollment_warning").html("");
         //validate client side validation
@@ -125,6 +130,7 @@ var training_events = {
                 html += "<li>" + course + "</li>";
             });
             html += "</ul></div><p></p><p>You will be placed on a waitlist and notified if a spot becomes available.</p>";
+
         }
 
         return html;
@@ -150,6 +156,7 @@ $('#submit-btn').on('click', function() {
     return training_events.validateCourses();
 });
 
+
 //when user clicks the cancel button
 $("#cancel-btn").on('click', function() {
     $(".course_alerts").hide();
@@ -170,3 +177,4 @@ $('.input_class_checkbox').each(function() {
     $(this).hide().after('<div class="class_checkbox" />');
 
 });
+

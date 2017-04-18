@@ -2,8 +2,8 @@
 
 <div class="row columns">
 	<h1><%= yield :title %></h1>
-	<ul class="admin-list row">
-		<li class="admin-list-header small-12 medium-6 large-3 columns">
+	<ul class="admin-list row small-up-1 medium-up-3 large-up-4">
+		<li class="admin-list-header column column-block">
 			<div class="admin-sub-list-collection">
 				<h2>Explore Solutions</h2>
 				<ul>
@@ -14,7 +14,7 @@
 				</ul>
 			</div>
 		</li>
-		<li class="admin-list-header small-12 medium-6 large-3 columns">
+		<li class="admin-list-header column column-block">
 			<div class="admin-sub-list-collection">
 				<h2>Get Support</h2>
 				<ul>
@@ -24,7 +24,7 @@
 				</ul>
 			</div>
 		</li>
-		<li class="admin-list-header small-12 medium-6 large-3 columns">
+		<li class="admin-list-header column column-block">
 			<div class="admin-sub-list-collection">
 				<h2>Attend Training</h2>
 				<ul>
@@ -34,7 +34,17 @@
 				</ul>
 			</div>
 		</li>
-		<li class="admin-list-header small-12 medium-6 large-3 columns">
+		<li class="admin-list-header column column-block">
+			<div class="admin-sub-list-collection">
+				<h2>Contact</h2>
+				<ul>
+					<li><%= link_to 'Dealers', admin_dealers_path %></li>
+					<li><%= link_to 'Offices', admin_offices_path %></li>
+					<li><%= link_to 'Territories', admin_territories_path %></li>
+				</ul>
+			</div>
+		</li>
+		<li class="admin-list-header column column-block">
 			<div class="admin-sub-list-collection">
 				<h2>About Us</h2>
 				<ul>
@@ -51,7 +61,7 @@
 				</ul>
 			</div>
 		</li>
-		<li class="admin-list-header small-12 medium-6 large-3 columns">
+		<li class="admin-list-header column column-block">
 			<div class="admin-sub-list-collection">
 				<h2>Website Admin</h2>
 				<ul>

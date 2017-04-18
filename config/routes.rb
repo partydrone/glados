@@ -1,6 +1,6 @@
 require 'sidekiq/web'
 
-Rails.application.routes.draw do   
+Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get '/auth/identity', to: 'sessions#new', as: :sign_in
     get '/auth/failure', to: 'identities#authentication_failure'
     post '/auth/:provider/callback', to: 'sessions#create'
-    delete '/sign_out', to: 'sessions#destroy'
+    delete '/sign_out', to: 'sessions#destroy', as: :sign_out
 
     ##
     # Content management interface
@@ -26,17 +26,20 @@ Rails.application.routes.draw do
       ##
       # Resource routes
       resources :blog_posts,
-                :case_studies,                
+                :case_studies,
+                :dealers,
                 :features,
-                :knowledge_base_articles,
                 :products,
+                :knowledge_base_articles,
                 :return_material_authorization_policy_documents,
                 :sales_terms_and_conditions_documents,
+                :territories,
                 :training_events,
                 :website_privacy_policy_documents,
                 :website_terms_of_use_documents
 
-      resources :product_categories, concerns: :sortable
+      resources :product_categories,
+                :offices,concerns: :sortable
 
       resources :downloads,
                 :media_downloads,
@@ -60,7 +63,10 @@ Rails.application.routes.draw do
 
     ##
     # Resource routes
-    resources :demo_requests, :marketing_app_support_requests, only: [:create]
+    resources :demo_requests,
+              :knowledge_base_article_feedbacks,
+              :marketing_app_support_requests,
+              only: [:create]
 
     resources :enrollments, only: [:create, :index]
 
@@ -71,7 +77,7 @@ Rails.application.routes.draw do
     resources :blog_posts,
               :case_studies,
               :features,
-              :product_categories,              
+              :product_categories,
               only: [:show]
 
     resources :tags, only: [:show], param: :name
@@ -86,6 +92,12 @@ Rails.application.routes.draw do
               :training_events,
               only: [:index, :show]
 
+    resources :results, only: [:index]
+
+    resources :knowledge_base_articles do
+      get :vote, on: :member
+    end
+
     ##
     # Static routes
     get '/about', to: 'about#index'
@@ -95,7 +107,7 @@ Rails.application.routes.draw do
     get '/marketing_app', to: 'marketing_app#index'
     get '/news', to: 'news#index'
     get '/support', to: 'support#index'
-    post '/support', to: 'support#select_product'        
+    post '/support', to: 'support#select_product'
 
     ##
     # Root route

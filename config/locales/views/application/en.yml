@@ -18,3 +18,5 @@ en:
     demo_button: Request a Demo
     demo_request_error: 'We were unable to send your request. Please make sure to fill the form out completely.'
     demo_request_sent: 'Thank you for submitting a request for a demo. We will contact you shortly.'
+    knowledge_base_article_feedback_error: 'We were unable to send your feedback. Please make sure to fill the form out completely.'
+    knowledge_base_article_feedback_sent: 'Thank you for submitting your feedback. We will consider this as we work to improve our content.'

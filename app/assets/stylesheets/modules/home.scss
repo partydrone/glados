@@ -254,6 +254,9 @@ Efficient Section
 		.home-stories a:hover h4 {
 			background: none;
 		}
+		.home-story h4 {
+			background: $ghost;
+		}
 		.home-story a:hover .stories-hidden-text {
 			height: auto;
 		}
@@ -465,7 +468,7 @@ Reliable Magellan Section
 	}
 
 	.construction-background {
-		background: url(image-path('home/reliable_2.png')) no-repeat center center;
+		background: url(image-path('home/construction.png')) no-repeat center center;
 		height: 100vh;
 	}
 
@@ -894,6 +897,7 @@ Simple Section
 			width: 100%;
 			min-height: 657px;
 			background: url(image-path('home/traffic-work.png')) no-repeat right bottom;
+			background-size: 38%;
 		}
 	}
 

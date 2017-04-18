@@ -1,7 +1,7 @@
 <footer class="show-for-large admin-footer">
 	<div class="row">
 	  <small>
-			&copy; 2016 Wavetronix, LLC <%= link_to "sign out", sign_out_path %>
+			&copy; 2016 Wavetronix, LLC <% if current_user %><%= link_to "sign out #{current_user.first_name}", sign_out_path, :method => :delete %><% end %>
 		</small>
 	</div>
 </footer>

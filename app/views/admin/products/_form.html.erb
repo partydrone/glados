@@ -16,14 +16,14 @@
     </div>
     <div class="large-4 columns">
       <%= f.label :product_image %>
-      <%= f.attachment_field :product_image, direct: true, presinged: true %>
+      <%= f.attachment_field :product_image, direct: true, presigned: true %>
 
       <% if @product.product_image && @product.product_image.exists? %>
         <%= attachment_image_tag @product, :product_image %>
       <% end %>
 
       <%= f.label :hero_image %>
-      <%= f.attachment_field :hero_image, direct: true, presinged: true %>
+      <%= f.attachment_field :hero_image, direct: true, presigned: true %>
 
       <% if @product.hero_image && @product.hero_image.exists? %>
         <%= attachment_image_tag @product, :hero_image %>

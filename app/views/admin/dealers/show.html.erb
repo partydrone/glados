@@ -1,0 +1,17 @@
+<% content_for :title, "#{@dealer.name}" %>
+
+<div class="row columns">
+	<h1><%= yield :title %></h1>
+</div>
+
+<div class="row columns" data-equalizer data-equalize-on="medium">
+    <%= @dealer.address %><br/>
+    <%= @dealer.city %><br/>
+    <%= @dealer.region %><br/>
+    <%= @dealer.zip %><br/>
+    <%= t "countries.#{@dealer.country_id}" %><br/>
+    <%= @dealer.phone %><br/>
+    <%= @dealer.email %><br/>
+    <%= @dealer.website %>
+    <%= link_to "back to dealers page", admin_dealers_path, class: "admin-back-link" %>
+</div>
