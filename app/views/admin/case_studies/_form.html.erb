@@ -33,8 +33,10 @@
   <%= f.text_area :subtitle, rows: 3 %>
   <%= f.label :body %>
   <%= f.cktext_area :body, rows: 30 %>
-  <%= f.label :tag_list, 'Tags (separated by commas) (regions include: africa, asia, europe, north america, oceana, and south america)' %>
-  <%= f.text_field :tag_list, value: f.object.tag_list.to_s %>
+  <div class="ui-widget">
+    <%= f.label :tag_list, 'Tags (separated by commas) (regions include: africa, asia, europe, north america, oceana, and south america)' %>
+    <%= f.text_field :tag_list, value: f.object.tag_list.to_s, :id => 'auto_complete_tags' %>
+  </div>
   <%= f.submit nil, class: 'button radius' %>
 <% end %>
 
