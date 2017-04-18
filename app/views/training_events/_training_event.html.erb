@@ -7,7 +7,6 @@
             </div>
         </div>
         <div class="small-4 columns event-location">
-            <img src="http://placehold.it/142x80" />
             <h6 class="event-city"><%= training_event.location %></h6>
             <h6 class="event-date"><%= l training_event.started_at.to_date, format: :long %></h6>
             <% if !training_event.start_time.nil? %>
