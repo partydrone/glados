@@ -10,10 +10,6 @@ class KnowledgeBaseArticlesController < ApplicationController
     # LogArticleViewJob.perform_later @article unless browser.bot?
   end
 
-  def vote
-    cookies.permanent["kb_article_#{@article.id}_vote"] = @article.digest
-  end
-
   private
 
   def set_knowledge_base_article

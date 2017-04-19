@@ -8,7 +8,6 @@ module Admin
 
     def show
       @legal_policy_document = @return_material_authorization_policy_document
-      render 'legal_policy_documents/show'
     end
 
     def new

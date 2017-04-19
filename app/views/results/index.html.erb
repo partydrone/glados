@@ -1,0 +1,88 @@
+<%= content_for :title, 'Knowledge Base' %>
+
+<div class="row columns">
+	<h1>Search Results</h1>
+    <%= form_tag results_path, method: :get do %>
+      <div class="results-search-bar">
+        <div class="site-search-bar input-group">
+          <div class="input-group-button">
+            <?xml version="1.0" encoding="utf-8"?>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17">
+              <rect x="12.2" y="10" transform="translate(1 1)matrix(0.7071 -0.7071 0.7071 0.7071 -5.3589 12.9375)" class="st0" width="1.5" height="5.8"/><path class="st0" d="M7.3 14.3c-3.9 0-7-3.1-7-7 0-3.9 3.1-7 7-7 3.9 0 7 3.1 7 7C14.3 11.1 11.1 14.3 7.3 14.3zM7.3 1.8c-3 0-5.5 2.5-5.5 5.5 0 3 2.5 5.5 5.5 5.5 3 0 5.5-2.5 5.5-5.5C12.8 4.2 10.3 1.8 7.3 1.8z"/>
+            </svg>
+          </div>
+          <%= text_field_tag :sitequery, params[:sitequery], class: "input-search-bar", placeholder: "Search our site" %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if params[:sitequery] %>
+    	<div class="row results-container" data-equalizer>
+	    	<% @pg_search_site.each do |pg| %>
+	    		<% if pg.searchable_type == "Article" %>
+	    			<div class="medium-6 large-4 columns end result-container" data-equalizer-watch>
+	    				<% article = Article.find(pg.searchable.id) %>
+	    				<%= link_to article do %>
+		    				<div class="row">
+		    					<div class="small-5 medium-4 columns">
+		    						<% if article.hero_image && article.hero_image.exists? %>
+			        					<%= attachment_image_tag article, :hero_image, fallback: 'http://placehold.it/1600x900' %>
+			      					<% end %>
+			      				</div>
+			      				<div class="small-7 medium-8 columns">
+			    					<h3><%= article.title %></h3>
+			    					<p><%= truncate(article.subtitle, length: 60) %></p>
+			    				</div>
+			    			</div>
+		    			<% end %>
+		    		</div>
+	    		<% elsif pg.searchable_type == "Dealer" %>
+	    			<div class="medium-6 large-4 columns end result-container" data-equalizer-watch>
+		    			<% dealer = Dealer.find(pg.searchable.id) %>
+		    			<%= link_to contact_path do %>
+			    			<div class="row">
+			    				<div class="small-5 medium-4 columns">
+			    					<%= image_tag "icons/person.svg", class: 'large-icon' %>
+			    				</div>
+			    				<div class="small-7 medium-8 columns">
+			    					<h3><%= dealer.name %></h3>
+			    					<p><%= dealer.city %><br/>
+									<%= dealer.region %><br/>
+									<%= t "countries.#{dealer.country_id}" %><br/>
+									<% if dealer.phone.present? %><%= dealer.phone %><br/><% end %>
+									<% if dealer.email.present? %><%= dealer.email %><% end %>
+			    				</div>
+			    			</div>
+			    		<% end %>
+		    		</div>
+		    	<% elsif pg.searchable_type == "LegalPolicyDocument" %>
+		    		<div class="medium-6 large-4 columns end result-container" data-equalizer-watch>
+		    			<% law = LegalPolicyDocument.find(pg.searchable.id) %>
+		    			<%= link_to law do %>
+				    		<div class="small-5 medium-4 columns">
+		    					<%= image_tag "icons/law.svg", class: 'large-icon' %>
+		    				</div>
+		    				<div class="small-7 medium-8 columns">
+			  					<p><%= law.title %></p>
+				  			</div>
+				  		<% end %>
+		  			</div>
+	    		<% elsif pg.searchable_type == "Product" %>
+		    		<div class="medium-6 large-4 columns end result-container" data-equalizer-watch>
+		    			<% product = Product.find(pg.searchable.id) %>
+		    			<%= link_to product do %>
+				    		<div class="small-5 medium-4 columns">
+		    					<%= attachment_image_tag product, :product_image, fallback: 'http://placehold.it/100x90' %>
+		    				</div>
+		    				<div class="small-7 medium-8 columns">
+			  					<h3><%= product.name %></h3>
+			  					<p><%= raw product.description.truncate(60) %></p>
+				  			</div>
+				  		<% end %>
+		  			</div>
+	    		<% end %>
+	    	<% end %>
+	    </div>
+    <% end %>
+
+</div>

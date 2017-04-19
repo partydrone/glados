@@ -1,0 +1,26 @@
+<%= content_for :title, t(".title") %>
+
+<div class="row columns admin-table">
+<h1>
+  Wavetronix Offices
+  <%= link_to new_admin_office_path, title: 'Create a new Wavetronix Office' do %>
+    <%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
+  <% end %>
+</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th width="30"></th>
+      <th width="30"></th>
+      <th>Name</th>
+      <th>Region/State</th>
+      <th>Country</th>
+      <th width="30"></th>
+    </tr>
+  </thead>
+  <tbody id="offices" data-update-path="<%= sort_admin_offices_path %>">
+    <%= render @offices %>
+  </tbody>
+</table>
+</div>

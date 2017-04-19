@@ -1,0 +1,25 @@
+<%= content_for :title, t(".title") %>
+
+<div class="row columns admin-table">
+<h1>
+  Dealers
+  <%= link_to new_admin_dealer_path, title: 'Create a new Dealer' do %>
+    <%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
+  <% end %>
+</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th width="30"></th>
+      <th>Name</th>
+      <th>Region/State</th>
+      <th>Country</th>
+      <th width="30"></th>
+    </tr>
+  </thead>
+  <tbody id="dealers">
+    <%= render @dealers %>
+  </tbody>
+</table>
+</div>

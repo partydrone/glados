@@ -8,7 +8,11 @@
         <%= product.name %>
       </h2>
       <%= content_tag :p, product.summary %>
-      <%= link_to "Learn More", product_path(product), class: "goto-new" %>
+      <% if product.name == "SmartSensor Rail" %>
+        <%= link_to "Learn more at Island Radar", "http://www.islandradar.com/", class: "goto-new" %>
+      <% else %>
+        <%= link_to "Learn More", product_path(product), class: "goto-new" %>
+      <% end %>
     </div>
   </div>
 <% end %>

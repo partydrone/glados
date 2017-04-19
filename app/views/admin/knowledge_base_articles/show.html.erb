@@ -1,0 +1,154 @@
+<%= content_for :title, @article.title %>
+
+<div class="social-media-sticky-header hide-for-large" data-sticky-container>
+  <div class="sticky" data-sticky>
+    <div class="row">
+      <nav data-magellan>
+        <ul class="horizontal menu">
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Twitter.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Facebook.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Google.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/email.svg', class: "icon") %>
+            <% end %>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<header class="article-header">
+  <div class="row">
+    <div class="large-12 medium-8 medium-offset-2 large-offset-0 columns">
+      <h1>
+        <%= @article.title %>
+      </h1>
+      <%= content_tag :h6 do %>by <%= @article.author %><% end if @article.author %>
+      <%= content_tag :h6 do %>
+        <span class="flag-icon flag-icon-<%= @article.flag.downcase %>"></span>
+        <%= @article.location %>
+      <% end if @article.location %>
+      <%= content_tag :div, class: 'article-hero-container' do %>
+        <%= attachment_image_tag @article, :hero_image, fallback: 'http://placehold.it/1600x900' %>
+      <% end if @article.hero_image && @article.hero_image.exists? %>
+    </div>
+  </div>
+</header>
+
+<article class="row">
+  <aside class="large-1 columns sticky-container show-for-large" data-sticky-container>
+    <div class="sticky" data-sticky data-anchor="article-container">
+      <nav class="social-media-side" data-magellan>
+        <ul class="vertical menu">
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Twitter.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Facebook.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/Google.svg', class: "icon") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to nil do %>
+              <%=image_tag('icons/email.svg', class: "icon") %>
+            <% end %>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <div class="large-6 large-offset-1 medium-8 medium-offset-2 columns article-body end" id="article-container" data-something data-margin-top="5">
+    <h3 class="article-deckhead">
+      <%= @article.subtitle %>
+      <hr/>
+    </h3>
+    <%= embed_youtube_videos_for(@article.body).html_safe %>
+  </div>
+</article>
+
+<div class="row">
+  <div class="medium-8 large-8 medium-centered columns">
+    <%= content_tag :div, class: 'faq-helpful' do %>
+      <h4>Was this helpful?
+        <%= link_to vote_knowledge_base_article_path(@article), class: 'kb-article-up-vote', remote: true do %>
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+            <g>
+              <path class="positive" d="M16,32C7.2,32,0,24.8,0,16C0,7.2,7.2,0,16,0c8.8,0,16,7.2,16,16C32,24.8,24.8,32,16,32z M16,1.4
+              C7.9,1.4,1.4,7.9,1.4,16c0,8.1,6.6,14.6,14.6,14.6c8.1,0,14.6-6.6,14.6-14.6C30.6,7.9,24.1,1.4,16,1.4z"/>
+            </g>
+            <g>
+              <circle class="positive" cx="12.4" cy="12" r="1.4"/>
+            </g>
+            <g>
+              <circle class="positive" cx="19.7" cy="12" r="1.4"/>
+            </g>
+            <g>
+              <path class="positive" d="M16,26.8C10,26.8,5.2,22,5.2,16c0-0.2,0.2-0.5,0.5-0.5s0.5,0.2,0.5,0.5c0,5.5,4.4,9.9,9.9,9.9
+              s9.9-4.4,9.9-9.9c0-0.2,0.2-0.5,0.5-0.5c0.2,0,0.5,0.2,0.5,0.5C26.8,22,22,26.8,16,26.8z"/>
+            </g>
+          </svg>
+        <% end %>
+
+        <%= link_to nil, class: 'kb-article-down-vote' do %>
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+            <g>
+              <path class="negative" d="M16,32C7.2,32,0,24.8,0,16C0,7.2,7.2,0,16,0c8.8,0,16,7.2,16,16C32,24.8,24.8,32,16,32z M16,1.4
+              C7.9,1.4,1.4,7.9,1.4,16c0,8.1,6.6,14.6,14.6,14.6c8.1,0,14.6-6.6,14.6-14.6C30.6,7.9,24.1,1.4,16,1.4z"/>
+            </g>
+            <g>
+              <circle class="negative" cx="12.4" cy="12" r="1.4"/>
+            </g>
+            <g>
+              <circle class="negative" cx="19.7" cy="12" r="1.4"/>
+            </g>
+            <g>
+              <path class="negative" d="M8.3,23.5c-0.1,0-0.1,0-0.2-0.1c-0.2-0.1-0.3-0.4-0.2-0.6c1.6-2.9,4.7-4.7,8.1-4.7s6.4,1.8,8.1,4.7
+              c0.1,0.2,0,0.5-0.2,0.6c-0.2,0.1-0.5,0-0.6-0.2C21.8,20.7,19,19,16,19s-5.8,1.6-7.3,4.3C8.6,23.5,8.5,23.5,8.3,23.5z"/>
+            </g>
+          </svg>
+        <% end %>
+      </h4>
+
+      <%= render 'knowledge_base_article_feedback_form' %>
+
+      <div id="kb_feedback_thanks" class="kb-feedback-thanks">
+        <h6>Thanks for your feedback!</h6>
+      </div>
+
+    <% end %>
+  </div>
+</div>

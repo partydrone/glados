@@ -13,7 +13,7 @@
     <% end if @product_category.icon_image && @product_category.icon_image.exists? %>
     <div class="medium-4 columns">
       <%= f.label :icon_image %>
-      <%= f.attachment_field :icon_image, direct: true, presinged: true %>
+      <%= f.attachment_field :icon_image, direct: true, presigned: true %>
     </div>
   </div>
 
@@ -24,7 +24,7 @@
     <% end if @product_category.hero_image && @product_category.hero_image.exists? %>
     <div class="medium-4 columns">
       <%= f.label :hero_image %>
-      <%= f.attachment_field :hero_image, direct: true, presinged: true %>
+      <%= f.attachment_field :hero_image, direct: true, presigned: true %>
     </div>
   </div>
 

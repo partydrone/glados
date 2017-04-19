@@ -8,7 +8,6 @@ module Admin
 
     def show
       @product_category = ProductCategory.includes(:products).find(params[:id])
-      render 'product_categories/show'
     end
 
     def new

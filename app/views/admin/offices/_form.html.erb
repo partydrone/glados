@@ -1,0 +1,27 @@
+<%= form_for [:admin, @office], validate: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :address %>
+  <%= f.text_area :address %>
+
+  <%= f.label :city %>
+  <%= f.text_field :city %>
+
+  <%= f.label "State or Region" %>
+  <%= f.text_field :region %>
+
+  <%= f.label :zip %>
+  <%= f.text_field :zip %>
+
+  <%= f.label :country, class:"select-label"%>
+  <%= f.select :country, COUNTRIES.invert.sort %>
+
+  <%= f.label :phone %>
+  <%= f.text_field :phone %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.submit nil, class: 'button radius' %>
+<% end %>

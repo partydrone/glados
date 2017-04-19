@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get '/auth/identity', to: 'sessions#new', as: :sign_in
     get '/auth/failure', to: 'identities#authentication_failure'
     post '/auth/:provider/callback', to: 'sessions#create'
-    delete '/sign_out', to: 'sessions#destroy'
+    delete '/sign_out', to: 'sessions#destroy', as: :sign_out
 
     ##
     # Content management interface
@@ -27,16 +27,19 @@ Rails.application.routes.draw do
       # Resource routes
       resources :blog_posts,
                 :case_studies,
+                :dealers,
                 :features,
                 :products,
                 :knowledge_base_articles,
                 :return_material_authorization_policy_documents,
                 :sales_terms_and_conditions_documents,
+                :territories,
                 :training_events,
                 :website_privacy_policy_documents,
                 :website_terms_of_use_documents
 
-      resources :product_categories, concerns: :sortable
+      resources :product_categories,
+                :offices,concerns: :sortable
 
       resources :downloads,
                 :media_downloads,
@@ -88,6 +91,8 @@ Rails.application.routes.draw do
               :training_courses,
               :training_events,
               only: [:index, :show]
+
+    resources :results, only: [:index]
 
     resources :knowledge_base_articles do
       get :vote, on: :member
