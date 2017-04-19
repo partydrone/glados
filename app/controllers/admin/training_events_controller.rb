@@ -49,7 +49,7 @@ module Admin
     end
 
     def training_event_params
-      params.require(:training_event).permit(:id, :title, :description, :started_at, :ended_at, :location, training_event_courses_attributes: [:id, :training_course_id, :seats, :started_at, :_destroy, enrollments_attributes: [:id, :first_name, :last_name, :email, :_destroy]])
+      params.require(:training_event).permit(:id, :title, :description, :started_at, :ended_at, :location, training_event_courses_attributes: [:id, :training_course_id, :seats, :room, :started_at, :ended_at, :_destroy, enrollments_attributes: [:id, :first_name, :last_name, :email, :_destroy]])
     end
   end
 end

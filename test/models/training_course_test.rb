@@ -1,7 +1,7 @@
 require 'test_helper'
 
 describe TrainingCourse do
-  let(:training_course) { TrainingCourse.new(title: 'Wiring SmartSensor HD', description: 'Learn to wire a SmartSensor HD with your eyes closed.', number: '501', duration: 4, training_course_type_id: training_course_types(:workshop).id) }
+  let(:training_course) { TrainingCourse.new(title: 'Wiring SmartSensor HD', description: 'Learn to wire a SmartSensor HD with your eyes closed.', summary:'cake', number: 501, duration: 4, training_course_type_id: training_course_types(:workshop).id) }
 
   it "must be a valid object" do
     training_course.must_be :valid?

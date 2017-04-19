@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170324164629) do
+
+ActiveRecord::Schema.define(version: 20170413205422) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -284,6 +286,15 @@ ActiveRecord::Schema.define(version: 20170324164629) do
     t.datetime "updated_at", null: false
   end
 
+
+  create_table "training_course_products", force: :cascade do |t|
+    t.integer "training_course_id"
+    t.integer "product_id"
+    t.integer "position"
+    t.index ["product_id"], name: "index_training_course_products_on_product_id", using: :btree
+    t.index ["training_course_id"], name: "index_training_course_products_on_training_course_id", using: :btree
+  end
+
   create_table "training_course_types", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -298,6 +309,7 @@ ActiveRecord::Schema.define(version: 20170324164629) do
     t.integer  "training_course_type_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.string   "summary"
     t.index ["training_course_type_id"], name: "index_training_courses_on_training_course_type_id", using: :btree
   end
 
@@ -308,6 +320,8 @@ ActiveRecord::Schema.define(version: 20170324164629) do
     t.datetime "started_at"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.string   "room"
+    t.datetime "ended_at"
     t.index ["training_course_id"], name: "index_training_event_courses_on_training_course_id", using: :btree
     t.index ["training_event_id"], name: "index_training_event_courses_on_training_event_id", using: :btree
   end
@@ -345,4 +359,6 @@ ActiveRecord::Schema.define(version: 20170324164629) do
   add_foreign_key "feature_associations", "features"
   add_foreign_key "feature_associations", "products"
   add_foreign_key "taggings", "tags"
+  add_foreign_key "training_course_products", "products"
+  add_foreign_key "training_course_products", "training_courses"
 end

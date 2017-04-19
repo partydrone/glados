@@ -1,6 +1,7 @@
 module Admin
   class TrainingCoursesController < BaseController
     before_action :set_training_course, only: [:edit, :update, :destroy]
+    before_action :set_product_types, only: [:new, :edit]
 
     def index
       @training_courses = TrainingCourse.all
@@ -8,7 +9,8 @@ module Admin
 
     def new
       @training_course = TrainingCourse.new   
-      @training_courses = TrainingCourse.all      
+      @training_courses = TrainingCourse.all
+
     end
 
     def edit
@@ -47,7 +49,11 @@ module Admin
     end
 
     def training_course_params
-      params.require(:training_course).permit(:title, :description, :number, :duration, :seats, :training_course_type_id, prerequisite_ids: [])
+      params.require(:training_course).permit(:title, :description, :number, :duration, :summary, :seats, :training_course_type_id, prerequisite_ids: [], product_ids: [])
+    end
+
+    def set_product_types
+      @product_types = ProductType.includes(:products).reorder(:position).order('products.name')
     end
   end
 end

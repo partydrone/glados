@@ -1,0 +1,242 @@
+@import "foundation_and_overrides";
+@import "globals/all";
+
+.enrollment-form {
+    background-color: #e6e6e6;
+    padding: 30px;
+    h1 {
+        margin: 1%;
+    }
+}
+
+.class_checkbox {
+    display: none;
+}
+
+.class_checkbox+label {
+    width: 16px;
+    height: 16px;
+    content: url(image_path('icons/Plus.svg'));
+}
+
+.class_checkbox.checked+label {
+    content: url(image_path('icons/close.svg'));
+}
+
+.course_alerts {
+    color: #fff;
+    h3 {
+        color: #fff;
+    }
+    background-color: #4c4c4c;
+    padding: 30px;
+    ul {
+        margin: 20px;
+        list-style-type: square;
+    }
+}
+
+.inner_course_alerts {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.enrollment-course-form {
+    border: 1px solid $ghost;
+    width: 100%;
+    vertical-align: top;
+    margin: 10px 0;
+    @media screen and (min-width: 40em) {
+        width: 47%;
+        margin: 1%;
+        display: inline-block;
+    }
+    .small-icon {
+        margin: 0.5rem 0.5rem 0.5rem 0;
+    }
+    .course-dropdown-container {
+        left: 0 !important;
+        top: 0px;
+        border: none !important;
+        height: 0;
+        position: relative;
+        &.is-open {
+            height: auto;
+            visibility: visible;
+            top: -30px !important;
+            width: 100%;
+            text-align: left;
+            padding: 0 !important;
+            img {
+                padding-bottom: 1rem;
+            }
+            .prereq-link {
+                color: $tomato;
+                font-weight: normal;
+            }
+            h6 img {
+                padding-top: 15px;
+                height: 49px;
+            }
+        }
+    }
+    .enrollment-card-left,
+    .enrollment-card-right {
+        width: 47%;
+        display: inline-block;
+        margin: 0.5rem 0;
+    }
+    .enrollment-card-right {
+        float: right;
+    }
+}
+
+.enrollment-list {
+    overflow: auto;
+    //height: 200px;
+    //background-color: #fefefe;
+    padding: 20px;
+}
+
+.enrollment-remove:before {
+    content: url(image_path('icons/trash.svg'));
+    width: 16px;
+    cursor: pointer;
+    float: right;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 0.5rem;
+}
+
+.enrollment_warning {
+    color: red;
+}
+
+.training-room:before {
+    content: url(image_path('icons/map.svg'));
+    width: 16px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 0.5rem;
+}
+
+.enrollment-show-list {
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.enrollment-gap {
+    margin: 5rem;
+}
+
+.enrollment-notice {
+    color: #B4B4B4;
+}
+
+.button:hover,
+.button:focus {
+    background-color: lighten($yellow, 15%);
+    color: $oil !important;
+}
+
+.button {
+    height: 2.5rem;
+    font-size: 1rem;
+    line-height: 2.5rem;
+    font-family: $font-family-secondary;
+    font-weight: 100;
+    &.medium {
+        margin-left: 2rem;
+        width: 50%;
+    }
+    &.cancel {
+        background-color: #808080;
+    }
+    &.long {
+        width: 100%;
+        background-color: #4F5F6C;
+        color: white;
+    }
+}
+
+#expand {
+    height: 0px;
+    overflow: hidden;
+    transition: height 0.5s;
+}
+
+#toggle:checked~#expand {
+    height: 250px;
+}
+
+.enrollment-course-card {
+    border: 1px solid $ghost;
+    border-radius: 10px;
+    padding: 2rem;
+    background-color: #fefefe;
+    width: 100%;
+    vertical-align: top;
+    margin: 10px 0;
+    @media screen and (min-width: 40em) {
+        width: 47%;
+        margin: 1%;
+        display: inline-block;
+    }
+    .small-icon {
+        margin: 0.5rem 0.5rem 0.5rem 0;
+    }
+    .course-dropdown-container {
+        left: 0 !important;
+        top: 0px;
+        border: none !important;
+        height: 0;
+        position: relative;
+        &.is-open {
+            height: auto;
+            visibility: visible;
+            top: -7px !important;
+            width: 100%;
+            text-align: left;
+            padding: 0 !important;
+            img {
+                padding-bottom: 1rem;
+            }
+            .prereq-link {
+                color: $tomato;
+                font-weight: normal;
+            }
+            h6 img {
+                padding-top: 15px;
+                height: 49px;
+            }
+        }
+    }
+    .learn-bottom {
+        margin-bottom: -1rem;
+    }
+    .course-card-left,
+    .course-card-right {
+        width: 50%;
+        display: inline-block;
+        margin: 0.5rem 0;
+    }
+    .course-card-right {
+        text-align: right;
+        float: right;
+    }
+    .course-prereq {
+        text-align: right;
+        float: right;
+        margin-top: -34px;
+        z-index: 11;
+        position: relative;
+    }
+    .course-learn-link {
+        text-align: left;
+        float: left;
+    }
+    .prereq-list {
+        padding-bottom: 1rem;
+    }
+}

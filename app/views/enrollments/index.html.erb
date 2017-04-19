@@ -1,11 +1,11 @@
 <div class="medium-12 columns">
     <div class="row">
         <h2>Registration Confirmation</h2>
-        <p>Congradulations, you're now registered. Hhere are the details:</p>
+        <p>Congradulations, you're now registered. Here are the details:</p>
         
 
         <h2><%= @training_event.title %></h2>
-        <% @training_event.training_event_courses.each do |c| %>
+        <% @training_event_courses.each do |c| %>
             <h6><%= c.title_by_id(c.training_course_id) %></h6>
 
         <% end %>
