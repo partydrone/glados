@@ -9,6 +9,9 @@ module Admin
     def show
       @product = Product.includes({downloads: [:download_type]}, :features, :product_category).find(params[:id])
       @demo_request = DemoRequest.new(country: 'US')
+
+      render 'products/show'      
+
     end
 
     def new
@@ -22,7 +25,7 @@ module Admin
       @product = Product.new(product_params)
 
       if @product.save
-        redirect_to [:admin, @product], notice: %(Saved "#{@product.name}" successfully.)
+        redirect_to admin_product_categories_path, notice: %(Saved "#{@product.name}" successfully.)
       else
         render :new
       end

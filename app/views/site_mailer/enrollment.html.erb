@@ -11,7 +11,7 @@ Ends <%= l @training_event.ended_at.to_date, format: :long %>
 
 <p>Courses you registered for</p>
 <ul>
-   <% @training_event.training_event_courses.each do |c| %>
+   <% @training_event_courses.each do |c| %>
         <li><%= c.course_number_by_id(c.training_course_id) %> - <%= c.title_by_id(c.training_course_id) %></li>
    <%end%>
 </ul>

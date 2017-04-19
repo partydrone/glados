@@ -68,7 +68,7 @@ Rails.application.routes.draw do
               :marketing_app_support_requests,
               only: [:create]
 
-    resources :enrollments, only: [:create, :show]
+    resources :enrollments, only: [:create, :index]
 
     resources :training_event_requests, only: [:create, :new]
 
