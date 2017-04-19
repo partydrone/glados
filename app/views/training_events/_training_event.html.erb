@@ -1,19 +1,20 @@
 <div class="post-card">
     <div class="row">
         <div class="small-8 columns">
-                <h3><%= training_event.title %></h3>
-                <div class="ellipsed-text">
-                    <p><%= training_event.description %></p>
-                </div>
+            <h3><%= training_event.title %></h3>
+            <div class="ellipsed-text">
+                <p><%= training_event.description %></p>
             </div>
-            <div class="small-4 columns event-location">
-                <img src="http://placehold.it/142x80" />
-                <h6 class="event-city"><%= training_event.location %></h6>
-                <h6 class="event-date"><%= l training_event.started_at.to_date, format: :long %></h6>
-                <h6 class="event-time"><%= l training_event.ended_at.to_date, format: :long %></h6>
-            </div>
-            <div class="small-8 columns end">
-                <button class="button expanded rounded"><%= link_to 'Learn More', training_event %></button>
+        </div>
+        <div class="small-4 columns event-location">
+            <h6 class="event-city"><%= training_event.location %></h6>
+            <h6 class="event-date"><%= l training_event.started_at.to_date, format: :long %></h6>
+            <% if !training_event.start_time.nil? %>
+                <h6 class="event-time"><%= training_event.start_time %></h6>                    
+            <% end %>
+        </div>
+        <div class="small-8 columns end">
+            <button class="button expanded rounded"><%= link_to 'Learn More', training_event %></button>
         </div>
     </div>
 </div>	

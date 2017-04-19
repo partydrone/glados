@@ -1,5 +1,4 @@
----
-training_event:  
+training_event_one:  
   title: Training Event
   description: Wicked cool training event everyone wants to attend.
   started_at: <%= 5.days.from_now.to_s(:db) %>
