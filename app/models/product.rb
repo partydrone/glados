@@ -10,6 +10,8 @@ class Product < ApplicationRecord
 
   default_scope { order(name: :asc) }
 
+  scope :active, -> { where('expired_on IS NULL OR expired_on > ?', Time.zone.now) }
+  scope :discontinued, -> { where('expired_on <= ?', Time.zone.now) }
   scope :knowledge_base_articles, -> { includes(:articles).where(articles: {type: 'KnowledgeBaseArticle'}) }
 
   attachment :hero_image, content_type: %w(image/jpeg image/png image/gif)
@@ -33,7 +35,7 @@ class Product < ApplicationRecord
   end
 
   def discontinued?
-    expired_on.present? && expired_on < Time.zone.now
+    expired_on.present? && expired_on <= Time.zone.now
   end
 
   def to_param

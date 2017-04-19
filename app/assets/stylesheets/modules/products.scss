@@ -1,6 +1,10 @@
 @import "foundation_and_overrides";
 @import "globals/all";
 
+.discontinued {
+  color: $medium-gray;
+}
+
 .products-page {
   margin-top: -71px;
 }
@@ -159,4 +163,3 @@ Product Types
       }
     }
   }
-

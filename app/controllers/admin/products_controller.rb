@@ -3,7 +3,7 @@ module Admin
     before_action :set_product, only: [:edit, :update, :destroy]
 
     def index
-      @product_types = ProductType.includes(:products)
+      @product_types = ProductType.includes(:products).reorder('product_types.position').order('products.name')
     end
 
     def show
