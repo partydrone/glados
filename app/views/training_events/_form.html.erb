@@ -32,10 +32,10 @@
 						<div class="learn-bottom">
 							<a class="hide-me-on-dropdown expand-container course-learn-link" data-toggle="hdconfig-dropdown1<%=b.object.training_course.id%>"><%= t(".learn_more") %></a>
 							<div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown1<%=b.object.training_course.id%>" data-dropdown data-auto-focus="true">
-								<p><%= b.object.training_course.description.html_safe %></p>
+								<p><%= embed_youtube_videos_for(b.object.training_course.description).html_safe %></p>
 								<ul class="prereq-list">
 									<% if b.object.training_course.prerequisites && b.object.training_course.prerequisites.exists? %>
-										<li>Prerequisites:</li>
+										<li class="prereq-req">Prerequisites:</li>
 									<% end %>
 									<% i = 0 %>
 									<% b.object.training_course.prerequisites.each do |prereq| %>
