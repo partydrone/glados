@@ -974,9 +974,6 @@ Support Section
 		background: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 20%); /* Chrome10-25,Safari5.1-6 */
 		background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 20%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 		padding-bottom: 10px;
-		p {
-			color: $charcoal;
-		}
 		@media screen and (min-width: 60em) {
 			margin-top: -324px;
 			background: -moz-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(255,255,255,1) 50%); /* FF3.6-15 */
