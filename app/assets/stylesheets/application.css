@@ -12,6 +12,7 @@
  *
  *= require fonts
  *= require ./layout
+ *= require jquery-ui 
  *= require_tree ./modules
  *= require ./base
 

@@ -1,6 +1,7 @@
 module Admin
   class CaseStudiesController < BaseController
     before_action :set_case_study, only: [:show, :edit, :update, :destroy]
+    before_action :set_taggable_items, only: [:new, :edit]
 
     def index
       @case_studies = CaseStudy.all
@@ -49,5 +50,10 @@ module Admin
     def case_study_params
       params.require(:case_study).permit(:title, :subtitle, :location, :flag, :hero_image, :body, :posted_on, :tag_list)
     end
+    
+    def set_taggable_items
+      @taggable_items = Tag.pluck(:name)
+    end
+
   end
 end
