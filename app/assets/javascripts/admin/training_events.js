@@ -35,9 +35,7 @@ var training_events = {
                 training_events.waitlisted.pop(title);
             }
             training_card.css({ "border-color": "#e6e6e6", "border-width": "2px", "border-style": "solid" });
-        }
-
-        else {
+        } else {
             //add the title to the courses list            
             training_events.list.push(title);
             training_events.course_num.push(course_id);
@@ -58,7 +56,7 @@ var training_events = {
 
 
     //displays the courses they've checked in the enrollment list box or default message
-    showEnrollmentList() {
+    showEnrollmentList: function() {
         var enrollment_list = $(".enrollment-list");
         enrollment_list.empty();
         if (training_events.list.length > 0) {
@@ -177,4 +175,3 @@ $('.input_class_checkbox').each(function() {
     $(this).hide().after('<div class="class_checkbox" />');
 
 });
-
