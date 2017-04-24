@@ -12,7 +12,10 @@
 							<% else %>							
 								<small>(<%= b.object.get_enrollments(b.object.seats, b.object.id) %> seats)</small>
 							<% end %>
-						</h3>					
+						</h3>
+						<% if b.object.training_course.prerequisites.count > 0 %>          
+							<div class="prerequisites">Prerequisites Required</div>
+						<% end %>
 						<div class="course-card-left training-hours">
 							<%= b.object.started_at.strftime("%I:%M%P") %> to <%= b.object.ended_at.strftime("%I:%M%P") %>
 						</div>
@@ -36,9 +39,7 @@
 							</div>
 
 							<div class="course-prereq">
-								<% if b.object.training_course.prerequisites.count > 0 %>          
-									Prerequisites Required
-								<% end %>
+								<span class="enrollment_added" hidden>Added</span>
 								<%= b.check_box :class => 'class_checkbox', :id => b.object.id %><label class="course-check" for="<%= b.object.id %>"></label>
 							</div>
       

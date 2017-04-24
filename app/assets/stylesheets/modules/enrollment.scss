@@ -1,6 +1,5 @@
 @import "foundation_and_overrides";
 @import "globals/all";
-
 .enrollment-form {
     background-color: #e6e6e6;
     padding: 30px;
@@ -114,6 +113,14 @@
 
 .training-room:before {
     content: url(image_path('icons/map.svg'));
+    width: 16px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 0.5rem;
+}
+
+.enrollment-circle-check:before {
+    content: url(image_path('icons/check.svg'));
     width: 16px;
     display: inline-block;
     vertical-align: top;
@@ -238,5 +245,15 @@
     }
     .prereq-list {
         padding-bottom: 1rem;
+    }
+}
+
+.enrollment-confirmation-box {
+    margin: 15px;
+    padding: 30px;
+    .enrollmen-confirmation-list {
+        margin-top: 15px;
+        padding: 15px;
+        background-color: #E6E6E6;
     }
 }

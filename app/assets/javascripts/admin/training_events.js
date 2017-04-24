@@ -13,6 +13,7 @@ var training_events = {
     //3. push and pop titles in/out of arrays to display to user    
     courseCheck: function(label) {
         var check_box = label.prev();
+        var label_added = label.prev().prev();
         var training_card = label.parent().parent().parent().parent();
         var title = training_card.attr('id');
         var course_id = label.attr('for');
@@ -34,10 +35,9 @@ var training_events = {
                 //pop title out of waitlisted array
                 training_events.waitlisted.pop(title);
             }
+            label_added.hide();
             training_card.css({ "border-color": "#e6e6e6", "border-width": "2px", "border-style": "solid" });
-        }
-
-        else {
+        } else {
             //add the title to the courses list            
             training_events.list.push(title);
             training_events.course_num.push(course_id);
@@ -50,6 +50,7 @@ var training_events = {
                 //push title into the waitlisted array
                 training_events.waitlisted.push(title);
             }
+            label_added.show();
             training_card.css({ "border-color": "#54a4da", "border-width": "2px", "border-style": "solid" });
         }
         training_events.showEnrollmentList();
@@ -58,7 +59,7 @@ var training_events = {
 
 
     //displays the courses they've checked in the enrollment list box or default message
-    showEnrollmentList() {
+    showEnrollmentList: function() {
         var enrollment_list = $(".enrollment-list");
         enrollment_list.empty();
         if (training_events.list.length > 0) {
@@ -177,4 +178,3 @@ $('.input_class_checkbox').each(function() {
     $(this).hide().after('<div class="class_checkbox" />');
 
 });
-
