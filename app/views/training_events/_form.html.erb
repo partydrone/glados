@@ -31,8 +31,9 @@
 									<% if b.object.training_course.prerequisites && b.object.training_course.prerequisites.exists? %>
 										<li>Prerequisites:</li>
 									<% end %>
+									<% i = 0 %>
 									<% b.object.training_course.prerequisites.each do |prereq| %>
-										<li><%= prereq.title %></li>
+										<li id="prereq-<%= i += 1%>"><%= prereq.title %></li>
 									<% end %>
 								</ul>
 								<a data-toggle="hdconfig-dropdown1<%=b.object.training_course.id%>" class="close-container"><%= t(".hide") %></a>
