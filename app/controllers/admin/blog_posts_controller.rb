@@ -1,6 +1,7 @@
 module Admin
   class BlogPostsController < BaseController
     before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
+    before_action :set_taggable_items, only: [:new, :edit]
 
     def index
       @blog_posts = BlogPost.all
@@ -49,5 +50,10 @@ module Admin
     def blog_post_params
       params.require(:blog_post).permit(:title, :subtitle, :author, :hero_image, :body, :posted_on, :tag_list)
     end
+
+    def set_taggable_items
+      @taggable_items = Tag.pluck(:name)
+    end
+
   end
 end
