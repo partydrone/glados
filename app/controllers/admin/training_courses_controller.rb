@@ -22,8 +22,7 @@ module Admin
 
       if @training_course.save
         redirect_to admin_training_courses_path, notice: %(Saved "#{@training_course.title}" successfully.)
-      else
-        set_training_course_types
+      else        
         render :new
       end
     end
@@ -31,8 +30,7 @@ module Admin
     def update
       if @training_course.update(training_course_params)
         redirect_to admin_training_courses_path, notice: %(Updated "#{@training_course.title}" successfully.)
-      else
-        set_training_course_types
+      else        
         render :edit
       end
     end
