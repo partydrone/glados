@@ -1,15 +1,41 @@
-<div class="medium-12 columns">
-    <div class="row">
-        <h2>Registration Confirmation</h2>
-        <p>Congradulations, you're now registered. Here are the details:</p>
-        
 
-        <h2><%= @training_event.title %></h2>
-        <% @training_event_courses.each do |c| %>
-            <h6><%= c.title_by_id(c.training_course_id) %></h6>
+<div class="row">
+    <div class="medium-6 columns">    
+        <h1>Registration Confirmation</h1>
+        <div class="enrollment-circle-check">Congradulations, you're now registered. Here are the details:</div>
+                
+        <div class="enrollment-confirmation-box">
+            <h2><%= @training_event.title %></h2>
+            
+                <div style="display:inline-block;">
+                    
+                    <iframe  frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAGAqmFJ3MVdossndC6O6E_Rk5U5qkCh7Y
+                        &q=<%= @training_event.location %>" allowfullscreen>
+                    </iframe>
 
-        <% end %>
+                </div>
+                <div style="display:inline-block; vertical-align:top;">
+                
+                    <h6 class="event-city"><%= @training_event.location %></h6>        
+                    <h6 class="event-date"><%= l @training_event.started_at.to_date, format: :long %></h6>
+                    <% if !@training_event.start_time.nil? %>
+                        <h6 class="event-time"><%= @training_event.start_time %></h6>
+                    <% end %>
+                    
+                </div>
+            
+            
+            <div class="enrollmen-confirmation-list">
+            <h3>Courses you registered for</h3>
+                <% @training_event_courses.each do |c| %>
+                    <h6><%= c.title_by_id(c.training_course_id) %></h6>
+                <% end %>
+            </div> 
 
-    </div>
+        </div>
+        <p>Check your email inbox for the confirmation details as well.</p>
+        <p>Can't make it? Just let us know at: training@wavetronix.com</p>
+    </div>    
 </div>
 
