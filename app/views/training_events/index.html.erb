@@ -94,6 +94,9 @@
 			<div class="support-search-dropdown">
 				<section class="products-language-header support-dropdown">
 		      <select class="products-language-dropdown" name="smartsensor">
+						<% @training_courses.each do |course| %>
+							<option>course</option>
+						<% end %>
 		        <option value="allcourses">All Courses</option>
 		        <option value="certtech">Certified Technical Training</option>
 		        <option value="techworkshops">Technical Workshops</option>
