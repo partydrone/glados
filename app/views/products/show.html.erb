@@ -7,7 +7,12 @@
 		<div class="row">
 			<div class="large-5 columns">
 				<h4 data-magellan>
-					<%= link_to "#{@product.name}#{' (discontinued)' if @product.discontinued?}", '#top-of-page' %>
+					<%= link_to '#top-of-page' do %>
+						<%= @product.name %>
+						<%= content_tag :small do %>
+							(discontinued)
+						<% end if @product.discontinued? %>
+					<% end %>
 				</h4>
 			</div>
 			<div class="large-7 columns text-right">
@@ -103,7 +108,7 @@
 		<h1><%= t(".related_courses") %></h1>
 
 		<%= render partial: 'related_course', collection:@product.training_courses %>
-		
+
 
 	</section>
 
