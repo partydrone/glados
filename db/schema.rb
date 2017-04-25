@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20170413205422) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,13 +24,13 @@ ActiveRecord::Schema.define(version: 20170413205422) do
     t.string   "flag"
     t.text     "body"
     t.date     "posted_on"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",              precision: 6,             null: false
+    t.datetime "updated_at",              precision: 6,             null: false
     t.string   "hero_image_id"
     t.string   "hero_image_filename"
     t.integer  "hero_image_size"
     t.string   "hero_image_content_type"
-    t.integer  "views",                   default: 0
+    t.integer  "views",                                 default: 0
   end
 
   create_table "articles_products", id: false, force: :cascade do |t|
@@ -41,15 +39,15 @@ ActiveRecord::Schema.define(version: 20170413205422) do
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
-    t.string   "data_id",                      null: false
-    t.string   "data_filename",                null: false
+    t.string   "data_id",                                    null: false
+    t.string   "data_filename",                              null: false
     t.integer  "data_size"
     t.string   "data_content_type"
     t.string   "type",              limit: 30
     t.integer  "width"
     t.integer  "height"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                   precision: 6, null: false
+    t.datetime "updated_at",                   precision: 6, null: false
     t.index ["type"], name: "index_ckeditor_assets_on_type", using: :btree
   end
 
@@ -70,8 +68,8 @@ ActiveRecord::Schema.define(version: 20170413205422) do
   create_table "download_types", force: :cascade do |t|
     t.string   "name"
     t.integer  "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "downloads", force: :cascade do |t|
@@ -79,8 +77,8 @@ ActiveRecord::Schema.define(version: 20170413205422) do
     t.string   "title"
     t.string   "part_number"
     t.integer  "download_type_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",        precision: 6, null: false
+    t.datetime "updated_at",        precision: 6, null: false
     t.string   "file_id"
     t.string   "file_filename"
     t.integer  "file_size"
@@ -105,8 +103,8 @@ ActiveRecord::Schema.define(version: 20170413205422) do
     t.integer  "feature_id"
     t.integer  "product_id"
     t.integer  "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["feature_id"], name: "index_feature_associations_on_feature_id", using: :btree
     t.index ["product_id"], name: "index_feature_associations_on_product_id", using: :btree
   end
@@ -116,8 +114,8 @@ ActiveRecord::Schema.define(version: 20170413205422) do
     t.string   "youtube_video_id"
     t.text     "description"
     t.text     "body"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",              precision: 6, null: false
+    t.datetime "updated_at",              precision: 6, null: false
     t.string   "hero_image_id"
     t.string   "hero_image_filename"
     t.integer  "hero_image_size"
@@ -129,8 +127,8 @@ ActiveRecord::Schema.define(version: 20170413205422) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",      precision: 6, null: false
+    t.datetime "updated_at",      precision: 6, null: false
   end
 
   create_table "legal_policy_documents", force: :cascade do |t|
@@ -138,8 +136,8 @@ ActiveRecord::Schema.define(version: 20170413205422) do
     t.string   "title"
     t.text     "body"
     t.date     "effective_on"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",        precision: 6, null: false
+    t.datetime "updated_at",        precision: 6, null: false
     t.string   "file_id"
     t.string   "file_filename"
     t.integer  "file_size"
@@ -152,8 +150,8 @@ ActiveRecord::Schema.define(version: 20170413205422) do
     t.string   "file_filename"
     t.string   "file_size"
     t.string   "file_content_type"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",        precision: 6, null: false
+    t.datetime "updated_at",        precision: 6, null: false
   end
 
   create_table "offices", force: :cascade do |t|
@@ -200,8 +198,8 @@ ActiveRecord::Schema.define(version: 20170413205422) do
     t.text     "description"
     t.integer  "position"
     t.integer  "product_type_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",              precision: 6, null: false
+    t.datetime "updated_at",              precision: 6, null: false
     t.string   "hero_image_id"
     t.string   "hero_image_filename"
     t.integer  "hero_image_size"
@@ -216,8 +214,8 @@ ActiveRecord::Schema.define(version: 20170413205422) do
   create_table "product_types", force: :cascade do |t|
     t.string   "name"
     t.integer  "position"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",              precision: 6, null: false
+    t.datetime "updated_at",              precision: 6, null: false
     t.string   "hero_image_id"
     t.string   "hero_image_filename"
     t.integer  "hero_image_size"
@@ -235,8 +233,8 @@ ActiveRecord::Schema.define(version: 20170413205422) do
     t.text     "description"
     t.date     "expired_on"
     t.integer  "product_category_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                 precision: 6, null: false
+    t.datetime "updated_at",                 precision: 6, null: false
     t.string   "youtube_video_id"
     t.string   "hero_image_id"
     t.string   "hero_image_filename"
@@ -253,8 +251,8 @@ ActiveRecord::Schema.define(version: 20170413205422) do
     t.string   "name"
     t.string   "resource_type"
     t.integer  "resource_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    precision: 6
+    t.datetime "updated_at",    precision: 6
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
     t.index ["name"], name: "index_roles_on_name", using: :btree
   end
@@ -263,16 +261,16 @@ ActiveRecord::Schema.define(version: 20170413205422) do
     t.integer  "tag_id"
     t.string   "taggable_type"
     t.integer  "taggable_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",    precision: 6, null: false
+    t.datetime "updated_at",    precision: 6, null: false
     t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
     t.index ["taggable_type", "taggable_id"], name: "index_taggings_on_taggable_type_and_taggable_id", using: :btree
   end
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",     precision: 6, null: false
+    t.datetime "updated_at",     precision: 6, null: false
     t.integer  "taggings_count"
     t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
   end
@@ -286,7 +284,6 @@ ActiveRecord::Schema.define(version: 20170413205422) do
     t.datetime "updated_at", null: false
   end
 
-
   create_table "training_course_products", force: :cascade do |t|
     t.integer "training_course_id"
     t.integer "product_id"
@@ -297,8 +294,8 @@ ActiveRecord::Schema.define(version: 20170413205422) do
 
   create_table "training_course_types", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "training_courses", force: :cascade do |t|
@@ -307,8 +304,8 @@ ActiveRecord::Schema.define(version: 20170413205422) do
     t.string   "number"
     t.integer  "duration"
     t.integer  "training_course_type_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",              precision: 6, null: false
+    t.datetime "updated_at",              precision: 6, null: false
     t.string   "summary"
     t.index ["training_course_type_id"], name: "index_training_courses_on_training_course_type_id", using: :btree
   end
@@ -317,9 +314,9 @@ ActiveRecord::Schema.define(version: 20170413205422) do
     t.integer  "training_course_id"
     t.integer  "training_event_id"
     t.integer  "seats"
-    t.datetime "started_at"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "started_at",         precision: 6
+    t.datetime "created_at",         precision: 6, null: false
+    t.datetime "updated_at",         precision: 6, null: false
     t.string   "room"
     t.datetime "ended_at"
     t.index ["training_course_id"], name: "index_training_event_courses_on_training_course_id", using: :btree
@@ -329,11 +326,11 @@ ActiveRecord::Schema.define(version: 20170413205422) do
   create_table "training_events", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "started_at"
-    t.datetime "ended_at"
+    t.datetime "started_at",  precision: 6
+    t.datetime "ended_at",    precision: 6
     t.string   "location"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",  precision: 6, null: false
+    t.datetime "updated_at",  precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -344,8 +341,8 @@ ActiveRecord::Schema.define(version: 20170413205422) do
     t.string   "email"
     t.string   "role"
     t.string   "auth_token"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
   end
 
