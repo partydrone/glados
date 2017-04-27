@@ -95,8 +95,8 @@
 				<section class="products-language-header support-dropdown">
 		      <select class="products-language-dropdown course_types_list" name="smartsensor">
 						<option value="course-type-all">All Courses</option>
-						<% @training_courses.each do |course| %>
-							<option value="course-type-<%= course.training_course_type.id %>"><%= course.training_course_type.name %></option>
+						<% @training_course_types.each do |course| %>
+							<option value="course-type-<%= course.id %>"><%= course.name %></option>
 						<% end %>
 		        
 		      </select>

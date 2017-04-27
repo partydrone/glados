@@ -1,7 +1,8 @@
 class TrainingEventsController < ApplicationController
   def index
     @training_events = TrainingEvent.all
-    @training_courses = TrainingCourse.all    
+    @training_courses = TrainingCourse.all
+    @training_course_types = TrainingCourseType.all
   end
 
   def show    
