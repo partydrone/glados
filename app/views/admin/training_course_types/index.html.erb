@@ -1,23 +1,23 @@
-<%= content_for :title, t('.title') %>
+<%= content_for :title, "Training Course Types" %>
 
 <div class="row columns admin-table">
   <h1>
-    <%= t '.title' %>
-    <%= link_to nil, title: 'Create a new feature' do %>
+    Training Course Types
+    <%= link_to new_admin_training_course_type_path, title: 'Create a new course type' do %>
 			<%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
 		<% end %>
   </h1>
 
-  <table>
-    <thead>
-      <tr>
-        <th width="30"></th>
-        <th>Title</th>
-        <th width="30"></th>
-      </tr>
-    </thead>
-    <tbody>
-
-    </tbody>
-  </table>
+<table>
+  <thead>
+    <tr>
+      <th width="30"></th>
+      <th>Name</th>      
+      <th width="30"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @training_course_types %>
+  </tbody>
+</table>
 </div>

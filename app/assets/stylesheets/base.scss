@@ -243,6 +243,9 @@ button {
         background-color: #4F5F6C;
         color: white;
     }
+    a {
+        color: white;
+    }
 }
 
 .tabs,
@@ -573,6 +576,9 @@ post-cards
     max-width: 100%;
     overflow-x: hidden;
     position: relative;
+    .button {
+        margin-top: 60px;
+    }
 }
 
 .post-card {

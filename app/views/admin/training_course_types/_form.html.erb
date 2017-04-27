@@ -1,0 +1,8 @@
+<%= form_for [:admin, @training_course_type], html: { multipart: true }, validate: true do |f| %>
+  <div class="row">
+    <div class="large-12 columns">
+      <%= f.label :name %>
+      <%= f.text_field :name %>      
+      <%= f.submit  class: 'button radius' %>
+    </div>
+<% end %>

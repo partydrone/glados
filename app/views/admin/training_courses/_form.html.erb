@@ -1,6 +1,8 @@
 <%= form_for [:admin, @training_course], html: { multipart: true }, validate: true do |f| %>
   <div class="row">
     <div class="large-8 columns">
+      <%= f.label :training_course_type_id %>
+      <%= f.select :training_course_type_id, TrainingCourseType.all.collect { |tc| [tc.name, tc.id] } %>
       <div class="row">
         <div class="large-6 columns">
           <%= f.label :title %>
