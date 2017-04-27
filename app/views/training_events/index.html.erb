@@ -93,9 +93,10 @@
 		<div class="medium-5 columns">
 			<div class="support-search-dropdown">
 				<section class="products-language-header support-dropdown">
-		      <select class="products-language-dropdown" name="smartsensor">
+		      <select class="products-language-dropdown course_types_list" name="smartsensor">
+						<option value="course-type-all">All Courses</option>
 						<% @training_courses.each do |course| %>
-							<option><%= course.training_course_type.name %></option>
+							<option value="course-type-<%= course.training_course_type.id %>"><%= course.training_course_type.name %></option>
 						<% end %>
 		        
 		      </select>
@@ -103,7 +104,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row show-course-list">
 		<%= render partial: 'training_course', collection: @training_courses %>
 	</div>
 </section>

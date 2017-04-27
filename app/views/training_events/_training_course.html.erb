@@ -1,4 +1,4 @@
-<div class="training-course-card">
+<div class="training-course-card" id="course-type-<%= training_course.training_course_type_id %>">
 	<div class="horizontal menu">
 		<h3 class="training-certified"><%= training_course.title %></h3>
 		<div class="course-card-left training-hours"><%= training_course.duration %> hours</div>
@@ -18,7 +18,6 @@
 						<p class="prereq"><%= TrainingCourse.find(prereq).title %></p>
 					<% end %>
 				<% end %>
-<!-- 				<h6 class="training-certified"><%= t(".certification_on_completion") %></h6> -->
 				<a data-toggle="<%= training_course.title.parameterize %>-toggle" class="close-container"><%= t(".hide") %></a>
 			</div>
 		</div>
