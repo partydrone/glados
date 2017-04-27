@@ -28,7 +28,11 @@ var training_events = {
 
             if (training_card.find(".prerequisites").length > 0) {
                 //pop title out of prerequisites array
-                training_events.prerequisites.pop(title);
+                //training_events.prerequisites.pop(title);
+                training_events.getPrerequisitesList(training_card).forEach(function(item) {
+                    training_events.prerequisites.pop(item);
+                });
+
 
             }
             if (training_card.find(".wait-listed").length > 0) {
@@ -44,7 +48,11 @@ var training_events = {
 
             if (training_card.find(".prerequisites").length > 0) {
                 //push title into the prerequisite array
-                training_events.prerequisites.push(title);
+                //training_events.prerequisites.push(title);
+                training_events.getPrerequisitesList(training_card).forEach(function(item) {
+                    training_events.prerequisites.push(item);
+                });
+
             }
             if (training_card.find(".wait-listed").length > 0) {
                 //push title into the waitlisted array
@@ -119,8 +127,10 @@ var training_events = {
         var html = "";
 
         if (training_events.prerequisites.length > 0) {
+            var prerequisite_list = training_events.removeDuplicates();
+
             html += "<h3 style='text-align: center;'>Prerequisite Required</h3><p>You have selected courses that require these prerequisites:</p><div class='enrollment-show-list'><ul>";
-            training_events.prerequisites.forEach(function(course) {
+            prerequisite_list.forEach(function(course) {
                 html += "<li>" + course + "</li>";
             });
             html += "</ul></div><p></p><p>Please confirm that you have completed these required courses before proceeding</p><div class='enrollment-gap'></div>";
@@ -135,6 +145,29 @@ var training_events = {
         }
 
         return html;
+    },
+
+    //gets the list of prerequesites for a given traning event course
+    getPrerequisitesList: function(training_card) {
+        var prereq_list = [];
+        var i = 1;
+        var prereq = training_card.find("#prereq-" + i);
+        while (prereq.length > 0) {
+            prereq_list.push(prereq[0].innerHTML);
+            prereq = training_card.find("#prereq-" + ++i);
+        }
+        return prereq_list;
+    },
+
+    //remove duplicates to show unquie prerequisites
+    removeDuplicates: function() {
+        var unique_prerequisites = [];
+        $.each(training_events.prerequisites, function(i, el) {
+            if ($.inArray(el, unique_prerequisites) == -1) {
+                unique_prerequisites.push(el);
+            }
+        });
+        return unique_prerequisites;
     },
 
     //validates the email field for client side validation

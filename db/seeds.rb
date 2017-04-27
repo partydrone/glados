@@ -124,12 +124,20 @@ products = Product.joins(product_category: [:product_type]).order('product_types
   end
 end
 
+##
+# Training Course Types
+training_course_types = TrainingCourseType.create([
+  { name: 'Training'},
+  { name: 'Educationial'},
+  { name: 'Other'}
+])
+
 
 
 training_courses = TrainingCourse.create([
-  { title: 'Advanced Traffic Radar Workshop', number: '105', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type  you.', duration: 2, description:'This is the description portion of the course'},
-  { title: 'Introduction to HD SmartSensor Workshop', number: '106', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type or you.', duration: 3, description:'This is the description part of this course!'},
-  { title: 'Introduction to Traffic Radar Workshop', number: '107', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and d work for you.', duration: 4, description:'Here we are describing how cool this course really is.'}
+  { title: 'Advanced Traffic Radar Workshop', training_course_type_id: training_course_types[0].id, number: '105', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type  you.', duration: 2, description:'This is the description portion of the course'},
+  { title: 'Introduction to HD SmartSensor Workshop', training_course_type_id: training_course_types[1].id, number: '106', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type or you.', duration: 3, description:'This is the description part of this course!'},
+  { title: 'Introduction to Traffic Radar Workshop', training_course_type_id: training_course_types[2].id, number: '107', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and d work for you.', duration: 4, description:'Here we are describing how cool this course really is.'}
 ])
 
 training_courses[1].prerequisites << training_courses[0]
@@ -149,8 +157,8 @@ training_event_courses = TrainingEventCourse.create([
   { training_course_id: training_courses[2].id, training_event_id: training_event[0].id, seats:0, started_at:'2017-02-06 12:00', ended_at:'2017-02-06 3:00', room: 'Ball Room'}
 ])
 
-Patent.create([
-
+#patents
+[
   { number: 6556916, title: 'System and Method for Identification of Traffic Lane Positions' },
   { number: 6693557, title: 'Vehicular Traffic Sensor' },
   { number: 7426450, title: 'Systems and Methods for Monitoring Speed' },

@@ -93,24 +93,18 @@
 		<div class="medium-5 columns">
 			<div class="support-search-dropdown">
 				<section class="products-language-header support-dropdown">
-		      <select class="products-language-dropdown" name="smartsensor">
-		        <option value="allcourses">All Courses</option>
-		        <option value="certtech">Certified Technical Training</option>
-		        <option value="techworkshops">Technical Workshops</option>
-		        <option value="ssadvanced">SmartSensor Advance Courses</option>
-		        <option value="sshd">SmartSensor HD Courses</option>
-		        <option value="ssmatrix">SmartSensor Matrix Courses</option>
-		        <option value="click">Click Courses</option>
-		        <option value="command">Command Courses</option>
+		      <select class="products-language-dropdown course_types_list" name="smartsensor">
+						<option value="course-type-all">All Courses</option>
+						<% @training_course_types.each do |course| %>
+							<option value="course-type-<%= course.id %>"><%= course.name %></option>
+						<% end %>
+		        
 		      </select>
 				</section>
 			</div>
 		</div>
 	</div>
-	<div class="row">
-
-        <%= render partial: 'training_course', collection: @training_courses %>  
-		
-
+	<div class="row show-course-list">
+		<%= render partial: 'training_course', collection: @training_courses %>
 	</div>
 </section>

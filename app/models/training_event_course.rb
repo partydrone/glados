@@ -5,7 +5,7 @@ class TrainingEventCourse < ApplicationRecord
 
   accepts_nested_attributes_for :enrollments, allow_destroy: true
 
-  validates :started_at, :ended_at, presence: true
+  validates :started_at, :ended_at, :seats, presence: true
 
   def title
     training_course.title
