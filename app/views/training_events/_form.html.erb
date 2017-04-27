@@ -6,23 +6,29 @@
 			<%= f.collection_check_boxes :training_event_course_id, @training_event.training_event_courses, :id, :title do |b| %>
 				<div class="enrollment-course-card" id="<%= b.object.title %>">
 					<div class="horizontal menu">         
-						<h3><%= b.text %>
-							<% if b.object.get_enrollments(b.object.seats, b.object.id) <= 0 %>
-								<small class="wait-listed">(waitlist)</small>
-							<% else %>							
-								<small>(<%= b.object.get_enrollments(b.object.seats, b.object.id) %> seats)</small>
-							<% end %>
-						</h3>
+						<h3><%= b.text %></h3>
 						<% if b.object.training_course.prerequisites.count > 0 %>          
-							<div class="prerequisites">Prerequisites Required</div>
+							<div class="prerequisites"><strong>Prerequisites Required</strong></div>
+						<% else %>
+							<div>&nbsp</div>
 						<% end %>
+						<div class="training-date">
+							<%= b.object.started_at.strftime("%B %d, %Y") %>
+						</div>
 						<div class="course-card-left training-hours">
 							<%= b.object.started_at.strftime("%I:%M%P") %> to <%= b.object.ended_at.strftime("%I:%M%P") %>
 						</div>
-						<div class="course-card-right training-room">
+						<div class="training-room">
 							<%= b.object.room %>
-						</div>				
-						<p><%= b.object.training_course.summary %></p>
+						</div>
+						<div class="training-seat">
+							<% if b.object.get_enrollments(b.object.seats, b.object.id) <= 0 %>
+								waitlist
+							<% else %>							
+								<%= b.object.get_enrollments(b.object.seats, b.object.id) %> seats
+							<% end %>
+						</div>		
+						<div>&nbsp</div>							
 						<div class="learn-bottom">
 							<a class="hide-me-on-dropdown expand-container course-learn-link" data-toggle="hdconfig-dropdown1<%=b.object.training_course.id%>"><%= t(".learn_more") %></a>
 							<div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown1<%=b.object.training_course.id%>" data-dropdown data-auto-focus="true">
