@@ -41,7 +41,31 @@ describe UserPolicy do
 
   describe "for unauthorized user" do
     it "prohibits index" do
-      :user.wont_permit nil, index
+      :user.wont_permit user, :index
+    end
+
+    it "permits show" do
+      user.must_permit user, :show
+    end
+
+    it "prohibits new" do
+      user.wont_permit user, :new
+    end
+
+    it "prohibits create" do
+      user.wont_permit user, :create
+    end
+
+    it "prohibits edit" do
+      user.wont_permit user, :edit
+    end
+
+    it "prohibits update" do
+      user.wont_permit user, :update
+    end
+
+    it "prohibits destroy" do
+      user.wont_permit user, :destroy
     end
   end
 end
