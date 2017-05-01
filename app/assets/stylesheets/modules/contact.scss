@@ -23,6 +23,10 @@
 		@media screen and (max-width: 60em) {
 			top: 50px;
 		}
+		@media screen and (max-width: 40em) {
+			width: 100%;
+			margin-left: auto;
+		}
 		button {
 			background: none;
 		}
