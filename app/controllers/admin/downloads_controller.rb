@@ -27,7 +27,7 @@ module Admin
 
     def update
       if @download.update(download_params)
-        redirect_to admin_downloads_path, notice: %(Updated "#{@download.title} successfully.")
+        redirect_to admin_downloads_path, notice: %(Updated "#{@download.title}" successfully.)
       else
         set_product_types
         render :edit
@@ -36,7 +36,7 @@ module Admin
 
     def destroy
       @download.destroy
-      redirect_to admin_downloads_path, notice: %(Deleted #{@download.title} successfully.)
+      redirect_to admin_downloads_path, notice: %(Deleted "#{@download.title}" successfully.)
     end
 
     private
