@@ -46,8 +46,9 @@ Rails.application.routes.draw do
                 :patents,
                 :training_course_types,
                 :training_courses,
-                :users,
                 except: [:show]
+
+      resources :users, except: [:show, :new, :create]
 
       resources :download_types,
                 :product_types,
@@ -86,10 +87,10 @@ Rails.application.routes.draw do
               :products,
               :return_material_authorization_policy_documents,
               :sales_terms_and_conditions_documents,
-              :website_privacy_policy_documents,
-              :website_terms_of_use_documents,
               :training_courses,
               :training_events,
+              :website_privacy_policy_documents,
+              :website_terms_of_use_documents,
               only: [:index, :show]
 
     resources :results, only: [:index]
