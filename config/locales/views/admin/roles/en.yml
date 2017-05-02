@@ -1,0 +1,9 @@
+---
+
+en:
+  admin:
+    roles:
+      index:
+        title: Roles
+      new:
+        title: New Role
