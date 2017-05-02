@@ -29,8 +29,8 @@ Rails.application.routes.draw do
                 :case_studies,
                 :dealers,
                 :features,
-                :products,
                 :knowledge_base_articles,
+                :products,
                 :return_material_authorization_policy_documents,
                 :sales_terms_and_conditions_documents,
                 :territories,
@@ -39,7 +39,8 @@ Rails.application.routes.draw do
                 :website_terms_of_use_documents
 
       resources :product_categories,
-                :offices,concerns: :sortable
+                :offices,
+                concerns: :sortable
 
       resources :downloads,
                 :media_downloads,

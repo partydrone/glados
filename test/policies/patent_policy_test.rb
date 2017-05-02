@@ -1,102 +1,102 @@
 require 'test_helper'
 
-class RolePolicyTest < ActiveSupport::TestCase
-  let(:role) { roles(:one) }
+class PatentPolicyTest < ActiveSupport::TestCase
+  let(:patent) { patents(:vehicular_traffic_sensor) }
   let(:user) { users(:generic_user) }
 
   describe "for authorized user" do
-    [:admin, :role_manager].each do |r|
+    [:admin, :patent_manager].each do |role|
       before do
-        user.add_role r
+        user.add_role role
       end
 
       it "permits index" do
-        :role.must_permit user, :index
+        :patent.must_permit user, :index
       end
 
       # it "permits show" do
-      #   role.must_permit user, :show
+      #   patent.must_permit user, :show
       # end
 
       it "permits new" do
-        role.must_permit user, :new
+        patent.must_permit user, :new
       end
 
       it "permits create" do
-        role.must_permit user, :create
+        patent.must_permit user, :create
       end
 
       it "permits edit" do
-        role.must_permit user, :edit
+        patent.must_permit user, :edit
       end
 
       it "permits update" do
-        role.must_permit user, :update
+        patent.must_permit user, :update
       end
 
       it "permits destroy" do
-        role.must_permit user, :destroy
+        patent.must_permit user, :destroy
       end
     end
   end
 
   describe "for unauthorized user" do
     it "prohibits index" do
-      :role.wont_permit user, :index
+      :patent.wont_permit user, :index
     end
 
     # it "prohibits show" do
-    #   role.wont_permit user, :show
+    #   patent.wont_permit user, :show
     # end
 
     it "prohibits new" do
-      role.wont_permit user, :new
+      patent.wont_permit user, :new
     end
 
     it "prohibits create" do
-      role.wont_permit user, :create
+      patent.wont_permit user, :create
     end
 
     it "prohibits edit" do
-      role.wont_permit user, :edit
+      patent.wont_permit user, :edit
     end
 
     it "prohibits update" do
-      role.wont_permit user, :update
+      patent.wont_permit user, :update
     end
 
     it "prohibits destroy" do
-      role.wont_permit user, :destroy
+      patent.wont_permit user, :destroy
     end
   end
 
   describe "for guest" do
     it "prohibits index" do
-      :role.wont_permit nil, :index
+      :patent.wont_permit nil, :index
     end
 
     # it "prohibits show" do
-    #   role.wont_permit nil, :show
+    #   patent.wont_permit nil, :show
     # end
 
     it "prohibits new" do
-      role.wont_permit nil, :new
+      patent.wont_permit nil, :new
     end
 
     it "prohibits create" do
-      role.wont_permit nil, :create
+      patent.wont_permit nil, :create
     end
 
     it "prohibits edit" do
-      role.wont_permit nil, :edit
+      patent.wont_permit nil, :edit
     end
 
     it "prohibits update" do
-      role.wont_permit nil, :update
+      patent.wont_permit nil, :update
     end
 
     it "prohibits destroy" do
-      role.wont_permit nil, :destroy
+      patent.wont_permit nil, :destroy
     end
   end
 end

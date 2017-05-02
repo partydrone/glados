@@ -1,4 +1,4 @@
 class Territory < ApplicationRecord
 	include PgSearch
-  	multisearchable :against => [:name]
+  multisearchable :against => [:name]
 end
