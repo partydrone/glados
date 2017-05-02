@@ -3,8 +3,7 @@
   <ul class="no-bullet">
     <%= f.collection_check_boxes :role_ids, Role.all, :id, :name do |b| %>
       <li>
-        <%= b.check_box %>
-        <%= b.label "#{b.text.humanize}" %>
+        <%= b.label { b.check_box + b.text.humanize } %>
       </li>
     <% end %>
   </ul>

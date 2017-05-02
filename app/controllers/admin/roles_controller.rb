@@ -4,10 +4,12 @@ module Admin
 
     def index
       @roles = Role.order(:name)
+      authorize @roles
     end
 
     def new
       @role = Role.new
+      authorize @role
     end
 
     def edit
@@ -15,6 +17,7 @@ module Admin
 
     def create
       @role = Role.new(role_params)
+      authorize @role
       if @role.save
         redirect_to admin_roles_path, notice: %(Saved "#{@role.name}" successfully.)
       else
@@ -39,6 +42,7 @@ module Admin
 
     def set_role
       @role = Role.find(params[:id])
+      authorize @role
     end
 
     def role_params
