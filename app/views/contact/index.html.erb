@@ -67,7 +67,7 @@
 	  </div>
 	  <ul class="row small-up-2 large-up-4">
 	  	<% @pg_search_documents.each do |pg| %>
-
+		  <% if !pg.nil? %>
 	  		<% if pg.searchable_type == "Territory" %>
 	  			<li class="column column-block">
 						<div class="office-information">
@@ -128,7 +128,7 @@
 		      </li>
 
 	  		<% end %>
-
+		  <% end %>
 	  	<% end %>	    
 	  </ul>
   </div>
