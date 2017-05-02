@@ -151,9 +151,44 @@ end
 ##
 # RMA Policy
 
-ReturnMaterialAuthorizationPolicyDocument.find_or_create_by(effective_on: '2016-03-27') do |rma_policy|
+ReturnMaterialAuthorizationPolicyDocument.find_or_create_by(effective_on: 2.years.ago.to_s(:db)) do |rma_policy|
   rma_policy.title = 'Return Material Authorization Policy'
   rma_policy.body = '<p>RMA policy body.</p>'
+end
+
+
+##
+# Roles
+
+%w[
+  admin
+  blog_post_manager
+  case_study_manager
+  dealer_manager
+  download_type_manager
+  download_manager
+  enrollment_manager
+  feature_manager
+  knowledge_base_article_manager
+  media_download_manager
+  office_manager
+  patent_manager
+  product_category_manager
+  product_type_manager
+  product_manager
+  return_material_authorization_policy_document_manager
+  role_manager
+  sales_terms_and_conditions_document_manager
+  territory_manager
+  training_course_type_manager
+  training_course_manager
+  training_event_course_manager
+  training_event_manager
+  user_manager
+  website_privacy_policy_document_manager
+  website_terms_of_use_document_manager
+].each do |role|
+  Role.find_or_create_by(name: role)
 end
 
 
@@ -161,11 +196,12 @@ end
 # Training Course Types
 
 [
-  { name: 'Training'},
-  { name: 'Educationial'},
-  { name: 'Other'}
+  'Certified Training Course',
+  'Educational Event',
+  'Pulse Live Event',
+  'Technical Workshop'
 ].each do |training_course_type|
-  TrainingCourseType.find_or_create_by(name: training_course_type[:name])
+  TrainingCourseType.find_or_create_by(name: training_course_type)
 end
 
 training_course_types = TrainingCourseType.order(:name)
