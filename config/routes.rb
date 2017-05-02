@@ -92,7 +92,9 @@ Rails.application.routes.draw do
               :training_events,
               only: [:index, :show]
 
-    resources :results, only: [:index]
+    resources :results,
+              :media_library,
+              only: [:index]
 
     resources :knowledge_base_articles do
       get :vote, on: :member
