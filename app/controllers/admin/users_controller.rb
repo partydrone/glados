@@ -4,6 +4,7 @@ module Admin
 
     def index
       @users = User.order(:last_name, :first_name)
+      authorize @users
     end
 
     def edit
@@ -26,6 +27,7 @@ module Admin
 
     def set_user
       @user = User.find(params[:id])
+      authorize @user
     end
 
     def user_params
