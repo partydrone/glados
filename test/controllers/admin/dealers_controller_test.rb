@@ -18,7 +18,13 @@ describe Admin::DealersController, :locale do
       post admin_dealers_path, params: {
         dealer: {
           name: 'Bill Cipher',
-          city: 'Gravity Falls'
+          address: '123 fake street',
+          city: 'Gravity Falls',
+          region: 'Utah',
+          zip: '84606',
+          phone: '8016556556',
+          email: 'bill@cipher.com',
+          website: 'gravityfalls.com'
         }
       }
     }.must_change 'Dealer.count'
@@ -42,7 +48,7 @@ describe Admin::DealersController, :locale do
         name: dealer.name
       }
     }
-    must_redirect_to admin_dealer_path(dealer)
+    must_respond_with :success    
   end
 
   it "destroys a dealer" do
