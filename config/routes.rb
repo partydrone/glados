@@ -44,6 +44,7 @@ Rails.application.routes.draw do
       resources :downloads,
                 :media_downloads,
                 :patents,
+                :roles,
                 :training_course_types,
                 :training_courses,
                 except: [:show]
