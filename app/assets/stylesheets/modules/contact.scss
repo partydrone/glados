@@ -23,10 +23,6 @@
 		@media screen and (max-width: 60em) {
 			top: 50px;
 		}
-		@media screen and (max-width: 40em) {
-			width: 100%;
-			margin-left: auto;
-		}
 		button {
 			background: none;
 		}
@@ -73,12 +69,4 @@
 	@media screen and (max-width: 695px) {
 		margin-top: 0;
 	}
-}
-
-.social-media-contact {
-	margin-bottom: 2rem;
-}
-
-.contact-feedback {
-	margin-bottom: 4.5rem;
 }
