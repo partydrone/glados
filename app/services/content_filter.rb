@@ -11,7 +11,16 @@ class ContentFilter
   end
   
   FILTERS = {
-    marketing_content: %(object.class == KnowledgeBaseArticle || (object.class == Feature && object.body.blank?)),
-    support_content:   %(object.class != KnowledgeBaseArticle)
+    marketing_content: %(
+        ( object.class != BlogPost &&  object.class != CaseStudy && object.class != Feature ) ||
+        ( object.class == BlogPost && !object.published? ) ||
+        ( object.class == CaseStudy && !object.published? ) ||
+        ( object.class == Feature && object.body.blank? )
+     
+      ),
+    support_content:   %(object.class != KnowledgeBaseArticle),
+    test: %(object.class == String)
   }
 end
+
+
