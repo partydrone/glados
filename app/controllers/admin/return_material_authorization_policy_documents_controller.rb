@@ -4,6 +4,7 @@ module Admin
 
     def index
       @return_material_authorization_policy_documents = ReturnMaterialAuthorizationPolicyDocument.all
+      authorize @return_material_authorization_policy_documents
     end
 
     def show
@@ -12,6 +13,7 @@ module Admin
 
     def new
       @return_material_authorization_policy_document = ReturnMaterialAuthorizationPolicyDocument.new
+      authorize @return_material_authorization_policy_document
     end
 
     def edit
@@ -19,6 +21,7 @@ module Admin
 
     def create
       @return_material_authorization_policy_document = ReturnMaterialAuthorizationPolicyDocument.new(return_material_authorization_policy_document_params)
+      authorize @return_material_authorization_policy_document
 
       if @return_material_authorization_policy_document.save
         redirect_to [:admin, @return_material_authorization_policy_document], notice: %(Saved "#{@return_material_authorization_policy_document.title}" successfully.)
@@ -42,6 +45,7 @@ module Admin
 
     def set_return_material_authorization_policy_document
       @return_material_authorization_policy_document = ReturnMaterialAuthorizationPolicyDocument.find(params[:id])
+      authorize @return_material_authorization_policy_document
     end
 
     def return_material_authorization_policy_document_params

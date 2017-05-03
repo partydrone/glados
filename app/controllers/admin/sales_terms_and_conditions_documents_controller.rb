@@ -4,6 +4,7 @@ module Admin
 
     def index
       @sales_terms_and_conditions_documents = SalesTermsAndConditionsDocument.all
+      authorize @sales_terms_and_conditions_documents
     end
 
     def show
@@ -12,6 +13,7 @@ module Admin
 
     def new
       @sales_terms_and_conditions_document = SalesTermsAndConditionsDocument.new
+      authorize @sales_terms_and_conditions_document
     end
 
     def edit
@@ -19,6 +21,7 @@ module Admin
 
     def create
       @sales_terms_and_conditions_document = SalesTermsAndConditionsDocument.new(sales_terms_and_conditions_document_params)
+      authorize @sales_terms_and_conditions_document
 
       if @sales_terms_and_conditions_document.save
         redirect_to [:admin, @sales_terms_and_conditions_document], notice: %(Saved "#{@sales_terms_and_conditions_document.title}" successfully.)
@@ -42,6 +45,7 @@ module Admin
 
     def set_sales_terms_and_conditions_document
       @sales_terms_and_conditions_document = SalesTermsAndConditionsDocument.find(params[:id])
+      authorize @sales_terms_and_conditions_document
     end
 
     def sales_terms_and_conditions_document_params

@@ -4,10 +4,12 @@ module Admin
 
     def index
       @media_downloads = MediaDownload.all
+      authorize @media_downloads
     end
 
     def new
       @media_download = MediaDownload.new
+      authorize @media_download
     end
 
     def edit
@@ -15,6 +17,7 @@ module Admin
 
     def create
       @media_download = MediaDownload.new(media_download_params)
+      authorize @media_download
 
       if @media_download.save
         redirect_to admin_media_downloads_path, notice: %(Saved media file successfully.)
@@ -40,6 +43,7 @@ module Admin
 
     def set_media_download
       @media_download = MediaDownload.find(params[:id])
+      authorize @media_download
     end
 
     def media_download_params

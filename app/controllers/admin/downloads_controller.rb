@@ -5,10 +5,12 @@ module Admin
 
     def index
       @downloads = Download.all
+      authorize @downloads
     end
 
     def new
       @download = Download.new(locale: locale)
+      authorize @download
     end
 
     def edit
@@ -16,6 +18,7 @@ module Admin
 
     def create
       @download = Download.new(download_params)
+      authorize @download
 
       if @download.save
         redirect_to admin_downloads_path, notice: %(Saved "#{@download.title}" successfully.)
@@ -43,6 +46,7 @@ module Admin
 
     def set_download
       @download = Download.find(params[:id])
+      authorize @download
     end
 
     def download_params

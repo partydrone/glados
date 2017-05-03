@@ -4,14 +4,17 @@ module Admin
 
     def index
       @product_categories = ProductCategory.includes(:product_type)
+      authorize @product_categories
     end
 
     def show
       @product_category = ProductCategory.includes(:products).find(params[:id])
+      authorize @product_category
     end
 
     def new
       @product_category = ProductCategory.new
+      authorize @product_category
     end
 
     def edit
@@ -19,6 +22,7 @@ module Admin
 
     def create
       @product_category = ProductCategory.new(product_category_params)
+      authorize @product_category
 
       if @product_category.save
         redirect_to admin_product_categories_path, notice: %(Saved "#{@product_category.name}" successfully.)
@@ -51,6 +55,7 @@ module Admin
 
     def set_product_category
       @product_category = ProductCategory.find(params[:id])
+      authorize @product_category
     end
 
     def product_category_params
