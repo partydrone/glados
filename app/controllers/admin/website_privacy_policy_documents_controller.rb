@@ -4,6 +4,7 @@ module Admin
 
     def index
       @website_privacy_policy_documents = WebsitePrivacyPolicyDocument.all
+      authorize @website_privacy_policy_documents
     end
 
     def show
@@ -12,6 +13,7 @@ module Admin
 
     def new
       @website_privacy_policy_document = WebsitePrivacyPolicyDocument.new
+      authorize @website_privacy_policy_document
     end
 
     def edit
@@ -19,6 +21,7 @@ module Admin
 
     def create
       @website_privacy_policy_document = WebsitePrivacyPolicyDocument.new(website_privacy_policy_document_params)
+      authorize @website_privacy_policy_document
 
       if @website_privacy_policy_document.save
         redirect_to [:admin, @website_privacy_policy_document], notice: %(Saved "#{@website_privacy_policy_document.title}" successfully.)
@@ -42,6 +45,7 @@ module Admin
 
     def set_website_privacy_policy_document
       @website_privacy_policy_document = WebsitePrivacyPolicyDocument.find(params[:id])
+      authorize @website_privacy_policy_document
     end
 
     def website_privacy_policy_document_params
