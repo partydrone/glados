@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @safe_articles           = ContentFilter.new(Tagging.joins(:tag).where(tags: {name: ['safe', 'safety']}).includes(:taggable).map(&:taggable)).filter(:marketing_content)
+    @safe_articles           = ContentFilter.new(Tagging.joins(:tag).where(tags: {name: ['safe', 'safety']}).includes(:taggable).map(&:taggable)).filter(:marketing_content).order(posted_on: :desc)
     @efficient_articles      = ContentFilter.new(Tagging.joins(:tag).where(tags: {name: ['efficient', 'efficiency']}).includes(:taggable).map(&:taggable)).filter(:marketing_content)
     @reliable_articles       = ContentFilter.new(Tagging.joins(:tag).where(tags: {name: ['reliable', 'reliability']}).includes(:taggable).map(&:taggable)).filter(:marketing_content)
     @cost_effective_articles = ContentFilter.new(Tagging.joins(:tag).where(tags: {name: ['cost effective']}).includes(:taggable).map(&:taggable)).filter(:marketing_content)
