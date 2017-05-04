@@ -1,12 +1,10 @@
 module Admin
   class BaseController < ApplicationController
-    
+    before_action :authenticate!
+    after_action :verify_authorized
+
     def index
+      skip_authorization
     end
-
-    def admin_base_index_url
-    end
-
-
   end
 end

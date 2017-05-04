@@ -10,9 +10,9 @@ en:
       support:   Get Support
       training:  Attend Training
     site_footer:
-      jobs:    Careers
-      legal:   Legal
-      sign_in: Manage
+      jobs:   Careers
+      legal:  Legal
+      manage: Manage
 
   ui:
     demo_button: Request a Demo

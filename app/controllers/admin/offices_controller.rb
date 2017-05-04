@@ -2,15 +2,17 @@ module Admin
   class OfficesController < BaseController
   	before_action :set_office, only: [:edit, :show, :update, :destroy]
 
-  	def index
+    def index
       @offices = Office.all
+      authorize @offices
     end
 
     def show
     end
 
-  	def new
+    def new
       @office = Office.new
+      authorize @office
     end
 
     def edit
@@ -18,6 +20,7 @@ module Admin
 
     def create
       @office = Office.new(office_params)
+      authorize @office
 
       if @office.save
         redirect_to admin_offices_path, notice: %(Saved "#{@office.name}" successfully.)
@@ -50,6 +53,7 @@ module Admin
 
     def set_office
       @office = Office.find(params[:id])
+      authorize @office
     end
 
     def office_params
