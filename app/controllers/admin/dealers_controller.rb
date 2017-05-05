@@ -2,15 +2,17 @@ module Admin
   class DealersController < BaseController
   	before_action :set_dealer, only: [:edit, :show, :update, :destroy]
 
-  	def index
+    def index
       @dealers = Dealer.all
+      authorize @dealers
     end
 
     def show
     end
 
-  	def new
+    def new
       @dealer = Dealer.new
+      authorize @dealer
     end
 
     def edit
@@ -18,6 +20,7 @@ module Admin
 
     def create
       @dealer = Dealer.new(dealer_params)
+      authorize @dealer
 
       if @dealer.save
         redirect_to admin_dealers_path, notice: %(Saved "#{@dealer.name}" successfully.)
@@ -43,11 +46,11 @@ module Admin
 
     def set_dealer
       @dealer = Dealer.find(params[:id])
+      authorize @dealer
     end
 
     def dealer_params
       params.require(:dealer).permit(:name, :address, :city, :region, :zip, :country_id, :phone, :email, :website, :office)
     end
-
   end
 end

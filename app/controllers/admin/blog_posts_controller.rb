@@ -5,6 +5,7 @@ module Admin
 
     def index
       @blog_posts = BlogPost.all
+      authorize @blog_posts
     end
 
     def show
@@ -13,6 +14,7 @@ module Admin
 
     def new
       @blog_post = BlogPost.new
+      authorize @blog_post
     end
 
     def edit
@@ -20,6 +22,7 @@ module Admin
 
     def create
       @blog_post = BlogPost.new(blog_post_params)
+      authorize @blog_post
 
       if @blog_post.save
         redirect_to [:admin,@blog_post], notice: %(Saved "#{@blog_post.title}" successfully.)
@@ -45,6 +48,7 @@ module Admin
 
     def set_blog_post
       @blog_post = BlogPost.find(params[:id])
+      authorize @blog_post
     end
 
     def blog_post_params

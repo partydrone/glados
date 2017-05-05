@@ -4,10 +4,12 @@ module Admin
 
     def index
       @download_types = DownloadType.all
+      authorize @download_types
     end
 
     def new
       @download_type = DownloadType.new
+      authorize @download_type
     end
 
     def edit
@@ -15,6 +17,7 @@ module Admin
 
     def create
       @download_type = DownloadType.new(download_type_params)
+      authorize @download_type
 
       if @download_type.save
         redirect_to admin_download_types_path, notice: %(Saved "#{@download_type.name}" successfully.)
@@ -47,6 +50,7 @@ module Admin
 
     def set_download_type
       @download_type = DownloadType.find(params[:id])
+      authorize @download_type
     end
 
     def download_type_params
