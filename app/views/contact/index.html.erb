@@ -38,38 +38,36 @@
 
 
 
-<section class="row" id="dealers" data-magellan-target="dealers">
-	<div class="columns">
-		<h1>
-			<%= t(".locate_dealer") %>
-		</h1>
-		<div class="dealers-map">
-			<%= image_tag('contact/dealermap.png', class: "map") %>
-			<div class="site-search-bar input-group">
-				<%= form_tag contact_path, method: :get do %>
-			  	<div class="input-group-button">
-		        <?xml version="1.0" encoding="utf-8"?>
-		        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17">
-		          <rect x="12.2" y="10" transform="translate(1 1)matrix(0.7071 -0.7071 0.7071 0.7071 -5.3589 12.9375)" class="st0" width="1.5" height="5.8"/><path class="st0" d="M7.3 14.3c-3.9 0-7-3.1-7-7 0-3.9 3.1-7 7-7 3.9 0 7 3.1 7 7C14.3 11.1 11.1 14.3 7.3 14.3zM7.3 1.8c-3 0-5.5 2.5-5.5 5.5 0 3 2.5 5.5 5.5 5.5 3 0 5.5-2.5 5.5-5.5C12.8 4.2 10.3 1.8 7.3 1.8z"/>
-		        </svg>
-		      </div>
-				  <%= text_field_tag :query, params[:query], class: "input-search-bar", placeholder: t('.search') %>
-				<% end %>
-			</div>
+<div class="row columns" id="dealers" data-magellan-target="dealers">
+
+	<h1>
+		<%= t(".locate_dealer") %>
+	</h1>
+	<div class="dealers-map">
+		<%= image_tag('contact/dealermap.png', class: "map") %>
+		<div class="site-search-bar input-group">
+			<%= form_tag contact_path, method: :get do %>
+		  	<div class="input-group-button">
+	        <?xml version="1.0" encoding="utf-8"?>
+	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17">
+	          <rect x="12.2" y="10" transform="translate(1 1)matrix(0.7071 -0.7071 0.7071 0.7071 -5.3589 12.9375)" class="st0" width="1.5" height="5.8"/><path class="st0" d="M7.3 14.3c-3.9 0-7-3.1-7-7 0-3.9 3.1-7 7-7 3.9 0 7 3.1 7 7C14.3 11.1 11.1 14.3 7.3 14.3zM7.3 1.8c-3 0-5.5 2.5-5.5 5.5 0 3 2.5 5.5 5.5 5.5 3 0 5.5-2.5 5.5-5.5C12.8 4.2 10.3 1.8 7.3 1.8z"/>
+	        </svg>
+	      </div>
+			  <%= text_field_tag :query, params[:query], class: "input-search-bar", placeholder: t('.search') %>
+			<% end %>
 		</div>
-	</path>
-</section>
 
-<% if params[:query] %>
-	<div class="contact-search-results">
-		<div class="row columns text-right">
-	  	<%= link_to "close x", contact_path %>
-	  </div>
-	  <ul class="row small-up-2 large-up-4">
-	  	<% @pg_search_documents.each do |pg| %>
 
-	  		<% if pg.searchable_type == "Territory" %>
-	  			<li class="column column-block">
+
+	<% if params[:query] %>
+		<div class="contact-search-results">
+			<div class="row columns text-right">
+		  	<%= link_to "close x", contact_path %>
+		  </div>
+		  <ul class="row small-up-2 large-up-4">
+		  	<% @pg_search_documents.each do |pg| %>
+		  		<% if pg.searchable_type == "Territory" %>
+		  			<li class="column column-block">
 						<div class="office-information">
 							<% dealer = Dealer.find(pg.searchable.dealer) %>
 							<h6>Dealer for <%= pg.searchable.name %></h6>
@@ -83,24 +81,24 @@
 							<% if dealer.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= dealer.email %><br/><% end %>
 							<% if dealer.website.present? %><%= image_tag('icons/world.svg', class: "small-icon") %><%= dealer.website %></p><% end %>
 						</div>
-		      </li>
-		      <li class="column column-block">
-		      	<div class="office-information">
-			      	<% office = Office.find(pg.searchable.office) %>
+			      </li>
+			      <li class="column column-block">
+			      	<div class="office-information">
+				      	<% office = Office.find(pg.searchable.office) %>
 			      		<h6>Office for <%= dealer.name %></h6>
 			      		<h3><%= office.name %></h3>
 			      		<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.address %><br/>
-								<%= office.city %><br/>
-								<%= office.region %><br/>
-								<%= office.zip %><br/>
-								<%= t "countries.#{office.country}" %><br/>
-								<% if office.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.phone %><br/><% end %>
-								<% if office.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= office.email %></p><% end %>
-		      	</div>
-		      </li>
-		    <% end %>
-		    <% if pg.searchable_type == "Dealer" %>
-		     	<li class="column column-block">
+						<%= office.city %><br/>
+						<%= office.region %><br/>
+						<%= office.zip %><br/>
+						<%= t "countries.#{office.country}" %><br/>
+						<% if office.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%=office.phone %><br/><% end %>
+						<% if office.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= office.email %></p><% end %>
+			      	</div>
+			      </li>
+			    <% end %>
+			    <% if pg.searchable_type == "Dealer" %>
+			     	<li class="column column-block">
 						<div class="office-information">
 							<% territory = Territory.where("dealer like ?", "%#{pg.searchable.id}%").first %>
 							<h6>Dealer for <%= territory.name %></h6>
@@ -109,33 +107,38 @@
 							<%= pg.searchable.city %><br/>
 							<%= pg.searchable.region %><br/>
 							<%= pg.searchable.zip %><br/>
-							<%= t "countries.#{pg.searchable.country_id}" %><br/>
+							<%= t "countries.#{pg.searchable.country_id}" %></p>
 						</div>
-		      </li>
-		      <li class="column column-block">
+			      	</li>
+			      	<li class="column column-block">
 						<div class="office-information">
 							<% office = Office.find(territory.office) %>
 							<h6>Office for <%= pg.searchable.name %></h6>
 							<h3><%= office.name %></h3>
-			      		<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.address %><br/>
-								<%= office.city %><br/>
-								<%= office.region %><br/>
-								<%= office.zip %><br/>
-								<%= t "countries.#{office.country}" %><br/>
-								<% if office.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.phone %><br/><% end %>
-								<% if office.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= office.email %></p><% end %>
+			      			<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.address %><br/>
+							<%= office.city %><br/>
+							<%= office.region %><br/>
+							<%= office.zip %><br/>
+							<%= t "countries.#{office.country}" %><br/>
+							<% if office.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.phone %><br/><% end %>
+							<% if office.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= office.email %></p><% end %>
 						</div>
-		      </li>
+			      	</li>
+		  		<% end %>
+		  	<% end %>
 
-	  		<% end %>
+		  	<% if @pg_search_documents.any?{|document| document.searchable_type == "Territory" || document.searchable_type == "Dealer" } %>
+		  	<% else %>
+		  		<li class="columns"><h4>No results were found for your search. Please contact our Corporate Headquarters for more information.</h4></li>
+		  	<% end %>
 
-	  	<% end %>	    
-	  </ul>
-  </div>
-<% end %>
+		  </ul>
+	  </div>
+	<% end %>
+</div>
 
-<section class="row" id="offices" data-magellan-target="offices">
-	<div class="columns">
+<section class="row columns" id="offices" data-magellan-target="offices">
+
 		<h1>
 			<%= t(".wavetronix_offices") %>
 		</h1>
@@ -297,6 +300,6 @@
 				<p>Give us your feedback on or report any problems you experience with our website by sending an email to webmaster@wavetronix.com. Please note that we cannot respond to general questions and/or information requests through this email address. This email address will not help you recieve customer support. </p>
 			</div>
 		</div>
-	</div>
+
 </section>
 
