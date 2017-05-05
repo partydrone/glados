@@ -25,5 +25,4 @@ class Article < ApplicationRecord
   def published?
     posted_on < Date.tomorrow
   end
-
 end
