@@ -3,6 +3,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   scope '(:locale)', locale: /(?:[a-z]{2,2})(?:[-|_](?:[A-Z]{2,2}))?/ do
     mount Ckeditor::Engine => '/ckeditor'
@@ -10,8 +11,8 @@ Rails.application.routes.draw do
     ##
     # Authentication routes
     get '/auth/identity', to: 'sessions#new', as: :sign_in
+    match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
     get '/auth/failure', to: 'identities#authentication_failure'
-    post '/auth/:provider/callback', to: 'sessions#create'
     delete '/sign_out', to: 'sessions#destroy', as: :sign_out
 
     ##
