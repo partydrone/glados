@@ -315,10 +315,10 @@ Reliable Section
 			color: $white;
 		}
 		.home-reliable-top {
-			background: #86d4f1; /* Old browsers */
-			background: -moz-linear-gradient(top, #86d4f1 0%, #5598cc 100%); /* FF3.6-15 */
-			background: -webkit-linear-gradient(top, #86d4f1 0%,#5598cc 100%); /* Chrome10-25,Safari5.1-6 */
-			background: linear-gradient(to bottom, #86d4f1 0%,#5598cc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			background: #329cc8; /* Old browsers */
+			background: -moz-linear-gradient(top, #86d4f1 0%, #329cc8 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top, #86d4f1 0%,#329cc8 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom, #86d4f1 0%,#329cc8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 		}
 		.home-reliable-bottom {
 			background: $fadedblue;
@@ -486,7 +486,7 @@ Reliable Magellan Section
 	}
 
 	.home-reliable-nav-mobile {
-		background: #5598cc url(image-path('home/country.png')) no-repeat center center;
+		background: #5598cc url(image-path('home/reliable_1.png')) no-repeat center center;
 		-webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
@@ -974,9 +974,6 @@ Support Section
 		background: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 20%); /* Chrome10-25,Safari5.1-6 */
 		background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 20%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 		padding-bottom: 10px;
-		p {
-			color: $charcoal;
-		}
 		@media screen and (min-width: 60em) {
 			margin-top: -324px;
 			background: -moz-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(255,255,255,1) 50%); /* FF3.6-15 */

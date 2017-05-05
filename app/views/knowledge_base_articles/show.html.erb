@@ -90,10 +90,6 @@
   </aside>
 
   <div class="large-6 large-offset-1 medium-8 medium-offset-2 columns article-body end" id="article-container" data-something data-margin-top="5">
-    <h3 class="article-deckhead">
-      <%= @article.subtitle %>
-      <hr/>
-    </h3>
     <%= embed_youtube_videos_for(@article.body).html_safe %>
   </div>
 </article>
