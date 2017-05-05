@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/decioferreira/omniauth-linkedin-oauth2.git
+  revision: 41dc98318e63b9789de34864c6a5d4a331508da7
+  branch: master
+  specs:
+    omniauth-linkedin-oauth2 (0.2.5)
+      omniauth (~> 1.0)
+      omniauth-oauth2
+
+GIT
   remote: https://github.com/refile/refile.git
   revision: d7a42dcd7cf631ba94b01231f535bda061f6af92
   branch: master
@@ -10,7 +19,7 @@ GIT
 
 GIT
   remote: https://github.com/sinatra/sinatra.git
-  revision: 34521720b6028c2fa696cf85109345a89f306c99
+  revision: 8fdd35c731ec6915bae393c6383b2357450665f0
   branch: master
   specs:
     rack-protection (2.0.0.rc2)
@@ -69,13 +78,13 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     ansi (1.5.0)
     arel (7.1.4)
-    aws-sdk (2.9.2)
-      aws-sdk-resources (= 2.9.2)
-    aws-sdk-core (2.9.2)
+    aws-sdk (2.9.15)
+      aws-sdk-resources (= 2.9.15)
+    aws-sdk-core (2.9.15)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.9.2)
-      aws-sdk-core (= 2.9.2)
+    aws-sdk-resources (2.9.15)
+      aws-sdk-core (= 2.9.15)
     aws-sigv4 (1.0.0)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -88,17 +97,17 @@ GEM
     browser (2.3.0)
     builder (3.2.3)
     byebug (9.0.6)
-    capybara (2.13.0)
+    capybara (2.14.0)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    ckeditor (4.2.2)
+    ckeditor (4.2.3)
       cocaine
       orm_adapter (~> 0.5.0)
-    client_side_validations (9.2.0)
+    client_side_validations (9.3.1)
       jquery-rails (~> 4.3)
       js_regex (~> 1.2)
       rails (>= 5.0.0.1, < 5.2)
@@ -118,10 +127,12 @@ GEM
     debase (0.2.1)
       debase-ruby_core_source
     debase-ruby_core_source (0.9.9)
-    domain_name (0.5.20170223)
+    domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.7.0)
+    faraday (0.11.0)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
     flamegraph (0.9.5)
     formatador (0.2.5)
@@ -129,8 +140,8 @@ GEM
       railties (>= 3.1.0)
       sass (>= 3.3.0, < 3.5)
       sprockets-es6 (>= 0.9.0)
-    globalid (0.3.7)
-      activesupport (>= 4.1.0)
+    globalid (0.4.0)
+      activesupport (>= 4.2.0)
     guard (2.14.1)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -158,8 +169,9 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
-    js_regex (1.2.2)
+    js_regex (1.2.3)
       regexp_parser (>= 0.3.6, <= 0.5.0)
+    jwt (1.5.6)
     kgio (2.11.0)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -167,7 +179,7 @@ GEM
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.11)
-    mail (2.6.4)
+    mail (2.6.5)
       mime-types (>= 1.16, < 4)
     method_source (0.8.2)
     mime-types (2.99.3)
@@ -194,6 +206,8 @@ GEM
       minitest (>= 5.0)
       ruby-progressbar
     multi_json (1.12.1)
+    multi_xml (0.6.0)
+    multipart-post (2.0.0)
     mustermann (1.0.0)
     nenv (0.3.0)
     nested_form_fields (0.8)
@@ -207,12 +221,29 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    oauth2 (1.3.1)
+      faraday (>= 0.8, < 0.12)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
     omniauth (1.6.1)
       hashie (>= 3.4.6, < 3.6.0)
       rack (>= 1.6.2, < 3)
+    omniauth-google-oauth2 (0.4.1)
+      jwt (~> 1.5.2)
+      multi_json (~> 1.3)
+      omniauth (>= 1.1.1)
+      omniauth-oauth2 (>= 1.3.1)
     omniauth-identity (1.1.1)
       bcrypt-ruby (~> 3.0)
       omniauth (~> 1.0)
+    omniauth-oauth2 (1.4.0)
+      oauth2 (~> 1.0)
+      omniauth (~> 1.2)
+    omniauth-wsfed (0.3.3.pre.beta)
+      omniauth (~> 1.2, >= 1.2.2)
+      xmlcanonicalizer (~> 0.1, >= 0.1.2)
     orm_adapter (0.5.0)
     pg (0.20.0)
     pg_search (2.0.1)
@@ -320,14 +351,14 @@ GEM
     tilt (2.0.7)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
-    turbolinks-source (5.0.0)
+    turbolinks-source (5.0.3)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
-    uglifier (3.1.13)
+    uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.2)
+    unf_ext (0.0.7.4)
     unicorn (5.3.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
@@ -339,6 +370,7 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    xmlcanonicalizer (0.1.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -367,7 +399,10 @@ DEPENDENCIES
   minitest-rails-capybara (~> 3.0.0)
   minitest-reporters
   nested_form_fields
+  omniauth-google-oauth2
   omniauth-identity
+  omniauth-linkedin-oauth2!
+  omniauth-wsfed (= 0.3.3.pre.beta)
   pg (~> 0.18)
   pg_search
   pry-rails

@@ -3,7 +3,14 @@
 	<div class="row">
 		<div class="medium-5 columns small-centered">
 			<div class="sign-on-panel">
-				<h4 class="text-centered">Sign in</h4>
+				<h4 class="text-centered"><%= yield :title %></h4>
+
+				<p>You can sign in using one of the following services:</p>
+
+				<%= link_to 'Sign in with Google', '/auth/google', class: 'button radius expanded' %>
+				<%= link_to 'Sign in with LinkedIn', '/auth/linkedin', class: 'button radius expanded' %>
+
+				<p>Or sign in with your local account credentials:</p>
 
 				<%= form_tag '/auth/identity/callback' do %>
 				  <%= email_field_tag :auth_key %>
