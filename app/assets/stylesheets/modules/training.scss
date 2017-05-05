@@ -8,9 +8,11 @@
     padding-top: 25px;
     .button {
         width: 60%;
+        color: $white;
     }
     h4 {
         margin-bottom: 1rem;
+        margin-top: 2.25rem;
     }
 }
 
@@ -60,44 +62,50 @@
 
 .request-host .button {
     background: $dark-gray;
-    color: $white;
-    &:hover {
+    color: $white !important;
+    &:hover, &:active {
         background-color: lighten($dark-gray, 10%);
         color: $white !important;
     }
 }
 
 .training-input-card {
-    width: 97%;
-    @media screen and (min-width: 40em) {
-        width: 47%;
-    }
     color: inherit;
     text-decoration: none;
-    display: inline-block;
-    padding: 10px 0;
-    margin: 1%;
+    display: block;
+    margin: 0 1%;
     position: relative;
     vertical-align: top;
 }
 
 .training-post-cards .post-card {
     width: 97%;
-    flex-basis: content;
+    height: 220px;
+    margin: 1%;
     @media screen and (min-width: 40em) {
         width: 48%;
-    }
-    @media screen and (min-width: 40em) {
         &:nth-child(1) {
             margin-top: -530px;
         }
     }
+    @media screen and (max-width: 1024px) {
+        height: 290px;
+    }
     .button {
         background: $bluesteel;
+        position: absolute;
         color: $white;
-        &:hover {
-            background-color: lighten($bluesteel, 10%);
+        width: 255px;
+        bottom: 0;
+        &:hover, &:active {
             color: $white !important;
+            background-color: lighten($bluesteel, 10%);
+        }
+        a {
+            color: $white;
+            &:hover, &:active {
+                color: $white;
+            }
         }
     }
 }
@@ -107,11 +115,6 @@
     @media screen and (min-width: 40em) {
         max-height: 500px;
     }
-}
-
-.training-input-container {
-    display: block;
-    width: 100%;
 }
 
 .training-courses-section {
@@ -170,6 +173,11 @@
     }
 }
 
+.enrollment-list label {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
 .learn-course {
     text-align: center;
     margin-bottom: -2rem;
@@ -205,4 +213,8 @@
     display: inline-block;
     vertical-align: top;
     margin-right: 0.5rem;
+}
+
+.prereq-req {
+    color: $tomato;
 }

@@ -9,6 +9,9 @@
     <%= user.email %>
   </td>
   <td>
+    <%= user.provider %>
+  </td>
+  <td>
     <% user.roles.each do |role| %>
       <span class="secondary label radius">
         <%= role.name.humanize %>
