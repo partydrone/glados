@@ -124,40 +124,10 @@ products = Product.joins(product_category: [:product_type]).order('product_types
   end
 end
 
+
 ##
-# Training Course Types
-training_course_types = TrainingCourseType.create([
-  { name: 'Training'},
-  { name: 'Educationial'},
-  { name: 'Other'}
-])
+# Patents
 
-
-
-training_courses = TrainingCourse.create([
-  { title: 'Advanced Traffic Radar Workshop', training_course_type_id: training_course_types[0].id, number: '105', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type  you.', duration: 2, description:'This is the description portion of the course'},
-  { title: 'Introduction to HD SmartSensor Workshop', training_course_type_id: training_course_types[1].id, number: '106', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type or you.', duration: 3, description:'This is the description part of this course!'},
-  { title: 'Introduction to Traffic Radar Workshop', training_course_type_id: training_course_types[2].id, number: '107', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and d work for you.', duration: 4, description:'Here we are describing how cool this course really is.'}
-])
-
-training_courses[1].prerequisites << training_courses[0]
-training_courses[2].prerequisites << training_courses[0]
-
-training_event = TrainingEvent.create([ 
-  { title: 'SmartSensor HD Training Event', location: 'Provo, UT', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec sapien erat. Maecenas quis pharetra ipsum. Nunc non massa et tellus varius tincidunt. Praesent vel purus sed nunc venenatis posuere. Aliquam vitae ante nulla. Nullam bibendum ligula ac ante vestibulum tempus. Curabitur vitae purus sit amet tellus feugiat mattis at id sem. Suspendisse bibendum posuere lacus ut rhoncus. Phasellus pellentesque consequat enim. Nunc luctus non sapien quis mattis. Praesent velit quam, suscipit ut venenatis eu, interdum vitae quam. Morbi accumsan metus et arcu consectetur iaculis.  Praesent tortor ipsum, tincidunt id efficitur non, porta id turpis. Praesent eleifend tincidunt posuere. Sed rutrum tellus nisi, ut varius odio eleifend in. Aliquam volutpat turpis non urna fringilla, eget scelerisque nibh maximus. Sed velit urna, sagittis eget consectetur et, feugiat ut lectus. Nunc commodo augue et mi hendrerit, eu eleifend tellus tempus. Morbi fermentum vel ex quis feugiat. In maximus magna vel magna facilisis condimentum. Proin aliquet iaculis purus in tristique. Duis vulputate mauris sit amet tincidunt dignissim.', started_at:'2017-04-07', ended_at:'2017-04-07' },
-  { title: 'Traffic Radar Training Event', location: 'Phoniex, AZ', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec sapien erat. Maecenas quis pharetra ipsum. Nunc non massa et tellus varius tincidunt. Praesent vel purus sed nunc venenatis posuere. Aliquam vitae ante nulla. Nullam bibendum ligula ac ante vestibulum tempus. Curabitur vitae purus sit amet tellus feugiat mattis at id sem. Suspendisse bibendum posuere lacus ut rhoncus. Phasellus pellentesque consequat enim. Nunc luctus non sapien quis mattis. Praesent velit quam, suscipit ut venenatis eu, interdum vitae quam. Morbi accumsan metus et arcu consectetur iaculis.  Praesent tortor ipsum, tincidunt id efficitur non, porta id turpis. Praesent eleifend tincidunt posuere. Sed rutrum tellus nisi, ut varius odio eleifend in. Aliquam volutpat turpis non urna fringilla, eget scelerisque nibh maximus. Sed velit urna, sagittis eget consectetur et, feugiat ut lectus. Nunc commodo augue et mi hendrerit, eu eleifend tellus tempus. Morbi fermentum vel ex quis feugiat. In maximus magna vel magna facilisis condimentum. Proin aliquet iaculis purus in tristique. Duis vulputate mauris sit amet tincidunt dignissim.', started_at:'2017-04-07', ended_at:'2017-04-07' },
-  { title: 'Digital Wave Training Event', location: 'Orem, UT', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec sapien erat. Maecenas quis pharetra ipsum. Nunc non massa et tellus varius tincidunt. Praesent vel purus sed nunc venenatis posuere. Aliquam vitae ante nulla. Nullam bibendum ligula ac ante vestibulum tempus. Curabitur vitae purus sit amet tellus feugiat mattis at id sem. Suspendisse bibendum posuere lacus ut rhoncus. Phasellus pellentesque consequat enim. Nunc luctus non sapien quis mattis. Praesent velit quam, suscipit ut venenatis eu, interdum vitae quam. Morbi accumsan metus et arcu consectetur iaculis.  Praesent tortor ipsum, tincidunt id efficitur non, porta id turpis. Praesent eleifend tincidunt posuere. Sed rutrum tellus nisi, ut varius odio eleifend in. Aliquam volutpat turpis non urna fringilla, eget scelerisque nibh maximus. Sed velit urna, sagittis eget consectetur et, feugiat ut lectus. Nunc commodo augue et mi hendrerit, eu eleifend tellus tempus. Morbi fermentum vel ex quis feugiat. In maximus magna vel magna facilisis condimentum. Proin aliquet iaculis purus in tristique. Duis vulputate mauris sit amet tincidunt dignissim.', started_at:'2017-04-07', ended_at:'2017-04-07' },
-  { title: 'Microsoft Ignite', location: 'Orlando, FL', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec sapien erat. Maecenas quis pharetra ipsum. Nunc non massa et tellus varius tincidunt. Praesent vel purus sed nunc venenatis posuere. Aliquam vitae ante nulla. Nullam bibendum ligula ac ante vestibulum tempus. Curabitur vitae purus sit amet tellus feugiat mattis at id sem. Suspendisse bibendum posuere lacus ut rhoncus. Phasellus pellentesque consequat enim. Nunc luctus non sapien quis mattis. Praesent velit quam, suscipit ut venenatis eu, interdum vitae quam. Morbi accumsan metus et arcu consectetur iaculis.  Praesent tortor ipsum, tincidunt id efficitur non, porta id turpis. Praesent eleifend tincidunt posuere. Sed rutrum tellus nisi, ut varius odio eleifend in. Aliquam volutpat turpis non urna fringilla, eget scelerisque nibh maximus. Sed velit urna, sagittis eget consectetur et, feugiat ut lectus. Nunc commodo augue et mi hendrerit, eu eleifend tellus tempus. Morbi fermentum vel ex quis feugiat. In maximus magna vel magna facilisis condimentum. Proin aliquet iaculis purus in tristique. Duis vulputate mauris sit amet tincidunt dignissim.', started_at:'2017-04-07', ended_at:'2017-04-07' },
-
-])
-
-training_event_courses = TrainingEventCourse.create([
-  { training_course_id: training_courses[0].id, training_event_id: training_event[0].id, seats:5, started_at:'2017-02-06 10:00', ended_at:'2017-02-06 1:00', room: 'Library 401'},
-  { training_course_id: training_courses[1].id, training_event_id: training_event[0].id, seats:0, started_at:'2017-02-06 11:00', ended_at:'2017-02-06 2:00', room: 'Library 301'},
-  { training_course_id: training_courses[2].id, training_event_id: training_event[0].id, seats:0, started_at:'2017-02-06 12:00', ended_at:'2017-02-06 3:00', room: 'Ball Room'}
-])
-
-#patents
 [
   { number: 6556916, title: 'System and Method for Identification of Traffic Lane Positions' },
   { number: 6693557, title: 'Vehicular Traffic Sensor' },
@@ -181,23 +151,129 @@ end
 ##
 # RMA Policy
 
-ReturnMaterialAuthorizationPolicyDocument.find_or_create_by(effective_on: '2016-03-27') do |rma_policy|
+ReturnMaterialAuthorizationPolicyDocument.find_or_create_by(effective_on: 2.years.ago.to_s(:db)) do |rma_policy|
   rma_policy.title = 'Return Material Authorization Policy'
   rma_policy.body = '<p>RMA policy body.</p>'
 end
 
 
 ##
+# Roles
+
+%w[
+  admin
+  blog_post_manager
+  case_study_manager
+  dealer_manager
+  download_type_manager
+  download_manager
+  enrollment_manager
+  feature_manager
+  knowledge_base_article_manager
+  media_download_manager
+  office_manager
+  patent_manager
+  product_category_manager
+  product_type_manager
+  product_manager
+  return_material_authorization_policy_document_manager
+  role_manager
+  sales_terms_and_conditions_document_manager
+  territory_manager
+  training_course_type_manager
+  training_course_manager
+  training_event_course_manager
+  training_event_manager
+  user_manager
+  website_privacy_policy_document_manager
+  website_terms_of_use_document_manager
+].each do |role|
+  Role.find_or_create_by(name: role)
+end
+
+
+##
+# Training Course Types
+
+[
+  'Certified Training Course',
+  'Educational Event',
+  'Pulse Live Event',
+  'Technical Workshop'
+].each do |training_course_type|
+  TrainingCourseType.find_or_create_by(name: training_course_type)
+end
+
+training_course_types = TrainingCourseType.order(:name)
+
+
+##
 # Training Courses
 
 [
-  { title: 'Introduction to Traffic Radar Workshop', duration: 2, description:'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type  you.'},
-  { title: 'Introduction to HD SmartSensor Workshop', duration: 3, description:'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type or you.'},
-  { title: 'Introduction to JeremyCool Workshop', duration: 4, description:'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and d work for you.'}
-
+  { title: 'Advanced Traffic Radar Workshop', training_course_type_id: training_course_types[0].id, number: '105', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type  you.', duration: 2, description: 'This is the description portion of the course'},
+  { title: 'Introduction to HD SmartSensor Workshop', training_course_type_id: training_course_types[1].id, number: '106', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type or you.', duration: 3, description: 'This is the description part of this course!'},
+  { title: 'Introduction to Traffic Radar Workshop', training_course_type_id: training_course_types[2].id, number: '107', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and d work for you.', duration: 4, description: 'Here we are describing how cool this course really is.'}
 ].each do |training_course|
   TrainingCourse.find_or_create_by(title: training_course[:title]) do |tc|
     tc.duration    = training_course[:duration]
     tc.description = training_course[:description]
+  end
+end
+
+training_courses = TrainingCourse.order(:number)
+
+training_courses[1].prerequisites << training_courses[0]
+training_courses[2].prerequisites << training_courses[0]
+
+[
+  {
+    title: 'Digital Wave Training Event',
+    location: 'Orem, UT',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec sapien erat. Maecenas quis pharetra ipsum. Nunc non massa et tellus varius tincidunt. Praesent vel purus sed nunc venenatis posuere. Aliquam vitae ante nulla. Nullam bibendum ligula ac ante vestibulum tempus. Curabitur vitae purus sit amet tellus feugiat mattis at id sem. Suspendisse bibendum posuere lacus ut rhoncus. Phasellus pellentesque consequat enim. Nunc luctus non sapien quis mattis. Praesent velit quam, suscipit ut venenatis eu, interdum vitae quam. Morbi accumsan metus et arcu consectetur iaculis.  Praesent tortor ipsum, tincidunt id efficitur non, porta id turpis. Praesent eleifend tincidunt posuere. Sed rutrum tellus nisi, ut varius odio eleifend in. Aliquam volutpat turpis non urna fringilla, eget scelerisque nibh maximus. Sed velit urna, sagittis eget consectetur et, feugiat ut lectus. Nunc commodo augue et mi hendrerit, eu eleifend tellus tempus. Morbi fermentum vel ex quis feugiat. In maximus magna vel magna facilisis condimentum. Proin aliquet iaculis purus in tristique. Duis vulputate mauris sit amet tincidunt dignissim.',
+    started_at: 2.weeks.from_now.to_s(:db),
+    ended_at: 2.weeks.from_now.to_s(:db)
+  },
+  {
+    title: 'Microsoft Ignite',
+    location: 'Orlando, FL',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec sapien erat. Maecenas quis pharetra ipsum. Nunc non massa et tellus varius tincidunt. Praesent vel purus sed nunc venenatis posuere. Aliquam vitae ante nulla. Nullam bibendum ligula ac ante vestibulum tempus. Curabitur vitae purus sit amet tellus feugiat mattis at id sem. Suspendisse bibendum posuere lacus ut rhoncus. Phasellus pellentesque consequat enim. Nunc luctus non sapien quis mattis. Praesent velit quam, suscipit ut venenatis eu, interdum vitae quam. Morbi accumsan metus et arcu consectetur iaculis.  Praesent tortor ipsum, tincidunt id efficitur non, porta id turpis. Praesent eleifend tincidunt posuere. Sed rutrum tellus nisi, ut varius odio eleifend in. Aliquam volutpat turpis non urna fringilla, eget scelerisque nibh maximus. Sed velit urna, sagittis eget consectetur et, feugiat ut lectus. Nunc commodo augue et mi hendrerit, eu eleifend tellus tempus. Morbi fermentum vel ex quis feugiat. In maximus magna vel magna facilisis condimentum. Proin aliquet iaculis purus in tristique. Duis vulputate mauris sit amet tincidunt dignissim.',
+    started_at: 2.weeks.from_now.to_s(:db),
+    ended_at: 2.weeks.from_now.to_s(:db)
+  },
+  {
+    title: 'SmartSensor HD Training Event',
+    location: 'Provo, UT',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec sapien erat. Maecenas quis pharetra ipsum. Nunc non massa et tellus varius tincidunt. Praesent vel purus sed nunc venenatis posuere. Aliquam vitae ante nulla. Nullam bibendum ligula ac ante vestibulum tempus. Curabitur vitae purus sit amet tellus feugiat mattis at id sem. Suspendisse bibendum posuere lacus ut rhoncus. Phasellus pellentesque consequat enim. Nunc luctus non sapien quis mattis. Praesent velit quam, suscipit ut venenatis eu, interdum vitae quam. Morbi accumsan metus et arcu consectetur iaculis.  Praesent tortor ipsum, tincidunt id efficitur non, porta id turpis. Praesent eleifend tincidunt posuere. Sed rutrum tellus nisi, ut varius odio eleifend in. Aliquam volutpat turpis non urna fringilla, eget scelerisque nibh maximus. Sed velit urna, sagittis eget consectetur et, feugiat ut lectus. Nunc commodo augue et mi hendrerit, eu eleifend tellus tempus. Morbi fermentum vel ex quis feugiat. In maximus magna vel magna facilisis condimentum. Proin aliquet iaculis purus in tristique. Duis vulputate mauris sit amet tincidunt dignissim.',
+    started_at: 2.weeks.from_now.to_s(:db),
+    ended_at: 2.weeks.from_now.to_s(:db)
+  },
+  {
+    title: 'Traffic Radar Training Event',
+    location: 'Phoniex, AZ',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec sapien erat. Maecenas quis pharetra ipsum. Nunc non massa et tellus varius tincidunt. Praesent vel purus sed nunc venenatis posuere. Aliquam vitae ante nulla. Nullam bibendum ligula ac ante vestibulum tempus. Curabitur vitae purus sit amet tellus feugiat mattis at id sem. Suspendisse bibendum posuere lacus ut rhoncus. Phasellus pellentesque consequat enim. Nunc luctus non sapien quis mattis. Praesent velit quam, suscipit ut venenatis eu, interdum vitae quam. Morbi accumsan metus et arcu consectetur iaculis.  Praesent tortor ipsum, tincidunt id efficitur non, porta id turpis. Praesent eleifend tincidunt posuere. Sed rutrum tellus nisi, ut varius odio eleifend in. Aliquam volutpat turpis non urna fringilla, eget scelerisque nibh maximus. Sed velit urna, sagittis eget consectetur et, feugiat ut lectus. Nunc commodo augue et mi hendrerit, eu eleifend tellus tempus. Morbi fermentum vel ex quis feugiat. In maximus magna vel magna facilisis condimentum. Proin aliquet iaculis purus in tristique. Duis vulputate mauris sit amet tincidunt dignissim.',
+    started_at: 2.weeks.from_now.to_s(:db),
+    ended_at: 2.weeks.from_now.to_s(:db)
+  }
+].each do |training_event|
+  TrainingEvent.find_or_create_by(title: training_event[:title]) do |te|
+    te.location    = training_event[:location]
+    te.description = training_event[:description]
+  end
+end
+
+training_events = TrainingEvent.order(:title)
+
+[
+  { training_course_id: training_courses[0].id, training_event_id: training_events[0].id, seats:5, started_at: 72.hours.from_now.to_s(:db), ended_at: 75.hours.from_now.to_s(:db), room: 'Library 401'},
+  { training_course_id: training_courses[1].id, training_event_id: training_events[0].id, seats:0, started_at: 72.hours.from_now.to_s(:db), ended_at: 75.hours.from_now.to_s(:db), room: 'Library 301'},
+  { training_course_id: training_courses[2].id, training_event_id: training_events[0].id, seats:0, started_at: 72.hours.from_now.to_s(:db), ended_at: 75.hours.from_now.to_s(:db), room: 'Ball Room'}
+].each do |training_event_course|
+  TrainingEvent.find_or_create_by(training_course_id: training_event_course[:training_course_id]) do |tec|
+    tec.training_event_id = training_event_course[:training_event_id]
+    tec.seats             = training_event_course[:seats]
+    tec.started_at        = training_event_course[:started_at]
+    tec.ended_at          = training_event_course[:ended_at]
+    tec.room              = training_event_course[:room]
   end
 end

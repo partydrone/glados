@@ -4,10 +4,12 @@ module Admin
 
     def index
       @product_types = ProductType.all
+      authorize @product_types
     end
 
     def new
       @product_type = ProductType.new
+      authorize @product_type
     end
 
     def edit
@@ -15,6 +17,7 @@ module Admin
 
     def create
       @product_type = ProductType.new(product_type_params)
+      authorize @product_type
 
       if @product_type.save
         redirect_to admin_product_types_path, notice: %(Saved "#{@product_type.name}" successfully.)
@@ -47,6 +50,7 @@ module Admin
 
     def set_product_type
       @product_type = ProductType.find(params[:id])
+      authorize @product_type
     end
 
     def product_type_params

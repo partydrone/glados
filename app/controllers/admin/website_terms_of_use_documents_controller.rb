@@ -4,6 +4,7 @@ module Admin
 
     def index
       @website_terms_of_use_documents = WebsiteTermsOfUseDocument.all
+      authorize @website_terms_of_use_documents
     end
 
     def show
@@ -12,6 +13,7 @@ module Admin
 
     def new
       @website_terms_of_use_document = WebsiteTermsOfUseDocument.new
+      authorize @website_terms_of_use_document
     end
 
     def edit
@@ -19,6 +21,7 @@ module Admin
 
     def create
       @website_terms_of_use_document = WebsiteTermsOfUseDocument.new(website_terms_of_use_document_params)
+      authorize @website_terms_of_use_document
 
       if @website_terms_of_use_document.save
         redirect_to [:admin, @website_terms_of_use_document], notice: %(Saved "#{@website_terms_of_use_document.title}" successfully.)
@@ -42,6 +45,7 @@ module Admin
 
     def set_website_terms_of_use_document
       @website_terms_of_use_document = WebsiteTermsOfUseDocument.find(params[:id])
+      authorize @website_terms_of_use_document
     end
 
     def website_terms_of_use_document_params

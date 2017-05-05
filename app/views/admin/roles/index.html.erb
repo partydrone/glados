@@ -1,0 +1,23 @@
+<% content_for :title, t('.title') %>
+
+<div class="row columns admin-table">
+  <h1>
+    <%= yield :title %>
+    <%= link_to new_admin_role_path, title: "Create a new role" do %>
+      <%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
+    <% end %>
+  </h1>
+  <table>
+    <thead>
+      <tr>
+        <th width="30"></th>
+        <th>Name</th>
+        <th>Resources</th>
+        <th width="30"></th>
+      </tr>
+    </thead>
+    <tbody id="roles">
+      <%= render @roles %>
+    </tbody>
+  </table>
+</div>

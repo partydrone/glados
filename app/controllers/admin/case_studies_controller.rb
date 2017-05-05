@@ -5,6 +5,7 @@ module Admin
 
     def index
       @case_studies = CaseStudy.all
+      authorize @case_studies
     end
 
     def show
@@ -13,6 +14,7 @@ module Admin
 
     def new
       @case_study = CaseStudy.new(flag: 'US')
+      authorize @case_study
     end
 
     def edit
@@ -20,6 +22,7 @@ module Admin
 
     def create
       @case_study = CaseStudy.new(case_study_params)
+      authorize @case_study
 
       if @case_study.save
         redirect_to [:admin,@case_study], notice: %(Saved "#{@case_study.title}" successfully.)
@@ -45,12 +48,13 @@ module Admin
 
     def set_case_study
       @case_study = CaseStudy.find(params[:id])
+      authorize @case_study
     end
 
     def case_study_params
       params.require(:case_study).permit(:title, :subtitle, :location, :flag, :hero_image, :body, :posted_on, :tag_list)
     end
-    
+
     def set_taggable_items
       @taggable_items = Tag.pluck(:name)
     end

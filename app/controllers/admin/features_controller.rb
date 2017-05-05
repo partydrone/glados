@@ -5,6 +5,7 @@ module Admin
 
     def index
       @features = Feature.all
+      authorize @features
     end
 
     def show
@@ -12,6 +13,7 @@ module Admin
 
     def new
       @feature = Feature.new
+      authorize @feature
     end
 
     def edit
@@ -19,6 +21,7 @@ module Admin
 
     def create
       @feature = Feature.new(feature_params)
+      authorize @feature
 
       if @feature.save
         redirect_to [:admin, @feature], notice: %(Saved "#{@feature.title}" successfully.)
@@ -46,6 +49,7 @@ module Admin
 
     def set_feature
       @feature = Feature.find(params[:id])
+      authorize @feature
     end
 
     def feature_params

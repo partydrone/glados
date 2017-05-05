@@ -1,7 +1,7 @@
 class Territory < ApplicationRecord
 	include PgSearch
-  	multisearchable :against => [:name]
+  
+  multisearchable against: [:name]
 
-	validates :name, :office, :dealer , presence: true
-
+	validates :name, :office, :dealer, presence: true
 end
