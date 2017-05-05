@@ -25,6 +25,9 @@ gem 'nested_form_fields'
 ##
 # Authentication
 gem 'omniauth-identity'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-linkedin-oauth2', github: 'decioferreira/omniauth-linkedin-oauth2', branch: 'master'
+gem 'omniauth-wsfed', '0.3.3.pre.beta'
 gem 'pundit'
 gem 'rolify'
 
