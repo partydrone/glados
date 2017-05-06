@@ -8,15 +8,10 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     }
 
   ##
-  # ADFS
-  provider :wsfed,
-    issuer_name:          'http://adfs.wavetronix.com/adfs/services/trust',
-    issuer:               'https://adfs.wavetronix.com/adfs/ls/',
-    realm:                'https://www.wavetronix.com',
-    reply:                'https://www.wavetronix.com/auth/wsfed/callback',
-    saml_version:         '1',
-    id_claim:             'upn',
-    idp_cert_fingerprint: '…'
+  # Azure AD
+  provider :azure_activedirectory,
+    Rails.application.secrets.azure_ad_client_id,
+    Rails.application.secrets.azure_ad_tenant
 
   ##
   # Google

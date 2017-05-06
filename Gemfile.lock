@@ -230,6 +230,9 @@ GEM
     omniauth (1.6.1)
       hashie (>= 3.4.6, < 3.6.0)
       rack (>= 1.6.2, < 3)
+    omniauth-azure-activedirectory (1.0.0)
+      jwt (~> 1.5)
+      omniauth (~> 1.1)
     omniauth-google-oauth2 (0.4.1)
       jwt (~> 1.5.2)
       multi_json (~> 1.3)
@@ -241,9 +244,6 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
-    omniauth-wsfed (0.3.3.pre.beta)
-      omniauth (~> 1.2, >= 1.2.2)
-      xmlcanonicalizer (~> 0.1, >= 0.1.2)
     orm_adapter (0.5.0)
     pg (0.20.0)
     pg_search (2.0.1)
@@ -370,7 +370,6 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
-    xmlcanonicalizer (0.1.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -399,10 +398,10 @@ DEPENDENCIES
   minitest-rails-capybara (~> 3.0.0)
   minitest-reporters
   nested_form_fields
+  omniauth-azure-activedirectory
   omniauth-google-oauth2
   omniauth-identity
   omniauth-linkedin-oauth2!
-  omniauth-wsfed (= 0.3.3.pre.beta)
   pg (~> 0.18)
   pg_search
   pry-rails
