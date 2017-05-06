@@ -9,7 +9,6 @@
 
 ##
 # Download Types
-
 [
   { name: 'Software', position: 1 },
   { name: 'Data Sheet', position: 2 },
@@ -36,10 +35,8 @@
   end
 end
 
-
 ##
 # Product Types
-
 [
   { name: 'Detection', position: 1 },
   { name: 'Cabinet Integration', position: 2 },
@@ -54,10 +51,8 @@ end
 
 product_types = ProductType.order(:position)
 
-
 ##
 # Product Categories
-
 [
   { name: 'Arterial & Freeway', position: 1, product_type_id: product_types[0].id },
   { name: 'Intersection', position: 2, product_type_id: product_types[0].id },
@@ -79,10 +74,8 @@ end
 
 product_categories = ProductCategory.order(:position)
 
-
 ##
 # Products
-
 [
   { name: 'SmartSensor Advance', part_number: 'SS-200V', product_category_id: product_categories[1].id, summary: 'Product summary', description: 'Better product description goes here.' },
   { name: 'SmartSensor Advance Extended Range', part_number: 'SS-200E', product_category_id: product_categories[1].id, summary: 'Product summary', description: 'Better product description goes here.' },
@@ -109,10 +102,8 @@ end
 
 products = Product.joins(product_category: [:product_type]).order('product_types.position, product_categories.position, products.name')
 
-
 ##
 # Features
-
 [
   { title: 'Digital Wave Radar', description: 'Feature description', product_ids: [products[0].id, products[1].id, products[2].id, products[3].id, products[4].id, products[5].id] },
   { title: 'High-definition Radar', description: 'Feature description', product_ids: [products[2].id, products[3].id, products[4].id] }
@@ -124,10 +115,8 @@ products = Product.joins(product_category: [:product_type]).order('product_types
   end
 end
 
-
 ##
 # Patents
-
 [
   { number: 6556916, title: 'System and Method for Identification of Traffic Lane Positions' },
   { number: 6693557, title: 'Vehicular Traffic Sensor' },
@@ -147,19 +136,15 @@ end
   end
 end
 
-
 ##
 # RMA Policy
-
 ReturnMaterialAuthorizationPolicyDocument.find_or_create_by(effective_on: 2.years.ago.to_s(:db)) do |rma_policy|
   rma_policy.title = 'Return Material Authorization Policy'
   rma_policy.body = '<p>RMA policy body.</p>'
 end
 
-
 ##
 # Roles
-
 %w[
   admin
   blog_post_manager
@@ -167,7 +152,6 @@ end
   dealer_manager
   download_type_manager
   download_manager
-  enrollment_manager
   feature_manager
   knowledge_base_article_manager
   media_download_manager
@@ -182,7 +166,6 @@ end
   territory_manager
   training_course_type_manager
   training_course_manager
-  training_event_course_manager
   training_event_manager
   user_manager
   website_privacy_policy_document_manager
@@ -191,10 +174,8 @@ end
   Role.find_or_create_by(name: role)
 end
 
-
 ##
 # Training Course Types
-
 [
   'Certified Training Course',
   'Educational Event',
@@ -206,10 +187,8 @@ end
 
 training_course_types = TrainingCourseType.order(:name)
 
-
 ##
 # Training Courses
-
 [
   { title: 'Advanced Traffic Radar Workshop', training_course_type_id: training_course_types[0].id, number: '105', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type  you.', duration: 2, description: 'This is the description portion of the course'},
   { title: 'Introduction to HD SmartSensor Workshop', training_course_type_id: training_course_types[1].id, number: '106', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type or you.', duration: 3, description: 'This is the description part of this course!'},
@@ -226,6 +205,8 @@ training_courses = TrainingCourse.order(:number)
 training_courses[1].prerequisites << training_courses[0]
 training_courses[2].prerequisites << training_courses[0]
 
+##
+# Training Events
 [
   {
     title: 'Digital Wave Training Event',
@@ -264,6 +245,8 @@ end
 
 training_events = TrainingEvent.order(:title)
 
+##
+# Training Event Courses
 [
   { training_course_id: training_courses[0].id, training_event_id: training_events[0].id, seats:5, started_at: 72.hours.from_now.to_s(:db), ended_at: 75.hours.from_now.to_s(:db), room: 'Library 401'},
   { training_course_id: training_courses[1].id, training_event_id: training_events[0].id, seats:0, started_at: 72.hours.from_now.to_s(:db), ended_at: 75.hours.from_now.to_s(:db), room: 'Library 301'},
