@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# one:
-#   tag: one
-#   taggable: one
-#
-# two:
-#   tag: two
-#   taggable: two
+one:
+  tag: advance
+  taggable: new_blog_post (BlogPost)
+
+two:
+  tag: freeway
+  taggable: new_case_study (CaseStudy)
