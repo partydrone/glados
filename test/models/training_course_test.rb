@@ -1,7 +1,7 @@
 require 'test_helper'
 
 describe TrainingCourse do
-  let(:training_course) { TrainingCourse.new(title: 'Wiring SmartSensor HD', description: 'Learn to wire a SmartSensor HD with your eyes closed.', summary:'cake', number: 501, duration: 4, training_course_type_id: training_course_types(:workshop).id) }
+  let(:training_course) { TrainingCourse.new(title: 'Wiring SmartSensor HD', description: 'Learn to wire a SmartSensor HD with your eyes closed.', summary:'cake', number: '501', duration: '4', training_course_type_id: training_course_types(:workshop).id) }
 
   it "must be a valid object" do
     training_course.must_be :valid?
@@ -26,7 +26,7 @@ describe TrainingCourse do
   end
 
   it "doesn't require a duration" do
-    training_course.duration = ''
+    training_course.duration = ' '
     training_course.must_be :valid?
   end
 
@@ -36,7 +36,7 @@ describe TrainingCourse do
   end
 
   it "requires duration be a number" do
-    training_course.duration = 4
+    training_course.duration = '5'
     training_course.must_be :valid?
   end
 
@@ -51,7 +51,7 @@ describe TrainingCourse do
 
   it "has prerequisites" do
     training_course.must_respond_to :prerequisites
-  end  
+  end
 
   it "has multiple prerequisites" do
     tc1 = training_courses(:training_course_one)
@@ -64,7 +64,7 @@ describe TrainingCourse do
     tc6.reload
 
     tc6.prerequisites.must_include tc4
-    tc6.prerequisites.must_include tc5    
+    tc6.prerequisites.must_include tc5
     tc6.prerequisites.wont_include tc1
   end
 

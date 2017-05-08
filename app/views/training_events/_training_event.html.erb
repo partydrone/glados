@@ -1,19 +1,17 @@
-<div class="post-card">
+<div class="post-card large-6 columns end">
     <div class="row">
-        <div class="small-8 columns">
+        <div class="large-8 columns">
             <h3><%= training_event.title %></h3>
-            <div class="ellipsed-text">
-                <p><%= training_event.description %></p>
-            </div>
+            <p><%= training_event.description.truncate(100, separator: /\s/) %></p>
         </div>
-        <div class="small-4 columns event-location">
+        <div class="large-4 columns event-location">
             <h6 class="event-city"><%= training_event.location %></h6>
             <h6 class="event-date"><%= l training_event.started_at.to_date, format: :long %></h6>
             <% if !training_event.start_time.nil? %>
                 <h6 class="event-time"><%= training_event.start_time %></h6>                    
             <% end %>
         </div>
-        <div class="small-8 columns end">
+        <div class="large-8 columns end">
             <button class="button expanded rounded"><%= link_to 'Learn More', training_event %></button>
         </div>
     </div>
