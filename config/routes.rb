@@ -97,7 +97,7 @@ Rails.application.routes.draw do
               only: [:index, :show]
 
     resources :results,
-              :media_library,
+              :media_downloads,
               only: [:index]
 
     resources :knowledge_base_articles do

@@ -1,4 +1,4 @@
-class MediaLibraryController < ApplicationController
+class MediaDownloadsController < ApplicationController
 
     def index
         @media_downloads = MediaDownload.limit(6)
