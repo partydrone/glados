@@ -23,29 +23,23 @@ describe ContentFilter do
     end
 
     it "doesn't do anything if nothing is filtered" do
-      blog = BlogPost.new
-      blog.posted_on = 2.days.ago
-      case_study = CaseStudy.new
+      blog_post.posted_on = 2.days.ago
       case_study.posted_on = 2.days.ago
-      collection = [blog, case_study]
+      collection = [blog_post, case_study]
       ContentFilter.new(collection).filter(:marketing_content).must_equal collection
     end
 
     describe "marketing_content" do
       it "filters out everything but marketing content" do
-        blog = BlogPost.new
-        blog.posted_on = 2.days.ago
-        case_study = CaseStudy.new
+        blog_post.posted_on = 2.days.ago
         case_study.posted_on = 2.days.ago
-        feature = Feature.new
-        feature.body = 'bodynotblank'
-        kb_article = KnowledgeBaseArticle.new
+        product_feature.body = 'bodynotblank'
         kb_article.posted_on = 2.days.ago
-        collection = [blog, case_study, feature, kb_article]
+        collection = [blog_post, case_study, product_feature, kb_article]
 
-        ContentFilter.new(collection).filter(:marketing_content).must_include blog
+        ContentFilter.new(collection).filter(:marketing_content).must_include blog_post
         ContentFilter.new(collection).filter(:marketing_content).must_include case_study
-        ContentFilter.new(collection).filter(:marketing_content).must_include feature
+        ContentFilter.new(collection).filter(:marketing_content).must_include product_feature
 
         ContentFilter.new(collection).filter(:marketing_content).wont_include kb_article
       end
