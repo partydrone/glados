@@ -17,7 +17,6 @@ class ContentFilter
       ( object.class == CaseStudy && !object.published? ) ||
       ( object.class == Feature && object.body.blank? )
     ),
-    support_content: %(object.class != KnowledgeBaseArticle),
-    test: %(object.class == String)
+    support_content: %(object.class != KnowledgeBaseArticle)    
   }
 end
