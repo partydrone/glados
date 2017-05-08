@@ -60,7 +60,7 @@ describe Admin::DealersController, :locale do
             name: dealer.name
           }
         }
-        must_redirect_to admin_dealer_path(dealer)
+         must_respond_with :success
       end
 
       it "destroys a dealer" do
