@@ -21,4 +21,8 @@ class Article < ApplicationRecord
   def to_param
     "#{id}-#{title.parameterize}"
   end
+
+  def published?
+    posted_on < Date.tomorrow
+  end
 end
