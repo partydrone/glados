@@ -197,6 +197,8 @@ training_course_types = TrainingCourseType.order(:name)
   TrainingCourse.find_or_create_by(title: training_course[:title]) do |tc|
     tc.duration    = training_course[:duration]
     tc.description = training_course[:description]
+    tc.training_course_type_id = training_course[:training_course_type_id]
+    tc.summary = training_course[:summary]
   end
 end
 
@@ -240,19 +242,23 @@ training_courses[2].prerequisites << training_courses[0]
   TrainingEvent.find_or_create_by(title: training_event[:title]) do |te|
     te.location    = training_event[:location]
     te.description = training_event[:description]
+    te.started_at = training_event[:started_at]
+    te.ended_at = training_event[:ended_at]
   end
 end
 
 training_events = TrainingEvent.order(:title)
 
 ##
-# Training Event Courses
+# Training Event Course
+
+
 [
   { training_course_id: training_courses[0].id, training_event_id: training_events[0].id, seats:5, started_at: 72.hours.from_now.to_s(:db), ended_at: 75.hours.from_now.to_s(:db), room: 'Library 401'},
   { training_course_id: training_courses[1].id, training_event_id: training_events[0].id, seats:0, started_at: 72.hours.from_now.to_s(:db), ended_at: 75.hours.from_now.to_s(:db), room: 'Library 301'},
   { training_course_id: training_courses[2].id, training_event_id: training_events[0].id, seats:0, started_at: 72.hours.from_now.to_s(:db), ended_at: 75.hours.from_now.to_s(:db), room: 'Ball Room'}
 ].each do |training_event_course|
-  TrainingEvent.find_or_create_by(training_course_id: training_event_course[:training_course_id]) do |tec|
+  TrainingEventCourse.find_or_create_by(training_course_id: training_event_course[:training_course_id]) do |tec|
     tec.training_event_id = training_event_course[:training_event_id]
     tec.seats             = training_event_course[:seats]
     tec.started_at        = training_event_course[:started_at]
