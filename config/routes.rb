@@ -96,7 +96,9 @@ Rails.application.routes.draw do
               :website_terms_of_use_documents,
               only: [:index, :show]
 
-    resources :results, only: [:index]
+    resources :results,
+              :media_downloads,
+              only: [:index]
 
     resources :knowledge_base_articles do
       get :vote, on: :member

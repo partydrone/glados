@@ -1,0 +1,15 @@
+<section class="row about-media" id="downloads" data-magellan-target="downloads">
+    <div class="small-12 columns">
+      <h1>Media Library</h1>
+    </div>
+
+    <%= render partial: 'media_download', collection: @media_downloads %>
+
+    <!-- if more than 6 media available -->
+    <%= content_tag :div, class: 'read-more small-12 columns' do %>
+      <a href="#" class="expand-container"><%= t('.more_media') %></a>
+    <% end if MediaDownload.count > 6 %>
+  </section>
+
+  </div>
+</div>
