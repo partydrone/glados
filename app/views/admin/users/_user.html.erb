@@ -1,0 +1,24 @@
+<tr>
+  <td class="admin-left-edit">
+    <%= render partial: 'options_edit', locals: {object: user, instance_name: user.name} if policy(user).edit? %>
+  </td>
+  <td>
+    <%= user.name %>
+  </td>
+  <td>
+    <%= user.email %>
+  </td>
+  <td>
+    <%= user.provider %>
+  </td>
+  <td>
+    <% user.roles.each do |role| %>
+      <span class="secondary label radius">
+        <%= role.name.humanize %>
+      </span>
+    <% end %>
+  </td>
+  <td class="admin-right-delete">
+    <%= render partial: 'options_delete', locals: {object: user, instance_name: user.name} if policy(user).destroy? %>
+  </td>
+</tr>

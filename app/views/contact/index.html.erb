@@ -129,7 +129,7 @@
 
 		  	<% if @pg_search_documents.any?{|document| document.searchable_type == "Territory" || document.searchable_type == "Dealer" } %>
 		  	<% else %>
-		  		<li class="columns"><h4>No results were found for your search. Please contact our Corporate Headquarters for more information.</h4></li>
+		  		<li style="width: 100%; margin: 0 20px;"><h4>No results were found for your search. Please contact our Corporate Headquarters for more information.</h4></li>
 		  	<% end %>
 
 		  </ul>
@@ -154,7 +154,7 @@
 					<p><%= image_tag('icons/fax_print.svg', class: "small-icon") %>+1 (801) 734-7201</p>
 				</div>
 			</div>
-			<div class="large-3 medium-6 columns end">
+			<div class="large-3 medium-6 columns end contact-social">
 				<h3>Social Media</h3>
         <%= link_to "https://www.linkedin.com/company/53678" do %>
           <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
