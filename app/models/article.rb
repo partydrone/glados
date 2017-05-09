@@ -7,7 +7,7 @@ class Article < ApplicationRecord
 
   attachment :hero_image, content_type: %w(image/jpeg image/png image/gif)
 
-  validates :title, :subtitle, :body, :posted_on, presence: true
+  validates :title, :body, :posted_on, presence: true
 
   scope :current, -> { where 'posted_on < ?', Date.tomorrow }
   scope :news_articles, -> { where type: ['BlogPost', 'CaseStudy'] }
@@ -20,5 +20,9 @@ class Article < ApplicationRecord
 
   def to_param
     "#{id}-#{title.parameterize}"
+  end
+
+  def published?
+    posted_on < Date.tomorrow
   end
 end

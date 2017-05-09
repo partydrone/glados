@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '>= 5.0.0', '< 5.1'
+gem 'rails', '~> 5.1'
 
 ##
 # Defaults
@@ -25,6 +25,9 @@ gem 'nested_form_fields'
 ##
 # Authentication
 gem 'omniauth-identity'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-linkedin-oauth2', github: 'decioferreira/omniauth-linkedin-oauth2', branch: 'master'
+gem 'omniauth-azure-activedirectory'
 gem 'pundit'
 gem 'rolify'
 

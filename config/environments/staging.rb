@@ -9,5 +9,5 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = '//dw8wks5reei42.cloudfront.net'
+  config.action_controller.asset_host = '//assets.glados.staging.wavetronix.com'
 end

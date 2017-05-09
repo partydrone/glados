@@ -83,6 +83,13 @@
 	    		<% end %>
 	    	<% end %>
 	    </div>
+	    <% if @pg_search_site.count == 0 %>
+	    	<div class="columns result-container">
+				<div class="row">
+					<h4>No results found</h4>
+    			</div>
+    		</div>
+	    <% end %>
     <% end %>
 
 </div>
