@@ -9,7 +9,7 @@
       </h2>
       <%= content_tag :p, product.summary %>
       <% if product.name == "SmartSensor Rail" %>
-        <%= link_to "Learn more at Island Radar", "http://www.islandradar.com/", class: "goto-new" %>
+        <%= link_to "Learn more at Island Radar", "http://www.islandradar.com/", class: "goto-new", :target => "_blank" %>
       <% else %>
         <%= link_to "Learn More", product_path(product), class: "goto-new" %>
       <% end %>

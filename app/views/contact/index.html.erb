@@ -80,7 +80,12 @@
 							<%= t "countries.#{dealer.country_id}" %><br/>
 							<% if dealer.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= dealer.phone %><br/><% end %>
 							<% if dealer.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= dealer.email %><br/><% end %>
-							<% if dealer.website.present? %><%= image_tag('icons/world.svg', class: "small-icon") %><%= dealer.website %></p><% end %>
+							<% if dealer.website.present? %>
+								<%= link_to "#{dealer.website}", :target=> "_blank" do %>
+									<%= image_tag('icons/world.svg', class: "small-icon") %>
+								<% end %>
+							<% end %>
+							</p>
 						</div>
 			      </li>
 			      <li class="column column-block">
@@ -160,16 +165,16 @@
 			</div>
 			<div class="large-3 medium-6 columns end">
 				<h3>Social Media</h3>
-        <%= link_to "https://www.linkedin.com/company/53678" do %>
+        <%= link_to  "https://www.linkedin.com/company/53678", :target=> "_blank" do %>
           <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
         <% end %>
-        <%= link_to "https://twitter.com/wavetronix_llc" do %>
+        <%= link_to "https://twitter.com/wavetronix_llc", :target=> "_blank" do %>
           <%=image_tag('icons/Twitter.svg', class: "icon") %>
         <% end %>
-        <%= link_to "https://www.facebook.com/wavetronix/" do %>
+        <%= link_to "https://www.facebook.com/wavetronix/", :target=> "_blank" do %>
           <%=image_tag('icons/Facebook.svg', class: "icon") %>
         <% end %>
-        <%= link_to "https://plus.google.com/b/107158630240614790564/?pageId=107158630240614790564" do %>
+        <%= link_to "https://plus.google.com/b/107158630240614790564/?pageId=107158630240614790564", :target=> "_blank" do %>
           <%=image_tag('icons/Google.svg', class: "icon") %>
         <% end %>
         <%= mail_to "sales@wavetronix.com" do %>
