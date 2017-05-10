@@ -80,7 +80,12 @@
 							<%= t "countries.#{dealer.country_id}" %><br/>
 							<% if dealer.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= dealer.phone %><br/><% end %>
 							<% if dealer.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= dealer.email %><br/><% end %>
-							<% if dealer.website.present? %><%= image_tag('icons/world.svg', class: "small-icon") %><%= dealer.website %></p><% end %>
+							<% if dealer.website.present? %>
+								<%= link_to "#{dealer.website}", :target=> "_blank" do %>
+									<%= image_tag('icons/world.svg', class: "small-icon") %>
+								<% end %>
+							<% end %>
+							
 						</div>
 				    </li>
 				    <li class="column column-block">

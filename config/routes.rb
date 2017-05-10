@@ -3,6 +3,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   scope '(:locale)', locale: /(?:[a-z]{2,2})(?:[-|_](?:[A-Z]{2,2}))?/ do
     mount Ckeditor::Engine => '/ckeditor'
@@ -10,8 +11,8 @@ Rails.application.routes.draw do
     ##
     # Authentication routes
     get '/auth/identity', to: 'sessions#new', as: :sign_in
+    match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
     get '/auth/failure', to: 'identities#authentication_failure'
-    post '/auth/:provider/callback', to: 'sessions#create'
     delete '/sign_out', to: 'sessions#destroy', as: :sign_out
 
     ##
@@ -29,8 +30,8 @@ Rails.application.routes.draw do
                 :case_studies,
                 :dealers,
                 :features,
-                :products,
                 :knowledge_base_articles,
+                :products,
                 :return_material_authorization_policy_documents,
                 :sales_terms_and_conditions_documents,
                 :territories,
@@ -39,15 +40,18 @@ Rails.application.routes.draw do
                 :website_terms_of_use_documents
 
       resources :product_categories,
-                :offices,concerns: :sortable
+                :offices,
+                concerns: :sortable
 
       resources :downloads,
                 :media_downloads,
                 :patents,
+                :roles,
                 :training_course_types,
                 :training_courses,
-                :users,
                 except: [:show]
+
+      resources :users, except: [:show, :new, :create]
 
       resources :download_types,
                 :product_types,
@@ -86,13 +90,15 @@ Rails.application.routes.draw do
               :products,
               :return_material_authorization_policy_documents,
               :sales_terms_and_conditions_documents,
-              :website_privacy_policy_documents,
-              :website_terms_of_use_documents,
               :training_courses,
               :training_events,
+              :website_privacy_policy_documents,
+              :website_terms_of_use_documents,
               only: [:index, :show]
 
-    resources :results, only: [:index]
+    resources :results,
+              :media_downloads,
+              only: [:index]
 
     resources :knowledge_base_articles do
       get :vote, on: :member

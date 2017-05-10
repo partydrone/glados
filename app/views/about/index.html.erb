@@ -141,22 +141,14 @@
       </div>
     </div>
   </section>
-
-  <section class="row about-media" id="downloads" data-magellan-target="downloads">
-    <div class="small-12 columns">
-      <h1>Media Library</h1>
-    </div>
-
-    <%= render partial: 'media_download', collection: @media_downloads %>
-
-    <!-- if more than 6 media available -->
-    <%= content_tag :div, class: 'read-more small-12 columns' do %>
-      <a href="#" class="expand-container"><%= t('.more_media') %></a>
-    <% end if MediaDownload.count > 6 %>
-  </section>
-
   </div>
 </div>
+<section class="about-media-container" id="downloads" data-magellan-target="downloads">
+  <%= image_tag 'icons/download-icon.svg', class: 'large-icon' %>
+  <h1>Downloads</h1>    
+      <p>Browse and download from a selection of Wavetronix product images</p>    
+  <%= link_to t('.downloads'), media_downloads_path, class: 'button rounded large' %>
+</section>
 
 <section class="about-careers-container" id="careers" data-magellan-target="careers">
   <%= image_tag 'icons/careers.svg', class: 'large-icon' %>
@@ -169,4 +161,7 @@
   <h1><%= t(".legal") %></h1>
   <!-- <button class="button rounded large"><%= t('.view_legal') %></button> -->
   <%= link_to t('.view_legal'), legal_path, class: 'button rounded large' %>
+</section>
+
+<section class="about-filler-container">
 </section>

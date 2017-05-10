@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
-  include Pundit
-
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+
+  include Pundit
 
   before_action :enable_profiler, :set_locale
 
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   def permission_denied
     if current_user
       flash[:alert] = "You tried to access something you're not authorized to."
-      redirect_to :back rescue redirect_to root_path
+      redirect_back fallback_location: root_path
     else
       store_location
       redirect_to sign_in_path

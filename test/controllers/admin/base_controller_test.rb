@@ -15,7 +15,7 @@ describe Admin::BaseController, :locale do
   end
 
   describe "without authenticated user" do
-    it "redirects to sign in for index" do
+    it "prohibits index" do
       get admin_root_path
       must_respond_with :redirect
     end

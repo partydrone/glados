@@ -61,4 +61,14 @@ describe Article do
     Article.news_articles.must_include case_study
     Article.news_articles.wont_include kb_article
   end
+
+  it "checks if article is published" do
+    article.posted_on = 2.days.ago
+    article.published?.must_equal true    
+  end
+
+  it "checks if article is not published" do
+    article.posted_on = 2.days.from_now
+    article.published?.must_equal false
+  end
 end

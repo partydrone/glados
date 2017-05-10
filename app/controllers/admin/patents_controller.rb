@@ -5,10 +5,12 @@ module Admin
 
     def index
       @patents = Patent.all
+      authorize @patents
     end
 
     def new
       @patent = Patent.new
+      authorize @patent
     end
 
     def edit
@@ -16,6 +18,7 @@ module Admin
 
     def create
       @patent = Patent.new(patent_params)
+      authorize @patent
 
       if @patent.save
         redirect_to admin_patents_path, notice: %(Saved "#{@patent.title}" successfully.)
@@ -43,6 +46,7 @@ module Admin
 
     def set_patent
       @patent = Patent.find(params[:id])
+      authorize @patent
     end
 
     def patent_params

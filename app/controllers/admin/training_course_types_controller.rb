@@ -4,10 +4,12 @@ module Admin
 
     def index
       @training_course_types = TrainingCourseType.all
+      authorize @training_course_types
     end
 
     def new
       @training_course_type = TrainingCourseType.new
+      authorize @training_course_type
     end
 
     def edit
@@ -15,6 +17,7 @@ module Admin
 
     def create
       @training_course_type = TrainingCourseType.new(training_course_type_params)
+      authorize @training_course_type
 
       if @training_course_type.save
         redirect_to admin_training_course_types_path, notice: %(Saved "#{@training_course_type.name}" successfully.)
@@ -40,6 +43,7 @@ module Admin
 
     def set_training_course_type
       @training_course_type = TrainingCourseType.find(params[:id])
+      authorize @training_course_type
     end
 
     def training_course_type_params
