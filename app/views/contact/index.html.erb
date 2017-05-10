@@ -124,7 +124,10 @@
 							<%= pg.searchable.city %><br/>
 							<%= pg.searchable.region %><br/>
 							<%= pg.searchable.zip %><br/>
-							<%= t "countries.#{pg.searchable.country_id}" %></p>
+							<%= t "countries.#{pg.searchable.country_id}" %><br/>
+							<% if pg.searchable.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= pg.searchable.phone %><br/><% end %>
+							<% if pg.searchable.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= pg.searchable.email %><br/><% end %>
+							<% if pg.searchable.website.present? %><%= image_tag('icons/world.svg', class: "small-icon") %><%= pg.searchable.website %></p><% end %>
 						</div>
 			      	</li>
 			      	<li class="column column-block">
