@@ -214,7 +214,6 @@
 }
 
 .article-tags {
-	border-top: 1px solid $steel;
 	padding: 0 0 5px 5px;
 	margin-bottom:20px;
 	width: 100%;
@@ -235,6 +234,9 @@ Tags
 		@media screen and (max-width: 40em) {
 			margin-bottom: 25px;
 		}
+	}
+	.article-tags-container {
+		border-top: 1px solid $steel;
 	}
 
 
