@@ -4,6 +4,7 @@ module Admin
 
   	def index
       @territories = Territory.all
+      authorize @territories
     end
 
     def show
@@ -11,6 +12,7 @@ module Admin
 
   	def new
       @territory = Territory.new
+      authorize @territories
     end
 
     def edit
@@ -18,7 +20,7 @@ module Admin
 
     def create
       @territory = Territory.new(territory_params)
-
+      authorize @territories
       if @territory.save
         redirect_to admin_territories_path, notice: %(Saved "#{@territory.name}" successfully.)
       else
@@ -27,6 +29,7 @@ module Admin
     end
 
     def update
+      authorize @territories
       if @territory.update(territory_params)
         redirect_to admin_territory_path(@territory), notice: %(Updated "#{@territory.name}" successfully.)
       else
@@ -35,6 +38,7 @@ module Admin
     end
 
     def destroy
+      authorize @territories
       @territory.destroy
       redirect_to admin_territories_path, notice: %(Deleted "#{@territory.name}" successfully.)
     end
