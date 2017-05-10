@@ -64,9 +64,10 @@
 			<div class="row columns text-right">
 		  	<%= link_to "close x", contact_path %>
 		  </div>
-		  <ul class="row small-up-2 large-up-4">
+		  <ul class="row small-up-2 large-up-2">
 		  	<% @pg_search_documents.each do |pg| %>
 		  		<% if pg.searchable_type == "Territory" %>
+		  			<% if pg.searchable.dealer.present? %>
 		  			<li class="column column-block">
 						<div class="office-information">
 							<% dealer = Dealer.find(pg.searchable.dealer) %>
@@ -81,21 +82,37 @@
 							<% if dealer.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= dealer.email %><br/><% end %>
 							<% if dealer.website.present? %><%= image_tag('icons/world.svg', class: "small-icon") %><%= dealer.website %></p><% end %>
 						</div>
-			      </li>
-			      <li class="column column-block">
-			      	<div class="office-information">
-				      	<% office = Office.find(pg.searchable.office) %>
-			      		<h6>Office for <%= dealer.name %></h6>
-			      		<h3><%= office.name %></h3>
-			      		<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.address %><br/>
-						<%= office.city %><br/>
-						<%= office.region %><br/>
-						<%= office.zip %><br/>
-						<%= t "countries.#{office.country}" %><br/>
-						<% if office.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%=office.phone %><br/><% end %>
-						<% if office.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= office.email %></p><% end %>
-			      	</div>
-			      </li>
+				    </li>
+				    <li class="column column-block">
+				      	<div class="office-information">
+					      	<% office = Office.find(pg.searchable.office) %>
+				      		<h6>Office for <%= dealer.name %></h6>
+				      		<h3><%= office.name %></h3>
+				      		<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.address %><br/>
+							<%= office.city %><br/>
+							<%= office.region %><br/>
+							<%= office.zip %><br/>
+							<%= t "countries.#{office.country}" %><br/>
+							<% if office.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%=office.phone %><br/><% end %>
+							<% if office.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= office.email %></p><% end %>
+				      	</div>
+				    </li>
+				    <% else %>
+				    	<li class="column column-block">
+				      		<div class="office-information">
+						    	<% office = Office.find(pg.searchable.office) %>
+						    	<h6>Office for <%= pg.searchable.name %></h6>
+						    	<h3><%= office.name %></h3>
+						    	<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.address %><br/>
+									<%= office.city %><br/>
+									<%= office.region %><br/>
+									<%= office.zip %><br/>
+									<%= t "countries.#{office.country}" %><br/>
+									<% if office.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%=office.phone %><br/><% end %>
+									<% if office.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= office.email %></p><% end %>
+							</div>
+						</li>
+				    <% end %>
 			    <% end %>
 			    <% if pg.searchable_type == "Dealer" %>
 			     	<li class="column column-block">
@@ -127,7 +144,7 @@
 		  		<% end %>
 		  	<% end %>
 
-		  	<% if @pg_search_documents.any?{|document| document.searchable_type == "Territory" || document.searchable_type == "Dealer" } %>
+		  	<% if @pg_search_documents.any?{|document| document.searchable_type == "Dealer"  || document.searchable_type == "Territory" } %>
 		  	<% else %>
 		  		<li style="width: 100%; margin: 0 20px;"><h4>No results were found for your search. Please contact our Corporate Headquarters for more information.</h4></li>
 		  	<% end %>
@@ -152,25 +169,23 @@
 					<p>United States</p>
 					<p><%= image_tag('icons/phone.svg', class: "small-icon") %>(801) 734-7200</p>
 					<p><%= image_tag('icons/fax_print.svg', class: "small-icon") %>+1 (801) 734-7201</p>
+					<p><%= image_tag('icons/email.svg', class: "small-icon") %>sales@wavetronix.com</p>
 				</div>
 			</div>
 			<div class="large-3 medium-6 columns end contact-social">
 				<h3>Social Media</h3>
-        <%= link_to "https://www.linkedin.com/company/53678" do %>
-          <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
-        <% end %>
-        <%= link_to "https://twitter.com/wavetronix_llc" do %>
-          <%=image_tag('icons/Twitter.svg', class: "icon") %>
-        <% end %>
-        <%= link_to "https://www.facebook.com/wavetronix/" do %>
-          <%=image_tag('icons/Facebook.svg', class: "icon") %>
-        <% end %>
-        <%= link_to "https://plus.google.com/b/107158630240614790564/?pageId=107158630240614790564" do %>
-          <%=image_tag('icons/Google.svg', class: "icon") %>
-        <% end %>
-        <%= mail_to "sales@wavetronix.com" do %>
-        	<%=image_tag('icons/email.svg', class: "icon") %>
-     		<% end %>
+		        <%= link_to "https://www.linkedin.com/company/53678" do %>
+		          <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
+		        <% end %>
+		        <%= link_to "https://twitter.com/wavetronix_llc" do %>
+		          <%=image_tag('icons/Twitter.svg', class: "icon") %>
+		        <% end %>
+		        <%= link_to "https://www.facebook.com/wavetronix/" do %>
+		          <%=image_tag('icons/Facebook.svg', class: "icon") %>
+		        <% end %>
+		        <%= link_to "https://plus.google.com/b/107158630240614790564/?pageId=107158630240614790564" do %>
+		          <%=image_tag('icons/Google.svg', class: "icon") %>
+		        <% end %>
 			</div>
 			<div class="large-3 medium-6 columns end">
 				<h3>Public Relations</h3>
