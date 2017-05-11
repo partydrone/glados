@@ -67,7 +67,7 @@
 		  <ul class="row small-up-1 medium-up-2">
 		  	<% @pg_search_documents.each do |pg| %>
 		  		<% if pg.searchable_type == "Territory" %>
-		  			<% if pg.searchable.dealer.present? %>
+	
 		  			<li class="column column-block">
 						<div class="office-information">
 							<% dealer = Dealer.find(pg.searchable.dealer) %>
@@ -102,30 +102,14 @@
 							<% if office.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= office.email %></p><% end %>
 				      	</div>
 				    </li>
-				    <% else %>
-				    	<li class="column column-block">
-				      		<div class="office-information">
-						    	<% office = Office.find(pg.searchable.office) %>
-						    	<h6>Office for <%= pg.searchable.name %></h6>
-						    	<h3><%= office.name %></h3>
-						    	<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.address %><br/>
-									<%= office.city %><br/>
-									<%= office.region %><br/>
-									<%= office.zip %><br/>
-									<%= t "countries.#{office.country}" %><br/>
-									<% if office.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%=office.phone %><br/><% end %>
-									<% if office.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= office.email %></p><% end %>
-							</div>
-						</li>
-				    <% end %>
+
 			    <% end %>
 			    <% if pg.searchable_type == "Dealer" %>
 			     	<li class="column column-block">
 						<div class="office-information">
 							<% if Territory.where("dealer like ?", "%#{pg.searchable.id}%").first.present? %>
-
-							<% territory = Territory.where("dealer like ?", "%#{pg.searchable.id}%").first %>
-							<h6>Dealer for <%= territory.name %></h6>
+								<% territory = Territory.where("dealer like ?", "%#{pg.searchable.id}%").first %>
+								<h6>Dealer for <%= territory.name %></h6>
 							<% end %>
 							<h3><%= pg.searchable.name %></h3>
 							<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= pg.searchable.address %><br/>
