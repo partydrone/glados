@@ -82,7 +82,7 @@
 							<% if dealer.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= dealer.email %><br/><% end %>
 							<% if dealer.website.present? %>
 								<%= link_to "#{dealer.website}", :target=> "_blank" do %>
-									<%= image_tag('icons/world.svg', class: "small-icon") %>
+									<%= image_tag('icons/world.svg', class: "small-icon") %><%= dealer.website %>
 								<% end %>
 							<% end %>
 							
