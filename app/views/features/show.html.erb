@@ -6,22 +6,22 @@
         <nav data-magellan>
           <ul class="horizontal menu">
             <li>
-              <%= link_to "http://www.linkedin.com/shareArticle?mini=true&amp;url=#{request.url}" do %>
+              <%= link_to "http://www.linkedin.com/shareArticle?mini=true&amp;url=#{request.url}",:target=> "_blank" do %>
                 <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
               <% end %>
             </li>
             <li>
-              <%= link_to "https://twitter.com/share?url=#{request.url}&amp;text=#{@feature.title}&amp;hashtags=wavetronix" do %>
+              <%= link_to "https://twitter.com/share?url=#{request.url}&amp;text=#{@feature.title}&amp;hashtags=wavetronix",:target=> "_blank" do %>
                 <%=image_tag('icons/Twitter.svg', class: "icon") %>
               <% end %>
             </li>
             <li>
-              <%= link_to "http://www.facebook.com/sharer.php?u=#{request.url}" do %>
+              <%= link_to "http://www.facebook.com/sharer.php?u=#{request.url}",:target=> "_blank" do %>
                 <%=image_tag('icons/Facebook.svg', class: "icon") %>
               <% end %>
             </li>
             <li>
-              <%= link_to "https://plus.google.com/share?url=#{request.url}" do %>
+              <%= link_to "https://plus.google.com/share?url=#{request.url}",:target=> "_blank" do %>
                 <%=image_tag('icons/Google.svg', class: "icon") %>
               <% end %>
             </li>
@@ -61,22 +61,22 @@
       <nav class="social-media-side" data-magellan>
         <ul class="vertical menu">
           <li>
-            <%= link_to "http://www.linkedin.com/shareArticle?mini=true&amp;url=#{request.url}" do %>
+            <%= link_to "http://www.linkedin.com/shareArticle?mini=true&amp;url=#{request.url}",:target=> "_blank" do %>
               <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
             <% end %>
           </li>
           <li>
-            <%= link_to "https://twitter.com/share?url=#{request.url}&amp;text=#{@feature.title}&amp;hashtags=wavetronix" do %>
+            <%= link_to "https://twitter.com/share?url=#{request.url}&amp;text=#{@feature.title}&amp;hashtags=wavetronix",:target=> "_blank" do %>
               <%=image_tag('icons/Twitter.svg', class: "icon") %>
             <% end %>
           </li>
           <li>
-            <%= link_to "http://www.facebook.com/sharer.php?u=#{request.url}" do %>
+            <%= link_to "http://www.facebook.com/sharer.php?u=#{request.url}",:target=> "_blank" do %>
               <%=image_tag('icons/Facebook.svg', class: "icon") %>
             <% end %>
           </li>
           <li>
-            <%= link_to "https://plus.google.com/share?url=#{request.url}" do %>
+            <%= link_to "https://plus.google.com/share?url=#{request.url}",:target=> "_blank" do %>
               <%=image_tag('icons/Google.svg', class: "icon") %>
             <% end %>
           </li>
