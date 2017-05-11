@@ -61,7 +61,7 @@
 .contact-search-results {
 	background: $ghost;
 	width: 100%;
-	padding: 20px 20px;
+	padding: 20px 20px 20px 100px;
 	margin-bottom: 20px;
 	margin-top: -300px;
 	p {
@@ -77,6 +77,7 @@
 	}
 	@media screen and (max-width: 695px) {
 		margin-top: 0;
+		padding-left: 50px;
 	}
 }
 
