@@ -122,8 +122,11 @@
 			    <% if pg.searchable_type == "Dealer" %>
 			     	<li class="column column-block">
 						<div class="office-information">
+							<% if Territory.where("dealer like ?", "%#{pg.searchable.id}%").first.present? %>
+
 							<% territory = Territory.where("dealer like ?", "%#{pg.searchable.id}%").first %>
 							<h6>Dealer for <%= territory.name %></h6>
+							<% end %>
 							<h3><%= pg.searchable.name %></h3>
 							<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= pg.searchable.address %><br/>
 							<%= pg.searchable.city %><br/>
@@ -135,20 +138,35 @@
 							<% if pg.searchable.website.present? %><%= image_tag('icons/world.svg', class: "small-icon") %><%= pg.searchable.website %></p><% end %>
 						</div>
 			      	</li>
-			      	<li class="column column-block">
-						<div class="office-information">
-							<% office = Office.find(territory.office) %>
-							<h6>Office for <%= pg.searchable.name %></h6>
-							<h3><%= office.name %></h3>
-			      			<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.address %><br/>
-							<%= office.city %><br/>
-							<%= office.region %><br/>
-							<%= office.zip %><br/>
-							<%= t "countries.#{office.country}" %><br/>
-							<% if office.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.phone %><br/><% end %>
-							<% if office.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= office.email %></p><% end %>
-						</div>
-			      	</li>
+			      	<% if Territory.where("dealer like ?", "%#{pg.searchable.id}%").first.present? %>
+				      	<li class="column column-block">
+							<div class="office-information">
+								<% office = Office.find(territory.office) %>
+								<h6>Office for <%= pg.searchable.name %></h6>
+								<h3><%= office.name %></h3>
+				      			<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.address %><br/>
+								<%= office.city %><br/>
+								<%= office.region %><br/>
+								<%= office.zip %><br/>
+								<%= t "countries.#{office.country}" %><br/>
+								<% if office.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.phone %><br/><% end %>
+								<% if office.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= office.email %></p><% end %>
+							</div>
+				      	</li>
+			      	<% else %>
+				      	<li class="column column-block">
+				      		<div class="office-information">
+				      			<h3>Wavetronix Headquarters</h3>
+								<p><%= image_tag('icons/map_location.svg', class: "small-icon") %>78 E 1700 S<br/>
+								Provo, UT<br/>
+								84606<br/>
+								United States<br/>
+								<%= image_tag('icons/phone.svg', class: "small-icon") %>(801) 734-7200<br/>
+								<%= image_tag('icons/fax_print.svg', class: "small-icon") %>+1 (801) 734-7201<br/>
+								<%= image_tag('icons/email.svg', class: "small-icon") %>sales@wavetronix.com</p>
+				      		</div>
+				      	</li>
+			      	<% end %>
 		  		<% end %>
 		  	<% end %>
 
