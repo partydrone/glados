@@ -8,6 +8,7 @@ module Admin
     end
 
     def show
+      authorize @territory
     end
 
   	def new
@@ -16,6 +17,7 @@ module Admin
     end
 
     def edit
+      authorize @territory
     end
 
     def create
@@ -29,7 +31,7 @@ module Admin
     end
 
     def update
-      authorize @territories
+      authorize @territory
       if @territory.update(territory_params)
         redirect_to admin_territory_path(@territory), notice: %(Updated "#{@territory.name}" successfully.)
       else
@@ -38,7 +40,7 @@ module Admin
     end
 
     def destroy
-      authorize @territories
+      authorize @territory
       @territory.destroy
       redirect_to admin_territories_path, notice: %(Deleted "#{@territory.name}" successfully.)
     end
