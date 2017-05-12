@@ -67,6 +67,7 @@
 
 
 		  <ul class="row small-up-1 medium-up-2">
+		  	<% @pg_search_documents.uniq.each do |pg| %>
 		  		<% if pg.searchable_type == "Territory" %>
 		  			<li class="column column-block">
 						<div class="office-information">
@@ -102,7 +103,7 @@
 				      	</div>
 				    </li>
 			    <% end %>
-			    <% if pg.searchable_type == "Dealer" %>  	
+			    <% if pg.searchable_type == "Dealer" %>
 			     	<li class="column column-block">
 						<div class="office-information">
 							<% if Territory.where("dealer like ?", "%#{pg.searchable.id}%").first.present? %>
