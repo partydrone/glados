@@ -51,3 +51,6 @@ bower.json
 # Ignore any local encryption keys
 *.aes
 .vscode/launch.json
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key
