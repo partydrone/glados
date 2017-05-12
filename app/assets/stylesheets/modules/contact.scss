@@ -22,6 +22,13 @@
 		}
 		@media screen and (max-width: 60em) {
 			top: 50px;
+			margin: 0 15%;
+			width: 70%;
+		}
+		@media screen and (max-width: 40em) {
+			top: 30px;
+			margin-left: auto;
+			width: 100%;
 		}
 		button {
 			background: none;
@@ -62,11 +69,20 @@
 	}
 	.column-block {
 		z-index: 5;
+		position: relative;
+		margin-bottom: 20px;
 	}
 	@media screen and (max-width: 1024px) {
 		margin-top: -200px;
 	}
 	@media screen and (max-width: 695px) {
 		margin-top: 0;
+	}
+}
+
+.contact-social {
+	position: relative;
+	a {
+		margin-right: 8px;
 	}
 }

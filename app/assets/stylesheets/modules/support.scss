@@ -70,8 +70,23 @@ select.support-dropdown {
 	}
 }
 
-.support-returns-container {
+.support-contact-container {
 	background: $ghost;
+	text-align: center;
+	margin-top: 3em;
+	padding: 5rem 0;
+	img {
+		padding-bottom: 0.75rem;
+	}
+	.button {
+		margin: 1.5rem 1rem 0 1rem;
+	}
+	@media screen and (max-width: 1023px) {
+		margin-bottom: 7rem;
+	}
+}
+
+.support-returns-container {
 	text-align: center;
 	margin-top: 3em;
 	padding: 5rem 0;
@@ -138,6 +153,7 @@ select.support-dropdown {
 }
 
 .support-app-container {
+	background: $ghost;
 	text-align: center;
 	margin-top: 3em;
 	padding: 5rem 0;
@@ -151,8 +167,8 @@ select.support-dropdown {
 		margin-bottom: 7rem;
 	}
 	@media screen and (min-width: 1024px) {
-	   min-height: -webkit-calc(100vh - 100px);
-	   min-height: -moz-calc(100vh - 100px);
-	   min-height: calc(100vh - 100px);
+	   min-height: -webkit-calc(100vh - 200px);
+	   min-height: -moz-calc(100vh - 200px);
+	   min-height: calc(100vh - 200px);
   	}
 }
