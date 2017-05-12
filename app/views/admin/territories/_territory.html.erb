@@ -9,7 +9,9 @@
     <%= t "countries.#{territory.country}" %>
   </td>
   <td>
-    <%= Office.find(territory.office).name %>
+    <% if territory.office %>
+      <%= Office.find(territory.office).name %>
+    <% end %>
   </td>
   <td class="admin-right-delete">
     <%= render partial: 'options_delete', locals: {object: territory, instance_name: territory.name} %>

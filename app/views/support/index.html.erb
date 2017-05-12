@@ -92,6 +92,15 @@
 	</div>
 </div>
 
+<div class="support-contact-container" id="contact">
+	<div class="row">
+		<%= image_tag 'icons/person.svg', class: "large-icon" %>
+		<h1><%= t(".contact_us") %></h1>
+		<h4><%= t(".need_help") %></h4>
+		<%= link_to t(".contact_dealer"), contact_path, class: 'button rounded' %>
+	</div>
+</div>
+
 <div class="support-returns-container" id="return">
 	<div class="row">
 		<%= image_tag 'icons/box_closed.svg', class: "large-icon" %>
