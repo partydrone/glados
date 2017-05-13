@@ -7,9 +7,6 @@ capybara-*.html
 !/tmp/.keep
 /db/*.sqlite3
 /db/*.sqlite3-journal
-/public/assets/*
-!/public/assets/.sprockets-manifest-*.json
-/public/dev-assets
 /public/system
 /public/uploads/*
 /coverage/
