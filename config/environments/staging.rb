@@ -7,7 +7,4 @@ Rails.application.configure do
   # Full error reports are enabled and caching is turned off.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
-
-  # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = '//assets.glados.staging.wavetronix.com'
 end
