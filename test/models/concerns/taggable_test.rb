@@ -27,4 +27,14 @@ describe Taggable do
     article.tag_list = 'one, two,, three, '
     article.tag_list.must_equal 'one, two, three'
   end
+
+  it "will remove taggings when deleted" do      
+    a = Article.create(title: 'Taggable Article Title', subtitle: 'Taggable article subtitle.', body: 'Taggable article body.', posted_on: Date.today.to_s(:db))    
+    a.tag_list = 'test'    
+    tag = Tag.find_by(name: 'test')
+    Tagging.find_by(tag_id: tag.id, taggable_id: a.id).wont_be_nil
+    a.destroy
+    Tagging.find_by(tag_id: tag.id, taggable_id: a.id).must_be_nil
+
+  end
 end
