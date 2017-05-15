@@ -191,7 +191,7 @@
 		  		<% end %>
 		  	<% end %>
 
-		  	<% if @pg_search_documents.any?{|document| document.searchable_type == "Dealer"  || document.searchable_type == "Territory" } || countryTranslate = 1 %>
+		  	<% if @pg_search_documents.any?{|document| document.searchable_type == "Dealer"  || document.searchable_type == "Territory" } || countryTranslate == 1 %>
 		  	<% else %>
 		  		<li style="width: 100%; margin: 0 20px;"><h4>No results were found for your search. Please contact our Corporate Headquarters for more information.</h4></li>
 		  	<% end %>
