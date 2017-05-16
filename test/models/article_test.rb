@@ -64,11 +64,34 @@ describe Article do
 
   it "checks if article is published" do
     article.posted_on = 2.days.ago
-    article.published?.must_equal true    
+    article.published?.must_equal true
   end
 
   it "checks if article is not published" do
     article.posted_on = 2.days.from_now
     article.published?.must_equal false
+  end
+
+  it "has a tag list" do
+    article.must_respond_to :tag_list
+  end
+
+  it "accepts a list of tags" do
+    article.tag_list = 'one, two, three'
+    article.tags.must_include Tag.find_by(name: 'one')
+    article.tags.must_include Tag.find_by(name: 'two')
+    article.tags.must_include Tag.find_by(name: 'three')
+  end
+
+  it "saves a new article created with tags" do
+    article.tag_list = 'do, re, me'
+    article.save.must_equal true
+  end
+
+  it "updates an article with tags" do
+    article.save.must_equal true
+    article.tag_list = 'hop, skip, jump'
+    article.reload
+    article.tag_list.must_equal 'hop, jump, skip'
   end
 end
