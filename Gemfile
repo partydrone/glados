@@ -44,7 +44,7 @@ gem 'browser'
 # File uploads
 gem 'aws-sdk', '~> 2.1'
 gem 'refile', require: 'refile/rails', github: 'refile', branch: 'master'
-gem 'sinatra', require: nil, github: 'sinatra', branch: 'master'
+gem 'sinatra', '~> 2.0'
 gem 'refile-mini_magick'
 gem 'refile-s3'
 

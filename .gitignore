@@ -7,9 +7,7 @@ capybara-*.html
 !/tmp/.keep
 /db/*.sqlite3
 /db/*.sqlite3-journal
-/public/assets/*
-!/public/assets/.sprockets-manifest-*.json
-/public/dev-assets
+# /public/assets
 /public/system
 /public/uploads/*
 /coverage/
@@ -51,3 +49,6 @@ bower.json
 # Ignore any local encryption keys
 *.aes
 .vscode/launch.json
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key
