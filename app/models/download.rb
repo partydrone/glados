@@ -6,7 +6,14 @@ class Download < ApplicationRecord
 
   validates :locale, :title, presence: true
 
-  default_scope { order(:title) }
+  def self.default_scope
+    direction = "ASC, title ASC"
+    order("
+        CASE
+          WHEN locale = 'en' THEN '1'
+          WHEN locale != 'en' THEN '2'
+        END #{direction}")
+  end
 
   def to_param
     "#{id}-#{title.parameterize}"
