@@ -10,8 +10,8 @@ class Download < ApplicationRecord
     direction = "ASC, title ASC"
     order("
         CASE
-          WHEN locale = 'en' THEN '1'
-          WHEN locale != 'en' THEN '2'
+          WHEN locale = '#{I18n.locale}' THEN '1'
+          WHEN locale != '#{I18n.locale}' THEN '2'
         END #{direction}")
   end
 
