@@ -1,4 +1,4 @@
-<div class="support-download-item row">
+<div class="support-download-item row" id="<%= download.locale %>">
   <%= link_to attachment_url(download, :file, filename: "#{download.title.parameterize(separator: '_')}-#{download.download_type.name.parameterize(separator: '_')}-#{download.locale}"), class: set_class_for_content_type(download.file_content_type), target: '_blank' do %>
     <div class="small-1 column">
       <%= image_tag('icons/document.svg') %>
