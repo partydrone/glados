@@ -5,7 +5,7 @@
             <p><%= training_event.description.truncate(100, separator: /\s/) %></p>
         </div>
         <div class="large-4 columns event-location">
-            <h6 class="event-city"><%= training_event.location %></h6>
+            <h6 class="event-city"><%= training_event.location.titleize %></h6>
             <h6 class="event-date"><%= l training_event.started_at.to_date, format: :long %></h6>
             <% if !training_event.start_time.nil? %>
                 <h6 class="event-time"><%= training_event.start_time %></h6>                    
