@@ -74,13 +74,12 @@
 		<div class="medium-5 columns">
 			<div class="support-search-dropdown">
 				<section class="products-language-header support-dropdown">
-		      <select class="products-language-dropdown course_types_list" name="smartsensor">
+					<select class="products-language-dropdown course_types_list" name="smartsensor">
 						<option value="course-type-all">All Courses</option>
 						<% @training_course_types.each do |course| %>
 							<option value="course-type-<%= course.id %>"><%= course.name %></option>
-						<% end %>
-		        
-		      </select>
+						<% end %>						
+					</select>
 				</section>
 			</div>
 		</div>

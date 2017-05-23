@@ -44,7 +44,7 @@
     .event-city:before,
     .event-date:before,
     .event-time:before {
-        width: 24px;
+        width: 16px;
         display: inline-block;
         vertical-align: top;
         margin-right: 0.5rem;
@@ -63,7 +63,8 @@
 .request-host .button {
     background: $dark-gray;
     color: $white !important;
-    &:hover, &:active {
+    &:hover,
+    &:active {
         background-color: lighten($dark-gray, 10%);
         color: $white !important;
     }
@@ -97,13 +98,15 @@
         color: $white;
         width: 255px;
         bottom: 0;
-        &:hover, &:active {
+        &:hover,
+        &:active {
             color: $white !important;
             background-color: lighten($bluesteel, 10%);
         }
         a {
             color: $white;
-            &:hover, &:active {
+            &:hover,
+            &:active {
                 color: $white;
             }
         }
