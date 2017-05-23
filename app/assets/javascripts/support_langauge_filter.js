@@ -15,7 +15,7 @@ $(function() {
 
         //show courses that have the same course-type-id
         for (var i = 0; i < all_courses.length; ++i) {
-            if (all_courses[i].id == language_type) {
+            if (all_courses[i].getAttribute("data-locale-type") == language_type) {
                 all_courses[i].style.display = "block";
             }
         }
