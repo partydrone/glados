@@ -1,0 +1,5 @@
+---
+
+one:
+  source: /short_path
+  destination: /long_path
