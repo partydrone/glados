@@ -32,6 +32,8 @@ Rails.application.routes.draw do
                 :features,
                 :knowledge_base_articles,
                 :products,
+                :redirect_rules,
+                :request_environment_rules,
                 :return_material_authorization_policy_documents,
                 :sales_terms_and_conditions_documents,
                 :territories,

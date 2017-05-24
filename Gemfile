@@ -76,6 +76,10 @@ gem 'flamegraph'
 gem 'stackprof'
 
 ##
+# Routing
+gem 'redirector'
+
+##
 # Search
 gem 'pg_search'
 
