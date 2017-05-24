@@ -2,7 +2,7 @@ require 'test_helper'
 
 module Admin
   describe RedirectRulesController, :locale do
-    let(:redirect_rule) { RedirectRule.new(source: '/short_path', destination: '/long_path') }
+    let(:redirect_rule) { redirect_rules(:one) }
 
     describe "with authenticated user" do
       let(:user) { users(:generic_user) }
@@ -30,7 +30,8 @@ module Admin
           -> {
             post admin_redirect_rules_path, params: {
               redirect_rule: {
-                name: 'System One',
+                source: '/my_short_path',
+                destination: '/site/long_path'
               }
             }
           }.must_change 'RedirectRule.count'
@@ -38,10 +39,10 @@ module Admin
           must_redirect_to admin_redirect_rules_path
         end
 
-        it "gets show" do
-          get admin_redirect_rule_path(redirect_rule)
-          must_respond_with :success
-        end
+        # it "gets show" do
+        #   get admin_redirect_rule_path(redirect_rule)
+        #   must_respond_with :success
+        # end
 
         it "gets edit" do
           get edit_admin_redirect_rule_path(redirect_rule)
@@ -51,10 +52,10 @@ module Admin
         it "updates a redirect_rule" do
           patch admin_redirect_rule_path(redirect_rule), params: {
             redirect_rule: {
-              name: redirect_rule.name
+              source: redirect_rule.source
             }
           }
-          must_redirect_to admin_redirect_rule_path(redirect_rule)
+          must_redirect_to admin_redirect_rules_path
         end
 
         it "destroys a redirect rule" do
@@ -80,17 +81,18 @@ module Admin
           -> {
             post admin_redirect_rules_path, params: {
               redirect_rule: {
-                name: 'System One',
+                source: '/my_short_path',
+                destination: '/site/long_path'
               }
             }
           }.wont_change 'RedirectRule.count'
           must_redirect_to root_path
         end
 
-        it "prohibits show" do
-          get admin_redirect_rule_path(redirect_rule)
-          must_redirect_to root_path
-        end
+        # it "prohibits show" do
+        #   get admin_redirect_rule_path(redirect_rule)
+        #   must_redirect_to root_path
+        # end
 
         it "prohibits edit" do
           get edit_admin_redirect_rule_path(redirect_rule)
@@ -100,7 +102,7 @@ module Admin
         it "won't update a redirect rule" do
           patch admin_redirect_rule_path(redirect_rule), params: {
             redirect_rule: {
-              name: redirect_rule.name
+              source: redirect_rule.source
             }
           }
           must_redirect_to root_path
@@ -130,17 +132,18 @@ module Admin
         -> {
           post admin_redirect_rules_path, params: {
             redirect_rule: {
-              name: 'System One',
+              source: '/my_short_path',
+              destination: '/site/long_path'
             }
           }
         }.wont_change 'RedirectRule.count'
         must_redirect_to sign_in_path
       end
 
-      it "prohibits show" do
-        get admin_redirect_rule_path(redirect_rule)
-        must_redirect_to sign_in_path
-      end
+      # it "prohibits show" do
+      #   get admin_redirect_rule_path(redirect_rule)
+      #   must_redirect_to sign_in_path
+      # end
 
       it "prohibits edit" do
         get edit_admin_redirect_rule_path(redirect_rule)
@@ -150,7 +153,7 @@ module Admin
       it "won't update a redirect rule" do
         patch admin_redirect_rule_path(redirect_rule), params: {
           redirect_rule: {
-            name: redirect_rule.name
+            source: redirect_rule.source
           }
         }
         must_redirect_to sign_in_path
