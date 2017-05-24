@@ -6,8 +6,18 @@
       <h1 class="home-header-text">Smarter <span>Traffic</span></h1>
       <h4>Starts here.</h4>
       <%= image_tag 'icons/home-dots.svg', class: 'show-for-medium' %>
-      <%= button_tag t('ui.demo_button'), class: 'button large' %>
+      <a data-open="demoRequest">
+        <%= button_tag t('ui.demo_button'), class: 'button large' %>
+      </a>
     </div>
+  </div>
+
+  <div class="reveal demo-modal" id="demoRequest" data-reveal data-animation-in="slide-in-down" data-animation-out="fade-out" >
+    <h1>Request a Demo</h1>
+    <%= render 'demo_request_form' %>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
 
   <section class="home-safe" id="home-safe">

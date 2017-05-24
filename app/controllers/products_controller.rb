@@ -5,7 +5,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.includes({downloads: [:download_type]}, :training_courses, :features, :product_category).find(params[:id])    
-    @demo_request = DemoRequest.new(country: 'US')
+    @product = Product.includes({downloads: [:download_type]}, :training_courses, :features, :product_category).find(params[:id])     
   end
 end
