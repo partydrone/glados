@@ -1,0 +1,9 @@
+---
+
+en:
+  admin:
+    redirect_rules:
+      index:
+        title: Redirect Rules
+      new:
+        title: New Redirect Rule

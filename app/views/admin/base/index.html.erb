@@ -117,6 +117,9 @@
 				<h2>Website Admin</h2>
 				<ul>
 					<%= content_tag :li do %>
+						<%= link_to 'Redirect Rules', admin_redirect_rules_path %>
+					<% end if policy(:redirect_rule).manage? %>
+					<%= content_tag :li do %>
 						<%= link_to 'Users', admin_users_path %>
 					<% end if policy(:user).manage? %>
 					<%= content_tag :li do %>

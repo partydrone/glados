@@ -1,0 +1,19 @@
+<%= form_for [:admin, @redirect_rule] do |f| %>
+  <div class="row">
+    <div class="medium-4 columns">
+      <%= f.label :source %>
+      <%= f.text_field :source %>
+      <%= f.check_box :source_is_regex %>
+      <%= f.label :source_is_regex %>
+      <%= f.check_box :source_is_case_sensitive %>
+      <%= f.label :source_is_case_sensitive %>
+    </div>
+
+    <div class="medium-8 columns">
+      <%= f.label :destination %>
+      <%= f.text_field :destination %>
+    </div>
+  </div>
+
+  <%= f.submit nil, class: 'button radius' %>
+<% end %>

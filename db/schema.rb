@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170523222138) do
+ActiveRecord::Schema.define(version: 20170524032841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "articles", id: :bigserial, force: :cascade do |t|
+
+  create_table "articles", force: :cascade do |t|
     t.string   "type"
     t.string   "title"
     t.string   "subtitle"
@@ -38,7 +39,7 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.integer "product_id", null: false
   end
 
-  create_table "ckeditor_assets", id: :bigserial, force: :cascade do |t|
+  create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_id",                                    null: false
     t.string   "data_filename",                              null: false
     t.integer  "data_size"
@@ -51,7 +52,7 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.index ["type"], name: "index_ckeditor_assets_on_type", using: :btree
   end
 
-  create_table "dealers", id: :bigserial, force: :cascade do |t|
+  create_table "dealers", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
     t.string   "city"
@@ -61,18 +62,18 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.string   "phone"
     t.string   "email"
     t.string   "website"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",           precision: 6, null: false
+    t.datetime "updated_at",           precision: 6, null: false
   end
 
-  create_table "download_types", id: :bigserial, force: :cascade do |t|
+  create_table "download_types", force: :cascade do |t|
     t.string   "name"
     t.integer  "position"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "downloads", id: :bigserial, force: :cascade do |t|
+  create_table "downloads", force: :cascade do |t|
     t.string   "locale"
     t.string   "title"
     t.string   "part_number"
@@ -99,7 +100,7 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.index ["training_event_course_id"], name: "index_enrollments_on_training_event_course_id", using: :btree
   end
 
-  create_table "feature_associations", id: :bigserial, force: :cascade do |t|
+  create_table "feature_associations", force: :cascade do |t|
     t.integer  "feature_id"
     t.integer  "product_id"
     t.integer  "position"
@@ -109,7 +110,7 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.index ["product_id"], name: "index_feature_associations_on_product_id", using: :btree
   end
 
-  create_table "features", id: :bigserial, force: :cascade do |t|
+  create_table "features", force: :cascade do |t|
     t.string   "title"
     t.string   "youtube_video_id"
     t.text     "description"
@@ -122,7 +123,7 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.string   "hero_image_content_type"
   end
 
-  create_table "identities", id: :bigserial, force: :cascade do |t|
+  create_table "identities", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
@@ -131,7 +132,7 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.datetime "updated_at",      precision: 6, null: false
   end
 
-  create_table "legal_policy_documents", id: :bigserial, force: :cascade do |t|
+  create_table "legal_policy_documents", force: :cascade do |t|
     t.string   "type"
     t.string   "title"
     t.text     "body"
@@ -144,7 +145,7 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.string   "file_content_type"
   end
 
-  create_table "media_downloads", id: :bigserial, force: :cascade do |t|
+  create_table "media_downloads", force: :cascade do |t|
     t.string   "description"
     t.string   "file_id"
     t.string   "file_filename"
@@ -154,7 +155,7 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.datetime "updated_at",        precision: 6, null: false
   end
 
-  create_table "offices", id: :bigserial, force: :cascade do |t|
+  create_table "offices", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
     t.string   "city"
@@ -163,8 +164,8 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.string   "country"
     t.string   "phone"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.integer  "position"
   end
 
@@ -179,12 +180,13 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.integer "product_id", null: false
   end
 
-  create_table "pg_search_documents", id: :bigserial, force: :cascade do |t|
+
+  create_table "pg_search_documents", force: :cascade do |t|
     t.text     "content"
     t.string   "searchable_type"
     t.integer  "searchable_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",      precision: 6, null: false
+    t.datetime "updated_at",      precision: 6, null: false
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
   end
 
@@ -193,7 +195,7 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.integer "training_course_id"
   end
 
-  create_table "product_categories", id: :bigserial, force: :cascade do |t|
+  create_table "product_categories", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "position"
@@ -211,7 +213,7 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.index ["product_type_id"], name: "index_product_categories_on_product_type_id", using: :btree
   end
 
-  create_table "product_types", id: :bigserial, force: :cascade do |t|
+  create_table "product_types", force: :cascade do |t|
     t.string   "name"
     t.integer  "position"
     t.datetime "created_at",              precision: 6, null: false
@@ -226,7 +228,7 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.string   "icon_image_content_type"
   end
 
-  create_table "products", id: :bigserial, force: :cascade do |t|
+  create_table "products", force: :cascade do |t|
     t.string   "name"
     t.string   "part_number"
     t.string   "summary"
@@ -247,7 +249,32 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
   end
 
-  create_table "roles", id: :bigserial, force: :cascade do |t|
+  create_table "redirect_rules", force: :cascade do |t|
+    t.string   "source",                                   null: false
+    t.boolean  "source_is_regex",          default: false, null: false
+    t.boolean  "source_is_case_sensitive", default: false, null: false
+    t.string   "destination",                              null: false
+    t.boolean  "active",                   default: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.index ["active"], name: "index_redirect_rules_on_active", using: :btree
+    t.index ["source"], name: "index_redirect_rules_on_source", using: :btree
+    t.index ["source_is_case_sensitive"], name: "index_redirect_rules_on_source_is_case_sensitive", using: :btree
+    t.index ["source_is_regex"], name: "index_redirect_rules_on_source_is_regex", using: :btree
+  end
+
+  create_table "request_environment_rules", force: :cascade do |t|
+    t.integer  "redirect_rule_id",                                    null: false
+    t.string   "environment_key_name",                                null: false
+    t.string   "environment_value",                                   null: false
+    t.boolean  "environment_value_is_regex",          default: false, null: false
+    t.boolean  "environment_value_is_case_sensitive", default: true,  null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
+    t.index ["redirect_rule_id"], name: "index_request_environment_rules_on_redirect_rule_id", using: :btree
+  end
+
+  create_table "roles", force: :cascade do |t|
     t.string   "name"
     t.string   "resource_type"
     t.integer  "resource_id"
@@ -257,7 +284,7 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.index ["name"], name: "index_roles_on_name", using: :btree
   end
 
-  create_table "taggings", id: :bigserial, force: :cascade do |t|
+  create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
     t.string   "taggable_type"
     t.integer  "taggable_id"
@@ -267,7 +294,7 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.index ["taggable_type", "taggable_id"], name: "index_taggings_on_taggable_type_and_taggable_id", using: :btree
   end
 
-  create_table "tags", id: :bigserial, force: :cascade do |t|
+  create_table "tags", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",     precision: 6, null: false
     t.datetime "updated_at",     precision: 6, null: false
@@ -275,13 +302,13 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
   end
 
-  create_table "territories", id: :bigserial, force: :cascade do |t|
+  create_table "territories", force: :cascade do |t|
     t.string   "name"
     t.string   "country"
     t.string   "office"
     t.string   "dealer"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "training_course_products", id: :bigserial, force: :cascade do |t|
@@ -292,13 +319,13 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.index ["training_course_id"], name: "index_training_course_products_on_training_course_id", using: :btree
   end
 
-  create_table "training_course_types", id: :bigserial, force: :cascade do |t|
+  create_table "training_course_types", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "training_courses", id: :bigserial, force: :cascade do |t|
+  create_table "training_courses", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.string   "number"
@@ -310,7 +337,7 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.index ["training_course_type_id"], name: "index_training_courses_on_training_course_type_id", using: :btree
   end
 
-  create_table "training_event_courses", id: :bigserial, force: :cascade do |t|
+  create_table "training_event_courses", force: :cascade do |t|
     t.integer  "training_course_id"
     t.integer  "training_event_id"
     t.integer  "seats"
@@ -318,7 +345,7 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.datetime "created_at",         precision: 6, null: false
     t.datetime "updated_at",         precision: 6, null: false
     t.string   "room"
-    t.datetime "ended_at"
+    t.datetime "ended_at",           precision: 6
     t.index ["training_course_id"], name: "index_training_event_courses_on_training_course_id", using: :btree
     t.index ["training_event_id"], name: "index_training_event_courses_on_training_event_id", using: :btree
   end
@@ -334,7 +361,7 @@ ActiveRecord::Schema.define(version: 20170523222138) do
     t.string   "host"
   end
 
-  create_table "users", id: :bigserial, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "provider"
     t.string   "uid"
     t.string   "first_name"

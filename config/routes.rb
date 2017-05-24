@@ -46,6 +46,8 @@ Rails.application.routes.draw do
       resources :downloads,
                 :media_downloads,
                 :patents,
+                :redirect_rules,
+                :request_environment_rules,
                 :roles,
                 :training_course_types,
                 :training_courses,
