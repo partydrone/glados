@@ -23,7 +23,7 @@
 						</div>
 						<div class="training-seat">
 							<% if b.object.get_enrollments(b.object.seats, b.object.id) <= 0 %>
-								waitlist
+								Waitlist
 							<% else %>							
 								<%= b.object.get_enrollments(b.object.seats, b.object.id) %> seats
 							<% end %>

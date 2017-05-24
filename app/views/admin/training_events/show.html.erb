@@ -3,8 +3,9 @@
 <div class="row">
     <div class="medium-12 columns">
         <div>
-            <h1><%= @training_event.title %></h1>
+            <h1><%= @training_event.title %></h1>            
             <h3><%= @training_event.location %></h3>
+            <h3><%= @training_event.host %></h3>
             <h3><%= @training_event.description %></h3>
             <h3>Start date: <%= @training_event.started_at.to_date %></h3>
             <h3>End Date: <%= @training_event.ended_at.to_date %></h3>
