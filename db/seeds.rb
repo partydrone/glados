@@ -137,6 +137,83 @@ end
 end
 
 ##
+# Redirect Rules
+[
+  { source: '/advance1501', destination: 'http://youtu.be/XXzV_jKfWo4?utm_source=traffic_brochure&utm_medium=print&utm_content=wavetronix-smartsensor-advance-youtube&utm_campaign=smartsensor' },
+  { source: '/app1401', destination: '/products/wavetronix_app?utm_source=card&utm_medium=print&utm_content=app-pass-along&utm_campaign=app' },
+  { source: '/click1401', destination: 'http://youtu.be/qlFOKaUE9Bk' },
+  { source: '/dilemma1501', destination: '/products/smartsensor/advance/safearrival?utm_source=traffic_brochure&utm_medium=print&utm_content=advance-dilemma-zone-tool&utm_campaign=smartsensor' },
+  { source: '/hdperformance', destination: '/products/smartsensor/hd/performance?utm_source=its_brochure&utm_medium=print&utm_campaign=hdperformance' },
+  { source: '/HDperformance', destination: '/products/smartsensor/hd/performance?utm_source=its_brochure&utm_medium=print&utm_campaign=hdperformance' },
+  { source: '/history-of-radar', destination: 'https://viewer.aemmobile.adobe.com/index.html#project/5ca54145-0790-4361-b19d-ff3abcefda99/view/PulseMagazine/article/Pulse3-4?utm_source=pulse&utm_medium=print&utm_content=history-of-radar&utm_campaign=Pulse+10.2' },
+  { source: '/imsa1101', destination: '/products/smartsensor/matrix?utm_campaign=smartsensor&utm_source=imsa&utm_medium=print&utm_content=matrix-ad-squares' },
+  { source: '/intro1501', destination: 'http://youtu.be/OE9_JYiA7zc?utm_source=traffic_brochure&utm_medium=print&utm_content=an-introduction-to-wavetronix-youtube&utm_campaign=corporate' },
+  { source: '/it1401', destination: '/products/smartsensor/hd?utm_source=it_preview&utm_medium=print&utm_content=half-page-2014-hd-announcement&utm_campaign=smartsensor' },
+  { source: '/it1601', destination: '/products/smartsensor/hd?utm_source=it_preview&utm_medium=print&utm_content=half-page-2015-HD-loops-ad&utm_campaign=smartsensor' },
+  { source: '/its1101', destination: '/products/smartsensor/hd?utm_campaign=smartsensor&utm_source=its_international&utm_medium=print&utm_content=international-hd-ad-squares' },
+  { source: '/its1102', destination: '/products/smartsensor/matrix?utm_campaign=smartsensor&utm_source=its_daily&utm_medium=print&utm_content=matrix-ad-squares' },
+  { source: '/its1201', destination: '/products/smartsensor/hd?utm_campaign=smartsensor&utm_source=its_international&utm_medium=print&utm_content=accept-no-substitutes-elvis' },
+  { source: '/its1301', destination: '/products/smartsensor?utm_source=its_international&utm_medium=print&utm_content=move-em-out-half-page&utm_campaign=smartsensor' },
+  { source: '/its1304', destination: '/products/smartsensor/hd?utm_source=its_international&utm_medium=print&utm_content=half-page-2014-hd-announcement&utm_campaign=smartsensor' },
+  { source: '/its1401', destination: '/products/smartsensor/matrix?utm_source=its_international&utm_medium=print&utm_content=half-page-2014-matrix&utm_campaign=smartsensor' },
+  { source: '/its1402', destination: '/products/smartsensor/matrix?utm_source=its_international&utm_medium=print&utm_content=half-page-2014-matrix-tech&utm_campaign=smartsensor' },
+  { source: '/its1403', destination: '/products/smartsensor/hd?utm_source=its_international&utm_medium=print&utm_content=half-page-2014-HD&utm_campaign=smartsensor' },
+  { source: '/its1404', destination: '/products/smartsensor/hd?utm_source=its_international&utm_medium=print&utm_content=half-page-2014-HD-tech&utm_campaign=smartsensor' },
+  { source: '/its1405', destination: '/products/smartsensor/advance?utm_source=its_international&utm_medium=print&utm_content=half-page-2014-advance&utm_campaign=smartsensor' },
+  { source: '/its1406', destination: '/products/smartsensor/advance?utm_source=its_international&utm_medium=print&utm_content=half-page-2014-advance-tech&utm_campaign=smartsensor' },
+  { source: '/its1501', destination: '/dealers?utm_source=its_international&utm_medium=print&utm_content=half-page-2015-HD-loops-ad&utm_campaign=smartsensor' },
+  { source: '/its1601', destination: '/dealers?utm_source=its_international&utm_medium=print&utm_content=half-page-2016-HD-sharper-ad&utm_campaign=smartsensor' },
+  { source: '/itsa1201', destination: '/products/smartsensor/hd?utm_campaign=smartsensor&utm_source=its_daily&utm_medium=print&utm_content=accept-no-substitutes-elvis' },
+  { source: '/itsa1301', destination: '/products/smartsensor?utm_source=itsa_daily&utm_medium=print&utm_content=move-em-out-and-scenic-cowboy-half-page&utm_campaign=smartsensor' },
+  { source: '/itsa1601', destination: 'http://youtu.be/T7mdbsF8FrY?utm_source=itsa_daily&utm_medium=print&utm_content=wavetronix-smartsensor-matrix-youtube&utm_campaign=smartsensor' },
+  { source: '/itsa1602', destination: 'http://youtu.be/RpiFph3iTPs?utm_source=itsa_daily&utm_medium=print&utm_content=wavetronix-smartsensor-hd-youtube&utm_campaign=smartsensor' },
+  { source: '/itsa1603', destination: 'http://youtu.be/XXzV_jKfWo4?utm_source=itsa_daily&utm_medium=print&utm_content=wavetronix-smartsensor-advance-youtube&utm_campaign=smartsensor' },
+  { source: '/itswc1301', destination: '/products/smartsensor/hd?utm_source=ITSWC_Daily_News&utm_medium=print&utm_content=take-control-its-applications-hd-ad&utm_campaign=smartsensor' },
+  { source: '/itswc1501', destination: '/products/smartsensor/hd?utm_source=ITSWC_Daily_News&utm_medium=print&utm_content=half-page-2015-HD-reliability-ad&utm_campaign=smartsensor' },
+  { source: '/itw1301', destination: '/products/smartsensor/hd?utm_source=itw&utm_medium=print&utm_content=premier-performance-hd-ad&utm_campaign=smartsensor' },
+  { source: '/itw1401', destination: '/products/smartsensor/hd?utm_source=itw&utm_medium=print&utm_content=full-page-2014-hd-announcement&utm_campaign=smartsensor' },
+  { source: '/itw1501', destination: '/dealers?utm_source=Itw&utm_medium=print&utm_content=full-page-2015-hd-sharper-ad&utm_campaign=smartsensor' },
+  { source: '/itw1601', destination: '/dealers?utm_source=Itw&utm_medium=print&utm_content=full-page-2016-hd-sharper-ad&utm_campaign=smartsensor' },
+  { source: '/itw2011', destination: '/products/smartsensor/hd?utm_campaign=smartsensor&utm_source=itw&utm_medium=print&utm_content=international-hd-ad' },
+  { source: '/iw1201', destination: '/products/smartsensor/hd?utm_campaign=smartsensor&utm_source=intertraffic_world_daily_news&utm_medium=print&utm_content=accept-no-substitutes-elvis' },
+  { source: '/matrix1501', destination: 'http://youtu.be/T7mdbsF8FrY?utm_source=traffic_brochure&utm_medium=print&utm_content=wavetronix-smartsensor-matrix-youtube&utm_campaign=smartsensor' },
+  { source: '/meter1401', destination: 'http://youtu.be/Sun_TaqL-xc' },
+  { source: '/pulse1301', destination: '/?utm_source=pulse&utm_medium=print&utm_content=go-with-gold&utm_campaign=corporate' },
+  { source: '/pulse1302', destination: '/dealers?utm_source=pulse&utm_medium=print&utm_content=pulse-live-three-pictures&utm_campaign=pulselive' },
+  { source: '/pulse1303', destination: '/products/smartsensor?utm_source=pulse&utm_medium=print&utm_content=rise-above-the-road&utm_campaign=smartsensor' },
+  { source: '/pulse1304', destination: '/products/smartsensor/hd?utm_source=pulse&utm_medium=print&utm_content=resolution-matters-horse-race&utm_campaign=smartsensor' },
+  { source: '/pulse1305', destination: '/products/command?utm_source=pulse&utm_medium=print&utm_content=cowboy-starry-night&utm_campaign=command' },
+  { source: '/pulse1306', destination: '/products/smartsensor?utm_source=pulse&utm_medium=print&utm_content=cowboy-traffic-light-safety-and-efficiency&utm_campaign=smartsensor' },
+  { source: '/pulse1307', destination: '/products/smartsensor/advance?utm_source=pulse&utm_medium=print&utm_content=intersection-safety-advance-ad&utm_campaign=smartsensor' },
+  { source: '/pulse1308', destination: '/products/smartsensor/matrix?utm_source=pulse&utm_medium=print&utm_content=bike-detection-matrix-ad&utm_campaign=smartsensor' },
+  { source: '/pulse1309', destination: '/products/smartsensor/advance/safearrival?utm_source=pulse&utm_medium=print&utm_content=dilemma-zone&utm_campaign=smartsensor' },
+  { source: '/pulse1401', destination: '/products/smartsensor/matrix?utm_source=pulse&utm_medium=print&utm_content=sharper-positioning-matrix-spread&utm_campaign=smartsensor' },
+  { source: '/pulse1402', destination: '/products/smartsensor/hd?utm_source=pulse&utm_medium=print&utm_content=sharper-positioning-hd-spread&utm_campaign=smartsenor' },
+  { source: '/pulse1403', destination: '/dealers?utm_source=pulse&utm_medium=print&utm_content=sharper-positioning-hd-full&utm_campaign=smartsensor' },
+  { source: '/sh1501', destination: '/products/smartsensor/hd?utm_source=smart_highways&utm_medium=print&utm_content=half-page-2015-HD-sharper-ad&utm_campaign=smartsensor' },
+  { source: '/sh1601', destination: '/dealers?utm_source=smart_highways&utm_medium=print&utm_content=half-page-2016-HD-loops-ad&utm_campaign=smartsensor' },
+  { source: '/th1101', destination: '/products/smartsensor/hd?utm_source=th&utm_medium=print&utm_content=international_fp_hd-ad&utm_campaign=smartsensor' },
+  { source: '/th1102', destination: '/products/smartsensor/matrix?utm_source=th&utm_medium=print&utm_content=north-america_fp_matrix-ad&utm_campaign=smartsensor' },
+  { source: '/tti1201', destination: '/products/smartsensor/hd?utm_campaign=smartsensor&utm_source=tti&utm_medium=print&utm_content=international-hd-ad-squares' },
+  { source: '/tti1202', destination: '/products/smartsensor/hd?utm_campaign=smartsensor&utm_source=tti&utm_medium=print&utm_content=accept-no-substitutes-elvis' },
+  { source: '/app_viewer', destination: 'https://viewer.aemmobile.adobe.com/index.html#project/5ca54145-0790-4361-b19d-ff3abcefda99/view/topLevelTabletContent/view/Home;openTo=browsePage' },
+  { source: '/customersolutions', destination: '/en/news/case_studies' },
+  { source: '/facebook', destination: 'http://facebook.com/wavetronix' },
+  { source: '/integrator', destination: '/en-GB/about/programs/integrator/applications/new?utm_campaign=corporate&utm_source=brochure&utm_medium=print&utm_content=wavetronix-integrator-benefits-program' },
+  { source: '/linkedin', destination: 'http://linkedin.com/company/wavetronix' },
+  { source: '/marketing_app_viewer', destination: 'https://viewer.aemmobile.adobe.com/index.html#project/5ca54145-0790-4361-b19d-ff3abcefda99/view/topLevelTabletContent/view/Home;openTo=browsePage' },
+  { source: '/patentinfo', destination: '/en/legal/patents' },
+  { source: '/twitter', destination: 'http://twitter.com/wavetronix_llc' },
+  { source: '/youtube', destination: 'http://youtube.com/wavetronix' },
+  { source: '/o365/software', destination: 'https://portal.office.com/OLS/MySoftware.aspx' },
+  { source: '/roadway/policy-feedback', destination: 'https://wavetronix.sharepoint.com/wtx/cpb/Comment/SitePages/Home.aspx' }
+].each do |redirect_rule|
+  RedirectRule.find_or_create_by(source: redirect_rule[:source]) do |rr|
+    rr.destination = redirect_rule[:destination]
+  end
+end
+
+##
 # RMA Policy
 ReturnMaterialAuthorizationPolicyDocument.find_or_create_by(effective_on: 2.years.ago.to_s(:db)) do |rma_policy|
   rma_policy.title = 'Return Material Authorization Policy'
