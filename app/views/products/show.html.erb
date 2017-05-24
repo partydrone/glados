@@ -88,7 +88,7 @@
 		    <div class="request row">
 		      <div class="medium-8 large-6 medium-centered columns">
 		        <%= render 'demo_request_form' %>
-		        <p><%= t '.perfer_contact' %> <%= link_to t('.here'), nil %>.</p>
+		        <p><%= t '.perfer_contact' %> <%= link_to t('.here'), contact_path %>.</p>
 		      </div>
 		    </div>
 		  </div>
@@ -126,10 +126,11 @@
 			</div>
 			<div class="columns product-language-selection">
 				<section class="products-language-header">
-		      <select class="products-language-dropdown" name="language">
-		        <option value="english">English</option>
-		        <option value="french">French</option>
-		        <option value="latvian">Latvian</option>
+		      <select class="products-language-dropdown languages-types-list" name="language">
+						<option value="language-type-all" selected>All Languages</option>
+						<% I18n.available_locales.each do |locale| %>							
+							<option value="<%= locale %>"><%= humanize_locale locale %></option>
+						<% end %>
 		      </select>
 				</section>
 			</div>
