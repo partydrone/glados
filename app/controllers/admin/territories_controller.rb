@@ -13,7 +13,7 @@ module Admin
 
   	def new
       @territory = Territory.new
-      authorize @territories
+      authorize @territory
     end
 
     def edit
@@ -22,7 +22,7 @@ module Admin
 
     def create
       @territory = Territory.new(territory_params)
-      authorize @territories
+      authorize @territory
       if @territory.save
         redirect_to admin_territories_path, notice: %(Saved "#{@territory.name}" successfully.)
       else

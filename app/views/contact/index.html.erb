@@ -63,11 +63,46 @@
 		<div class="contact-search-results">
 			<div class="row columns text-right">
 		  	<%= link_to "close x", contact_path %>
-		  </div>
-		  <ul class="row small-up-2 large-up-2">
-		  	<% @pg_search_documents.each do |pg| %>
+		 </div>
+
+
+		  <ul class="row small-up-1 medium-up-2">
+		  	<% countryTranslate = 0 %>
+		  	<% @pg_search_documents.uniq.each do |pg| %>
+
+
+
+		  		<% COUNTRIES.invert.each do |c| %>
+		  			<% if c[0].downcase == params[:query].downcase %>
+					    <% @territories.each do |t| %>
+					    	<% if c[1].to_s === t.country.to_s %>
+					    		<% countryTranslate = 1 %>
+					    		<li class="column column-block">
+									<div class="office-information">
+							    		<% dealer = Dealer.find(t.dealer) %>
+							    		<h6>Dealer for <%= t.name %></h6>
+										<h3><%= dealer.name %></h3>
+										<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= dealer.address %><br/>
+										<%= dealer.city %><br/>
+										<%= dealer.region %><br/>
+										<%= dealer.zip %><br/>
+										<%= t "countries.#{dealer.country_id}" %><br/>
+										<% if dealer.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= dealer.phone %><br/><% end %>
+										<% if dealer.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= dealer.email %><br/><% end %>
+										<% if dealer.website.present? %>
+											<%= link_to "#{dealer.website}", :target=> "_blank" do %>
+												<%= image_tag('icons/world.svg', class: "small-icon") %><%= dealer.website %>
+											<% end %>
+										<% end %></p>
+									</div>
+								</li>
+					    	<% end %>
+					    <% end %>
+					<% end %>
+				<% end %>
+
+
 		  		<% if pg.searchable_type == "Territory" %>
-		  			<% if pg.searchable.dealer.present? %>
 		  			<li class="column column-block">
 						<div class="office-information">
 							<% dealer = Dealer.find(pg.searchable.dealer) %>
@@ -84,8 +119,7 @@
 								<%= link_to "#{dealer.website}", :target=> "_blank" do %>
 									<%= image_tag('icons/world.svg', class: "small-icon") %><%= dealer.website %>
 								<% end %>
-							<% end %>
-							
+							<% end %></p>
 						</div>
 				    </li>
 				    <li class="column column-block">
@@ -99,33 +133,16 @@
 							<%= office.zip %><br/>
 							<%= t "countries.#{office.country}" %><br/>
 							<% if office.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%=office.phone %><br/><% end %>
-							<% if office.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= office.email %></p><% end %>
+							<% if office.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= office.email %><% end %></p>
 				      	</div>
 				    </li>
-				    <% else %>
-				    	<li class="column column-block">
-				      		<div class="office-information">
-						    	<% office = Office.find(pg.searchable.office) %>
-						    	<h6>Office for <%= pg.searchable.name %></h6>
-						    	<h3><%= office.name %></h3>
-						    	<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.address %><br/>
-									<%= office.city %><br/>
-									<%= office.region %><br/>
-									<%= office.zip %><br/>
-									<%= t "countries.#{office.country}" %><br/>
-									<% if office.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%=office.phone %><br/><% end %>
-									<% if office.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= office.email %></p><% end %>
-							</div>
-						</li>
-				    <% end %>
 			    <% end %>
 			    <% if pg.searchable_type == "Dealer" %>
 			     	<li class="column column-block">
 						<div class="office-information">
 							<% if Territory.where("dealer like ?", "%#{pg.searchable.id}%").first.present? %>
-
-							<% territory = Territory.where("dealer like ?", "%#{pg.searchable.id}%").first %>
-							<h6>Dealer for <%= territory.name %></h6>
+								<% territory = Territory.where("dealer like ?", "%#{pg.searchable.id}%").first %>
+								<h6>Dealer for <%= territory.name %></h6>
 							<% end %>
 							<h3><%= pg.searchable.name %></h3>
 							<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= pg.searchable.address %><br/>
@@ -135,7 +152,11 @@
 							<%= t "countries.#{pg.searchable.country_id}" %><br/>
 							<% if pg.searchable.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= pg.searchable.phone %><br/><% end %>
 							<% if pg.searchable.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= pg.searchable.email %><br/><% end %>
-							<% if pg.searchable.website.present? %><%= image_tag('icons/world.svg', class: "small-icon") %><%= pg.searchable.website %></p><% end %>
+							<% if pg.searchable.website.present? %>
+								<%= link_to "#{pg.searchable.website}", :target=> "_blank" do %>
+									<%= image_tag('icons/world.svg', class: "small-icon") %><%= pg.searchable.website %>
+								<% end %>
+							<% end %></p>
 						</div>
 			      	</li>
 			      	<% if Territory.where("dealer like ?", "%#{pg.searchable.id}%").first.present? %>
@@ -170,7 +191,7 @@
 		  		<% end %>
 		  	<% end %>
 
-		  	<% if @pg_search_documents.any?{|document| document.searchable_type == "Dealer"  || document.searchable_type == "Territory" } %>
+		  	<% if @pg_search_documents.any?{|document| document.searchable_type == "Dealer"  || document.searchable_type == "Territory" } || countryTranslate == 1 %>
 		  	<% else %>
 		  		<li style="width: 100%; margin: 0 20px;"><h4>No results were found for your search. Please contact our Corporate Headquarters for more information.</h4></li>
 		  	<% end %>
