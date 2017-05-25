@@ -1,0 +1,51 @@
+@import "foundation_and_overrides";
+@import "globals/all";
+
+.sign-on-panel .social-sign-on-container {
+	text-align: center;
+}
+
+.wavetronix-sign-in.button,
+.linkedin-sign-in.button,
+.google-sign-in.button {
+	color: $white;
+	img {
+		display: inline-block;
+		margin-right: 8px;
+		margin-top: -4px;
+	}
+}
+
+.wavetronix-sign-in.button {
+	background-color: $black;
+	img {
+		height: 14px;
+	}
+	&:hover {
+		background: $black;;
+	}
+}
+
+.linkedin-sign-in.button{
+	background-color: #007AB5;
+	img {
+		height: 20px;
+	}
+	&:hover {
+		background: #007AB5;
+	}
+}
+
+.google-sign-in.button {
+	background-color: #DC4E41;
+	img {
+		height: 35px;
+	}
+	&:hover {
+		background: #DC4E41;
+	}
+}
+
+.sign-on-panel input {
+	border-radius: 5px;
+}

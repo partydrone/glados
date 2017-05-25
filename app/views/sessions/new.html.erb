@@ -1,15 +1,28 @@
 <% content_for :title, 'Sign in' %>
 <div class="new-session">
 	<div class="row">
-		<div class="medium-5 columns small-centered">
+		<div class="medium-8 large-5 columns small-centered">
 			<div class="sign-on-panel">
 				<h4 class="text-centered"><%= yield :title %></h4>
 
 				<p>You can sign in using one of the following services:</p>
 
-				<%= link_to 'Sign in with Google', '/auth/google', class: 'button radius expanded' %>
-				<%= link_to 'Sign in with LinkedIn', '/auth/linkedin', class: 'button radius expanded' %>
-				<%= link_to 'Sign in with Wavetronix', '/auth/azureactivedirectory', class: 'button radius expanded' %>
+				<div class="social-sign-on-container">
+					<%= link_to '/auth/azureactivedirectory', class: 'button radius wavetronix-sign-in' do %>
+						<%= image_tag "icons/wavetronix-icon.svg" %>
+						Sign in with Wavetronix
+					<% end %>
+					<br/>
+					<%= link_to '/auth/linkedin', class: 'button radius linkedin-sign-in' do %>
+						<%= image_tag "icons/LinkedIn.svg" %>
+						Sign in with LinkedIn
+					<% end %>
+					<br/>
+					<%= link_to '/auth/google', class: 'button radius google-sign-in' do %>
+						<%= image_tag "icons/Google.svg" %>
+						Sign in with Google
+					<% end %>
+				</div>
 
 				<p>Or sign in with your local account credentials:</p>
 
