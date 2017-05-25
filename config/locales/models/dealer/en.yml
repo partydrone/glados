@@ -1,0 +1,11 @@
+---
+
+en:
+  activerecord:
+    models:
+      dealer: Dealer
+    attributes:
+      dealer:
+        locality: City/Locality
+        region: State/Region
+        postal_code: ZIP/Postal code

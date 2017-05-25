@@ -1,6 +1,6 @@
 new_dealer:
   name: Star Butterfly
   address: 123 bob.
-  city: Nemoville
+  locality: Nemoville
   region: California
-  zip: 12345
+  postal_code: 12345

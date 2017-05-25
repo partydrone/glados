@@ -12,9 +12,9 @@
     	<% dealer = Dealer.find(@territory.dealer) %>
     	<%= dealer.name %>
     	<%= dealer.address %><br/>
-	    <%= dealer.city %><br/>
+	    <%= dealer.locality %><br/>
 	    <%= dealer.region %><br/>
-	    <%= dealer.zip %><br/>
+	    <%= dealer.postal_code %><br/>
 	    <%= t "countries.#{dealer.country_id}" %><br/>
 	    <%= dealer.phone %><br/>
 	    <%= dealer.email %><br/>

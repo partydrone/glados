@@ -1,0 +1,13 @@
+---
+
+en:
+  activemodel:
+    models:
+      training_event_request: TrainingEventRequest
+    attributes:
+      training_event_request:
+        locality: City/Locality
+        region: State/Region
+        postal_code: ZIP/Postal code
+        started_at: Starts
+        ended_at: Ends

@@ -1,19 +1,17 @@
-<% cache case_study do %>
-  <%= content_tag_for :tr, case_study do %>
-    <td class="admin-left-edit">
-      <%= render partial: 'options_edit', locals: {object: case_study, instance_name: case_study.title} %>
-    </td>
-    <td>
-      <%= link_to case_study.title, [:admin, case_study] %>
-    </td>
-    <td>
-      <%= l case_study.posted_on.to_date, format: :short %>
-    </td>
-    <td>
-      <%= l case_study.updated_at.to_date, format: :short %>
-    </td>
-    <td class="admin-right-delete">
-      <%= render partial: 'options_delete', locals: {object: case_study, instance_name: case_study.title} %>
-    </td>
-  <% end %>
+<%= content_tag_for :tr, case_study do %>
+  <td class="admin-left-edit">
+    <%= render partial: 'options_edit', locals: {object: case_study, instance_name: case_study.title} %>
+  </td>
+  <td>
+    <%= link_to case_study.title, [:admin, case_study] %>
+  </td>
+  <td>
+    <%= l case_study.posted_on.to_date, format: :short %>
+  </td>
+  <td>
+    <%= l case_study.updated_at.to_date, format: :short %>
+  </td>
+  <td class="admin-right-delete">
+    <%= render partial: 'options_delete', locals: {object: case_study, instance_name: case_study.title} %>
+  </td>
 <% end %>

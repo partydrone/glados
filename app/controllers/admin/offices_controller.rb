@@ -57,7 +57,7 @@ module Admin
     end
 
     def office_params
-      params.require(:office).permit(:name, :address, :city, :region, :zip, :country, :phone, :email)
+      params.require(:office).permit(:name, :address, :locality, :region, :postal_code, :country, :phone, :email)
     end
 
   end

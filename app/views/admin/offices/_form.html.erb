@@ -5,14 +5,14 @@
   <%= f.label :address %>
   <%= f.text_area :address %>
 
-  <%= f.label :city %>
-  <%= f.text_field :city %>
+  <%= f.label :locality %>
+  <%= f.text_field :locality %>
 
-  <%= f.label "State or Region" %>
+  <%= f.label :region %>
   <%= f.text_field :region %>
 
-  <%= f.label :zip %>
-  <%= f.text_field :zip %>
+  <%= f.label :postal_code %>
+  <%= f.text_field :postal_code %>
 
   <%= f.label :country, class:"select-label"%>
   <%= f.select :country, COUNTRIES.invert.sort %>

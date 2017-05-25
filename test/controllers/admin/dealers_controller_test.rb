@@ -31,9 +31,9 @@ describe Admin::DealersController, :locale do
             dealer: {
               name: 'Bill Cipher',
               address: '123 fake street',
-              city: 'Gravity Falls',
+              locality: 'Gravity Falls',
               region: 'Utah',
-              zip: '84606',
+              postal_code: '84606',
               phone: '8016556556',
               email: 'bill@cipher.com',
               website: 'gravityfalls.com'
@@ -87,7 +87,7 @@ describe Admin::DealersController, :locale do
           post admin_dealers_path, params: {
             dealer: {
               name: 'Bill Cipher',
-              city: 'Gravity Falls'
+              locality: 'Gravity Falls'
             }
           }
         }.wont_change 'Dealer.count'
@@ -138,7 +138,7 @@ describe Admin::DealersController, :locale do
         post admin_dealers_path, params: {
           dealer: {
             name: 'Bill Cipher',
-            city: 'Gravity Falls'
+            locality: 'Gravity Falls'
           }
         }
       }.wont_change 'Dealer.count'

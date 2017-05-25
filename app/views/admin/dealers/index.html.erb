@@ -12,9 +12,9 @@
   <thead>
     <tr>
       <th width="30"></th>
-      <th>Name</th>
-      <th>Region/State</th>
-      <th>Country</th>
+      <th><%= Dealer.human_attribute_name(:name) %></th>
+      <th><%= Dealer.human_attribute_name(:region) %></th>
+      <th><%= Dealer.human_attribute_name(:country_id) %></th>
       <th width="30"></th>
     </tr>
   </thead>

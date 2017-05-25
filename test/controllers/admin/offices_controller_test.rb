@@ -30,7 +30,7 @@ describe Admin::OfficesController, :locale do
           post admin_offices_path, params: {
             office: {
               name: 'NOAA',
-              city: 'Sitka'
+              locality: 'Sitka'
             }
           }
         }.must_change 'Office.count'
@@ -81,7 +81,7 @@ describe Admin::OfficesController, :locale do
           post admin_offices_path, params: {
             office: {
               name: 'NOAA',
-              city: 'Sitka'
+              locality: 'Sitka'
             }
           }
         }.wont_change 'Office.count'
@@ -132,7 +132,7 @@ describe Admin::OfficesController, :locale do
         post admin_offices_path, params: {
           office: {
             name: 'NOAA',
-            city: 'Sitka'
+            locality: 'Sitka'
           }
         }
       }.wont_change 'Office.count'

@@ -1,17 +1,15 @@
-<% cache product do %>
-  <%= content_tag :tr, class: "#{'discontinued' if product.discontinued?}" do %>
-    <td class="admin-left-edit">
-      <%= render partial: 'options_edit', locals: {object: product, instance_name: product.name} %>
-    </td>
-    <td>
-      <%= product.name %>
-      <%= '(discontinued)' if product.discontinued? %>
-    </td>
-    <td>
-      <%= product.part_number %>
-    </td>
-    <td class="admin-right-delete">
-      <%= render partial: 'options_delete', locals: {object: product, instance_name: product.name} %>
-    </td>
-  <% end %>
+<%= content_tag :tr, class: "#{'discontinued' if product.discontinued?}" do %>
+  <td class="admin-left-edit">
+    <%= render partial: 'options_edit', locals: {object: product, instance_name: product.name} %>
+  </td>
+  <td>
+    <%= product.name %>
+    <%= '(discontinued)' if product.discontinued? %>
+  </td>
+  <td>
+    <%= product.part_number %>
+  </td>
+  <td class="admin-right-delete">
+    <%= render partial: 'options_delete', locals: {object: product, instance_name: product.name} %>
+  </td>
 <% end %>

@@ -83,10 +83,6 @@ gem 'redirector'
 # Search
 gem 'pg_search'
 
-##
-# Tagging
-gem 'acts-as-taggable-on', '~> 4.0'
-
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'debase'
