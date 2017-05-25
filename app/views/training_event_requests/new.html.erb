@@ -1,6 +1,6 @@
-<% content_for :title, 'New Training Event Request' %>
+<% content_for :title, t('.title') %>
 <div class="row columns">
-<h1>New Training Event Request</h1>
+  <h1><%= yield :title %></h1>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 </div>
