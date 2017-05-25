@@ -22,4 +22,10 @@
 
 $(function() {
     $(document).foundation();
+
+    $(".close-flash").on('click', function() {
+        $(".alert-box").hide();
+        return false;
+    });
+
 });

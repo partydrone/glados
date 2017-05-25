@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20170524032841) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-
   create_table "articles", force: :cascade do |t|
     t.string   "type"
     t.string   "title"
@@ -179,7 +178,6 @@ ActiveRecord::Schema.define(version: 20170524032841) do
     t.integer "patent_id",  null: false
     t.integer "product_id", null: false
   end
-
 
   create_table "pg_search_documents", force: :cascade do |t|
     t.text     "content"
