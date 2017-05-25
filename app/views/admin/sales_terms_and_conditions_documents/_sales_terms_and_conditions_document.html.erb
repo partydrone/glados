@@ -1,19 +1,17 @@
-<% cache sales_terms_and_conditions_document do %>
-  <%= content_tag_for :tr, sales_terms_and_conditions_document do %>
-    <td class="admin-left-edit">
-      <%= render partial: 'options_edit', locals: {object: sales_terms_and_conditions_document, instance_name: sales_terms_and_conditions_document.title} %>
-    </td>
-    <td>
-      <%= link_to sales_terms_and_conditions_document.title, sales_terms_and_conditions_document %>
-    </td>
-    <td>
-      <%= l sales_terms_and_conditions_document.effective_on.to_date, format: :long %>
-    </td>
-    <td>
-      <%= l sales_terms_and_conditions_document.updated_at.to_date, format: :long %>
-    </td>
-    <td class="admin-right-delete">
-      <%= render partial: 'options_delete', locals: {object: sales_terms_and_conditions_document, instance_name: sales_terms_and_conditions_document.title} %>
-    </td>
-  <% end %>
+<%= content_tag_for :tr, sales_terms_and_conditions_document do %>
+  <td class="admin-left-edit">
+    <%= render partial: 'options_edit', locals: {object: sales_terms_and_conditions_document, instance_name: sales_terms_and_conditions_document.title} %>
+  </td>
+  <td>
+    <%= link_to sales_terms_and_conditions_document.title, sales_terms_and_conditions_document %>
+  </td>
+  <td>
+    <%= l sales_terms_and_conditions_document.effective_on.to_date, format: :long %>
+  </td>
+  <td>
+    <%= l sales_terms_and_conditions_document.updated_at.to_date, format: :long %>
+  </td>
+  <td class="admin-right-delete">
+    <%= render partial: 'options_delete', locals: {object: sales_terms_and_conditions_document, instance_name: sales_terms_and_conditions_document.title} %>
+  </td>
 <% end %>

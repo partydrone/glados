@@ -1,16 +1,14 @@
-<% cache download_type do %>
-  <%= content_tag_for :tr, download_type do %>
-    <td class="handle admin-table-move">
-      <%= image_tag 'icons/ellipsisup-small.svg', class: 'small-icon' %>
-    </td>
-  	<td class="admin-left-edit">
-  		<%= render partial: 'options_edit', locals: {object: download_type, instance_name: download_type.name} %>
-  	</td>
-    <td>
-      <%= download_type.name %>
-    </td>
-    <td class="admin-right-delete">
-      <%= render partial: 'options_delete', locals: {object: download_type, instance_name: download_type.name} %>
-    </td>
-  <% end %>
+<%= content_tag_for :tr, download_type do %>
+  <td class="handle admin-table-move">
+    <%= image_tag 'icons/ellipsisup-small.svg', class: 'small-icon' %>
+  </td>
+	<td class="admin-left-edit">
+		<%= render partial: 'options_edit', locals: {object: download_type, instance_name: download_type.name} %>
+	</td>
+  <td>
+    <%= download_type.name %>
+  </td>
+  <td class="admin-right-delete">
+    <%= render partial: 'options_delete', locals: {object: download_type, instance_name: download_type.name} %>
+  </td>
 <% end %>

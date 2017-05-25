@@ -83,9 +83,9 @@
 							    		<h6>Dealer for <%= t.name %></h6>
 										<h3><%= dealer.name %></h3>
 										<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= dealer.address %><br/>
-										<%= dealer.city %><br/>
+										<%= dealer.locality %><br/>
 										<%= dealer.region %><br/>
-										<%= dealer.zip %><br/>
+										<%= dealer.postal_code %><br/>
 										<%= t "countries.#{dealer.country_id}" %><br/>
 										<% if dealer.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= dealer.phone %><br/><% end %>
 										<% if dealer.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= dealer.email %><br/><% end %>
@@ -109,9 +109,9 @@
 							<h6>Dealer for <%= pg.searchable.name %></h6>
 							<h3><%= dealer.name %></h3>
 							<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= dealer.address %><br/>
-							<%= dealer.city %><br/>
+							<%= dealer.locality %><br/>
 							<%= dealer.region %><br/>
-							<%= dealer.zip %><br/>
+							<%= dealer.postal_code %><br/>
 							<%= t "countries.#{dealer.country_id}" %><br/>
 							<% if dealer.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= dealer.phone %><br/><% end %>
 							<% if dealer.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= dealer.email %><br/><% end %>
@@ -128,9 +128,9 @@
 				      		<h6>Office for <%= dealer.name %></h6>
 				      		<h3><%= office.name %></h3>
 				      		<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.address %><br/>
-							<%= office.city %><br/>
+							<%= office.locality %><br/>
 							<%= office.region %><br/>
-							<%= office.zip %><br/>
+							<%= office.postal_code %><br/>
 							<%= t "countries.#{office.country}" %><br/>
 							<% if office.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%=office.phone %><br/><% end %>
 							<% if office.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= office.email %><% end %></p>
@@ -146,9 +146,9 @@
 							<% end %>
 							<h3><%= pg.searchable.name %></h3>
 							<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= pg.searchable.address %><br/>
-							<%= pg.searchable.city %><br/>
+							<%= pg.searchable.locality %><br/>
 							<%= pg.searchable.region %><br/>
-							<%= pg.searchable.zip %><br/>
+							<%= pg.searchable.postal_code %><br/>
 							<%= t "countries.#{pg.searchable.country_id}" %><br/>
 							<% if pg.searchable.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= pg.searchable.phone %><br/><% end %>
 							<% if pg.searchable.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= pg.searchable.email %><br/><% end %>
@@ -166,9 +166,9 @@
 								<h6>Office for <%= pg.searchable.name %></h6>
 								<h3><%= office.name %></h3>
 				      			<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.address %><br/>
-								<%= office.city %><br/>
+								<%= office.locality %><br/>
 								<%= office.region %><br/>
-								<%= office.zip %><br/>
+								<%= office.postal_code %><br/>
 								<%= t "countries.#{office.country}" %><br/>
 								<% if office.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.phone %><br/><% end %>
 								<% if office.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= office.email %></p><% end %>

@@ -1,6 +1,6 @@
 new_office:
   name: NASA
   address: 123 bob.
-  city: Washington DC
+  locality: Washington DC
   region: DC
-  zip: 12345
+  postal_code: 12345

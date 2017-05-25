@@ -1,5 +1,5 @@
 class TrainingEventRequestsController < ApplicationController
-  
+
   def new
     @training_event_request = TrainingEventRequest.new
     @training_courses = TrainingCourse.all
@@ -21,7 +21,7 @@ class TrainingEventRequestsController < ApplicationController
   private
 
   def training_event_request_params
-    params.require(:training_event_request).permit(:company_name, :full_name, :email, :phone, :address, :city, :postal_code, :region, :country, :started_at, :ended_at, :capacity, training_course_ids: [])
+    params.require(:training_event_request).permit(:company_name, :full_name, :email, :phone, :address, :locality, :region, :postal_code, :country_id, :started_at, :ended_at, :capacity, training_course_ids: [])
   end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524032841) do
+ActiveRecord::Schema.define(version: 20170525031549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,15 +54,15 @@ ActiveRecord::Schema.define(version: 20170524032841) do
   create_table "dealers", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
-    t.string   "city"
+    t.string   "locality"
     t.string   "region"
-    t.string   "zip"
-    t.string   "country_id", limit: 2
+    t.string   "postal_code"
+    t.string   "country_id",  limit: 2
     t.string   "phone"
     t.string   "email"
     t.string   "website"
-    t.datetime "created_at",           precision: 6, null: false
-    t.datetime "updated_at",           precision: 6, null: false
+    t.datetime "created_at",            precision: 6, null: false
+    t.datetime "updated_at",            precision: 6, null: false
   end
 
   create_table "download_types", force: :cascade do |t|
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20170524032841) do
     t.integer "product_id",  null: false
   end
 
-  create_table "enrollments", id: :bigserial, force: :cascade do |t|
+  create_table "enrollments", force: :cascade do |t|
     t.integer "training_event_course_id"
     t.string  "first_name"
     t.string  "last_name"
@@ -157,18 +157,18 @@ ActiveRecord::Schema.define(version: 20170524032841) do
   create_table "offices", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
-    t.string   "city"
+    t.string   "locality"
     t.string   "region"
-    t.string   "zip"
+    t.string   "postal_code"
     t.string   "country"
     t.string   "phone"
     t.string   "email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at",  precision: 6, null: false
+    t.datetime "updated_at",  precision: 6, null: false
     t.integer  "position"
   end
 
-  create_table "patents", id: :bigserial, force: :cascade do |t|
+  create_table "patents", force: :cascade do |t|
     t.integer "number"
     t.string  "title"
     t.index ["number"], name: "index_patents_on_number", unique: true, using: :btree
@@ -188,7 +188,7 @@ ActiveRecord::Schema.define(version: 20170524032841) do
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
   end
 
-  create_table "prerequisites_training_courses", id: :bigserial, force: :cascade do |t|
+  create_table "prerequisites_training_courses", force: :cascade do |t|
     t.integer "prerequisite_id"
     t.integer "training_course_id"
   end
@@ -309,7 +309,7 @@ ActiveRecord::Schema.define(version: 20170524032841) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "training_course_products", id: :bigserial, force: :cascade do |t|
+  create_table "training_course_products", force: :cascade do |t|
     t.integer "training_course_id"
     t.integer "product_id"
     t.integer "position"
@@ -348,7 +348,7 @@ ActiveRecord::Schema.define(version: 20170524032841) do
     t.index ["training_event_id"], name: "index_training_event_courses_on_training_event_id", using: :btree
   end
 
-  create_table "training_events", id: :bigserial, force: :cascade do |t|
+  create_table "training_events", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "started_at",  precision: 6

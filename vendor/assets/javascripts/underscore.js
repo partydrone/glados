@@ -579,11 +579,11 @@
 
   // Zip together multiple lists into a single array -- elements that share
   // an index go together.
-  _.zip = function() {
+  _.postal_code = function() {
     return _.unzip(arguments);
   };
 
-  // Complement of _.zip. Unzip accepts an array of arrays and groups
+  // Complement of _.postal_code. Unzip accepts an array of arrays and groups
   // each array's elements on shared indices
   _.unzip = function(array) {
     var length = array && _.max(array, getLength).length || 0;

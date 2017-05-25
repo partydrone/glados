@@ -1,18 +1,16 @@
-<% cache product_category do %>
-  <section class="products-type-box">
-    <div class="products-category-image-backer" style="background-image: url('<%= attachment_url(product_category, :hero_image, fallback: 'http://placehold.it/1440x500') %>');"></div>
-    <div class="row">
-      <div class="products-white-backer large-10 large-centered columns">
-        <div>
-          <%= attachment_image_tag product_category, :icon_image, fallback: 'http://placehold.it/50/eaa800/ffffff', class: "icon" %>
-          <h1>
-            <%= product_category.name %>
-          </h1>
-          <div class="row products-product-box">
-            <%= render product_category.active_products %>
-          </div>
+<section class="products-type-box">
+  <div class="products-category-image-backer" style="background-image: url('<%= attachment_url(product_category, :hero_image, fallback: 'http://placehold.it/1440x500') %>');"></div>
+  <div class="row">
+    <div class="products-white-backer large-10 large-centered columns">
+      <div>
+        <%= attachment_image_tag product_category, :icon_image, fallback: 'http://placehold.it/50/eaa800/ffffff', class: "icon" %>
+        <h1>
+          <%= product_category.name %>
+        </h1>
+        <div class="row products-product-box">
+          <%= render product_category.active_products %>
         </div>
       </div>
     </div>
-  </section>
-<% end %>
+  </div>
+</section>
