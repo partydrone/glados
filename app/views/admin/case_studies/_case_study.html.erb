@@ -2,14 +2,17 @@
   <td class="admin-left-edit">
     <%= render partial: 'options_edit', locals: {object: case_study, instance_name: case_study.title} %>
   </td>
+  <td style="text-align: center">
+    <%= attachment_image_tag case_study, :hero_image, :fit, 80, 45, fallback: 'http://placehold.it/20/eaa800/ffffff' %>
+  </td>
   <td>
     <%= link_to case_study.title, [:admin, case_study] %>
   </td>
   <td>
-    <%= l case_study.posted_on.to_date, format: :short %>
+    <%= l case_study.posted_on.to_date %>
   </td>
   <td>
-    <%= l case_study.updated_at.to_date, format: :short %>
+    <%= l case_study.updated_at.to_date %>
   </td>
   <td class="admin-right-delete">
     <%= render partial: 'options_delete', locals: {object: case_study, instance_name: case_study.title} %>

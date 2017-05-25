@@ -2,14 +2,17 @@
   <td class="admin-left-edit">
     <%= render partial: 'options_edit', locals: {object: blog_post, instance_name: blog_post.title} %>
   </td>
+  <td style="text-align: center">
+    <%= attachment_image_tag blog_post, :hero_image, :fit, 80, 45, fallback: 'http://placehold.it/20/eaa800/ffffff' %>
+  </td>
   <td>
     <%= link_to blog_post.title, [:admin, blog_post] %>
   </td>
   <td>
-    <%= l blog_post.posted_on.to_date, format: :short %>
+    <%= l blog_post.posted_on.to_date %>
   </td>
   <td>
-    <%= l blog_post.updated_at.to_date, format: :short %>
+    <%= l blog_post.updated_at.to_date %>
   </td>
   <td class="admin-right-delete">
     <%= render partial: 'options_delete', locals: {object: blog_post, instance_name: blog_post.title} %>

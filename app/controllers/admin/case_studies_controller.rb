@@ -4,7 +4,7 @@ module Admin
     before_action :set_taggable_items, only: [:new, :edit]
 
     def index
-      @case_studies = CaseStudy.all
+      @case_studies = CaseStudy.order(posted_on: :desc)
       authorize @case_studies
     end
 
