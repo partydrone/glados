@@ -8,7 +8,7 @@
 				<h2>Explore Solutions</h2>
 				<ul>
 					<%= content_tag :li do %>
-						<%= link_to 'Products Types', admin_product_types_path %>
+						<%= link_to 'Product Types', admin_product_types_path %>
 					<% end if policy(:product_type).manage? %>
 					<%= content_tag :li do %>
 						<%= link_to 'Product Categories', admin_product_categories_path %>
