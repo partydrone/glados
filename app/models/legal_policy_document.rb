@@ -1,4 +1,7 @@
 class LegalPolicyDocument < ApplicationRecord
+	include PgSearch
+    	multisearchable :against => [:title, :body]
+
   validates :title, :body, :effective_on, presence: true
 
   attachment :file
