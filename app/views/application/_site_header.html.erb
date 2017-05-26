@@ -110,7 +110,7 @@
           <%= link_to t(".about"), about_path %>
         </li>
         <li>
-          <a href="#" class="topbar-dropdown topbar-search">
+          <a href="#" class="topbar-dropdown topbar-search" id="search-site">
             <?xml version="1.0" encoding="utf-8"?>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17">
               <style type="text/css">
@@ -132,7 +132,7 @@
                           <rect x="12.2" y="10" transform="translate(1 1)matrix(0.7071 -0.7071 0.7071 0.7071 -5.3589 12.9375)" class="st0" width="1.5" height="5.8"/><path class="st0" d="M7.3 14.3c-3.9 0-7-3.1-7-7 0-3.9 3.1-7 7-7 3.9 0 7 3.1 7 7C14.3 11.1 11.1 14.3 7.3 14.3zM7.3 1.8c-3 0-5.5 2.5-5.5 5.5 0 3 2.5 5.5 5.5 5.5 3 0 5.5-2.5 5.5-5.5C12.8 4.2 10.3 1.8 7.3 1.8z"/>
                         </svg>
                       </div>
-                      <%= text_field_tag :sitequery, params[:sitequery], class: "input-search-bar", placeholder: "Search our site" %>
+                      <%= text_field_tag :sitequery, params[:sitequery], class: "input-search-bar", placeholder: "Search our site", id: "global-site-search" %>
                     </div>
                   </div>
                 <% end %>
