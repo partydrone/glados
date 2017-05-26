@@ -99,16 +99,16 @@
   </div>
 
   <aside class="large-4 large-offset-0 medium-8 medium-offset-2 small-10 small-offset-1 columns similar-stories-side end sticky-container" data-sticky-container>
-    <div class="sticky" data-sticky data-anchor="article-container" data-sticky-on="large">
-      <div class="article-side-title row">
-        <%= t(".related_articles") %>
-      </div>
-      <a href="#" class="row">
-        <img src="http://placehold.it/558x313" alt="placeholder" class="large-6 columns">
-        <h2 class="large-6 columns similar-side-text">Texas Transportation Institue Evaluation for Arizona DOT</h2>
-        <p class="hide-for-large">This is a summary of the article and doesn't really contain any information. Isn't that special? Probably not. I don't even know anymore.</p>
-      </a>
-    </div>
+    <% if ContentFilter.new(@feature.related).filter(:marketing_content).count > 0 %>
+        <div class="sticky" data-sticky data-anchor="article-container" data-sticky-on="large">
+          <div class="article-side-title row">
+            <%= t(".related_articles") %>
+          </div>
+          <% ContentFilter.new(@feature.related).filter(:marketing_content).shift(3).each do |object| %>
+            <%= render partial: "related_#{object.class.to_s.underscore}", object: object %>
+          <% end %>
+        </div>
+    <% end %>
   </aside>
 </article>
 
