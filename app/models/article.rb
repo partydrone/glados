@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
   include Taggable
   include PgSearch
-    multisearchable :against => [:title, :subtitle, :body]
+  multisearchable :against => [:title, :subtitle, :body]
 
   has_and_belongs_to_many :products
 
