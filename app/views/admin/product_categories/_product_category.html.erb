@@ -12,7 +12,7 @@
     <%= product_category.name %>
   </td>
   <td>
-    <%= product_category.product_type.name %>
+    <%= product_category.product_type.name if product_category.product_type.present? %>
   </td>
   <td class="admin-right-delete">
     <%= render partial: 'options_delete', locals: {object: product_category, instance_name: product_category.name} %>

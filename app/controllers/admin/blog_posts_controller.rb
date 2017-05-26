@@ -4,7 +4,7 @@ module Admin
     before_action :set_taggable_items, only: [:new, :edit]
 
     def index
-      @blog_posts = BlogPost.all
+      @blog_posts = BlogPost.order(posted_on: :desc)
       authorize @blog_posts
     end
 
