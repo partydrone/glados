@@ -1,7 +1,7 @@
 class TrainingEventRequestsController < ApplicationController
 
   def new
-    @training_event_request = TrainingEventRequest.new
+    @training_event_request = TrainingEventRequest.new(country_id: 'US')
     @training_courses = TrainingCourse.all
   end
 
