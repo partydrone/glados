@@ -16,7 +16,7 @@ when Rails.env.staging?
     region:            "us-east-1",
     bucket:            "com-wavetronix-staging-glados-uploads"
   }
-  Refile.cdn_host = "//glados.staging.wavetronix.com"
+  Refile.cdn_host = "//uploads.glados.staging.wavetronix.com"
 end
 
 if Rails.env.production? || Rails.env.staging?
