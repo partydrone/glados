@@ -1,3 +1,5 @@
+![glados_01](https://cloud.githubusercontent.com/assets/57892/26514024/3b2d5db0-422c-11e7-97c5-04c18c7bc415.png)
+
 # GLaDOS
 
 [ ![Codeship Status for wavetronix/glados](https://app.codeship.com/projects/e318e0e0-a906-0134-18e9-4e0002e2f9ac/status?branch=master)](https://app.codeship.com/projects/191513)

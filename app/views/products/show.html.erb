@@ -127,7 +127,7 @@
 			</div>
 		</div>
 		<div class="row small-up-2 medium-up-3">
-			<% @product.downloads.group_by(&:download_type).each do |download_type, downloads| %>
+			<% @product.downloads.group_by(&:download_type).sort_by { |key, value| key.position }.each do |download_type, downloads| %>
 				<div class="support-section columns">
 				  <h2><%= download_type.name %></h2>
 				  <%= render partial: 'download', collection: downloads %>
