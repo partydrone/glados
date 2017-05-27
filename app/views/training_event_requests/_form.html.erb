@@ -1,37 +1,61 @@
 <%= form_for @training_event_request, validate: true do |f| %>
   <div class="large-6 columns">
+    <h1>Host a Training Event</h1>
     <h4>Host Information</h4>
     <p>Please provide us with the following information to rquest hosting an event</p>
 
     <%= f.label :company_name %>
     <%= f.text_field :company_name %>
-    <%= f.label :full_name %>
+    <%= f.label :full_name, 'Your First and Last Name' %>
     <%= f.text_field :full_name %>
     <%= f.label :email %>
     <%= f.email_field :email %>
     <%= f.label :phone %>
     <%= f.text_field :phone %>
-    <%= f.label :address %>
+    <%= f.label :address, 'Street Address' %>
     <%= f.text_field :address %>
-    <%= f.label :locality %>
-    <%= f.text_field :locality %>
-    <%= f.label :region %>
-    <%= f.text_field :region %>
-    <%= f.label :postal_code %>
-    <%= f.text_field :postal_code %>
-    <%= f.label :country_id, class:"select-label" %>
-    <%= f.select :country_id, COUNTRIES.invert.sort %>
-    <%= f.label :started_at, 'Start date and time' %>
-    <%= f.datetime_field :started_at, placeholder: 'yyyy-mm-dd' %>
-    <%= f.label :ended_at, 'End date and time' %>
-    <%= f.datetime_field :ended_at, placeholder: 'yyyy-mm-dd' %>
-    <%= f.label :capacity, 'How many people do you want to host at this event' %>
+    <div class="row">
+      <div class="large-7 columns">
+        <%= f.label :locality %>
+        <%= f.text_field :locality %>
+      </div>
+      <div class="large-5 columns">
+        <%= f.label :postal_code %>
+        <%= f.text_field :postal_code %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-7 columns">
+        <%= f.label :region %>
+        <%= f.text_field :region %>
+      </div>
+      <div class="large-5 columns">
+        <%= f.label :country_id, class:"select-label" %>
+        <%= f.select :country_id, COUNTRIES.invert.sort %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-6 columns">
+        <%= f.label :started_at, 'Start Date and Time' %>
+        <%= f.datetime_field :started_at, placeholder: 'yyyy-mm-dd' %>
+      </div>
+      <div class="large-6 columns">
+        <%= f.label :ended_at, 'End Date and Time' %>
+        <%= f.datetime_field :ended_at, placeholder: 'yyyy-mm-dd' %>
+      </div>
+    </div>
+    <%= f.label :capacity, 'Number of Attendees' %>
     <%= f.number_field :capacity %>
     <%= f.submit 'Request', class: 'button radius expanded request-button' %>
   </div>
 
   <div class="large-6 columns">
-    <h4>Request Courses</h4>
+    <div class="request-courses">
+      <h4>Request Courses</h4>
+    </div>
+    <div class="courses-selected">
+      <p>Click + on the course description below to add it to the list</p>
+    </div>
   </div>
 
   <div class="row">
