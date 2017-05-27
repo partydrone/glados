@@ -54,7 +54,9 @@
       <h4>Request Courses</h4>
     </div>
     <div class="courses-selected">
-      <p>Click + on the course description below to add it to the list</p>
+      <div id="requested-courses-list">
+        <p>Click + on the course description below to add it to the list</p>
+      </div>
     </div>
   </div>
 
@@ -65,20 +67,20 @@
         <div class="medium-5 columns">
           <div class="support-search-dropdown">
             <section class="products-language-header support-dropdown">
-              <select class="products-language-dropdown course_types_list" name="smartsensor">
-                <option value="course-type-all">All Courses</option>
-                <% @training_course_types.each do |course| %>
-                  <option value="course-type-<%= course.id %>"><%= course.name %></option>
+              <select class="products-language-dropdown request_types_list" name="smartsensor">
+                <option value="request-type-all">All Courses</option>
+                <% @training_course_types.each do |request| %>
+                  <option value="request-type-<%= request.id %>"><%= request.name %></option>
                 <% end %>						
               </select>
             </section>
           </div>
         </div>
       </div>
-      <div class="row show-course-list">
+      <div class="row show-request-list">
 		    <%= f.collection_check_boxes :training_course_ids, @training_courses, :id, :title do |training_course| %>
-
-            <div class="enrollment-course-card" id="course-type-<%= training_course.object.training_course_type_id %>">
+            
+            <div class="enrollment-course-card" id="<%= training_course.object.title %>" data-request-type="request-type-<%= training_course.object.training_course_type_id %>">
               <div class="horizontal menu">
                 <h3 class="training-certified"><%= training_course.object.title %></h3>
                 <div class="course-card-left training-hours"><%= training_course.object.duration %> hours</div>
