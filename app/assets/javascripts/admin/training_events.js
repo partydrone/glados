@@ -62,6 +62,9 @@ var training_events = {
             training_card.css({ "border-color": "#54a4da", "border-width": "2px", "border-style": "solid" });
         }
         training_events.showEnrollmentList();
+        //this is for training event requests
+        training_events.showRequestCoursesList();
+
 
     }, //end course check
 
@@ -81,7 +84,17 @@ var training_events = {
         }
 
     },
-
+    showRequestCoursesList: function() {
+        var request_list = $("#requested-courses-list");
+        request_list.empty();
+        if (training_events.list.length > 0) {
+            for (i = 0; i < training_events.list.length; ++i) {
+                request_list.append("<div>" + training_events.list[i] + "</div>");
+            }
+        } else {
+            request_list.append(' <p>Click + on the course description below to add it to the list</p>');
+        }
+    },
     validateCourses: function() {
         //check if user selected course
         if (training_events.list.length <= 0) {

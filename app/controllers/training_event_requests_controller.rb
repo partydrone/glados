@@ -2,7 +2,8 @@ class TrainingEventRequestsController < ApplicationController
 
   def new
     @training_event_request = TrainingEventRequest.new(country_id: 'US')
-    @training_courses = TrainingCourse.all
+    @training_courses = TrainingCourse.includes(:prerequisites,:training_course_type).all
+    @training_course_types = TrainingCourseType.all
   end
 
   def create
@@ -10,7 +11,7 @@ class TrainingEventRequestsController < ApplicationController
     @training_courses = TrainingCourse.find(@training_event_request.training_course_ids.reject!(&:empty?))
     if @training_event_request.valid?
       SiteMailer.training_event_request(@training_event_request, @training_courses).deliver_now
-      redirect_to training_events_path, notice: "request sent"
+      redirect_to training_events_path, notice: "Training Event Request sent"
     else
       @training_courses = TrainingCourse.all
       render :new

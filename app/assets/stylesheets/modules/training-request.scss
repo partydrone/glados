@@ -1,0 +1,26 @@
+@import "foundation_and_overrides";
+@import "globals/all";
+.request-courses {
+    text-align: center;
+    margin-top: 75px;
+}
+
+.courses-selected {
+    border: 1px solid $ghost;
+    min-height: 600px;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+    p {
+        margin-top: 50%;
+        color: $ghost;
+    }
+    div {
+        margin-top: 20px;
+    }
+}
+
+.courses-list {
+    margin-top: 20px;
+}
