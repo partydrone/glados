@@ -2,11 +2,12 @@
 @import "globals/all";
 
 .knowledge-base-header {
-	height: 300px; 
+	height: 300px;
 	background: $linkblue;
 	padding-top: 130px;
 	margin-top: -20px;
 	text-align: center;
+
 	h1 {
 		color: $white;
 	}
@@ -19,15 +20,18 @@
 	margin-right: auto;
 	border-radius: 5px;
 	border: 1px solid $silver;
+
 	input {
 		margin-bottom: 0;
 		border: none;
 		box-shadow: none;
 	}
+
 	@media screen and (max-width: 1023px) {
 		margin-right: auto !important;
 		margin-left: auto !important;
 	}
+
 	@media screen and (min-width: 40em) {
 		width: 50vw !important;
 	}
@@ -53,6 +57,7 @@
 
 .knowledge-base-view-more-link {
 	text-align: center;
+
 	&::after {
 		left: -6rem !important;
 		margin-left: auto;
@@ -68,6 +73,7 @@
 	display: block;
 	margin-right: auto;
 	padding-bottom: 10px;
+	
 	@media screen and (min-width: 40em) {
 		margin-left: -16.6667%;
 		max-width: 70%;

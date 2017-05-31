@@ -200,6 +200,10 @@ ul.normal-list {
     }
 }
 
+li {
+  font-family: $font-family-secondary;
+}
+
 td,
 th {
     font-family: $font-family-secondary;
