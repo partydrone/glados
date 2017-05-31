@@ -1,5 +1,6 @@
-<section class="products-type-box">
+<%= content_tag :section, class: 'products-type-box' do %>
   <div class="products-category-image-backer" style="background-image: url('<%= attachment_url(product_category, :hero_image, fallback: 'http://placehold.it/1440x500') %>');"></div>
+
   <div class="row">
     <div class="products-white-backer large-10 large-centered columns">
       <div>
@@ -13,4 +14,4 @@
       </div>
     </div>
   </div>
-</section>
+<% end %>
