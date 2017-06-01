@@ -126,8 +126,7 @@
 }
 
 .article-body,
-.product-intro-blurb,
-.kb-article-body {
+.product-intro-blurb {
 	ol {
 		list-style-type: decimal;
 	}
@@ -165,8 +164,7 @@
 	}
 }
 
-.article-body .flex-video,
-.kb-article-body .flex-video {
+.article-body .flex-video {
 	margin-left: auto;
 
 	@media screen and (min-width: 1200px) {
@@ -188,8 +186,7 @@
 	}
 }
 
-.article-body blockquote,
-.kb-article-body blockquote {
+.article-body blockquote {
 	display: block;
 	padding: 10px 0 30px 0px;
 	margin-left: auto;
