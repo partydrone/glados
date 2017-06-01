@@ -36,15 +36,14 @@
 	</div>
 </div>
 
-
-
 <div class="row columns" id="dealers" data-magellan-target="dealers">
-
 	<h1>
-		<%= t(".locate_dealer") %>
+		<%= t('.locate_dealer') %>
 	</h1>
+
 	<div class="dealers-map">
 		<%= image_tag('contact/dealermap.png', class: "map") %>
+
 		<div class="site-search-bar input-group">
 			<%= form_tag contact_path, method: :get do %>
 		  	<div class="input-group-button">
@@ -57,155 +56,32 @@
 			<% end %>
 		</div>
 
+		<% if params[:query].present? %>
+			<div class="contact-search-results">
+				<div class="row columns text-right">
+					<%= link_to "close x", contact_path %>
+				</div>
 
-
-	<% if params[:query] %>
-		<div class="contact-search-results">
-			<div class="row columns text-right">
-		  	<%= link_to "close x", contact_path %>
-		 </div>
-
-
-		  <ul class="row small-up-1 medium-up-2">
-		  	<% countryTranslate = 0 %>
-		  	<% @pg_search_documents.uniq.each do |pg| %>
-
-
-
-		  		<% COUNTRIES.invert.each do |c| %>
-		  			<% if c[0].downcase == params[:query].downcase %>
-					    <% @territories.each do |t| %>
-					    	<% if c[1].to_s === t.country.to_s %>
-					    		<% countryTranslate = 1 %>
-					    		<li class="column column-block">
-									<div class="office-information">
-							    		<% dealer = Dealer.find(t.dealer) %>
-							    		<h6>Dealer for <%= t.name %></h6>
-										<h3><%= dealer.name %></h3>
-										<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= dealer.address %><br/>
-										<%= dealer.locality %><br/>
-										<%= dealer.region %><br/>
-										<%= dealer.postal_code %><br/>
-										<%= t "countries.#{dealer.country_id}" %><br/>
-										<% if dealer.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= dealer.phone %><br/><% end %>
-										<% if dealer.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= dealer.email %><br/><% end %>
-										<% if dealer.website.present? %>
-											<%= link_to "#{dealer.website}", :target=> "_blank" do %>
-												<%= image_tag('icons/world.svg', class: "small-icon") %><%= dealer.website %>
-											<% end %>
-										<% end %></p>
-									</div>
-								</li>
-					    	<% end %>
-					    <% end %>
+				<ul class="row small-up-1 medium-up-2">
+					<% if @search_results.size > 0 %>
+						<% @search_results.each do |search_result| %>
+							<%= render partial: "#{search_result.class.to_s.underscore}_result", object: search_result, as: search_result.class.to_s.underscore %>
+						<% end %>
+					<% else %>
+						<li style="width: 100%; margin: 0 20px;">
+							<h4>No results were found for your search. Please contact our Corporate Headquarters for more information.</h4>
+						</li>
 					<% end %>
-				<% end %>
+				</ul>
+			</div>
+		<% end %>
+	</div>
 
-
-		  		<% if pg.searchable_type == "Territory" %>
-		  			<li class="column column-block">
-						<div class="office-information">
-							<% dealer = Dealer.find(pg.searchable.dealer) %>
-							<h6>Dealer for <%= pg.searchable.name %></h6>
-							<h3><%= dealer.name %></h3>
-							<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= dealer.address %><br/>
-							<%= dealer.locality %><br/>
-							<%= dealer.region %><br/>
-							<%= dealer.postal_code %><br/>
-							<%= t "countries.#{dealer.country_id}" %><br/>
-							<% if dealer.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= dealer.phone %><br/><% end %>
-							<% if dealer.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= dealer.email %><br/><% end %>
-							<% if dealer.website.present? %>
-								<%= link_to "#{dealer.website}", :target=> "_blank" do %>
-									<%= image_tag('icons/world.svg', class: "small-icon") %><%= dealer.website %>
-								<% end %>
-							<% end %></p>
-						</div>
-				    </li>
-				    <li class="column column-block">
-				      	<div class="office-information">
-					      	<% office = Office.find(pg.searchable.office) %>
-				      		<h6>Office for <%= dealer.name %></h6>
-				      		<h3><%= office.name %></h3>
-				      		<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.address %><br/>
-							<%= office.locality %><br/>
-							<%= office.region %><br/>
-							<%= office.postal_code %><br/>
-							<%= t "countries.#{office.country}" %><br/>
-							<% if office.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%=office.phone %><br/><% end %>
-							<% if office.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= office.email %><% end %></p>
-				      	</div>
-				    </li>
-			    <% end %>
-			    <% if pg.searchable_type == "Dealer" %>
-			     	<li class="column column-block">
-						<div class="office-information">
-							<% if Territory.where("dealer like ?", "%#{pg.searchable.id}%").first.present? %>
-								<% territory = Territory.where("dealer like ?", "%#{pg.searchable.id}%").first %>
-								<h6>Dealer for <%= territory.name %></h6>
-							<% end %>
-							<h3><%= pg.searchable.name %></h3>
-							<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= pg.searchable.address %><br/>
-							<%= pg.searchable.locality %><br/>
-							<%= pg.searchable.region %><br/>
-							<%= pg.searchable.postal_code %><br/>
-							<%= t "countries.#{pg.searchable.country_id}" %><br/>
-							<% if pg.searchable.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= pg.searchable.phone %><br/><% end %>
-							<% if pg.searchable.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= pg.searchable.email %><br/><% end %>
-							<% if pg.searchable.website.present? %>
-								<%= link_to "#{pg.searchable.website}", :target=> "_blank" do %>
-									<%= image_tag('icons/world.svg', class: "small-icon") %><%= pg.searchable.website %>
-								<% end %>
-							<% end %></p>
-						</div>
-			      	</li>
-			      	<% if Territory.where("dealer like ?", "%#{pg.searchable.id}%").first.present? %>
-				      	<li class="column column-block">
-							<div class="office-information">
-								<% office = Office.find(territory.office) %>
-								<h6>Office for <%= pg.searchable.name %></h6>
-								<h3><%= office.name %></h3>
-				      			<p><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.address %><br/>
-								<%= office.locality %><br/>
-								<%= office.region %><br/>
-								<%= office.postal_code %><br/>
-								<%= t "countries.#{office.country}" %><br/>
-								<% if office.phone.present? %><%= image_tag('icons/Marker.svg', class: "small-icon") %><%= office.phone %><br/><% end %>
-								<% if office.email.present? %><%= image_tag('icons/email.svg', class: "small-icon") %><%= office.email %></p><% end %>
-							</div>
-				      	</li>
-			      	<% else %>
-				      	<li class="column column-block">
-				      		<div class="office-information">
-				      			<h3>Wavetronix Headquarters</h3>
-								<p><%= image_tag('icons/map_location.svg', class: "small-icon") %>78 E 1700 S<br/>
-								Provo, UT<br/>
-								84606<br/>
-								United States<br/>
-								<%= image_tag('icons/phone.svg', class: "small-icon") %>(801) 734-7200<br/>
-								<%= image_tag('icons/fax_print.svg', class: "small-icon") %>+1 (801) 734-7201<br/>
-								<%= image_tag('icons/email.svg', class: "small-icon") %>sales@wavetronix.com</p>
-				      		</div>
-				      	</li>
-			      	<% end %>
-		  		<% end %>
-		  	<% end %>
-
-		  	<% if @pg_search_documents.any?{|document| document.searchable_type == "Dealer"  || document.searchable_type == "Territory" } || countryTranslate == 1 %>
-		  	<% else %>
-		  		<li style="width: 100%; margin: 0 20px;"><h4>No results were found for your search. Please contact our Corporate Headquarters for more information.</h4></li>
-		  	<% end %>
-
-		  </ul>
-	  </div>
-	<% end %>
-</div>
-
-<section class="row columns" id="offices" data-magellan-target="offices">
-
+	<section class="row columns" id="offices" data-magellan-target="offices">
 		<h1>
 			<%= t(".wavetronix_offices") %>
 		</h1>
+
 		<div class="row office-row">
 			<div class="large-3 medium-6 columns end vcard">
 				<div class="office-information adr">
@@ -219,149 +95,40 @@
 					<p><%= image_tag('icons/email.svg', class: "small-icon") %>sales@wavetronix.com</p>
 				</div>
 			</div>
+
 			<div class="large-3 medium-6 columns end contact-social">
 				<h3>Social Media</h3>
-		        <%= link_to "https://www.linkedin.com/company/53678", :target=> "_blank" do %>
-		          <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
-		        <% end %>
-		        <%= link_to "https://twitter.com/wavetronix_llc", :target=> "_blank" do %>
-		          <%=image_tag('icons/Twitter.svg', class: "icon") %>
-		        <% end %>
-		        <%= link_to "https://www.facebook.com/wavetronix/", :target=> "_blank" do %>
-		          <%=image_tag('icons/Facebook.svg', class: "icon") %>
-		        <% end %>
-		        <%= link_to "https://plus.google.com/b/107158630240614790564/?pageId=107158630240614790564", :target=> "_blank" do %>
-		          <%=image_tag('icons/Google.svg', class: "icon") %>
-		        <% end %>
+
+        <%= link_to "https://www.linkedin.com/company/53678", :target=> "_blank" do %>
+          <%=image_tag('icons/LinkedIn.svg', class: "icon") %>
+        <% end %>
+
+        <%= link_to "https://twitter.com/wavetronix_llc", :target=> "_blank" do %>
+          <%=image_tag('icons/Twitter.svg', class: "icon") %>
+        <% end %>
+
+        <%= link_to "https://www.facebook.com/wavetronix/", :target=> "_blank" do %>
+          <%=image_tag('icons/Facebook.svg', class: "icon") %>
+        <% end %>
+
+        <%= link_to "https://plus.google.com/b/107158630240614790564/?pageId=107158630240614790564", :target=> "_blank" do %>
+          <%=image_tag('icons/Google.svg', class: "icon") %>
+        <% end %>
 			</div>
+
 			<div class="large-3 medium-6 columns end">
 				<h3>Public Relations</h3>
-				<p>For news and other press related questions, email info@wavetronix.com</p>
-			</div>
-		</div>
-		<div class="row office-row">
-			<div class="columns">
-				<h4>Asia/Pacific</h4>
-			</div>
-			<div class="large-3 medium-6 columns end vcard">
-				<div class="office-information adr">
-					<h3>Wavetronix China</h3>
-					<p><%= image_tag('icons/map_location.svg', class: "small-icon") %>Room 1906 Hui Xin</p>
-					<p>Apartment</p>
-					<p>Bei Chen E. Road</p>
-					<p>Chao Yang District</p>
-					<p>Beijing</p>
-					<p>100101</p>
-					<p>China</p>
-					<p><%= image_tag('icons/phone.svg', class: "small-icon") %>(86) 10-6494-3046</p>
-					<p><%= image_tag('icons/email.svg', class: "small-icon") %>chinasales@wavetronix.com</p>
-				</div>
-			</div>
-			<div class="large-3 medium-6 columns end vcard">
-				<div class="office-information adr">
-					<h3>Wavetronix Singapore</h3>
-					<p><%= image_tag('icons/map_location.svg', class: "small-icon") %>Paya Lebar Square 60 Paya</p>
-					<p>Lebar Road Unit #09-38</p>
-					<p>Singapore</p>
-					<p>409051</p>
-					<p>Singapore</p>
-					<p><%= image_tag('icons/phone.svg', class: "small-icon") %>+1 (801) 734-7200</p>
-					<p><%= image_tag('icons/email.svg', class: "small-icon") %>apsales@wavetronix.com</p>
-				</div>
-			</div>
-
-		</div>
-		<div class="row office-row">
-			<div class="columns">
-				<h4>Europe</h4>
-			</div>
-			<div class="large-3 medium-6 columns end vcard">
-				<div class="office-information adr">
-					<h3>Wavetronix France</h3>
-					<p><%= image_tag('icons/map_location.svg', class: "small-icon") %>ESTIA 2 Allee Theodore</p>
-					<p>Monod Technopole</p>
-					<p>Izarbel</p>
-					<p>Bidart</p>
-					<p>64210</p>
-					<p>France</p>
-					<p><%= image_tag('icons/phone.svg', class: "small-icon") %>+33 (0)5 59 43 85 10</p>
-					<p><%= image_tag('icons/email.svg', class: "small-icon") %>eusales@wavetronix.com</p>
-				</div>
-			</div>
-			<div class="large-3 medium-6 columns end vcard">
-				<div class="office-information adr">
-					<h3>Wavetronix UK</h3>
-					<p><%= image_tag('icons/map_location.svg', class: "small-icon") %>Suite 4B Gatwick House</p>
-					<p>Peeks Brook Lane</p>
-					<p>Horley</p>
-					<p>Surrey</p>
-					<p>RH6 9ST</p>
-					<p>United Kingdom</p>
-					<p><%= image_tag('icons/phone.svg', class: "small-icon") %>+44 (0) 1293 775 487</p>
-					<p><%= image_tag('icons/email.svg', class: "small-icon") %>uksales@wavetronix.com</p>
-				</div>
+				<p>For news and other press related questions, email info@wavetronix.com.</p>
 			</div>
 		</div>
 
-		<div class="row office-row">
-			<div class="columns">
-				<h4>North America</h4>
-			</div>
-			<div class="large-3 medium-6 columns end vcard">
-				<div class="office-information adr">
-					<h3>Wavetronix Florida</h3>
-					<p><%= image_tag('icons/map_location.svg', class: "small-icon") %>3000 Dovera Drive</p>
-					<p>Suite 100</p>
-					<p>Oviedo</p>
-					<p>Florida</p>
-					<p>32765</p>
-					<p>United States</p>
-					<p><%= image_tag('icons/phone.svg', class: "small-icon") %>(407) 366-5144</p>
-					<p><%= image_tag('icons/email.svg', class: "small-icon") %>nasales@wavetronix.com</p>
-				</div>
-			</div>
-			<div class="large-3 medium-6 columns end vcard">
-				<div class="office-information adr">
-					<h3>Wavetronix Georgia</h3>
-					<p><%= image_tag('icons/map_location.svg', class: "small-icon") %>1395 South Marietta Parkway</p>
-					<p>Suite 208</p>
-					<p>Building 400</p>
-					<p>Marietta</p>
-					<p>Georgia</p>
-					<p>30067</p>
-					<p>United States</p>
-				</div>
-			</div>
-			<div class="large-3 medium-6 columns end vcard">
-				<div class="office-information adr">
-					<h3>Wavetronix Headquarters</h3>
-					<p><%= image_tag('icons/map_location.svg', class: "small-icon") %>78 E 1700 S</p>
-					<p>Provo, UT</p>
-					<p>84606</p>
-					<p>United States</p>
-					<p><%= image_tag('icons/phone.svg', class: "small-icon") %>(801) 734-7200</p>
-					<p><%= image_tag('icons/fax_print.svg', class: "small-icon") %>+1 (801) 734-7201</p>
-				</div>
-			</div>
-			<div class="large-3 medium-6 columns end vcard">
-				<div class="office-information adr">
-					<h3>Wavetronix Tennessee</h3>
-					<p><%= image_tag('icons/map_location.svg', class: "small-icon") %>1295 Old Hickory Blvd</p>
-					<p>Nashville</p>
-					<p>Tennessee</p>
-					<p>37207</p>
-					<p>United States</p>
-					<p><%= image_tag('icons/phone.svg', class: "small-icon") %>(615) 410-0737</p>
-					<p><%= image_tag('icons/email.svg', class: "small-icon") %>TNsales@wavetronix.com</p>
-				</div>
-			</div>
-		</div>
+		<%= render partial: 'sales_region', collection: @sales_regions %>
+
 		<div class="row">
 			<div class="large-7 columns end">
 				<h3><%= t(".website_feedback") %></h3>
 				<p>Give us your feedback on or report any problems you experience with our website by sending an email to webmaster@wavetronix.com. Please note that we cannot respond to general questions and/or information requests through this email address. This email address will not help you recieve customer support. </p>
 			</div>
 		</div>
-
-</section>
-
+	</section>
+</div>

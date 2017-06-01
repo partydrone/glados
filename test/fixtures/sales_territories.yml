@@ -1,0 +1,7 @@
+---
+
+new_sales_territory:
+  name: California (North)
+  dealer:
+  sales_office: new_sales_office
+  sales_region: new_sales_region

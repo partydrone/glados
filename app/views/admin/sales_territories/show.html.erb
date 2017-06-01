@@ -1,0 +1,27 @@
+<% content_for :title, "#{@sales_territory.name}" %>
+
+<div class="row columns">
+	<h1><%= yield :title %></h1>
+</div>
+
+<div class="row columns" data-equalizer data-equalize-on="medium">
+  <p>
+	  <%= @sales_territory.sales_office.name %><br/>
+	  <%= @sales_territory.sales_region.name %>
+	</p>
+
+  <% if @sales_territory.dealer %>
+  	<h3>Dealer for <%= @sales_territory.name %></h3>
+  	<%= @sales_territory.dealer.name %>
+  	<%= @sales_territory.dealer.address %><br/>
+    <%= @sales_territory.dealer.locality if @sales_territory.dealer.locality.present? %><br/>
+    <%= @sales_territory.dealer.region if @sales_territory.dealer.region.present? %><br/>
+    <%= @sales_territory.dealer.postal_code if @sales_territory.dealer.postal_code.present? %><br/>
+    <%= t "countries.#{@sales_territory.dealer.country_id}" %><br/>
+    <%= @sales_territory.dealer.phone if @sales_territory.dealer.phone.present? %><br/>
+    <%= @sales_territory.dealer.email if @sales_territory.dealer.email.present? %><br/>
+    <%= @sales_territory.dealer.website if @sales_territory.dealer.website.present? %>
+  <% end %>
+
+  <%= link_to "back to admin territories page", admin_sales_territories_path, class: "admin-back-link" %>
+</div>

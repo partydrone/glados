@@ -34,9 +34,10 @@ describe Admin::DealersController, :locale do
               locality: 'Gravity Falls',
               region: 'Utah',
               postal_code: '84606',
+              country_id: 'US',
               phone: '8016556556',
               email: 'bill@cipher.com',
-              website: 'gravityfalls.com'
+              website: 'http://gravityfalls.com'
             }
           }
         }.must_change 'Dealer.count'

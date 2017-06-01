@@ -6,6 +6,57 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+##
+# Dealers
+[
+  { name: 'AGA Group', address: '107 Monadnock Rd.', locality: 'Chestnut Hill', region: 'MA', postal_code: '02467', country_id: 'US', phone: '(617) 630-0011', email: 'ag@againc.net', website: 'http://www.againc.net' },
+  { name: 'ASTI', address: '18 Blevins Drive', locality: 'New Castle', region: 'DE', postal_code: '19720', country_id: 'US', phone: '(302) 328-3220', email: 'asti@asti-trans.com', website: 'http://www.asti-trans.com' },
+  { name: 'Actime BV', address: 'Heuveleindstraat 5', locality: 'Ravenstein', region: 'NL', postal_code: '5371', country_id: 'NL', phone: '+31 (0)486-412846', email: 'info@actime.nl', website: 'http://www.actime.nl' },
+  { name: 'Advanced Traffic Products', address: '1122 Industry Street', locality: 'Everett', region: 'WA', postal_code: '98203', country_id: 'US', phone: '(425) 347-6208', email: 'advancedtraffic@advancedtraffic.com', website: 'http://www.advancedtraffic.com' },
+  { name: 'Aldridge Electrical Industries', address: 'Unit 10-16 Sir Joseph Banks Drive', locality: 'Kurnell', region: 'NSW', postal_code: '2231', country_id: 'AU', phone: '+612 9540 9966', email: 'info@aldridge.com.au', website: 'http://www.aldridge.com.au' },
+  { name: 'Alshamlan International General Trading & Contracting',   address: 'Kuwait - Salmiyah-Blajat Street\r\nBlock #3 - Aloula Tower #34 - 9th Floor - Office 9A\r\nPO Box 5984', locality: 'Salmiyah', region: '', postal_code: '22069', country_id: 'KW', phone: '+965 25712855', email: 'info@alshamlaninternational.com', website: 'http://www.alshamlaninternational.com' },
+  { name: 'American Traffic SA', address: 'Av Belgrano 485 Piso 9 Of 20\r\nCP C1092AAQ', locality: 'Ciudad de Buenos Aires', region: '', postal_code: '', country_id: 'AR', phone: '+54 11 4342-6147', email: 'informes@americantrafficsa.com.ar', website: 'http://www.americantrafficsa.com.ar' },
+  { name: 'Amparo Solutions', address: 'Falkenbergsgatan 3\r\n', locality: 'Göteborg', region: '', postal_code: '412 85', country_id: 'SE', phone: '+46 (0) 31 721 19 50', email: 'info@amparosolutions.com', website: 'http://www.amparosolutions.com' },
+  { name: 'CMS Traffic Systems', address: '70 Lake Road\r\nBhandup (W)', locality: 'Mumbai', region: '', postal_code: '400078', country_id: 'IN', phone: '+91 (22) 2595 2018', email: 'ckrishnakumar@cms.com', website: 'http://www.cms.com/cmstraffic' },
+  { name: 'Far Data', address: 'ul. Lipowa 3', locality: 'Krakow', region: '', postal_code: '30-702', country_id: 'PL', phone: '+48 12 255 99 99', email: 'biuro@fardata.pl', website: 'http://www.fardata.pl' },
+  { name: 'Fortran Traffic Systems Limited', address: '470 Midwest Road', locality: 'Toronto', region: 'Ontario', postal_code: 'M1P 4Y5', country_id: 'CA', phone: '(416) 288-1320', email: 'sales@fortrantraffic.com', website: 'http://www.fortrantraffic.com' },
+  { name: 'HMI Technologies Limited', address: 'PO Box 38164\r\nHowick', locality: 'Auckland', region: '', postal_code: '2145', country_id: 'NZ', phone: '+64 9 572 0006', email: 'info@hmi.co.nz', website: 'http://www.hmi.co.nz' },
+  { name: 'IFIPCO Ltd.', address: 'PO Box 14202\r\n213–215 Mesogion Avenue', locality: 'Athens', region: '', postal_code: 'GR 115 10', country_id: 'GR', phone: '+30 210 6725970', email: 'info@ifipco.gr', website: 'http://www.ifipco.gr' },
+  { name: 'ITS Teknik A/S', address: 'Københavnsvej 265', locality: 'Roskilde', region: '', postal_code: 'DK-4000', country_id: 'DK', phone: '+45 46 75 72 27', email: 'info@its-teknik.dk', website: 'http://www.its-teknik.dk' },
+  { name: 'Interprovincial Traffic Services', address: 'Unit #1, 2153 - 192nd Street', locality: 'Surrey', region: 'BC', postal_code: 'V35 3X2', country_id: 'CA', phone: '(604) 542-8500', email: 'sales@interprovincial.com', website: 'http://www.interprovincial.com' },
+  { name: 'Intetra', address: 'Barajyolu Cad. Aral Sok. Özkanca Plaza No:4 K:8', locality: 'Ataşehir Kadıköy', region: 'Istanbul', postal_code: '', country_id: 'TR', phone: '+90 (216) 456 86 40', email: 'info@intetra.com.tr', website: 'http://www.intetra.com.tr' },
+  { name: 'Iron Armour', address: '1290 Fox Lane', locality: 'Mogadore', region: 'OH', postal_code: '44260', country_id: 'AF', phone: '(330) 608-5002', email: 'sales@ironarmour.com', website: 'http://www.ironarmour.com' },
+  { name: 'Mid American Signal', address: '2429 S. Mill Street', locality: 'Kansas City', region: 'KS', postal_code: '66103', country_id: 'US', phone: '(913) 432-5002', :email=>"", website: 'http://www.midamsignal.com' },
+  { name: 'Nam Yeong Information Technology', address: 'Avenida do Dr Rodrigo Rodriquez,', locality: 'Nam Kwong Building 2/F', region: '', postal_code: '', country_id: 'MO', phone: '+853 8391 1572', email: 'service@nymacau.com', website: 'http://www.nymacau.com' },
+  { name: 'Navigator', address: '14/19 Novoslobodskaya Street', locality: 'Moscow', region: '', postal_code: '127055', country_id: 'RU', phone: '+7 (495) 775-72-82', email: 'info@navi-ltd.ru', website: 'http://www.strelka-wave.ru' },
+  { name: 'Orange Traffic', address: '18195 J.-A. Bombardier', locality: 'Mirabel', region: 'QC', postal_code: 'J7J 0E7', country_id: 'CA', phone: '(450) 477-5262', email: 'info@orangetraffic.com', website: 'http://www.orangetraffic.com' },
+  { name: 'QTC Traffic Technology Ltd.', address: 'Unit H, 7/F., World Tech Centre,\r\n95 How Ming Street, Kwun Tong', locality: 'Kowloon', region: '', postal_code: '', country_id: 'HK', phone: '+852 2535 8112', email: 'mlam@qtc-traffic.com', website: 'http://www.qtc-traffic.com' },
+  { name: 'Quadrex', address: 'C/ Muntaner 262, 4o-1a', locality: 'Barcelona', region: '', postal_code: '08021', country_id: 'ES', phone: '+34 93 202 2924', email: 'info@quadrex.es', website: 'http://www.quadrex.es' },
+  { name: 'S.T.S. s.r.l.', address: 'Via Tita Secchi n. 1', locality: 'Desenzano del Garda (BS)', region: '', postal_code: '25015', country_id: 'IT', phone: '+39 030 918226', email: 'elena.casarini@ststraffic.it', website: 'http://ststraffic.it' },
+  { name: 'SMEU Astana Ltd', address: '15/1 Beisekbayev str.,\r\n', locality: 'Astana', region: '', postal_code: '010000', country_id: 'KZ', phone: '+7 (7172) 37 69 90', email: 'info@smeu-astana.kz', website: 'http://smeu-astana.kz' },
+  { name: 'Schweizer Electronic AG', address: 'Industriestrasse 3', locality: 'Reiden', region: '', postal_code: 'CH-6260', country_id: 'CH', phone: '+41 62 749 07 07', email: 'info@schweizer-electronic.com', website: 'http://www.schweizer-electronic.com' },
+  { name: 'Signal Control Products, Inc.', address: '199 Evans Way', locality: 'Branchburg', region: 'NJ', postal_code: '08876', country_id: 'US', phone: '(908) 231-1133', email: 'sales@signalcontrol.com', website: 'http://www.signalcontrol.com' },
+  { name: 'Summit Traffic Solutions', address: '11757 W Ken Caryl Ave.\r\nSuite F-411', locality: 'Littleton', region: 'CO', postal_code: '80127', country_id: 'US', phone: '(303) 717-1917', email: 'info@summit-traffic.com', website: 'http://www.summit-traffic.com' },
+  { name: 'SummitCrest (California office)', address: '33175 Temecula Pkwy, Suite A415', locality: 'Temecula', region: 'CA', postal_code: '92592', country_id: 'US', phone: '(760) 529-9792', email: 'sales@summit-crest.com', website: 'http://www.summit-crest.com' },
+  { name: 'SummitCrest (Illinois office)', address: '2516 Waukegan Rd, Suite 214', locality: 'Glenview', region: 'IL', postal_code: '60025', country_id: 'US', phone: '(224) 235-4474', email: 'sales@summit-crest.com', website: 'http://www.summit-crest.com' },
+  { name: 'TMS Engineering Co., Ltd.', address: '50/413 Moo 6 Tambol Banmai', locality: 'Amphur Pakkred', region: 'Nonthatburi', postal_code: '11120', country_id: 'TH', phone: '+66 (2) 984 1192', email: 'tmsadmin@tmsengineering.co.th', website: 'http://www.tmsengineering.co.th' },
+  { name: 'Telehouse Engineering', address: 'JL. A.H Nasution No.236 Ujung Berung', locality: 'Bandung', region: '', postal_code: '40614', country_id: 'ID', phone: '+62 (22) 780 2700', email: 'telehouse@telehouse-eng.com', website: 'http://www.telehouse-eng.com' },
+  { name: 'Turbine Technique (M) Sdn Bhd', address: 'No 21, Jalan Uranus AJ U5/AJ\r\nSeksyen U5, 40150 Shah Alam,', locality: 'Selangor', region: 'Darul Ehsan', postal_code: '', country_id: 'MY', phone: '+60 3 7845 4093', email: 'sales@turbine-group.com', website: 'http://www.turbine-group.com' },
+  { name: 'Twincrest Technologies', address: '7625 Bellaire Drive South\r\nSuite 130', locality: 'Fort Worth', region: 'TX', postal_code: '76132', country_id: 'US', phone: '(817) 539-2200', email: 'sales@twincresttech.com', website: 'http://twincresttech.com'}
+].each do |dealer|
+  Dealer.find_or_create_by(name: dealer[:name]) do |d|
+    d.address = dealer[:address]
+    d.locality = dealer[:locality]
+    d.region = dealer[:region]
+    d.postal_code = dealer[:postal_code]
+    d.country_id = dealer[:country_id]
+    d.phone = dealer[:phone]
+    d.email = dealer[:email]
+    d.website = dealer[:website]
+  end
+end
+
+dealers = Dealer.order(:name)
 
 ##
 # Download Types
@@ -252,6 +303,15 @@ end
 end
 
 ##
+# Sales Offices
+
+##
+# Sales Regions
+
+##
+# Sales Territories
+
+##
 # Training Course Types
 [
   'Certified Training Course',
@@ -267,8 +327,8 @@ training_course_types = TrainingCourseType.order(:name)
 ##
 # Training Courses
 [
-  { title: 'Advanced Traffic Radar Workshop', training_course_type_id: training_course_types[0].id, number: '105', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type  you.', duration: 2, description: 'This is the description portion of the course'},
-  { title: 'Introduction to HD SmartSensor Workshop', training_course_type_id: training_course_types[1].id, number: '106', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type or you.', duration: 3, description: 'This is the description part of this course!'},
+  { title: 'Advanced Traffic Radar Workshop', training_course_type_id: training_course_types[0].id, number: '105', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type  you.', duration: 2, description: 'This is the description portion of the course' },
+  { title: 'Introduction to HD SmartSensor Workshop', training_course_type_id: training_course_types[1].id, number: '106', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and which type or you.', duration: 3, description: 'This is the description part of this course!' },
   { title: 'Introduction to Traffic Radar Workshop', training_course_type_id: training_course_types[2].id, number: '107', summary: 'In this workshop, you will learn the basics of radar technology and how it is revolutionizing the traffic detection industry. Familiar with different types of traffic radar and d work for you.', duration: 4, description: 'Here we are describing how cool this course really is.'}
 ].each do |training_course|
   TrainingCourse.find_or_create_by(title: training_course[:title]) do |tc|
@@ -331,8 +391,8 @@ training_events = TrainingEvent.order(:title)
 
 
 [
-  { training_course_id: training_courses[0].id, training_event_id: training_events[0].id, seats:5, started_at: 72.hours.from_now.to_s(:db), ended_at: 75.hours.from_now.to_s(:db), room: 'Library 401'},
-  { training_course_id: training_courses[1].id, training_event_id: training_events[0].id, seats:0, started_at: 72.hours.from_now.to_s(:db), ended_at: 75.hours.from_now.to_s(:db), room: 'Library 301'},
+  { training_course_id: training_courses[0].id, training_event_id: training_events[0].id, seats:5, started_at: 72.hours.from_now.to_s(:db), ended_at: 75.hours.from_now.to_s(:db), room: 'Library 401' },
+  { training_course_id: training_courses[1].id, training_event_id: training_events[0].id, seats:0, started_at: 72.hours.from_now.to_s(:db), ended_at: 75.hours.from_now.to_s(:db), room: 'Library 301' },
   { training_course_id: training_courses[2].id, training_event_id: training_events[0].id, seats:0, started_at: 72.hours.from_now.to_s(:db), ended_at: 75.hours.from_now.to_s(:db), room: 'Ball Room'}
 ].each do |training_event_course|
   TrainingEventCourse.find_or_create_by(training_course_id: training_event_course[:training_course_id]) do |tec|

@@ -1,0 +1,16 @@
+<% content_for :title, "#{@sales_office.name}" %>
+
+<div class="row columns">
+	<h1><%= yield :title %></h1>
+</div>
+
+<div class="row columns" data-equalizer data-equalize-on="medium">
+  <%= @sales_office.address %><br/>
+  <%= @sales_office.locality %><br/>
+  <%= @sales_office.region %><br/>
+  <%= @sales_office.postal_code %><br/>
+  <%= t "countries.#{@sales_office.country_id}" %><br/>
+  <%= @sales_office.phone %><br/>
+  <%= @sales_office.email %>
+  <%= link_to "back to offices page", admin_sales_offices_path, class: "admin-back-link" %>
+</div>

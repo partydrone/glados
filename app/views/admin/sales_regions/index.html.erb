@@ -1,0 +1,23 @@
+<% content_for :title, 'Sales Regions' %>
+<div class="row columns admin-table">
+<h1>
+  <%= yield :title %>
+  <%= link_to new_admin_sales_region_path, title: 'Create a new sales region' do %>
+    <%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
+  <% end %>
+</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th width="30"></th>
+      <th width="30"></th>
+      <th><%= SalesRegion.human_attribute_name(:name) %></th>
+      <th width="30"></th>
+    </tr>
+  </thead>
+  <tbody id="sales-regions" data-update-path="<%= sort_admin_sales_regions_path %>">
+    <%= render @sales_regions %>
+  </tbody>
+</table>
+</div>

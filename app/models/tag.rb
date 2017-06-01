@@ -1,5 +1,5 @@
 class Tag < ApplicationRecord
-  REGIONS = ['africa', 'asia', 'europe', 'north america', 'oceana', 'south america']
+  REGIONS = ['africa', 'asia', 'europe', 'north america', 'oceania', 'south america']
 
   has_many :taggings
   has_many :articles, through: :taggings, source: :taggable, source_type: Article

@@ -1,0 +1,30 @@
+<li class="column column-block">
+  <div class="office-information">
+    <h3><%= dealer.name %></h3>
+
+    <%= content_tag :p do %>
+      <%= image_tag('icons/map_location.svg', class: "small-icon") %>
+      <%= dealer.address %>
+    <% end %>
+
+    <%= content_tag :p, dealer.locality if dealer.locality.present? %>
+    <%= content_tag :p, dealer.region if dealer.region.present? %>
+    <%= content_tag :p, dealer.postal_code if dealer.postal_code.present? %>
+    <%= content_tag :p, t("countries.#{dealer.country_id}") %>
+
+    <%= content_tag :p do %>
+      <%= image_tag('icons/phone.svg', class: "small-icon") %>
+      <%= dealer.phone %>
+    <% end if dealer.phone.present? %>
+
+    <%= content_tag :p do %>
+      <%= image_tag('icons/email.svg', class: "small-icon") %>
+      <%= mail_to dealer.email %>
+    <% end if dealer.email.present? %>
+
+    <%= content_tag :p do %>
+      <%= image_tag('icons/world.svg', class: "small-icon") %>
+      <%= link_to dealer.website.gsub(%r(https?://), ''), dealer.website, target: '_blank' %>
+    <% end if dealer.website.present? %>
+  </div>
+</li>

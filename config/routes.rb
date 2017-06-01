@@ -32,14 +32,13 @@ Rails.application.routes.draw do
                 :knowledge_base_articles,
                 :products,
                 :return_material_authorization_policy_documents,
+                :sales_offices,
                 :sales_terms_and_conditions_documents,
-                :territories,
                 :training_events,
                 :website_privacy_policy_documents,
                 :website_terms_of_use_documents
 
       resources :product_categories,
-                :offices,
                 concerns: :sortable
 
       resources :downloads,
@@ -48,6 +47,7 @@ Rails.application.routes.draw do
                 :redirect_rules,
                 :request_environment_rules,
                 :roles,
+                :sales_territories,
                 :training_course_types,
                 :training_courses,
                 except: [:show]
@@ -56,6 +56,7 @@ Rails.application.routes.draw do
 
       resources :download_types,
                 :product_types,
+                :sales_regions,
                 except: [:show],
                 concerns: :sortable
 

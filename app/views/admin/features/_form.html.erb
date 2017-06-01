@@ -20,7 +20,7 @@
       </div>
       <%= f.label :body %>
       <%= f.cktext_area :body, rows: 20 %>
-      <%= f.label :tag_list, 'Tags (separated by commas) (regions include: africa, asia, europe, north america, oceana, and south america)' %>
+      <%= f.label :tag_list, "Tags (separated by commas) (regions include: #{Tag::REGIONS.join(', ')})" %>
       <%= f.text_field :tag_list, value: f.object.tag_list.to_s %>
       <%= f.submit nil, class: 'button radius' %>
     </div>

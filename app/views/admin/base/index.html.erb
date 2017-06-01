@@ -65,14 +65,17 @@
 						<%= link_to 'Dealers', admin_dealers_path %>
 					<% end if policy(:dealer).manage? %>
 					<%= content_tag :li do %>
-						<%= link_to 'Offices', admin_offices_path %>
-					<% end if policy(:office).manage? %>
+						<%= link_to 'Sales Offices', admin_sales_offices_path %>
+					<% end if policy(:sales_office).manage? %>
 					<%= content_tag :li do %>
-						<%= link_to 'Territories', admin_territories_path %>
-					<% end if policy(:territory).manage? %>
+						<%= link_to 'Sales Regions', admin_sales_regions_path %>
+					<% end if policy(:sales_region).manage? %>
+					<%= content_tag :li do %>
+						<%= link_to 'Sales Territories', admin_sales_territories_path %>
+					<% end if policy(:sales_territory).manage? %>
 				</ul>
 			</div>
-		<% end if policy(:dealer).manage? || policy(:office).manage? || policy(:territory).manage? %>
+		<% end if policy(:dealer).manage? || policy(:sales_office).manage? || policy(:sales_region).manage? || policy(:sales_territory).manage? %>
 
 		<%= content_tag :li, class: 'admin-list-header column column-block' do %>
 			<div class="admin-sub-list-collection">

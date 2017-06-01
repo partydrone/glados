@@ -1,0 +1,15 @@
+<%= form_for [:admin, @sales_territory], validate: true do |f| %>
+  <%= f.label :sales_region_id %>
+  <%= f.select :sales_region_id, SalesRegion.select(:id, :name).collect { |sr| [sr.name, sr.id] } %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :dealer_id %>
+  <%= f.select :dealer_id, Dealer.select(:id, :name).collect { |d| [d.name, d.id] }, include_blank: true %>
+
+  <%= f.label :sales_office_id %>
+  <%= f.select :sales_office_id, SalesOffice.select(:id, :name).collect { |so| [so.name, so.id] } %>
+
+  <%= f.submit nil, class: 'button radius' %>
+<% end %>

@@ -1,0 +1,20 @@
+<%= content_tag_for :tr, sales_territory do %>
+  <td class="admin-left-edit">
+    <%= render partial: 'options_edit', locals: {object: sales_territory, instance_name: sales_territory.name} %>
+  </td>
+  <td>
+    <%= sales_territory.name %>
+  </td>
+  <td>
+    <%= sales_territory.dealer.name if sales_territory.dealer %>
+  </td>
+  <td>
+    <%= sales_territory.sales_office.name %>
+  </td>
+  <td>
+    <%= sales_territory.sales_region.name %>
+  </td>
+  <td class="admin-right-delete">
+    <%= render partial: 'options_delete', locals: {object: sales_territory, instance_name: sales_territory.name} %>
+  </td>
+<% end %>

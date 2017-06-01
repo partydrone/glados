@@ -1,0 +1,25 @@
+<%= content_for :title, t(".title") %>
+
+<div class="row columns admin-table">
+<h1>
+  Wavetronix Sales Offices
+  <%= link_to new_admin_sales_office_path, title: 'Create a new Wavetronix Sales Office' do %>
+    <%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
+  <% end %>
+</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th width="30"></th>
+      <th><%= SalesOffice.human_attribute_name(:name) %></th>
+      <th><%= SalesOffice.human_attribute_name(:locality) %></th>
+      <th><%= SalesOffice.human_attribute_name(:country_id) %></th>
+      <th width="30"></th>
+    </tr>
+  </thead>
+  <tbody id="sales-offices">
+    <%= render @sales_offices %>
+  </tbody>
+</table>
+</div>

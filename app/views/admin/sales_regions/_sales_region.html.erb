@@ -1,0 +1,14 @@
+<%= content_tag_for :tr, sales_region do %>
+  <td class="handle admin-table-move">
+    <%= image_tag 'icons/ellipsisup-small.svg', class: 'small-icon' %>
+  </td>
+	<td class="admin-left-edit">
+		<%= render partial: 'options_edit', locals: {object: sales_region, instance_name: sales_region.name} %>
+	</td>
+  <td>
+    <%= sales_region.name %>
+  </td>
+  <td class="admin-right-delete">
+    <%= render partial: 'options_delete', locals: {object: sales_region, instance_name: sales_region.name} %>
+  </td>
+<% end %>

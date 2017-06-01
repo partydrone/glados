@@ -50,7 +50,7 @@ module Admin
     end
 
     def dealer_params
-      params.require(:dealer).permit(:name, :address, :locality, :region, :postal_code, :country_id, :phone, :email, :website, :office)
+      params.require(:dealer).permit(:name, :address, :locality, :region, :postal_code, :country_id, :phone, :email, :website)
     end
   end
 end

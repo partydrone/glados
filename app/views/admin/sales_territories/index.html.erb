@@ -1,0 +1,26 @@
+<%= content_for :title, t(".title") %>
+
+<div class="row columns admin-table">
+<h1>
+  <%= yield :title %>
+  <%= link_to new_admin_sales_territory_path, title: 'Create a new Sales Territory' do %>
+    <%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
+  <% end %>
+</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th width="30"></th>
+      <th><%= SalesTerritory.human_attribute_name(:name) %></th>
+      <th><%= SalesTerritory.human_attribute_name(:dealer_id) %></th>
+      <th><%= SalesTerritory.human_attribute_name(:sales_office_id) %></th>
+      <th><%= SalesTerritory.human_attribute_name(:sales_region_id) %></th>
+      <th width="30"></th>
+    </tr>
+  </thead>
+  <tbody id="sales-territories">
+    <%= render @sales_territories %>
+  </tbody>
+</table>
+</div>

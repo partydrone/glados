@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525031549) do
+ActiveRecord::Schema.define(version: 20170531173203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -154,20 +154,6 @@ ActiveRecord::Schema.define(version: 20170525031549) do
     t.datetime "updated_at",        precision: 6, null: false
   end
 
-  create_table "offices", force: :cascade do |t|
-    t.string   "name"
-    t.string   "address"
-    t.string   "locality"
-    t.string   "region"
-    t.string   "postal_code"
-    t.string   "country"
-    t.string   "phone"
-    t.string   "email"
-    t.datetime "created_at",  precision: 6, null: false
-    t.datetime "updated_at",  precision: 6, null: false
-    t.integer  "position"
-  end
-
   create_table "patents", force: :cascade do |t|
     t.integer "number"
     t.string  "title"
@@ -248,13 +234,13 @@ ActiveRecord::Schema.define(version: 20170525031549) do
   end
 
   create_table "redirect_rules", force: :cascade do |t|
-    t.string   "source",                                   null: false
-    t.boolean  "source_is_regex",          default: false, null: false
-    t.boolean  "source_is_case_sensitive", default: false, null: false
-    t.string   "destination",                              null: false
-    t.boolean  "active",                   default: false
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.string   "source",                                                 null: false
+    t.boolean  "source_is_regex",                        default: false, null: false
+    t.boolean  "source_is_case_sensitive",               default: false, null: false
+    t.string   "destination",                                            null: false
+    t.boolean  "active",                                 default: false
+    t.datetime "created_at",               precision: 6,                 null: false
+    t.datetime "updated_at",               precision: 6,                 null: false
     t.index ["active"], name: "index_redirect_rules_on_active", using: :btree
     t.index ["source"], name: "index_redirect_rules_on_source", using: :btree
     t.index ["source_is_case_sensitive"], name: "index_redirect_rules_on_source_is_case_sensitive", using: :btree
@@ -262,13 +248,13 @@ ActiveRecord::Schema.define(version: 20170525031549) do
   end
 
   create_table "request_environment_rules", force: :cascade do |t|
-    t.integer  "redirect_rule_id",                                    null: false
-    t.string   "environment_key_name",                                null: false
-    t.string   "environment_value",                                   null: false
-    t.boolean  "environment_value_is_regex",          default: false, null: false
-    t.boolean  "environment_value_is_case_sensitive", default: true,  null: false
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
+    t.integer  "redirect_rule_id",                                                  null: false
+    t.string   "environment_key_name",                                              null: false
+    t.string   "environment_value",                                                 null: false
+    t.boolean  "environment_value_is_regex",                        default: false, null: false
+    t.boolean  "environment_value_is_case_sensitive",               default: true,  null: false
+    t.datetime "created_at",                          precision: 6,                 null: false
+    t.datetime "updated_at",                          precision: 6,                 null: false
     t.index ["redirect_rule_id"], name: "index_request_environment_rules_on_redirect_rule_id", using: :btree
   end
 
@@ -280,6 +266,36 @@ ActiveRecord::Schema.define(version: 20170525031549) do
     t.datetime "updated_at",    precision: 6
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
     t.index ["name"], name: "index_roles_on_name", using: :btree
+  end
+
+  create_table "sales_offices", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "locality"
+    t.string   "region"
+    t.string   "postal_code"
+    t.string   "country_id",  limit: 2
+    t.string   "phone"
+    t.string   "email"
+    t.datetime "created_at",            precision: 6, null: false
+    t.datetime "updated_at",            precision: 6, null: false
+  end
+
+  create_table "sales_regions", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sales_territories", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "sales_office_id"
+    t.integer  "dealer_id"
+    t.datetime "created_at",      precision: 6, null: false
+    t.datetime "updated_at",      precision: 6, null: false
+    t.integer  "sales_region_id"
+    t.index ["sales_region_id"], name: "index_sales_territories_on_sales_region_id", using: :btree
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -298,15 +314,6 @@ ActiveRecord::Schema.define(version: 20170525031549) do
     t.datetime "updated_at",     precision: 6, null: false
     t.integer  "taggings_count"
     t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
-  end
-
-  create_table "territories", force: :cascade do |t|
-    t.string   "name"
-    t.string   "country"
-    t.string   "office"
-    t.string   "dealer"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "training_course_products", force: :cascade do |t|
