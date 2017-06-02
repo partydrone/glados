@@ -130,6 +130,6 @@
 					<% end if policy(:role).manage? %>
 				</ul>
 			</div>
-		<% end if policy(:user).manage? || policy(:role).manage? %>
+		<% end if policy(:user).manage? || policy(:role).manage? || policy(:redirect_rule).manage? %>
 	</ul>
 </li>
