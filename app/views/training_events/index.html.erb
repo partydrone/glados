@@ -62,7 +62,11 @@
 		</div>
 	</div>
 
-    <%= render partial: 'training_event', collection: @training_events %>  
+	<% if @training_events %>
+		<%= render partial: 'training_event', collection: @training_events %>  
+	<% else %>
+    	<h4>Turns out we don’t currently have anything we can teach you, but that’s only because we don’t have anything scheduled. Stay tuned for future training events.</h4>
+    <% end %>
 </section>
 
 
