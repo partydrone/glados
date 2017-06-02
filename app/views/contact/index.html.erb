@@ -62,17 +62,15 @@
 					<%= link_to "close x", contact_path %>
 				</div>
 
-				<ul class="row small-up-1 medium-up-2">
-					<% if @search_results.size > 0 %>
-						<% @search_results.each do |search_result| %>
-							<%= render partial: "#{search_result.class.to_s.underscore}_result", object: search_result, as: search_result.class.to_s.underscore %>
-						<% end %>
-					<% else %>
-						<li style="width: 100%; margin: 0 20px;">
-							<h4>No results were found for your search. Please contact our Corporate Headquarters for more information.</h4>
-						</li>
+				<% if @search_results.size > 0 %>
+					<% @search_results.each do |search_result| %>
+						<section class="row office-row">
+							<%= render partial: search_result.class.to_s.underscore, object: search_result %>
+						</section>
 					<% end %>
-				</ul>
+				<% else %>
+						<h4>No results were found for your search. Please contact our Corporate Headquarters for more information.</h4>
+				<% end %>
 			</div>
 		<% end %>
 	</div>

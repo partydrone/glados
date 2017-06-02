@@ -12,6 +12,6 @@ class ProductType < ApplicationRecord
   default_scope { order('product_types.position') }
 
   def to_param
-    "#{id}-#{name.parameterize}"
+    "#{id} #{name}".parameterize
   end
 end

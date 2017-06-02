@@ -54,16 +54,16 @@
 		    <div class="training-request request-host">
 		    	<h4><%= t(".want_host") %></h4>
 		    	<p><%= t(".host_when_where") %></p>
-                
-		    	<%= link_to 'Contact Us', new_training_event_request_path, class: 
+
+		    	<%= link_to 'Contact Us', new_training_event_request_path, class:
 		    	"button rounded" %>
 		    </div>
 			</div>
 		</div>
 	</div>
 
-	<% if @training_events %>
-		<%= render partial: 'training_event', collection: @training_events %>  
+	<% if @training_events.present? %>
+		<%= render partial: 'training_event', collection: @training_events %>
 	<% else %>
     	<h4>Turns out we don’t currently have anything we can teach you, but that’s only because we don’t have anything scheduled. Stay tuned for future training events.</h4>
     <% end %>
@@ -82,7 +82,7 @@
 						<option value="course-type-all">All Courses</option>
 						<% @training_course_types.each do |course| %>
 							<option value="course-type-<%= course.id %>"><%= course.name %></option>
-						<% end %>						
+						<% end %>
 					</select>
 				</section>
 			</div>

@@ -6,6 +6,6 @@ class TrainingCourseType < ApplicationRecord
   default_scope { order('name') }
 
   def to_param
-    "#{id}-#{name.parameterize}"
+    "#{id} #{name}".parameterize
   end
 end

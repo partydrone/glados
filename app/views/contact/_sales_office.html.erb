@@ -1,18 +1,22 @@
-<div class="large-3 medium-6 columns end vcard">
+<div class="column column-block vcard">
   <div class="office-information adr">
     <h3><%= sales_office.name %></h3>
+
     <%= content_tag :p do %>
       <%= image_tag('icons/map_location.svg', class: "small-icon") %>
       <%= sales_office.address %>
     <% end %>
+
     <%= content_tag :p, sales_office.locality if sales_office.locality.present? %>
     <%= content_tag :p, sales_office.region if sales_office.region.present? %>
     <%= content_tag :p, sales_office.postal_code if sales_office.postal_code.present? %>
     <%= content_tag :p, t("countries.#{sales_office.country_id}") %>
+
     <%= content_tag :p do %>
       <%= image_tag('icons/phone.svg', class: "small-icon") %>
       <%= sales_office.phone %>
     <% end if sales_office.phone.present? %>
+
     <%= content_tag :p do %>
       <%= image_tag('icons/email.svg', class: "small-icon") %>
       <%= sales_office.email %>

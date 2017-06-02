@@ -1,11 +1,13 @@
-<%= content_tag :div, class: 'row products-alternate-text-box' do %>
-  <div class="small-2 columns">
-    <%= attachment_image_tag product_category, :icon_image, fallback: 'http://placehold.it/50/eaa800/ffffff' %>
-  </div>
+<%= link_to product_category_path(product_category) do %>
+  <%= content_tag :div, class: 'row products-alternate-text-box' do %>
+    <div class="small-2 columns">
+      <%= attachment_image_tag product_category, :icon_image, fallback: 'http://placehold.it/50/eaa800/ffffff' %>
+    </div>
 
-  <div class="small-10 columns">
-    <%= content_tag :h2, product_category.name %>
-    <p><%= product_category.description %><br/>
-    <%= link_to "Learn More", product_category_path(product_category), class: "goto-new" %></p>
-  </div>
+    <div class="small-10 columns">
+      <%= content_tag :h2, product_category.name %>
+      <p><%= product_category.description %><br/>
+      <%= content_tag :span, "Learn More", class: "goto-new" %></p>
+    </div>
+  <% end %>
 <% end %>

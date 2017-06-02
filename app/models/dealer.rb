@@ -13,6 +13,10 @@ class Dealer < ApplicationRecord
 		COUNTRIES[country_id.to_sym]
 	end
 
+	def to_param
+		"#{id} #{name}".parameterize
+	end
+
 	private
 
   def has_locality_region_or_postal_code

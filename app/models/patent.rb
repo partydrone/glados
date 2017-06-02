@@ -5,4 +5,8 @@ class Patent < ActiveRecord::Base
   validates :title, presence: true
 
   default_scope { order('number') }
+
+  def to_param
+    "#{id} #{number} #{title}".parameterize
+  end
 end

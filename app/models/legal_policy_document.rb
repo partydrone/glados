@@ -13,6 +13,6 @@ class LegalPolicyDocument < ApplicationRecord
   end
 
   def to_param
-    "#{id}-#{title.parameterize}"
+    "#{id} #{title}".parameterize
   end
 end

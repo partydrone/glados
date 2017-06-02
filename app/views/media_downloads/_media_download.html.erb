@@ -1,5 +1,7 @@
 <div class="column column-block media-download-container">
-  <%= attachment_image_tag media_download, :file, :fit, 370, 370, fallback: 'http://placehold.it/370x208' %>
+  <%= link_to attachment_url(media_download, :file), alt: media_download.description, download: attachment_url(media_download, :file), target: '_blank' do %>
+    <%= attachment_image_tag media_download, :file, :fit, 370, 370, fallback: 'http://placehold.it/370x208' %>
+  <% end %>
 
   <div class="row column">
     <%= media_download.description %>
@@ -9,9 +11,11 @@
     <div class="small-6 columns">
       <p><%= number_to_human_size media_download.file_size %></p>
     </div>
-    
+
     <div class="small-6 columns text-right">
-      <%= link_to image_tag('icons/download-icon.svg'), attachment_url(media_download, :file), alt: media_download.description, download: attachment_url(media_download, :file), target: '_blank' %>
+      <%= link_to attachment_url(media_download, :file), alt: media_download.description, download: attachment_url(media_download, :file), target: '_blank' do %>
+        <%= image_tag('icons/download-icon.svg') %>
+      <% end %>
     </div>
   </div>
 </div>

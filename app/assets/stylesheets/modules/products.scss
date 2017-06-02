@@ -36,18 +36,43 @@
 .products-product-box {
   text-align: left;
   padding-bottom: 1.563rem;
+
   h2 {
     margin-bottom: 0.25rem;
   }
+
   .small-3 {
     padding-right: 0;
   }
+
   .medium-6 {
     padding-top: 50px;
   }
+
   img {
     max-height: 140px;
   }
+
+  a {
+    color: inherit;
+
+    &:hover {
+      color: inherit;
+
+      h2 {
+        color: inherit;
+      }
+
+      .goto-new {
+        color: $sky;
+      }
+    }
+
+    .goto-new {
+      color: $linkblue;
+    }
+  }
+
   @media screen and (min-width: 40em) {
     .small-3 {
       text-align: right;
@@ -59,104 +84,134 @@
 Product Categories
 ***********************************************************************************************/
 
-  .products-category-image-backer {
-    height: 310px;
-    background-position: 50% 50%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    @media screen and (min-width: 40em) and (max-width: 1023px) {
-      height: 392px;
-    }
-    @media screen and (min-width: 1024px) {
-      height: 582px;
-    }
+.products-category-image-backer {
+  height: 310px;
+  background-position: 50% 50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  @media screen and (min-width: 40em) and (max-width: 1023px) {
+    height: 392px;
   }
+
+  @media screen and (min-width: 1024px) {
+    height: 582px;
+  }
+}
 
 /***********************************************************************************************
 Product Types
 ***********************************************************************************************/
 
-  .product-alternate-sides-sections section {
+.product-alternate-sides-sections section {
+  display: flex;
+  margin: 3rem 0;
+
+  a {
+    color: inherit;
+
+    &:hover {
+      color: inherit;
+
+      h2 {
+        color: inherit;
+      }
+
+      .goto-new {
+        color: $sky;
+      }
+    }
+
+    .goto-new {
+      color: $linkblue;
+    }
+  }  
+
+  .product-alternate-image-container {
+    background: url(http://placehold.it/805x650) no-repeat left;
+    width: 40vw;
+    overflow: hidden;
+    flex-direction: row-reverse;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    vertical-align: top;
+  }
+
+  .product-alternate-text-container {
+    width: 100%;
+    display: block;
+    margin: 1.5rem 0;
+
+    .products-alternate-text-box {
+      max-width: 500px;
+      margin: 10px auto;
+    }
+
+    .product-alternate-header {
+      padding: 25px 0 10px 0;
+      text-align: center;
+      max-width: 500px;
+      margin-right: auto;
+      margin-left: auto;
+
+      img {
+        height: 32px;
+      }
+    }
+
+    @media screen and (min-width: 1024px){
+      width: 60vw;
+      float: right;
+      display: inline-block;
+      vertical-align: top;
+
+      .products-alternate-text-box,
+      .product-alternate-header {
+        max-width: 500px;
+        margin-right: 0;
+      }
+    }
+  }
+
+  &:nth-child(odd) {
     display: flex;
-    margin: 3rem 0;
+    flex-direction: row-reverse;
+    background: $ghost;
     .product-alternate-image-container {
-      background: url(http://placehold.it/805x650) no-repeat left;
-      width: 40vw;
+      float: right;
+      background: url(http://placehold.it/805x650) no-repeat right;
       overflow: hidden;
-      flex-direction: row-reverse;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover;
+      width: 40vw;
+      display: inline-block;
       vertical-align: top;
     }
     .product-alternate-text-container {
-      width: 100%;
-      display: block;
-      margin: 1.5rem 0;
+      margin-left: 1rem;
       .products-alternate-text-box {
-        max-width: 500px;
-        margin: 10px auto;
-      }
-      .product-alternate-header {
-        padding: 25px 0 10px 0;
-        text-align: center;
-        max-width: 500px;
         margin-right: auto;
         margin-left: auto;
-        img {
-          height: 32px;
-        }
+      }
+      .product-alternate-header {
+        margin-left: auto;
+        margin-right: auto;
       }
       @media screen and (min-width: 1024px){
         width: 60vw;
-        float: right;
-        display: inline-block;
-        vertical-align: top;
+        float: left;
         .products-alternate-text-box,
         .product-alternate-header {
           max-width: 500px;
-          margin-right: 0;
-        }
-      }
-    }
-    &:nth-child(odd) {
-      display: flex;
-      flex-direction: row-reverse;
-      background: $ghost;
-      .product-alternate-image-container {
-        float: right;
-        background: url(http://placehold.it/805x650) no-repeat right;
-        overflow: hidden;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        width: 40vw;
-        display: inline-block;
-        vertical-align: top;
-      }
-      .product-alternate-text-container {
-        margin-left: 1rem;
-        .products-alternate-text-box {
-          margin-right: auto;
-          margin-left: auto;
-        }
-        .product-alternate-header {
-          margin-left: auto;
-          margin-right: auto;
-        }
-        @media screen and (min-width: 1024px){
-          width: 60vw;
-          float: left;
-          .products-alternate-text-box,
-          .product-alternate-header {
-            max-width: 500px;
-            margin-left: 0;
-          }
+          margin-left: 0;
         }
       }
     }
   }
+}

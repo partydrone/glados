@@ -1,5 +1,5 @@
-<li class="column column-block">
-  <div class="office-information">
+<div class="column column-block vcard">
+  <div class="office-information adr">
     <h3><%= dealer.name %></h3>
 
     <%= content_tag :p do %>
@@ -27,4 +27,4 @@
       <%= link_to dealer.website.gsub(%r(https?://), ''), dealer.website, target: '_blank' %>
     <% end if dealer.website.present? %>
   </div>
-</li>
+</div>

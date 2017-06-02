@@ -16,6 +16,10 @@ class TrainingEvent < ApplicationRecord
     end
   end
 
+  def to_param
+    "#{id} #{title}".parameterize
+  end
+
   protected
 
   def starts_before_ends

@@ -43,7 +43,7 @@ class Product < ApplicationRecord
   end
 
   def to_param
-    "#{id}-#{name.parameterize}"
+    "#{id} #{name}".parameterize
   end
 
   private

@@ -13,6 +13,6 @@ class ProductCategory < ApplicationRecord
   default_scope { order('product_categories.position') }
 
   def to_param
-    "#{id}-#{name.parameterize}"
+    "#{id} #{name}".parameterize
   end
 end

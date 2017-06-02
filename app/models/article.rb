@@ -19,7 +19,7 @@ class Article < ApplicationRecord
   end
 
   def to_param
-    "#{id}-#{title.parameterize}"
+    "#{id} #{title}".parameterize
   end
 
   def published?

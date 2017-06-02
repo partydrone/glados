@@ -12,7 +12,7 @@ class Feature < ApplicationRecord
   scope :articles, -> { where.not body: '' }
 
   def to_param
-    "#{id}-#{title.parameterize}"
+    "#{id} #{title}".parameterize
   end
 
   private

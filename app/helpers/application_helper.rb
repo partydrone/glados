@@ -34,6 +34,7 @@ module ApplicationHelper
   end
 
   def set_class_for_content_type(content_type)
-    content_type.gsub('/', '-')
+    return if content_type == nil
+    content_type.parameterize
   end
 end
