@@ -33,7 +33,8 @@ Rails.application.configure do
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = 'cdn.www.wavetronix.com'
+  config.action_controller.asset_host = 'd1upf2v1quehpe.cloudfront.net'
+  # config.action_controller.asset_host = 'cdn.www.wavetronix.com'
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache

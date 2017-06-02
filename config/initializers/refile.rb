@@ -5,9 +5,10 @@ when Rails.env.production?
   aws = {
     credentials: Aws::Credentials.new(Rails.application.secrets.aws_access_key_id, Rails.application.secrets.aws_secret_access_key),
     region:      'us-east-1',
-    bucket:      'com-wavetronix-uploads'
+    bucket:      'com-wavetronix-www-uploads'
   }
-  Refile.cdn_host = '//cdn.www.wavetronix.com'
+  Refile.cdn_host = '//d1upf2v1quehpe.cloudfront.net'
+  # Refile.cdn_host = '//cdn.www.wavetronix.com'
 when Rails.env.staging?
   aws = {
     credentials: Aws::Credentials.new(Rails.application.secrets.aws_access_key_id, Rails.application.secrets.aws_secret_access_key),
