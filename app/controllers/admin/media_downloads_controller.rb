@@ -3,7 +3,7 @@ module Admin
     before_action :set_media_download, only: [:edit, :update, :destroy]
 
     def index
-      @media_downloads = MediaDownload.order(:file_filname)
+      @media_downloads = MediaDownload.order(:file_filename)
       authorize @media_downloads
     end
 
