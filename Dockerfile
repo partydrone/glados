@@ -13,5 +13,6 @@ COPY Gemfile* ./
 RUN bundle install --binstubs
 COPY . .
 # RUN bundle exec rails RAILS_ENV=production DATABASE_URL=postgresql://user:pass@127.0.0.1/dbname ACTION_CABLE_ALLOWED_REQUEST_ORIGINS=foo,bar SECRET_TOKEN=dummytoken assets:precompile
+EXPOSE 3000
 VOLUME ["$APP_DIR/public"]
 CMD ["puma", "-C", "config/puma.rb"]

@@ -1,3 +1,5 @@
+---
+
 version: '2'
 
 services:
@@ -26,6 +28,12 @@ services:
   #     - .:/glados
   #   env_file:
   #     - .env
+
+  memcached:
+    image: memcached:1.4-alpine
+    command: memcached -m 64
+    ports:
+      - 11211:11211
 
   postgres:
     image: postgres:9.6-alpine
