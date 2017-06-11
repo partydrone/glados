@@ -28,7 +28,7 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6T575K"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
+
     <div class="off-canvas-wrapper">
       <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
         <%= render 'site_header' %>
@@ -40,6 +40,6 @@
       </div> <!-- close off-canvas inner wrapper -->
     </div> <!-- close off-canvas-wrapper -->
     <%= javascript_include_tag 'application' %>
-    <%= render 'analytics' if Rails.env.production? %>
+    <%# render 'analytics' if Rails.env.production? %>
   </body>
 </html>
