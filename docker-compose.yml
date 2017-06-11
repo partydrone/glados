@@ -1,21 +1,23 @@
 ---
 
-version: '2'
+version: '3'
 
 services:
   app:
     build: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: bundle exec puma -C config/puma.rb
     volumes:
       - .:/glados
       - ./public:/glados/public
-    ports:
-      - 3000:3000
+    expose:
+      - 3000
     depends_on:
       - postgres
       - redis
     env_file:
       - .env
+    environment:
+      - VIRTUAL_HOST=localhost
 
   # cable:
   #   depends_on:
@@ -39,6 +41,13 @@ services:
       - .env
     # environment:
     #   PGDATA: /tmp
+
+  proxy:
+    image: jwilder/nginx-proxy:latest
+    ports:
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
 
   redis:
     image: redis:3.2-alpine
