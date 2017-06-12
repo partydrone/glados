@@ -34,7 +34,7 @@ class SiteMailer < ApplicationMailer
   def enrollment(training_event_id, training_event_course_ids, email)
     @training_event = TrainingEvent.find(training_event_id)
     @training_event_courses = TrainingEventCourse.find(training_event_course_ids)
-    
+
 
     mail to: %("Registration Confirmation" <#{email}>),
          replay_to: '"Training" <jeremy.conterio@wavetronix.com>',
@@ -44,7 +44,7 @@ class SiteMailer < ApplicationMailer
   private
 
   def set_demo_request_recipient(country)
-    case @demo_request.country
+    case country
     when 'HK', 'ID', 'IN', 'KR', 'MO', 'MY', 'SG', 'TH'
       return '"Asia Pacific Sales" <apsales@wavetronix.com>'
     when 'CN', 'TW'

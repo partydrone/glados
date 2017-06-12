@@ -10,3 +10,10 @@ en:
       subject: Marketing App Support Request
     training_event_request:
       subject: Training Event Request
+  redirect_rules_mailer:
+    create:
+      subject: Redirect Rule Created on Website
+    destroy:
+      subject: Redirect Rule Deleted on Website
+    update:
+      subject: Redirect Rule Updated on Website

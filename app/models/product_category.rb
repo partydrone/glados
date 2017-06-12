@@ -1,5 +1,5 @@
 class ProductCategory < ApplicationRecord
-  belongs_to :product_type
+  belongs_to :product_type, touch: true
   has_many :products
   has_many :active_products, -> { active }, class_name: 'Product'
 

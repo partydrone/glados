@@ -20,6 +20,7 @@ module Admin
       authorize @redirect_rule
 
       if @redirect_rule.save
+        RedirectRulesMailer.create(@redirect_rule, current_user).deliver_now
         redirect_to admin_redirect_rules_path, notice: %(Saved "#{@redirect_rule.source}" successfully.)
       else
         render :new
@@ -29,6 +30,7 @@ module Admin
     def update
       if @redirect_rule.update(redirect_rule_params)
         respond_to do |format|
+          RedirectRulesMailer.update(@redirect_rule, current_user).deliver_now
           format.html { redirect_to admin_redirect_rules_path, notice: %(Updated "#{@redirect_rule.source}" successfully.) }
           format.js
         end
@@ -42,6 +44,7 @@ module Admin
 
     def destroy
       @redirect_rule.destroy
+      RedirectRulesMailer.destroy(@redirect_rule, current_user).deliver_now
       redirect_to admin_redirect_rules_path, notice: %(Deleted "#{@redirect_rule.source}" successfully.)
     end
 

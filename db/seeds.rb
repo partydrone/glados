@@ -288,6 +288,7 @@ end
   product_category_manager
   product_type_manager
   product_manager
+  redirect_rule_manager
   return_material_authorization_policy_document_manager
   role_manager
   sales_terms_and_conditions_document_manager

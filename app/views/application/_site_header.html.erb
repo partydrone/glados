@@ -4,6 +4,7 @@
     <%= link_to root_path do %>
       <%= image_tag("icons/logo.svg") %>
     <% end %>
+    <%= content_tag :p, "Container: #{Socket.gethostname}" if Rails.env.development? %>
   </div>
   <div class="title-bar-right">
     <button class="menu-icon" type="button" data-open="offCanvasRight"></button>
@@ -90,6 +91,7 @@
             <%= image_tag("icons/logo.svg") %>
           <% end %>
         </li>
+        <%= content_tag :li, "Container: #{Socket.gethostname}" if Rails.env.development? %>
       </ul>
     </div>
     <div class="top-bar-right">
