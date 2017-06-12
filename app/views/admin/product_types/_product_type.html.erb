@@ -1,17 +1,19 @@
-<%= content_tag_for :tr, product_type do %>
-  <td class="handle admin-table-move">
-    <%= image_tag 'icons/ellipsisup-small.svg', class: 'small-icon' %>
-  </td>
-  <td class="admin-left-edit">
-    <%= render partial: 'options_edit', locals: {object: product_type, instance_name: product_type.name} %>
-  </td>
-  <td>
-    <%= attachment_image_tag product_type, :icon_image, fallback: 'http://placehold.it/20/eaa800/ffffff', style: 'height: 1em;' %>
-  </td>
-  <td>
-    <%= product_type.name %>
-  </td>
-  <td class="admin-right-delete">
-    <%= render partial: 'options_delete', locals: {object: product_type, instance_name: product_type.name} %>
-  </td>
+<% cache product_type do %>
+  <%= content_tag_for :tr, product_type do %>
+    <td class="handle admin-table-move">
+      <%= image_tag 'icons/ellipsisup-small.svg', class: 'small-icon' %>
+    </td>
+    <td class="admin-left-edit">
+      <%= render partial: 'options_edit', locals: {object: product_type, instance_name: product_type.name} %>
+    </td>
+    <td>
+      <%= attachment_image_tag product_type, :icon_image, fallback: 'http://placehold.it/20/eaa800/ffffff', style: 'height: 1em;' %>
+    </td>
+    <td>
+      <%= product_type.name %>
+    </td>
+    <td class="admin-right-delete">
+      <%= render partial: 'options_delete', locals: {object: product_type, instance_name: product_type.name} %>
+    </td>
+  <% end %>
 <% end %>

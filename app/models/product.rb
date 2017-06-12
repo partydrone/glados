@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   include PgSearch
     multisearchable :against => [:name, :summary, :description]
 
-  belongs_to :product_category
+  belongs_to :product_category, touch: true
   has_many :feature_associations, dependent: :destroy
   has_many :features, through: :feature_associations
   has_many :training_course_products, dependent: :destroy
