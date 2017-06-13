@@ -21,12 +21,15 @@
 						<%= content_tag :li do %>
 							<%= link_to t('.features'), '#features' %>
 						<% end if @product.features.present? %>
+
 						<%= content_tag :li do %>
 							<%= link_to t('.courses'), '#training' %>
 						<% end if @product.training_courses.present? %>
+
 						<%= content_tag :li do %>
 							<%= link_to t('.support'), '#support' %>
 						<% end if @product.downloads.present? %>
+
 						<%= content_tag :li do %>
 							<%= link_to t('.request_demo'), '#demo_request_form', class: 'button small' %>
 						<% end if @product.features.present? %>
@@ -39,21 +42,24 @@
 
 <div class="hide-for-large">
 	<div class="product-specific-top-nav">
-				<h4><%= @product.name %></h4>
-			</div>
+		<h4><%= @product.name %></h4>
+	</div>
 	<div class="product-specific-bottom-nav">
 		<nav data-magellan data-bar-offset="70">
 			<ul class="menu icon-top expanded">
-			  <%= content_tag :li do %>
+				<%= content_tag :li do %>
 					<a href="#features"><%= image_tag("icons/features.svg") %> <span><%= t(".features") %></span></a>
 				<% end if @product.features.present? %>
-			  <%= content_tag :li do %>
+
+				<%= content_tag :li do %>
 					<a href="#training"><%= image_tag("icons/gradcap.svg") %> <span><%= t(".courses") %></span></a>
 				<% end if @product.training_courses.present? %>
-			  <%= content_tag :li do %>
+
+				<%= content_tag :li do %>
 					<a href="#support"><%= image_tag("icons/utility.svg") %> <span><%= t(".support") %></span></a>
 				<% end if @product.downloads.present? %>
-			  <%= content_tag :li do %>
+
+				<%= content_tag :li do %>
 					<a href="#demo_request_form"><%= image_tag("icons/speech_convo.svg") %> <span><%= t('.request_demo') %></span></a>
 				<% end if @product.features.present? %>
 			</ul>
@@ -84,7 +90,6 @@
 </div>
 
 <div class="product-specific-sections">
-
 	<% if @product.features.present? %>
 		<section class="product-specific-features" id="features" data-magellan-target="features">
 			<%= render @product.features %>
@@ -92,19 +97,17 @@
 
 		<section class="product-request-demo" id="demo_request_form" data-magellan-target="demo_request_form">
 			<h4><%= t '.request_demo' %></h4>
-		  <div class="request-box">
-		    <div class="request row">
-		      <div class="medium-8 large-6 medium-centered columns">
-		        <%= render 'demo_request_form' %>
-		        <p><%= t '.perfer_contact' %> <%= link_to t('.here'), contact_path %>.</p>
-		      </div>
-		    </div>
-		  </div>
+			<div class="request-box">
+				<div class="request row">
+					<div class="medium-8 large-6 medium-centered columns">
+						<%= render 'demo_request_form' %>
+						<p><%= t '.perfer_contact' %> <%= link_to t('.here'), contact_path %>.</p>
+					</div>
+				</div>
+			</div>
 		</section>
 	<% end %>
 
-
-	<!-- always white! -->
 	<%= content_tag :section, id: 'training', class: 'product-specific-training row', data: {'magellan-target' => 'training'} do %>
 		<h1><%= t(".related_courses") %></h1>
 		<%= render partial: 'related_course', collection:@product.training_courses %>
@@ -115,26 +118,27 @@
 			<div class="columns">
 				<h1><%= t(".support") %></h1>
 			</div>
+
 			<div class="columns product-language-selection">
 				<section class="products-language-header">
-			    	<select class="products-language-dropdown languages-types-list" name="language">
+					<select class="products-language-dropdown languages-types-list" name="language">
 						<option value="language-type-all" selected>All Languages</option>
+
 						<% I18n.available_locales.each do |locale| %>
 							<option value="<%= locale %>"><%= humanize_locale locale %></option>
 						<% end %>
-			    	</select>
+					</select>
 				</section>
 			</div>
 		</div>
+
 		<div class="row small-up-2 medium-up-3">
 			<% @product.downloads.group_by(&:download_type).sort_by { |key, value| key.position }.each do |download_type, downloads| %>
-				<div class="support-section columns">
-				  <h2><%= download_type.name %></h2>
-				  <%= render partial: 'download', collection: downloads %>
-				</div>
+			<div class="support-section columns">
+				<h2><%= download_type.name %></h2>
+				<%= render partial: 'download', collection: downloads %>
+			</div>
 			<% end %>
-		</div>
->
 		</div>
 	<% end if @product.downloads.present? %>
 </div>
