@@ -82,16 +82,38 @@
 
 		<div class="row office-row">
 			<div class="large-3 medium-6 columns end vcard">
-				<div class="office-information adr">
-					<h3>Wavetronix Headquarters</h3>
-					<p><%= image_tag('icons/map_location.svg', class: "small-icon") %>78 E 1700 S</p>
-					<p>Provo, UT</p>
-					<p>84606</p>
-					<p>United States</p>
-					<p><%= image_tag('icons/phone.svg', class: "small-icon") %>(801) 734-7200</p>
-					<p><%= image_tag('icons/fax_print.svg', class: "small-icon") %>+1 (801) 734-7201</p>
-					<p><%= image_tag('icons/email.svg', class: "small-icon") %>sales@wavetronix.com</p>
-				</div>
+				<ul class="office-information adr" itemscope itemtype="http://schema.org/Organization">
+					<li>
+						<h3 itemprop="name">Wavetronix Headquarters</h3>
+					</li>
+					<li>
+						<%= image_tag('icons/map_location.svg', class: "small-icon") %>
+						<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+							<div itemprop="streetAddress"><p>78 E 1700 S</p>
+							</div>
+							<div>
+								<span itemprop="addressLocality">Provo</span>,
+								<span itemprop="addressRegion">Utah</span>
+								<span itemprop="postalCode">84606</span>
+							</div>
+							<div itemprop="addressCountry" itemscope itemtype="http://schema.org/Country">
+								<div itemprop="name">United States</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<%= image_tag('icons/phone.svg', class: "small-icon") %>
+						<a itemprop="telephone" href="tel:(801) 734-7200">(801) 734-7200</a>
+					</li>
+					<li>
+						<%= image_tag('icons/fax_print.svg', class: "small-icon") %>
+						<a itemprop="telephone" href="tel:(801) 734-7201">(801) 734-7201</a>
+					</li>
+					<li>
+						<%= image_tag('icons/email.svg', class: "small-icon") %>
+						<a itemprop="email" href="mailto:sales@wavetronix.com?subject=Wavetronix%20Product%20Iquiry">sales@wavetronix.com</a>
+					</li>
+				</ul>
 			</div>
 
 			<div class="large-3 medium-6 columns end contact-social">
