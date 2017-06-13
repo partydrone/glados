@@ -7,10 +7,9 @@
         <div class="learn-course">
             <a class="hide-me-on-dropdown expand-container" data-toggle="hdconfig-dropdown1<%=related_course.id%>"><%= t(".learn_more") %></a>
             <div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown1<%=related_course.id%>" data-dropdown data-auto-focus="true">
-                <p><%= related_course.description %></p>
+                <%= sanitize related_course.description %>
                 <a data-toggle="hdconfig-dropdown1<%=related_course.id%>" class="close-container"><%= t(".hide") %></a>
             </div>
         </div>
     </div>
 </div>
-

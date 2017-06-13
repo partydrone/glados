@@ -74,7 +74,8 @@ CKEDITOR.editorConfig = function( config ) {
     {
       name: "insert",
       items: [
-        "Image"
+        "Image",
+        "Table"
       ]
     }
   ];

@@ -94,7 +94,7 @@
       <%= @article.subtitle %>
       <hr/>
     </h3>
-    <%= embed_youtube_videos_for(@article.body).html_safe %>
+    <%= sanitize embed_youtube_videos_for(@article.body) %>
   </div>
 </article>
 

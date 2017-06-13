@@ -1,25 +1,30 @@
-<div class="column column-block vcard">
-  <div class="office-information adr">
-    <h3><%= sales_office.name %></h3>
-
-    <%= content_tag :p do %>
-      <%= image_tag('icons/map_location.svg', class: "small-icon") %>
-      <%= sales_office.address %>
+<div class="column column-block">
+  <ul class="office-information" itemscope itemtype="http://schema.org/Organization">
+    <%= content_tag :li do %>
+    <%= content_tag :h3, sales_office.name, itemprop: 'name' %>
     <% end %>
 
-    <%= content_tag :p, sales_office.locality if sales_office.locality.present? %>
-    <%= content_tag :p, sales_office.region if sales_office.region.present? %>
-    <%= content_tag :p, sales_office.postal_code if sales_office.postal_code.present? %>
-    <%= content_tag :p, t("countries.#{sales_office.country_id}") %>
+    <%= content_tag :li do %>
+    <%= image_tag('icons/map_location.svg', class: 'small-icon') %>
+    <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+      <%= content_tag :div, markdown(sales_office.address), itemprop: 'streetAddress' %>
+      <%= content_tag :div, sales_office.locality, itemprop: 'addressLocality' if sales_office.locality.present? %>
+      <%= content_tag :div, sales_office.region, itemprop: 'addressRegion' if sales_office.region.present? %>
+      <%= content_tag :div, sales_office.postal_code, itemprop: 'postalCode' if sales_office.postal_code.present? %>
+      <div itemprop="addressCountry" itemscope itemtype="http://schema.org/Country">
+        <%= content_tag :div, t("countries.#{sales_office.country_id}"), itemprop: 'name' %>
+      </div>
+    </div>
+    <% end %>
 
-    <%= content_tag :p do %>
-      <%= image_tag('icons/phone.svg', class: "small-icon") %>
-      <%= sales_office.phone %>
+    <%= content_tag :li do %>
+    <%= image_tag('icons/phone.svg', class: 'small-icon') %>
+    <%= link_to sales_office.phone, "tel:#{sales_office.phone}", itemprop: 'telephone' %>
     <% end if sales_office.phone.present? %>
 
-    <%= content_tag :p do %>
-      <%= image_tag('icons/email.svg', class: "small-icon") %>
-      <%= sales_office.email %>
+    <%= content_tag :li do %>
+    <%= image_tag('icons/email.svg', class: 'small-icon') %>
+    <%= mail_to sales_office.email, sales_office.email, subject: 'Wavetronix Product Iquiry', itemprop: 'email' %>
     <% end if sales_office.email.present? %>
-  </div>
+  </ul>
 </div>

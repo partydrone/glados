@@ -94,7 +94,7 @@
       <%= @article.subtitle %>
       <hr/>
     </h3>
-    <%= embed_youtube_videos_for(@article.body).html_safe %>
+    <%= sanitize embed_youtube_videos_for(@article.body) %>
   </div>
 
   <aside class="large-4 large-offset-0 medium-8 medium-offset-2 small-10 small-offset-1 columns similar-stories-side end sticky-container" data-sticky-container>
