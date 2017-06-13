@@ -13,8 +13,8 @@
       <h2>
         <%= feature.title %>
       </h2>
-      <%= raw markdown(feature.description) %>
-      <%= link_to "Learn more", feature_path(feature), class: "goto-new" if feature.body.present? %>
+      <%= markdown(feature.description) %>
+      <%= link_to 'Learn more', feature_path(feature), class: 'goto-new' if feature.body.present? %>
     </div>
   </div>
 </div>

@@ -71,7 +71,7 @@
                 <option value="request-type-all">All Courses</option>
                 <% @training_course_types.each do |request| %>
                   <option value="request-type-<%= request.id %>"><%= request.name %></option>
-                <% end %>						
+                <% end %>
               </select>
             </section>
           </div>
@@ -79,7 +79,7 @@
       </div>
       <div class="row show-request-list">
 		    <%= f.collection_check_boxes :training_course_ids, @training_courses, :id, :title do |training_course| %>
-            
+
             <div class="enrollment-course-card" id="<%= training_course.object.title %>" data-request-type="request-type-<%= training_course.object.training_course_type_id %>">
               <div class="horizontal menu">
                 <h3 class="training-certified"><%= training_course.object.title %></h3>
@@ -89,11 +89,11 @@
                     Prerequisites Required
                   <% end %>
                 </div>
-                <p><%= training_course.object.summary %></p>                
+                <p><%= training_course.object.summary %></p>
                 <div class="learn-bottom">
                   <a class="hide-me-on-dropdown expand-container course-learn-link" data-toggle="hdconfig-dropdown1<%=training_course.object.id%>"><%= t(".learn_more") %></a>
                   <div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown1<%=training_course.object.id%>" data-dropdown data-auto-focus="true">
-                    <p><%= training_course.object.description.html_safe %></p>
+                    <p><%= sanitize training_course.object.description %></p>
                     <ul class="prereq-list">
                       <% if training_course.object.prerequisites && training_course.object.prerequisites.exists? %>
                         <li>Prerequisites:</li>
@@ -109,7 +109,7 @@
                   <div class="course-prereq">
                     <span class="enrollment_added" hidden>Added</span>
                     <%= training_course.check_box :class => 'class_checkbox', :id => training_course.object.id %><label class="course-check" for="<%= training_course.object.id %>"></label>
-                  </div>        
+                  </div>
               </div>
             </div>
           </div>

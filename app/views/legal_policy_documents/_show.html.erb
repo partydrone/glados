@@ -7,7 +7,7 @@
     <%= content_tag :p do %>
       <%= link_to t('.download'), attachment_url(legal_policy_document, :file, filename: legal_policy_document.title.parameterize), class: set_class_for_content_type(legal_policy_document.file_content_type) %>
     <% end if legal_policy_document.file && legal_policy_document.file.exists? %>
-    <%= legal_policy_document.body.html_safe %>
+    <%= sanitize legal_policy_document.body %>
   </section>
   <section>
     <p>

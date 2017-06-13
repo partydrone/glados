@@ -76,7 +76,7 @@
   </aside>
 
   <section class="large-10 columns kb-article-body" id="article-container" data-something data-margin-top="5">
-    <%= embed_youtube_videos_for(@article.body).html_safe %>
+    <%= sanitize embed_youtube_videos_for(@article.body) %>
   </section>
 
   <section class="large-10 large-offset-1 columns end">

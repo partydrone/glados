@@ -11,7 +11,7 @@
 		<div class="learn-course">
 			<a class="hide-me-on-dropdown expand-container" data-toggle="<%= training_course.title.parameterize %>-toggle"><%= t(".learn_more") %></a>
 			<div class="dropdown-pane course-dropdown-container" id="<%= training_course.title.parameterize %>-toggle" data-dropdown data-auto-focus="true">
-				<%= embed_youtube_videos_for(training_course.description).html_safe %>
+				<%= sanitize embed_youtube_videos_for(training_course.description) %>
 				<% if training_course.prerequisite_ids != [] %>
 					<p>To enroll in this course, you must first successfully complete:<br/>
 					<% training_course.prerequisite_ids.each do |prereq| %>

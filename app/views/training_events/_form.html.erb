@@ -1,13 +1,13 @@
 <div class="row enrollment-form">
-	<div class="large-12 columns">    
-		<div class="large-centered"> 
+	<div class="large-12 columns">
+		<div class="large-centered">
 			<%= form_for @enrollment, :id=>"enrollment_form",  validate: true do |f| %>
 			<h1 >Enrollment</h1>
 			<%= f.collection_check_boxes :training_event_course_id, @training_event.training_event_courses, :id, :title do |b| %>
 				<div class="enrollment-course-card" id="<%= b.object.title %>">
-					<div class="horizontal menu">         
+					<div class="horizontal menu">
 						<h3><%= b.text %></h3>
-						<% if b.object.training_course.prerequisites.count > 0 %>          
+						<% if b.object.training_course.prerequisites.count > 0 %>
 							<div class="prerequisites"><strong>Prerequisites Required</strong></div>
 						<% else %>
 							<div>&nbsp</div>
@@ -24,15 +24,15 @@
 						<div class="training-seat">
 							<% if b.object.get_enrollments(b.object.seats, b.object.id) <= 0 %>
 								Waitlist
-							<% else %>							
+							<% else %>
 								<%= b.object.get_enrollments(b.object.seats, b.object.id) %> seats
 							<% end %>
-						</div>		
-						<div>&nbsp</div>							
+						</div>
+						<div>&nbsp</div>
 						<div class="learn-bottom">
 							<a class="hide-me-on-dropdown expand-container course-learn-link" data-toggle="hdconfig-dropdown1<%=b.object.training_course.id%>"><%= t(".learn_more") %></a>
 							<div class="dropdown-pane course-dropdown-container" id="hdconfig-dropdown1<%=b.object.training_course.id%>" data-dropdown data-auto-focus="true">
-								<p><%= b.object.training_course.description.html_safe %></p>
+								<p><%= sanitize b.object.training_course.description %></p>
 								<ul class="prereq-list">
 									<% if b.object.training_course.prerequisites && b.object.training_course.prerequisites.exists? %>
 										<li>Prerequisites:</li>
@@ -49,17 +49,17 @@
 								<span class="enrollment_added" hidden>Added</span>
 								<%= b.check_box :class => 'class_checkbox', :id => b.object.id %><label class="course-check" for="<%= b.object.id %>"></label>
 							</div>
-      
+
 						</div>
 					</div>
 				</div>
 			<%end%>
-			
-			<div class="row">		
-				<div class="large-12 columns">    
-					<div class="large-centered"> 				
+
+			<div class="row">
+				<div class="large-12 columns">
+					<div class="large-centered">
 						<div class="enrollment-course-form registration">
-							<div class="horizontal menu">							
+							<div class="horizontal menu">
 								<%= f.hidden_field :training_event_id, :value => params[:id] %>
 								<div class="enrollment-card-left">
 								<%= f.label :first_name %>
@@ -70,16 +70,16 @@
 								<%= f.text_field :last_name %>
 								</div>
 								<%= f.label :email %>
-								<%= f.text_field :email %>  
+								<%= f.text_field :email %>
 								<div class="row enrollment-list">
 									<label>My Courses<label>
 									<div style="color:#B4B4B4">Click + on the course description to add it to your list</div>
-								</div>															
-								<input type="submit" id="submit-btn" class='button long radius' value="Enroll"/><span class="enrollment_warning"></span>	
+								</div>
+								<input type="submit" id="submit-btn" class='button long radius' value="Enroll"/><span class="enrollment_warning"></span>
 							</div>
 						</div>
-					</div>					
-				</div>					
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -92,5 +92,5 @@
 		<input type="submit" id='confirm-btn' class='button medium radius' value='Confirm'/>
 	</div>
 </div>
-    	
+
 <% end %>

@@ -30,7 +30,7 @@ module ApplicationHelper
     renderer = Redcarpet::Render::HTML.new(options)
     markdown = Redcarpet::Markdown.new(renderer, extensions)
 
-    markdown.render(text).html_safe
+    sanitize markdown.render(text)
   end
 
   def set_class_for_content_type(content_type)

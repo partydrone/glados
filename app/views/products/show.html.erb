@@ -78,7 +78,7 @@
 			<%= attachment_image_tag @product, :product_image, :limit, 100, 90, fallback: 'http://placehold.it/100x90' %>
 		</div>
 		<div class="product-intro-blurb medium-7 medium-centered">
-			<h4><%= embed_youtube_videos_for(@product.description).html_safe %></h4>
+			<h4><%= sanitize embed_youtube_videos_for(@product.description) %></h4>
 		</div>
 	</div>
 </div>
