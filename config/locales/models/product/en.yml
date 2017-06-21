@@ -10,6 +10,7 @@ en:
         part_number: Part number
         summary: Summary
         description: Description
+        matured_on: Matured on
         expred_on: Expired on
         product_category_id: Product category
         image: Product image

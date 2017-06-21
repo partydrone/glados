@@ -1,4 +1,4 @@
-<%= form_for [:admin, @product], validate: true do |f| %>
+<%= form_for [:admin, @product] do |f| %>
   <div class="row">
     <div class="large-8 columns">
       <%= f.label :product_category_id %>
@@ -7,8 +7,16 @@
       <%= f.text_field :name %>
       <%= f.label :part_number %>
       <%= f.text_field :part_number %>
-      <%= f.label :expired_on %>
-      <%= f.date_field :expired_on, placeholder: 'yyyy-mm-dd' %>
+      <div class="row">
+        <div class="medium-6 columns">
+          <%= f.label :matured_on %>
+          <%= f.date_field :matured_on, placeholder: 'yyyy-mm-dd' %>
+        </div>
+        <div class="medium-6 columns">
+          <%= f.label :expired_on %>
+          <%= f.date_field :expired_on, placeholder: 'yyyy-mm-dd' %>
+        </div>
+      </div>
       <%= f.label :summary %>
       <%= f.text_field :summary %>
       <%= f.label :description %>

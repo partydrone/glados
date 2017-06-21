@@ -89,6 +89,7 @@
             <%= image_tag("icons/logo.svg") %>
           <% end %>
         </li>
+        <%= content_tag :li, "Container: #{Socket.gethostname}" if Rails.env.development? %>
         <li>
           <%= link_to "Admin Home", admin_root_path %>
         </li>

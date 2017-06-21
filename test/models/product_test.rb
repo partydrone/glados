@@ -22,8 +22,19 @@ describe Product do
     product.wont_be :valid?
   end
 
+  it "has a maturation date" do
+    product.must_respond_to :matured_on
+  end
+
   it "has an expiration date" do
     product.must_respond_to :expired_on
+  end
+
+  it "requires that maturation come before expiration when both are present" do
+    product.matured_on = 3.days.ago.to_s(:db)
+    product.expired_on = 5.days.ago.to_s(:db)
+
+    product.wont_be :valid?
   end
 
   it "requires a summary" do
@@ -54,6 +65,23 @@ describe Product do
     product.wont_be :valid?
   end
 
+  it "has not matured" do
+    product.matured_on = 1.week.from_now
+    product.wont_be :matured?
+  end
+
+  it "has matured" do
+    product.matured_on = 1.week.ago
+    product.must_be :matured?
+  end
+
+  it "is not matured if it is discontinued" do
+    product.matured_on = 2.weeks.ago
+    product.expired_on = 1.week.ago
+
+    product.wont_be :matured?
+  end
+
   it "is not discontinued" do
     product.expired_on = 1.week.from_now
     product.wont_be :discontinued?
@@ -78,5 +106,18 @@ describe Product do
 
   it "has associated patents" do
     product.must_respond_to :patents
+  end
+
+  it "returns active products" do
+    active  = products(:active)
+    hd      = products(:smartsensor_hd)
+    matured = products(:matured)
+    expired = products(:expired)
+
+    Product.active.must_include active
+    Product.active.must_include hd
+
+    Product.active.wont_include matured
+    Product.active.wont_include expired
   end
 end

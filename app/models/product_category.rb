@@ -9,7 +9,11 @@ class ProductCategory < ApplicationRecord
   validates :name, :product_type, presence: true
   validates :hero_image, :icon_image, presence: true, on: :create
 
-  scope :active, -> { joins(:products).where('products.expired_on IS NULL OR products.expired_on > ?', Time.zone.today) }
+  scope :active, -> {
+    joins(:products)
+    .where('products.expired_on IS NULL OR products.expired_on > ?', Time.zone.today)
+    .where('products.matured_on IS NULL OR products.matured_on > ?', Time.zone.today)
+  }
   default_scope { order('product_categories.position') }
 
   def to_param
