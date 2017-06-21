@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170531173203) do
+ActiveRecord::Schema.define(version: 20170619170540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -230,6 +230,7 @@ ActiveRecord::Schema.define(version: 20170531173203) do
     t.string   "product_image_filename"
     t.integer  "product_image_size"
     t.string   "product_image_content_type"
+    t.date     "matured_on"
     t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
   end
 
@@ -284,8 +285,8 @@ ActiveRecord::Schema.define(version: 20170531173203) do
   create_table "sales_regions", force: :cascade do |t|
     t.string   "name"
     t.integer  "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "sales_territories", force: :cascade do |t|

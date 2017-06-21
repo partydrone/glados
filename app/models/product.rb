@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   include Taggable
   include PgSearch
-    multisearchable :against => [:name, :summary, :description]
+  multisearchable :against => [:name, :summary, :description]
 
   belongs_to :product_category, touch: true
   has_many :feature_associations, dependent: :destroy
@@ -14,15 +14,22 @@ class Product < ApplicationRecord
 
   default_scope { order(name: :asc) }
 
-  scope :active, -> { where('expired_on IS NULL OR expired_on > ?', Time.zone.today) }
+  scope :active, -> {
+    where('expired_on IS NULL OR expired_on > ?', Time.zone.today)
+    .where('matured_on IS NULL OR matured_on > ?', Time.zone.today)
+  }
   scope :discontinued, -> { where('expired_on <= ?', Time.zone.today) }
-  scope :knowledge_base_articles, -> { includes(:articles).where(articles: {type: 'KnowledgeBaseArticle'}) }
+  scope :knowledge_base_articles, -> {
+    includes(:articles)
+    .where(articles: {type: 'KnowledgeBaseArticle'})
+  }
 
   attachment :hero_image, content_type: %w(image/jpeg image/png image/gif)
   attachment :product_image, content_type: %w(image/jpeg image/png image/gif)
 
   validates :name, :part_number, :summary, :description, :product_category_id, presence: true
   validates :hero_image, :product_image, presence: true, on: :create, unless: :youtube_video_id_present?
+  validate  :matures_before_expires
 
   def self.knowledge_base_article_search(query = nil)
     if query.present?
@@ -42,11 +49,21 @@ class Product < ApplicationRecord
     expired_on.present? && expired_on <= Time.zone.now
   end
 
+  def matured?
+    matured_on.present? && matured_on <= Time.zone.now && !discontinued?
+  end
+
   def to_param
     "#{id} #{name}".parameterize
   end
 
   private
+
+  def matures_before_expires
+    if (expired_on && matured_on) && expired_on < matured_on
+      errors.add :expired_on, %(can't be earlier than matured on)
+    end
+  end
 
   def youtube_video_id_present?
     youtube_video_id.present?
