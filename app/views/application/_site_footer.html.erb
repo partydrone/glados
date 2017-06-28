@@ -6,5 +6,9 @@
 			<%= link_to t(".legal"), legal_path %>
 			<%= link_to t(".manage"), admin_root_path %>
 		</small>
+
+		<%= form_tag locales_path, class: 'site-language-selection' do %>
+			<%= select_tag :new_locale, options_for_select([['English', 'en'], ['French (France)', 'fr-FR']], locale), class: 'site-language-dropdown' %>
+		<% end %>
 	</div>
 </footer>

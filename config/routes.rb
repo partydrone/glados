@@ -115,6 +115,8 @@ Rails.application.routes.draw do
     get '/marketing_app', to: 'marketing_app#index'
     get '/news', to: 'news#index'
     get '/support', to: 'support#index'
+    
+    post '/locales', to: 'locales#set_locale'
     post '/support', to: 'support#select_product'
 
     ##

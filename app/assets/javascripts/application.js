@@ -21,11 +21,14 @@
 //= require nested_form_fields
 
 $(function() {
-    $(document).foundation();
+  $(document).foundation();
 
-    $(".close-flash").on('click', function() {
-        $(".alert-box").hide();
-        return false;
-    });
+  $(".close-flash").on('click', function() {
+    $(".alert-box").hide();
+    return false;
+  });
 
+  $(".site-language-dropdown").change(function() {
+    return this.form.submit();
+  });
 });
