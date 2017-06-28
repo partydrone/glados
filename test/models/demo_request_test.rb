@@ -4,6 +4,7 @@ describe DemoRequest do
   let :demo_request do
     DemoRequest.new(
       name:    'Barney Miller',
+      company: 'NYPD',
       email:   'bmiller@nypd.org',
       country: 'US'
     )
@@ -15,6 +16,11 @@ describe DemoRequest do
 
   it "requires a name" do
     demo_request.name = ' '
+    demo_request.wont_be :valid?
+  end
+
+  it "requires a company" do
+    demo_request.company = ' '
     demo_request.wont_be :valid?
   end
 
@@ -48,5 +54,9 @@ describe DemoRequest do
       demo_request.email = invalid_email
       demo_request.wont_be :valid?
     end
+  end
+
+  it "has a region" do
+    demo_request.must_respond_to :region
   end
 end

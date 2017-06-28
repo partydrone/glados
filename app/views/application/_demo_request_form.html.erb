@@ -1,9 +1,13 @@
 <%= form_for DemoRequest.new(country: 'US'), validate: true do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
+  <%= f.label :company %>
+  <%= f.text_field :company %>
   <%= f.label :email %>
   <%= f.email_field :email %>
   <%= f.label :country, class:"select-label"%>
   <%= f.select :country, COUNTRIES.invert.sort %>
+  <%= f.label :region %>
+  <%= f.text_field :region %>
   <%= f.submit 'Request a demo', class: 'button radius expanded request-button' %>
 <% end %>
