@@ -3,7 +3,7 @@ class SiteMailer < ApplicationMailer
     @demo_request = demo_request
     @page         = referer
 
-    mail to:       '"Wavetronix Sales", <sales@wavetronix.com>',
+    mail to:       '"Sales" <sales@wavetronix.com>',
          reply_to: %("#{@demo_request.name}" <#{@demo_request.email}>),
          subject:  t('.subject')
   end
@@ -11,7 +11,7 @@ class SiteMailer < ApplicationMailer
   def knowledge_base_article_feedback(article, feedback)
     @article  = article
     @feedback = feedback
-    mail to:      '"Technical Support" <andrew.porter@wavetronix.com>',
+    mail to:      '"Technical Support" <support@wavetronix.com>',
          subject: t('.subject')
   end
 
@@ -25,7 +25,7 @@ class SiteMailer < ApplicationMailer
   def training_event_request(training_event_request, training_courses)
     @training_event_request = training_event_request
     @training_courses = training_courses
-    mail to: '"Training" <jeremy.conterio@wavetronix.com>',
+    mail to: '"Training" <training@wavetronix.com>',
          reply_to: %("#{@training_event_request.company_name}" <#{@training_event_request.email}>),
          subject: t('.subject')
   end
