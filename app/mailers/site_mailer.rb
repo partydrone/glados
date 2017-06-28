@@ -1,10 +1,9 @@
 class SiteMailer < ApplicationMailer
   def demo_request(demo_request, referer)
-    @demo_request  = demo_request
-    @page          = referer
-    @send_to_email = set_demo_request_recipient(@demo_request.country)
+    @demo_request = demo_request
+    @page         = referer
 
-    mail to:       @send_to_email,
+    mail to:       '"Wavetronix Sales", <sales@wavetronix.com>',
          reply_to: %("#{@demo_request.name}" <#{@demo_request.email}>),
          subject:  t('.subject')
   end
@@ -39,22 +38,5 @@ class SiteMailer < ApplicationMailer
     mail to: %("Registration Confirmation" <#{email}>),
          replay_to: '"Training" <jeremy.conterio@wavetronix.com>',
          subject: 'Course Enrollment Confirmation'
-  end
-
-  private
-
-  def set_demo_request_recipient(country)
-    case country
-    when 'HK', 'ID', 'IN', 'KR', 'MO', 'MY', 'SG', 'TH'
-      return '"Asia Pacific Sales" <apsales@wavetronix.com>'
-    when 'CN', 'TW'
-      return '"China Sales" <chinasales@wavetronix.com>'
-    when 'AE', 'BE', 'BY', 'CZ', 'ES', 'FR', 'GR', 'IT', 'KZ', 'KW', 'LU', 'PL', 'PT', 'QA', 'RU', 'SK', 'TR'
-      return '"EU Sales" <eusales@wavetronix.com>'
-    when 'GB', 'IE'
-      return '"UK Sales" <uksales@wavetronix.com>'
-    else
-      return ['"Wavetronix Sales" <sales@wavetronix.com>', '"North America Sales" <nasales@wavetronix.com>', '"Georgia Sales" <gasales@wavetronix.com>', '"Tennessee Sales" <tnsales@wavetronix.com>']
-    end
   end
 end
