@@ -1,10 +1,9 @@
 class SiteMailer < ApplicationMailer
   def demo_request(demo_request, referer)
-    @demo_request  = demo_request
-    @page          = referer
-    @send_to_email = set_demo_request_recipient(@demo_request.country)
+    @demo_request = demo_request
+    @page         = referer
 
-    mail to:       @send_to_email,
+    mail to:       '"Sales" <sales@wavetronix.com>',
          reply_to: %("#{@demo_request.name}" <#{@demo_request.email}>),
          subject:  t('.subject')
   end
@@ -12,7 +11,7 @@ class SiteMailer < ApplicationMailer
   def knowledge_base_article_feedback(article, feedback)
     @article  = article
     @feedback = feedback
-    mail to:      '"Technical Support" <andrew.porter@wavetronix.com>',
+    mail to:      '"Technical Support" <support@wavetronix.com>',
          subject: t('.subject')
   end
 
@@ -26,7 +25,7 @@ class SiteMailer < ApplicationMailer
   def training_event_request(training_event_request, training_courses)
     @training_event_request = training_event_request
     @training_courses = training_courses
-    mail to: '"Training" <jeremy.conterio@wavetronix.com>',
+    mail to: '"Training" <training@wavetronix.com>',
          reply_to: %("#{@training_event_request.company_name}" <#{@training_event_request.email}>),
          subject: t('.subject')
   end
@@ -39,22 +38,5 @@ class SiteMailer < ApplicationMailer
     mail to: %("Registration Confirmation" <#{email}>),
          replay_to: '"Training" <jeremy.conterio@wavetronix.com>',
          subject: 'Course Enrollment Confirmation'
-  end
-
-  private
-
-  def set_demo_request_recipient(country)
-    case country
-    when 'HK', 'ID', 'IN', 'KR', 'MO', 'MY', 'SG', 'TH'
-      return '"Asia Pacific Sales" <apsales@wavetronix.com>'
-    when 'CN', 'TW'
-      return '"China Sales" <chinasales@wavetronix.com>'
-    when 'AE', 'BE', 'BY', 'CZ', 'ES', 'FR', 'GR', 'IT', 'KZ', 'KW', 'LU', 'PL', 'PT', 'QA', 'RU', 'SK', 'TR'
-      return '"EU Sales" <eusales@wavetronix.com>'
-    when 'GB', 'IE'
-      return '"UK Sales" <uksales@wavetronix.com>'
-    else
-      return ['"Wavetronix Sales" <sales@wavetronix.com>', '"North America Sales" <nasales@wavetronix.com>', '"Georgia Sales" <gasales@wavetronix.com>', '"Tennessee Sales" <tnsales@wavetronix.com>']
-    end
   end
 end

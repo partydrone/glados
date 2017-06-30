@@ -1,5 +1,5 @@
 class DownloadType < ApplicationRecord
-  has_many :downloads, dependent: :nullify
+  has_many :downloads, dependent: :destroy
 
   validates :name, presence: true
 

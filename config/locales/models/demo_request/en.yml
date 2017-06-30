@@ -1,0 +1,9 @@
+---
+
+en:
+  activemodel:
+    models:
+      demo_request: DemoRequest
+    attributes:
+      demo_request:
+        region: State (if located in United States)

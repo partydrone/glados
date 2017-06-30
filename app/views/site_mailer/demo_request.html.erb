@@ -1,5 +1,12 @@
 <h1>New Demo Request!</h1>
-<p><%= @demo_request.name %> from <%= t "countries.#{@demo_request.country}" %> requests a product demo. This request originated from the following page on the website:</p>
+<p>
+  <%= @demo_request.name %>
+  with <%= @demo_request.company %>
+  from <%= "#{@demo_request.region}," if @demo_request.region.present? %>
+  <%= t "countries.#{@demo_request.country}" %>
+  requests a product demo. This request originated from the following page on
+  the website:
+</p>
 <p><%= @page %></p>
-<p>To respond to this request, just reply to this email.</p>
-<p>This request would be sent to <%= @send_to_email %></p>
+<p>You can contact <%= @demo_request.name %> at <%= @demo_request.email %>.</p>
+<p>Thanks!</p>
