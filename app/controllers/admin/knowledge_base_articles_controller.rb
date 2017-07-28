@@ -5,7 +5,7 @@ module Admin
     before_action :set_taggable_items, only: [:new, :edit]
 
     def index
-      @knowledge_base_articles = KnowledgeBaseArticle.all
+      @knowledge_base_articles = KnowledgeBaseArticle.order(:title)
       authorize @knowledge_base_articles
     end
 
