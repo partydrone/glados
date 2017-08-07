@@ -7,8 +7,8 @@ services:
     build: .
     command: bundle exec puma -C config/puma.rb
     volumes:
-      - .:/glados
-      - ./public:/glados/public
+      - .:/app
+      - ./public:/app/public
     expose:
       - 3000
     depends_on:
@@ -17,19 +17,7 @@ services:
     env_file:
       - .env
     environment:
-      - VIRTUAL_HOST=localhost
-
-  # cable:
-  #   depends_on:
-  #     - redis
-  #   build: .
-  #   command: puma -p 28080 cable/config.ru
-  #   ports:
-  #     - 28080:28080
-  #   volumes:
-  #     - .:/glados
-  #   env_file:
-  #     - .env
+      - VIRTUAL_HOST=localhost,glados.10.1.65.208.xip.io,glados.10.1.64.189.xip.io
 
   postgres:
     image: postgres:9.6-alpine
@@ -39,8 +27,6 @@ services:
       - ./tmp/data/postgres:/var/lib/postgresql/data
     env_file:
       - .env
-    # environment:
-    #   PGDATA: /tmp
 
   proxy:
     image: jwilder/nginx-proxy:latest
@@ -64,7 +50,7 @@ services:
     build: .
     command: sidekiq -C config/sidekiq.yml
     volumes:
-      - .:/glados
+      - .:/app
     env_file:
       - .env
 

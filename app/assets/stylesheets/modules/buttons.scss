@@ -1,0 +1,18 @@
+@import "foundation_and_overrides";
+@import "globals/all";
+
+.button.wtx-badge {
+  background-color: $black;
+  padding: 1em !important;
+
+  color: $white;
+  line-height: 1.2 !important;
+
+  &:hover {
+    background-color: $black;
+    padding: 1em !important;
+
+    color: $white !important;
+    line-height: 1.2 !important;
+  }
+}
