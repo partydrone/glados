@@ -71,12 +71,6 @@ gem 'jquery-ui-rails', '~> 5.0'
 gem 'record_tag_helper', '~> 1.0'
 
 ##
-# Profiling
-gem 'rack-mini-profiler', '~> 0.10'
-gem 'flamegraph'
-gem 'stackprof'
-
-##
 # Routing
 gem 'redirector'
 
