@@ -178,7 +178,8 @@ Safe Section
 ***********************************************************************************************/
 
 .home-safe-left-img {
-    margin-top: -100px;
+    display: inline-block;
+    top: -100px;
     position: relative;
     z-index: 5;
 }
@@ -216,12 +217,12 @@ Safe Section
 }
 
 .home-safe-right-img {
-    position: absolute;
-    z-index: 0;
-    width: 300px;
-    margin-top: -113px;
-    height: 291px;
-    right: 0;
+    position:   absolute;
+    z-index:    0;
+    width:      300px;
+    margin-top: -113px; // NOTE: Use top, right, bottom, and left attributes to position, instead.
+    height:     291px;
+    right:      0;      // NOTE: Like you do here! 😊
     background: url(image-path('home/home-car-smash-thin.png')) no-repeat right;
     img {
         height: 100%;
