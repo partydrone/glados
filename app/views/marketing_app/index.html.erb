@@ -45,21 +45,24 @@
   	</ul>
   	<p>All content includes enhanced components including embedded video and multimedia content; interactive, exploratory features; links to third-party studies and research; and more. New content is added all the time so there is always something new to learn and enjoy.</p>
   	<div class="download-app row">
-      <div class="medium-4 columns">
+      <div class="medium-3 columns">
         <%= link_to "https://itunes.apple.com/us/app/wavetronix/id840962745?ls=1&mt=8" do %>
-  		    <%= image_tag("icons/appstore.svg") %>
+  		    <%= image_tag('icons/appstore.svg') %>
         <% end %>
       </div>
-      <div class="medium-4 columns">
-        <%= image_tag("icons/googleplay.svg") %>
+      <div class="medium-3 columns">
+        <%= image_tag('icons/googleplay.svg') %>
       </div>
-      <div class="medium-4 columns">
-        <%= image_tag("icons/windowsstore.svg") %>
+      <div class="medium-3 columns">
+        <%= image_tag('icons/windowsstore.svg') %>
+      </div>
+      <div class="medium-3 columns">
+        <%= link_to 'View in browser', 'https://viewer.aemmobile.adobe.com/index.html#project/5ca54145-0790-4361-b19d-ff3abcefda99/view/topLevelTabletContent/view/Home;openTo=browsePage', target: '_blank', class: 'button large expand wtx-badge' %>
       </div>
   	</div>
   </div>
   <div class="large-4 small-12 columns app-side-support">
-  	<h4><%= t(".issue") %></h4>
+  	<h4><%= t('.issue') %></h4>
     <div class="request-box">
       <div class="request row">
         <div class="medium-10 medium-centered columns">
