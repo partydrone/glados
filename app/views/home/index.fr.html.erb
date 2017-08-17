@@ -1,9 +1,8 @@
 <main class="homepage" data-magellan>
-
-  <div class="home-video">
-    <%= video_tag "home/wtx-banner.mp4", controls: false, autoplay: true, muted: true, loop: true, id: "bgvideo", type:"video/mp4", class: 'home-video-background show-for-large' %>
-    <div class="home-top-banner">
-      <h1 class="home-header-text">Une Gestion du Trafic plus <span>Intelligente</span></h1>
+  <div class="home-banner">
+    <%= video_tag 'home/wtx-banner.mp4', poster: 'home/home-smarter-traffic.png', controls: false, autoplay: true, muted: true, loop: true, class: 'home-banner__video show-for-large' %>
+    <div class="content">
+      <h1>Une Gestion du Trafic <span class="highlight">plus&nbsp;Intelligente</span></h1>
       <h4>Commence ici.</h4>
       <%= image_tag 'icons/home-dots.svg', class: 'show-for-medium' %>
       <a data-open="demoRequest">
@@ -19,6 +18,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+
 
   <section class="home-safe" id="home-safe">
     <div class="row">
