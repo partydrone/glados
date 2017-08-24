@@ -49,7 +49,7 @@ module Admin
     end
 
     def sales_territory_params
-      params.require(:sales_territory).permit(:name, :dealer, :sales_office_id, :sales_region_id)
+      params.require(:sales_territory).permit(:name, :dealer_id, :sales_office_id, :sales_region_id)
     end
 
   end
