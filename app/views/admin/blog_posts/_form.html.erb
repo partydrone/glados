@@ -29,7 +29,7 @@
     <%=f.label :tag_list, "Tags (separated by commas) (regions include: #{Tag::REGIONS.join(', ')})" %>
     <%= f.text_field :tag_list, value: f.object.tag_list.to_s, :id => 'auto_complete_tags' %>
   </div>
-  <%= f.submit nil, class: 'button radius' %>
+  <%= f.button nil, class: 'button radius' %>
 <% end %>
 
 <%= content_tag :div, class: "taggable_items", data: {taggable_items: @taggable_items} do %>
