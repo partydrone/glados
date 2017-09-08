@@ -127,4 +127,15 @@ describe Product do
     Product.active.wont_include matured
     Product.active.wont_include expired
   end
+
+  it "has country IDs" do
+    product.must_respond_to :country_ids
+  end
+
+  it "removes empty country IDs" do
+    product.country_ids = ['', 'US', 'FR', 'GB']
+    product.save
+    product.reload
+    product.country_ids.must_equal ['US', 'FR', 'GB']
+  end
 end

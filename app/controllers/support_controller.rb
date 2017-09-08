@@ -1,6 +1,6 @@
 class SupportController < ApplicationController
   def index
-    @product_types = ProductType.includes(:products).select('product_types.name, product_types.icon_image_id, products.id, products.name').reorder('product_types.position', 'products.name')
+    @product_types = ProductType.available
     @top_kb_articles = KnowledgeBaseArticle.top.limit(10)
     @return_material_authorization_policy_document = ReturnMaterialAuthorizationPolicyDocument.current
   end

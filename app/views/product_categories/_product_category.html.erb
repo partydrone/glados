@@ -10,7 +10,7 @@
             <%= product_category.name %>
           </h1>
           <div class="row products-product-box">
-            <%= render product_category.active_products %>
+            <%= render product_category.products.available.active %>
           </div>
         </div>
       </div>

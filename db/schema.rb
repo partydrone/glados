@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170619170540) do
+ActiveRecord::Schema.define(version: 20170831172545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -219,8 +219,8 @@ ActiveRecord::Schema.define(version: 20170619170540) do
     t.text     "description"
     t.date     "expired_on"
     t.integer  "product_category_id"
-    t.datetime "created_at",                 precision: 6, null: false
-    t.datetime "updated_at",                 precision: 6, null: false
+    t.datetime "created_at",                 precision: 6,              null: false
+    t.datetime "updated_at",                 precision: 6,              null: false
     t.string   "youtube_video_id"
     t.string   "hero_image_id"
     t.string   "hero_image_filename"
@@ -231,6 +231,7 @@ ActiveRecord::Schema.define(version: 20170619170540) do
     t.integer  "product_image_size"
     t.string   "product_image_content_type"
     t.date     "matured_on"
+    t.text     "country_ids",                              default: [],              array: true
     t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
   end
 

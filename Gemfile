@@ -10,6 +10,7 @@ gem 'rails', '~> 5.0.0'
 ##
 # Defaults
 gem 'bcrypt', '~> 3.1.7'
+gem 'bootsnap', require: false
 # gem 'coffee-rails', '~> 4.1.0'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'

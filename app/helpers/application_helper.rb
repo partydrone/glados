@@ -1,4 +1,9 @@
 module ApplicationHelper
+  def country_from(locale)
+    locale =~ /^([a-z]{2,2})(?:[-|_]([A-Z]{2,2}))?$/i
+    return $2.try(:upcase)
+  end
+
   def full_title(page_title = nil)
     title = %w[Wavetronix]
     title << page_title if page_title.present?
