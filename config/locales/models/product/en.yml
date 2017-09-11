@@ -6,13 +6,13 @@ en:
       product: Product
     attributes:
       product:
+        product_category_id: Product category
         name: Name
         part_number: Part number
+        matured_on: Matured on
+        expired_on: Expired on
         summary: Summary
         description: Description
-        matured_on: Matured on
-        expred_on: Expired on
-        product_category_id: Product category
-        image: Product image
-        billboard: Billboard image
+        product_image: Product image
+        hero_image: Hero image
         youtube_video_id: YouTube video ID
