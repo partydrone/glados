@@ -62,7 +62,8 @@ gem 'redcarpet', '~> 3.0'
 
 ##
 # I18n
-# gem 'globalize'
+gem 'globalize', github: 'globalize/globalize', branch: 'master'
+gem 'activemodel-serializers-xml'
 gem 'rails-i18n', '~> 5.0.0'
 
 ##
