@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170912200109) do
+ActiveRecord::Schema.define(version: 20170920155001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -206,8 +206,17 @@ ActiveRecord::Schema.define(version: 20170912200109) do
     t.index ["product_category_id"], name: "index_product_category_translations_on_product_category_id", using: :btree
   end
 
-  create_table "product_types", force: :cascade do |t|
+  create_table "product_type_translations", force: :cascade do |t|
+    t.integer  "product_type_id", null: false
+    t.string   "locale",          null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "name"
+    t.index ["locale"], name: "index_product_type_translations_on_locale", using: :btree
+    t.index ["product_type_id"], name: "index_product_type_translations_on_product_type_id", using: :btree
+  end
+
+  create_table "product_types", force: :cascade do |t|
     t.integer  "position"
     t.datetime "created_at",              precision: 6, null: false
     t.datetime "updated_at",              precision: 6, null: false

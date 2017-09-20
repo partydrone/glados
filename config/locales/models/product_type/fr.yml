@@ -1,0 +1,10 @@
+---
+fr:
+  activerecord:
+    models:
+      product_type: Type de produit
+    attributes:
+      product_type:
+        name: Nom
+        icon_image: Icone image
+        hero_image: Image héroïne
