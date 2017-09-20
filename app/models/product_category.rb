@@ -2,6 +2,8 @@ class ProductCategory < ApplicationRecord
   belongs_to :product_type, touch: true
   has_many :products
 
+  translates :name, :description
+
   attachment :hero_image, content_type: %w(image/jpeg image/png image/gif)
   attachment :icon_image, content_type: %w(image/jpeg image/png image/gif image/svg+xml)
 
