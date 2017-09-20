@@ -4,3 +4,21 @@ fr:
   support:
     index:
       title: Obtenir support
+      select_product: Choisissez un produit…
+
+      app:                    App
+      app_support:            Visitez le support de l'application
+      contact_dealer:         Contactez nous
+      contact_us:             Contactez nous
+      helpful:                Est-ce que cela a été utile?
+      knowledge_base:         Base de connaissances
+      mobile_app:             Vous recherchez notre application mobile?
+      need_help:              J'ai besoin d'aide pour résoudre les problèmes
+      product:                Produit
+      question:               Vous ne voyez pas votre question?
+      return_policy:          Afficher la politique de retour
+      returns:                Retours
+      search_knowledge_base:  Recherchez notre base de connaissances
+      top_faqs:               Les 10 articles de la base de connaissances
+      tried_troubleshooting:  J'ai essayé de dépanner et je souhaite toujours renvoyer l'appareil
+      visit:                  ou
