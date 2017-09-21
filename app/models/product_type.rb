@@ -1,8 +1,8 @@
 class ProductType < ApplicationRecord
+  translates :name
+
   has_many :product_categories
   has_many :products, through: :product_categories
-
-  translates :name
 
   attachment :hero_image, content_type: %w(image/jpeg image/png image/gif)
   attachment :icon_image, content_type: %w(image/jpeg image/png image/gif image/svg+xml)

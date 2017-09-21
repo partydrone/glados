@@ -1,6 +1,9 @@
 <%= form_for [:admin, @product] do |form| %>
   <div class="row">
     <div class="large-8 columns">
+      <%= label_tag :translation_locale %>
+      <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @product.available_locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
+
       <%= form.label :product_category_id %>
       <%= form.grouped_collection_select :product_category_id, ProductType.includes(:product_categories), :product_categories, :name, :id, :name %>
       <%= form.label :name %>
@@ -28,7 +31,10 @@
         <% COUNTRIES.each do |key, value| %>
         <div class="column column-block">
           <%= check_box_tag 'product[country_ids][]', key, @product.country_ids.include?(key.to_s), id: "product_country_ids_#{key.downcase}" %>
-          <%= label_tag "product_country_ids_#{key.downcase}", value %>
+          <%= label_tag "product_country_ids_#{key.downcase}" do %>
+            <%= image_tag "flags/4x3/#{key.downcase}.svg", style: 'height: 1em;' %>
+            <%= value %>
+          <% end %>
         </div>
         <% end %>
       </div>

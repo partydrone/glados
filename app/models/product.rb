@@ -2,6 +2,8 @@ class Product < ApplicationRecord
   include Taggable
   include PgSearch
 
+  translates :summary, :description, :youtube_video_id
+
   multisearchable :against => [:name, :summary, :description]
 
   belongs_to :product_category, touch: true
