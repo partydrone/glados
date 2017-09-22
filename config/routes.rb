@@ -38,7 +38,8 @@ Rails.application.routes.draw do
                 :website_privacy_policy_documents,
                 :website_terms_of_use_documents
 
-      resources :product_categories,
+      resources :download_types,
+                :product_categories,
                 concerns: :sortable
 
       resources :downloads,
@@ -54,8 +55,7 @@ Rails.application.routes.draw do
 
       resources :users, except: [:show, :new, :create]
 
-      resources :download_types,
-                :product_types,
+      resources :product_types,
                 :sales_regions,
                 except: [:show],
                 concerns: :sortable
@@ -115,7 +115,7 @@ Rails.application.routes.draw do
     get '/marketing_app', to: 'marketing_app#index'
     get '/news', to: 'news#index'
     get '/support', to: 'support#index'
-    
+
     post '/locales', to: 'locales#set_locale'
     post '/support', to: 'support#select_product'
 

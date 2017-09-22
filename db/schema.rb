@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170922154705) do
+ActiveRecord::Schema.define(version: 20170922205153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,8 +65,17 @@ ActiveRecord::Schema.define(version: 20170922154705) do
     t.datetime "updated_at",            precision: 6, null: false
   end
 
-  create_table "download_types", force: :cascade do |t|
+  create_table "download_type_translations", force: :cascade do |t|
+    t.integer  "download_type_id", null: false
+    t.string   "locale",           null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "name"
+    t.index ["download_type_id"], name: "index_download_type_translations_on_download_type_id", using: :btree
+    t.index ["locale"], name: "index_download_type_translations_on_locale", using: :btree
+  end
+
+  create_table "download_types", force: :cascade do |t|
     t.integer  "position"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
