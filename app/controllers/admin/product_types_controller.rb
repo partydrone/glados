@@ -10,6 +10,7 @@ module Admin
     def show
       @translation_locale = params[:translation_locale] || I18n.locale
     end
+    
     def new
       @product_type = ProductType.new
       authorize @product_type

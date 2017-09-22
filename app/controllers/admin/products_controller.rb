@@ -11,8 +11,12 @@ module Admin
       @product = Product.includes({downloads: [:download_type]}, :features, :product_category).find(params[:id])
       authorize @product
       @demo_request = DemoRequest.new(country: 'US')
+      @translation_locale = params[:translation_locale] || I18n.locale
 
-      render 'products/show'
+      respond_to do |format|
+        format.html { render 'products/show' }
+        format.json
+      end
     end
 
     def new
