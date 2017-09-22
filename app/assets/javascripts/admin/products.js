@@ -7,7 +7,6 @@ jQuery(function () {
       "translation_locale": translationLocale,
     }, (data) => {
       $("#product_summary").val(data.summary);
-      // $("#product_description").val(data.description);
       CKEDITOR.instances.product_description.setData(data.description, function () {
         this.checkDirty();
       });
