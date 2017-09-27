@@ -261,6 +261,7 @@ ActiveRecord::Schema.define(version: 20170922205153) do
   end
 
   create_table "products", force: :cascade do |t|
+    t.string   "name"
     t.string   "part_number"
     t.date     "expired_on"
     t.integer  "product_category_id"
@@ -276,7 +277,6 @@ ActiveRecord::Schema.define(version: 20170922205153) do
     t.string   "product_image_content_type"
     t.date     "matured_on"
     t.text     "country_ids",                              default: [],              array: true
-    t.string   "name"
     t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
   end
 
