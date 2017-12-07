@@ -85,7 +85,7 @@ gem 'pg_search'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'debase'
+  gem 'debase', '0.2.2.beta10'
   gem 'puma', '~> 3.0'
   gem 'ruby-debug-ide'
 end

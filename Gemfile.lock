@@ -423,7 +423,7 @@ DEPENDENCIES
   carrierwave_globalize (~> 0.2.0)
   ckeditor
   client_side_validations
-  debase
+  debase (= 0.2.2.beta10)
   foundation-rails (~> 6.2.0)
   globalize!
   guard
