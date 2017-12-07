@@ -1,8 +1,8 @@
-<%= link_to attachment_url(download, :file, filename: "#{download.title.parameterize(separator: '_')}-#{download.download_type.name.parameterize(separator: '_')}-#{download.locale}"), class: "support-download-item row #{set_class_for_content_type(download.file_content_type)}", data: { 'locale-type' => download.locale }, target: '_blank' do %>
+<%= link_to download.file.url, class: "support-download-item row", target: '_blank' do %>
   <div class="small-1 column">
     <%= image_tag('icons/document.svg') %>
   </div>
   <div class="small-11 columns">
     <%= download.title %>
   </div>
-<% end if download.file && download.file.exists? %>
+<% end if download.file %>

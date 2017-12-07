@@ -14,7 +14,7 @@
         <%= feature.title %>
       </h2>
       <%= markdown(feature.description) %>
-      <%= link_to 'Learn more', feature_path(feature), class: 'goto-new' if feature.body.present? %>
+      <%= link_to t('ui.learn_more'), feature_path(feature), class: 'goto-new' if feature.body.present? %>
     </div>
   </div>
 </div>

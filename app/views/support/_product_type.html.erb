@@ -8,7 +8,7 @@
   <div class="support-search-dropdown">
     <section class="products-language-header support-dropdown">
       <%= form_tag action: :select_product do %>
-        <%= select_tag :product, options_from_collection_for_select(product_type.products.available.order(:name), :id, :name), prompt: 'Select a product…', class: 'products-language-dropdown support_base_index_select_product' %>
+        <%= select_tag :product, options_from_collection_for_select(product_type.products.available.order(:name), :id, :name), prompt: t('support.index.select_product'), class: 'products-language-dropdown support_base_index_select_product' %>
       <% end %>
     </section>
   </div>

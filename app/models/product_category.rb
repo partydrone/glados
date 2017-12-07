@@ -1,4 +1,6 @@
 class ProductCategory < ApplicationRecord
+  translates :name, :description
+
   belongs_to :product_type, touch: true
   has_many :products
 

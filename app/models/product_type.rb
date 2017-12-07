@@ -1,4 +1,6 @@
 class ProductType < ApplicationRecord
+  translates :name
+
   has_many :product_categories
   has_many :products, through: :product_categories
 
@@ -29,10 +31,6 @@ class ProductType < ApplicationRecord
       all
     end
   end
-
-  # def self.available
-  #   joins(:available_products).distinct
-  # end
 
   def to_param
     "#{id} #{name}".parameterize

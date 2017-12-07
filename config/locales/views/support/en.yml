@@ -16,6 +16,7 @@ en:
       return_policy:          View Return Policy
       returns:                Returns
       search_knowledge_base:  Search our Knowledge Base
+      select_product:         Select a product…
       title:                  Support
       top_faqs:               Top 10 Knowledge Base Articles
       tried_troubleshooting:  I’ve tried troubleshooting and still want to return the device

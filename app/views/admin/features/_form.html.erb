@@ -1,6 +1,9 @@
 <%= form_for [:admin,@feature] do |f| %>
   <div class="row">
     <div class="large-8 columns">
+      <%= label_tag :translation_locale %>
+      <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @feature.available_locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
+
       <%= f.label :title %>
       <%= f.text_field :title %>
       <%= f.label :description %>

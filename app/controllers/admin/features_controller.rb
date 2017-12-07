@@ -4,11 +4,12 @@ module Admin
     before_action :set_product_types, only: [:new, :edit]
 
     def index
-      @features = Feature.all
+      @features = Feature.order(:title)
       authorize @features
     end
 
     def show
+      @translation_locale = params[:translation_locale] || I18n.locale
     end
 
     def new
@@ -20,29 +21,48 @@ module Admin
     end
 
     def create
-      @feature = Feature.new(feature_params)
-      authorize @feature
+      Globalize.with_locale(params[:translation_locale]) do
+        @feature = Feature.new(feature_params)
+        authorize @feature
 
-      if @feature.save
-        redirect_to [:admin, @feature], notice: %(Saved "#{@feature.title}" successfully.)
-      else
-        set_product_types
-        render :new
+        if @feature.save
+          redirect_to [:admin, @feature], notice: %(Saved "#{@feature.title}" successfully.)
+        else
+          set_product_types
+          render :new
+        end
       end
     end
 
     def update
-      if @feature.update(feature_params)
-        redirect_to [:admin, @feature], notice: %(Updated "#{@feature.title}" successfully.)
-      else
-        set_product_types
-        render :edit
+      Globalize.with_locale(params[:translation_locale]) do
+        if @feature.update(feature_params)
+          redirect_to [:admin, @feature], notice: %(Updated "#{@feature.title}" successfully.)
+        else
+          set_product_types
+          render :edit
+        end
       end
     end
 
     def destroy
-      @feature.destroy
-      redirect_to admin_features_path, notice: %(Deleted "#{@feature.title}" successfully.)
+      translation_locale = params[:translation_locale]
+
+      if translation_locale
+        if @feature.translations.count > 1
+          Globalize.with_locale(translation_locale) do
+            @feature.translation.destroy
+            message = %(Deleted #{helpers.humanize_locale translation_locale} translation successfully.)
+          end
+        else
+          message = %(#{helpers.humanize_locale translation_locale} is the only translation left and cannot be deleted. Delete the record, instead.)
+        end
+      else
+        @feature.destroy
+        message = %(Deleted #{@feature.name} successfully.)
+      end
+
+      redirect_to admin_features_path, notice: message
     end
 
     private
