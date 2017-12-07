@@ -1,22 +1,14 @@
 class Download < ApplicationRecord
+  extend CarrierwaveGlobalize
+  include PgSearch
+  multisearchable :against => [:title]
+
   belongs_to :download_type
   has_and_belongs_to_many :products
 
-  include PgSearch
-    multisearchable :against => [:title]
+  translates :title, :file
 
-  attachment :file
-
-  validates :locale, :title, presence: true
-
-  def self.default_scope
-    direction = "ASC, title ASC"
-    order("
-        CASE
-          WHEN locale = '#{I18n.locale}' THEN '1'
-          WHEN locale != '#{I18n.locale}' THEN '2'
-        END #{direction}")
-  end
+  mount_translated_uploader :file, FileUploader
 
   def to_param
     "#{id} #{title}".parameterize

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170922205153) do
+ActiveRecord::Schema.define(version: 20171207000540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,17 @@ ActiveRecord::Schema.define(version: 20170922205153) do
     t.datetime "updated_at",            precision: 6, null: false
   end
 
+  create_table "download_translations", force: :cascade do |t|
+    t.integer  "download_id", null: false
+    t.string   "locale",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "title"
+    t.string   "file"
+    t.index ["download_id"], name: "index_download_translations_on_download_id", using: :btree
+    t.index ["locale"], name: "index_download_translations_on_locale", using: :btree
+  end
+
   create_table "download_type_translations", force: :cascade do |t|
     t.integer  "download_type_id", null: false
     t.string   "locale",           null: false
@@ -82,16 +93,10 @@ ActiveRecord::Schema.define(version: 20170922205153) do
   end
 
   create_table "downloads", force: :cascade do |t|
-    t.string   "locale"
-    t.string   "title"
     t.string   "part_number"
     t.integer  "download_type_id"
-    t.datetime "created_at",        precision: 6, null: false
-    t.datetime "updated_at",        precision: 6, null: false
-    t.string   "file_id"
-    t.string   "file_filename"
-    t.integer  "file_size"
-    t.string   "file_content_type"
+    t.datetime "created_at",       precision: 6, null: false
+    t.datetime "updated_at",       precision: 6, null: false
     t.index ["download_type_id"], name: "index_downloads_on_download_type_id", using: :btree
   end
 
