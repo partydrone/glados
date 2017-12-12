@@ -57,7 +57,7 @@ module Admin
 
       if translation_locale
         if @knowledge_base_article.translations.count > 1
-          Globalize.with_locale(translation_locle) do
+          Globalize.with_locale(translation_locale) do
             @knowledge_base_article.translation.destroy
             message = %(Deleted #{helpers.humanize_locale translation_locale} translation successfully.)
           end
