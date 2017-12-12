@@ -1,4 +1,7 @@
 <%= form_for [:admin, @knowledge_base_article], validate: true do |f| %>
+  <%= label_tag :translation_locale %>
+  <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @blog_post.available_locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
+
   <div class="row">
     <div class="large-8 columns">
       <div class="row">

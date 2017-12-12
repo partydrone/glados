@@ -9,6 +9,16 @@
     <%= link_to case_study.title, [:admin, case_study] %>
   </td>
   <td>
+    <% case_study.available_locales.each do |l| %>
+      <%= content_tag :span, class: 'secondary label' do %>
+        <%= humanize_locale(l) %>
+        <% Globalize.with_locale(l) do %>
+        <%= link_to 'x', admin_case_study_path(case_study, translation_locale: l), method: :delete, data: { confirm: %(Are you sure you want to delete this #{humanize_locale l} translation? This cannot be undone.) } %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </td>
+  <td>
     <%= l case_study.posted_on.to_date %>
   </td>
   <td>

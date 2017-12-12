@@ -10,27 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207000540) do
+ActiveRecord::Schema.define(version: 20171211175542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "articles", force: :cascade do |t|
-    t.string   "type"
+  create_table "article_translations", force: :cascade do |t|
+    t.integer  "article_id", null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "title"
     t.string   "subtitle"
+    t.text     "body"
+    t.integer  "views"
+    t.index ["article_id"], name: "index_article_translations_on_article_id", using: :btree
+    t.index ["locale"], name: "index_article_translations_on_locale", using: :btree
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "type"
     t.string   "author"
     t.string   "location"
     t.string   "flag"
-    t.text     "body"
     t.date     "posted_on"
-    t.datetime "created_at",              precision: 6,             null: false
-    t.datetime "updated_at",              precision: 6,             null: false
+    t.datetime "created_at",              precision: 6, null: false
+    t.datetime "updated_at",              precision: 6, null: false
     t.string   "hero_image_id"
     t.string   "hero_image_filename"
     t.integer  "hero_image_size"
     t.string   "hero_image_content_type"
-    t.integer  "views",                                 default: 0
   end
 
   create_table "articles_products", id: false, force: :cascade do |t|
