@@ -5,7 +5,7 @@ jQuery(function () {
 
     $.getJSON(requestUrl, {
       "translation_locale": translationLocale,
-    }, (data) => {
+    }, function (data) {
       $("#feature_title").val(data.title);
       $("#feature_description").val(data.description);
       $("#feature_youtube_video_id").val(data.youtube_video_id);

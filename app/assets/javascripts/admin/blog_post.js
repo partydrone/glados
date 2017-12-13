@@ -5,7 +5,7 @@ jQuery(function () {
 
     $.getJSON(requestUrl, {
       "translation_locale": translationLocale,
-    }, (data) => {
+    }, function (data) {
       $("#blog_post_title").val(data.title);
       $("#blog_post_subtitle").val(data.subtitle);
       CKEDITOR.instances.blog_post_body.setData(data.body, function () {

@@ -13,7 +13,7 @@ jQuery(function() {
 
     $.getJSON(requestUrl, {
       "translation_locale": translationLocale,
-    }, (data) => {
+    }, function (data) {
       $("#product_category_name").val(data.name);
       $("#product_category_description").val(data.description);
     });

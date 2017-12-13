@@ -1,6 +1,18 @@
 ---
 
-fr:
+en:
   about:
     index:
-      title: À propos de nous
+      browse_library: Parcourir la bibliothèque
+      careers:        Careers
+      downloads:      Téléchargements de médias
+      find_career:    Find Your Next Career
+      legal:          Legal
+      more_media:     Voir plus de médias
+      more_stories:   Lire plus d'histoires
+      news:           Nouvelles
+      regions:        Les régions
+      title:          À propos de nous
+      top_articles:   Articles populaires
+      topics:         Les sujets
+      view_legal:     View Legal Documents

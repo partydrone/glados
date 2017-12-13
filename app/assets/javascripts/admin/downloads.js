@@ -5,7 +5,7 @@ jQuery(function() {
 
     $.getJSON(requestUrl, {
       "translation_locale": translationLocale,
-    }, (data) => {
+    }, function (data) {
       $("#download_title").val(data.title);
       $("#download_current_file_link").attr("href", data.file);
       $("#download_current_file_link").html(data.file);

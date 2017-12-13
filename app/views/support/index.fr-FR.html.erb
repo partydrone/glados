@@ -1,0 +1,54 @@
+<%= content_for :title, t(".title") %>
+
+<div class="product-specific-navigation show-for-large" data-sticky-container>
+	<div class="sticky" data-sticky data-active-class>
+		<div class="row">
+			<div class="large-7 large-offset-5 columns text-right">
+				<nav data-magellan data-bar-offset="70">
+					<ul class="horizontal menu">
+						<li><a href="#product"><%= t(".product") %></a></li>
+						<li>
+							<%= link_to t(".contact_dealer"), contact_path, class: "button small" %>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="hide-for-large">
+	<div class="product-specific-top-nav">
+		<div class="row">
+			<div class="columns text-right">
+				<button class="button small" type="button" data-toggle="demo-dropdown-mobile">Contact Your Dealer</button>
+			</div>
+		</div>
+	</div>
+	<div class="product-specific-bottom-nav">
+		<nav data-magellan data-bar-offset="70">
+			<ul class="menu icon-top expanded">
+			  <li><a href="#product"><%= image_tag("icons/features.svg") %> <span><%= t(".product") %></span></a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+
+<div class="row columns">
+	<h1>
+		<%= yield :title %>
+	</h1>
+</div>
+
+<div class="row medium-up-3" id="product">
+	<%= render partial: 'product_type', collection: @product_types %>
+</div>
+
+<div class="support-contact-container" id="contact">
+	<div class="row">
+		<%= image_tag 'icons/person.svg', class: "large-icon" %>
+		<h1><%= t(".contact_us") %></h1>
+		<h4><%= t(".need_help") %></h4>
+		<%= link_to t(".contact_dealer"), contact_path, class: 'button rounded' %>
+	</div>
+</div>

@@ -5,7 +5,7 @@ jQuery(function () {
 
     $.getJSON(requestUrl, {
       "translation_locale": translationLocale,
-    }, (data) => {
+    }, function (data) {
       $("#product_summary").val(data.summary);
       CKEDITOR.instances.product_description.setData(data.description, function () {
         this.checkDirty();
