@@ -4,3 +4,12 @@ fr:
   products:
     index:
       title: Explorez solutions
+    show:
+      features:        Caractéristiques
+      support:         Support
+      request_demo:    Demandez une Démo
+      cancel:          Cancel
+      related_courses: Related Courses
+      view_more:       View More
+      perfer_contact:  Ou contactez notre Agence Locale
+      here:            ici
