@@ -320,11 +320,22 @@
 
     <article id="CostEffectiveLoops" class="slide-up-image show-for-large">
       <div class="large-6 columns" id="loops-anchor" data-something data-margin-top="5">
+        <style media="screen">
+          .one-sensor-image {
+            background-image: url('<%= image_path('home/One-Sensor-fr.jpg') %>');
+          }
+        </style>
+
         <div class="one-sensor-image">
         </div>
       </div>
 
       <aside class="large-6 columns loops-image-container similar-stories-side end sticky-container" data-sticky-container>
+        <style media="screen">
+          .loops-box {
+            background-image: url('<%= image_path('home/Loops-Addup-fr.jpg') %>');
+          }
+        </style>
         <div class="sticky loops-box" data-sticky data-anchor="loops-anchor" data-sticky-on="large">
           <div class="loops-image"></div>
         </div>
@@ -333,7 +344,42 @@
     </article>
 
     <div id="StaticCostLoops" class="static-cost-loops">
+      <style media="screen">
+        .static-loops-image {
+          background-image: url('<%= image_path('home/Loops-Addup-fr.jpg') %>');
+        }
+
+        @media screen and (max-width: 40em) {
+          .static-loops-image {
+            background-image: url('<%= image_path('home/Loops_640px-fr.jpg') %>');
+          }
+        }
+
+        @media screen and (min-width: 40.1em) and (max-width: 60em) {
+          .static-loops-image {
+            background-image: url('<%= image_path('home/Loopsaddup1024w-fr.jpg') %>');
+          }
+        }
+      </style>
       <div class="static-loops-image"></div>
+
+      <style media="screen">
+        .static-one-sensor-image {
+          background-image: url('<%= image_path('home/One-Sensor-fr.jpg') %>');
+        }
+
+        @media screen and (max-width: 40em) {
+          .static-one-sensor-image {
+            background-image: url('<%= image_path('home/LSS_Replace_640px-fr.jpg') %>');
+          }
+        }
+
+        @media screen and (min-width: 40.1em) and (max-width: 60em) {
+          .static-one-sensor-image {
+            background-image: url('<%= image_path('home/Onesmartsensor1024w-fr.jpg') %>');
+          }
+        }
+      </style>
       <div class="static-one-sensor-image"></div>
     </div>
   </section>
