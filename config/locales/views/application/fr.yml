@@ -3,11 +3,11 @@
 fr:
   application:
     site_header:
-      about:     À propos de nous
-      contact:   Contactez nous
+      about:     Qui sommes-nous ?
+      contact:   Contactez-nous
       home:      Wavetronix
-      solutions: Explorez solutions
-      support:   Obtenir support
+      solutions: Explorez nos solutions
+      support:   Obtenez de l'aide
       training:  Assister à la formation
     site_footer:
       jobs:    Carrières

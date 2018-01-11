@@ -3,13 +3,13 @@
 fr:
   support:
     index:
-      title: Obtenir support
+      title: Obtenez de l'aide
       select_product: Choisissez un produit…
 
       app:                    App
       app_support:            Visitez le support de l'application
-      contact_dealer:         Contactez nous
-      contact_us:             Contactez nous
+      contact_dealer:         Contactez-nous
+      contact_us:             Contactez-nous
       helpful:                Est-ce que cela a été utile?
       knowledge_base:         Base de connaissances
       mobile_app:             Vous recherchez notre application mobile?
