@@ -41,7 +41,7 @@
       <a class="off-canvas-title"><h3><%= t(".support") %></h3></a>
       <ul class="menu vertical nested">
         <li><%= link_to "Product Support", support_path %></li>
-        <li><%= link_to "Frequently Asked Questions", nil %></li>
+        <li><%= link_to "Knowledge Base", knowledge_base_articles_path %></li>
         <li><%= link_to "Mobile App", marketing_app_path %></li>
       </ul>
     </li>
@@ -62,7 +62,7 @@
       <a class="off-canvas-title"><h3><%= t(".about") %></h3></a>
       <ul class="menu vertical nested">
         <li><%= link_to "About Us", about_path %></li>
-        <li><%= link_to "Careers", nil %></li>
+        <li><%= link_to "Careers", jobs_path, target: '_blank' %></li>
         <li><%= link_to "News", news_path %></li>
         <li><%= link_to "Legal", legal_path %></li>
       </ul>
