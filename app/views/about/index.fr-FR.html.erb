@@ -35,7 +35,7 @@
         <li>
           <%= link_to '#downloads' do %>
             <%= image_tag "icons/cloud.svg", class: 'small-icon' %>
-            <span>Downloads</span>
+            <span><%= t('.downloads') %></span>
           <% end %>
         </li>
       </ul>
@@ -54,23 +54,28 @@
       <%= image_tag 'about/AboutUsFrance.jpg' %>
     </div>
     <div class="small-10 small-pull-1 small-push-1 large-push-0 large-pull-0 large-5 columns">
-      <p>Wavetronix creates innovative tools that make the world’s roads safer and
-        more efficient. Our advanced radar offers unmatched performance and is
-        changing the ITS industry by raising the standard for excellence in vehicle
-        detection at intersections and roadways around the globe.</p>
+      <p>Wavetronix offre des solutions innovantes pour rendre les routes plus
+        sures et le trafic plus fluide.  Nos radars de haute technologie
+        bénéficient de performances uniques et s’installent hors-chaussée
+        révolutionnant ainsi la manière de détecter les véhicules sur les grands
+        axes routiers à multivoies ou au niveau des intersections.</p>
 
-      <p>Our core purpose is to enable rewarding careers and foster personal
-        development while engineering the best traffic detection technologies possible.
-        Since 2000, and continuing today, we fulfil our purpose by putting people
-        first and focusing on personal growth. We lead with insight and innovation;
-        seek out, embrace and solve difficult challenges; and strive to change the way
-        our customers approach their problems. Because of this, we continue to enjoy
-        strong growth, investing in long-term ideas to create even more opportunities.</p>
+      <p>L’un de nos principaux objectifs est d’assurer des carrières
+        gratifiantes à nos collaborateurs ainsi que leur bien-être tout en
+        concevant les meilleurs systèmes de détection de trafic possibles.</p>
 
-      <p><%= link_to 'Contact us', contact_path %> for more information about our
-        products or to schedule a free demonstration. If you share our values and are
-        interested in pursuing a career at Wavetronix, learn more about opportunities
-        <%= link_to 'here', jobs_path %>.</p>
+      <p>Depuis notre date de création en 2000 et jusqu’à ce jour, nous
+        accomplissons cet objectif de donner la priorité à nos collaborateurs et
+        nous concentrer sur leur croissance personnelle et professionnelle.
+        Par l’innovation, nous répondons à certaines des difficultés rencontrées
+        sur le marché des STI et nous luttons pour modifier l’approche de nos
+        clients sur le thème de la détection des véhicules. Depuis sa création,
+        notre société bénéficie d’une forte croissance permettant sans cesse de
+        se réinventer et d’investir dans de nouvelles solutions pour l’avenir.</p>
+
+      <p><%= link_to 'Contactez-nous', contact_path %> pour obtenir de plus amples
+        informations sur nos solutions ou pour programmer une démonstration de
+        nos produits.</p>
     </div>
   </section>
 
