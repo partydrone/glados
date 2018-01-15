@@ -4,3 +4,6 @@ fr:
   about:
     index:
       title: À propos de nous
+    jobs:
+      title: Careers
+      openings: Current Job Openings
