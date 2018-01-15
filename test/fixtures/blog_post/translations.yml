@@ -1,0 +1,6 @@
+new_blog_post_translation:
+  globalized_model: new_blog_post
+  locale: en
+  title: My Blog Post Fixture
+  subtitle: Temporary subtitle
+  body: This is the temporary blog post content.

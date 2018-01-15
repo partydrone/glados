@@ -14,7 +14,7 @@ describe Admin::FeaturesController, :locale do
       before do
         user.add_role :feature_manager
       end
-      
+
       it "gets index" do
         get admin_features_path
         must_respond_with :success
@@ -34,10 +34,10 @@ describe Admin::FeaturesController, :locale do
               description: 'Meet the new memeber of the Wavetronix family.',
               body:        'System one has been five years in the making, and it is totally worth the wait!',
               hero_image: {
-                id: hero_image.id,
-                filename: 'shark.jpg',
+                id:           hero_image.id,
+                filename:     'shark.jpg',
                 content_type: 'image/jpeg',
-                size: hero_image.size
+                size:         hero_image.size
               }.to_json
             }
           }
@@ -93,10 +93,10 @@ describe Admin::FeaturesController, :locale do
               description: 'Meet the new memeber of the Wavetronix family.',
               body:        'System one has been five years in the making, and it is totally worth the wait!',
               hero_image: {
-                id: hero_image.id,
-                filename: 'shark.jpg',
+                id:           hero_image.id,
+                filename:     'shark.jpg',
                 content_type: 'image/jpeg',
-                size: hero_image.size
+                size:         hero_image.size
               }.to_json
             }
           }
@@ -152,10 +152,10 @@ describe Admin::FeaturesController, :locale do
             description: 'Meet the new memeber of the Wavetronix family.',
             body:        'System one has been five years in the making, and it is totally worth the wait!',
             hero_image: {
-              id: hero_image.id,
-              filename: 'shark.jpg',
+              id:           hero_image.id,
+              filename:     'shark.jpg',
               content_type: 'image/jpeg',
-              size: hero_image.size
+              size:         hero_image.size
             }.to_json
           }
         }
