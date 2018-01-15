@@ -65,6 +65,19 @@
 // Careers
 /////////////
 
+.bzCategory {
+    padding-left: 10px;
+    font-size: 1.9rem;
+    margin-bottom: 0;
+    &:before{
+        content: url(image_path('icons/map_location.svg'));
+        height: 22px;
+        width: 22px;
+        margin-right: 5px;
+        display: inline-block;
+    }
+}
+
 .bzOpeningsList {
     .bzOpening {
         margin: 10px auto;
@@ -98,7 +111,7 @@
         color: #fff;
         background: #888;
     }
-    .bzLocation, .bzType, .bzDepartment {
+    .bzLocation, .bzType, .bzDepartment, .bzRemote {
         display: inline;
         margin-right: 15px;
         color: #888;
@@ -119,6 +132,13 @@
     }
     .bzDepartment:before {
         content: url(image_path('icons/document.svg'));
+        height: 13px;
+        width: 13px;
+        margin-right: 5px;
+        display: inline-block;
+    }
+    .bzRemote:before {
+        content: url(image_path('icons/wave_up.svg'));
         height: 13px;
         width: 13px;
         margin-right: 5px;
