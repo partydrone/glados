@@ -67,8 +67,15 @@
 
 .bzCategory {
     padding-left: 10px;
-    font-size: 2.25rem;
+    font-size: 1.9rem;
     margin-bottom: 0;
+    &:before{
+        content: url(image_path('icons/map_location.svg'));
+        height: 22px;
+        width: 22px;
+        margin-right: 5px;
+        display: inline-block;
+    }
 }
 
 .bzOpeningsList {
