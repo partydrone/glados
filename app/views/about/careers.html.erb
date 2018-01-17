@@ -1,0 +1,44 @@
+<%= content_for :title, t('.title') %>
+
+<div class="row">
+  <div class="medium-10 medium-centered large-12 columns">
+
+    <section class="row">
+      <div class="small-12 columns">
+        <h1><%= yield :title %></h1>
+      </div>
+
+      <div class="large-7 columns">
+        <%= image_tag 'about/careers.jpg' %>
+      </div>
+
+      <div class="small-10 small-pull-1 small-push-1 large-push-0 large-pull-0 large-5 columns">
+        <p>Wavetronix creates tools for intelligent transportation systems (ITS),
+          including advanced radar sensors, power and communication solutions and
+          data management appliances. Our innovative products and unmatched
+          performance are changing the ITS industry and raising expectations for
+          data detection, collection and management.</p>
+
+        <p>With a solid foundation in research and technology, Wavetronix is
+          dedicated to increasing roadway efficiency and safety by providing traffic
+          managers and engineers with solutions for enhanced data collection and
+          analysis. Since its inception in 2000, Wavetronix has proven its
+          leadership in the world ITS market by developing the most advanced
+          technologies and then standing behind the quality of each product.</p>
+
+        <p>At Wavetronix, innovation is driven by talented engineering teams with
+          experience in Radio Frequency (RF), microwave, electrical engineering,
+          computer science and Internet technology. These teams are supported by
+          sales, marketing and technical services departments dedicated to the
+          success of each product.</p>
+      </div>
+    </section>
+
+    <section class="row columns">
+      <h1><%= t '.openings' %></h1>
+
+      <div id="bzOpeningsContainer"></div>
+      <script src="https://wavetronix.breezy.hr/embed/js?inline=true&group_by=loc"></script>
+    </section>
+  </div>
+</div>

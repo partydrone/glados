@@ -1,10 +1,10 @@
 <footer class="show-for-large">
 	<div class="row">
 	  <small>
-			&copy; <%= Date.today.year %> Wavetronix LLC
-			<%= link_to t(".jobs"), jobs_path, target: '_blank' %>
-			<%= link_to t(".legal"), legal_path %>
-			<%= link_to t(".manage"), admin_root_path %>
+			&copy; 2016&ndash;<%= Date.today.year %> Wavetronix LLC
+			<%= link_to t('.jobs'), careers_path %>
+			<%= link_to t('.legal'), legal_path %>
+			<%= link_to t('.manage'), admin_root_path %>
 		</small>
 
 		<%= form_tag locales_path, class: 'site-language-selection' do %>
