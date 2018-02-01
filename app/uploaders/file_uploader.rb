@@ -3,15 +3,18 @@ class FileUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
+  # include CarrierWaveDirect::Uploader
 
   # Choose what kind of storage to use for this uploader:
   # storage :file
   # storage :fog
   if Rails.env.production?
+    # storage :fog
     storage :aws
     aws_bucket 'com-wavetronix-www-uploads'
     aws_acl :public_read
   elsif Rails.env.staging?
+    # storage :fog
     storage :aws
     aws_bucket 'com-wavetronix-staging-glados-uploads'
     aws_acl :public_read

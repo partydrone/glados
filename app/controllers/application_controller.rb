@@ -33,6 +33,14 @@ class ApplicationController < ActionController::Base
   end
   helper_method :authenticate!
 
+  def current_locale_with_fallback
+    I18n.locale =~ /^(([a-z]{2,2})(?:[-|_]([A-Z]{2,2}))?)$/i
+    locales = []
+    locales << $2
+    locales << $1 unless $1 == $2
+    return locales
+  end
+  
   def current_user
     @current_user ||= User.find_by(auth_token: cookies[:auth_token]) if cookies[:auth_token]
   end

@@ -49,6 +49,7 @@ Rails.application.routes.draw do
                 :request_environment_rules,
                 :roles,
                 :sales_territories,
+                :software_downloads,
                 :training_course_types,
                 :training_courses,
                 except: [:show]

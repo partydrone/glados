@@ -1,0 +1,24 @@
+<% content_for :title, "Software Downloads" %>
+<div class="row columns admin-table">
+  <h1>
+    <%= yield :title %>
+    <small>
+      <%= link_to new_admin_software_download_path, title: "Create a new software download" do %>
+        <%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
+      <% end %>
+    </small>
+  </h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th width="30"></th>
+        <th>Title</th>
+        <th width="30"></th>
+      </tr>
+    </thead>
+    <tbody id="software_download_types">
+      <%= render @software_downloads %>
+    </tbody>
+  </table>
+</div>

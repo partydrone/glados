@@ -1,5 +1,0 @@
-new_case_study:
-  type: CaseStudy
-  location: New York
-  flag: US
-  hero_image_id: 1

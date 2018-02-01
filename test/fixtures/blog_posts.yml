@@ -1,5 +1,0 @@
-new_blog_post:
-  type: BlogPost
-  author: Barney Rubble
-  posted_on: <%= 12.months.ago.to_s(:db) %>
-  hero_image_id: 1

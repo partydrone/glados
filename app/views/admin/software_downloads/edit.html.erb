@@ -1,0 +1,6 @@
+<% content_for :title, %(Edit "#{@software_download.title}") %>
+<div class="row columns">
+  <h1><%= yield :title %></h1>
+
+  <%= render "form" %>
+</div>

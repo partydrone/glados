@@ -23,10 +23,6 @@
 						<% end if @product.features.present? %>
 
 						<%= content_tag :li do %>
-							<%= link_to t('.courses'), '#training' %>
-						<% end if @product.training_courses.present? %>
-
-						<%= content_tag :li do %>
 							<%= link_to t('.support'), '#support' %>
 						<% end if @product.downloads.present? %>
 
@@ -107,11 +103,6 @@
 			</div>
 		</section>
 	<% end %>
-
-	<%= content_tag :section, id: 'training', class: 'product-specific-training row', data: {'magellan-target' => 'training'} do %>
-		<h1><%= t(".related_courses") %></h1>
-		<%= render partial: 'related_course', collection:@product.training_courses %>
-	<% end if @product.training_courses.present? %>
 
 	<%= content_tag :section, id: 'support', class: 'product-specific-support', data: {'magellan-target' => 'support'} do %>
 		<div class="row">

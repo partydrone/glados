@@ -5,6 +5,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.includes({downloads: [:download_type]}, :training_courses, :features, :product_category).find(params[:id])
+    @product = Product.includes({downloads: [:download_type]}, :software_downloads, :training_courses, :features, :product_category).find(params[:id])
   end
 end

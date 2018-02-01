@@ -49,7 +49,7 @@
       </div>
     </div>
 
-    <%= render 'homestory', stories: @safe_articles, article_type: "safety" %>
+    <%# render 'homestory', stories: @safe_articles, article_type: "safety" %>
 
     <div class="home-safe-right-img">
     </div>
@@ -83,7 +83,7 @@
       </div>
     </div>
 
-    <%= render 'homestory', stories: @efficient_articles, article_type: "efficiency" %>
+    <%# render 'homestory', stories: @efficient_articles, article_type: "efficiency" %>
 
   </section>
 
@@ -113,7 +113,7 @@
         </div>
       </div>
 
-      <%= render 'homestory', stories: @reliable_articles, article_type: "reliable" %>
+      <%# render 'homestory', stories: @reliable_articles, article_type: "reliable" %>
 
     </div>
   </section>
@@ -316,7 +316,7 @@
       </div>
     </div>
 
-    <%= render 'homestory', stories: @cost_effective_articles, article_type: "cost" %>
+    <%# render 'homestory', stories: @cost_effective_articles, article_type: "cost" %>
 
     <article id="CostEffectiveLoops" class="slide-up-image show-for-large">
       <div class="large-6 columns" id="loops-anchor" data-something data-margin-top="5">
@@ -415,7 +415,7 @@
           <p class="show-for-small-only">Le plus simple système de détection du trafic.</p>
         </div>
 
-        <div class="row">
+        <!-- <div class="row">
           <div class="two-home-stories-container">
 
             <% if @simple_articles.count > 2 %>
@@ -430,9 +430,9 @@
 
             <div class="home-story-center">
               <div id="simple-carousel" class="owl-carousel simple-carousel">
-                <% @simple_articles.each do |object| %>
-                  <%= render partial: object.class.to_s.underscore, object: object %>
-                <% end %>
+                <%# @simple_articles.each do |object| %>
+                  <%# render partial: object.class.to_s.underscore, object: object %>
+                <%# end %>
               </div>
             </div>
 
@@ -446,7 +446,7 @@
               </div>
             <% end %>
           </div>
-        </div>
+        </div> -->
 
       </div>
       </div>
@@ -485,7 +485,7 @@
         <p class="show-for-small-only">Avec vous, à chaque étape de votre projet.</p>
         </div>
 
-        <%= render 'homestory', stories: @support_articles, article_type: "support" %>
+        <%# render 'homestory', stories: @support_articles, article_type: "support" %>
 
       </div>
 

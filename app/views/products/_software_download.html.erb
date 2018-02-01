@@ -1,0 +1,8 @@
+<%= link_to attachment_url(software_download, :file, filename: "#{software_download.title.parameterize}"), class: "support-download-item row #{set_class_for_content_type(software_download.file_content_type)}", download: attachment_url(software_download, :file, filename: "#{software_download.title.parameterize}"), target: '_blank' do %>
+  <div class="small-1 column">
+    <%= image_tag 'icons/document.svg' %>
+  </div>
+  <div class="small-11 columns">
+    <%= software_download.title %>
+  </div>
+<% end if software_download.file && software_download.file.exists? %>
