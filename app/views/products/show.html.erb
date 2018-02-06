@@ -90,7 +90,7 @@
 </div>
 
 <div class="product-specific-sections">
-	<% if @product.features.with_translations(current_locale_with_fallback).size < 0 %>
+	<% if @product.features.with_translations(current_locale_with_fallback).size > 0 %>
 		<section class="product-specific-features" id="features" data-magellan-target="features">
 			<%= render @product.features.with_translations(current_locale_with_fallback) %>
 		</section>
@@ -148,5 +148,5 @@
 			</div>
 			<% end %>
 		</div>
-	<% end if @product.downloads.with_translations(current_locale_with_fallback).size < 0 %>
+	<% end if @product.downloads.with_translations(current_locale_with_fallback).size > 0 %>
 </div>
