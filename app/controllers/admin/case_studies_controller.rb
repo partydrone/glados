@@ -66,7 +66,7 @@ module Admin
         message = %(Deleted "#{@case_study.title}" successfully.)
       end
 
-      redirect_to admin_case_studys_path, notice: message
+      redirect_to admin_case_studies_path, notice: message
     end
 
     private
