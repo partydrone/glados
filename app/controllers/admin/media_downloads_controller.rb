@@ -47,7 +47,7 @@ module Admin
     end
 
     def media_download_params
-      params.require(:media_download).permit(:description, :file)
+      params.require(:media_download).permit(:description, :file, country_ids: [])
     end
   end
 end

@@ -1,15 +1,30 @@
-<%= form_for [:admin, @media_download], validate: true do |f| %>
+<%= form_for [:admin, @media_download], validate: true do |form| %>
   <div class="row">
     <%= content_tag :div, class: 'medium-8 columns' do %>
-      <%= f.label :current_image %>
+      <%= form.label :current_image %>
       <%= attachment_image_tag @media_download, :file %>
     <% end if @media_download.file && @media_download.file.exists? %>
     <div class="medium-4 columns">
-      <%= f.label :file %>
-      <%= f.attachment_field :file, direct: true, presigned: true %>
+      <%= form.label :file %>
+      <%= form.attachment_field :file, direct: true, presigned: true %>
     </div>
   </div>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.button nil, class: 'button radius' %>
+  <%= form.label :description %>
+  <%= form.text_field :description %>
+
+  <%= form.label 'Available in' %>
+  <%= hidden_field_tag 'media_download[country_ids][]' %>
+  <div class="row small-up-2 medium-up-3">
+    <% COUNTRIES.each do |key, value| %>
+    <div class="column column-block">
+      <%= check_box_tag 'media_download[country_ids][]', key, @media_download.country_ids.include?(key.to_s), id: "media_download_country_ids_#{key.downcase}" %>
+      <%= label_tag "media_download_country_ids_#{key.downcase}" do %>
+        <%= image_tag "flags/4x3/#{key.downcase}.svg", style: 'height: 1em;' %>
+        <%= value %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+  <%= form.button nil, class: 'button radius' %>
 <% end %>
