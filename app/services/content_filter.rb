@@ -9,7 +9,7 @@ class ContentFilter
       eval FILTERS[filter_name]
     end
   end
-  
+
   FILTERS = {
     marketing_content: %(
       ( object.class != BlogPost &&  object.class != CaseStudy && object.class != Feature ) ||
@@ -17,6 +17,6 @@ class ContentFilter
       ( object.class == CaseStudy && !object.published? ) ||
       ( object.class == Feature && object.body.blank? )
     ),
-    support_content: %(object.class != KnowledgeBaseArticle)    
+    support_content: %(object.class != KnowledgeBaseArticle)
   }
 end

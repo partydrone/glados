@@ -1,11 +1,11 @@
 class HomeController < ApplicationController
   def index
-    @safe_articles           = ContentFilter.new(Tagging.joins(:tag).where(tags: {name: ['safe', 'safety']}).includes(:taggable).map(&:taggable).uniq).filter(:marketing_content).sort_by{ |obj| obj.created_at }.reverse
-    @efficient_articles      = ContentFilter.new(Tagging.joins(:tag).where(tags: {name: ['efficient', 'efficiency']}).includes(:taggable).map(&:taggable).uniq).filter(:marketing_content).sort_by{ |obj| obj.created_at }.reverse
-    @reliable_articles       = ContentFilter.new(Tagging.joins(:tag).where(tags: {name: ['reliable', 'reliability']}).includes(:taggable).map(&:taggable).uniq).filter(:marketing_content).sort_by{ |obj| obj.created_at }.reverse
-    @cost_effective_articles = ContentFilter.new(Tagging.joins(:tag).where(tags: {name: ['cost effective']}).includes(:taggable).map(&:taggable).uniq).filter(:marketing_content).sort_by{ |obj| obj.created_at }.reverse
-    @simple_articles         = ContentFilter.new(Tagging.joins(:tag).where(tags: {name: ['simple']}).includes(:taggable).map(&:taggable).uniq).filter(:marketing_content).sort_by{ |obj| obj.created_at }.reverse
-    @support_articles        = ContentFilter.new(Tagging.joins(:tag).where(tags: {name: ['support']}).includes(:taggable).map(&:taggable).uniq).filter(:marketing_content).sort_by{ |obj| obj.created_at }.reverse
+    @safe_articles           = Article.current.news_articles.with_translations(current_locale_with_fallback).joins(:tags).where(tags: { name: ['safe', 'safety'] }).order(posted_on: :desc).uniq
+    @efficient_articles      = Article.current.news_articles.with_translations(current_locale_with_fallback).joins(:tags).where(tags: { name: ['efficient', 'efficiency'] }).order(posted_on: :desc).uniq
+    @reliable_articles       = Article.current.news_articles.with_translations(current_locale_with_fallback).joins(:tags).where(tags: { name: ['reliable', 'reliability'] }).order(posted_on: :desc).uniq
+    @cost_effective_articles = Article.current.news_articles.with_translations(current_locale_with_fallback).joins(:tags).where(tags: { name: ['cost effective'] }).order(posted_on: :desc).uniq
+    @simple_articles         = Article.current.news_articles.with_translations(current_locale_with_fallback).joins(:tags).where(tags: { name: ['simple'] }).order(posted_on: :desc).uniq
+    @support_articles        = Article.current.news_articles.with_translations(current_locale_with_fallback).joins(:tags).where(tags: { name: ['support'] }).order(posted_on: :desc).uniq
   end
 
 end

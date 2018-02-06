@@ -40,6 +40,7 @@ class ApplicationController < ActionController::Base
     locales << $1 unless $1 == $2
     return locales
   end
+  helper_method :current_locale_with_fallback
   
   def current_user
     @current_user ||= User.find_by(auth_token: cookies[:auth_token]) if cookies[:auth_token]

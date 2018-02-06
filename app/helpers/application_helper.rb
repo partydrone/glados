@@ -4,14 +4,6 @@ module ApplicationHelper
     return $2.try(:upcase)
   end
 
-  def current_locale_with_fallback
-    I18n.locale =~ /^(([a-z]{2,2})(?:[-|_]([A-Z]{2,2}))?)$/i
-    locales = []
-    locales << $2
-    locales << $1 unless $1 == $2
-    return locales
-  end
-
   def full_title(page_title = nil)
     title = %w[Wavetronix]
     title << page_title if page_title.present?
