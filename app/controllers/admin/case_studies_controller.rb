@@ -27,7 +27,7 @@ module Admin
     end
 
     def create
-      Globalize.with_locale(params[:translation_locale]) do
+      Mobility.with_locale(params[:translation_locale]) do
         @case_study = CaseStudy.new(case_study_params)
         authorize @case_study
 
@@ -40,7 +40,7 @@ module Admin
     end
 
     def update
-      Globalize.with_locale(params[:translation_locale]) do
+      Mobility.with_locale(params[:translation_locale]) do
         if @case_study.update(case_study_params)
           redirect_to [:admin,@case_study], notice: %(Updated "#{@case_study.title}" successfully.)
         else
@@ -54,7 +54,7 @@ module Admin
 
       if translation_locale
         if @case_study.translations.count > 1
-          Globalize.with_locale(translation_locale) do
+          Mobility.with_locale(translation_locale) do
             @case_study.translation.destroy
             message = %(Deleted #{helpers.humanize_locale translation_locale} translation successfully.)
           end

@@ -1,4 +1,6 @@
 class ApplicationRecord < ActiveRecord::Base
+  extend Mobility
+
   self.abstract_class = true
 
   def cache_key(*timestamp_names)

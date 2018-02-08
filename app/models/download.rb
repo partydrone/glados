@@ -1,14 +1,13 @@
 class Download < ApplicationRecord
-  extend CarrierwaveGlobalize
   include PgSearch
   multisearchable :against => [:title]
 
   belongs_to :download_type
   has_and_belongs_to_many :products
 
-  translates :title, :file
+  translates :title, :file_id, :file_filename, :file_size, :file_content_type
 
-  mount_translated_uploader :file, FileUploader
+  attachment :file
 
   def to_param
     "#{id} #{title}".parameterize

@@ -1,6 +1,6 @@
 <%= form_for [:admin,@product_type] do |f| %>
   <%= label_tag :translation_locale %>
-  <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @product_type.available_locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
+  <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @product_type.name_backend.locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
 
   <%= f.label :name %>
   <%= f.text_field :name %>

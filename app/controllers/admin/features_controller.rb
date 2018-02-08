@@ -21,7 +21,7 @@ module Admin
     end
 
     def create
-      Globalize.with_locale(params[:translation_locale]) do
+      Mobility.with_locale(params[:translation_locale]) do
         @feature = Feature.new(feature_params)
         authorize @feature
 
@@ -35,7 +35,7 @@ module Admin
     end
 
     def update
-      Globalize.with_locale(params[:translation_locale]) do
+      Mobility.with_locale(params[:translation_locale]) do
         if @feature.update(feature_params)
           redirect_to [:admin, @feature], notice: %(Updated "#{@feature.title}" successfully.)
         else
@@ -50,7 +50,7 @@ module Admin
 
       if translation_locale
         if @feature.translations.count > 1
-          Globalize.with_locale(translation_locale) do
+          Mobility.with_locale(translation_locale) do
             @feature.translation.destroy
             message = %(Deleted #{helpers.humanize_locale translation_locale} translation successfully.)
           end

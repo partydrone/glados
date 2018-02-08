@@ -20,7 +20,7 @@ module Admin
     end
 
     def create
-      Globalize.with_locale(params[:translation_locale]) do
+      Mobility.with_locale(params[:translation_locale]) do
         @download_type = DownloadType.new(download_type_params)
         authorize @download_type
 
@@ -33,7 +33,7 @@ module Admin
     end
 
     def update
-      Globalize.with_locale(params[:translation_locale]) do
+      Mobility.with_locale(params[:translation_locale]) do
         if @download_type.update(download_type_params)
           redirect_to admin_download_types_path, notice: %(Updated "#{@download_type.name} successfully.")
         else
@@ -47,7 +47,7 @@ module Admin
 
       if translation_locale
         if @download_type.translations.count > 1
-          Globalize.with_locale(translation_locale) do
+          Mobility.with_locale(translation_locale) do
             @download_type.translation.destroy
             message = %(Deleted #{helpers.humanize_locale translation_locale} translation successfully.)
           end

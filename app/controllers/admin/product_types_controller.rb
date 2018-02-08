@@ -20,7 +20,7 @@ module Admin
     end
 
     def create
-      Globalize.with_locale(params[:translation_locale]) do
+      Mobility.with_locale(params[:translation_locale]) do
         @product_type = ProductType.new(product_type_params)
         authorize @product_type
 
@@ -33,7 +33,7 @@ module Admin
     end
 
     def update
-      Globalize.with_locale(params[:translation_locale]) do
+      Mobility.with_locale(params[:translation_locale]) do
         if @product_type.update(product_type_params)
           redirect_to admin_product_types_path, notice: %(Updated "#{@product_type.name} successfully.")
         else
@@ -47,7 +47,7 @@ module Admin
 
       if translation_locale
         if @product_type.translations.count > 1
-          Globalize.with_locale(translation_locale) do
+          Mobility.with_locale(translation_locale) do
             @product_type.translation.destroy
             message = %(Deleted #{helpers.humanize_locale translation_locale} translation successfully.)
           end

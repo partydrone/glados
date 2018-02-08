@@ -1,4 +1,4 @@
-<%= link_to download.file.url, class: "support-download-item row", download: download.file.url, target: '_blank' do %>
+<%= link_to attachment_url(download, :file, filename: "#{download.title.parameterize(separator: '_')}"), class: "support-download-item row", download: attachment_url(download, :file, filename: "#{download.title.parameterize(separator: '_')}"), target: '_blank' do %>
   <div class="small-1 column">
     <%= image_tag('icons/document.svg') %>
   </div>

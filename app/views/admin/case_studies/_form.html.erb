@@ -1,6 +1,6 @@
 <%= form_for [:admin,@case_study], validate: true do |f| %>
   <%= label_tag :translation_locale %>
-  <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @case_study.available_locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
+  <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @case_study.title_backend.locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
 
   <div class="row">
     <div class="medium-9 columns">

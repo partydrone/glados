@@ -16,14 +16,15 @@ ActiveRecord::Schema.define(version: 20180206185936) do
   enable_extension "plpgsql"
 
   create_table "article_translations", force: :cascade do |t|
-    t.integer  "article_id",               null: false
-    t.string   "locale",                   null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer  "article_id", null: false
+    t.string   "locale",     null: false
     t.string   "title"
     t.string   "subtitle"
     t.text     "body"
     t.integer  "views"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id", "locale"], name: "index_article_translations_on_article_id_and_locale", unique: true, using: :btree
     t.index ["article_id"], name: "index_article_translations_on_article_id", using: :btree
     t.index ["locale"], name: "index_article_translations_on_locale", using: :btree
   end
@@ -47,6 +48,59 @@ ActiveRecord::Schema.define(version: 20180206185936) do
     t.integer "product_id", null: false
   end
 
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_id",                                    null: false
+    t.string   "data_filename",                              null: false
+    t.integer  "data_size"
+    t.string   "data_content_type"
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   precision: 6, null: false
+    t.datetime "updated_at",                   precision: 6, null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type", using: :btree
+  end
+
+  create_table "dealers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "locality"
+    t.string   "region"
+    t.string   "postal_code"
+    t.string   "country_id",  limit: 2
+    t.string   "phone"
+    t.string   "email"
+    t.string   "website"
+    t.datetime "created_at",            precision: 6, null: false
+    t.datetime "updated_at",            precision: 6, null: false
+  end
+
+  create_table "download_translations", force: :cascade do |t|
+    t.integer  "download_id",       null: false
+    t.string   "locale",            null: false
+    t.string   "title"
+    t.string   "file_id"
+    t.string   "file_filename"
+    t.integer  "file_size"
+    t.string   "file_content_type"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["download_id", "locale"], name: "index_download_translations_on_download_id_and_locale", unique: true, using: :btree
+    t.index ["download_id"], name: "index_download_translations_on_download_id", using: :btree
+    t.index ["locale"], name: "index_download_translations_on_locale", using: :btree
+  end
+
+  create_table "download_type_translations", force: :cascade do |t|
+    t.integer  "download_type_id", null: false
+    t.string   "locale",           null: false
+    t.string   "name"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["download_type_id", "locale"], name: "index_download_type_translations_on_download_type_id_and_locale", unique: true, using: :btree
+    t.index ["download_type_id"], name: "index_download_type_translations_on_download_type_id", using: :btree
+    t.index ["locale"], name: "index_download_type_translations_on_locale", using: :btree
+  end
+
   create_table "download_types", force: :cascade do |t|
     t.integer  "position"
     t.datetime "created_at", precision: 6, null: false
@@ -66,6 +120,14 @@ ActiveRecord::Schema.define(version: 20180206185936) do
     t.integer "product_id",  null: false
   end
 
+  create_table "enrollments", force: :cascade do |t|
+    t.integer "training_event_course_id"
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "email"
+    t.index ["training_event_course_id"], name: "index_enrollments_on_training_event_course_id", using: :btree
+  end
+
   create_table "feature_associations", force: :cascade do |t|
     t.integer  "feature_id"
     t.integer  "product_id"
@@ -74,6 +136,20 @@ ActiveRecord::Schema.define(version: 20180206185936) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["feature_id"], name: "index_feature_associations_on_feature_id", using: :btree
     t.index ["product_id"], name: "index_feature_associations_on_product_id", using: :btree
+  end
+
+  create_table "feature_translations", force: :cascade do |t|
+    t.integer  "feature_id",       null: false
+    t.string   "locale",           null: false
+    t.string   "title"
+    t.string   "youtube_video_id"
+    t.text     "description"
+    t.text     "body"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["feature_id", "locale"], name: "index_feature_translations_on_feature_id_and_locale", unique: true, using: :btree
+    t.index ["feature_id"], name: "index_feature_translations_on_feature_id", using: :btree
+    t.index ["locale"], name: "index_feature_translations_on_locale", using: :btree
   end
 
   create_table "features", force: :cascade do |t|
@@ -107,6 +183,17 @@ ActiveRecord::Schema.define(version: 20180206185936) do
     t.string   "file_content_type"
   end
 
+  create_table "media_downloads", force: :cascade do |t|
+    t.string   "description"
+    t.string   "file_id"
+    t.string   "file_filename"
+    t.string   "file_size"
+    t.string   "file_content_type"
+    t.datetime "created_at",        precision: 6,              null: false
+    t.datetime "updated_at",        precision: 6,              null: false
+    t.text     "country_ids",                     default: [],              array: true
+  end
+
   create_table "patents", force: :cascade do |t|
     t.integer "number"
     t.string  "title"
@@ -116,6 +203,20 @@ ActiveRecord::Schema.define(version: 20180206185936) do
   create_table "patents_products", id: false, force: :cascade do |t|
     t.integer "patent_id",  null: false
     t.integer "product_id", null: false
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text     "content"
+    t.string   "searchable_type"
+    t.integer  "searchable_id"
+    t.datetime "created_at",      precision: 6, null: false
+    t.datetime "updated_at",      precision: 6, null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
+  end
+
+  create_table "prerequisites_training_courses", force: :cascade do |t|
+    t.integer "prerequisite_id"
+    t.integer "training_course_id"
   end
 
   create_table "product_categories", force: :cascade do |t|
@@ -132,6 +233,42 @@ ActiveRecord::Schema.define(version: 20180206185936) do
     t.integer  "icon_image_size"
     t.string   "icon_image_content_type"
     t.index ["product_type_id"], name: "index_product_categories_on_product_type_id", using: :btree
+  end
+
+  create_table "product_category_translations", force: :cascade do |t|
+    t.integer  "product_category_id", null: false
+    t.string   "locale",              null: false
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["locale"], name: "index_product_category_translations_on_locale", using: :btree
+    t.index ["product_category_id", "locale"], name: "index_product_category_translations_on_prod_cat_id_and_locale", unique: true, using: :btree
+    t.index ["product_category_id"], name: "index_product_category_translations_on_product_category_id", using: :btree
+  end
+
+  create_table "product_translations", force: :cascade do |t|
+    t.integer  "product_id",       null: false
+    t.string   "locale",           null: false
+    t.string   "summary"
+    t.text     "description"
+    t.string   "youtube_video_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["locale"], name: "index_product_translations_on_locale", using: :btree
+    t.index ["product_id", "locale"], name: "index_product_translations_on_product_id_and_locale", unique: true, using: :btree
+    t.index ["product_id"], name: "index_product_translations_on_product_id", using: :btree
+  end
+
+  create_table "product_type_translations", force: :cascade do |t|
+    t.integer  "product_type_id", null: false
+    t.string   "locale",          null: false
+    t.string   "name"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["locale"], name: "index_product_type_translations_on_locale", using: :btree
+    t.index ["product_type_id", "locale"], name: "index_product_type_translations_on_product_type_id_and_locale", unique: true, using: :btree
+    t.index ["product_type_id"], name: "index_product_type_translations_on_product_type_id", using: :btree
   end
 
   create_table "product_types", force: :cascade do |t|
@@ -221,12 +358,47 @@ ActiveRecord::Schema.define(version: 20180206185936) do
     t.datetime "updated_at",            precision: 6, null: false
   end
 
+  create_table "sales_regions", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sales_territories", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "sales_office_id"
+    t.integer  "dealer_id"
+    t.datetime "created_at",      precision: 6, null: false
+    t.datetime "updated_at",      precision: 6, null: false
+    t.integer  "sales_region_id"
+    t.index ["sales_region_id"], name: "index_sales_territories_on_sales_region_id", using: :btree
+  end
+
   create_table "software_downloads", force: :cascade do |t|
     t.string "title"
     t.string "file_id"
     t.string "file_filename"
     t.string "file_size"
     t.string "file_content_type"
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.string   "taggable_type"
+    t.integer  "taggable_id"
+    t.datetime "created_at",    precision: 6, null: false
+    t.datetime "updated_at",    precision: 6, null: false
+    t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+    t.index ["taggable_type", "taggable_id"], name: "index_taggings_on_taggable_type_and_taggable_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",     precision: 6, null: false
+    t.datetime "updated_at",     precision: 6, null: false
+    t.integer  "taggings_count"
+    t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
   end
 
   create_table "training_course_products", force: :cascade do |t|
@@ -301,6 +473,7 @@ ActiveRecord::Schema.define(version: 20180206185936) do
   add_foreign_key "downloads", "download_types"
   add_foreign_key "feature_associations", "features"
   add_foreign_key "feature_associations", "products"
+  add_foreign_key "taggings", "tags"
   add_foreign_key "training_course_products", "products"
   add_foreign_key "training_course_products", "training_courses"
 end

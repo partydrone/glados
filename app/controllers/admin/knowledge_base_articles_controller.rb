@@ -28,7 +28,7 @@ module Admin
     end
 
     def create
-      Globalize.with_locale(params[:translation_locale]) do
+      Mobility.with_locale(params[:translation_locale]) do
         @knowledge_base_article = KnowledgeBaseArticle.new(knowledge_base_article_params)
         authorize @knowledge_base_article
 
@@ -42,7 +42,7 @@ module Admin
     end
 
     def update
-      Globalize.with_locale(params[:translation_locale]) do
+      Mobility.with_locale(params[:translation_locale]) do
         if @knowledge_base_article.update(knowledge_base_article_params)
           redirect_to [:admin,@knowledge_base_article], notice: %(Updated "#{@knowledge_base_article.title}" successfully.)
         else
@@ -57,7 +57,7 @@ module Admin
 
       if translation_locale
         if @knowledge_base_article.translations.count > 1
-          Globalize.with_locale(translation_locale) do
+          Mobility.with_locale(translation_locale) do
             @knowledge_base_article.translation.destroy
             message = %(Deleted #{helpers.humanize_locale translation_locale} translation successfully.)
           end

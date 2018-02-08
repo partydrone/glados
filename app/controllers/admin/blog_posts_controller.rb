@@ -27,7 +27,7 @@ module Admin
     end
 
     def create
-      Globalize.with_locale(params[:translation_locale]) do
+      Mobility.with_locale(params[:translation_locale]) do
         @blog_post = BlogPost.new(blog_post_params)
         authorize @blog_post
 
@@ -40,7 +40,7 @@ module Admin
     end
 
     def update
-      Globalize.with_locale(params[:translation_locale]) do
+      Mobility.with_locale(params[:translation_locale]) do
         if @blog_post.update(blog_post_params)
           redirect_to [:admin,@blog_post], notice: %(Updated "#{@blog_post.title}" successfully.)
         else
@@ -54,7 +54,7 @@ module Admin
 
       if translation_locale
         if @blog_post.translations.count > 1
-          Globalize.with_locale(translation_locale) do
+          Mobility.with_locale(translation_locale) do
             @blog_post.translation.destroy
             message = %(Deleted #{helpers.humanize_locale translation_locale} translation successfully.)
           end

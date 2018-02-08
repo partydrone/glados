@@ -1,6 +1,6 @@
 <%= form_for [:admin, @download], validates: true do |f| %>
   <%= label_tag :translation_locale %>
-  <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @download.available_locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
+  <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @download.title_backend.locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
 
   <%= f.label :download_type_id %>
   <%= f.select :download_type_id, DownloadType.all.collect { |dt| [dt.name, dt.id] } %>

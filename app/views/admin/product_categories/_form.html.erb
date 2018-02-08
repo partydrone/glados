@@ -20,7 +20,7 @@
 
     <div class="medium-9 columns">
       <%= label_tag :translation_locale %>
-      <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @product_category.available_locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
+      <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @product_category.name_backend.locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
 
       <%= f.label :product_type_id %>
       <%= f.select :product_type_id, ProductType.all.collect { |pl| [pl.name, pl.id] } %>

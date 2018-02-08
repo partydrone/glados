@@ -28,7 +28,7 @@ module Admin
     end
 
     def create
-      Globalize.with_locale(params[:translation_locale]) do
+      Mobility.with_locale(params[:translation_locale]) do
         @product = Product.new(product_params)
         authorize @product
 
@@ -41,7 +41,7 @@ module Admin
     end
 
     def update
-      Globalize.with_locale(params[:translation_locale]) do
+      Mobility.with_locale(params[:translation_locale]) do
         if @product.update(product_params)
           redirect_to [:admin, @product], notice: %(Updated "#{@product.name} successfully.")
         else
@@ -55,7 +55,7 @@ module Admin
 
       if translation_locale
         if @product.translations.count > 1
-          Globalize.with_locale(translation_locale) do
+          Mobility.with_locale(translation_locale) do
             @product.translation.destroy
             message = %(Deleted #{helpers.humanize_locale translation_locale} translation successfully.)
           end
