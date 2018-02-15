@@ -4,7 +4,7 @@ module Admin
     before_action :set_product_types, only: [:new, :edit]
 
     def index
-      @downloads = Download.includes(:download_type).order(:title)
+      @downloads = Download.i18n.includes(:download_type).join_translations.order('download_translations.title')
       authorize @downloads
     end
 

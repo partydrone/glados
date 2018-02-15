@@ -1,14 +1,14 @@
 software_translation:
-  globalized_model: software
+  translated_model: software
   locale: en
   name: Software
 
 data_sheet_translation:
-  globalized_model: data_sheet
+  translated_model: data_sheet
   locale: en
   name: Data Sheet
 
 application_note_translation:
-  globalized_model: application_note
+  translated_model: application_note
   locale: en
   name: Application Note

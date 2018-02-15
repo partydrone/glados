@@ -2,10 +2,7 @@ class Article < ApplicationRecord
   include Taggable
   include PgSearch
 
-  translates :title, type: :string
-  translates :subtitle, type: :text
-  translates :body, type: :text
-  translates :views, type: :integer
+  translates :title, :subtitle, :body, :views
 
   multisearchable :against => [:title, :subtitle, :body]
 
@@ -21,7 +18,7 @@ class Article < ApplicationRecord
   def log_view(by = 1)
     self.views ||= 0
     self.views += by
-    self.save
+    self.save(touch: false)
   end
 
   def to_param

@@ -4,7 +4,7 @@ module Admin
     before_action :set_product_types, only: [:new, :edit]
 
     def index
-      @features = Feature.order(:title)
+      @features = Feature.i18n.join_translations.order('feature_translations.title')
       authorize @features
     end
 

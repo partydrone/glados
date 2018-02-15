@@ -1,5 +1,5 @@
 dual_radar_translation:
-  globalized_model: dual_radar
+  translated_model: dual_radar
   locale: en
   title: Dual-Beam Radar
   description: This is the coolest thing ever!

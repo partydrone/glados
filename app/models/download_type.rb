@@ -1,5 +1,5 @@
 class DownloadType < ApplicationRecord
-  translates :name
+  translates :name, fallbacks: { 'fr-FR': :fr }
 
   has_many :downloads, dependent: :destroy
 

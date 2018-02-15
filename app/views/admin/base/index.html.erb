@@ -28,11 +28,11 @@
 				<h2>Get Support</h2>
 				<ul>
 					<%= content_tag :li do %>
-						<%= link_to 'Download Types', admin_download_types_path %>
-					<% end if policy(:download_type).manage? %>
-					<%= content_tag :li do %>
 						<%= link_to 'Software Downloads', admin_software_downloads_path %>
 					<% end if policy(:software_download).manage? %>
+					<%= content_tag :li do %>
+						<%= link_to 'Download Types', admin_download_types_path %>
+					<% end if policy(:download_type).manage? %>
 					<%= content_tag :li do %>
 						<%= link_to 'Downloads', admin_downloads_path %>
 					<% end if policy(:download).manage? %>

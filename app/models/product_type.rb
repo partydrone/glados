@@ -1,5 +1,5 @@
 class ProductType < ApplicationRecord
-  translates :name
+  translates :name, fallbacks: { 'fr-FR': :fr }
 
   has_many :product_categories
   has_many :products, through: :product_categories

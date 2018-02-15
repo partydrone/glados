@@ -1,5 +1,5 @@
 class ProductCategory < ApplicationRecord
-  translates :name, :description
+  translates :name, :description, fallbacks: { 'fr-FR': :fr }
 
   belongs_to :product_type, touch: true
   has_many :products

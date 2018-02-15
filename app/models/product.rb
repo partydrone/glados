@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   include Taggable
   include PgSearch
 
-  translates :summary, :description, :youtube_video_id
+  translates :summary, :description, :youtube_video_id, fallbacks: { 'fr-FR': :fr }
 
   multisearchable :against => [:name, :summary, :description]
 

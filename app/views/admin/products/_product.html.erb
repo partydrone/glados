@@ -11,7 +11,7 @@
       <%= product.part_number %>
     </td>
     <td>
-      <% product.name_backend.locales.each do |l| %>
+      <% product.summary_backend.locales.each do |l| %>
         <%= content_tag :span, class: 'secondary label' do %>
           <%= humanize_locale(l) %>
           <% Mobility.with_locale(l) do %>

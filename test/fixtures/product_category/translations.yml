@@ -1,14 +1,14 @@
 arterial_translation:
-  globalized_model: arterial
+  translated_model: arterial
   locale: en
   name: Arterial
 
 intersection_translation:
-  globalized_model: intersection
+  translated_model: intersection
   locale: en
   name: Intersection
 
 power_translation:
-  globalized_model: power
+  translated_model: power
   locale: en
   name: Power

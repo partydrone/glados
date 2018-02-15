@@ -1,7 +1,7 @@
 class SupportController < ApplicationController
   def index
     @product_types = ProductType.available
-    @top_kb_articles = KnowledgeBaseArticle.current.order(views: :desc, updated_at: :desc).limit(10)
+    @top_kb_articles = KnowledgeBaseArticle.i18n.current.join_translations.order('article_translations.views desc', 'articles.updated_at desc').limit(10)
     @return_material_authorization_policy_document = ReturnMaterialAuthorizationPolicyDocument.current
   end
 
