@@ -1,27 +1,27 @@
-# past_article_translation:
-#   tranlsated_model: past_article
-#   locale: en
-#   title: Past Article Fixture
-#   subtitle: Temporary subtitle
-#   body: This is the temporary blog post content.
-#
-# future_article_translation:
-#   translated_model: future_article
-#   locale: en
-#   title: Future Article Fixture
-#   subtitle: Temporary subtitle
-#   body: This is the temporary case study content.
-#
-# new_blog_post_translation:
-#   translated_model: new_blog_post
-#   locale: en
-#   title: My Blog Post Fixture
-#   subtitle: Temporary subtitle
-#   body: This is the temporary blog post content.
-#
-# new_case_study_translation:
-#   translated_model: new_case_study
-#   locale: en
-#   title: My Case Study Fixture
-#   subtitle: Temporary subtitle
-#   body: This is the temporary case study content.
+past_article_translation:
+  tranlsated_model: past_article
+  locale: en
+  title: Past Article Fixture
+  subtitle: Temporary subtitle
+  body: This is the temporary blog post content.
+
+future_article_translation:
+  translated_model: future_article
+  locale: en
+  title: Future Article Fixture
+  subtitle: Temporary subtitle
+  body: This is the temporary case study content.
+
+new_blog_post_translation:
+  translated_model: new_blog_post
+  locale: en
+  title: My Blog Post Fixture
+  subtitle: Temporary subtitle
+  body: This is the temporary blog post content.
+
+new_case_study_translation:
+  translated_model: new_case_study
+  locale: en
+  title: My Case Study Fixture
+  subtitle: Temporary subtitle
+  body: This is the temporary case study content.

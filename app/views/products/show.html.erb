@@ -118,18 +118,6 @@
 			<div class="columns">
 				<h1><%= t(".support") %></h1>
 			</div>
-
-			<!-- <div class="columns product-language-selection">
-				<section class="products-language-header">
-					<select class="products-language-dropdown languages-types-list" name="language">
-						<option value="language-type-all" selected>All Languages</option>
-
-						<% I18n.available_locales.each do |locale| %>
-							<option value="<%= locale %>"><%= humanize_locale locale %></option>
-						<% end %>
-					</select>
-				</section>
-			</div> -->
 		</div>
 
 		<%= content_tag :div, class: 'row small-up-2 medium-up-3' do %>
@@ -141,12 +129,20 @@
 
 		<%= content_tag :div, class: 'row small-up-2 medium-up-3' do %>
 			<h2><%= t '.downloads' %></h2>
-			<% @downloads.group_by(&:download_type).sort_by { |key, value| key.position }.each do |download_type, downloads| %>
-			<div class="support-section columns">
-				<h3><%= download_type.name.pluralize %></h3>
-				<%= render partial: 'download', collection: downloads %>
-			</div>
+
+			<%= form_tag product_path(params[:id]), method: :get, remote: true do %>
+				<%= label_tag 'Choose a language:' %>
+			  <%= select_tag :product_downloads_translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}", l.to_s] }, I18n.locale.to_s), id: 'product_downloads_translation_locale' %>
 			<% end %>
+
+			<div id="product_downloads">
+				<% @downloads.group_by(&:download_type).sort_by { |key, value| key.position }.each do |download_type, downloads| %>
+				<div class="support-section columns">
+					<h3><%= download_type.name.pluralize %></h3>
+					<%= render partial: 'download', collection: downloads %>
+				</div>
+				<% end %>
+			</div>
 		<% end if @downloads.present? %>
 	<% end if @software_downloads.present? || @downloads.present? %>
 </div>

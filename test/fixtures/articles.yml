@@ -1,23 +1,23 @@
-# past_article:
-#   type: BlogPost
-#   author: Barney Rubble
-#   posted_on: <%= 5.days.ago.to_s(:db) %>
-#   hero_image_id: 1
-#
-# future_article:
-#   type: CaseStudy
-#   author: Barney Rubble
-#   posted_on: <%= 5.days.from_now.to_s(:db) %>
-#   hero_image_id: 1
-#
-# new_blog_post:
-#   type: BlogPost
-#   author: Barney Rubble
-#   posted_on: <%= 12.months.ago.to_s(:db) %>
-#   hero_image_id: 1
-#
-# new_case_study:
-#   type: CaseStudy
-#   location: New York
-#   flag: US
-#   hero_image_id: 1
+past_article:
+  type: BlogPost
+  author: Barney Rubble
+  posted_on: <%= 5.days.ago.to_s(:db) %>
+  hero_image_id: 1
+
+future_article:
+  type: CaseStudy
+  author: Barney Rubble
+  posted_on: <%= 5.days.from_now.to_s(:db) %>
+  hero_image_id: 1
+
+new_blog_post:
+  type: BlogPost
+  author: Barney Rubble
+  posted_on: <%= 12.months.ago.to_s(:db) %>
+  hero_image_id: 1
+
+new_case_study:
+  type: CaseStudy
+  location: New York
+  flag: US
+  hero_image_id: 1

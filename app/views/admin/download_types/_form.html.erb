@@ -1,4 +1,4 @@
-<%= form_for [:admin,@download_type] do |form| %>
+<%= form_for [:admin, @download_type] do |form| %>
   <%= label_tag :translation_locale %>
   <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @download_type.name_backend.locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
 
