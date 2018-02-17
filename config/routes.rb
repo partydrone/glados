@@ -90,7 +90,6 @@ Rails.application.routes.draw do
     resources :tags, only: [:show], param: :name
 
     resources :knowledge_base_articles,
-              :products,
               :return_material_authorization_policy_documents,
               :sales_terms_and_conditions_documents,
               :training_courses,
@@ -102,6 +101,8 @@ Rails.application.routes.draw do
     resources :results,
               :media_downloads,
               only: [:index]
+
+    resources :products
 
     resources :knowledge_base_articles do
       get :vote, on: :member

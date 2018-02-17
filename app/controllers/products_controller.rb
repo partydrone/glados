@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product_downloads_translation_locale = params[:product_downloads_translation_locale]
     Mobility.with_locale(@product_downloads_translation_locale) do
-      @downloads = product.downloads.includes(:download_type).join_translations
+      @downloads = @product.downloads.i18n.includes(:download_type).join_translations
     end
   end
 end

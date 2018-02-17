@@ -1,10 +1,12 @@
 jQuery(function () {
   $("#product_downloads").html(`
-    <% @downloads.group_by(&:download_type).sort_by { |key, value| key.position }.each do |download_type, downloads| %>
-    <div class="support-section columns">
-      <h3><%= j download_type.name.pluralize %></h3>
-      <%= j render(partial: 'download', collection: downloads) %>
-    </div>
+    <% Mobility.with_locale(@product_downloads_translation_locale) do %>
+      <% @downloads.group_by(&:download_type).sort_by { |key, value| key.position }.each do |download_type, downloads| %>
+      <div class="support-section columns">
+        <h3><%= j download_type.name.pluralize %></h3>
+        <%= j render(partial: 'download', collection: downloads) %>
+      </div>
+      <% end %>
     <% end %>
   `);
 });

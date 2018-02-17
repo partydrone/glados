@@ -130,7 +130,7 @@
 		<%= content_tag :div, class: 'row small-up-2 medium-up-3' do %>
 			<h2><%= t '.downloads' %></h2>
 
-			<%= form_tag product_path(params[:id]), method: :get, remote: true do %>
+			<%= form_tag product_path(params[:id]), method: :put, remote: true do %>
 				<%= label_tag 'Choose a language:' %>
 			  <%= select_tag :product_downloads_translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}", l.to_s] }, I18n.locale.to_s), id: 'product_downloads_translation_locale' %>
 			<% end %>
