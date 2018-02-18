@@ -38,24 +38,25 @@ Rails.application.routes.draw do
                 :website_privacy_policy_documents,
                 :website_terms_of_use_documents
 
-      resources :product_categories,
+      resources :downloads,
+                :download_types,
+                :product_categories,
                 concerns: :sortable
 
-      resources :downloads,
-                :media_downloads,
+      resources :media_downloads,
                 :patents,
                 :redirect_rules,
                 :request_environment_rules,
                 :roles,
                 :sales_territories,
+                :software_downloads,
                 :training_course_types,
                 :training_courses,
                 except: [:show]
 
       resources :users, except: [:show, :new, :create]
 
-      resources :download_types,
-                :product_types,
+      resources :product_types,
                 :sales_regions,
                 except: [:show],
                 concerns: :sortable
@@ -89,7 +90,6 @@ Rails.application.routes.draw do
     resources :tags, only: [:show], param: :name
 
     resources :knowledge_base_articles,
-              :products,
               :return_material_authorization_policy_documents,
               :sales_terms_and_conditions_documents,
               :training_courses,
@@ -101,6 +101,8 @@ Rails.application.routes.draw do
     resources :results,
               :media_downloads,
               only: [:index]
+
+    resources :products
 
     resources :knowledge_base_articles do
       get :vote, on: :member
@@ -115,6 +117,8 @@ Rails.application.routes.draw do
     get '/marketing_app', to: 'marketing_app#index'
     get '/news', to: 'news#index'
     get '/support', to: 'support#index'
+
+    post '/locales', to: 'locales#set_locale'
     post '/support', to: 'support#select_product'
 
     ##

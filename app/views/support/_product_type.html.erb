@@ -1,4 +1,5 @@
-<div class="medium-4 small-8 small-offset-2 medium-offset-0 columns">
+<!-- <div class="medium-4 small-8 small-offset-2 medium-offset-0 columns"> -->
+<div class="column column-block">
   <div class="support-search-image">
     <%= attachment_image_tag product_type, :icon_image, fallback: 'http://placehold.it/100x70' %>
     <h5><%= product_type.name %></h5>
@@ -7,7 +8,7 @@
   <div class="support-search-dropdown">
     <section class="products-language-header support-dropdown">
       <%= form_tag action: :select_product do %>
-        <%= select_tag :product, options_from_collection_for_select(product_type.products, :id, :name), prompt: 'Select a product…', class: 'products-language-dropdown support_base_index_select_product' %>
+        <%= select_tag :product, options_from_collection_for_select(product_type.products.available.order(:name), :id, :name), prompt: t('support.index.select_product'), class: 'products-language-dropdown support_base_index_select_product' %>
       <% end %>
     </section>
   </div>

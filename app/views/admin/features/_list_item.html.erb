@@ -5,6 +5,16 @@
   <td>
   	<%= link_to list_item.title, feature_path(list_item) %>
   </td>
+	<td>
+		<% list_item.title_backend.locales.each do |l| %>
+			<%= content_tag :span, class: 'secondary label' do %>
+				<%= humanize_locale(l) %>
+				<% Mobility.with_locale(l) do %>
+				<%= link_to 'x', admin_feature_path(list_item, translation_locale: l), method: :delete, data: { confirm: %(Are you sure you want to delete this #{humanize_locale l} translation? This cannot be undone.) } %>
+				<% end %>
+			<% end %>
+		<% end %>
+	</td>
   <td class="admin-right-delete">
   	<%= render partial: 'options_delete', locals: {object: list_item, instance_name: list_item.title} %>
   </td>

@@ -11,5 +11,5 @@
   <%= f.label :sales_office_id %>
   <%= f.select :sales_office_id, SalesOffice.select(:id, :name).collect { |so| [so.name, so.id] } %>
 
-  <%= f.submit nil, class: 'button radius' %>
+  <%= f.button nil, class: 'button radius' %>
 <% end %>

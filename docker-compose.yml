@@ -17,7 +17,7 @@ services:
     env_file:
       - .env
     environment:
-      - VIRTUAL_HOST=localhost,glados.10.1.65.208.xip.io,glados.10.1.64.189.xip.io
+      - VIRTUAL_HOST=localhost
 
   postgres:
     image: postgres:9.6-alpine

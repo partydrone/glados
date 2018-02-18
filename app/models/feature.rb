@@ -1,6 +1,8 @@
 class Feature < ApplicationRecord
   include Taggable
 
+  translates :title, :youtube_video_id, :description, :body, fallbacks: { 'fr-FR': :fr }
+
   has_many :feature_associations, dependent: :destroy
   has_many :products, through: :feature_associations
 

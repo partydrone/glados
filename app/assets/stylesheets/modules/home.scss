@@ -6,88 +6,100 @@ Base Home
 ***********************************************************************************************/
 
 .homepage {
-    margin-top: -20px;
+  margin-top: -20px;
 }
 
 .always-hide-for-ie {
-    display: none;
+  display: none;
 }
 
 .home-nav-dots {
-    float: right;
-    width: 12px;
-    height: 172px;
-    margin-top: 38px;
-    text-align: center;
-    margin-right: 47px;
-    .nav-dots {
-        height: 15px;
-        width: 12px !important;
-        padding: 0;
-        margin-top: -8px;
-        background: none;
-    }
-    .first-dot {
-        margin-top: 37px;
-    }
-    a,
-    a:hover,
-    a:active {
-        background: transparent !important;
-    }
+  float: right;
+  width: 12px;
+  height: 172px;
+  margin-top: 38px;
+  text-align: center;
+  margin-right: 47px;
+
+  .nav-dots {
+    height: 15px;
+    width: 12px !important;
+    padding: 0;
+    margin-top: -8px;
+    background: none;
+  }
+
+  .first-dot {
+    margin-top: 37px;
+  }
+
+  a,
+  a:hover,
+  a:active {
+    background: transparent !important;
+  }
 }
 
 .home-section-text {
-    text-align: center;
-    max-width: 500px;
-    margin: 0 auto;
-    p {
-        margin-bottom: 50px;
-        padding: 0 1rem;
-        @media screen and (max-width: 40em) {
-            margin-bottom: 10px;
-        }
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+
+  p {
+    margin-bottom: 50px;
+    padding: 0 1rem;
+
+    @media screen and (max-width: 40em) {
+      margin-bottom: 10px;
     }
-    img {
-        width: 32px;
-        padding-bottom: 10px;
-        border-bottom: 2px solid $silver;
-        @media screen and (max-width: 40em) {
-            border: 0;
-            display: inline-block;
-            margin-top: -15px;
-            margin-right: 10px;
-        }
+  }
+
+  img {
+    width: 32px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid $silver;
+
+    @media screen and (max-width: 40em) {
+      border: 0;
+      display: inline-block;
+      margin-top: -15px;
+      margin-right: 10px;
     }
-    @media screen and (max-width:40em) {
-        padding-top: 30px;
-        h1 {
-            display: inline-block;
-            line-height: 32px;
-        }
+  }
+
+  @media screen and (max-width:40em) {
+    padding-top: 30px;
+
+    h1 {
+      display: inline-block;
+      line-height: 32px;
     }
+  }
 }
 
 .divider-img {
-    width: 4px;
-    margin-top: -40px;
-    padding-bottom: 25px;
-    position: relative;
-    z-index: 11;
+  width: 4px;
+  margin-top: -40px;
+  padding-bottom: 25px;
+  position: relative;
+  z-index: 11;
 }
 
 .home-top-arrow {
-    width: 0;
-    height: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-top: 15px solid $white;
-    margin: auto;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid $white;
+  margin: auto;
+  z-index: 10;
 }
 
-.stories-hidden-text .goto-new:after {
+.stories-hidden-text {
+  .goto-new:after {
     content: url(image-path('icons/stories-right.svg')) !important;
     margin-top: 3px;
+  }
 }
 
 
@@ -95,81 +107,79 @@ Base Home
 Top Banner
 ***********************************************************************************************/
 
-.home-video {
-    height: 650px;
-    overflow: hidden;
-    background: url(image-path('home/home-smarter-traffic.png')) no-repeat center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-position: 50% 50%;
-    @media screen and (max-width: 40em) {
-        height: 421px;
-        background: url(image-path('home/home-smarter-traffic-small.png')) no-repeat center;
-    }
-}
+.home-banner {
+  background: url(image-path('home/home-smarter-traffic.png')) center / cover no-repeat;
+  width: 100%;
+  height: 650px;
+  overflow: hidden;
+  position: relative;
 
-.home-video-background {
-    width: 100%;
-    position: relative;
-    height: 650px;
-    overflow: hidden;
-    z-index: 0;
-    object-fit: cover;
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.home-top-banner {
-    width: 100%;
+  h1, h4 {
+    color: $white;
+  }
+
+  h1 {
+    font-size: 84px;
+    font-weight: 500;
+    font-family: $font-family-primary-heavy !important;
+    line-height: 1;
+    margin: 0;
     text-align: center;
-    padding-top: 275px;
-    position: relative;
-    .home-header-text {
-        color: $white;
-        font-size: 84px;
-        font-weight: 500;
-        line-height: 100px;
-        font-family: $font-family-primary-heavy !important;
-        margin: 0;
-        span {
-            color: $yellow;
-        }
+
+    .highlight {
+      color: $yellow;
     }
+  }
+
+  h4 {
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 0;
+    text-align: right;
+    margin-top: 0.95em;
+    padding-right: 50%;
+    transform: translateX(0.12em);
+  }
+
+  img {
+    height: 106px;
+    display: block;
+    margin: 1rem auto 1em auto;
+  }
+
+  .content {
+    text-align: center;
+  }
+
+  @media screen and (max-width: 40em) {
+    background-image: url(image-path('home/home-smarter-traffic-small.png'));
+    height: 421px;
+
+    h1 {
+      font-size: 46px;
+    }
+
     h4 {
-        color: $white;
-        padding-right: 171px;
-        line-height: 0;
-        font-size: 36px;
-        font-weight: 400;
+      font-size: 24px;
+      margin-bottom: 1.2em;
     }
-    img {
-        height: 106px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        padding-bottom: 1em;
-        margin-top: 1rem;
-    }
-    @media screen and (max-width:40em) {
-        padding-top: 210px;
-        .home-header-text {
-            font-size: 46px;
-            line-height: 35px;
-        }
-        h4 {
-            padding-right: 0;
-            font-size: 24px;
-            line-height: 1.75rem;
-        }
-        .button {
-            margin-top: 10px;
-        }
-    }
-    @media screen and (min-width: 1023px) {
-        margin-top: -650px;
-        position: absolute;
-        z-index: 1;
-    }
+  }
+}
+
+.home-banner__video {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }
 
 
@@ -178,67 +188,79 @@ Safe Section
 ***********************************************************************************************/
 
 .home-safe-left-img {
-    margin-top: -100px;
-    position: relative;
-    z-index: 5;
+  margin-top: -100px;
+  position: relative;
+  z-index: 5;
 }
 
-.home-safe .home-stories-container {
+.home-safe {
+  .row { position: relative; }
+
+  .home-stories-container {
     margin-bottom: 80px;
-}
+  }
 
-.home-safe .home-top-arrow {
+  .home-top-arrow {
     margin: -124px auto 50px auto;
     border-top: none;
     border-bottom: 15px solid $white;
-    @media screen and (max-width: 40em) {
-        margin: -15px auto 8px auto;
-    }
-}
 
-.home-safe .show-for-small-only {
+    @media screen and (max-width: 40em) {
+      margin: -15px auto 8px auto;
+    }
+  }
+
+  .show-for-small-only {
     h6 {
-        color: $charcoal;
+      color: $charcoal;
     }
+
     .columns:last-child:not(:first-child) {
-        float: none;
+      float: none;
     }
+  }
 }
 
 @media screen and (max-width: 40em) {
-    .home-safe .home-stories {
-        padding-bottom: 30px;
+  .home-safe {
+    .home-stories {
+      padding-bottom: 30px;
     }
+  }
 }
 
 .home-nav-dots-safe {
-    background: url(image-path('icons/Scroll_vertical-01.svg')) no-repeat center;
+  background: url(image-path('icons/Scroll_vertical-01.svg')) no-repeat center;
 }
 
 .home-safe-right-img {
-    position: absolute;
-    z-index: 0;
-    width: 300px;
-    margin-top: -113px;
-    height: 291px;
-    right: 0;
-    background: url(image-path('home/home-car-smash-thin.png')) no-repeat right;
-    img {
-        height: 100%;
-    }
-    @media screen and (min-width: 1360px) {
-        background: url(image-path('home/home-car-smash.png')) no-repeat left;
-    }
-    @media screen and (min-width: 1024px) {
-        margin-top: -158px;
-    }
-    @media screen and (max-width: 475px) {
-        display: none;
-    }
+  position:   absolute;
+  z-index:    0;
+  width:      300px;
+  margin-top: -113px; // NOTE: Use top, right, bottom, and left attributes to position, instead.
+  height:     291px;
+  right:      0;      // NOTE: Like you do here! 😊
+  background: url(image-path('home/home-car-smash-thin.png')) no-repeat right;
+
+  img {
+    height: 100%;
+  }
+
+  @media screen and (min-width: 1360px) {
+    background: url(image-path('home/home-car-smash.png')) no-repeat left;
+  }
+
+  @media screen and (min-width: 1024px) {
+    margin-top: -158px;
+  }
+
+  @media screen and (max-width: 475px) {
+    display: none;
+  }
 }
 
 .home-safe-small-preview {
-    text-align: left;
+  text-align: left;
 }
 
 
@@ -247,64 +269,78 @@ Efficient Section
 ***********************************************************************************************/
 
 .home-efficient {
-    background: $ghost;
-    text-align: center;
-    height: 680px;
-    .home-stories h6 {
-        color: $charcoal;
-        background: rgba(230, 230, 230, 0.8);
-        padding: 5px 15px;
+  background: $ghost;
+  text-align: center;
+  height: 680px;
+
+  .home-stories {
+    h6 {
+      color: $charcoal;
+      background: rgba(230, 230, 230, 0.8);
+      padding: 5px 15px;
     }
-    .home-stories a:hover h4 {
-        background: none;
+
+    a:hover h4 {
+      background: none;
     }
-    .home-story h4 {
-        background: $ghost;
+  }
+
+  .home-story {
+    h4 {
+      background: $ghost;
     }
-    .home-story a:hover .stories-hidden-text {
-        height: auto;
+
+    a:hover .stories-hidden-text {
+      height: auto;
     }
-    .stories-hidden-text {
-        background: rgba(230, 230, 230, 0.8);
-        padding: 5px;
-        color: $white;
+  }
+
+  .stories-hidden-text {
+    background: rgba(230, 230, 230, 0.8);
+    padding: 5px;
+    color: $white;
+  }
+
+  .home-section-text {
+    z-index: 1;
+    position: relative;
+  }
+
+  .home-stories-container {
+    .home-story-left {
+      height: 65px;
+      background: url(image-path('icons/arrow-left-backer.svg')) no-repeat center;
+      background-size: cover;
+      padding-top: 15px;
     }
-    .home-section-text {
-        z-index: 1;
-        position: relative;
+
+    .home-story-right {
+      background: url(image-path('icons/arrow-right-backer.svg')) no-repeat center;
     }
-    .home-stories-container {
-        .home-story-left {
-            height: 65px;
-            background: url(image-path('icons/arrow-left-backer.svg')) no-repeat center;
-            background-size: cover;
-            padding-top: 15px;
-        }
-        .home-story-right {
-            background: url(image-path('icons/arrow-right-backer.svg')) no-repeat center;
-        }
+  }
+
+  .stories-rollover-shown {
+    background: rgba(230, 230, 230, 0.8);
+  }
+
+  @media screen and (max-width: 678px) {
+    height: auto;
+    .home-stories {
+      padding-bottom: 30px;
     }
-    .stories-rollover-shown {
-        background: rgba(230, 230, 230, 0.8);
-    }
-    @media screen and (max-width: 678px) {
-        height: auto;
-        .home-stories {
-            padding-bottom: 30px;
-        }
-    }
+  }
 }
 
 .home-efficient-left-img {
-    height: 680px;
-    position: absolute;
-    margin-top: -69px;
-    left: -118px;
-    z-index: 0;
+  height: 680px;
+  position: absolute;
+  margin-top: -69px;
+  left: -118px;
+  z-index: 0;
 }
 
 .home-nav-dots-efficient {
-    background: url(image-path('icons/Scroll_vertical-02.svg')) no-repeat center;
+  background: url(image-path('icons/Scroll_vertical-02.svg')) no-repeat center;
 }
 
 
@@ -313,67 +349,81 @@ Reliable Section
 ***********************************************************************************************/
 
 .home-reliable {
+  text-align: center;
+
+  .home-stories {
+    h6,
+    small {
+      color: $white;
+    }
+  }
+
+  .home-reliable-top {
+    background: #329cc8;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #86d4f1 0%, #329cc8 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #86d4f1 0%, #329cc8 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #86d4f1 0%, #329cc8 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
+
+  .home-reliable-bottom {
+    background: $fadedblue;
+  }
+
+  .menu {
+    height: 75px;
+    background: $tomato;
+  }
+
+  .home-section-text {
+    padding-top: 0;
+  }
+
+  .home-safe-small-preview {
     text-align: center;
-    .home-stories h6,
-    .home-stories small {
-        color: $white;
+  }
+
+  .callout {
+    color: $silver;
+    background: rgba(27, 46, 60, 0.75);
+    margin: 0 1em;
+  }
+
+  .home-section-text img {
+    border-bottom: 1px solid $charcoal;
+
+    @media screen and (max-width: 40em) {
+      border-bottom: none;
     }
-    .home-reliable-top {
-        background: #329cc8;
-        /* Old browsers */
-        background: -moz-linear-gradient(top, #86d4f1 0%, #329cc8 100%);
-        /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, #86d4f1 0%, #329cc8 100%);
-        /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom, #86d4f1 0%, #329cc8 100%);
-        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    }
-    .home-reliable-bottom {
-        background: $fadedblue;
-    }
-    .menu {
-        height: 75px;
-        background: $tomato;
-    }
-    .home-section-text {
-        padding-top: 0;
-    }
-    .home-safe-small-preview {
-        text-align: center;
-    }
-    .callout {
-        color: $silver;
-        background: rgba(27, 46, 60, 0.75);
-        margin: 0 1em;
-    }
-    .home-section-text img {
-        border-bottom: 1px solid $charcoal;
-        @media screen and (max-width: 40em) {
-            border-bottom: none;
-        }
-    }
-    .stories-rollover-shown,
-    .stories-hidden-text p,
-    .reliable-carousel h4 {
-        color: $white;
-    }
+  }
+
+  .stories-rollover-shown,
+  .stories-hidden-text p,
+  .reliable-carousel h4 {
+    color: $white;
+  }
 }
 
 .home-nav-dots-reliable {
-    background: url(image-path('icons/Scroll_vertical-03.svg')) no-repeat center;
+  background: url(image-path('icons/Scroll_vertical-03.svg')) no-repeat center;
 }
 
-.home-reliable .show-for-small-only {
+.home-reliable {
+  .show-for-small-only {
     h6,
     a {
-        color: $charcoal;
+      color: $charcoal;
     }
+  }
 }
 
 .reliable-tabs-display {
-    @media screen and (min-width: 1024px) {
-        display: none;
-    }
+  @media screen and (min-width: 1024px) {
+    display: none;
+  }
 }
 
 
@@ -381,192 +431,216 @@ Reliable Section
 Reliable Magellan Section
 ***********************************************************************************************/
 
-.home-reliable-nav-section .reset-row-width {
+.home-reliable-nav-section {
+  .reset-row-width {
     max-width: 100% !important;
+
     .sticky {
-        z-index: 1;
+      z-index: 1;
     }
+  }
 }
 
 .magellan-panel {
-    display: none;
-    width: 400px;
-    padding: 25px 30px 0 30px;
-    position: fixed;
-    margin-left: -16px;
-    h5 {
-        color: $yellow;
-        text-transform: capitalize;
-    }
-}
+  display: none;
+  width: 400px;
+  padding: 25px 30px 0 30px;
+  position: fixed;
+  margin-left: -16px;
 
-.active .magellan-panel {
-    display: inline-block;
-}
-
-.active .mpanel2 {
-    margin-left: -149px;
-}
-
-.active .mpanel3 {
-    margin-left: -282px;
-}
-
-.home-sticky-container {
-    height: 0px !important;
+  h5 {
+    color: $yellow;
+    text-transform: capitalize;
+  }
 }
 
 .st0 {
-    fill: $fadedblue;
+  fill: $fadedblue;
 }
 
-.active .st0 {
-    fill: $yellow;
-}
+.active {
+  .magellan-panel {
+    display: inline-block;
+  }
 
-.magellan-side-bar {
-    display: none;
-}
-
-.magellan-side-menu {
-    height: 100vh;
-    width: 400px;
-    margin-left: 10% !important;
-    background: rgba(27, 46, 60, 0.75);
-    a {
-        width: 133px;
-    }
-    svg {
-        margin-right: auto !important;
-        margin-left: auto;
-        width: 32px !important;
-        display: block !important;
-        margin-top: 20vh;
-    }
-    li {
-        display: inline-block;
-        vertical-align: top;
-    }
-}
-
-.active .magellan-side-bar-text {
+  .magellan-side-bar-text {
     color: $white;
     text-align: left;
     cursor: default;
+
     h5 {
-        color: $yellow;
-        padding: 10px 0;
+      color: $yellow;
+      padding: 10px 0;
     }
+  }
+
+  .mpanel2 {
+    margin-left: -149px;
+  }
+
+  .mpanel3 {
+    margin-left: -282px;
+  }
+
+  .st0 {
+    fill: $yellow;
+  }
+}
+
+.home-sticky-container {
+  height: 0px !important;
+}
+
+.magellan-side-bar {
+  display: none;
+}
+
+.magellan-side-menu {
+  height: 100vh;
+  width: 400px;
+  margin-left: 10% !important;
+  background: rgba(27, 46, 60, 0.75);
+
+  a {
+    width: 133px;
+  }
+
+  svg {
+    margin-right: auto !important;
+    margin-left: auto;
+    width: 32px !important;
+    display: block !important;
+    margin-top: 20vh;
+  }
+
+  li {
+    display: inline-block;
+    vertical-align: top;
+  }
 }
 
 .lighting-background {
-    background: #5598cc url(image-path('home/reliable_1.png')) no-repeat center;
-    height: 100vh;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    position: static;
-    z-index: 0;
+  background: #5598cc url(image-path('home/reliable_1.png')) no-repeat center;
+  height: 100vh;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: static;
+  z-index: 0;
 }
 
 //I switched the 0.5 and 1 just so it isn't black for now. Fix later.
 #reliableTopAnchor {
-    background: #5598cc;
-    .scroll-stick {
-        opacity: 1;
-    }
-    .active.scroll-stick {
-        opacity: 0.5;
-    }
+  background: #5598cc;
+
+  .scroll-stick {
+    opacity: 1;
+  }
+
+  .active.scroll-stick {
+    opacity: 0.5;
+  }
 }
 
 .construction-background {
-    background: url(image-path('home/construction.png')) no-repeat center center;
-    height: 100vh;
+  background: url(image-path('home/construction.png')) no-repeat center center;
+  height: 100vh;
 }
 
 .road-background {
-    background: url(image-path('home/reliable_3.png')) no-repeat center center;
-    height: 100vh;
+  background: url(image-path('home/reliable_3.png')) no-repeat center center;
+  height: 100vh;
 }
 
 .home-reliable-background-image {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .home-reliable-nav-mobile {
-    background: #5598cc url(image-path('home/reliable_1.png')) no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    margin-top: 0;
-    height: 400px;
-    .st0 {
-        fill: #1b2e3c;
+  background: #5598cc url(image-path('home/reliable_1.png')) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-top: 0;
+  height: 400px;
+
+  svg {
+    width: 32px;
+  }
+
+  h6 {
+    color: $yellow;
+  }
+
+  .st0 {
+    fill: #1b2e3c;
+  }
+
+  .tabs {
+    text-align: center;
+  }
+
+  .tabs,
+  .tabs-content {
+    color: $white;
+  }
+
+  .tabs-content {
+    width: 66%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px 5px 0 0;
+    background: -moz-linear-gradient(top, rgba(27, 46, 60, 1) 14%, rgba(27, 46, 60, 1) 24%, rgba(27, 46, 60, 0.4) 87%, rgba(27, 46, 60, 0) 100%);
+    background: -webkit-linear-gradient(top, rgba(27, 46, 60, 1) 14%, rgba(27, 46, 60, 1) 24%, rgba(27, 46, 60, 0.4) 87%, rgba(27, 46, 60, 0) 100%);
+    background: linear-gradient(to bottom, rgba(27, 46, 60, 1) 14%, rgba(27, 46, 60, 1) 24%, rgba(27, 46, 60, 0.4) 87%, rgba(27, 46, 60, 0) 100%);
+  }
+
+  .tabs-title {
+    padding-bottom: 20px;
+    float: none !important;
+    display: inline-block;
+
+    a:hover {
+      background: transparent;
     }
-    .tabs {
-        text-align: center;
+
+    & > a:focus,
+    & > a[aria-selected='true'] .st0 {
+      fill: $white;
     }
-    .tabs,
+
+    &.is-active:after {
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      border-color: transparent;
+      border-bottom-color: #1b2e3c;
+      border-width: 12px;
+      margin-left: -12px;
+      z-index: 50;
+    }
+  }
+
+  .tabs-panel {
+    padding: 1.5rem 1rem;
+    h5 {
+      color: $gold;
+    }
+  }
+
+  @media screen and (max-width: 678px) {
     .tabs-content {
-        color: $white;
+      width: 75%;
     }
-    .tabs-content {
-        width: 66%;
-        margin-left: auto;
-        margin-right: auto;
-        border-radius: 5px 5px 0 0;
-        background: -moz-linear-gradient(top, rgba(27, 46, 60, 1) 14%, rgba(27, 46, 60, 1) 24%, rgba(27, 46, 60, 0.4) 87%, rgba(27, 46, 60, 0) 100%);
-        background: -webkit-linear-gradient(top, rgba(27, 46, 60, 1) 14%, rgba(27, 46, 60, 1) 24%, rgba(27, 46, 60, 0.4) 87%, rgba(27, 46, 60, 0) 100%);
-        background: linear-gradient(to bottom, rgba(27, 46, 60, 1) 14%, rgba(27, 46, 60, 1) 24%, rgba(27, 46, 60, 0.4) 87%, rgba(27, 46, 60, 0) 100%);
-    }
-    .tabs-title>a:focus,
-    .tabs-title>a[aria-selected='true'] .st0 {
-        fill: $white;
-    }
-    .tabs-panel {
-        padding: 1.5rem 1rem;
-        h5 {
-            color: $gold;
-        }
-    }
-    .tabs-title.is-active:after {
-        border: solid transparent;
-        content: " ";
-        height: 0;
-        width: 0;
-        position: absolute;
-        border-color: transparent;
-        border-bottom-color: #1b2e3c;
-        border-width: 12px;
-        margin-left: -12px;
-        z-index: 50;
-    }
-    .tabs-title {
-        padding-bottom: 20px;
-        float: none !important;
-        display: inline-block;
-        a:hover {
-            background: transparent;
-        }
-    }
-    svg {
-        width: 32px;
-    }
-    h6 {
-        color: $yellow;
-    }
-    @media screen and (max-width: 678px) {
-        .tabs-content {
-            width: 75%;
-        }
-    }
+  }
 }
 
 
@@ -575,318 +649,337 @@ Cost Effective Section
 ***********************************************************************************************/
 
 .home-divider path {
-    fill: $green;
+  fill: $green;
 }
 
 .home-nav-dots-cost {
-    background: url(image-path('icons/Scroll_vertical-04.svg')) no-repeat center;
+  background: url(image-path('icons/Scroll_vertical-04.svg')) no-repeat center;
 }
 
 .home-cost {
-    background: rgba(27, 46, 60, 1);
-    position: relative;
-    z-index: 5;
-    text-align: center;
+  background: rgba(27, 46, 60, 1);
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  color: $white;
+
+  h1,
+  h4,
+  .home-stories-container .stories-hidden-text p {
     color: $white;
-    h1,
-    h4,
-    .home-stories-container .stories-hidden-text p {
-        color: $white;
+  }
+
+  h6 {
+    color: $yellow;
+  }
+
+  .home-stories-container {
+    z-index: 10;
+  }
+
+  .home-section-text span {
+    color: $green;
+  }
+
+  .show-for-small-only {
+    .columns:last-child:not(:first-child) {
+      float: none;
     }
-    h6 {
-        color: $yellow;
+  }
+
+  @media screen and (min-width: 678px) {
+    .home-section-text img {
+      border-bottom: 2px solid $yellow;
     }
-    .home-stories-container {
-        z-index: 10;
-    }
-    .home-section-text span {
-        color: $green;
-    }
-    @media screen and (min-width: 678px) {
-        .home-section-text img {
-            border-bottom: 2px solid $yellow;
-        }
-    }
+  }
 }
 
 .cost-sensor {
-    width: 130px;
+  width: 130px;
 }
 
 .dollars-rise:before,
 .dollars-rise:after {
-    content: " ";
-    // display: table;
-    margin-left: auto;
-    margin-right: auto;
+  content: " ";
+  // display: table;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .dollars-rise:after {
-    clear: both;
+  clear: both;
 }
 
 .ani-container {
-    position: relative;
-    text-align: center;
-    min-height: 100px;
+  position: relative;
+  text-align: center;
+  min-height: 100px;
 }
 
 .animation-element {
-    position: relative;
-    margin: 0% auto;
-    @media screen and (max-width: 678px) {
-        width: 100%;
-        margin: 0px 0px 30px 0px;
-    }
+  position: relative;
+  margin: 0% auto;
+
+  @media screen and (max-width: 678px) {
+    width: 100%;
+    margin: 0px 0px 30px 0px;
+  }
 }
 
 .callout1 {
-    display: none;
+  display: none;
 }
 
-.bounce-up .subject {
+.bounce-up {
+  .subject {
     opacity: 0;
     @include transition(all 700ms ease-out);
-    @include transform(translate3d(0px,
-    200px,
-    0px));
+    @include transform(translate3d(0px, 200px, 0px));
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     backface-visibility: hidden;
-}
+  }
 
-.bounce-up.in-view .subject {
-    opacity: 1;
-    @include transform(translate3d(0px,
-    0px,
-    0px));
+  &.in-view {
+    .subject {
+      opacity: 1;
+      @include transform(translate3d(0px, 0px, 0px));
+    }
+  }
 }
 
 .subject {
-    float: left;
-    width: 100%;
-    margin: 0% 1.33% 2.66% 1.33%;
-    padding: 15px;
-}
-
-.home-cost .show-for-small-only {
-    .columns:last-child:not(:first-child) {
-        float: none;
-    }
+  float: left;
+  width: 100%;
+  margin: 0% 1.33% 2.66% 1.33%;
+  padding: 15px;
 }
 
 .home-cost-sensor {
-    h3 {
-        color: $white;
-    }
-    color: $yellow;
+  color: $yellow;
+
+  h3 {
+    color: $white;
+  }
 }
 
 .home-cost-loopsaddup-background {
-    background: url(image-path('home/Loopsaddup375w.jpg')) no-repeat bottom;
-    height: 453px;
-    background-position: 50% 50%;
+  background: url(image-path('home/Loopsaddup375w.jpg')) no-repeat bottom;
+  height: 453px;
+  background-position: 50% 50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: 30;
+
+  @media only screen and (min-width: 40.063em) and (max-width: 1023px) {
+    height: 858px;
+    background: url(image-path('home/Loopsaddup768w.jpg')) no-repeat bottom;
+  }
+
+  @media screen and (min-width: 1024px) {
+    height: 100vh;
+    background: #1b2e3b url(image-path('home/Loopsaddup.jpg')) no-repeat center;
+    background-attachment: fixed;
+    background-position: 50% 90%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    z-index: 30;
-    @media only screen and (min-width: 40.063em) and (max-width: 1023px) {
-        height: 858px;
-        background: url(image-path('home/Loopsaddup768w.jpg')) no-repeat bottom;
-    }
-    @media screen and (min-width: 1024px) {
-        height: 100vh;
-        background: #1b2e3b url(image-path('home/Loopsaddup.jpg')) no-repeat center;
-        background-attachment: fixed;
-        background-position: 50% 90%;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
+  }
 }
 
 .cost-loops {
-    background: url(image-path('home/Loops375w.png')) no-repeat center bottom;
-    height: 453px;
-    background-position: 0% 50%;
+  background: url(image-path('home/Loops375w.png')) no-repeat center bottom;
+  height: 453px;
+  background-position: 0% 50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 200px;
+  z-index: 31;
+
+  @media only screen and (min-width: 40.063em) and (max-width: 1023px) {
+    height: 858px;
+    background: url(image-path('home/Loops768w.png')) no-repeat center bottom;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    height: 100vh;
+    background: url(image-path('home/Loops1440w.png')) no-repeat center;
+    background-attachment: fixed;
+    background-position: 50% 90%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    padding-top: 200px;
-    z-index: 31;
-    @media only screen and (min-width: 40.063em) and (max-width: 1023px) {
-        height: 858px;
-        background: url(image-path('home/Loops768w.png')) no-repeat center bottom;
-    }
-    @media only screen and (min-width: 1024px) {
-        height: 100vh;
-        background: url(image-path('home/Loops1440w.png')) no-repeat center;
-        background-attachment: fixed;
-        background-position: 50% 90%;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
+  }
 }
 
 .cost-one-sensor {
-    background: url(image-path('home/Beams375w.png')) no-repeat center bottom;
-    height: 453px;
-    background-position: 0% 50%;
+  background: url(image-path('home/Beams375w.png')) no-repeat center bottom;
+  height: 453px;
+  background-position: 0% 50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  @media only screen and (min-width: 40.063em) and (max-width: 1023px) {
+    height: 858px;
+    background: url(image-path('home/Beams768w.png')) no-repeat center bottom;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    height: 100vh;
+    background: url(image-path('home/Beams1440w.png')) no-repeat center;
+    background-attachment: fixed;
+    background-position: 50% 90%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    @media only screen and (min-width: 40.063em) and (max-width: 1023px) {
-        height: 858px;
-        background: url(image-path('home/Beams768w.png')) no-repeat center bottom;
-    }
-    @media only screen and (min-width: 1024px) {
-        height: 100vh;
-        background: url(image-path('home/Beams1440w.png')) no-repeat center;
-        background-attachment: fixed;
-        background-position: 50% 90%;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
+  }
 }
 
 .home-loops-backer {
-    background: url(image-path('home/Loops-Addup.jpg')) no-repeat center;
-    // background-attachment: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    width: 50vw;
-    height: 100vh;
+  background: url(image-path('home/Loops-Addup.jpg')) no-repeat center;
+  // background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 50vw;
+  height: 100vh;
 }
 
 .home-one-sensor-backer {
-    background: url(image-path('home/One-Sensor.jpg')) no-repeat center;
-    background-attachment: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 100vh;
-    width: 50vw;
-    margin-top: 100vh;
-    position: relative;
-    z-index: 10;
+  background: url(image-path('home/One-Sensor.jpg')) no-repeat center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  width: 50vw;
+  margin-top: 100vh;
+  position: relative;
+  z-index: 10;
 }
 
 .home-loops-overlay {
-    margin-top: -1px !important;
+  margin-top: -1px !important;
 }
 
 .loops-sensor-body {
-    padding: 0 !important;
+  padding: 0 !important;
 }
 
 .slide-up-image {
-    margin-top: -1px;
-}
+  margin-top: -1px;
 
-.slide-up-image .columns {
+  .columns {
     padding: 0;
     height: 200vh;
     background: #1b2e3d;
+  }
 }
 
 .one-sensor-image {
-    width: 100vw;
-    margin-top: 100vh;
-    position: relative;
-    height: 100vh;
-    z-index: 15;
-    background: url(image-path('home/One-Sensor.jpg')) no-repeat center bottom;
-    // background-position: center;
-    background-attachment: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  width: 100vw;
+  margin-top: 100vh;
+  position: relative;
+  height: 100vh;
+  z-index: 15;
+  background: url(image-path('home/One-Sensor.jpg')) no-repeat center bottom;
+  // background-position: center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .loops-image-container {
-    height: 100vh !important;
-    float: none;
-    position: relative;
-    z-index: 1;
-    padding: 0;
+  height: 100vh !important;
+  float: none;
+  position: relative;
+  z-index: 1;
+  padding: 0;
 }
 
 .loops-box {
-    top: -16px !important;
-    bottom: auto;
-    width: 100vw !important;
-    max-width: none !important;
-    margin-left: -100%;
-    background: url(image-path('home/Loops-Addup.jpg')) no-repeat center bottom;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    &.is-anchored {
-        // margin-left: -101.9%;
-        // top: 500px;
-        height: 100vh;
-        left: 0;
-    }
-    &.is-stuck {
-        margin-left: -50%;
-        height: 100vh;
-        margin-top: -200px;
-    }
+  top: -16px !important;
+  bottom: auto;
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: -100%;
+  background: url(image-path('home/Loops-Addup.jpg')) no-repeat center bottom;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  &.is-anchored {
+    // margin-left: -101.9%;
+    // top: 500px;
+    height: 100vh;
+    left: 0;
+  }
+
+  &.is-stuck {
+    margin-left: -50%;
+    height: 100vh;
+    margin-top: -200px;
+  }
 }
 
 .loops-image {
-    height: 100vh;
+  height: 100vh;
 }
 
 .static-loops-image {
-    background: url(image-path('home/Loops-Addup.jpg')) no-repeat center;
-    height: 100vh;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    @media screen and (max-width: 40em) {
-        background: url(image-path('home/Loops_640px.jpg')) no-repeat center;
-        height: 500px;
-    }
-    @media screen and (min-width: 40.1em) and (max-width: 60em) {
-        background: url(image-path('home/Loopsaddup1024w.jpg')) no-repeat center;
-        height: 500px;
-    }
+  background: url(image-path('home/Loops-Addup.jpg')) no-repeat center;
+  height: 100vh;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  @media screen and (max-width: 40em) {
+    background: url(image-path('home/Loops_640px.jpg')) no-repeat center;
+    height: 500px;
+  }
+
+  @media screen and (min-width: 40.1em) and (max-width: 60em) {
+    background: url(image-path('home/Loopsaddup1024w.jpg')) no-repeat center;
+    height: 500px;
+  }
 }
 
 .static-one-sensor-image {
-    background: url(image-path('home/One-Sensor.jpg')) no-repeat center bottom;
-    height: 100vh;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    @media screen and (max-width: 40em) {
-        background: url(image-path('home/LSS_Replace_640px.jpg')) no-repeat center bottom;
-        height: 500px;
-    }
-    @media screen and (min-width: 40.1em) and (max-width: 60em) {
-        background: url(image-path('home/Onesmartsensor1024w.jpg')) no-repeat center bottom;
-        height: 500px;
-    }
+  background: url(image-path('home/One-Sensor.jpg')) no-repeat center bottom;
+  height: 100vh;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  @media screen and (max-width: 40em) {
+    background: url(image-path('home/LSS_Replace_640px.jpg')) no-repeat center bottom;
+    height: 500px;
+  }
+
+  @media screen and (min-width: 40.1em) and (max-width: 60em) {
+    background: url(image-path('home/Onesmartsensor1024w.jpg')) no-repeat center bottom;
+    height: 500px;
+  }
 }
 
 .home-post-loops-divider {
-    height: 200vh;
+  height: 200vh;
 }
 
 
@@ -895,60 +988,66 @@ Simple Section
 ***********************************************************************************************/
 
 .home-simple {
-    text-align: center;
-    .home-stories {
-        padding-bottom: 0px;
+  text-align: center;
+
+  .home-stories {
+    padding-bottom: 0px;
+  }
+
+  .home-section-text {
+    padding-top: 0;
+  }
+
+  .show-for-small-only {
+    .columns:last-child:not(:first-child) {
+      float: none;
     }
-    .home-section-text {
-        padding-top: 0;
+
+    h6,
+    a {
+      color: $charcoal;
     }
+  }
 }
 
 .home-nav-dots-simple {
-    background: url(image-path('icons/Scroll_vertical-05.svg')) no-repeat center;
+  background: url(image-path('icons/Scroll_vertical-05.svg')) no-repeat center;
 }
 
 .white-backer {
-    background: $white;
-    height: 657px;
+  background: $white;
+  height: 657px;
 }
 
 @media screen and (min-width: 640px) {
-    .simple-background {
-        width: 100%;
-        min-height: 657px;
-        background: url(image-path('home/traffic-work.png')) no-repeat right bottom;
-        background-size: 38%;
-    }
+  .simple-background {
+    width: 100%;
+    min-height: 657px;
+    background: url(image-path('home/traffic-work.png')) no-repeat right bottom;
+    background-size: 38%;
+  }
 }
 
 .simple-divider-img {
-    width: 4px;
-    margin-top: -40px;
-    padding-bottom: 43px;
-    position: relative;
-    z-index: 11;
-    path {
-        fill: $gold;
-    }
-    @media screen and (max-width: 60em) {
-        margin-left: auto;
-        margin-right: auto;
-        display: inherit;
-    }
-    @media screen and (min-width:60em) {
-        left: 21px;
-    }
-}
+  width: 4px;
+  margin-top: -40px;
+  padding-bottom: 43px;
+  position: relative;
+  z-index: 11;
 
-.home-simple .show-for-small-only {
-    .columns:last-child:not(:first-child) {
-        float: none;
-    }
-    h6,
-    a {
-        color: $charcoal;
-    }
+  path {
+    fill: $gold;
+  }
+
+  @media screen and (max-width: 60em) {
+    margin-left: auto;
+    margin-right: auto;
+    display: inherit;
+  }
+
+  @media screen and (min-width:60em) {
+    left: 21px;
+  }
 }
 
 
@@ -957,88 +1056,98 @@ Support Section
 ***********************************************************************************************/
 
 .home-support {
-    text-align: center;
-    padding-bottom: 100px;
-    .home-divider path {
-        fill: $yellow;
+  text-align: center;
+  padding-bottom: 100px;
+
+  .home-divider path {
+    fill: $yellow;
+  }
+
+  .goto-new:after {
+    content: url(image-path('icons/stories-right.svg')) !important;
+  }
+
+  .show-for-small-only {
+    margin-left: auto;
+    margin-right: auto;
+
+    .columns:last-child:not(:first-child) {
+      float: none;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .goto-new:after {
-        content: url(image-path('icons/stories-right.svg')) !important;
+
+    h6,
+    a {
+      color: $charcoal;
     }
+  }
 }
 
 .home-nav-dots-support {
-    background: url(image-path('icons/Scroll_vertical-06.svg')) no-repeat center;
-    margin-top: 461px;
-    @media screen and (min-width: 60em) {
-        margin-top: 567px;
-    }
+  background: url(image-path('icons/Scroll_vertical-06.svg')) no-repeat center;
+  margin-top: 461px;
+
+  @media screen and (min-width: 60em) {
+    margin-top: 567px;
+  }
 }
 
 .support-image-backer {
-    background: $fadedblue url(image-path('home/home-support-background.png')) no-repeat bottom;
-    background-position: 50%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 373px;
-    @media screen and (min-width: 40em) and (max-width: 60em) {
-        height: 681px;
-    }
-    @media screen and (min-width: 60em) {
-        height: 840px;
-    }
+  background: $fadedblue url(image-path('home/home-support-background.png')) no-repeat bottom;
+  background-position: 50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 373px;
+
+  @media screen and (min-width: 40em) and (max-width: 60em) {
+    height: 681px;
+  }
+
+  @media screen and (min-width: 60em) {
+    height: 840px;
+  }
 }
 
 .support-white-backer {
-    margin-top: -166px;
-    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 1) 20%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 1) 20%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 1) 20%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    padding-bottom: 10px;
-    @media screen and (min-width: 60em) {
-        margin-top: -324px;
-        background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 1) 50%);
-        /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 1) 50%);
-        /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 1) 50%);
-        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    }
-    @media screen and (min-width: 40em) and (max-width: 60em) {
-        margin-top: -382px;
-        background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 1) 50%);
-        /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 1) 50%);
-        /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 1) 50%);
-        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    }
-}
+  margin-top: -166px;
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 1) 20%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 1) 20%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 1) 20%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  padding-bottom: 10px;
 
-.home-support .show-for-small-only {
-    margin-left: auto;
-    margin-right: auto;
-    .columns:last-child:not(:first-child) {
-        float: none;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    h6,
-    a {
-        color: $charcoal;
-    }
+  @media screen and (min-width: 60em) {
+    margin-top: -324px;
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 1) 50%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 1) 50%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 1) 50%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
+
+  @media screen and (min-width: 40em) and (max-width: 60em) {
+    margin-top: -382px;
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 1) 50%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 1) 50%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 1) 50%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
 }
 
 .demo-modal {
-    h4 {
-        text-align: center;
-    }
-    button {
-        background: transparent;
-    }
+  h4 {
+    text-align: center;
+  }
+
+  button {
+    background: transparent;
+  }
 }

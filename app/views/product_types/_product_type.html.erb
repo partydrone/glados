@@ -6,9 +6,9 @@
         <h1><%= product_type.name %></h1>
       </div>
 
-      <%= render partial: 'product_category', collection: product_type.active_product_categories.group('product_categories.id') %>
+      <%= render partial: 'product_category', collection: product_type.product_categories.available.active %>
 
     </div>
     <div class="product-alternate-image-container show-for-large" style="background-image: url('<%= attachment_url product_type, :hero_image, fallback: 'http://placehold.it/600x300' %>'); background-size: cover;"></div>
-  <% end unless product_type.active_product_categories.group('product_categories.id').empty? %>
+  <% end %>
 <% end %>

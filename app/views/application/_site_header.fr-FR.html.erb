@@ -1,0 +1,94 @@
+<!-- off-canvas title bar for 'small' screen -->
+<div class="title-bar hide-for-large" data-responsive-toggle="widemenu" data-hide-for="large">
+  <div class="title-bar-left">
+    <%= link_to root_path do %>
+      <%= image_tag("icons/logo.svg") %>
+    <% end %>
+  </div>
+  <div class="title-bar-right">
+    <button class="menu-icon" type="button" data-open="offCanvasRight"></button>
+  </div>
+</div>
+
+<!-- off-canvas right menu -->
+<div class="off-canvas position-right hide-for-large" id="offCanvasRight" data-off-canvas data-position="right">
+  <ul class="vertical dropdown menu" data-accordion-menu>
+    <li class="off-canvas-logo">
+      <%= link_to root_path, class:"off-canvas-title" do %>
+        <%= image_tag("icons/Wavetronix-white-logo.svg") %>
+      <% end %>
+    </li>
+
+    <li class="off-canvas-menu-item">
+      <%= link_to products_path, class:"off-canvas-title" do %>
+        <h3><%= t(".solutions") %></h3>
+      <% end %>
+    </li>
+    <li class="off-canvas-menu-item">
+      <a class="off-canvas-title"><h3><%= t(".support") %></h3></a>
+      <ul class="menu vertical nested">
+        <li><%= link_to "Product Support", support_path %></li>
+        <li><%= link_to "Frequently Asked Questions", nil %></li>
+        <li><%= link_to "Mobile App", marketing_app_path %></li>
+      </ul>
+    </li>
+    <li class="off-canvas-menu-item">
+      <a class="off-canvas-title"><h3><%= t(".contact") %></h3></a>
+      <ul class="menu vertical nested">
+        <li><%= link_to "Locate Your Dealer", contact_path %></li>
+        <li><%= link_to "Wavetronix Offices", contact_path %></li>
+      </ul>
+    </li>
+    <li class="off-canvas-menu-item">
+      <a class="off-canvas-title"><h3><%= t(".about") %></h3></a>
+      <ul class="menu vertical nested">
+        <li><%= link_to "About Us", about_path %></li>
+        <li><%= link_to "Careers", nil %></li>
+        <li><%= link_to "News", news_path %></li>
+        <li><%= link_to "Legal", legal_path %></li>
+      </ul>
+    </li>
+    <li class="off-canvas-menu-item">
+      <%= link_to admin_root_path, class:"off-canvas-title" do %>
+        <h3><%= t(".sign_in") %></h3>
+      <% end %>
+    </li>
+
+  </ul>
+  <div class="off-canvas-copyright">
+    <small>&copy; 2016 Wavetronix, LLC<br/>
+    United States</small>
+  </div>
+</div>
+
+<!-- "wider" top-bar menu for 'large' and up -->
+<div id="widemenu" class="top-bar" data-disable-hover>
+  <div class="row" data-disable-hover>
+    <div class="top-bar-left">
+      <ul class="menu">
+        <li>
+          <%= link_to root_path, class: "home-logo-link" do %>
+            <%= image_tag("icons/logo.svg") %>
+          <% end %>
+        </li>
+        <%= content_tag :li, "Container: #{Socket.gethostname}" if Rails.env.development? %>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="dropdown menu" data-dropdown-menu data-disable-hover="true" data-click-open="true" data-close-on-click-inside="false">
+        <li>
+          <%= link_to t(".solutions"), products_path %>
+        </li>
+        <li>
+          <%= link_to t(".support"), support_path %>
+        </li>
+        <li>
+          <%= link_to t(".contact"), contact_path %>
+        </li>
+        <li>
+          <%= link_to t(".about"), about_path %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

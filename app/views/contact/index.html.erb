@@ -21,13 +21,13 @@
 			<ul class="menu icon-top expanded">
 			 	<li>
           <%= link_to '#dealers' do %>
-            <%= image_tag "icons/map.svg", class: 'small-icon' %>
+            <%= image_tag "icons/map.svg", class: 'li-icon small-icon' %>
             <span><%= t(".locate_dealer") %></span>
           <% end %>
         </li>
         <li>
           <%= link_to '#offices' do %>
-            <%= image_tag "icons/map_location.svg", class: 'small-icon' %>
+            <%= image_tag "icons/map_location.svg", class: 'li-icon small-icon' %>
             <span><%= t(".wavetronix_offices") %></span>
           <% end %>
         </li>
@@ -69,7 +69,10 @@
 						</section>
 					<% end %>
 				<% else %>
-						<h4>No results were found for your search. Please contact our Corporate Headquarters for more information.</h4>
+						<h4>
+							No results were found for your search. Please contact our
+							Corporate Headquarters for more information.
+						</h4>
 				<% end %>
 			</div>
 		<% end %>
@@ -87,7 +90,7 @@
 						<h3 itemprop="name">Wavetronix Headquarters</h3>
 					</li>
 					<li>
-						<%= image_tag('icons/map_location.svg', class: "small-icon") %>
+						<%= image_tag('icons/map_location.svg', class: "li-icon small-icon") %>
 						<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
 							<div itemprop="streetAddress"><p>78 E 1700 S</p>
 							</div>
@@ -102,15 +105,15 @@
 						</div>
 					</li>
 					<li>
-						<%= image_tag('icons/phone.svg', class: "small-icon") %>
+						<%= image_tag('icons/phone.svg', class: "li-icon small-icon") %>
 						<a itemprop="telephone" href="tel:(801) 734-7200">(801) 734-7200</a>
 					</li>
 					<li>
-						<%= image_tag('icons/fax_print.svg', class: "small-icon") %>
+						<%= image_tag('icons/fax_print.svg', class: "li-icon small-icon") %>
 						<a itemprop="telephone" href="tel:(801) 734-7201">(801) 734-7201</a>
 					</li>
 					<li>
-						<%= image_tag('icons/email.svg', class: "small-icon") %>
+						<%= image_tag('icons/email.svg', class: "li-icon small-icon") %>
 						<a itemprop="email" href="mailto:sales@wavetronix.com?subject=Wavetronix%20Product%20Iquiry">sales@wavetronix.com</a>
 					</li>
 				</ul>
@@ -151,7 +154,13 @@
 		<div class="row">
 			<div class="large-7 columns end">
 				<h3><%= t(".website_feedback") %></h3>
-				<p>Give us your feedback on or report any problems you experience with our website by sending an email to webmaster@wavetronix.com. Please note that we cannot respond to general questions and/or information requests through this email address. This email address will not help you recieve customer support. </p>
+				<p>
+					Give us your feedback on or report any problems you experience with
+					our website by sending an email to <%= mail_to 'webmaster@wavetronix.com', nil,  subject: 'Website Feedback' %>. Please
+					note that we cannot respond to general questions and/or information
+					requests through this email address. This email address will not help
+					you recieve customer support.
+				</p>
 			</div>
 		</div>
 	</section>

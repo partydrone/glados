@@ -1,0 +1,14 @@
+detection_translation:
+  translated_model: detection
+  locale: en
+  name: Detection
+
+cabinet_integration_translation:
+  translated_model: cabinet_integration
+  locale: en
+  name: Cabinet Integration
+
+data_management_translation:
+  translated_model: data_management
+  locale: en
+  name: Data Management

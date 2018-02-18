@@ -1,6 +1,8 @@
+<%= content_for :title, t('.title') %>
+
 <section class="row about-media" id="downloads" data-magellan-target="downloads">
   <div class="small-12 columns">
-    <h1>Media Library</h1>
+    <h1><%= yield(:title) %></h1>
   </div>
 
   <div class="column">

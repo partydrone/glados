@@ -6,6 +6,16 @@
     <%= link_to knowledge_base_article.title, [:admin, knowledge_base_article] %>
   </td>
   <td>
+    <% knowledge_base_article.title_backend.locales.each do |l| %>
+      <%= content_tag :span, class: 'secondary label' do %>
+        <%= humanize_locale(l) %>
+        <% Mobility.with_locale(l) do %>
+        <%= link_to 'x', admin_knowledge_base_article_path(knowledge_base_article, translation_locale: l), method: :delete, data: { confirm: %(Are you sure you want to delete this #{humanize_locale l} translation? This cannot be undone.) } %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </td>
+  <td>
     <%= l knowledge_base_article.posted_on.to_date, format: :short %>
   </td>
   <td>

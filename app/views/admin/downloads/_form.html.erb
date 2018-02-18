@@ -1,12 +1,11 @@
-<%= form_for [:admin,@download], validates: true do |f| %>
+<%= form_for [:admin, @download], validates: true do |f| %>
+  <%= label_tag :translation_locale %>
+  <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @download.title_backend.locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
+
   <%= f.label :download_type_id %>
   <%= f.select :download_type_id, DownloadType.all.collect { |dt| [dt.name, dt.id] } %>
-  <%= f.label :locale %>
-  <%= f.select :locale, I18n.available_locales.collect { |l| [ humanize_locale(l), l ] }.sort %>
   <%= f.label :title %>
   <%= f.text_field :title %>
-  <%# f.label :part_number %>
-  <%# f.text_field :part_number %>
 
   <div class="row">
     <div class="medium-6 columns">
@@ -16,7 +15,7 @@
     <div class="medium-6 columns">
       <%= f.label :current_file %>
       <% if @download.file && @download.file.exists? %>
-        <%= link_to attachment_url(@download, :file, filename: @download.title.parameterize), target: '_blank' %>
+        <%= link_to nil, attachment_url(@download, :file, filename: @download.title.parameterize), id: 'download_current_file_link', target: '_blank' %>
       <% else %>
         N/A
       <% end %>
@@ -40,5 +39,5 @@
     <% end if @product_types %>
   </div>
 
-  <%= f.submit class: 'button radius' %>
+  <%= f.button class: 'button radius' %>
 <% end %>

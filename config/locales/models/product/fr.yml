@@ -1,0 +1,18 @@
+---
+
+fr:
+  activerecord:
+    models:
+      product: Produit
+    attributes:
+      product:
+        product_category_id: Catégorie de produit
+        name: Nom
+        part_number: Numéro d'article
+        matured_on: Mûri à
+        expired_on: A expiré le
+        summary: Le sommaire
+        description: La description
+        product_image: Image produit
+        hero_image: Image héroïne
+        youtube_video_id: ID de la vidéo YouTube

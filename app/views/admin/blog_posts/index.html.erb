@@ -2,7 +2,7 @@
 
 <div class="row columns admin-table">
 <h1>
-  Blog Posts
+  <%= yield :title %>
   <%= link_to new_admin_blog_post_path, title: 'Create a new Product Type' do %>
     <%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
   <% end %>
@@ -14,6 +14,7 @@
       <th width="30"></th>
       <th>Hero</th>
       <th>Title</th>
+      <th>Translations</th>
       <th>Posted</th>
       <th>Last Updated</th>
       <th width="30"></th>

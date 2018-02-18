@@ -1,32 +1,35 @@
 <%= form_for [:admin, @product_category] do |f| %>
-  <%= f.label :product_type_id %>
-  <%= f.select :product_type_id, ProductType.all.collect { |pl| [pl.name, pl.id] } %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :description %>
-  <%= f.text_area :description, rows: 5 %>
-
   <div class="row">
-    <%= content_tag :div, class: 'medium-8 columns' do %>
-      <%= f.label :current_icon %>
-      <%= attachment_image_tag @product_category, :icon_image %>
-    <% end if @product_category.icon_image && @product_category.icon_image.exists? %>
-    <div class="medium-4 columns">
+    <div class="medium-3 columns">
+      <%= content_tag :div do %>
+        <%= f.label :current_icon %>
+        <%= attachment_image_tag @product_category, :icon_image %>
+      <% end if @product_category.icon_image && @product_category.icon_image.exists? %>
+
       <%= f.label :icon_image %>
       <%= f.attachment_field :icon_image, direct: true, presigned: true %>
-    </div>
-  </div>
 
-  <div class="row">
-    <%= content_tag :div, class: 'medium-8 columns' do %>
-      <%= f.label :current_hero_image %>
-      <%= attachment_image_tag @product_category, :hero_image %>
-    <% end if @product_category.hero_image && @product_category.hero_image.exists? %>
-    <div class="medium-4 columns">
+      <%= content_tag :div do %>
+        <%= f.label :current_hero_image %>
+        <%= attachment_image_tag @product_category, :hero_image %>
+      <% end if @product_category.hero_image && @product_category.hero_image.exists? %>
+
       <%= f.label :hero_image %>
       <%= f.attachment_field :hero_image, direct: true, presigned: true %>
     </div>
-  </div>
 
-  <%= f.submit nil, class: 'button radius' %>
+    <div class="medium-9 columns">
+      <%= label_tag :translation_locale %>
+      <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @product_category.name_backend.locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
+
+      <%= f.label :product_type_id %>
+      <%= f.select :product_type_id, ProductType.all.collect { |pl| [pl.name, pl.id] } %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.label :description %>
+      <%= f.text_area :description, rows: 5 %>
+
+      <%= f.button nil, class: 'button radius' %>
+    </div>
+  </div>
 <% end %>

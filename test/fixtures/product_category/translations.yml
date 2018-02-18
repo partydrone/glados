@@ -1,0 +1,14 @@
+arterial_translation:
+  translated_model: arterial
+  locale: en
+  name: Arterial
+
+intersection_translation:
+  translated_model: intersection
+  locale: en
+  name: Intersection
+
+power_translation:
+  translated_model: power
+  locale: en
+  name: Power

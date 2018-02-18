@@ -10,6 +10,12 @@ module Admin
 
     def show
       @article = @blog_post
+      @translation_locale = params[:translation_locale] || I18n.locale
+
+      respond_to do |format|
+        format.html
+        format.json
+      end
     end
 
     def new
@@ -21,27 +27,46 @@ module Admin
     end
 
     def create
-      @blog_post = BlogPost.new(blog_post_params)
-      authorize @blog_post
+      Mobility.with_locale(params[:translation_locale]) do
+        @blog_post = BlogPost.new(blog_post_params)
+        authorize @blog_post
 
-      if @blog_post.save
-        redirect_to [:admin,@blog_post], notice: %(Saved "#{@blog_post.title}" successfully.)
-      else
-        render :new
+        if @blog_post.save
+          redirect_to [:admin,@blog_post], notice: %(Saved "#{@blog_post.title}" successfully.)
+        else
+          render :new
+        end
       end
     end
 
     def update
-      if @blog_post.update(blog_post_params)
-        redirect_to [:admin,@blog_post], notice: %(Updated "#{@blog_post.title}" successfully.)
-      else
-        render :edit
+      Mobility.with_locale(params[:translation_locale]) do
+        if @blog_post.update(blog_post_params)
+          redirect_to [:admin,@blog_post], notice: %(Updated "#{@blog_post.title}" successfully.)
+        else
+          render :edit
+        end
       end
     end
 
     def destroy
-      @blog_post.destroy
-      redirect_to admin_blog_posts_path, notice: %(Deleted "#{@blog_post.title}" successfully.)
+      translation_locale = params[:translation_locale]
+
+      if translation_locale
+        if @blog_post.translations.count > 1
+          Mobility.with_locale(translation_locale) do
+            @blog_post.translation.destroy
+            message = %(Deleted #{helpers.humanize_locale translation_locale} translation successfully.)
+          end
+        else
+          message = %(#{helpers.humanize_locale translation_locale} is the only translation left and cannot be deleted. Delete the record, instead.)
+        end
+      else
+        @blog_post.destroy
+        message = %(Deleted "#{@blog_post.title}" successfully.)
+      end
+
+      redirect_to admin_blog_posts_path, notice: message
     end
 
     private

@@ -1,6 +1,9 @@
 class Product < ApplicationRecord
   include Taggable
   include PgSearch
+
+  translates :summary, :description, :youtube_video_id, fallbacks: { 'fr-FR': :fr }
+
   multisearchable :against => [:name, :summary, :description]
 
   belongs_to :product_category, touch: true
@@ -11,13 +14,10 @@ class Product < ApplicationRecord
   has_and_belongs_to_many :articles
   has_and_belongs_to_many :downloads
   has_and_belongs_to_many :patents
+  has_and_belongs_to_many :software_downloads
 
   default_scope { order(name: :asc) }
 
-  scope :active, -> {
-    where('expired_on IS NULL OR expired_on > ?', Time.zone.today)
-    .where('matured_on IS NULL OR matured_on > ?', Time.zone.today)
-  }
   scope :discontinued, -> { where('expired_on <= ?', Time.zone.today) }
   scope :knowledge_base_articles, -> {
     includes(:articles)
@@ -30,6 +30,26 @@ class Product < ApplicationRecord
   validates :name, :part_number, :summary, :description, :product_category_id, presence: true
   validates :hero_image, :product_image, presence: true, on: :create, unless: :youtube_video_id_present?
   validate  :matures_before_expires
+
+  before_save do
+    self.country_ids.reject! { |item| item.blank? }
+  end
+
+  def self.active
+    where('expired_on IS NULL OR expired_on > ?', Time.zone.today)
+    .where('matured_on IS NULL OR matured_on > ?', Time.zone.today)
+  end
+
+  def self.available(locale = I18n.locale)
+    locale =~ /^([a-z]{2,2})(?:[-|_]([A-Z]{2,2}))?$/i
+    query = where("'#{$2}' = ANY (country_ids)")
+
+    if query.exists?
+      query
+    else
+      all
+    end
+  end
 
   def self.knowledge_base_article_search(query = nil)
     if query.present?

@@ -1,35 +1,38 @@
-<%= form_for [:admin, @blog_post], validate: true do |f| %>
+<%= form_for [:admin, @blog_post], validate: true do |form| %>
+  <%= label_tag :translation_locale %>
+  <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @blog_post.title_backend.locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
+
   <div class="row">
     <div class="medium-9 columns">
-      <%= f.label :title %>
-      <%= f.text_field :title %>
+      <%= form.label :title %>
+      <%= form.text_field :title %>
     </div>
     <div class="medium-3 columns">
-      <%= f.label :posted_on %>
-      <%= f.date_field :posted_on, placeholder: 'yyyy-mm-dd' %>
+      <%= form.label :posted_on %>
+      <%= form.date_field :posted_on, placeholder: 'yyyy-mm-dd' %>
     </div>
   </div>
-  <%= f.label :author %>
-  <%= f.text_field :author %>
+  <%= form.label :author %>
+  <%= form.text_field :author %>
   <div class="row">
     <%= content_tag :div, class: 'medium-8 columns' do %>
-      <%= f.label :current_hero_image %>
+      <%= form.label :current_hero_image %>
       <%= attachment_image_tag @blog_post, :hero_image %>
     <% end if @blog_post.hero_image && @blog_post.hero_image.exists? %>
     <div class="medium-4 columns">
-      <%= f.label :hero_image %>
-      <%= f.attachment_field :hero_image, direct: true, presigned: true %>
+      <%= form.label :hero_image %>
+      <%= form.attachment_field :hero_image, direct: true, presigned: true %>
     </div>
   </div>
-  <%= f.label :subtitle %>
-  <%= f.text_area :subtitle, rows: 3 %>
-  <%= f.label :body %>
-  <%= f.cktext_area :body, rows: 30 %>
+  <%= form.label :subtitle %>
+  <%= form.text_area :subtitle, rows: 3 %>
+  <%= form.label :body %>
+  <%= form.cktext_area :body, rows: 30 %>
   <div class="ui-widget">
-    <%=f.label :tag_list, "Tags (separated by commas) (regions include: #{Tag::REGIONS.join(', ')})" %>
-    <%= f.text_field :tag_list, value: f.object.tag_list.to_s, :id => 'auto_complete_tags' %>
+    <%=form.label :tag_list, "Tags (separated by commas) (regions include: #{Tag::REGIONS.join(', ')})" %>
+    <%= form.text_field :tag_list, value: form.object.tag_list.to_s, :id => 'auto_complete_tags' %>
   </div>
-  <%= f.submit nil, class: 'button radius' %>
+  <%= form.button nil, class: 'button radius' %>
 <% end %>
 
 <%= content_tag :div, class: "taggable_items", data: {taggable_items: @taggable_items} do %>

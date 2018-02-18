@@ -1,0 +1,10 @@
+---
+en:
+  activerecord:
+    models:
+      product_type:
+    attributes:
+      product_type:
+        name:
+        icon_image:
+        hero_image:

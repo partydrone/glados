@@ -1,6 +1,5 @@
 require 'test_helper'
 
-
 describe SupportController, :locale do
   it "gets index" do
     get support_path

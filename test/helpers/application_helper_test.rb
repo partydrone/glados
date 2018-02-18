@@ -33,4 +33,16 @@ describe ApplicationHelper do
       set_class_for_content_type('image/jpeg').must_equal 'image-jpeg'
     end
   end
+
+  describe "#country_from" do
+    it "returns the country code for a locale with a country" do
+      locale = :'en-US'
+      country_from(locale).must_equal 'US'
+    end
+
+    it "returns nil for locale without a country" do
+      locale = :en
+      country_from(locale).must_be_nil
+    end
+  end
 end

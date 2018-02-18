@@ -1,46 +1,64 @@
-<%= form_for [:admin, @product] do |f| %>
+<%= form_for [:admin, @product] do |form| %>
   <div class="row">
     <div class="large-8 columns">
-      <%= f.label :product_category_id %>
-      <%= f.grouped_collection_select :product_category_id, ProductType.includes(:product_categories), :product_categories, :name, :id, :name %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-      <%= f.label :part_number %>
-      <%= f.text_field :part_number %>
+      <%= label_tag :translation_locale %>
+      <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @product.summary_backend.locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
+
+      <%= form.label :product_category_id %>
+      <%= form.grouped_collection_select :product_category_id, ProductType.includes(:product_categories), :product_categories, :name, :id, :name %>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+      <%= form.label :part_number %>
+      <%= form.text_field :part_number %>
       <div class="row">
         <div class="medium-6 columns">
-          <%= f.label :matured_on %>
-          <%= f.date_field :matured_on, placeholder: 'yyyy-mm-dd' %>
+          <%= form.label :matured_on %>
+          <%= form.date_field :matured_on, placeholder: 'yyyy-mm-dd' %>
         </div>
         <div class="medium-6 columns">
-          <%= f.label :expired_on %>
-          <%= f.date_field :expired_on, placeholder: 'yyyy-mm-dd' %>
+          <%= form.label :expired_on %>
+          <%= form.date_field :expired_on, placeholder: 'yyyy-mm-dd' %>
         </div>
       </div>
-      <%= f.label :summary %>
-      <%= f.text_field :summary %>
-      <%= f.label :description %>
-      <%= f.cktext_area :description, rows: 10 %>
+      <%= form.label :summary %>
+      <%= form.text_field :summary %>
+      <%= form.label :description %>
+      <%= form.cktext_area :description, rows: 10 %>
+
+      <%= form.label 'Available in' %>
+      <%= hidden_field_tag 'product[country_ids][]' %>
+      <div class="row small-up-2">
+        <% COUNTRIES.each do |key, value| %>
+        <div class="column column-block">
+          <%= check_box_tag 'product[country_ids][]', key, @product.country_ids.include?(key.to_s), id: "product_country_ids_#{key.downcase}" %>
+          <%= label_tag "product_country_ids_#{key.downcase}" do %>
+            <%= image_tag "flags/4x3/#{key.downcase}.svg", style: 'height: 1em;' %>
+            <%= value %>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
     </div>
+
     <div class="large-4 columns">
-      <%= f.label :product_image %>
-      <%= f.attachment_field :product_image, direct: true, presigned: true %>
+      <%= form.label :product_image %>
+      <%= form.attachment_field :product_image, direct: true, presigned: true %>
 
       <% if @product.product_image && @product.product_image.exists? %>
         <%= attachment_image_tag @product, :product_image %>
       <% end %>
 
-      <%= f.label :hero_image %>
-      <%= f.attachment_field :hero_image, direct: true, presigned: true %>
+      <%= form.label :hero_image %>
+      <%= form.attachment_field :hero_image, direct: true, presigned: true %>
 
       <% if @product.hero_image && @product.hero_image.exists? %>
         <%= attachment_image_tag @product, :hero_image %>
       <% end %>
 
-      <%= f.label :youtube_video_id %>
-      <%= f.text_field :youtube_video_id %>
+      <%= form.label :youtube_video_id %>
+      <%= form.text_field :youtube_video_id %>
 
-      <%= f.label :feature_order %>
+      <%= form.label :feature_order %>
       <table>
         <tbody id="feature_associations" data-update-path="<%= sort_admin_feature_associations_path %>">
           <%= render partial: 'feature_association', collection: @product.feature_associations %>
@@ -50,5 +68,5 @@
   </div>
   <p></p>
 
-  <%= f.submit nil, class: 'button radius' %>
+  <%= form.button nil, class: 'button radius' %>
 <% end %>

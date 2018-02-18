@@ -1,6 +1,9 @@
 <%= form_for [:admin,@feature] do |f| %>
   <div class="row">
     <div class="large-8 columns">
+      <%= label_tag :translation_locale %>
+      <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @feature.title_backend.locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
+
       <%= f.label :title %>
       <%= f.text_field :title %>
       <%= f.label :description %>
@@ -22,7 +25,7 @@
       <%= f.cktext_area :body, rows: 20 %>
       <%= f.label :tag_list, "Tags (separated by commas) (regions include: #{Tag::REGIONS.join(', ')})" %>
       <%= f.text_field :tag_list, value: f.object.tag_list.to_s %>
-      <%= f.submit nil, class: 'button radius' %>
+      <%= f.button nil, class: 'button radius' %>
     </div>
     <div class="large-4 columns">
       <%= f.label :associated_products %>

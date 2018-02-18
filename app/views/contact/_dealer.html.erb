@@ -5,7 +5,7 @@
     <% end %>
 
     <%= content_tag :li do %>
-      <%= image_tag('icons/map_location.svg', class: 'small-icon') %>
+      <%= image_tag('icons/map_location.svg', class: 'li-icon small-icon') %>
       <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
         <%= content_tag :div, markdown(dealer.address), itemprop: 'streetAddress' %>
         <%= content_tag :div, dealer.locality, itemprop: 'addressLocality' if dealer.locality.present? %>
@@ -18,17 +18,17 @@
     <% end %>
 
     <%= content_tag :li do %>
-      <%= image_tag('icons/phone.svg', class: 'small-icon') %>
+      <%= image_tag('icons/phone.svg', class: 'li-icon small-icon') %>
       <%= link_to dealer.phone, "tel:#{dealer.phone}", itemprop: 'telephone' %>
     <% end if dealer.phone.present? %>
 
     <%= content_tag :li do %>
-      <%= image_tag('icons/email.svg', class: 'small-icon') %>
+      <%= image_tag('icons/email.svg', class: 'li-icon small-icon') %>
       <%= mail_to dealer.email, dealer.email, subject: 'Wavetronix Product Iquiry', itemprop: 'email' %>
     <% end if dealer.email.present? %>
 
     <%= content_tag :li do %>
-      <%= image_tag('icons/world.svg', class: 'small-icon') %>
+      <%= image_tag('icons/world.svg', class: 'li-icon small-icon') %>
       <%= link_to URI(dealer.website).host, dealer.website, target: '_blank', itemprop: 'url' %>
     <% end if dealer.website.present? %>
   </ul>

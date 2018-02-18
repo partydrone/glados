@@ -1,0 +1,139 @@
+<% content_for :title, @product.name %>
+
+<section class="product-specific-features" id="top-of-page" data-magellan-target="top-of-page"></section>
+
+<div class="product-specific-navigation show-for-large" data-sticky-container>
+	<div class="sticky" data-sticky data-active-class>
+		<div class="row">
+			<div class="large-5 columns">
+				<h4 data-magellan>
+					<%= link_to '#top-of-page' do %>
+						<%= @product.name %>
+						<%= content_tag :small do %>
+							(discontinued)
+						<% end if @product.discontinued? %>
+					<% end %>
+				</h4>
+			</div>
+			<div class="large-7 columns text-right">
+				<nav data-magellan data-bar-offset="70">
+					<ul class="horizontal menu">
+						<%= content_tag :li do %>
+							<%= link_to t('.features'), '#features' %>
+						<% end if @features.present? %>
+
+						<%= content_tag :li do %>
+							<%= link_to t('.support'), '#support' %>
+						<% end if @software_downloads.present? || @downloads.present? %>
+
+						<%= content_tag :li do %>
+							<%= link_to t('.request_demo'), '#demo_request_form', class: 'button small' %>
+						<% end if @features.present? %>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="hide-for-large">
+	<div class="product-specific-top-nav">
+		<h4><%= @product.name %></h4>
+	</div>
+	<div class="product-specific-bottom-nav">
+		<nav data-magellan data-bar-offset="70">
+			<ul class="menu icon-top expanded">
+				<%= content_tag :li do %>
+					<a href="#features"><%= image_tag("icons/features.svg") %> <span><%= t(".features") %></span></a>
+				<% end if @features.present? %>
+
+				<%= content_tag :li do %>
+					<a href="#support"><%= image_tag("icons/utility.svg") %> <span><%= t(".support") %></span></a>
+				<% end if @software_downloads.present? || @downloads.present? %>
+
+				<%= content_tag :li do %>
+					<a href="#demo_request_form"><%= image_tag("icons/speech_convo.svg") %> <span><%= t('.request_demo') %></span></a>
+				<% end if @features.present? %>
+			</ul>
+		</nav>
+	</div>
+</div>
+
+<div class="row columns">
+	<div class="product-specific-intro">
+		<h1><%= @product.name %></h1>
+		<h6><%= @product.product_category.name %></h6>
+		<div class="product-intro-media">
+			<% if @product.youtube_video_id.present? %>
+				<div class="flex-video widescreen">
+					<iframe src="https://www.youtube.com/embed/<%= @product.youtube_video_id %>?rel=0&showinfo=0" width="720" hieght="480" frameborder="0" allowfullscreen></iframe>
+				</div>
+			<% else %>
+				<%= attachment_image_tag @product, :hero_image, fallback: 'http://placehold.it/1600x900' %>
+			<% end %>
+		</div>
+		<div class="product-intro-product-image">
+			<%= attachment_image_tag @product, :product_image, :limit, 100, 90, fallback: 'http://placehold.it/100x90' %>
+		</div>
+		<div class="product-intro-blurb medium-7 medium-centered">
+			<h4><%= sanitize embed_youtube_videos_for(@product.description) %></h4>
+		</div>
+	</div>
+</div>
+
+<div class="product-specific-sections">
+	<% if @features.size > 0 %>
+		<section class="product-specific-features" id="features" data-magellan-target="features">
+			<%= render @features %>
+		</section>
+
+		<section class="product-request-demo" id="demo_request_form" data-magellan-target="demo_request_form">
+			<h4><%= t '.request_demo' %></h4>
+			<div class="request-box">
+				<div class="request row">
+					<div class="medium-8 large-6 medium-centered columns">
+						<%= render 'demo_request_form' %>
+						<p><%= t '.perfer_contact' %> <%= link_to t('.here'), contact_path %>.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	<% end %>
+
+	<%= content_tag :section, id: 'support', class: 'product-specific-support', data: {'magellan-target' => 'support'} do %>
+		<div class="row">
+			<div class="columns">
+				<h1><%= t(".support") %></h1>
+			</div>
+
+			<!-- <div class="columns product-language-selection">
+				<section class="products-language-header">
+					<select class="products-language-dropdown languages-types-list" name="language">
+						<option value="language-type-all" selected>All Languages</option>
+
+						<% I18n.available_locales.each do |locale| %>
+							<option value="<%= locale %>"><%= humanize_locale locale %></option>
+						<% end %>
+					</select>
+				</section>
+			</div> -->
+		</div>
+
+		<%= content_tag :div, class: 'row small-up-2 medium-up-3' do %>
+			<h2><%= t '.software' %></h2>
+			<div class="column">
+				<%= render partial: 'software_download', collection: @software_downloads %>
+			</div>
+		<% end if @software_downloads.present? %>
+
+		<%= content_tag :div, class: 'row small-up-2 medium-up-3' do %>
+			<h2><%= t '.downloads' %></h2>
+			<% @downloads.group_by(&:download_type).sort_by { |key, value| key.position }.each do |download_type, downloads| %>
+			<div class="support-section columns">
+				<h3><%= download_type.name.pluralize %></h3>
+				<%= render partial: 'download', collection: downloads %>
+			</div>
+			<% end %>
+		<% end if @downloads.present? %>
+	<% end if @software_downloads.present? || @downloads.present? %>
+</div>

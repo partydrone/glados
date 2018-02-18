@@ -10,6 +10,7 @@ gem 'rails', '~> 5.0.0'
 ##
 # Defaults
 gem 'bcrypt', '~> 3.1.7'
+# gem 'bootsnap', require: false
 # gem 'coffee-rails', '~> 4.1.0'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
@@ -44,6 +45,10 @@ gem 'browser'
 ##
 # File uploads
 gem 'aws-sdk', '~> 2.1'
+# gem 'carrierwave', '~> 1.0'
+# gem 'carrierwave-aws'
+# gem 'carrierwave_direct'
+# gem 'carrierwave_globalize', '~> 0.2.0'
 gem 'refile', require: 'refile/rails', github: 'refile', branch: 'master'
 gem 'sinatra', '~> 2.0'
 gem 'refile-mini_magick'
@@ -62,6 +67,8 @@ gem 'redcarpet', '~> 3.0'
 ##
 # I18n
 # gem 'globalize'
+gem 'mobility'
+gem 'activemodel-serializers-xml'
 gem 'rails-i18n', '~> 5.0.0'
 
 ##

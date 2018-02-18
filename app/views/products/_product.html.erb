@@ -8,7 +8,7 @@
       <div class="small-9 columns">
         <h2><%= product.name %></h2>
         <%= content_tag :p, product.summary %>
-        <%= content_tag :span, "Learn More", class: "goto-new" %>
+        <%= content_tag :span, t('ui.learn_more'), class: "goto-new" %>
       </div>
     </div>
   <% end %>

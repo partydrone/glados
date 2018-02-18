@@ -1,4 +1,6 @@
 class DownloadType < ApplicationRecord
+  translates :name, fallbacks: { 'fr-FR': :fr }
+
   has_many :downloads, dependent: :destroy
 
   before_create :set_default_postition

@@ -34,8 +34,4 @@ describe ProductCategory do
   it "has products" do
     product_category.must_respond_to :products
   end
-
-  it "has active products" do
-    product_category.must_respond_to :active_products
-  end
 end

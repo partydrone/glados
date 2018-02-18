@@ -1,19 +1,16 @@
 arterial:
-  name: Arterial
   position: 1
   product_type: detection
   hero_image_id: 1
   icon_image_id: 1
 
 intersection:
-  name: Intersection
   position: 2
   product_type: detection
   hero_image_id: 2
   icon_image_id: 2
 
 power:
-  name: Power
   position: 1
   product_type: cabinet_integration
   hero_image_id: 3

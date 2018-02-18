@@ -71,7 +71,17 @@
 		font-weight: inherit;
 	}
 
-	img {
+	li[itemprop="jobTitle"] {
+		font-size: 0.85em;
+		text-transform: uppercase;
+	}
+
+	.employee-portrait {
+		margin-left: 2.2em;
+		width: 100px;
+	}
+
+	.li-icon {
 		display: inline-block;
 		position: absolute;
 		left: -2.2em;

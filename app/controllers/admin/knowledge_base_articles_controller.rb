@@ -11,7 +11,12 @@ module Admin
 
     def show
       @article = @knowledge_base_article
-      render 'knowledge_base_articles/show'
+      @translation_locale = params[:translation_locale] || I18n.locale
+
+      respond_to do |format|
+        format.html { render 'knowledge_base_articles/show' }
+        format.json
+      end
     end
 
     def new
@@ -23,29 +28,48 @@ module Admin
     end
 
     def create
-      @knowledge_base_article = KnowledgeBaseArticle.new(knowledge_base_article_params)
-      authorize @knowledge_base_article
+      Mobility.with_locale(params[:translation_locale]) do
+        @knowledge_base_article = KnowledgeBaseArticle.new(knowledge_base_article_params)
+        authorize @knowledge_base_article
 
-      if @knowledge_base_article.save
-        redirect_to [:admin,@knowledge_base_article], notice: %(Saved "#{@knowledge_base_article.title}" successfully.)
-      else
-        set_product_types
-        render :new
+        if @knowledge_base_article.save
+          redirect_to [:admin,@knowledge_base_article], notice: %(Saved "#{@knowledge_base_article.title}" successfully.)
+        else
+          set_product_types
+          render :new
+        end
       end
     end
 
     def update
-      if @knowledge_base_article.update(knowledge_base_article_params)
-        redirect_to [:admin,@knowledge_base_article], notice: %(Updated "#{@knowledge_base_article.title}" successfully.)
-      else
-        set_product_types
-        render :edit
+      Mobility.with_locale(params[:translation_locale]) do
+        if @knowledge_base_article.update(knowledge_base_article_params)
+          redirect_to [:admin,@knowledge_base_article], notice: %(Updated "#{@knowledge_base_article.title}" successfully.)
+        else
+          set_product_types
+          render :edit
+        end
       end
     end
 
     def destroy
-      @knowledge_base_article.destroy
-      redirect_to admin_knowledge_base_articles_path, notice: %(Deleted "#{@knowledge_base_article.title}" successfully.)
+      translation_locale = params[:translation_locale]
+
+      if translation_locale
+        if @knowledge_base_article.translations.count > 1
+          Mobility.with_locale(translation_locale) do
+            @knowledge_base_article.translation.destroy
+            message = %(Deleted #{helpers.humanize_locale translation_locale} translation successfully.)
+          end
+        else
+          message = %(#{helpers.humanize_locale translation_locale} is the only translation left and cannot be deleted. Delete the record, instead.)
+        end
+      else
+        @knowledge_base_article.destroy
+        message = %(Deleted "#{@knowledge_base_article.title}" successfully.)
+      end
+
+      redirect_to admin_knowledge_base_articles_path, notice: message
     end
 
     private

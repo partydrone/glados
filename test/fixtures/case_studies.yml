@@ -1,9 +1,0 @@
-new_case_study:
-  type: CaseStudy
-  title: My Case Study Fixture
-  subtitle: Temporary subtitle
-  location: New York
-  flag: US
-  body: This is the temporary case study content.
-  posted_on: <%= 12.months.ago.to_s(:db) %>
-  hero_image_id: 1

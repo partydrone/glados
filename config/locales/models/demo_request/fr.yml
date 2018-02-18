@@ -1,0 +1,13 @@
+---
+
+fr:
+  activemodel:
+    models:
+      demo_request: DemoRequest
+    attributes:
+      demo_request:
+        name: Nom
+        company: Compagnie
+        email: Email
+        country: Pays
+        region: Région (facultatif)

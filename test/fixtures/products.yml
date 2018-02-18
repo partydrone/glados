@@ -5,8 +5,6 @@ smartsensor_hd:
   part_number: 101-0415
   matured_on:
   expired_on:
-  summary: SmartSensor HD summary
-  description: SmartSensor HD description.
   product_category: arterial
   hero_image_id: 1
   product_image_id: 1
@@ -16,8 +14,6 @@ active:
   part_number: 000-0000
   matured_on:
   expired_on:
-  summary: Active product summary
-  description: Active product description.
   product_category: arterial
   hero_image_id: 1
   product_image_id: 1
@@ -27,8 +23,6 @@ matured:
   part_number: 000-0001
   matured_on: <%= 1.week.ago.to_s(:db) %>
   expired_on:
-  summary: Matured product summary
-  description: Matured product description.
   product_category: arterial
   hero_image_id: 1
   product_image_id: 1
@@ -38,8 +32,6 @@ expired:
   part_number: 000-0002
   matured_on: <%= 1.week.ago.to_s(:db) %>
   expired_on: <%= 2.weeks.ago.to_s(:db) %>
-  summary: Expired product summary
-  description: Expired product description.
   product_category: arterial
   hero_image_id: 1
   product_image_id: 1

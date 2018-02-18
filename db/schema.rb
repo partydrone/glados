@@ -10,27 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170619170540) do
+ActiveRecord::Schema.define(version: 20180206185936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "articles", force: :cascade do |t|
-    t.string   "type"
+  create_table "article_translations", force: :cascade do |t|
+    t.integer  "article_id", null: false
+    t.string   "locale",     null: false
     t.string   "title"
     t.string   "subtitle"
+    t.text     "body"
+    t.integer  "views"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id", "locale"], name: "index_article_translations_on_article_id_and_locale", unique: true, using: :btree
+    t.index ["article_id"], name: "index_article_translations_on_article_id", using: :btree
+    t.index ["locale"], name: "index_article_translations_on_locale", using: :btree
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "type"
     t.string   "author"
     t.string   "location"
     t.string   "flag"
-    t.text     "body"
     t.date     "posted_on"
-    t.datetime "created_at",              precision: 6,             null: false
-    t.datetime "updated_at",              precision: 6,             null: false
+    t.datetime "created_at",              precision: 6, null: false
+    t.datetime "updated_at",              precision: 6, null: false
     t.string   "hero_image_id"
     t.string   "hero_image_filename"
     t.integer  "hero_image_size"
     t.string   "hero_image_content_type"
-    t.integer  "views",                                 default: 0
   end
 
   create_table "articles_products", id: false, force: :cascade do |t|
@@ -65,24 +75,43 @@ ActiveRecord::Schema.define(version: 20170619170540) do
     t.datetime "updated_at",            precision: 6, null: false
   end
 
-  create_table "download_types", force: :cascade do |t|
+  create_table "download_translations", force: :cascade do |t|
+    t.integer  "download_id",       null: false
+    t.string   "locale",            null: false
+    t.string   "title"
+    t.string   "file_id"
+    t.string   "file_filename"
+    t.integer  "file_size"
+    t.string   "file_content_type"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["download_id", "locale"], name: "index_download_translations_on_download_id_and_locale", unique: true, using: :btree
+    t.index ["download_id"], name: "index_download_translations_on_download_id", using: :btree
+    t.index ["locale"], name: "index_download_translations_on_locale", using: :btree
+  end
+
+  create_table "download_type_translations", force: :cascade do |t|
+    t.integer  "download_type_id", null: false
+    t.string   "locale",           null: false
     t.string   "name"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["download_type_id", "locale"], name: "index_download_type_translations_on_download_type_id_and_locale", unique: true, using: :btree
+    t.index ["download_type_id"], name: "index_download_type_translations_on_download_type_id", using: :btree
+    t.index ["locale"], name: "index_download_type_translations_on_locale", using: :btree
+  end
+
+  create_table "download_types", force: :cascade do |t|
     t.integer  "position"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "downloads", force: :cascade do |t|
-    t.string   "locale"
-    t.string   "title"
     t.string   "part_number"
     t.integer  "download_type_id"
-    t.datetime "created_at",        precision: 6, null: false
-    t.datetime "updated_at",        precision: 6, null: false
-    t.string   "file_id"
-    t.string   "file_filename"
-    t.integer  "file_size"
-    t.string   "file_content_type"
+    t.datetime "created_at",       precision: 6, null: false
+    t.datetime "updated_at",       precision: 6, null: false
     t.index ["download_type_id"], name: "index_downloads_on_download_type_id", using: :btree
   end
 
@@ -109,11 +138,21 @@ ActiveRecord::Schema.define(version: 20170619170540) do
     t.index ["product_id"], name: "index_feature_associations_on_product_id", using: :btree
   end
 
-  create_table "features", force: :cascade do |t|
+  create_table "feature_translations", force: :cascade do |t|
+    t.integer  "feature_id",       null: false
+    t.string   "locale",           null: false
     t.string   "title"
     t.string   "youtube_video_id"
     t.text     "description"
     t.text     "body"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["feature_id", "locale"], name: "index_feature_translations_on_feature_id_and_locale", unique: true, using: :btree
+    t.index ["feature_id"], name: "index_feature_translations_on_feature_id", using: :btree
+    t.index ["locale"], name: "index_feature_translations_on_locale", using: :btree
+  end
+
+  create_table "features", force: :cascade do |t|
     t.datetime "created_at",              precision: 6, null: false
     t.datetime "updated_at",              precision: 6, null: false
     t.string   "hero_image_id"
@@ -150,8 +189,9 @@ ActiveRecord::Schema.define(version: 20170619170540) do
     t.string   "file_filename"
     t.string   "file_size"
     t.string   "file_content_type"
-    t.datetime "created_at",        precision: 6, null: false
-    t.datetime "updated_at",        precision: 6, null: false
+    t.datetime "created_at",        precision: 6,              null: false
+    t.datetime "updated_at",        precision: 6,              null: false
+    t.text     "country_ids",                     default: [],              array: true
   end
 
   create_table "patents", force: :cascade do |t|
@@ -180,8 +220,6 @@ ActiveRecord::Schema.define(version: 20170619170540) do
   end
 
   create_table "product_categories", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
     t.integer  "position"
     t.integer  "product_type_id"
     t.datetime "created_at",              precision: 6, null: false
@@ -197,8 +235,43 @@ ActiveRecord::Schema.define(version: 20170619170540) do
     t.index ["product_type_id"], name: "index_product_categories_on_product_type_id", using: :btree
   end
 
-  create_table "product_types", force: :cascade do |t|
+  create_table "product_category_translations", force: :cascade do |t|
+    t.integer  "product_category_id", null: false
+    t.string   "locale",              null: false
     t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["locale"], name: "index_product_category_translations_on_locale", using: :btree
+    t.index ["product_category_id", "locale"], name: "index_product_category_translations_on_prod_cat_id_and_locale", unique: true, using: :btree
+    t.index ["product_category_id"], name: "index_product_category_translations_on_product_category_id", using: :btree
+  end
+
+  create_table "product_translations", force: :cascade do |t|
+    t.integer  "product_id",       null: false
+    t.string   "locale",           null: false
+    t.string   "summary"
+    t.text     "description"
+    t.string   "youtube_video_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["locale"], name: "index_product_translations_on_locale", using: :btree
+    t.index ["product_id", "locale"], name: "index_product_translations_on_product_id_and_locale", unique: true, using: :btree
+    t.index ["product_id"], name: "index_product_translations_on_product_id", using: :btree
+  end
+
+  create_table "product_type_translations", force: :cascade do |t|
+    t.integer  "product_type_id", null: false
+    t.string   "locale",          null: false
+    t.string   "name"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["locale"], name: "index_product_type_translations_on_locale", using: :btree
+    t.index ["product_type_id", "locale"], name: "index_product_type_translations_on_product_type_id_and_locale", unique: true, using: :btree
+    t.index ["product_type_id"], name: "index_product_type_translations_on_product_type_id", using: :btree
+  end
+
+  create_table "product_types", force: :cascade do |t|
     t.integer  "position"
     t.datetime "created_at",              precision: 6, null: false
     t.datetime "updated_at",              precision: 6, null: false
@@ -215,13 +288,10 @@ ActiveRecord::Schema.define(version: 20170619170540) do
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.string   "part_number"
-    t.string   "summary"
-    t.text     "description"
     t.date     "expired_on"
     t.integer  "product_category_id"
-    t.datetime "created_at",                 precision: 6, null: false
-    t.datetime "updated_at",                 precision: 6, null: false
-    t.string   "youtube_video_id"
+    t.datetime "created_at",                 precision: 6,              null: false
+    t.datetime "updated_at",                 precision: 6,              null: false
     t.string   "hero_image_id"
     t.string   "hero_image_filename"
     t.integer  "hero_image_size"
@@ -231,7 +301,13 @@ ActiveRecord::Schema.define(version: 20170619170540) do
     t.integer  "product_image_size"
     t.string   "product_image_content_type"
     t.date     "matured_on"
+    t.text     "country_ids",                              default: [],              array: true
     t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
+  end
+
+  create_table "products_software_downloads", id: false, force: :cascade do |t|
+    t.integer "product_id",           null: false
+    t.integer "software_download_id", null: false
   end
 
   create_table "redirect_rules", force: :cascade do |t|
@@ -297,6 +373,14 @@ ActiveRecord::Schema.define(version: 20170619170540) do
     t.datetime "updated_at",      precision: 6, null: false
     t.integer  "sales_region_id"
     t.index ["sales_region_id"], name: "index_sales_territories_on_sales_region_id", using: :btree
+  end
+
+  create_table "software_downloads", force: :cascade do |t|
+    t.string "title"
+    t.string "file_id"
+    t.string "file_filename"
+    t.string "file_size"
+    t.string "file_content_type"
   end
 
   create_table "taggings", force: :cascade do |t|

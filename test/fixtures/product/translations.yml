@@ -1,0 +1,25 @@
+---
+
+smartsensor_hd_translation:
+  translated_model: smartsensor_hd
+  language: en
+  summary: SmartSensor HD summary
+  description: SmartSensor HD description.
+
+active_translation:
+  translated_model: active
+  language: en
+  summary: Active product summary
+  description: Active product description.
+
+matured_translation:
+  translated_model: matured
+  language: en
+  summary: Matured product summary
+  description: Matured product description.
+
+expired_translation:
+  translated_model: expired
+  language: en
+  summary: Expired product summary
+  description: Expired product description.

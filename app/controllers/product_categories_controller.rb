@@ -1,5 +1,5 @@
 class ProductCategoriesController < ApplicationController
   def show
-    @product_category = ProductCategory.includes(:active_products).find(params[:id])
+    @product_category = ProductCategory.find(params[:id])
   end
 end

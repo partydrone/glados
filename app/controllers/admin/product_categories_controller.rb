@@ -10,6 +10,7 @@ module Admin
     def show
       @product_category = ProductCategory.includes(:products).find(params[:id])
       authorize @product_category
+      @translation_locale = params[:translation_locale] || I18n.locale
     end
 
     def new
@@ -21,27 +22,46 @@ module Admin
     end
 
     def create
-      @product_category = ProductCategory.new(product_category_params)
-      authorize @product_category
+      Mobility.with_locale(params[:translation_locale]) do
+        @product_category = ProductCategory.new(product_category_params)
+        authorize @product_category
 
-      if @product_category.save
-        redirect_to admin_product_categories_path, notice: %(Saved "#{@product_category.name}" successfully.)
-      else
-        render :new
+        if @product_category.save
+          redirect_to admin_product_categories_path, notice: %(Saved "#{@product_category.name}" successfully.)
+        else
+          render :new
+        end
       end
     end
 
     def update
-      if @product_category.update(product_category_params)
-        redirect_to admin_product_categories_path, notice: %(Updated "#{@product_category.name} successfully.")
-      else
-        render :edit
+      Mobility.with_locale(params[:translation_locale]) do
+        if @product_category.update(product_category_params)
+          redirect_to admin_product_categories_path, notice: %(Updated "#{@product_category.name} successfully.")
+        else
+          render :edit
+        end
       end
     end
 
     def destroy
-      @product_category.destroy
-      redirect_to admin_product_categories_path, notice: %(Deleted #{@product_category.name} successfully.)
+      translation_locale = params[:translation_locale]
+
+      if translation_locale
+        if @product_category.translations.count > 1
+          Mobility.with_locale(translation_locale) do
+            @product_category.translation.destroy
+            message = %(Deleted #{helpers.humanize_locale translation_locale} translation successfully.)
+          end
+        else
+          message = %(#{helpers.humanize_locale translation_locale} is the only translation left and cannot be deleted. Delete the record, instead.)
+        end
+      else
+        @product_category.destroy
+        message = %(Deleted #{@product_category.name} successfully.)
+      end
+
+      redirect_to admin_product_categories_path, notice: message
     end
 
     def sort
