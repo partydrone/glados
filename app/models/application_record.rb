@@ -21,4 +21,8 @@ class ApplicationRecord < ActiveRecord::Base
       end
     end
   end
+
+  def translation(locale = Mobility.locale)
+    translations.where(locale: locale).first
+  end
 end
