@@ -4,7 +4,7 @@ class UpdateForActsAsTaggableEngine < ActiveRecord::Migration[5.0]
       t.references :tagger, polymorphic: true
       t.string :context, limit: 128
 
-      t.remove_index [:taggable_id, :taggable_type]
+      t.remove_index [:taggable_type, :taggable_id]
 
       t.index :taggable_id
       t.index :taggable_type
