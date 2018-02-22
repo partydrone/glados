@@ -29,11 +29,15 @@
   <%= form.label :body %>
   <%= form.cktext_area :body, rows: 30 %>
   <div class="ui-widget">
-    <%=form.label :tag_list, "Tags (separated by commas) (regions include: #{Tag::REGIONS.join(', ')})" %>
+    <%=form.label :region_list, "Regions (one of: #{@regions.join(', ')})" %>
+    <%= form.text_field :region_list, value: form.object.region_list.to_s, :id => 'auto_complete_regions' %>
+  </div>
+  <div class="ui-widget">
+    <%=form.label :tag_list, "Tags (separated by commas)" %>
     <%= form.text_field :tag_list, value: form.object.tag_list.to_s, :id => 'auto_complete_tags' %>
   </div>
   <%= form.button nil, class: 'button radius' %>
 <% end %>
 
-<%= content_tag :div, class: "taggable_items", data: {taggable_items: @taggable_items} do %>
-<% end %>
+<%= content_tag :div, id: "complete_region_list", data: {regions: @regions} do %><% end %>
+<%= content_tag :div, id: "complete_tag_list", data: {tags: @tags} do %><% end %>

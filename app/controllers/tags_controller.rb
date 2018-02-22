@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
   def show
-    @tag = Tag.includes(:taggings).find_by(name: params[:name].gsub('-', ' '))
+    @tag = ActsAsTaggableOn::Tag.find(params[:id])
   end
 end

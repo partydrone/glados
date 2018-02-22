@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
-  include Taggable
   include PgSearch
+
+  acts_as_taggable
 
   translates :summary, :description, :youtube_video_id, fallbacks: { 'fr-FR': :fr }
 

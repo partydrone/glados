@@ -1,6 +1,7 @@
 class Article < ApplicationRecord
-  include Taggable
   include PgSearch
+
+  acts_as_taggable_on :tags, :regions
 
   translates :title, :subtitle, :body, :views
 

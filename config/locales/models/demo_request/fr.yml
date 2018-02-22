@@ -7,7 +7,7 @@ fr:
     attributes:
       demo_request:
         name: Nom
-        company: Compagnie
+        company: Société
         email: Email
         country: Pays
         region: Région (facultatif)

@@ -87,7 +87,7 @@ Rails.application.routes.draw do
               :product_categories,
               only: [:show]
 
-    resources :tags, only: [:show], param: :name
+    resources :tags, only: [:show]
 
     resources :knowledge_base_articles,
               :return_material_authorization_policy_documents,

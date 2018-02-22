@@ -1,5 +1,5 @@
 class Feature < ApplicationRecord
-  include Taggable
+  acts_as_taggable
 
   translates :title, :youtube_video_id, :description, :body, fallbacks: { 'fr-FR': :fr }
 
