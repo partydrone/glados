@@ -1,7 +1,8 @@
 module Admin
   class BlogPostsController < BaseController
     before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
-    before_action :set_taggable_items, only: [:new, :edit]
+    before_action :set_regions, only: [:new, :edit]
+    before_action :set_tags, only: [:new, :edit]
 
     def index
       @blog_posts = BlogPost.order(updated_at: :desc)
@@ -77,12 +78,15 @@ module Admin
     end
 
     def blog_post_params
-      params.require(:blog_post).permit(:title, :subtitle, :author, :hero_image, :body, :posted_on, :tag_list)
+      params.require(:blog_post).permit(:title, :subtitle, :author, :hero_image, :body, :posted_on, :region_list, :tag_list)
     end
 
-    def set_taggable_items
-      @taggable_items = Tag.pluck(:name)
+    def set_regions
+      @regions = ActsAsTaggableOn::Tag.for_context(:regions).uniq.pluck(:name)
     end
 
+    def set_tags
+      @tags = ActsAsTaggableOn::Tag.for_context(:tags).uniq.pluck(:name)
+    end
   end
 end

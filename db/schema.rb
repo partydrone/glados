@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180206185936) do
+ActiveRecord::Schema.define(version: 20180219062404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "article_translations", force: :cascade do |t|
-    t.integer  "article_id", null: false
-    t.string   "locale",     null: false
+    t.integer  "article_id",               null: false
+    t.string   "locale",                   null: false
     t.string   "title"
     t.string   "subtitle"
     t.text     "body"
     t.integer  "views"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id", "locale"], name: "index_article_translations_on_article_id_and_locale", unique: true, using: :btree
     t.index ["article_id"], name: "index_article_translations_on_article_id", using: :btree
     t.index ["locale"], name: "index_article_translations_on_locale", using: :btree
@@ -76,26 +76,26 @@ ActiveRecord::Schema.define(version: 20180206185936) do
   end
 
   create_table "download_translations", force: :cascade do |t|
-    t.integer  "download_id",       null: false
-    t.string   "locale",            null: false
+    t.integer  "download_id",                     null: false
+    t.string   "locale",                          null: false
     t.string   "title"
     t.string   "file_id"
     t.string   "file_filename"
     t.integer  "file_size"
     t.string   "file_content_type"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",        precision: 6, null: false
+    t.datetime "updated_at",        precision: 6, null: false
     t.index ["download_id", "locale"], name: "index_download_translations_on_download_id_and_locale", unique: true, using: :btree
     t.index ["download_id"], name: "index_download_translations_on_download_id", using: :btree
     t.index ["locale"], name: "index_download_translations_on_locale", using: :btree
   end
 
   create_table "download_type_translations", force: :cascade do |t|
-    t.integer  "download_type_id", null: false
-    t.string   "locale",           null: false
+    t.integer  "download_type_id",               null: false
+    t.string   "locale",                         null: false
     t.string   "name"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",       precision: 6, null: false
+    t.datetime "updated_at",       precision: 6, null: false
     t.index ["download_type_id", "locale"], name: "index_download_type_translations_on_download_type_id_and_locale", unique: true, using: :btree
     t.index ["download_type_id"], name: "index_download_type_translations_on_download_type_id", using: :btree
     t.index ["locale"], name: "index_download_type_translations_on_locale", using: :btree
@@ -139,14 +139,14 @@ ActiveRecord::Schema.define(version: 20180206185936) do
   end
 
   create_table "feature_translations", force: :cascade do |t|
-    t.integer  "feature_id",       null: false
-    t.string   "locale",           null: false
+    t.integer  "feature_id",                     null: false
+    t.string   "locale",                         null: false
     t.string   "title"
     t.string   "youtube_video_id"
     t.text     "description"
     t.text     "body"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",       precision: 6, null: false
+    t.datetime "updated_at",       precision: 6, null: false
     t.index ["feature_id", "locale"], name: "index_feature_translations_on_feature_id_and_locale", unique: true, using: :btree
     t.index ["feature_id"], name: "index_feature_translations_on_feature_id", using: :btree
     t.index ["locale"], name: "index_feature_translations_on_locale", using: :btree
@@ -236,36 +236,36 @@ ActiveRecord::Schema.define(version: 20180206185936) do
   end
 
   create_table "product_category_translations", force: :cascade do |t|
-    t.integer  "product_category_id", null: false
-    t.string   "locale",              null: false
+    t.integer  "product_category_id",               null: false
+    t.string   "locale",                            null: false
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",          precision: 6, null: false
+    t.datetime "updated_at",          precision: 6, null: false
     t.index ["locale"], name: "index_product_category_translations_on_locale", using: :btree
     t.index ["product_category_id", "locale"], name: "index_product_category_translations_on_prod_cat_id_and_locale", unique: true, using: :btree
     t.index ["product_category_id"], name: "index_product_category_translations_on_product_category_id", using: :btree
   end
 
   create_table "product_translations", force: :cascade do |t|
-    t.integer  "product_id",       null: false
-    t.string   "locale",           null: false
+    t.integer  "product_id",                     null: false
+    t.string   "locale",                         null: false
     t.string   "summary"
     t.text     "description"
     t.string   "youtube_video_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",       precision: 6, null: false
+    t.datetime "updated_at",       precision: 6, null: false
     t.index ["locale"], name: "index_product_translations_on_locale", using: :btree
     t.index ["product_id", "locale"], name: "index_product_translations_on_product_id_and_locale", unique: true, using: :btree
     t.index ["product_id"], name: "index_product_translations_on_product_id", using: :btree
   end
 
   create_table "product_type_translations", force: :cascade do |t|
-    t.integer  "product_type_id", null: false
-    t.string   "locale",          null: false
+    t.integer  "product_type_id",               null: false
+    t.string   "locale",                        null: false
     t.string   "name"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",      precision: 6, null: false
+    t.datetime "updated_at",      precision: 6, null: false
     t.index ["locale"], name: "index_product_type_translations_on_locale", using: :btree
     t.index ["product_type_id", "locale"], name: "index_product_type_translations_on_product_type_id_and_locale", unique: true, using: :btree
     t.index ["product_type_id"], name: "index_product_type_translations_on_product_type_id", using: :btree
@@ -387,10 +387,21 @@ ActiveRecord::Schema.define(version: 20180206185936) do
     t.integer  "tag_id"
     t.string   "taggable_type"
     t.integer  "taggable_id"
-    t.datetime "created_at",    precision: 6, null: false
-    t.datetime "updated_at",    precision: 6, null: false
+    t.datetime "created_at",                precision: 6, null: false
+    t.datetime "updated_at",                precision: 6, null: false
+    t.string   "tagger_type"
+    t.integer  "tagger_id"
+    t.string   "context",       limit: 128
+    t.index ["context"], name: "index_taggings_on_context", using: :btree
+    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
     t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
-    t.index ["taggable_type", "taggable_id"], name: "index_taggings_on_taggable_type_and_taggable_id", using: :btree
+    t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy", using: :btree
+    t.index ["taggable_id"], name: "index_taggings_on_taggable_id", using: :btree
+    t.index ["taggable_type"], name: "index_taggings_on_taggable_type", using: :btree
+    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type", using: :btree
+    t.index ["tagger_id"], name: "index_taggings_on_tagger_id", using: :btree
+    t.index ["tagger_type", "tagger_id"], name: "index_taggings_on_tagger_type_and_tagger_id", using: :btree
   end
 
   create_table "tags", force: :cascade do |t|

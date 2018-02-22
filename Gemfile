@@ -45,10 +45,6 @@ gem 'browser'
 ##
 # File uploads
 gem 'aws-sdk', '~> 2.1'
-# gem 'carrierwave', '~> 1.0'
-# gem 'carrierwave-aws'
-# gem 'carrierwave_direct'
-# gem 'carrierwave_globalize', '~> 0.2.0'
 gem 'refile', require: 'refile/rails', github: 'refile', branch: 'master'
 gem 'sinatra', '~> 2.0'
 gem 'refile-mini_magick'
@@ -66,7 +62,6 @@ gem 'redcarpet', '~> 3.0'
 
 ##
 # I18n
-# gem 'globalize'
 gem 'mobility'
 gem 'activemodel-serializers-xml'
 gem 'rails-i18n', '~> 5.0.0'
@@ -84,6 +79,10 @@ gem 'redirector'
 ##
 # Search
 gem 'pg_search'
+
+##
+# Tagging
+gem 'acts-as-taggable-on', '~> 4.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
