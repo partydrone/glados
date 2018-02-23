@@ -138,7 +138,7 @@
 			<div id="product_downloads">
 				<% @downloads.group_by(&:download_type).sort_by { |key, value| key.position }.each do |download_type, downloads| %>
 				<div class="support-section columns">
-					<h3><%= download_type.name.pluralize %></h3>
+					<h3><%= download_type.name %></h3>
 					<%= render partial: 'download', collection: downloads %>
 				</div>
 				<% end %>
