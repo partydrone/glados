@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/refile/refile.git
-  revision: 65e392fdca5b6a0a7a45fdae726768fa18045db3
+  revision: 64403c0bcf50a5e7fd669356106d531cd33609ec
   branch: master
   specs:
     refile (0.6.2)
@@ -69,13 +69,13 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     ansi (1.5.0)
     arel (7.1.4)
-    aws-sdk (2.10.134)
-      aws-sdk-resources (= 2.10.134)
-    aws-sdk-core (2.10.134)
+    aws-sdk (2.11.4)
+      aws-sdk-resources (= 2.11.4)
+    aws-sdk-core (2.11.4)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.10.134)
-      aws-sdk-core (= 2.10.134)
+    aws-sdk-resources (2.11.4)
+      aws-sdk-core (= 2.11.4)
     aws-sigv4 (1.0.2)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -125,7 +125,7 @@ GEM
     execjs (2.7.0)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.21)
+    ffi (1.9.23)
     formatador (0.2.5)
     foundation-rails (6.2.4.0)
       railties (>= 3.1.0)
