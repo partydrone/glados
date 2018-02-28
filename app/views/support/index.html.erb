@@ -46,14 +46,28 @@
 	</h1>
 </div>
 
-<div class="row medium-up-3" id="product">
-	<%= render partial: 'product_type', collection: @product_types %>
+<div class="row">
+	<div class="search-dropdown search-bar knowledge-base-search">
+		<%= form_tag knowledge_base_articles_path, method: :get do %>
+			<div class="site-search-bar input-group">
+				<div class="input-group-button">
+					<?xml version="1.0" encoding="utf-8"?>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17">
+						<rect x="12.2" y="10" transform="translate(1 1)matrix(0.7071 -0.7071 0.7071 0.7071 -5.3589 12.9375)" class="st0" width="1.5" height="5.8"/><path class="st0" d="M7.3 14.3c-3.9 0-7-3.1-7-7 0-3.9 3.1-7 7-7 3.9 0 7 3.1 7 7C14.3 11.1 11.1 14.3 7.3 14.3zM7.3 1.8c-3 0-5.5 2.5-5.5 5.5 0 3 2.5 5.5 5.5 5.5 3 0 5.5-2.5 5.5-5.5C12.8 4.2 10.3 1.8 7.3 1.8z"/>
+					</svg>
+				</div>
+				<%= text_field_tag :query, params[:query], class: 'input-search-bar', placeholder: "Search support" %>
+			</div>
+		<% end %>
+	</div>		
 </div>
 
-<div class="row">
-	<div class="support-line-icon">
-		<%= image_tag('icons/speech-bubble.svg') %>
-	</div>
+<div class="row support-instructions">
+	<p class="text-center">Use the links below to view documents and software downloads related to our products.</p>
+</div>
+
+<div class="row medium-up-3" id="product">
+	<%= render partial: 'product_type', collection: @product_types %>
 </div>
 
 <div class="row" id="knowledge">
@@ -68,27 +82,11 @@
 	<div class="large-4 columns support-knowledge-base-search">
   	<h4><%= t(".question") %></h4>
   	<h4><%= t(".search_knowledge_base") %></h4>
-    <div class="request-box">
-      <div class="request row">
-        <div class="medium-10 medium-centered columns">
-          <div class="search-dropdown search-bar">
-						<%= form_tag knowledge_base_articles_path, method: :get do %>
-	            <div class="site-search-bar input-group">
-	              <div class="input-group-button">
-	                <?xml version="1.0" encoding="utf-8"?>
-	                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17">
-	                  <rect x="12.2" y="10" transform="translate(1 1)matrix(0.7071 -0.7071 0.7071 0.7071 -5.3589 12.9375)" class="st0" width="1.5" height="5.8"/><path class="st0" d="M7.3 14.3c-3.9 0-7-3.1-7-7 0-3.9 3.1-7 7-7 3.9 0 7 3.1 7 7C14.3 11.1 11.1 14.3 7.3 14.3zM7.3 1.8c-3 0-5.5 2.5-5.5 5.5 0 3 2.5 5.5 5.5 5.5 3 0 5.5-2.5 5.5-5.5C12.8 4.2 10.3 1.8 7.3 1.8z"/>
-	                </svg>
-	              </div>
-								<%= text_field_tag :query, params[:query], class: 'input-search-bar' %>
-	            </div>
-						<% end %>
-          </div>
-          <p><%= t(".visit") %></p>
-          <%= link_to t(".knowledge_base"), knowledge_base_articles_path, class:"button rounded expanded" %>
-        </div>
-      </div>
-	  </div>
+		<div class="row">
+			<div class="medium-10 medium-centered columns">
+				<%= link_to t(".knowledge_base"), knowledge_base_articles_path, class:"button rounded expanded" %>
+			</div>
+		</div>
 	</div>
 </div>
 
