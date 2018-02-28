@@ -23,6 +23,6 @@ class ApplicationRecord < ActiveRecord::Base
   end
 
   def translation(locale = Mobility.locale)
-    translations.find { |t| t.locale == locale }
+    translations.find { |t| t.locale == locale.to_s }
   end
 end

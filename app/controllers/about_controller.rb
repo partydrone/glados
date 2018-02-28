@@ -1,6 +1,6 @@
 class AboutController < ApplicationController
   def index
-    @recent_articles  = Article.i18n.current.news_articles.order(posted_on: :desc).limit(4).to_a
+    @recent_articles  = Article.i18n.current.news_articles.join_translations.order(posted_on: :desc).limit(4).to_a
     @featured_article = @recent_articles.shift
 
     @top_articles = Article.i18n.current.news_articles.join_translations.order('article_translations.views desc', 'articles.posted_on desc').limit(10)
