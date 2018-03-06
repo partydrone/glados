@@ -22,3 +22,11 @@ if Rails.env.production? || Rails.env.staging?
   Refile.cache = Refile::S3.new(prefix: 'cache', **aws)
   Refile.store = Refile::S3.new(prefix: 'store', **aws)
 end
+
+Refile.processor :quality do |file|
+  MiniMagick::Tool::Convert.new do |convert|
+    convert << file.path
+    convert.quality(80)
+    convert << file.path
+  end.call
+end
