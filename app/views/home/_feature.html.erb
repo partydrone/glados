@@ -1,12 +1,14 @@
-<div class="home-story">
-  <%= link_to feature do %>
-    <div class="home-stories-image">
-      <h4 class="stories-rollover-hidden"><%= feature.title %></h4>
-      <%= attachment_image_tag feature, :hero_image, :fill, 270, 152, fallback: 'http://placehold.it/270x152' %>
-    </div>
-    <h4 class="stories-rollover-shown"><%= feature.title %></h4>
-    <div class="stories-hidden-text hide-for-small">
-      <p><%= feature.description.truncate(30, separator: /\s/) %></p>
-    </div>
-  <% end %>
-</div>
+<% cache feature do %>
+  <div class="home-story">
+    <%= link_to feature do %>
+      <div class="home-stories-image">
+        <h4 class="stories-rollover-hidden"><%= feature.title %></h4>
+        <%= attachment_image_tag feature, :hero_image, :fill, 270, 152, fallback: 'http://placehold.it/270x152' %>
+      </div>
+      <h4 class="stories-rollover-shown"><%= feature.title %></h4>
+      <div class="stories-hidden-text hide-for-small">
+        <p><%= feature.description.truncate(30, separator: /\s/) %></p>
+      </div>
+    <% end %>
+  </div>
+<% end %>
