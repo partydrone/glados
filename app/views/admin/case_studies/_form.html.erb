@@ -1,41 +1,41 @@
-<%= form_for [:admin,@case_study], validate: true do |f| %>
+<%= form_for [:admin,@case_study], validate: true do |form| %>
   <%= label_tag :translation_locale %>
   <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @case_study.title_backend.locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
 
   <div class="row">
     <div class="medium-9 columns">
-      <%= f.label :title %>
-      <%= f.text_field :title %>
+      <%= form.label :title %>
+      <%= form.text_field :title %>
     </div>
     <div class="medium-3 columns">
-      <%= f.label :posted_on %>
-      <%= f.date_field :posted_on, placeholder: 'yyyy-mm-dd' %>
+      <%= form.label :posted_on %>
+      <%= form.date_field :posted_on, placeholder: 'yyyy-mm-dd' %>
     </div>
   </div>
   <div class="row">
     <div class="medium-3 columns">
-      <%= f.label :flag %>
-      <%= f.select :flag, COUNTRIES.invert.sort %>
+      <%= form.label :flag %>
+      <%= form.select :flag, COUNTRIES.invert.sort %>
     </div>
     <div class="medium-9 columns">
-      <%= f.label :location %>
-      <%= f.text_field :location %>
+      <%= form.label :location %>
+      <%= form.text_field :location %>
     </div>
   </div>
   <div class="row">
     <%= content_tag :div, class: 'medium-8 columns' do %>
-      <%= f.label :current_hero_image %>
+      <%= form.label :current_hero_image %>
       <%= attachment_image_tag @case_study, :hero_image %>
     <% end if @case_study.hero_image && @case_study.hero_image.exists? %>
     <div class="medium-4 columns">
-      <%= f.label :hero_image %>
-      <%= f.attachment_field :hero_image, direct: true, presigned: true %>
+      <%= form.label :hero_image %>
+      <%= form.attachment_field :hero_image, direct: true, presigned: true %>
     </div>
   </div>
-  <%= f.label :subtitle %>
-  <%= f.text_area :subtitle, rows: 3 %>
-  <%= f.label :body %>
-  <%= f.cktext_area :body, rows: 30 %>
+  <%= form.label :subtitle %>
+  <%= form.text_area :subtitle, rows: 3 %>
+  <%= form.label :body %>
+  <%= form.cktext_area :body, rows: 30 %>
   <div class="ui-widget">
     <%=form.label :region_list, "Regions (one of: #{@regions.join(', ')})" %>
     <%= form.text_field :region_list, value: form.object.region_list.to_s, :id => 'auto_complete_regions' %>
@@ -44,7 +44,7 @@
     <%=form.label :tag_list, "Tags (separated by commas)" %>
     <%= form.text_field :tag_list, value: form.object.tag_list.to_s, :id => 'auto_complete_tags' %>
   </div>
-  <%= f.button nil, class: 'button radius' %>
+  <%= form.button nil, class: 'button radius' %>
 <% end %>
 
 <%= content_tag :div, id: "complete_region_list", data: {regions: @regions} do %><% end %>
