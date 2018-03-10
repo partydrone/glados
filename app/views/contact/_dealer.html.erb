@@ -1,35 +1,37 @@
-<div class="column column-block">
-  <ul class="office-information" itemscope itemtype="http://schema.org/Organization">
-    <%= content_tag :li do %>
-      <%= content_tag :h3, dealer.name, itemprop: 'name' %>
-    <% end %>
+<% cache dealer do %>
+  <div class="column column-block">
+    <ul class="office-information" itemscope itemtype="http://schema.org/Organization">
+      <%= content_tag :li do %>
+        <%= content_tag :h3, dealer.name, itemprop: 'name' %>
+      <% end %>
 
-    <%= content_tag :li do %>
-      <%= image_tag('icons/map_location.svg', class: 'li-icon small-icon') %>
-      <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-        <%= content_tag :div, markdown(dealer.address), itemprop: 'streetAddress' %>
-        <%= content_tag :div, dealer.locality, itemprop: 'addressLocality' if dealer.locality.present? %>
-        <%= content_tag :div, dealer.region, itemprop: 'addressRegion' if dealer.region.present? %>
-        <%= content_tag :div, dealer.postal_code, itemprop: 'postalCode' if dealer.postal_code.present? %>
-        <div itemprop="addressCountry" itemscope itemtype="http://schema.org/Country">
-          <%= content_tag :div, t("countries.#{dealer.country_id}"), itemprop: 'name' %>
+      <%= content_tag :li do %>
+        <%= image_tag('icons/map_location.svg', class: 'li-icon small-icon') %>
+        <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+          <%= content_tag :div, markdown(dealer.address), itemprop: 'streetAddress' %>
+          <%= content_tag :div, dealer.locality, itemprop: 'addressLocality' if dealer.locality.present? %>
+          <%= content_tag :div, dealer.region, itemprop: 'addressRegion' if dealer.region.present? %>
+          <%= content_tag :div, dealer.postal_code, itemprop: 'postalCode' if dealer.postal_code.present? %>
+          <div itemprop="addressCountry" itemscope itemtype="http://schema.org/Country">
+            <%= content_tag :div, t("countries.#{dealer.country_id}"), itemprop: 'name' %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
 
-    <%= content_tag :li do %>
-      <%= image_tag('icons/phone.svg', class: 'li-icon small-icon') %>
-      <%= link_to dealer.phone, "tel:#{dealer.phone}", itemprop: 'telephone' %>
-    <% end if dealer.phone.present? %>
+      <%= content_tag :li do %>
+        <%= image_tag('icons/phone.svg', class: 'li-icon small-icon') %>
+        <%= link_to dealer.phone, "tel:#{dealer.phone}", itemprop: 'telephone' %>
+      <% end if dealer.phone.present? %>
 
-    <%= content_tag :li do %>
-      <%= image_tag('icons/email.svg', class: 'li-icon small-icon') %>
-      <%= mail_to dealer.email, dealer.email, subject: 'Wavetronix Product Iquiry', itemprop: 'email' %>
-    <% end if dealer.email.present? %>
+      <%= content_tag :li do %>
+        <%= image_tag('icons/email.svg', class: 'li-icon small-icon') %>
+        <%= mail_to dealer.email, dealer.email, subject: 'Wavetronix Product Iquiry', itemprop: 'email' %>
+      <% end if dealer.email.present? %>
 
-    <%= content_tag :li do %>
-      <%= image_tag('icons/world.svg', class: 'li-icon small-icon') %>
-      <%= link_to URI(dealer.website).host, dealer.website, target: '_blank', itemprop: 'url' %>
-    <% end if dealer.website.present? %>
-  </ul>
-</div>
+      <%= content_tag :li do %>
+        <%= image_tag('icons/world.svg', class: 'li-icon small-icon') %>
+        <%= link_to URI(dealer.website).host, dealer.website, target: '_blank', itemprop: 'url' %>
+      <% end if dealer.website.present? %>
+    </ul>
+  </div>
+<% end %>
