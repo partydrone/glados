@@ -39,13 +39,13 @@
           <%= builder.text_field :email %>
         </div>
         <div class="medium-3 columns">
-          <div>&nbsp</div>              
+          <div>&nbsp</div>
           <%= builder.remove_nested_fields_link 'Remove this Enrollment' %>
         </div>
-      </div>      
+      </div>
     <% end %>
     <%= tec.add_nested_fields_link :enrollments, 'Add another Enrollment' %>
   <% end %>
   </div>
   <%= enrollment.add_nested_fields_link :training_event_courses, 'Add another course' %>
-</div>    
+</div>

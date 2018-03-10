@@ -1,14 +1,16 @@
-<tr>
-  <td class="admin-left-edit">
-    <%= render partial: 'options_edit', locals: {object: role, instance_name: role.name} if policy(role).edit? %>
-  </td>
-  <td>
-    <%= role.name %>
-  </td>
-  <td>
-    <%=  %>
-  </td>
-  <td class="admin-right-delete">
-    <%= render partial: 'options_delete', locals: {object: role, instance_name: role.name} if policy(role).destroy? %>
-  </td>
-</tr>
+<% cache role do %>
+  <tr>
+    <td class="admin-left-edit">
+      <%= render partial: 'options_edit', locals: {object: role, instance_name: role.name} if policy(role).edit? %>
+    </td>
+    <td>
+      <%= role.name %>
+    </td>
+    <td>
+      <%=  %>
+    </td>
+    <td class="admin-right-delete">
+      <%= render partial: 'options_delete', locals: {object: role, instance_name: role.name} if policy(role).destroy? %>
+    </td>
+  </tr>
+<% end %>

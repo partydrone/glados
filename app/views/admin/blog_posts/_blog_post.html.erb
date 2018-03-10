@@ -1,30 +1,32 @@
-<%= content_tag_for :tr, blog_post do %>
-  <td class="admin-left-edit">
-    <%= render partial: 'options_edit', locals: {object: blog_post, instance_name: blog_post.title} %>
-  </td>
-  <td style="text-align: center">
-    <%= attachment_image_tag blog_post, :hero_image, :fit, 80, 45, fallback: 'http://placehold.it/20/eaa800/ffffff' %>
-  </td>
-  <td>
-    <%= link_to blog_post.title, [:admin, blog_post] %>
-  </td>
-  <td>
-    <% blog_post.title_backend.locales.each do |l| %>
-      <%= content_tag :span, class: 'secondary label' do %>
-        <%= humanize_locale(l) %>
-        <% Mobility.with_locale(l) do %>
-        <%= link_to 'x', admin_blog_post_path(blog_post, translation_locale: l), method: :delete, data: { confirm: %(Are you sure you want to delete this #{humanize_locale l} translation? This cannot be undone.) } %>
+<% cache blog_post do %>
+  <%= content_tag_for :tr, blog_post do %>
+    <td class="admin-left-edit">
+      <%= render partial: 'options_edit', locals: {object: blog_post, instance_name: blog_post.title} %>
+    </td>
+    <td style="text-align: center">
+      <%= attachment_image_tag blog_post, :hero_image, :fit, 80, 45, fallback: 'http://placehold.it/20/eaa800/ffffff' %>
+    </td>
+    <td>
+      <%= link_to blog_post.title, [:admin, blog_post] %>
+    </td>
+    <td>
+      <% blog_post.title_backend.locales.each do |l| %>
+        <%= content_tag :span, class: 'secondary label' do %>
+          <%= humanize_locale(l) %>
+          <% Mobility.with_locale(l) do %>
+          <%= link_to 'x', admin_blog_post_path(blog_post, translation_locale: l), method: :delete, data: { confirm: %(Are you sure you want to delete this #{humanize_locale l} translation? This cannot be undone.) } %>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
-  </td>
-  <td>
-    <%= l blog_post.posted_on.to_date %>
-  </td>
-  <td>
-    <%= l blog_post.updated_at.to_date %>
-  </td>
-  <td class="admin-right-delete">
-    <%= render partial: 'options_delete', locals: {object: blog_post, instance_name: blog_post.title} %>
-  </td>
+    </td>
+    <td>
+      <%= l blog_post.posted_on.to_date %>
+    </td>
+    <td>
+      <%= l blog_post.updated_at.to_date %>
+    </td>
+    <td class="admin-right-delete">
+      <%= render partial: 'options_delete', locals: {object: blog_post, instance_name: blog_post.title} %>
+    </td>
+  <% end %>
 <% end %>

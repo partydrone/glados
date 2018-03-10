@@ -1,11 +1,13 @@
-<%= content_tag_for :tr, feature_association do %>
-  <td class="handle admin-table-move">
-    <%= image_tag 'icons/ellipsisup-small.svg', class: 'small-icon' %>
-  </td>
-  <td>
-    <%= attachment_image_tag feature_association.feature, :hero_image, :fill, 64, 36 %>
-  </td>
-  <td>
-    <%= feature_association.feature.title %>
-  </td>
+<% cache feature_association do %>
+  <%= content_tag_for :tr, feature_association do %>
+    <td class="handle admin-table-move">
+      <%= image_tag 'icons/ellipsisup-small.svg', class: 'small-icon' %>
+    </td>
+    <td>
+      <%= attachment_image_tag feature_association.feature, :hero_image, :fill, 64, 36 %>
+    </td>
+    <td>
+      <%= feature_association.feature.title %>
+    </td>
+  <% end %>
 <% end %>

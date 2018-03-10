@@ -1,11 +1,13 @@
-<%= content_tag_for :tr, software_download do %>
-  <td class="admin-left-edit">
-    <%= render partial: 'options_edit', locals: {object: software_download, instance_name: software_download.title} %>
-  </td>
-  <td>
-    <%= software_download.title %>
-  </td>
-  <td class="admin-right-delete">
-    <%= render partial: 'options_delete', locals: {object: software_download, instance_name: software_download.title} %>
-  </td>
+<% cache software_download do %>
+  <%= content_tag_for :tr, software_download do %>
+    <td class="admin-left-edit">
+      <%= render partial: 'options_edit', locals: {object: software_download, instance_name: software_download.title} %>
+    </td>
+    <td>
+      <%= software_download.title %>
+    </td>
+    <td class="admin-right-delete">
+      <%= render partial: 'options_delete', locals: {object: software_download, instance_name: software_download.title} %>
+    </td>
+  <% end %>
 <% end %>

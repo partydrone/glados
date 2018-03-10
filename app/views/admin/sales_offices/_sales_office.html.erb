@@ -1,17 +1,19 @@
-<%= content_tag_for :tr, sales_office do %>
-  <td class="admin-left-edit">
-    <%= render partial: 'options_edit', locals: {object: sales_office, instance_name: sales_office.name} %>
-  </td>
-  <td>
-    <%= link_to sales_office.name, [:admin, sales_office] %>
-  </td>
-  <td>
-    <%= sales_office.region %>
-  </td>
-  <td>
-    <%= t "countries.#{sales_office.country_id}" %>
-  </td>
-  <td class="admin-right-delete">
-    <%= render partial: 'options_delete', locals: {object: sales_office, instance_name: sales_office.name} %>
-  </td>
+<% cache sales_office do %>
+  <%= content_tag_for :tr, sales_office do %>
+    <td class="admin-left-edit">
+      <%= render partial: 'options_edit', locals: {object: sales_office, instance_name: sales_office.name} %>
+    </td>
+    <td>
+      <%= link_to sales_office.name, [:admin, sales_office] %>
+    </td>
+    <td>
+      <%= sales_office.region %>
+    </td>
+    <td>
+      <%= t "countries.#{sales_office.country_id}" %>
+    </td>
+    <td class="admin-right-delete">
+      <%= render partial: 'options_delete', locals: {object: sales_office, instance_name: sales_office.name} %>
+    </td>
+  <% end %>
 <% end %>

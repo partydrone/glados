@@ -1,17 +1,19 @@
-<%= content_tag_for :tr, website_privacy_policy_document do %>
-  <td class="admin-left-edit">
-    <%= render partial: 'options_edit', locals: {object: website_privacy_policy_document, instance_name: website_privacy_policy_document.title} %>
-  </td>
-  <td>
-    <%= link_to website_privacy_policy_document.title, website_privacy_policy_document %>
-  </td>
-  <td>
-    <%= l website_privacy_policy_document.effective_on.to_date, format: :long %>
-  </td>
-  <td>
-    <%= l website_privacy_policy_document.updated_at.to_date, format: :long %>
-  </td>
-  <td class="admin-right-delete">
-    <%= render partial: 'options_delete', locals: {object: website_privacy_policy_document, instance_name: website_privacy_policy_document.title} %>
-  </td>
+<% cache website_privacy_policy_document do %>
+  <%= content_tag_for :tr, website_privacy_policy_document do %>
+    <td class="admin-left-edit">
+      <%= render partial: 'options_edit', locals: {object: website_privacy_policy_document, instance_name: website_privacy_policy_document.title} %>
+    </td>
+    <td>
+      <%= link_to website_privacy_policy_document.title, website_privacy_policy_document %>
+    </td>
+    <td>
+      <%= l website_privacy_policy_document.effective_on.to_date, format: :long %>
+    </td>
+    <td>
+      <%= l website_privacy_policy_document.updated_at.to_date, format: :long %>
+    </td>
+    <td class="admin-right-delete">
+      <%= render partial: 'options_delete', locals: {object: website_privacy_policy_document, instance_name: website_privacy_policy_document.title} %>
+    </td>
+  <% end %>
 <% end %>
