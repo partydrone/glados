@@ -116,15 +116,18 @@
 	<%= content_tag :section, id: 'support', class: 'product-specific-support', data: {'magellan-target' => 'support'} do %>
 		<div class="row">
 			<div class="columns">
-				<h1><%= t(".support") %></h1>
+				<h1>
+					<%= t(".support") %><br />
+					<%= attachment_image_tag @product, :product_image, :limit, 100, 90, fallback: 'http://placehold.it/100x90' %>
+				</h1>
 			</div>
 		</div>
 
 		<%= content_tag :div, class: 'row small-up-2 medium-up-3' do %>
 			<h2><%= t '.software' %></h2>
-			<div class="column">
+			<ul>
 				<%= render partial: 'software_download', collection: @software_downloads %>
-			</div>
+			</ul>
 		<% end if @software_downloads.present? %>
 
 		<%= content_tag :div, class: 'row small-up-2 medium-up-3' do %>
@@ -139,7 +142,9 @@
 				<% @downloads.group_by(&:download_type).sort_by { |key, value| key.position }.each do |download_type, downloads| %>
 				<div class="support-section columns">
 					<h3><%= download_type.name %></h3>
-					<%= render partial: 'download', collection: downloads %>
+					<ul>
+						<%= render partial: 'download', collection: downloads %>
+					</ul>
 				</div>
 				<% end %>
 			</div>

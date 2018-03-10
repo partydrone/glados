@@ -135,18 +135,18 @@ features
     h4 {
       padding: 0.8rem 0;
     }
-    .product-feature {  
+    .product-feature {
       padding: 2rem 0;
       &:nth-child(odd) {
         background: rgba(230, 230, 230, 0.5);
       }
     }
   }
-  
+
 /***********************************************************************************************
 request a demo
 ***********************************************************************************************/
-  
+
   .product-request-demo {
     text-align: center;
     padding-top: 0.85rem;
@@ -212,6 +212,20 @@ support
   .product-specific-support {
     padding: 1.5rem 0.8rem;
     background: rgba(230, 230, 230, 0.5);
+
+    h2 {
+      margin-top: 1em;
+    }
+
+    h3 {
+      border-bottom: 1px solid $gainsboro;
+    }
+
+    li {
+      border-bottom: 1px solid $gainsboro;
+      line-height: 1.8em;
+    }
+
     @media screen and (min-width: 1024px) {
       min-height: -webkit-calc(100vh - 100px);
       min-height: -moz-calc(100vh - 100px);
@@ -225,10 +239,12 @@ support
 
   .support-download-item {
     padding: 0.5rem 0;
+
     .small-1 {
       padding: 0 !important;
       text-align: right;
     }
+
     img {
       max-width: 32px;
     }

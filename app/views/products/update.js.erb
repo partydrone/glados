@@ -3,8 +3,10 @@ jQuery(function () {
     <% Mobility.with_locale(@product_downloads_translation_locale) do %>
       <% @downloads.group_by(&:download_type).sort_by { |key, value| key.position }.each do |download_type, downloads| %>
       <div class="support-section columns">
-        <h3><%= j download_type.name.pluralize %></h3>
-        <%= j render(partial: 'download', collection: downloads) %>
+        <h3><%= j download_type.name %></h3>
+        <ul>
+          <%= j render(partial: 'download', collection: downloads) %>
+        </ul>
       </div>
       <% end %>
     <% end %>
