@@ -1,23 +1,25 @@
-<%= content_tag_for :tr, training_course do %>
-  <td class="admin-left-edit">
-    <%= render partial: 'options_edit', locals: {object: training_course, instance_name: training_course.title} %>
-  </td>
+<% cache training_course do %>
+  <%= content_tag_for :tr, training_course do %>
+    <td class="admin-left-edit">
+      <%= render partial: 'options_edit', locals: {object: training_course, instance_name: training_course.title} %>
+    </td>
+      <td>
+      <%= training_course.number %>
+    </td>
     <td>
-    <%= training_course.number %>
-  </td>  
-  <td>
-    <%# link_to training_course.title, [:admin, training_course] %>
-    <%= training_course.title %>
-  </td>
-  <td>
-    <%= training_course.duration %>
-  </td>
-  <td>
-  <% if training_course.summary %>  
-    <%= training_course.summary.truncate(60) %>      
+      <%# link_to training_course.title, [:admin, training_course] %>
+      <%= training_course.title %>
+    </td>
+    <td>
+      <%= training_course.duration %>
+    </td>
+    <td>
+    <% if training_course.summary %>
+      <%= training_course.summary.truncate(60) %>
+    <% end %>
+    </td>
+    <td class="admin-right-delete">
+      <%= render partial: 'options_delete', locals: {object: training_course, instance_name: training_course.title} %>
+    </td>
   <% end %>
-  </td>
-  <td class="admin-right-delete">
-    <%= render partial: 'options_delete', locals: {object: training_course, instance_name: training_course.title} %>
-  </td>
 <% end %>

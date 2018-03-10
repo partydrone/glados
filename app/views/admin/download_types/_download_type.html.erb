@@ -1,24 +1,26 @@
-<%= content_tag_for :tr, download_type do %>
-  <td class="handle admin-table-move">
-    <%= image_tag 'icons/ellipsisup-small.svg', class: 'small-icon' %>
-  </td>
-	<td class="admin-left-edit">
-		<%= render partial: 'options_edit', locals: {object: download_type, instance_name: download_type.name} %>
-	</td>
-  <td>
-    <%= download_type.name %>
-  </td>
-  <td>
-    <% download_type.name_backend.locales.each do |l| %>
-      <%= content_tag :span, class: 'secondary label' do %>
-        <%= humanize_locale(l) %>
-        <% Mobility.with_locale(l) do %>
-        <%= link_to 'x', admin_download_type_path(download_type, translation_locale: l), method: :delete, data: { confirm: %(Are you sure you want to delete this #{humanize_locale l} translation? This cannot be undone.) } %>
+<% cache download_type do %>
+  <%= content_tag_for :tr, download_type do %>
+    <td class="handle admin-table-move">
+      <%= image_tag 'icons/ellipsisup-small.svg', class: 'small-icon' %>
+    </td>
+  	<td class="admin-left-edit">
+  		<%= render partial: 'options_edit', locals: {object: download_type, instance_name: download_type.name} %>
+  	</td>
+    <td>
+      <%= download_type.name %>
+    </td>
+    <td>
+      <% download_type.name_backend.locales.each do |l| %>
+        <%= content_tag :span, class: 'secondary label' do %>
+          <%= humanize_locale(l) %>
+          <% Mobility.with_locale(l) do %>
+          <%= link_to 'x', admin_download_type_path(download_type, translation_locale: l), method: :delete, data: { confirm: %(Are you sure you want to delete this #{humanize_locale l} translation? This cannot be undone.) } %>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
-  </td>
-  <td class="admin-right-delete">
-    <%= render partial: 'options_delete', locals: {object: download_type, instance_name: download_type.name} %>
-  </td>
+    </td>
+    <td class="admin-right-delete">
+      <%= render partial: 'options_delete', locals: {object: download_type, instance_name: download_type.name} %>
+    </td>
+  <% end %>
 <% end %>

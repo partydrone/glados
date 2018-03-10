@@ -1,9 +1,11 @@
-<%= content_tag_for :tr, training_course_type do %>
-  <td class="admin-left-edit">
-    <%= render partial: 'options_edit', locals: {object: training_course_type, instance_name: training_course_type.name} %>
-  </td>
-  <td><%= training_course_type.name %></td>
-  <td class="admin-right-delete">
-    <%= render partial: 'options_delete', locals: {object: training_course_type, instance_name: training_course_type.name} %>
-  </td>
+<% cache training_course_type do %>
+  <%= content_tag_for :tr, training_course_type do %>
+    <td class="admin-left-edit">
+      <%= render partial: 'options_edit', locals: {object: training_course_type, instance_name: training_course_type.name} %>
+    </td>
+    <td><%= training_course_type.name %></td>
+    <td class="admin-right-delete">
+      <%= render partial: 'options_delete', locals: {object: training_course_type, instance_name: training_course_type.name} %>
+    </td>
+  <% end %>
 <% end %>

@@ -1,26 +1,28 @@
-<%= content_tag_for :tr, training_event do %>
-  <td class="admin-left-edit">
-    <%= render partial: 'options_edit', locals: {object: training_event, instance_name: training_event.title} %>
-  </td>
-  <td>
-    <%= link_to training_event.title, [:admin, training_event] %>
-  </td>
-  <td>
-    <%= training_event.location %>
-  </td> 
-  <td>
-    <%= training_event.host %>
-  </td> 
-  <td>
-    <%= training_event.description %>
-  </td>
-  <td>
-    <%= l training_event.started_at.to_date, format: :short %>
-  </td>
-  <td>
-    <%= l training_event.ended_at.to_date, format: :short %>
-  </td>
-  <td class="admin-right-delete">
-    <%= render partial: 'options_delete', locals: {object: training_event, instance_name: training_event.title} %>
-  </td>
+<% cache training_event do %>
+  <%= content_tag_for :tr, training_event do %>
+    <td class="admin-left-edit">
+      <%= render partial: 'options_edit', locals: {object: training_event, instance_name: training_event.title} %>
+    </td>
+    <td>
+      <%= link_to training_event.title, [:admin, training_event] %>
+    </td>
+    <td>
+      <%= training_event.location %>
+    </td>
+    <td>
+      <%= training_event.host %>
+    </td>
+    <td>
+      <%= training_event.description %>
+    </td>
+    <td>
+      <%= l training_event.started_at.to_date, format: :short %>
+    </td>
+    <td>
+      <%= l training_event.ended_at.to_date, format: :short %>
+    </td>
+    <td class="admin-right-delete">
+      <%= render partial: 'options_delete', locals: {object: training_event, instance_name: training_event.title} %>
+    </td>
+  <% end %>
 <% end %>
