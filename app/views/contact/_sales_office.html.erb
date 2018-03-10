@@ -1,30 +1,32 @@
-<div class="column column-block">
-  <ul class="office-information" itemscope itemtype="http://schema.org/Organization">
-    <%= content_tag :li do %>
-    <%= content_tag :h3, sales_office.name, itemprop: 'name' %>
-    <% end %>
+<% cache sales_office do %>
+  <div class="column column-block">
+    <ul class="office-information" itemscope itemtype="http://schema.org/Organization">
+      <%= content_tag :li do %>
+      <%= content_tag :h3, sales_office.name, itemprop: 'name' %>
+      <% end %>
 
-    <%= content_tag :li do %>
-    <%= image_tag('icons/map_location.svg', class: 'li-icon small-icon') %>
-    <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-      <%= content_tag :div, markdown(sales_office.address), itemprop: 'streetAddress' %>
-      <%= content_tag :div, sales_office.locality, itemprop: 'addressLocality' if sales_office.locality.present? %>
-      <%= content_tag :div, sales_office.region, itemprop: 'addressRegion' if sales_office.region.present? %>
-      <%= content_tag :div, sales_office.postal_code, itemprop: 'postalCode' if sales_office.postal_code.present? %>
-      <div itemprop="addressCountry" itemscope itemtype="http://schema.org/Country">
-        <%= content_tag :div, t("countries.#{sales_office.country_id}"), itemprop: 'name' %>
+      <%= content_tag :li do %>
+      <%= image_tag('icons/map_location.svg', class: 'li-icon small-icon') %>
+      <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+        <%= content_tag :div, markdown(sales_office.address), itemprop: 'streetAddress' %>
+        <%= content_tag :div, sales_office.locality, itemprop: 'addressLocality' if sales_office.locality.present? %>
+        <%= content_tag :div, sales_office.region, itemprop: 'addressRegion' if sales_office.region.present? %>
+        <%= content_tag :div, sales_office.postal_code, itemprop: 'postalCode' if sales_office.postal_code.present? %>
+        <div itemprop="addressCountry" itemscope itemtype="http://schema.org/Country">
+          <%= content_tag :div, t("countries.#{sales_office.country_id}"), itemprop: 'name' %>
+        </div>
       </div>
-    </div>
-    <% end %>
+      <% end %>
 
-    <%= content_tag :li do %>
-    <%= image_tag('icons/phone.svg', class: 'li-icon small-icon') %>
-    <%= link_to sales_office.phone, "tel:#{sales_office.phone}", itemprop: 'telephone' %>
-    <% end if sales_office.phone.present? %>
+      <%= content_tag :li do %>
+      <%= image_tag('icons/phone.svg', class: 'li-icon small-icon') %>
+      <%= link_to sales_office.phone, "tel:#{sales_office.phone}", itemprop: 'telephone' %>
+      <% end if sales_office.phone.present? %>
 
-    <%= content_tag :li do %>
-    <%= image_tag('icons/email.svg', class: 'li-icon small-icon') %>
-    <%= mail_to sales_office.email, sales_office.email, subject: 'Wavetronix Product Iquiry', itemprop: 'email' %>
-    <% end if sales_office.email.present? %>
-  </ul>
-</div>
+      <%= content_tag :li do %>
+      <%= image_tag('icons/email.svg', class: 'li-icon small-icon') %>
+      <%= mail_to sales_office.email, sales_office.email, subject: 'Wavetronix Product Iquiry', itemprop: 'email' %>
+      <% end if sales_office.email.present? %>
+    </ul>
+  </div>
+<% end %>
