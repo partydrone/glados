@@ -131,7 +131,9 @@
 			<% @downloads.group_by(&:download_type).sort_by { |key, value| key.position }.each do |download_type, downloads| %>
 			<div class="support-section columns">
 				<h3><%= download_type.name %></h3>
-				<%= render partial: 'download', collection: downloads %>
+				<ul>
+					<%= render partial: 'download', collection: downloads %>
+				</ul>
 			</div>
 			<% end %>
 		<% end if @downloads.present? %>
