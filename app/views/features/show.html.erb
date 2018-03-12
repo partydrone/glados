@@ -1,4 +1,7 @@
 <%= content_for :title, @feature.title %>
+<% content_for :meta do %>
+	<%= tag :meta, description: @feature.meta_description %>
+<% end %>
 
 <div class="social-media-sticky-header hide-for-large" data-sticky-container>
   <div class="sticky" data-sticky>
@@ -40,7 +43,7 @@
   <div class="row">
     <div class="large-12 medium-8 medium-offset-2 large-offset-0 columns">
       <h1>
-        <%= @feature.title %>
+        <%= yield :title %>
       </h1>
       <% if @feature.youtube_video_id.present? %>
 				<div class="flex-video widescreen">

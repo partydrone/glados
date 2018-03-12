@@ -1,4 +1,7 @@
 <% content_for :title, @product.name %>
+<% content_for :meta do %>
+	<%= tag :meta, description: @product.meta_description %>
+<% end %>
 
 <section class="product-specific-features" id="top-of-page" data-magellan-target="top-of-page"></section>
 
@@ -8,7 +11,7 @@
 			<div class="large-5 columns">
 				<h4 data-magellan>
 					<%= link_to '#top-of-page' do %>
-						<%= @product.name %>
+						<%= yield :title %>
 						<%= content_tag :small do %>
 							(discontinued)
 						<% end if @product.discontinued? %>
@@ -38,7 +41,7 @@
 
 <div class="hide-for-large">
 	<div class="product-specific-top-nav">
-		<h4><%= @product.name %></h4>
+		<h4><%= yield :title %></h4>
 	</div>
 	<div class="product-specific-bottom-nav">
 		<nav data-magellan data-bar-offset="70">
@@ -61,7 +64,7 @@
 
 <div class="row columns">
 	<div class="product-specific-intro">
-		<h1><%= @product.name %></h1>
+		<h1><%= yield :title %></h1>
 		<h6><%= @product.product_category.name %></h6>
 		<div class="product-intro-media">
 			<% if @product.youtube_video_id.present? %>

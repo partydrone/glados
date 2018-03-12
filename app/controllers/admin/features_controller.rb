@@ -73,7 +73,7 @@ module Admin
     end
 
     def feature_params
-      params.require(:feature).permit(:title, :description, :youtube_video_id, :hero_image, :remove_hero_image, :body, :tag_list, product_ids: [])
+      params.require(:feature).permit(:title, :description, :meta_description, :youtube_video_id, :hero_image, :remove_hero_image, :body, :tag_list, product_ids: [])
     end
 
     def set_product_types

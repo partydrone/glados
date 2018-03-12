@@ -78,7 +78,7 @@ module Admin
     end
 
     def blog_post_params
-      params.require(:blog_post).permit(:title, :subtitle, :author, :hero_image, :body, :posted_on, :region_list, :tag_list)
+      params.require(:blog_post).permit(:title, :subtitle, :author, :hero_image, :body, :posted_on, :region_list, :tag_list, :meta_description)
     end
 
     def set_regions

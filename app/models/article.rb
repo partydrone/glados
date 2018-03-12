@@ -3,7 +3,7 @@ class Article < ApplicationRecord
 
   acts_as_taggable_on :tags, :regions
 
-  translates :title, :subtitle, :body, :views
+  translates :title, :subtitle, :body, :views, :meta_description, fallbacks: { 'fr-FR': :fr }
 
   multisearchable :against => [:title, :subtitle, :body]
 
