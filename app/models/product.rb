@@ -3,7 +3,7 @@ class Product < ApplicationRecord
 
   acts_as_taggable
 
-  translates :summary, :description, :youtube_video_id, fallbacks: { 'fr-FR': :fr }
+  translates :summary, :description, :youtube_video_id, :meta_description, fallbacks: { 'fr-FR': :fr }
 
   multisearchable :against => [:name, :summary, :description]
 

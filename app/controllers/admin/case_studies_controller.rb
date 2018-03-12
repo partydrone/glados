@@ -78,7 +78,7 @@ module Admin
     end
 
     def case_study_params
-      params.require(:case_study).permit(:title, :subtitle, :location, :flag, :hero_image, :body, :posted_on, :region_list, :tag_list)
+      params.require(:case_study).permit(:title, :subtitle, :location, :flag, :hero_image, :body, :posted_on, :region_list, :tag_list, :meta_description)
     end
 
     def set_regions
