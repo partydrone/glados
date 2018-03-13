@@ -1,5 +1,5 @@
 <% cache software_download do %>
   <%= content_tag :li do %>
-    <%= link_to software_download.title, attachment_url(software_download, :file, class: "#{set_class_for_content_type(software_download.file_content_type)}"), download: attachment_url(software_download, :file), target: '_blank' %>
+    <%= link_to software_download.title, attachment_url(software_download, :file), class: "#{set_class_for_content_type(software_download.file_content_type)}", download: attachment_url(software_download, :file), target: '_blank' %>
   <% end if software_download.file && software_download.file.exists? %>
 <% end %>
