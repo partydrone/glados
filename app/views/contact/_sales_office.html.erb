@@ -25,7 +25,7 @@
 
       <%= content_tag :li do %>
       <%= image_tag('icons/email.svg', class: 'li-icon small-icon') %>
-      <%= mail_to sales_office.email, sales_office.email, subject: 'Wavetronix Product Iquiry', itemprop: 'email' %>
+      <%= mail_to sales_office.email, sales_office.email, subject: 'Wavetronix Product Inquiry', itemprop: 'email' %>
       <% end if sales_office.email.present? %>
     </ul>
   </div>
