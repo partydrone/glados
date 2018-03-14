@@ -41,29 +41,12 @@ select.support-dropdown {
 
 .support-knowledge-base-search {
 	text-align: center;
-	.input-search-bar {
-		height: 39px;
-	}
-	.search-bar {
-		margin-bottom: 15px;
-	}
-	.site-search-bar .input-group-button {
+	border-left: 1px solid $ghost;
+	.input-group-button {
 		margin-top: -1px;
 	}
-	.site-search-bar {
-		width: 100%;
-		margin: 0;
-	}
-	.request-box {
-		background: $linkblue;
-		color: $white;
-		margin-bottom: 1rem;
-		z-index: 1;
-		padding-bottom: 15px;
-	}
-	.input-group-button svg {
-		padding-top: 1px;
-		padding-right: 16px !important;
+	a {
+		margin-top: 20px;
 	}
 	@media screen and (max-width: 1023px) {
 		margin-top: 2rem;
@@ -84,6 +67,10 @@ select.support-dropdown {
 	@media screen and (max-width: 1023px) {
 		margin-bottom: 7rem;
 	}
+}
+
+.support-knowledge-container {
+	margin-top: 3em;
 }
 
 .support-returns-container {
@@ -171,4 +158,8 @@ select.support-dropdown {
 	   min-height: -moz-calc(100vh - 200px);
 	   min-height: calc(100vh - 200px);
   	}
+}
+
+.support-instructions {
+	margin: 50px auto;
 }

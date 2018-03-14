@@ -6,6 +6,8 @@ services:
   app:
     build: .
     command: bundle exec puma -C config/puma.rb
+    stdin_open: true
+    tty: true
     volumes:
       - .:/app
       - ./public:/app/public

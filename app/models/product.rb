@@ -21,8 +21,8 @@ class Product < ApplicationRecord
 
   scope :discontinued, -> { where('expired_on <= ?', Time.zone.today) }
   scope :knowledge_base_articles, -> {
-    includes(:articles)
-    .where(articles: {type: 'KnowledgeBaseArticle'})
+    includes(articles: :translations)
+    .where(articles: { type: 'KnowledgeBaseArticle' })
   }
 
   attachment :hero_image, content_type: %w(image/jpeg image/png image/gif)
@@ -56,7 +56,7 @@ class Product < ApplicationRecord
     if query.present?
       joins(product_category: :product_type)
       .knowledge_base_articles
-      .where('articles.title @@ :q or articles.subtitle @@ :q or articles.body @@ :q', q: query)
+      .where('article_translations.title @@ :q or article_translations.subtitle @@ :q or article_translations.body @@ :q', q: query)
       .references(:articles)
       .reorder('product_types.position, products.name')
     else
