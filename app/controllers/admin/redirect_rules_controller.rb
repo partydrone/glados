@@ -18,7 +18,6 @@ module Admin
     def create
       @redirect_rule = RedirectRule.new(redirect_rule_params)
       authorize @redirect_rule
-      @redirect_rule.destination = @redirect_rule.destination.strip
 
       if @redirect_rule.save
         RedirectRulesMailer.create(@redirect_rule, current_user).deliver_now
@@ -29,9 +28,8 @@ module Admin
     end
 
     def update
+      binding.pry
       if @redirect_rule.update(redirect_rule_params)
-        @redirect_rule.destination = @redirect_rule.destination.strip
-        @redirect_rule.save
         respond_to do |format|
           RedirectRulesMailer.update(@redirect_rule, current_user).deliver_now
           format.html { redirect_to admin_redirect_rules_path, notice: %(Updated "#{@redirect_rule.source}" successfully.) }
@@ -59,6 +57,7 @@ module Admin
     end
 
     def redirect_rule_params
+      params[:redirect_rule][:destination] = params[:redirect_rule][:destination].strip
       params.require(:redirect_rule).permit(:source, :source_is_regex, :source_is_case_sensitive, :destination, :active)
     end
   end
