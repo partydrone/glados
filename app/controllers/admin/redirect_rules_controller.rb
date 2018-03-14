@@ -28,7 +28,6 @@ module Admin
     end
 
     def update
-      binding.pry
       if @redirect_rule.update(redirect_rule_params)
         respond_to do |format|
           RedirectRulesMailer.update(@redirect_rule, current_user).deliver_now
