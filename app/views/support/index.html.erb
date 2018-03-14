@@ -59,7 +59,7 @@
 				<%= text_field_tag :query, params[:query], class: 'input-search-bar', placeholder: "Search support" %>
 			</div>
 		<% end %>
-	</div>		
+	</div>
 </div>
 
 <div class="row support-instructions">
@@ -70,7 +70,7 @@
 	<%= render partial: 'product_type', collection: @product_types %>
 </div>
 
-<div class="row" id="knowledge">
+<div class="row support-knowledge-container" id="knowledge">
 	<div class="large-8 columns">
 		<h2><%= t(".top_faqs") %></h2>
 

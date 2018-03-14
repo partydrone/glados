@@ -1,6 +1,4 @@
 class KnowledgeBaseArticle < Article
-	include PgSearch
-  multisearchable :against => [:title, :body]
 
   scope :top, -> { current.where('updated_at > ?', 3.months.ago).order(views: :desc, updated_at: :desc) }
 
