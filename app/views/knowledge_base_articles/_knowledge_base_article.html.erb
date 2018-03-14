@@ -1,3 +1,5 @@
-<li class="knowledge-base-question">
-	<%= link_to knowledge_base_article.title, knowledge_base_article %>
-</li>
+<% cache knowledge_base_article do %>
+	<li class="knowledge-base-question">
+		<%= link_to knowledge_base_article.title, knowledge_base_article %>
+	</li>
+<% end %>
