@@ -1,35 +1,39 @@
-<%= form_for [:admin, @knowledge_base_article], validate: true do |f| %>
+<%= form_for [:admin, @knowledge_base_article], validate: true do |form| %>
   <%= label_tag :translation_locale %>
-  <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @blog_post.title_backend.locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
+  <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @knowledge_base_article.title_backend.locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
 
   <div class="row">
     <div class="large-8 columns">
       <div class="row">
         <div class="medium-9 columns">
-          <%= f.label :title %>
-          <%= f.text_field :title %>
+          <%= form.label :title %>
+          <%= form.text_field :title %>
         </div>
         <div class="medium-3 columns">
-          <%= f.label :posted_on %>
-          <%= f.date_field :posted_on, placeholder: 'yyyy-mm-dd' %>
+          <%= form.label :posted_on %>
+          <%= form.date_field :posted_on, placeholder: 'yyyy-mm-dd' %>
         </div>
       </div>
       <%= form.label :meta_description %>
       <%= form.text_field :meta_description %>
-      <%= f.label :body %>
-      <%= f.cktext_area :body, rows: 30 %>
+      <%= form.label :body %>
+      <%= form.cktext_area :body, rows: 30 %>
       <div class="ui-widget">
-        <%= f.label :tag_list, "Tags (separated by commas) (regions include: #{Tag::REGIONS.join(', ')})" %>
-        <%= f.text_field :tag_list, value: f.object.tag_list.to_s, :id => 'auto_complete_tags'  %>
+        <%=form.label :region_list, "Regions (one of: #{@regions.join(', ')})" %>
+        <%= form.text_field :region_list, value: form.object.region_list.to_s, :id => 'auto_complete_regions' %>
       </div>
-      <%= f.button nil, class: 'button radius' %>
+      <div class="ui-widget">
+        <%=form.label :tag_list, "Tags (separated by commas)" %>
+        <%= form.text_field :tag_list, value: form.object.tag_list.to_s, :id => 'auto_complete_tags' %>
+      </div>
+      <%= form.button nil, class: 'button radius' %>
     </div>
     <div class="large-4 columns">
-      <%= f.label :associated_products %>
+      <%= form.label :associated_products %>
       <% @product_types.each do |product_type| %>
       <h3><%= product_type.name %></h3>
       <ul class="no-bullet">
-        <%= f.collection_check_boxes :product_ids, product_type.products, :id, :name do |b| %>
+        <%= form.collection_check_boxes :product_ids, product_type.products, :id, :name do |b| %>
         <li>
           <%= b.check_box %>
           <%= b.label %>
@@ -41,5 +45,5 @@
   </div>
 <% end %>
 
-<%= content_tag :div, class: "taggable_items", data: {taggable_items: @taggable_items} do %>
-<% end %>
+<%= content_tag :div, id: "complete_region_list", data: {regions: @regions} do %><% end %>
+<%= content_tag :div, id: "complete_tag_list", data: {tags: @tags} do %><% end %>

@@ -2,7 +2,8 @@ module Admin
   class KnowledgeBaseArticlesController < BaseController
     before_action :set_knowledge_base_article, only: [:show, :edit, :update, :destroy]
     before_action :set_product_types, only: [:new, :edit]
-    before_action :set_taggable_items, only: [:new, :edit]
+    before_action :set_regions, only: [:new, :edit]
+    before_action :set_tags, only: [:new, :edit]
 
     def index
       @knowledge_base_articles = KnowledgeBaseArticle.joins(:translations).order('article_translations.title')
@@ -80,16 +81,19 @@ module Admin
     end
 
     def knowledge_base_article_params
-      params.require(:knowledge_base_article).permit(:title, :subtitle, :meta_description, :body, :posted_on, :tag_list, product_ids: [])
+      params.require(:knowledge_base_article).permit(:title, :subtitle, :meta_description, :body, :posted_on, :region_list, :tag_list, product_ids: [])
     end
 
     def set_product_types
       @product_types = ProductType.includes(:products).reorder(:position).order('products.name')
     end
 
-    def set_taggable_items
-      @taggable_items = Tag.pluck(:name)
+    def set_regions
+      @regions = ActsAsTaggableOn::Tag.for_context(:regions).uniq.pluck(:name)
     end
 
+    def set_tags
+      @tags = ActsAsTaggableOn::Tag.for_context(:tags).uniq.pluck(:name)
+    end
   end
 end
