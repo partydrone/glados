@@ -1,40 +1,45 @@
-<%= form_for [:admin,@feature] do |f| %>
+<%= form_for [:admin,@feature] do |form| %>
   <div class="row">
     <div class="large-8 columns">
       <%= label_tag :translation_locale %>
       <%= select_tag :translation_locale, options_for_select(I18n.available_locales.map { |l| ["#{humanize_locale(l)}#{' ✓' if @feature.title_backend.locales.include? l}", l.to_s] }, I18n.locale.to_s), id: 'translation_locale' %>
 
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-      <%= f.label :description %>
-      <%= f.text_area :description, rows: 5 %>
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+      <%= form.label :description %>
+      <%= form.text_area :description, rows: 5 %>
       <%= form.label :meta_description %>
       <%= form.text_field :meta_description %>
-      <%= f.label :youtube_video_id %>
-      <%= f.text_field :youtube_video_id %>
+      <%= form.label :youtube_video_id %>
+      <%= form.text_field :youtube_video_id %>
 
       <div class="row">
         <%= content_tag :div, class: 'medium-8 columns' do %>
-          <%= f.label :current_hero_image %>
+          <%= form.label :current_hero_image %>
           <%= attachment_image_tag @feature, :hero_image %>
         <% end if @feature.hero_image && @feature.hero_image.exists? %>
         <div class="medium-4 columns">
-          <%= f.label :hero_image %>
-          <%= f.attachment_field :hero_image, direct: true, presigned: true %>
+          <%= form.label :hero_image %>
+          <%= form.attachment_field :hero_image, direct: true, presigned: true %>
         </div>
       </div>
-      <%= f.label :body %>
-      <%= f.cktext_area :body, rows: 20 %>
-      <%= f.label :tag_list, "Tags (separated by commas) (regions include: #{Tag::REGIONS.join(', ')})" %>
-      <%= f.text_field :tag_list, value: f.object.tag_list.to_s %>
-      <%= f.button nil, class: 'button radius' %>
+
+      <%= form.label :body %>
+      <%= form.cktext_area :body, rows: 20 %>
+
+      <div class="ui-widget">
+        <%=form.label :tag_list, "Tags (separated by commas)" %>
+        <%= form.text_field :tag_list, value: form.object.tag_list.to_s, :id => 'auto_complete_tags' %>
+      </div>
+
+      <%= form.button nil, class: 'button radius' %>
     </div>
     <div class="large-4 columns">
-      <%= f.label :associated_products %>
+      <%= form.label :associated_products %>
       <% @product_types.each do |product_type| %>
         <h3><%= product_type.name %></h3>
         <ul class="no-bullet">
-          <%= f.collection_check_boxes :product_ids, product_type.products, :id, :name do |b| %>
+          <%= form.collection_check_boxes :product_ids, product_type.products, :id, :name do |b| %>
           <li>
             <%= b.check_box %>
             <%= b.label %>
@@ -45,3 +50,6 @@
     </div>
   </div>
 <% end %>
+
+<%= content_tag :div, id: "complete_region_list", data: {regions: @regions} do %><% end %>
+<%= content_tag :div, id: "complete_tag_list", data: {tags: @tags} do %><% end %>

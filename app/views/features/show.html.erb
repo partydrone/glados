@@ -102,12 +102,21 @@
   </div>
 
   <aside class="large-4 large-offset-0 medium-8 medium-offset-2 small-10 small-offset-1 columns similar-stories-side end sticky-container" data-sticky-container>
-    <% if @related_features %>
+    <% if @related_features || @related_products %>
         <div class="sticky" data-sticky data-anchor="article-container" data-sticky-on="large">
-          <div class="article-side-title row">
-            <%= t(".related_articles") %>
-          </div>
-          <%= render partial: "related_feature", collection: @related_features %>
+					<% if @related_features %>
+						<div class="article-side-title row">
+	            <%= t(".related_features") %>
+	          </div>
+	          <%= render partial: "related_feature", collection: @related_features %>
+					<% end %>
+
+					<% if @related_products %>
+	          <div class="article-side-title row">
+	            <%= t(".related_products") %>
+	          </div>
+	          <%= render partial: "related_product", collection: @related_products %>
+					<% end %>
         </div>
     <% end %>
   </aside>

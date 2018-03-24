@@ -2,6 +2,7 @@ module Admin
   class FeaturesController < BaseController
     before_action :set_feature, only: [:show, :edit, :update, :destroy]
     before_action :set_product_types, only: [:new, :edit]
+    before_action :set_tags, only: [:new, :edit]
 
     def index
       @features = Feature.i18n.join_translations.order('feature_translations.title')
@@ -78,6 +79,10 @@ module Admin
 
     def set_product_types
       @product_types = ProductType.includes(:products).reorder(:position).order('products.name')
+    end
+
+    def set_tags
+      @tags = ActsAsTaggableOn::Tag.for_context(:tags).uniq.pluck(:name)
     end
   end
 end

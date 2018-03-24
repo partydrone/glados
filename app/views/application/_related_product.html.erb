@@ -1,0 +1,10 @@
+<%= link_to related_product do %>
+	<div class="row article-side-container">
+		<div class="large-3 columns">
+	  	<%= attachment_image_tag related_product, :product_image, :fill, 558, 313 %>
+	  </div>
+	  <div class="large-9 columns">
+		  <h3 class="similar-side-text"><%= related_product.name %></h3>
+	  </div>
+  </div>
+<% end %>
