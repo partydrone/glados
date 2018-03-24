@@ -56,7 +56,7 @@ module Admin
     end
 
     def redirect_rule_params
-      params[:redirect_rule][:destination] = params[:redirect_rule][:destination].strip
+      params[:redirect_rule][:destination] = params[:redirect_rule][:destination].strip if params[:redirect_rule][:destination]
       params.require(:redirect_rule).permit(:source, :source_is_regex, :source_is_case_sensitive, :destination, :active)
     end
   end
