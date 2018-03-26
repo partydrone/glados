@@ -1,0 +1,27 @@
+<%= form_for [:admin, @frequently_asked_question] do |form| %>
+  <%= form.label :faq_topic_id %>
+  <%= form.select :faq_topic_id, FaqTopic.all.collect { |t| [t.title, t.id] } %>
+  <%= form.label :question %>
+  <%= form.text_field :question %>
+  <%= form.label :answer %>
+  <%= form.text_area :answer %>
+
+  <h3>Associated Products</h3>
+  <div class="row">
+    <% @product_types.each do |product_type| %>
+      <div class="medium-<%= 12 / @product_types.count %> columns">
+        <h4><%= product_type.name %></h4>
+        <ul class="no-bullet">
+          <%= form.collection_check_boxes :product_ids, product_type.products, :id, :name do |b| %>
+            <li>
+              <%= b.check_box %>
+              <%= b.label %>
+            </li>
+          <% end if product_type.products %>
+        </ul>
+      </div>
+    <% end if @product_types %>
+  </div>
+
+  <%= form.button nil, class: 'button radius' %>
+<% end %>

@@ -1,6 +1,6 @@
-<% content_for :title, %(Edit "#{@download_type.name}" Download Type) %>
+<% content_for :title, %(Edit "#{@download_type.name}") %>
 <div class="row columns">
-<h1><%= %(Edit "#{@download_type.name}" Download Type) %></h1>
+<h1><%= yield :title %></h1>
 
 <%= render 'form' %>
 </div>

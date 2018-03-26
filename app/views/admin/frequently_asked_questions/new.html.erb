@@ -1,2 +1,5 @@
-<h1>Admin::FrequentlyAskedQuestions#new</h1>
-<p>Find me in app/views/admin/frequently_asked_questions/new.html.erb</p>
+<% content_for :title, 'New Frequently Asked Question' %>
+<div class="row columns">
+  <h1><%= yield :title %></h1>
+  <%= render 'form' %>
+</div>

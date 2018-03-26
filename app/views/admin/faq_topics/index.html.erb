@@ -1,2 +1,22 @@
-<h1>Admin::FaqTopics#index</h1>
-<p>Find me in app/views/admin/faq_topics/index.html.erb</p>
+<% content_for :title, 'FAQ Topics' %>
+<div class="row columns admin-table">
+<h1><%= yield :title %>
+
+<%= link_to new_admin_faq_topic_path, title: 'Create a new FAQ topic' do %>
+  <%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
+<% end %>
+</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th width="30"></th>
+      <th>Name</th>
+      <th width="30"></th>
+    </tr>
+  </thead>
+  <tbody id="faq_topics">
+    <%= render @faq_topics %>
+  </tbody>
+</table>
+</div>

@@ -1,2 +1,5 @@
-<h1>Admin::FaqTopics#edit</h1>
-<p>Find me in app/views/admin/faq_topics/edit.html.erb</p>
+<% content_for :title, %(Edit "#{@faq_topic.title}") %>
+<div class="row columns">
+  <h1><%= yield :title %></h1>
+  <%= render 'form' %>
+</div>

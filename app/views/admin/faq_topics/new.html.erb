@@ -1,2 +1,5 @@
-<h1>Admin::FaqTopics#new</h1>
-<p>Find me in app/views/admin/faq_topics/new.html.erb</p>
+<% content_for :title, 'New FAQ Topic' %>
+<div class="row columns">
+  <h1><%= yield :title %></h1>
+  <%= render 'form' %>
+</div>
