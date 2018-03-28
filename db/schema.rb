@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180312171206) do
+ActiveRecord::Schema.define(version: 20180325233447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,6 +129,12 @@ ActiveRecord::Schema.define(version: 20180312171206) do
     t.index ["training_event_course_id"], name: "index_enrollments_on_training_event_course_id", using: :btree
   end
 
+  create_table "faq_topics", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "feature_associations", force: :cascade do |t|
     t.integer  "feature_id"
     t.integer  "product_id"
@@ -161,6 +167,20 @@ ActiveRecord::Schema.define(version: 20180312171206) do
     t.string   "hero_image_filename"
     t.integer  "hero_image_size"
     t.string   "hero_image_content_type"
+  end
+
+  create_table "frequently_asked_questions", force: :cascade do |t|
+    t.string   "question"
+    t.text     "answer"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "faq_topic_id"
+    t.index ["faq_topic_id"], name: "index_frequently_asked_questions_on_faq_topic_id", using: :btree
+  end
+
+  create_table "frequently_asked_questions_products", id: false, force: :cascade do |t|
+    t.integer "frequently_asked_question_id", null: false
+    t.integer "product_id",                   null: false
   end
 
   create_table "identities", force: :cascade do |t|
@@ -487,6 +507,7 @@ ActiveRecord::Schema.define(version: 20180312171206) do
   add_foreign_key "downloads", "download_types"
   add_foreign_key "feature_associations", "features"
   add_foreign_key "feature_associations", "products"
+  add_foreign_key "frequently_asked_questions", "faq_topics"
   add_foreign_key "taggings", "tags"
   add_foreign_key "training_course_products", "products"
   add_foreign_key "training_course_products", "training_courses"

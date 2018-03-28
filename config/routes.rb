@@ -43,7 +43,9 @@ Rails.application.routes.draw do
                 :product_categories,
                 concerns: :sortable
 
-      resources :media_downloads,
+      resources :faq_topics,
+                :frequently_asked_questions,
+                :media_downloads,
                 :patents,
                 :redirect_rules,
                 :request_environment_rules,

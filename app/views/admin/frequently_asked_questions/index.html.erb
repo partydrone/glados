@@ -1,0 +1,22 @@
+<% content_for :title, 'Frequently Asked Questions' %>
+<div class="row columns admin-table">
+<h1><%= yield :title %>
+
+<%= link_to new_admin_frequently_asked_question_path, title: 'Create a new FAQ' do %>
+  <%= image_tag('icons/Plus.svg', class: "small-icon admin-add-icon") %>
+<% end %>
+</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th width="30"></th>
+      <th>Question</th>
+      <th width="30"></th>
+    </tr>
+  </thead>
+  <tbody id="frequently_asked_questions">
+    <%= render @frequently_asked_questions %>
+  </tbody>
+</table>
+</div>

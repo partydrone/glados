@@ -1,0 +1,5 @@
+<% content_for :title, %(Edit "#{@frequently_asked_question.question}") %>
+<div class="row columns">
+  <h1><%= yield :title %></h1>
+  <%= render 'form' %>
+</div>

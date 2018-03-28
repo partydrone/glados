@@ -14,6 +14,7 @@ class Product < ApplicationRecord
   has_many :training_courses, through: :training_course_products
   has_and_belongs_to_many :articles
   has_and_belongs_to_many :downloads
+  has_and_belongs_to_many :frequently_asked_questions
   has_and_belongs_to_many :patents
   has_and_belongs_to_many :software_downloads
 
