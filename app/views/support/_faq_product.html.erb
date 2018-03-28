@@ -2,20 +2,11 @@
   <a href="#" class="accordion-title"><%= faq_product.name %></a>
   <div class="accordion-content" data-tab-content>
     <ul class="accordion" data-accordion data-allow-all-closed="true">
-      <% faq_product.frequently_asked_questions.group_by(&:faq_topic).sort_by { |key, value| key.title }.each do |faq_topic, faqs| %>
+      <% faq_product.frequently_asked_questions.each do |faq| %>
         <li class="accordion-item" data-accordion-item>
-          <a href="#" class="accordion-title"><%= faq_topic.title %></a>
+          <a href="#" class="accordion-title"><%= faq.question %></a>
           <div class="accordion-content" data-tab-content>
-            <ul class="accordion" data-accordion data-allow-all-closed="true">
-              <% faqs.each do |faq| %>
-                <li class="accordion-item" data-accordion-item>
-                  <a href="#" class="accordion-title"><%= faq.question %></a>
-                  <div class="accordion-content" data-tab-content>
-                    <%= faq.answer %>
-                  </div>
-                </li>
-              <% end %>
-            </ul>
+            <%= faq.answer %>
           </div>
         </li>
       <% end %>
