@@ -662,3 +662,13 @@ upper sub nav
         font-size: 0.875rem;
     }
 }
+
+// ACCORDION OVERRIDES
+.accordion-title {
+  color: $charcoal;
+  font-size: $accordion-title-font-size;
+
+  &:hover, &:visited {
+    color: inherit;
+  }
+}
