@@ -47,7 +47,7 @@
 					<% end if policy(:knowledge_base_article).manage? %>
 				</ul>
 			</div>
-		<% end if policy(:download_type).manage? || policy(:download).manage? || policy(:knowledge_base_article).manage? || policy(:software_download).manage? || policy(:faq_topics).manage? || policy(:frequently_asked_question).manage? %>
+		<% end if policy(:download_type).manage? || policy(:download).manage? || policy(:knowledge_base_article).manage? || policy(:software_download).manage? || policy(:faq_topic).manage? || policy(:frequently_asked_question).manage? %>
 
 		<%= content_tag :li, class: 'admin-list-header column column-block' do %>
 			<div class="admin-sub-list-collection">
