@@ -50,7 +50,7 @@ module Admin
     end
 
     def sales_office_params
-      params.require(:sales_office).permit(:name, :address, :locality, :region, :postal_code, :country, :phone, :email)
+      params.require(:sales_office).permit(:name, :address, :locality, :region, :postal_code, :country_id, :phone, :email)
     end
 
   end
