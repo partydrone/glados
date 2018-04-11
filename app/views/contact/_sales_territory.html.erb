@@ -1,7 +1,5 @@
-<% cache sales_territory do %>
-  <h4><%= sales_territory.name %></h4>
-  <div class="row small-up-1 medium-up-2">
-    <%= render partial: 'dealer', object: sales_territory.dealer if sales_territory.dealer %>
-    <%= render partial: 'sales_office', object: sales_territory.sales_office %>
-  </div>
-<% end %>
+<h4><%= sales_territory.name %></h4>
+<div class="row small-up-1 medium-up-2">
+  <%= render partial: 'dealer', object: sales_territory.dealer if sales_territory.dealer %>
+  <%= render partial: 'sales_office', object: sales_territory.sales_office %>
+</div>
