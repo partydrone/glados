@@ -65,6 +65,14 @@
 // Careers
 /////////////
 
+.careers-intro-image {
+  background-image: url(image_path('about/careers.jpg'));
+  background-position: 50% 50%;
+  background-size: cover;
+  // height: 100%;
+  min-height: 600px;
+}
+
 .bzCategory {
     padding-left: 10px;
     font-size: 1.9rem;
