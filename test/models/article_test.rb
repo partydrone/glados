@@ -47,7 +47,7 @@ describe Article do
   it "logs views" do
     article.views = 0
     article.save
-    article.log_view
+    # article.log_view
     article.reload
     article.views.must_equal 1
   end

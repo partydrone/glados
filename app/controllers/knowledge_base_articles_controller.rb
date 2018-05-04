@@ -6,7 +6,7 @@ class KnowledgeBaseArticlesController < ApplicationController
   end
 
   def show
-    @article.log_view unless browser.bot?
+    # @article.log_view unless browser.bot?
     # LogArticleViewJob.perform_later @article unless browser.bot?
   end
 
