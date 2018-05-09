@@ -85,49 +85,108 @@
     </div>
     <div class="row news-articles-container">
       <div class="news-article">
-        <%= link_to @featured_article do %>
-          <%= attachment_image_tag @featured_article, :hero_image, :fill, 816, 459, fallback: 'http://placehold.it/816x459' %>
-          <h2><%= @featured_article.title %></h2>
-          <p><%= @featured_article.subtitle %></p>
-        <% end if @featured_article %>
+        <%= link_to "https://www.wavetronix.com/fr-FR/blog_posts/398-vinci-autoroutes-un-pas-d-avance" do %>
+          <img class="attachment blog_post hero_image" src="//d1upf2v1quehpe.cloudfront.net/attachments/45176d369287e846fd888e953f6c08013a29aeab/store/fill/744/419/1496fef5a3a49ed99a6dc2b87d4c2bbf57245b401672733e229ff7ba0616/OneStepAhead_jpg" alt="article" />
+          <h2>VINCI Autoroutes – Un pas d’avance</h2>
+          <p>Pour détecter le trafic sur son réseau autoroutier, VINCI Autoroutes Réseau Cofiroute, avait, dans le passé, l’habitude de déployer des Stations de Recueil de Données (SRDT) basées sur une technologie intrusive dite « à boucles inductives ». Le réseau en comptait environ 150.</p>
+        <% end %>
       </div>
     </div>
 
     <div class="row">
       <div class="large-7 columns news-article-blurbs">
 
-        <%= render partial: 'recent_article', collection: @recent_articles %>
-
-        <%= content_tag :div, class: 'read-more' do %>
-          <%= link_to news_path, class: "goto-new" do %>
-            <%= t(".more_stories") %>
+        <div class="row news-links">
+          <%= link_to "https://www.wavetronix.com/fr-FR/blog_posts/395" do %>
+            <div class="medium-6 large-4 columns">
+            <img class="attachment blog_post hero_image" src="//d1upf2v1quehpe.cloudfront.net/attachments/66dd331970741b82793a43f2ea0e9b059d85a642/store/fill/744/419/1bb1993847a78c9ee5e7db31e6d1a855acec1ea0f1cbcebbdc65c59c4d9b/Station-de-comptage-routiere-radar-multivoies-mobile-Alyce-Sofreco.JPG" alt="article" />
+            </div>
+            <div class="medium-6 large-8 columns">
+              <h2>Le SmartSensor HD gagne en « mobilité » avec ALYCE SOFRECO</h2>
+              <p>La société ALYCE SOFRECO vient de choisir le capteur radar SmartSensor HD pour réaliser ses études de trafic temporaires sur les grands axes routiers.</p>
+            </div>
           <% end %>
-        <% end if Article.count > 4 %>
-      </div>
-      <!-- <div class="large-5 columns news-article-list show-for-large">
-        <ul class="tabs" data-tabs id="news-article-tabs">
-          <li class="tabs-title is-active"><a href="#news-toparticles" aria-selected="true"><h5><%= t('.top_articles') %></h5></a></li>
-          <li class="tabs-title"><a href="#news-topics"><h5><%= t('.topics') %></h5></a></li>
-          <li class="tabs-title"><a href="#news-regions"><h5><%= t('.regions') %></h5></a></li>
-        </ul>
-        <div class="tabs-content" data-tabs-content="news-article-tabs">
-          <div class="tabs-panel is-active news-toparticles" id="news-toparticles">
-            <ol>
-              <%= render partial: 'top_article', collection: @top_articles %>
-            </ol>
-          </div>
-          <div class="tabs-panel" id="news-topics">
-            <ol>
-              <%= render partial: 'top_tag', collection: @top_tags %>
-            </ol>
-          </div>
-          <div class="tabs-panel" id="news-regions">
-            <ol>
-              <%= render partial: 'top_tag', collection: @top_regions %>
-            </ol>
-          </div>
         </div>
-      </div> -->
+        <div class="row news-links">
+          <%= link_to "https://www.wavetronix.com/fr-FR/blog_posts/399" do %>
+            <div class="medium-6 large-4 columns">
+            <img class="attachment blog_post hero_image" src="//d1upf2v1quehpe.cloudfront.net/attachments/927ce818119f7c6c56297409b8150bb1e6975075/store/fill/744/419/eba011b796ed0ced18f6c5468ad22ff1da0adc92e2c7f9937c33f2006865/DirMassifCentral_website.jpg" alt="article" />
+            </div>
+            <div class="medium-6 large-8 columns">
+              <h2>DIR MASSIF CENTRAL : Comment prendre de la hauteur en 4 étapes</h2>
+              <p>Fin 2013, c’est au tour de la DIR Massif Central de s’intéresser à la nouvelle technologie de détection par radar multivoie et de lancer le projet d’installation de ses premières stations SmartSensor HD dans le cadre d’un marché public d’entretien spécialisé des équipements de comptage. </p>
+            </div>
+          <% end %>
+        </div>
+        <div class="row news-links">
+          <%= link_to "https://www.wavetronix.com/fr-FR/blog_posts/402" do %>
+            <div class="medium-6 large-4 columns">
+            <img class="attachment blog_post hero_image" src="//d1upf2v1quehpe.cloudfront.net/attachments/379bea6948bf4cab39096a0f489afa09ce3c885a/store/fill/744/419/518f745dfda78b772d5483254cd209b48ec7b075c9a589f2053dc320b7da/IMG_1415%281%29.jpg" alt="article" />
+            </div>
+            <div class="medium-6 large-8 columns">
+              <h2>Formation Certifiante Wavetronix pour une relation « Gagnant – Gagnant »</h2>
+              <p>WAVETRONIX dispose d’un programme de formation complet sur la technologie radar FMCW.</p>
+            </div>
+          <% end %>
+        </div>
+        <div class="row news-links">
+          <%= link_to "https://www.wavetronix.com/fr-FR/blog_posts/396" do %>
+            <div class="medium-6 large-4 columns">
+            <img class="attachment blog_post hero_image" src="//d1upf2v1quehpe.cloudfront.net/attachments/72d8d41fd1f09b53c3010fa4a588f61b5cd75dd7/store/fill/744/419/43925e6114ed53d719f1cd86c56beb64d5cb2907e4afb3c36c103c7fba62/aprr15532-min_1.jpg" alt="article" />
+            </div>
+            <div class="medium-6 large-8 columns">
+              <h2>APRR se tourne vers la détection hors-chaussée</h2>
+              <p>L'une des plus grandes sociétés européennes d'exploitation d'autoroutes a choisi la station de comptage radar SmartSensor HD plutôt que les boucles inductives pour mesurer le trafic sur son réseau. </p>
+            </div>
+          <% end %>
+        </div>
+        <div class="row news-links">
+          <%= link_to "https://www.wavetronix.com/fr-FR/blog_posts/403" do %>
+            <div class="medium-6 large-4 columns">
+            <img class="attachment blog_post hero_image" src="//d1upf2v1quehpe.cloudfront.net/attachments/1d75019914c4239d9824870bfcfa2c407571db99/store/fill/744/419/5b7eee7d4955eab640c5bb356d5448ed34d5fd4ef61cab2d540121beb8b9/Fiche+de+Mise+en+Service+SmartSensor+HD_Page_1.jpg" alt="article" />
+            </div>
+            <div class="medium-6 large-8 columns">
+              <h2>La Fiche de Mise en Service d'une Station de Comptage Radar SmartSensor HD</h2>
+              <p>Lors d’une nouvelle installation ou d’une reconfiguration de station de comptage routière SmartSensor HD, une fiche de mise en service est établie par le technicien certifié WAVETRONIX</p>
+            </div>
+          <% end %>
+        </div>
+        <div class="row news-links">
+          <%= link_to "https://www.wavetronix.com/fr-FR/blog_posts/401" do %>
+            <div class="medium-6 large-4 columns">
+            <img class="attachment blog_post hero_image" src="//d1upf2v1quehpe.cloudfront.net/attachments/fa2d2df3a26b0618a9bc5da22bc5a1a427191d8a/store/fill/744/419/8c12252659abeba9c132aeb0a2d9893e72b7974852fb0a4c7f05def9b6a7/Diploma1.jpg" alt="article" />
+            </div>
+            <div class="medium-6 large-8 columns">
+              <h2>Comment obtenir la Certification Wavetronix?</h2>
+              <p>Actuellement, deux options permettent d’obtenir la certification WAVETRONIX.</p>
+            </div>
+          <% end %>
+        </div>
+        <div class="row news-links">
+          <%= link_to "https://www.wavetronix.com/fr-FR/blog_posts/400" do %>
+            <div class="medium-6 large-4 columns">
+            <img class="attachment blog_post hero_image" src="//d1upf2v1quehpe.cloudfront.net/attachments/c965eef54d7a2ed147695183eebddb4b69808e3b/store/fill/744/419/a4948936890dc5374c5273bae6316cf83746e6f0e3cfd71fc69b7db66b6c/IMG_1250.JPG" alt="article" />
+            </div>
+            <div class="medium-6 large-8 columns">
+              <h2>SANEF & la régulation dynamique des vitesses sur l’autoroute A13/h2>
+              <p>Les Gestionnaires de la route se trouvent de plus en plus confrontés à l’augmentation du trafic routier sur leur réseau. </p>
+            </div>
+          <% end %>
+        </div>
+        <div class="row news-links">
+          <%= link_to "https://www.wavetronix.com/fr-FR/blog_posts/397" do %>
+            <div class="medium-6 large-4 columns">
+            <img class="attachment blog_post hero_image" src="//d1upf2v1quehpe.cloudfront.net/attachments/5faebe673fac82836eb16e9dd1bc22d83260341a/store/fill/744/419/2b0740cc1231411e373cd82df6b450726a2ead7d952e85d1f6e65459d9b1/Station-de-comptage-radar-multivoie-routi%C3%A8re-ATMB.JPG" alt="article" />
+            </div>
+            <div class="medium-6 large-8 columns">
+              <h2>Mutualisation d’infrastructures : Expérimentation inédite en France</h2>
+              <p>Des concessions autoroutières Françaises ouvrent de nouvelles pistes de réflexion sur la mutualisation d’infrastructures existantes pour installer des stations de comptage radar hors-sol.</p>
+            </div>
+          <% end %>
+        </div>
+
+
+      </div>
     </div>
   </section>
   </div>
